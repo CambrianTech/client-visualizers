@@ -2,11 +2,11 @@ import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 import cssVars from 'css-vars-ponyfill'
 
-import React, {useReducer, useEffect, useCallback, useState, useRef} from "react"
+import React, {useReducer, useEffect, useCallback, useState, useRef, Dispatch} from "react"
 import * as ReactDOM from "react-dom"
 
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import { SiteContext, createEmptyState, siteStateReducer } from "./data/SiteContext"
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
+import {SiteContext, createEmptyState, siteStateReducer, SiteAction} from "./data/SiteContext"
 import {BrowserProperties, WebClientInfo} from "react-client-info"
 
 import 'react-circular-progressbar/dist/styles.css'
@@ -20,13 +20,40 @@ import Visualizer from "./pages/Visualizer"
 
 const objectFitImages = require('object-fit-images')
 
-
 export const api:any = (window as any).cb
+
+export function dispatchDataProperties(basePath:string, data:any, dispatch: Dispatch<SiteAction>) {
+    dispatch({
+        type: "setSceneData",
+        sceneData: {
+            backgroundUrl: basePath + "/" + data.images["main"],
+            lightingUrl: basePath + "/" + data.images["lighting"],
+            masks:{
+                "floor": basePath + "/" + data.images["masks"]["floor"]
+            }
+        }
+    })
+
+    dispatch({
+        type: "setFov",
+        fov: data.fov
+    })
+
+    dispatch({
+        type: "setPosition",
+        position: data.cameraPosition
+    })
+
+    dispatch({
+        type: "setRotation",
+        rotation: [data.cameraRotation[0], data.floorRotation, data.cameraRotation[2]]
+    })
+}
+
 
 function App() {
     const initialSiteState = createEmptyState()
     const [siteState, dispatchSiteState] = useReducer(siteStateReducer, initialSiteState)
-    const firstRender = useRef(true)
     const [browserProperties, setBrowserProperties] = useState<BrowserProperties>({})
     // Url load states
 
@@ -66,16 +93,19 @@ function App() {
 
     }, [browserProperties.browser])
 
-    useEffect(() => {
-        dispatchSiteState({ type: "setBrowserProperties", browserProperties: browserProperties })
-        setCssVars()
-    }, [browserProperties, setCssVars])
+    // useEffect(() => {
+    //     dispatchSiteState({ type: "setBrowserProperties", browserProperties: browserProperties })
+    //     setCssVars()
+    // }, [browserProperties, setCssVars])
 
-    function updateFromLocation(location: any) {
+    const updateFromLocation = useCallback((location:any) => {
 
         // Parse URL search string without the first character (typically question mark).
         // Also turn the keys into lowercase so their case doesn't matter.
         const searchObject = objectToLowerCase(qs.parse(location.search.substr(1)))
+
+        searchObject.rt = "dining-room"
+        searchObject.r = "dining-room-1"
 
         const searchFov = searchObject.f as string
         if (searchFov) {
@@ -139,27 +169,79 @@ function App() {
                 showControls: searchObject.controls
             })
         }
-    }
 
-    return (<Router>
-        <Route
-            render={({ location }) => {
-                if (!firstRender.current) {
-                    firstRender.current = true
-                    updateFromLocation(location)
-                }
+        if (searchObject.rt) {
+            if (!siteState.selectedSampleRoomType || searchObject.rt !== siteState.selectedSampleRoomType) {
+                dispatchSiteState({
+                    type: "setSelectedSampleRoomType",
+                    selectedSampleRoomType: searchObject.rt as string
+                })
+            }
 
-                return (
-                    <SiteContext.Provider value={{ state: siteState, dispatch: dispatchSiteState }}>
-                        <WebClientInfo onClientStateChanged={setBrowserProperties} />
-                        <Switch location={location}>
-                            <Route exact path="/" component={Visualizer} />
-                        </Switch>
-                    </SiteContext.Provider>
-                )
-            }}
-        />
-    </Router>)
+            if (searchObject.r && (!siteState.selectedSampleRoom || searchObject.r !== siteState.selectedSampleRoom)) {
+                dispatchSiteState({
+                    type: "setSelectedSampleRoom",
+                    selectedSampleRoom: searchObject.r as string,
+                    selectedSamplePath: searchObject.rt as string
+                })
+
+                const path = searchObject.rt + "/" + searchObject.r
+
+                const basePath = "assets/scenes/" + path
+
+                console.log(basePath + "/data.json")
+
+                fetch(basePath + "/data.json")
+                    .then(res => res.json())
+                    .then(data => {
+                        dispatchDataProperties(basePath, data, dispatchSiteState)
+                    })
+            }
+        }
+
+    }, [siteState.fov, siteState.position, siteState.rotation, siteState.selectedSampleRoom, siteState.selectedSampleRoomType])
+
+    const initialize = useCallback(() => {
+        setCssVars()
+        window.addEventListener("resize", setCssVars)
+        window.addEventListener("orientation", setCssVars)
+        window.setInterval(()=>{
+            setCssVars()
+        }, 500)
+
+        updateFromLocation(window.location)
+
+    }, [setCssVars, updateFromLocation])
+
+    const initializeRef = useRef(initialize);
+    useEffect(() => { initializeRef.current = initialize; }, [initialize]);
+
+    useEffect(() => {
+        if (initializeRef.current) {
+            initializeRef.current()
+        }
+    }, []);
+
+    return (
+        <Router>
+            <Route
+                render={({ location }) => {
+                    return (
+                        <SiteContext.Provider value={{ state: siteState, dispatch: dispatchSiteState }}>
+                            <WebClientInfo onClientStateChanged={setBrowserProperties} />
+                            <Switch location={location}>
+                                <Route exact path="/" component={Visualizer} />
+                                <Route>
+                                    <Redirect to="/"/>
+                                </Route>
+                            </Switch>
+                        </SiteContext.Provider>
+                    )
+                }}
+            />
+        </Router>
+    )
+
 }
 
 ReactDOM.render(

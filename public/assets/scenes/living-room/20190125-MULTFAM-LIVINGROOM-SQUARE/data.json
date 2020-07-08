@@ -1,0 +1,22 @@
+{
+     "cameraPosition": [
+          0,
+          1.3,
+          0.0
+     ],
+     "cameraRotation": [
+          -0.27,
+          0.0,
+          0.01
+     ],
+     "floorRotation": -0.03,
+     "fov": 50.0,
+     "images": {
+        "main": "image.jpg",
+        "preview": "preview.jpg",
+        "lighting": "highlights.jpg",
+        "masks": {
+          "floor": "mask.png"
+        }
+  }
+}
