@@ -39,14 +39,17 @@ def run(data, input_dir, output_dir, img_is_metric, crop_is_metric):
         print(segments, width, height)
 
         num_segments = int(segments)
-        segment_width = width / num_segments
+        segment_width = int(width / num_segments)
+        segment_height = int(height)
         print(segment_width)
         for i in range(num_segments):
             crop_x_cm = i * crop_width
             crop_x = int(width * crop_x_cm / image_width)
-            crop_x_end = crop_x + width / num_segments
+            crop_x_end = int(crop_x + width / num_segments)
             crop_y = 0
-            print("crop_x_cm", crop_x_cm, crop_x, crop_x_end)
+            crop = img[crop_y:crop_y+segment_height, crop_x:crop_x+segment_width:channels]
+            path = os.path.join(output_dir, "crop_%s_%d.jpg" % (filename, i))
+            cv2.imwrite(path, crop)
             # crop = img[y0:y0+height , x0:x0+width, :]
 
 
