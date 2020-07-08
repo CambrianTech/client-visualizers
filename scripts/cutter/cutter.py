@@ -10,6 +10,9 @@ from PIL import Image
 
 import click
 
+def crop_image(img):
+    print(img)
+
 def run(data, input_dir, output_dir, img_is_metric, crop_is_metric):
     
     for row in data:
@@ -27,6 +30,19 @@ def run(data, input_dir, output_dir, img_is_metric, crop_is_metric):
 
         filename = row['image']
         print("Image: %s width: %f cm crop: %f x %f cm" % (filename, image_width, width, height))
+
+        path = os.path.join(input_dir, filename)
+        img = cv2.imread(path)
+        img_shape = img.shape
+
+        segments = image_width / width
+        print(segments, img_shape)
+
+        num_segments = int(segments)
+        for i in range(num_segments):
+            crop_x_cm = i * width
+            # crop_x = crop_x_cm * image_width
+            print("crop_x_cm", crop_x_cm)
 
 
 @click.command()
