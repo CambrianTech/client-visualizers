@@ -163,9 +163,13 @@ export default function Visualizer(props: any) {
 
     }, [dispatch]);
 
-    const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) => {
+    const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
 
         if (!(swatchItem instanceof ProductBase)) return
+
+        if (!swatchItem.thumbnail && swatchItem.children.length) {
+            return resolveThumbnailPath(swatchItem.children[0])
+        }
 
         const path = `${basePath}/textures/${swatchItem.thumbnail}`
 
