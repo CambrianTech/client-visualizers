@@ -21,28 +21,28 @@ def run(data, input_dir, output_dir, img_is_metric, crop_is_metric):
         if not img_is_metric:
             image_width = image_width * 2.54
 
-        width = row['crop-width']
-        height = row['crop-height']
+        crop_width = row['crop-width']
+        crop_height = row['crop-height']
 
         if not crop_is_metric:
-            width = width * 2.54
-            height = height * 2.54
+            crop_width *= 2.54
+            crop_height *= 2.54
 
         filename = row['image']
-        print("Image: %s width: %f cm crop: %f x %f cm" % (filename, image_width, width, height))
+        print("Image: %s width: %f cm crop: %f x %f cm" % (filename, image_width, crop_width, crop_height))
 
         path = os.path.join(input_dir, filename)
         img = cv2.imread(path)
         img_shape = img.shape
 
-        segments = image_width / width
+        segments = image_width / crop_width
         print(segments, img_shape)
 
         num_segments = int(segments)
         for i in range(num_segments):
-            crop_x_cm = i * width
-            # crop_x = crop_x_cm * image_width
-            print("crop_x_cm", crop_x_cm)
+            crop_x_cm = i * crop_width
+            crop_x = crop_x_cm * image_width
+            print("crop_x_cm", crop_x_cm, crop_x_cm + crop_width)
 
 
 @click.command()
