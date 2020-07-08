@@ -109,7 +109,7 @@ export default function Visualizer(props: any) {
     const [progressPercentage, setProgressPercentage] = useState(0)
     const [progressVisible, setProgressVisible] = useState(false)
 
-    const [availableBrands, setAvailableBrands] = useState<ProductBrand[]>();
+    const [rootItem, setRootItem] = useState<SwatchItem>();
 
     const [navigationItem, setNavigationItem] = useState<SwatchItem>();
 
@@ -118,20 +118,28 @@ export default function Visualizer(props: any) {
     const [listingItems, setListingItems] = useState<SwatchItem[]>();
     const [selectedRow, setSelectedRow] = useState<SwatchItem>();
     const [selectedColumn, setSelectedColumn] = useState<SwatchItem>();
+    const [basePath, setBasePath] = useState()
 
     useEffect(() => {
         _isMounted.current = true;
 
         fetch('assets/data/products.json').then(res => res.json())
             .then(json => {
-                //console.log(json.brands)
+                setBasePath(json.basePath)
+
                 const brands:ProductBrand[] = []
                 for (const brandJson of json.brands) {
                     const brand = new ProductBrand()
                     brand.load(brandJson)
                     brands.push(brand)
                 }
-                setAvailableBrands(brands)
+
+                let rootItem:SwatchItem = brands[0]
+                while (!(rootItem instanceof Product) && rootItem.children.length === 1) {
+                    rootItem = rootItem.children[0]
+                }
+
+                setRootItem(rootItem)
             })
 
         return () => {
@@ -303,54 +311,18 @@ export default function Visualizer(props: any) {
 
     }, []);
 
-    const resolveShawThumbnailPath = useCallback((swatchItem:SwatchItem) => {
-
-        if (swatchItem.thumbnail) {
-            return swatchItem.thumbnail
-        }
-        else if (swatchItem instanceof ProductCollection) {
-            const collection = swatchItem as ProductCollection
-            if (collection.products.length) {
-                const product = collection.products[0];
-                return `${SCENE7_ROOT}/ShawIndustries/${product.code}_${product.metaData.UniqueId}_MAIN?fit=crop&wid=360&hei=210&fmt=png`
-            }
-        } else if (swatchItem instanceof Product) {
-            const product = swatchItem as Product
-            return `${SCENE7_ROOT}/ShawIndustries/${product.code}_${product.metaData.UniqueId}_MAIN?fit=crop&wid=360&hei=210&fmt=png`
-        } else if (swatchItem instanceof ProductColor) {
-            const color = swatchItem as ProductColor
-            return `${SCENE7_ROOT}/ShawIndustries/${color.product!.code}_${color.code}_MAIN?fit=crop&wid=315&hei=315&fmt=png`
-        }
-    }, []);
-
     const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) => {
 
         if (!(swatchItem instanceof ProductBase)) return
 
-        if (swatchItem.brand.root.name === "shawfloors") {
-            return resolveShawThumbnailPath(swatchItem)
-        } else if (swatchItem.brand.name === "wallpaper") {
-            if (swatchItem instanceof Product || swatchItem instanceof ProductColor) {
-                return `assets/textures/wallpaper/${swatchItem.thumbnail}`
-            }
-        }
-        return swatchItem.thumbnail
+        const path = `${basePath}/textures/${swatchItem.thumbnail}`
 
-    }, [resolveShawThumbnailPath]);
+        return path
+
+    }, [basePath]);
 
     const resolveTileImagePath = useCallback((name:string) => {
         return `assets/img/installation-types/pattern-${name.toLowerCase()}.svg`
-    }, []);
-
-    const resolveShawAlbedoPath = useCallback((color:ProductColor) => {
-
-        if (color.textures.length === 1 && color.textures[0].albedoPath) {
-            return `${window.location.origin}/${color.textures[0].albedoPath}`
-        }
-
-        //return "https://d1ejxwivgbbibc.cloudfront.net/ShawIndustriesRender/SA593_09004_MAIN?res=20&resMode=sharp&scl=1&fmt=jpg"
-        const ppi = color.ppi ? color.ppi : 20
-        return `${SCENE7_ROOT}/ShawIndustriesRender/${color.product!.code}_${color.code}_MAIN?res=${ppi}&resMode=sharp&scl=1&fmt=jpg`
     }, []);
 
     const chooseColor = useCallback((color:ProductColor) => {
@@ -414,10 +386,20 @@ export default function Visualizer(props: any) {
                 for (const tex of color.textures) {
                     textures.push(tex.json)
                 }
-            } else if (color.brand.root.name === "shawfloors") {
-                textures.push({albedo:resolveShawAlbedoPath(color)})
-            } else if (color.brand.name === "wallpaper") {
-                textures.push({albedo:`assets/textures/wallpaper/${color.metaData.image}`})
+            } else {
+                let data:any = {}
+
+                if (color.metaData.hasOwnProperty("albedo")) {
+                    data.albedo = `${basePath}/textures/${color.metaData.albedo}`
+                }
+                if (color.metaData.hasOwnProperty("roughness")) {
+                    data.roughness = `${basePath}/textures/${color.metaData.roughness}`
+                }
+                if (color.metaData.hasOwnProperty("normals")) {
+                    data.normals = `${basePath}/textures/${color.metaData.normals}`
+                }
+
+                textures.push(data)
             }
 
             const materials = []
@@ -441,7 +423,7 @@ export default function Visualizer(props: any) {
             console.error(error)
         })
 
-    }, [cbar, resolveShawAlbedoPath, selectedAsset, selectedSurface]);
+    }, [cbar, selectedAsset, selectedSurface]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
@@ -464,20 +446,22 @@ export default function Visualizer(props: any) {
     }, []);
 
     const rootNavClicked = useCallback(() => {
-        setListingItems(availableBrands)
-        setNavigationItem(undefined)
-    }, [availableBrands]);
-
-    useEffect(() => {
-        if (availableBrands && !listingItems) {
-            setListingItems(availableBrands)
+        if (rootItem) {
+            setListingItems(rootItem.children)
+            setNavigationItem(rootItem)
         }
-    }, [availableBrands, listingItems]);
+    }, [rootItem]);
 
     useEffect(() => {
-        if (selectedSurface && !selectedSurface.length()) {
-            setListingItems(availableBrands)
-            setNavigationItem(undefined)
+        if (rootItem && !listingItems) {
+            setListingItems(rootItem.children)
+        }
+    }, [listingItems, rootItem]);
+
+    useEffect(() => {
+        if (selectedSurface && !selectedSurface.length() && rootItem) {
+            setListingItems(rootItem.children)
+            setNavigationItem(rootItem)
         }
         else if (selectedAsset && selectedAsset.product && selectedAsset.product instanceof ProductColor) {
             const color = selectedAsset.product as ProductColor
@@ -486,7 +470,7 @@ export default function Visualizer(props: any) {
             setSelectedRow(color.product)
             setSelectedColumn(color)
         }
-    }, [availableBrands, selectedAsset, selectedSurface]);
+    }, [rootItem, selectedAsset, selectedSurface]);
 
     const handleEvent = useCallback((event:CBARMouseEvent) => {
         if (!currentScene) return
@@ -568,6 +552,7 @@ export default function Visualizer(props: any) {
     return useMemo(() => (
         <div className={"visualizer"}>
             <CBARView className={"cbarview"} onContextCreated={onContextCreated} />
+
             <VisualizerTools
                 visible={!isToolOverlayOpen}
                 context={cbar}

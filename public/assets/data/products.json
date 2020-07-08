@@ -1,141 +1,33 @@
 {
+  "basePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource",
   "brands": [
     {
-      "name": "wallpaper",
-      "code": "wallpaper",
-      "displayName": "Wallpaper",
-      "surfaceTypes": ["wall"],
+      "name": "flooring-one-source",
+      "code": "flooring-one-source",
+      "displayName": "Flooring One Source",
+      "surfaceTypes": ["floor"],
       "assetType": "tiled",
-      "thumbnail": "assets/data/thumbnails/wallpaper.jpg",
       "collections": [
         {
-          "name": "wallpaper",
-          "code": "wallpaper",
-          "displayName": "WCD Wallpaper",
-          "thumbnail": "assets/data/thumbnails/WCD LOGO-1.jpg",
-          "metaData": {},
+          "name": "flooring",
+          "code": "flooring",
+          "displayName": "Flooring One Source",
           "products": [
             {
-              "name": "decortex-DE120015",
-              "code": "DE120015",
-              "displayName": "Decortex",
+              "name": "test",
+              "code": "test",
+              "displayName": "Test Board",
               "metaData": {},
-              "thumbnail": "DECORTEX DE120015.jpg",
-              "colors": [
-                {
-                  "name": "DE120015",
-                  "code": "DE120015",
-                  "displayName": "DE120015",
-                  "ppi": 50,
-                  "thumbnail": "DECORTEX DE120015.jpg",
-                  "metaData": {
-                    "image": "DECORTEX DE120015.jpg"
-                  }
-                },
-                {
-                  "name": "DE120019",
-                  "code": "DE120019",
-                  "displayName": "DE120019",
-                  "ppi": 50,
-                  "thumbnail": "DECORTEX DE120019.jpg",
-                  "metaData": {
-                    "image": "DECORTEX DE120019.jpg"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "Queens",
-              "code": "QUEENS",
-              "displayName": "Queens",
-              "metaData": {},
-              "thumbnail": "QUEENS 796179.jpg",
+              "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
               "colors": [
                 {
                   "name": "796179",
                   "code": "796179",
                   "displayName": "QUEENS 796179",
                   "ppi": 50,
-                  "thumbnail": "QUEENS 796179.jpg",
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
                   "metaData": {
-                    "image": "QUEENS 796179.jpg"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "RHAP",
-              "code": "RHAP",
-              "displayName": "RHAP",
-              "metaData": {},
-              "thumbnail": "RHAP 8019-3.jpg",
-              "colors": [
-                {
-                  "name": "RHAP",
-                  "code": "RHAP",
-                  "displayName": "RHAP",
-                  "ppi": 50,
-                  "thumbnail": "RHAP 8019-3.jpg",
-                  "metaData": {
-                    "image": "RHAP 8019-3.jpg"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "Scarlet",
-              "code": "Scarlet",
-              "displayName": "Scarlet",
-              "metaData": {},
-              "thumbnail": "SCARLET 88354-2.jpg",
-              "colors": [
-                {
-                  "name": "88354-2",
-                  "code": "88354-2",
-                  "displayName": "88354-2",
-                  "ppi": 50,
-                  "thumbnail": "SCARLET 88354-2.jpg",
-                  "metaData": {
-                    "image": "SCARLET 88354-2.jpg"
-                  }
-                },
-                {
-                  "name": "88355-1",
-                  "code": "88355-1",
-                  "displayName": "88355-1",
-                  "ppi": 50,
-                  "thumbnail": "SCARLET 88355-1.jpg",
-                  "metaData": {
-                    "image": "SCARLET 88355-1.jpg"
-                  }
-                },
-                {
-                  "name": "88356-1",
-                  "code": "88356-1",
-                  "displayName": "88356-1",
-                  "ppi": 50,
-                  "thumbnail": "SCARLET 88356-1.jpg",
-                  "metaData": {
-                    "image": "SCARLET 88356-1.jpg"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "Nature",
-              "code": "Nature",
-              "displayName": "Nature",
-              "metaData": {},
-              "thumbnail": "leaves.jpeg",
-              "colors": [
-                {
-                  "name": "leaves",
-                  "code": "leaves",
-                  "displayName": "leaves",
-                  "ppi": 50,
-                  "thumbnail": "leaves.jpeg",
-                  "metaData": {
-                    "image": "leaves.jpeg"
+                    "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
                   }
                 }
               ]
