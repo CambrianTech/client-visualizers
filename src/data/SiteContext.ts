@@ -10,6 +10,10 @@ export type DerivedSiteState = {
 }
 
 export type SharableVisualizerState = {
+    selectedSampleRoom: string | null
+    selectedSampleRoomType: string | null
+    selectedSamplePath: string | null
+
     fov: number | null
     position: [number, number, number] | null
     rotation: [number, number, number] | null
@@ -39,6 +43,10 @@ export function createEmptyState(): SiteState {
         error: null,
 
         // Visualizer shared
+        selectedSampleRoom: null,
+        selectedSampleRoomType: null,
+        selectedSamplePath: null,
+
         fov: null,
         position: null,
         rotation: null,
@@ -74,6 +82,17 @@ export type SiteActionSetSceneData = {
     sceneData: CBSceneProperties | null
 }
 
+export type SiteActionSetSelectedSampleRoom = {
+    type: "setSelectedSampleRoom"
+    selectedSampleRoom: string | null
+    selectedSamplePath: string | null
+}
+
+export type SiteActionSetSelectedSampleRoomType = {
+    type: "setSelectedSampleRoomType"
+    selectedSampleRoomType: string | null
+}
+
 export type SiteActionSetFov = {
     type: "setFov"
     fov: number | null
@@ -99,9 +118,9 @@ export type SiteActionSetFloorRotationOffset = {
     floorRotationOffset: number | null
 }
 
-
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | SiteActionSetFloorRotationOffset
+    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
     // Set the thing we are supposed to set. Also make sure anything depending
@@ -134,6 +153,14 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
             break
         case "setShowControls":
             newState.showControls = action.showControls
+            break
+
+        case "setSelectedSampleRoom":
+            newState.selectedSampleRoom = action.selectedSampleRoom
+            newState.selectedSamplePath = action.selectedSamplePath
+            break
+        case "setSelectedSampleRoomType":
+            newState.selectedSampleRoomType = action.selectedSampleRoomType
             break
 
         default:

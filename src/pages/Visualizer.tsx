@@ -3,13 +3,11 @@ import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
 import {
-    CBARAsset,
     CBARAssetType,
     CBARContext,
     CBAREventType,
     CBARMode,
     CBARMouseEvent,
-    CBARObject3D,
     CBARPaintAsset,
     CBARRugAsset,
     CBARScene,
@@ -18,14 +16,12 @@ import {
     CBARSurfaceType,
     CBARTangibleAsset,
     CBARTiledAsset,
-    CBARView,
     cbInitialize,
     DataFilter,
     DataFilterOperator,
     Product,
     ProductBase,
     ProductBrand,
-    ProductCollection,
     ProductColor,
     SurfaceTypeFilter,
     SwatchItem,
@@ -47,6 +43,17 @@ import {
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
+
+import {
+    CBContentManager,
+    CBMaterialProperties,
+    CBMethods,
+    CBSceneData,
+    CBTextureLoadError,
+    CBTextureLoadErrorReason,
+    CBToolMode,
+    CBVisualizer,
+} from "react-home-harmony";
 
 enum ContextMenuAction {
     setMaterial,
@@ -86,7 +93,7 @@ export default function Visualizer(props: any) {
 
     const [isToolOverlayOpen, setIsToolOverlayOpen] = useState(false);
 
-    const [toolMode, setToolMode] = useState(VisualizerToolMode.None);
+    const [toolMode, setToolMode] = useState(CBToolMode.Select);
     const [historySize] = useState<number>(0);
 
     const [initialRotation, setInitialRotation] = useState<number>(0);
@@ -119,6 +126,15 @@ export default function Visualizer(props: any) {
     const [selectedRow, setSelectedRow] = useState<SwatchItem>();
     const [selectedColumn, setSelectedColumn] = useState<SwatchItem>();
     const [basePath, setBasePath] = useState()
+
+    //legacy stuff:
+    const [materialProperties, setMaterialProperies] = useState<CBMaterialProperties>()
+    const position = siteContext.state.position || [0, 1, 0];
+    const rotation = siteContext.state.rotation || [0, 0, 0];
+    const fov = siteContext.state.fov || 60;
+
+    const [rotationControlActive, setRotationControlActive] = useState(false);
+    const [rotationControlValue, setRotationControlValue] = useState(0); // Temporary rotation offset (not applied yet)
 
     useEffect(() => {
         _isMounted.current = true;
@@ -239,16 +255,17 @@ export default function Visualizer(props: any) {
 
     const toolChanged = useCallback((mode: VisualizerToolMode) => {
         if (!_isMounted.current || !surfaceAsset) return
-        setToolMode(mode)
 
-        if (toolMode === VisualizerToolMode.Rotate) {
-            setInitialRotation(surfaceAsset.surfaceRotation)
-        } else if (toolMode === VisualizerToolMode.Translate) {
-            setInitialXPos(surfaceAsset.surfacePosition.x)
-            setInitialYPos(surfaceAsset.surfacePosition.y)
-        }
+        // setToolMode(mode)
+        //
+        // if (toolMode === VisualizerToolMode.Rotate) {
+        //     setInitialRotation(surfaceAsset.surfaceRotation)
+        // } else if (toolMode === VisualizerToolMode.Translate) {
+        //     setInitialXPos(surfaceAsset.surfacePosition.x)
+        //     setInitialYPos(surfaceAsset.surfacePosition.y)
+        // }
 
-    }, [surfaceAsset, toolMode]);
+    }, [surfaceAsset]);
 
     const captureClicked = useCallback(() => {
         if (!cbar) return
@@ -263,53 +280,6 @@ export default function Visualizer(props: any) {
 
     }, [cbar]);
 
-    const onContextMenuClick = useCallback((row:ContextMenuItem, obj:CBARObject3D<any>|undefined) => {
-
-        const surface = obj as CBARSurface
-        const asset = obj as CBARAsset
-
-        switch (row.props.key) {
-            case ContextMenuAction.setMaterial:
-                setPanelOpenClose(true)
-                break
-            case ContextMenuAction.editArea:
-                console.log("EDIT AREA")
-                break
-            case ContextMenuAction.remove:
-                if (obj instanceof CBARSurface) {
-                    surface.clearAll()
-                } else if (obj instanceof CBARAsset) {
-                    asset.removeFromScene()
-                }
-                setSelectedAsset(undefined)
-                break
-
-            case ContextMenuAction.rotateAsset:
-                setToolMode(VisualizerToolMode.Rotate)
-                break
-
-            case ContextMenuAction.moveAsset:
-                setToolMode(VisualizerToolMode.Translate)
-                break
-
-            default:
-                console.log(`onContextMenuClick"${row.props.title}" has no defined case statement`)
-        }
-    }, [setPanelOpenClose]);
-
-    const onContextCreated = useCallback((context:CBARContext) => {
-        setCBAR(context)
-
-        if (SCENE_NAME) {
-            context.loadSceneAtPath(SCENE_NAME).then((scene)=>{
-                setCurrentScene(scene)
-                console.log("Scene Loaded!")
-            }).catch(error=>{
-                console.log("Could not load scene!")
-            })
-        }
-
-    }, []);
 
     const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) => {
 
@@ -423,7 +393,7 @@ export default function Visualizer(props: any) {
             console.error(error)
         })
 
-    }, [cbar, selectedAsset, selectedSurface]);
+    }, [basePath, cbar, selectedAsset, selectedSurface]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
@@ -549,33 +519,28 @@ export default function Visualizer(props: any) {
         return allFilters
     }, [filters, selectedSurface])
 
+    const isUploadedImage = useCallback(() => {
+        if (siteContext.state.sceneData) {
+            return siteContext.state.sceneData.backgroundUrl.indexOf("amazon.com") < 0
+        }
+        return false
+    }, [siteContext.state.sceneData]);
+
     return useMemo(() => (
         <div className={"visualizer"}>
-            <CBARView className={"cbarview"} onContextCreated={onContextCreated} />
 
-            <VisualizerTools
-                visible={!isToolOverlayOpen}
-                context={cbar}
-                selectedSurface={selectedSurface}
-                selectedAsset={selectedAsset}
-                mode={toolMode}
-                changeMode={toolChanged}
-                onChangeImage={onChangeImage}
-
-                initialRotation={initialRotation}
-                onRotationChanged={rotateChanged}
-                onRotationFinished={rotateFinished}
-
-                initialXPos={initialXPos}
-                initialYPos={initialYPos}
-                onTranslationChanged={translationChanged}
-                onTranslationFinished={translationFinished}
-
-                patternSelectorImagePath={resolveTileImagePath}
-                patternSelectorRestrictToProducts={true}
-
-                historySize={historySize}
-                onShowHideButtons={toolsShowHideButtons}
+            <CBVisualizer
+                toolMode={toolMode}
+                canLoad={true}
+                material={materialProperties}
+                defaultMaterial = {new CBMaterialProperties(20,"assets/scenes/blue-tile.jpeg")}
+                scene={siteContext.state.sceneData}
+                fov={fov}
+                cameraPosition={position}
+                cameraRotation={[rotation[0], 0, rotation[2]]}
+                floorRotation={rotation[1] + (rotationControlActive ? rotationControlValue : (siteContext.state.floorRotationOffset || 0))}
+                showControls={siteContext.state.showControls}
+                blendEdges={isUploadedImage()}
             />
 
             <div ref={productSelectorPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
@@ -594,13 +559,11 @@ export default function Visualizer(props: any) {
                 </div>
             </div>
 
-            <ContextMenu ref={contextMenu} onClick={onContextMenuClick} />
-
             <Fab style={{visibility:"hidden"}} className="capture-button" onClick={captureClicked} icon={<MaterialIcon icon='camera' />} />
 
             <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [allFilters, captureClicked, cbar, contextMenu, historySize, initialRotation, initialXPos, initialYPos, isToolOverlayOpen, listingItems, navClicked, navigationItem, onChangeImage, onContextCreated, onContextMenuClick, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, productSelectorPanel, progressPercentage, progressVisible, resolveThumbnailPath, resolveTileImagePath, rootNavClicked, rotateChanged, rotateFinished, selectedAsset, selectedColumn, selectedRow, selectedSurface, setPanelOpenClose, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons, translationChanged, translationFinished])
+    ), [allFilters, captureClicked, fov, isUploadedImage, listingItems, materialProperties, navClicked, navigationItem, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveThumbnailPath, rootNavClicked, rotation, rotationControlActive, rotationControlValue, selectedColumn, selectedRow, setPanelOpenClose, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolMode])
 }
