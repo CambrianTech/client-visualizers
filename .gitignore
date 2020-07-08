@@ -28,3 +28,4 @@ report.*.json
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+/scripts/cutter/output
