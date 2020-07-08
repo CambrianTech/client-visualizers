@@ -1,0 +1,85 @@
+.progress {
+    position: fixed;
+    z-index: 1000;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    color: var(--theme-secondary-color);
+}
+
+.progress .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 240px;
+}
+
+.progress-circle {
+    position: relative;
+    width: 240px !important;
+    height: 240px !important;
+}
+
+.progress .progress-photo {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress .progress-photo img {
+    margin-bottom: 10px;
+}
+
+.progress .progress-text {
+    margin-top: 20px;
+    font-size: 1.3em;
+    line-height: 1.3em;
+
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+
+    min-height: 30px;
+    margin-bottom: 25px;
+}
+
+.progress .CircularProgressbar {
+    width: 240px !important;
+    height: 240px !important;
+}
+
+.progress .content .CircularProgressbar-path {
+    stroke: #50afff !important;
+    stroke-width: 5px;
+}
+
+.progress .content .CircularProgressbar-trail {
+    stroke: #555 !important;
+    stroke-width: 5px;
+}
+
+.progress .content .CircularProgressbar-text {
+    fill: white !important;
+}
+
+@media (max-device-width: 500px) {
+
+    .progress .progress-text {
+        margin: 20px;
+        font-size: 1.0em;
+    }
+}

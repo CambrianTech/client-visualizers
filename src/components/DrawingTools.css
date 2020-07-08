@@ -1,0 +1,40 @@
+.visualizer-drawing-tools {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.visualizer-drawing-tools-content {
+
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.visualizer-drawing-tools-mode {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.visualizer-drawing-tools-mode .tool-button {
+
+}
+
+.visualizer-drawing-tools-actions  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.visualizer-drawing-tools-actions .tool-button {
+
+}

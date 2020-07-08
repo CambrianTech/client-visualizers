@@ -1,0 +1,42 @@
+{
+  "name": "Simple Room",
+  "id":"simple-room",
+  "images": {
+    "main": "image.jpg",
+    "preview": "preview.jpg",
+    "thumbnail": "thumbnail.jpg",
+    "lighting": "https://s3.amazonaws.com/cb-backend-data/K1cFtGQ2fx/lighting.png",
+    "superpixels": "https://s3.amazonaws.com/cb-backend-data/K1cFtGQ2fx/superpixels.png",
+    "semantic": "https://s3.amazonaws.com/cb-backend-data/K1cFtGQ2fx/mask.png"
+  },
+  "camera": {
+    "fov": 60.0,
+    "position": [0,0,0],
+    "rotation": [0,0,0]
+  },
+  "geometry": {
+    "surfaces": [
+      {
+        "id": "plane-1",
+        "type": "unknown",
+        "name": "Plane 1",
+        "normal": [
+          -0.009929602034389973,
+          0.48275354504585266,
+          -0.875700056552887
+        ],
+        "offset": 1.6679291725158691,
+        "imageExtents": {
+          "minY": 275.0,
+          "minX": 11.0,
+          "maxY": 480.0,
+          "maxX": 640.0
+        },
+        "images": {
+          "mask": "https://s3.amazonaws.com/cb-backend-data/neDWGXf57q/plane_masks/mask_1.png"
+        }
+      }
+    ]
+  },
+  "assets": []
+}

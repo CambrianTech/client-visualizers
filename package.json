@@ -1,0 +1,67 @@
+{
+  "name": "live",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material/react-button": "^0.15.0",
+    "@material/react-fab": "^0.15.0",
+    "@material/react-icon-button": "^0.15.0",
+    "@material/react-material-icon": "^0.15.0",
+    "@researchgate/react-intersection-observer": "^1.0.1",
+    "@types/jsonp": "^0.2.0",
+    "@types/randomstring": "^1.1.6",
+    "@types/react-circular-progressbar": "^1.0.2",
+    "@types/react-modal": "^3.8.2",
+    "@types/react-navigation": "^3.0.7",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/react-transition-group": "^2.9.2",
+    "@types/smoothscroll-polyfill": "^0.3.1",
+    "@types/styled-components": "^4.1.16",
+    "animated-scroll-to": "^2.0.3",
+    "css-vars-ponyfill": "^2.0.2",
+    "express": "^4.17.1",
+    "object-fit-images": "^3.2.4",
+    "randomstring": "^1.1.5",
+    "react-app-polyfill": "^1.0.1",
+    "react-cambrian-ui": "^0.0.209",
+    "react-circular-progressbar": "^2.0.1",
+    "react-client-info": "0.0.21",
+    "react-dat-gui": "^3.0.0",
+    "react-dropzone": "^10.1.5",
+    "react-home-ar": "0.0.72",
+    "react-lazy-elements": "^0.0.4",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^3.3.0",
+    "react-transition-group": "^4.1.1",
+    "serve": "^11.0.2",
+    "smoothscroll-polyfill": "^0.4.4",
+    "superagent": "^5.1.0"
+  },
+  "scripts": {
+    "start": "HTTPS=true react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "ie 11"
+    ]
+  },
+  "devDependencies": {
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.5.2",
+    "webpack-cli": "^3.3.5"
+  }
+}

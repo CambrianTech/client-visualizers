@@ -1,0 +1,135 @@
+:root {
+    --panel-width: 450px;
+}
+
+.visualizer {
+    width: var(--app-width);
+    height: var(--app-height);
+    overflow: hidden;
+}
+
+.visualizer-dat-gui {
+    top:auto;
+    bottom: 20px;
+    z-index: 1000;
+}
+
+.cbarview {
+    width: 100%;
+    height: 100%;
+}
+
+.capture-button {
+    position: fixed;
+    z-index: 100;
+    bottom: 40px;
+    left:50%;
+}
+
+#drawing-mark-overlay {
+    opacity: 0.6;
+    background-color: #00afff;
+}
+
+.product-selector {
+    position: fixed;
+    top:0;
+    left:calc(-1 * var(--panel-width));
+    width:var(--panel-width);
+    font-family: Avenir, sans-serif;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    transition: left 200ms;
+}
+
+.product-selector.open {
+    left:0;
+}
+
+.product-selector .panel {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    min-width:var(--panel-width);
+}
+
+.product-selector .panel .title {
+    background: #1f1f1f;
+    color: #ffffff;
+    font-weight: 800;
+    padding: 10px;
+}
+
+.product-selector .close-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.product-selector .close-button {
+    cursor: pointer;
+    color: white;
+    margin: 20px;
+    pointer-events: auto;
+}
+
+.product-selector .close-button i {
+    font-size: 40px;
+}
+
+.horizontal-swatch-listing-content {
+
+}
+
+.horizontal-swatch-listing-image {
+    height: 95px;
+    border: 1px solid #aeaeae;
+}
+
+.tiled-grid-selector {
+    right:100px;
+    background: white;
+    font-family: Avenir, sans-serif;
+}
+
+/*.tiled-grid-selector-element.selected {*/
+/*    border: solid 2px #1f1f1f;*/
+/*}*/
+
+.tiled-grid-selector-element:hover {
+
+}
+
+.tiled-grid-selector-element .selected {
+
+}
+
+.tiled-grid-selector-element-image {
+    filter: brightness(0%) grayscale(100%);
+}
+
+.tiled-grid-selector-element:hover .tiled-grid-selector-element-image {
+    filter: brightness(100%) grayscale(100%);
+}
+
+/* Mobile Phone or iPad in portrait */
+@media (orientation: portrait) {
+
+}
+
+/* Mobile Only */
+@media only screen and (max-device-width: 480px) {
+
+}
+
+/* iPad Portrait Only */
+@media only screen and (min-device-width: 768px) and (orientation: portrait)  {
+
+}
+
+/* Small screen or iPad Landscape */
+@media only screen and (min-width: 1024px) and (max-width: 1024px) and (orientation: landscape)  {
+
+}

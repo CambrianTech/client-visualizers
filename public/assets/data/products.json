@@ -1,0 +1,1142 @@
+{
+  "brands": [
+    {
+      "name": "shawfloors",
+      "code": "whatever",
+      "displayName": "Shaw Industries",
+      "thumbnail": "assets/data/thumbnails/shaw-industries.png",
+      "surfaceTypes": ["wall", "floor"],
+      "assetType": "tiled",
+      "brands": [
+        {
+          "name": "shawfloors",
+          "code": "shawfloors",
+          "displayName": "Shaw Floors",
+          "thumbnail": "assets/data/thumbnails/ShawFloors_logo_276.jpeg",
+          "collections": [
+            {
+              "name": "hardwood",
+              "code": "hardwood-0",
+              "displayName": "Hardwood",
+              "products": [
+                {
+                  "name": "expressions",
+                  "code": "SW707",
+                  "displayName": "Expressions",
+                  "metaData": {
+                    "SellingStyleNbr": "SW707",
+                    "UniqueId": "01071"
+                  },
+                  "colors": [
+                    {
+                      "name": "poetry",
+                      "code": "01071",
+                      "displayName": "Poetry",
+                      "ppi": 20,
+                      "scale": 0.58,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "lyric",
+                      "code": "01072",
+                      "displayName": "Lyric",
+                      "ppi": 20,
+                      "scale": 0.58,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "melody",
+                      "code": "01077",
+                      "displayName": "Melody",
+                      "ppi": 20,
+                      "scale": 0.45,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "fresco",
+                      "code": "02048",
+                      "displayName": "Fresco",
+                      "ppi": 20,
+                      "scale": 0.58,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "harmony",
+                      "code": "02050",
+                      "displayName": "Harmony",
+                      "ppi": 20,
+                      "scale": 0.45,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "watercolor",
+                      "code": "02053",
+                      "displayName": "Watercolor",
+                      "ppi": 20,
+                      "scale": 0.45,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "mural",
+                      "code": "05080",
+                      "displayName": "Mural",
+                      "ppi": 20,
+                      "scale": 0.45,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "artistry",
+                      "code": "07063",
+                      "displayName": "Artistry",
+                      "ppi": 20,
+                      "scale": 0.45,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "prose",
+                      "code": "07067",
+                      "displayName": "Prose",
+                      "ppi": 20,
+                      "scale": 0.45,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "castlewood-oak",
+                  "code": "SW485",
+                  "displayName": "Castlewood Oak",
+                  "metaData": {
+                    "SellingStyleNbr": "SW485",
+                    "UniqueId": "00146"
+                  },
+                  "colors": [
+                    {
+                      "name": "tapestry",
+                      "code": "00146",
+                      "displayName": "Tapestry",
+                      "ppi": 20,
+                      "scale": 0.58,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "armory",
+                      "code": "00508",
+                      "displayName": "Armory",
+                      "ppi": 34,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "drawbridge",
+                      "code": "00514",
+                      "displayName": "Drawbridge",
+                      "ppi": 34,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    },
+                    {
+                      "name": "tower",
+                      "code": "00524",
+                      "displayName": "Tower",
+                      "ppi": 34,
+                      "metaData": {
+                        "CollectionDesc": "The Gallery"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "carpet",
+              "code": "carpets-010",
+              "displayName": "Carpet",
+              "products": [
+                {
+                  "name": "subtle-aura",
+                  "code": "CC84B",
+                  "displayName": "Subtle Aura",
+                  "metaData": {
+                    "SellingStyleNbr": "CC84B",
+                    "UniqueId": "00122"
+                  },
+                  "colors": [
+                    {
+                      "name": "candle-light",
+                      "code": "00122",
+                      "displayName": "Candle Light",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "cold-winter",
+                      "code": "00126",
+                      "displayName": "Cold Winter",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "00128",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00150",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "delicate-cream",
+                      "code": "00156",
+                      "displayName": "Delicate Cream",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "minimal",
+                      "code": "00514",
+                      "displayName": "Minimal",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                },
+                {
+                  "name": "vintage-revival",
+                  "code": "CC77B",
+                  "displayName": "Vintage Revival",
+                  "metaData": {
+                    "SellingStyleNbr": "CC77B",
+                    "UniqueId": "00250"
+                  },
+                  "colors": [
+                    {
+                      "name": "turmeric",
+                      "code": "00250",
+                      "displayName": "Turmeric",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "waters-edge",
+                      "code": "00307",
+                      "displayName": "Waters Edge",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "00128",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00150",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "delicate-cream",
+                      "code": "00156",
+                      "displayName": "Delicate Cream",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "minimal",
+                      "code": "00514",
+                      "displayName": "Minimal",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "laminate",
+              "code": "laminate",
+              "displayName": "Laminate",
+              "products": [
+                {
+                  "name": "pinnacle-port",
+                  "code": "SL378",
+                  "displayName": "Pinnacle Port",
+                  "metaData": {
+                    "SellingStyleNbr": "SL378",
+                    "UniqueId": "02005"
+                  },
+                  "colors": [
+                    {
+                      "name": "golden-hickory",
+                      "code": "02005",
+                      "displayName": "Golden Hickory",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "cold-winter",
+                      "code": "02006",
+                      "displayName": "Cold Winter",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "05011",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "07012",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "delicate-cream",
+                      "code": "07013",
+                      "displayName": "Sable Hickory",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "minimal",
+                      "code": "09001",
+                      "displayName": "Midnight Hickory",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                },
+                {
+                  "name": "freeport",
+                  "code": "SA593",
+                  "displayName": "Pinnacle Port",
+                  "metaData": {
+                    "SellingStyleNbr": "SA593",
+                    "UniqueId": "01015"
+                  },
+                  "colors": [
+                    {
+                      "name": "golden-hickory",
+                      "code": "01015",
+                      "displayName": "Golden Hickory",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "cold-winter",
+                      "code": "05030",
+                      "displayName": "Cold Winter",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "06002",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "07026",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "delicate-cream",
+                      "code": "09004",
+                      "displayName": "Sable Hickory",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "ceramics",
+              "code": "ceramics",
+              "displayName": "Ceramics",
+              "products": [
+                {
+                  "name": "subtle-aura",
+                  "code": "CS29X",
+                  "displayName": "Subtle Aura",
+                  "metaData": {
+                    "SellingStyleNbr": "CS29X",
+                    "UniqueId": "00100"
+                  },
+                  "colors": [
+                    {
+                      "name": "whitewater",
+                      "code": "00100",
+                      "displayName": "Whitewater",
+                      "ppi": 20,
+                      "scale": 0.7
+                    },
+                    {
+                      "name": "cold-winter",
+                      "code": "00510",
+                      "displayName": "Cold Winter",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "00530",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00590",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                },
+                {
+                  "name": "vintage-revival",
+                  "code": "CS27X",
+                  "displayName": "Boca Ornament",
+                  "metaData": {
+                    "SellingStyleNbr": "CS27X",
+                    "UniqueId": "00510"
+                  },
+                  "colors": [
+                    {
+                      "name": "turmeric",
+                      "code": "00100",
+                      "displayName": "Turmeric",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "waters-edge",
+                      "code": "00510",
+                      "displayName": "Waters Edge",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "00530",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00590",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                },
+                {
+                  "name": "timbered",
+                  "code": "CS91W",
+                  "displayName": "Boca Ornament",
+                  "metaData": {
+                    "SellingStyleNbr": "CS91W",
+                    "UniqueId": "00750"
+                  },
+                  "colors": [
+                    {
+                      "name": "turmeric",
+                      "code": "00170",
+                      "displayName": "Turmeric",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "waters-edge",
+                      "code": "00540",
+                      "displayName": "Waters Edge",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "00670",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00750",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "coretec",
+          "code": "coretec-metallic",
+          "displayName": "Coretec",
+          "thumbnail": "assets/data/thumbnails/coretec-logo.svg",
+          "metaData": {},
+          "collections": [
+            {
+              "name": "hardwood",
+              "code": "hardwood-01",
+              "displayName": "Hardwood",
+              "metaData": {},
+              "products": [
+                {
+                  "name": "subtle-aura",
+                  "code": "VV572",
+                  "displayName": "Subtle Aura",
+                  "metaData": {
+                    "SellingStyleNbr": "VV572",
+                    "UniqueId": "01730"
+                  },
+                  "colors": [
+                    {
+                      "name": "whitewater",
+                      "code": "01730",
+                      "displayName": "Asher Oak",
+                      "ppi": 20,
+                      "scale": 0.7
+                    },
+                    {
+                      "name": "cold-winter",
+                      "code": "01731",
+                      "displayName": "Salado Oak",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "01732",
+                      "displayName": "Wren Oak",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "01733",
+                      "displayName": "Linden Oak",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                },
+                {
+                  "name": "vintage-revival",
+                  "code": "VV577",
+                  "displayName": "Coretec Wood 12mm",
+                  "metaData": {
+                    "SellingStyleNbr": "VV577",
+                    "UniqueId": "01774"
+                  },
+                  "colors": [
+                    {
+                      "name": "turmeric",
+                      "code": "01774",
+                      "displayName": "Turmeric",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "waters-edge",
+                      "code": "01775",
+                      "displayName": "Waters Edge",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "01776",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "vinyl",
+              "code": "vinyl-556",
+              "displayName": "Vinyl",
+              "metaData": {},
+              "products": [
+                {
+                  "name": "subtle-aura",
+                  "code": "VV012",
+                  "displayName": "Subtle Aura",
+                  "metaData": {
+                    "SellingStyleNbr": "VV012",
+                    "UniqueId": "00753"
+                  },
+                  "colors": [
+                    {
+                      "name": "whitewater",
+                      "code": "00753",
+                      "displayName": "Whitewater",
+                      "ppi": 20,
+                      "scale": 0.7
+                    },
+                    {
+                      "name": "cold-winter",
+                      "code": "00755",
+                      "displayName": "Cold Winter",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "00756",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "00757",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00759",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00760",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00761",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00762",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00763",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00765",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00766",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00771",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00772",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00773",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "01790",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                },
+                {
+                  "name": "vintage-revival",
+                  "code": "VV022",
+                  "displayName": "Coretec One 6\"",
+                  "metaData": {
+                    "SellingStyleNbr": "VV022",
+                    "UniqueId": "00801"
+                  },
+                  "colors": [
+                    {
+                      "name": "turmeric",
+                      "code": "00801",
+                      "displayName": "Alice Springs",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "waters-edge",
+                      "code": "00802",
+                      "displayName": "Waters Edge",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "00803",
+                      "displayName": "Baltic Stone",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00805",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00806",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00810",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "00813",
+                      "displayName": "Snowfall",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "anderson-tuftex",
+          "code": "anderson_tuftex_master",
+          "displayName": "Anderson Tuftex",
+          "thumbnail": "assets/data/thumbnails/anderson-tuftex.jpeg",
+          "metaData": {},
+          "collections": [
+            {
+              "name": "hardwood",
+              "code": "hardwood-composite",
+              "displayName": "Hardwood",
+              "metaData": {},
+              "patterns": ["herringbone", "ashlar", "stagger", "basketweave"],
+              "products": [
+                {
+                  "name": "subtle-aura",
+                  "code": "VV572",
+                  "displayName": "Subtle Aura",
+                  "metaData": {
+                    "SellingStyleNbr": "VV572",
+                    "UniqueId": "01730"
+                  },
+                  "colors": [
+                    {
+                      "name": "cold-winter",
+                      "code": "01731",
+                      "displayName": "Salado Oak",
+                      "ppi": 20,
+                      "scale": 0.3,
+                      "textures": [
+                        {"albedo": "assets/textures/floor/hardwood-parts/board-0.jpg"},
+                        {"albedo": "assets/textures/floor/hardwood-parts/board-1.jpg"},
+                        {"albedo": "assets/textures/floor/hardwood-parts/board-2.jpg"},
+                        {"albedo": "assets/textures/floor/hardwood-parts/board-3.jpg"},
+                        {"albedo": "assets/textures/floor/hardwood-parts/board-4.jpg"}
+                      ]
+                    },
+                    {
+                      "name": "baltic-stone",
+                      "code": "01732",
+                      "displayName": "Wren Oak",
+                      "ppi": 20,
+                      "scale": 0.58
+                    },
+                    {
+                      "name": "snowfall",
+                      "code": "01733",
+                      "displayName": "Linden Oak",
+                      "ppi": 20,
+                      "scale": 0.58
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "rugs",
+              "code": "xyz",
+              "displayName": "Rugs",
+              "assetType": "rug",
+              "surfaceTypes": ["floor"],
+              "thumbnail": "assets/textures/rugs/G021R_65375_thumbnail.jpg",
+              "products": [
+                {
+                  "name": "mosaic",
+                  "code": "G021R",
+                  "displayName": "Mosaic Colorways",
+                  "thumbnail": "assets/textures/rugs/G021R_65375_thumbnail.jpg",
+                  "metaData": {
+                    "SellingStyleNbr": "G021R",
+                    "UniqueId": "65375"
+                  },
+                  "colors": [
+                    {
+                      "name": "mosaic-6-9",
+                      "code": "65375",
+                      "displayName": "Mosaic 6×9",
+                      "thumbnail": "assets/textures/rugs/G023R_65375_thumbnail.jpg",
+                      "albedo": "assets/textures/rugs/G023R_65375_MAIN.jpg",
+                      "ppi": 50
+                    },
+                    {
+                      "name": "mosaic-8-10",
+                      "code": "65375",
+                      "displayName": "Mosaic 8×10",
+                      "thumbnail": "assets/textures/rugs/G021R_65375_thumbnail.jpg",
+                      "albedo": "assets/textures/rugs/G021R_65375_MAIN.jpg",
+                      "ppi": 35
+                    },
+                    {
+                      "name": "mosaic-12-15",
+                      "code": "65375",
+                      "displayName": "Mosaic 12×15",
+                      "thumbnail": "assets/textures/rugs/G022R_65375_thumbnail.jpg",
+                      "albedo": "assets/textures/rugs/G022R_65375_MAIN.jpg",
+                      "ppi": 25
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "benjamin-moore",
+      "code": "benjamin-moore-inc",
+      "displayName": "Benjamin Moore Paints",
+      "surfaceTypes": ["wall"],
+      "assetType": "paint",
+      "thumbnail": "assets/data/thumbnails/benjamin+moore+paint+web.jpg",
+      "metaData": {},
+      "collections": [
+        {
+          "name": "interior-paints",
+          "code": "interiors",
+          "displayName": "Interior Paint",
+          "thumbnail": "assets/data/thumbnails/interior-space.jpg",
+          "products": [
+            {
+              "name": "color-trends-2020",
+              "code": "ct-2020",
+              "displayName": "Color Trends 2020",
+              "thumbnail": "assets/data/thumbnails/color-trends-2020.png",
+              "colors": [
+                {
+                  "name": "white-heron",
+                  "code": "OC-57",
+                  "displayName": "White Heron",
+                  "color": "rgb(241, 242, 235)"
+                },
+                {
+                  "name": "first-light",
+                  "code": "2102-70",
+                  "displayName": "First Light",
+                  "color": "rgb(240, 227, 223)"
+                },
+                {
+                  "name": "crystalline",
+                  "code": "AF-485",
+                  "displayName": "Crystalline",
+                  "color": "rgb(202, 213, 201)"
+                },
+                {
+                  "name": "windmill-wings",
+                  "code": "2067-60",
+                  "displayName": "Windmill Wings",
+                  "color": "rgb(189, 211, 238)"
+                },
+                {
+                  "name": "buxton-blue",
+                  "code": "HC-149",
+                  "displayName": "Buxton Blue",
+                  "color": "rgb(158, 183, 187)"
+                },
+                {
+                  "name": "golden-straw",
+                  "code": "2152-50",
+                  "displayName": "Golden Straw",
+                  "color": "rgb(240, 222, 182)"
+                },
+                {
+                  "name": "thunder",
+                  "code": "AF-685",
+                  "displayName": "Thunder",
+                  "color": "rgb(240, 222, 182)"
+                },
+                {
+                  "name": "cushing-green",
+                  "code": "HC-125",
+                  "displayName": "Cushing Green",
+                  "color": "rgb(105, 119, 103)"
+                },
+                {
+                  "name": "oxford-gray",
+                  "code": "2128-40",
+                  "displayName": "Oxford Gray",
+                  "color": "rgb(131, 145, 161)"
+                },
+                {
+                  "name": "blue-danube",
+                  "code": "2062-30",
+                  "displayName": "Blue Danube",
+                  "color": "rgb(46, 90, 113)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "exterior-paints",
+          "code": "exteriors",
+          "displayName": "Exterior Paint",
+          "thumbnail": "assets/data/thumbnails/exterior-space.jpg",
+          "metaData": {},
+          "collections": [
+            {
+              "name": "aura-exterior-paint",
+              "code": "aura-010",
+              "displayName": "Aura® Exterior Paint",
+              "thumbnail": "assets/data/thumbnails/bmoore-aura.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "wallpaper",
+      "code": "wallpaper",
+      "displayName": "Wallpaper",
+      "surfaceTypes": ["wall"],
+      "assetType": "tiled",
+      "thumbnail": "assets/data/thumbnails/wallpaper.jpg",
+      "collections": [
+        {
+          "name": "wallpaper",
+          "code": "wallpaper",
+          "displayName": "WCD Wallpaper",
+          "thumbnail": "assets/data/thumbnails/WCD LOGO-1.jpg",
+          "metaData": {},
+          "products": [
+            {
+              "name": "decortex-DE120015",
+              "code": "DE120015",
+              "displayName": "Decortex",
+              "metaData": {},
+              "thumbnail": "DECORTEX DE120015.jpg",
+              "colors": [
+                {
+                  "name": "DE120015",
+                  "code": "DE120015",
+                  "displayName": "DE120015",
+                  "ppi": 50,
+                  "thumbnail": "DECORTEX DE120015.jpg",
+                  "metaData": {
+                    "image": "DECORTEX DE120015.jpg"
+                  }
+                },
+                {
+                  "name": "DE120019",
+                  "code": "DE120019",
+                  "displayName": "DE120019",
+                  "ppi": 50,
+                  "thumbnail": "DECORTEX DE120019.jpg",
+                  "metaData": {
+                    "image": "DECORTEX DE120019.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Queens",
+              "code": "QUEENS",
+              "displayName": "Queens",
+              "metaData": {},
+              "thumbnail": "QUEENS 796179.jpg",
+              "colors": [
+                {
+                  "name": "796179",
+                  "code": "796179",
+                  "displayName": "QUEENS 796179",
+                  "ppi": 50,
+                  "thumbnail": "QUEENS 796179.jpg",
+                  "metaData": {
+                    "image": "QUEENS 796179.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "RHAP",
+              "code": "RHAP",
+              "displayName": "RHAP",
+              "metaData": {},
+              "thumbnail": "RHAP 8019-3.jpg",
+              "colors": [
+                {
+                  "name": "RHAP",
+                  "code": "RHAP",
+                  "displayName": "RHAP",
+                  "ppi": 50,
+                  "thumbnail": "RHAP 8019-3.jpg",
+                  "metaData": {
+                    "image": "RHAP 8019-3.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Scarlet",
+              "code": "Scarlet",
+              "displayName": "Scarlet",
+              "metaData": {},
+              "thumbnail": "SCARLET 88354-2.jpg",
+              "colors": [
+                {
+                  "name": "88354-2",
+                  "code": "88354-2",
+                  "displayName": "88354-2",
+                  "ppi": 50,
+                  "thumbnail": "SCARLET 88354-2.jpg",
+                  "metaData": {
+                    "image": "SCARLET 88354-2.jpg"
+                  }
+                },
+                {
+                  "name": "88355-1",
+                  "code": "88355-1",
+                  "displayName": "88355-1",
+                  "ppi": 50,
+                  "thumbnail": "SCARLET 88355-1.jpg",
+                  "metaData": {
+                    "image": "SCARLET 88355-1.jpg"
+                  }
+                },
+                {
+                  "name": "88356-1",
+                  "code": "88356-1",
+                  "displayName": "88356-1",
+                  "ppi": 50,
+                  "thumbnail": "SCARLET 88356-1.jpg",
+                  "metaData": {
+                    "image": "SCARLET 88356-1.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "Nature",
+              "code": "Nature",
+              "displayName": "Nature",
+              "metaData": {},
+              "thumbnail": "leaves.jpeg",
+              "colors": [
+                {
+                  "name": "leaves",
+                  "code": "leaves",
+                  "displayName": "leaves",
+                  "ppi": 50,
+                  "thumbnail": "leaves.jpeg",
+                  "metaData": {
+                    "image": "leaves.jpeg"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
