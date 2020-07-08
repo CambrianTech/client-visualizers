@@ -8,27 +8,697 @@
       "surfaceTypes": ["floor"],
       "assetType": "tiled",
       "collections": [
-        {
-          "name": "flooring",
-          "code": "flooring",
-          "displayName": "Flooring One Source",
-          "products": [
             {
-              "name": "test",
-              "code": "test",
-              "displayName": "Test Board",
-              "metaData": {},
-              "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
-              "colors": [
+              "name": "spcvinyl",
+              "code": "spcvinyl",
+              "displayName": "SPC Vinyl",
+              "products": [
                 {
-                  "name": "796179",
-                  "code": "796179",
-                  "displayName": "TEST",
-                  "ppi": 50,
+                  "name": "cambridge-hall",
+                  "code": "cambridge-hall",
+                  "displayName": "Cambridge Hall",
+                  "metaData": {},
                   "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
-                  "metaData": {
-                    "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
-                  }
+                  "colors": [
+                    {
+                      "name": "bellewood",
+                      "code": "bellewood",
+                      "displayName": "Bellewood",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    },
+                    {
+                      "name": "bent-creek",
+                      "code": "bent-creek",
+                      "displayName": "Bent Creek",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    },
+                    {
+                      "name": "lodge-pine",
+                      "code": "lodge-pine",
+                      "displayName": "Lodge Pine",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    },
+                    {
+                      "name": "monaco",
+                      "code": "monaco",
+                      "displayName": "Monaco",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    },
+                    {
+                      "name": "pub-house",
+                      "code": "pub-house",
+                      "displayName": "Pub House",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    },
+                    {
+                      "name": "serene-hills",
+                      "code": "serene-hills",
+                      "displayName": "Serene Hills",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "diamond-board",
+                  "code": "diamond-board",
+                  "displayName": "Diamond Board",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "carmel-distressed-pine",
+                      "code": "carmel-distressed-pine",
+                      "displayName": "Carmel Distressed Pine",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    } 
+                  ]
+                },
+                {
+                  "name": "highlands",
+                  "code": "highlands",
+                  "displayName": "Highlands",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "ashbury",
+                      "code": "ashbury",
+                      "displayName": "Ashbury",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "carlsbad",
+                      "code": "carlsbad",
+                      "displayName": "Carlsbad",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "glenbrook",
+                      "code": "glenbrook",
+                      "displayName": "Glenbrook",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "mineral-oak",
+                      "code": "mineral-oak",
+                      "displayName": "Mineral Oak",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "mystic-cypress",
+                      "code": "mystic-cypress",
+                      "displayName": "Mystic Cypress",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "navajo-hills",
+                      "code": "navajo-hills",
+                      "displayName": "Navajo Hills",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "pacific-walnut",
+                      "code": "pacific-walnut",
+                      "displayName": "Pacific Walnut",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "pinion-pine",
+                      "code": "pinion-pine",
+                      "displayName": "Pinion Pine",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "prairie",
+                      "code": "prairie",
+                      "displayName": "Prairie",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "smokey-mountain",
+                      "code": "smokey-mountain",
+                      "displayName": "Smokey Mountain",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    }
+                  ]
+                },
+                {
+                  "name": "kensington-manor",
+                  "code": "kensington-manor",
+                  "displayName": "Kensington Manor",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "cumberland",
+                      "code": "cumberland",
+                      "displayName": "Cumberland",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "natchez",
+                      "code": "natchez",
+                      "displayName": "Natchez",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "olympia",
+                      "code": "olympia",
+                      "displayName": "Olympia",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "ponderosa-pine",
+                      "code": "ponderosa-pine",
+                      "displayName": "Ponderosa Pine",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "southern-pine",
+                      "code": "southern-pine",
+                      "displayName": "Southern Pine",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "valley-farmhouse",
+                      "code": "valley-farmhouse",
+                      "displayName": "Valley Farmhouse",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },  
+                     {
+                      "name": "virginia",
+                      "code": "virginia",
+                      "displayName": "Virginia",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    }
+                  ]
+                }
+                {
+                  "name": "premier",
+                  "code": "premier",
+                  "displayName": "Premier",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "bay-port",
+                      "code": "bay-port",
+                      "displayName": "Bay Port",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "biscayne-bay",
+                      "code": "biscayne-bay",
+                      "displayName": "Biscayne Bay",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "cedar-key",
+                      "code": "cedar-key",
+                      "displayName": "Cedar Key",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "coral-cove",
+                      "code": "coral-cove",
+                      "displayName": "Coral Cove",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "cypress-cove",
+                      "code": "cypress-cove",
+                      "displayName": "Cypress Cove",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "gulf-harbor",
+                      "code": "gulf-harbor",
+                      "displayName": "Gulf Harbor",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },  
+                     {
+                      "name": "heron-bay",
+                      "code": "heron-bay",
+                      "displayName": "Heron Bay",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },
+                     {
+                      "name": "key-largo",
+                      "code": "key-largo",
+                      "displayName": "Key Largo",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },
+                     {
+                      "name": "lighthouse-point",
+                      "code": "lighthouse-point",
+                      "displayName": "Lighthouse Point",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },
+                     {
+                      "name": "regatta-bay",
+                      "code": "regatta-bay",
+                      "displayName": "Regatta Bay",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },
+                     {
+                      "name": "sanibel-island",
+                      "code": "sanibel-island",
+                      "displayName": "Sanibel Island",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    }
+                  ]
+                }
+                {
+                  "name": "revolutions",
+                  "code": "revolutions",
+                  "displayName": "Revolutions",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "bunker-hill",
+                      "code": "bunker-hill",
+                      "displayName": "Bunker Hill",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "concord",
+                      "code": "concord",
+                      "displayName": "Concord",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "lexington",
+                      "code": "lexington",
+                      "displayName": "Lexington",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "saratoga",
+                      "code": "saratoga",
+                      "displayName": "Saratoga",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "trenton",
+                      "code": "trenton",
+                      "displayName": "Trenton",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "yorktown",
+                      "code": "yorktown",
+                      "displayName": "Yorktown",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    }
+                  ]
+                }
+                {
+                  "name": "richburg-hills",
+                  "code": "richburg-hills",
+                  "displayName": "Richburg Hills",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "campfire",
+                      "code": "campfire",
+                      "displayName": "campfire",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "country-cabin",
+                      "code": "country-cabin",
+                      "displayName": "Country Cabin",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "piedmont",
+                      "code": "piedmont",
+                      "displayName": "Piedmont",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "roanoake",
+                      "code": "roanoake",
+                      "displayName": "Roanoake",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    } 
+                  ]
+                }
+                {
+                  "name": "rock-solid-performance",
+                  "code": "rock-solid-performance",
+                  "displayName": "Rock Solid Performance",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "helena",
+                      "code": "helena",
+                      "displayName": "Helena",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "park-hill",
+                      "code": "park-hill",
+                      "displayName": "Park Hill",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "pelham",
+                      "code": "pelham",
+                      "displayName": "Pelham",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "sunset",
+                      "code": "sunset",
+                      "displayName": "Sunset",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "townsend",
+                      "code": "townsend",
+                      "displayName": "Townsend",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    }
+                  ]
+                }
+                {
+                  "name": "wellington-heights",
+                  "code": "wellington-heights",
+                  "displayName": "Wellington Heights",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "huntington-oak",
+                      "code": "huntington-oak",
+                      "displayName": "Huntington Oak",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "normandy-coast",
+                      "code": "normandy-coast",
+                      "displayName": "Normandy Coast",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    },
+                    {
+                      "name": "richmond",
+                      "code": "richmond",
+                      "displayName": "Richmond",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      } 
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "laminate",
+              "code": "laminate",
+              "displayName": "Laminate",
+              "products": [
+                {
+                  "name": "southern-traditions",
+                  "code": "southern-traditions",
+                  "displayName": "Southern Traditions",
+                  "metaData": {},
+                  "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                  "colors": [
+                    {
+                      "name": "distressed-pine",
+                      "code": "distressed-pine",
+                      "displayName": "Distressed Pine",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },  
+                    {
+                      "name": "crosscut-barnwood",
+                      "code": "crosscut-barnwood",
+                      "displayName": "Crosscut Barnwood",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },
+                    {
+                      "name": "whiskey-barrel-oak",
+                      "code": "whiskey-barrel-oak",
+                      "displayName": "Whiskey Barrel Oak",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },
+                    {
+                      "name": "historic-kirsche",
+                      "code": "historic-kirsche",
+                      "displayName": "Historic Kirsche",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },
+                    {
+                      "name": "southern-pecan",
+                      "code": "southern-pecan",
+                      "displayName": "Southern Pecan",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                     },
+                    {
+                      "name": "rustic-heart-pine",
+                      "code": "rustic-heart-pine",
+                      "displayName": "Rustic Heart Pine",
+                      "ppi": 50,
+                      "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
+                      "metaData": {
+                        "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -36,5 +706,5 @@
         }
       ]
     }
-  ]
+  ]      
 }
