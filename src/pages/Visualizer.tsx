@@ -36,6 +36,8 @@ export enum ServerFile {
     Preview = "preview",
 }
 
+const PANEL_TIMEOUT = 0;
+
 if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
     cbInitialize({
         uploadUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
@@ -228,9 +230,12 @@ export default function Visualizer(props: any) {
     const panelMouseOut = useCallback(() => {
         if (panelMouseTimeout.current) return
 
-        panelMouseTimeout.current = setTimeout(()=>{
-            setPanelOpenClose(false)
-        }, 1000)
+        if (PANEL_TIMEOUT) {
+            panelMouseTimeout.current = setTimeout(()=>{
+                setPanelOpenClose(false)
+            }, PANEL_TIMEOUT)
+        }
+
     }, [setPanelOpenClose]);
 
 
