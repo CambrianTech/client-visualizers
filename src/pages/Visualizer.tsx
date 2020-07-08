@@ -204,6 +204,7 @@ export default function Visualizer(props: any) {
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children)
+        setNavigationItem(swatchItem)
     }, []);
 
     const rootNavClicked = useCallback(() => {
@@ -272,7 +273,7 @@ export default function Visualizer(props: any) {
             <div ref={productSelectorPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
                 <div className={"panel"}>
                     <div className={"title"}>Choose a Product</div>
-                    <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} firstElement={<button onClick={rootNavClicked}>Home</button>}  />
+                    <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />
                     <VerticalListing onClick={swatchSelected}
                                      swatches={listingItems}
                                      filters={allFilters}
