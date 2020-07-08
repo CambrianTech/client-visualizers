@@ -1,4 +1,4 @@
 [
-	{"image":"Ashbury FF (LS113-8).jpg","width":9.0, "height":48.0, "unit":"inches"},
-	{"image":"Bay Port FF (CDW-2026L-1).jpg","width":9.0, "height":48.0, "unit":"inches"}
+	{"image":"Ashbury FF (LS113-8).jpg", "width":100.0, "unit":"cm", "crop-width":7.0, "crop-height":48.0, "crop-unit":"in"},
+	{"image":"Bay Port FF (CDW-2026L-1).jpg", "width":100.0, "unit":"cm", "crop-width":7.0, "crop-height":48.0, "crop-unit":"in"}
 ]
