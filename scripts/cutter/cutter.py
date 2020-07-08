@@ -33,16 +33,17 @@ def run(data, input_dir, output_dir, img_is_metric, crop_is_metric):
 
         path = os.path.join(input_dir, filename)
         img = cv2.imread(path)
-        img_shape = img.shape
+        height, width, channels = img.shape
 
         segments = image_width / crop_width
-        print(segments, img_shape)
+        print(segments, width, height)
 
         num_segments = int(segments)
         for i in range(num_segments):
             crop_x_cm = i * crop_width
             crop_x = crop_x_cm * image_width
             print("crop_x_cm", crop_x_cm, crop_x_cm + crop_width)
+            # crop = img[y0:y0+height , x0:x0+width, :]
 
 
 @click.command()
