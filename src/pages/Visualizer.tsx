@@ -100,8 +100,12 @@ export default function Visualizer(props: any) {
                 }
 
                 let rootItem:SwatchItem = brands[0]
-                while (!(rootItem instanceof Product) && rootItem.children.length === 1) {
-                    rootItem = rootItem.children[0]
+                while (rootItem.children.length === 1) {
+                    if (!(rootItem.children[0] instanceof Product)) {
+                        rootItem = rootItem.children[0]
+                    } else {
+                        break;
+                    }
                 }
 
                 setRootItem(rootItem)
@@ -173,6 +177,7 @@ export default function Visualizer(props: any) {
 
         const albedoPath = `${basePath}/textures/${color.metaData.albedo}`
         const ppi = color.ppi ? color.ppi : 20
+
         setMaterialProperies(new CBMaterialProperties(ppi, albedoPath))
 
     }, [basePath]);

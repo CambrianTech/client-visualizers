@@ -199,7 +199,7 @@ function App() {
             }
         }
 
-    }, [siteState.fov, siteState.position, siteState.rotation])
+    }, [siteState.fov, siteState.position, siteState.rotation, siteState.selectedSampleRoom, siteState.selectedSampleRoomType])
 
     const initialize = useCallback(() => {
         setCssVars()
