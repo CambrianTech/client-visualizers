@@ -23,6 +23,7 @@ def run(data, input_dir, output_dir, img_is_metric, crop_is_metric):
 
         crop_width = row['crop-width']
         crop_height = row['crop-height']
+        aspect_ratio = crop_width / crop_height
 
         if not crop_is_metric:
             crop_width *= 2.54
@@ -36,17 +37,19 @@ def run(data, input_dir, output_dir, img_is_metric, crop_is_metric):
         height, width, channels = img.shape
 
         segments = image_width / crop_width
-        print(segments, width, height)
+        # print(segments, width, height)
 
         num_segments = int(segments)
         segment_width = int(width / num_segments)
-        segment_height = int(height)
-        print(segment_width)
+        segment_height = int(segment_width / aspect_ratio)
+
+        print(segment_width, segment_height)
+
         for i in range(num_segments):
             crop_x_cm = i * crop_width
             crop_x = int(width * crop_x_cm / image_width)
-            crop_x_end = int(crop_x + width / num_segments)
             crop_y = 0
+
             crop = img[crop_y:crop_y+segment_height, crop_x:crop_x+segment_width:channels]
             path = os.path.join(output_dir, "crop_%s_%d.jpg" % (filename, i))
             cv2.imwrite(path, crop)
