@@ -24,7 +24,7 @@
                   "name": "796179",
                   "code": "796179",
                   "displayName": "TEST",
-                  "ppi": 50,
+                  "ppi": 10,
                   "thumbnail": "test-hardwood/narrow-floorboards1-thumbnail.png",
                   "metaData": {
                     "albedo": "test-hardwood/narrow-floorboards1-albedo.png"
