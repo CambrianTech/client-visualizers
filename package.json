@@ -32,7 +32,7 @@
     "react-dat-gui": "^3.0.0",
     "react-dom": ">=16.13.1",
     "react-dropzone": "^10.1.5",
-    "react-home-ar": "0.0.72",
+    "react-home-ar": "0.0.73",
     "react-home-harmony": "0.0.310",
     "react-lazy-elements": "^0.0.4",
     "react-router-dom": "^5.0.1",
