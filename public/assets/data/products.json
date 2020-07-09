@@ -14,9 +14,10 @@
           "displayName": "Bathroom",
           "scenes": [
             {
-              "name": "bathroom-1",
-              "code": "bathroom-1",
-              "displayName": "Bathroom"
+              "name": "1-bathroom",
+              "code": "1-bathroom",
+              "displayName": "Bathroom",
+              "thumbnail": "thumbnail.jpg"
             }
           ]
         },
@@ -28,18 +29,22 @@
             {
               "name": "kitchen-1",
               "code": "kitchen-1",
-              "displayName": "Kitchen"
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
             }
           ]
         },
         {
           "name": "living-room",
           "code": "living-room",
+          "enabled": false,
           "displayName": "Living Room",
           "scenes": [
             {
-              "name": "living-room",
-              "code": "living-room",
+              "name": "living-room-1",
+              "code": "living-room-1",
               "displayName": "Living Room"
             }
           ]
@@ -47,6 +52,7 @@
         {
           "name": "office",
           "code": "office",
+          "enabled": false,
           "displayName": "Office",
           "scenes": [
             {
@@ -62,8 +68,13 @@
           "displayName": "Bedroom",
           "scenes": [
             {
-              "name": "bedroom-1",
-              "code": "bedroom-1",
+              "name": "2-bedroom",
+              "code": "2-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "name": "3-bedroom",
+              "code": "3-bedroom",
               "displayName": "Bedroom"
             }
           ]
