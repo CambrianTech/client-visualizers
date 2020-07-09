@@ -66,6 +66,8 @@ export default function Visualizer(props: any) {
 
     const [ , setIsUploadedImage] = useState<boolean>();
 
+    const [showScenes, setShowScenes] = useState(false)
+
     const [statusText, setStatusText] = useState("")
     const [progressPercentage, setProgressPercentage] = useState(0)
     const [progressVisible, setProgressVisible] = useState(false)
@@ -323,10 +325,14 @@ export default function Visualizer(props: any) {
 
             <div ref={productSelectorPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
                 <div className={"panel"}>
-                    <div className={"title"}>Choose a Product</div>
-                    <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />
+                    <div className={"title"}>
+                        <div onClick={()=>setShowScenes(false)}>Choose a Product</div>
+                        <div onClick={()=>setShowScenes(true)}>Choose a Scene</div>
+                    </div>
 
-                    <VerticalListing visible={false}
+                    {!showScenes && <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />}
+
+                    <VerticalListing visible={!showScenes}
                                      onClick={swatchSelected}
                                      swatches={listingItems}
                                      filters={allFilters}
@@ -334,7 +340,7 @@ export default function Visualizer(props: any) {
                                      selectedSubSwatch={selectedColumn}
                                      resolveThumbnailPath={resolveThumbnailPath}/>
 
-                    <VerticalListing visible={true}
+                    <VerticalListing visible={showScenes}
                                      onClick={sceneSelected}
                                      swatches={sceneListingItems}
                                      selectedSwatch={selectedSceneRow}
