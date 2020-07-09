@@ -24,6 +24,7 @@
         {
           "name": "kitchen",
           "code": "kitchen",
+          "enabled": false,
           "displayName": "Kitchen",
           "scenes": [
             {
@@ -36,6 +37,7 @@
         {
           "name": "living-room",
           "code": "living-room",
+          "enabled": false,
           "displayName": "Living Room",
           "scenes": [
             {
@@ -48,6 +50,7 @@
         {
           "name": "office",
           "code": "office",
+          "enabled": false,
           "displayName": "Office",
           "scenes": [
             {
