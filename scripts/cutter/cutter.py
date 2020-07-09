@@ -54,6 +54,12 @@ def resize(image, window_height=2048):
     image = cv2.resize(image, (int(window_height),int(window_width)))
     return image
 
+def crop_center(img,cropx,cropy):
+    y,x,c = img.shape
+    startx = x//2 - cropx//2
+    starty = y//2 - cropy//2    
+    return img[starty:starty+cropy, startx:startx+cropx, :]
+
 def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=1024, seam_size=3, jpeg_quality=80):
     
     for row in data:
@@ -71,7 +77,17 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
             crop_height *= 2.54
 
         filename = row['image']
-        print("Image: %s width: %f cm crop: %f x %f cm" % (filename, image_width, crop_width, crop_height))
+
+        name = os.path.splitext(filename)[0]
+        
+        #remove junk (specific flooring one case)
+        index = name.find('FF')
+        if index > 0:
+            name = name[0:index]
+
+        name = name.title()
+
+        print("Image: %s width: %f cm crop: %f x %f cm" % (name, image_width, crop_width, crop_height))
 
         path = os.path.join(input_dir, filename)
         img = cv2.imread(path)
@@ -84,11 +100,8 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
         segment_width = int(width / num_segments)
         segment_height = int(segment_width / aspect_ratio)
 
-        print(segment_width, segment_height)
-
         segments = []
 
-        name = os.path.splitext(filename)[0]
         path = os.path.join(output_dir, name)
 
         if not os.path.exists(path):
@@ -104,8 +117,12 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (i)), resize(crop, maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        tiled = tile_seamless(np.array(segments), 3, 5, seam_size)
-        cv2.imwrite(os.path.join(path, "tiled.jpg"), resize(tiled, maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+        tiled = tile_seamless(np.array(segments), 3, 7, seam_size)
+        tiled = resize(tiled, maxsize) 
+        cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+
+        thumbnail = resize(crop_center(tiled, maxsize, maxsize), 512)
+        cv2.imwrite(os.path.join(path, "thumbnail.jpg"), thumbnail, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
             # crop = img[y0:y0+height , x0:x0+width, :]
 
