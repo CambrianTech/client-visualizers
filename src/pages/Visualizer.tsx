@@ -32,6 +32,7 @@ import {
     CBToolMode,
     CBVisualizer,
 } from "react-home-harmony";
+import {dispatchDataProperties} from "../index";
 
 export enum ServerFile {
     Mask = "mask",
@@ -208,6 +209,11 @@ export default function Visualizer(props: any) {
 
     }, [chooseColor]);
 
+    const getScenePath = useCallback((info:SceneInfo)=>{
+        const isLocal = info.metaData && info.metaData.hasOwnProperty("isLocal") && info.metaData.isLocal
+        return `${isLocal ? "assets" : basePath}/scenes/${info.collection.name}/${info.name}`
+    },[basePath])
+
     const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
         if (swatchItem instanceof SceneCollection) {
             const col = swatchItem as SceneCollection
@@ -216,15 +222,29 @@ export default function Visualizer(props: any) {
             }
         } else if (swatchItem instanceof SceneInfo) {
             const scene = swatchItem as SceneInfo
-            return `${basePath}/scenes/${scene.collection.name}/${scene.name}/preview.jpg`
+            return `${getScenePath(scene)}/preview.jpg`
         }
 
         return
     }, [basePath]);
 
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
-        console.log("Scene selected")
-    }, []);
+        if (swatchItem instanceof SceneInfo) {
+            const scene = swatchItem as SceneInfo
+            setSelectedSceneColumn(swatchItem)
+
+            const scenePath = getScenePath(scene)
+
+            fetch(scenePath + "/data.json")
+                .then(res => res.json())
+                .then(data => {
+                    dispatchDataProperties(scenePath, data, siteContext.dispatch)
+                })
+
+        } else if (swatchItem instanceof SceneCollection) {
+            setSelectedSceneRow(swatchItem)
+        }
+    }, [basePath, siteContext.dispatch]);
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children)

@@ -24,13 +24,15 @@
         {
           "name": "kitchen",
           "code": "kitchen",
-          "enabled": false,
           "displayName": "Kitchen",
           "scenes": [
             {
               "name": "kitchen-1",
               "code": "kitchen-1",
-              "displayName": "Kitchen"
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
             }
           ]
         },
