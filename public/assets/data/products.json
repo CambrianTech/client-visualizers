@@ -7,6 +7,68 @@
       "displayName": "Flooring One Source",
       "surfaceTypes": ["floor"],
       "assetType": "tiled",
+      "sceneCollections": [
+        {
+          "name": "bathroom",
+          "code": "bathroom",
+          "displayName": "Bathroom",
+          "scenes": [
+            {
+              "name": "bathroom-1",
+              "code": "bathroom-1",
+              "displayName": "Bathroom"
+            }
+          ]
+        },
+        {
+          "name": "kitchen",
+          "code": "kitchen",
+          "displayName": "Kitchen",
+          "scenes": [
+            {
+              "name": "kitchen-1",
+              "code": "kitchen-1",
+              "displayName": "Kitchen"
+            }
+          ]
+        },
+        {
+          "name": "living-room",
+          "code": "living-room",
+          "displayName": "Living Room",
+          "scenes": [
+            {
+              "name": "living-room",
+              "code": "living-room",
+              "displayName": "Living Room"
+            }
+          ]
+        },
+        {
+          "name": "office",
+          "code": "office",
+          "displayName": "Office",
+          "scenes": [
+            {
+              "name": "office-1",
+              "code": "office-1",
+              "displayName": "Office"
+            }
+          ]
+        },
+        {
+          "name": "bedroom",
+          "code": "bedroom",
+          "displayName": "Bedroom",
+          "scenes": [
+            {
+              "name": "bedroom-1",
+              "code": "bedroom-1",
+              "displayName": "Bedroom"
+            }
+          ]
+        }
+      ],
       "collections": [
         {
           "name": "spcvinyl",
@@ -23,7 +85,7 @@
                   "name": "bellewood",
                   "code": "bellewood",
                   "displayName": "Bellewood",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Bellewood/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Bellewood/tiled.jpg"
@@ -33,7 +95,7 @@
                   "name": "bent-creek",
                   "code": "bent-creek",
                   "displayName": "Bent Creek",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Bent Creek/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Bent Creek/tiled.jpg"
@@ -43,7 +105,7 @@
                   "name": "lodge-pine",
                   "code": "lodge-pine",
                   "displayName": "Lodge Pine",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Lodge Pine/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Lodge Pine/tiled.jpg"
@@ -53,7 +115,7 @@
                   "name": "monaco",
                   "code": "monaco",
                   "displayName": "Monaco",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Monaco/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Monaco/tiled.jpg"
@@ -63,7 +125,7 @@
                   "name": "pub-house",
                   "code": "pub-house",
                   "displayName": "Pub House",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Pub House/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Pub House/tiled.jpg"
@@ -73,7 +135,7 @@
                   "name": "serene-hills",
                   "code": "serene-hills",
                   "displayName": "Serene Hills",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Serene Hills/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Serene Hills/tiled.jpg"
@@ -91,7 +153,7 @@
                   "name": "carmel-distressed-pine",
                   "code": "carmel-distressed-pine",
                   "displayName": "Carmel Distressed Pine",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Carmel Distressed Pine/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Carmel Distressed Pine/tiled.jpg"
@@ -109,7 +171,7 @@
                   "name": "ashbury",
                   "code": "ashbury",
                   "displayName": "Ashbury",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Ashbury/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Ashbury/tiled.jpg"
@@ -119,7 +181,7 @@
                   "name": "carlsbad",
                   "code": "carlsbad",
                   "displayName": "Carlsbad",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Carlsbad/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Carlsbad/tiled.jpg"
@@ -129,7 +191,7 @@
                   "name": "glenbrook",
                   "code": "glenbrook",
                   "displayName": "Glenbrook",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Glenbrook/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Glenbrook/tiled.jpg"
@@ -139,7 +201,7 @@
                   "name": "mineral-oak",
                   "code": "mineral-oak",
                   "displayName": "Mineral Oak",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Mineral Oak/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Mineral Oak/tiled.jpg"
@@ -149,7 +211,7 @@
                   "name": "mystic-cypress",
                   "code": "mystic-cypress",
                   "displayName": "Mystic Cypress",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Mystic Cypress/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Mystic Cypress/tiled.jpg"
@@ -159,7 +221,7 @@
                   "name": "navajo-hills",
                   "code": "navajo-hills",
                   "displayName": "Navajo Hills",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Navajo Hills/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Navajo Hills/tiled.jpg"
@@ -170,7 +232,7 @@
                   "code": "pacific-walnut",
                   "displayName": "Pacific Walnut",
                   "enabled": false,
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Pacific Walnut/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Pacific Walnut/tiled.jpg"
@@ -180,7 +242,7 @@
                   "name": "pinion-pine",
                   "code": "pinion-pine",
                   "displayName": "Pinion Pine",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Pinion Pine/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Pinion Pine/tiled.jpg"
@@ -190,7 +252,7 @@
                   "name": "prairie",
                   "code": "prairie",
                   "displayName": "Prairie",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Prairie/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Prairie/tiled.jpg"
@@ -201,7 +263,7 @@
                   "code": "smokey-mountain",
                   "displayName": "Smokey Mountain",
                   "enabled": false,
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Smokey Mountain/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Smokey Mountain/tiled.jpg"
@@ -219,7 +281,7 @@
                   "name": "cumberland",
                   "code": "cumberland",
                   "displayName": "Cumberland",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Cumberland/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Cumberland/tiled.jpg"
@@ -230,7 +292,7 @@
                   "code": "natchez",
                   "displayName": "Natchez",
                   "enabled": false,
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Natchez/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Natchez/tiled.jpg"
@@ -240,7 +302,7 @@
                   "name": "olympia",
                   "code": "olympia",
                   "displayName": "Olympia",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Olympia/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Olympia/tiled.jpg"
@@ -250,7 +312,7 @@
                   "name": "ponderosa-pine",
                   "code": "ponderosa-pine",
                   "displayName": "Ponderosa Pine",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Ponderosa Pine/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Ponderosa Pine/tiled.jpg"
@@ -260,7 +322,7 @@
                   "name": "southern-pine",
                   "code": "southern-pine",
                   "displayName": "Southern Pine",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Southern Pine/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Southern Pine/tiled.jpg"
@@ -270,7 +332,7 @@
                   "name": "valley-farmhouse",
                   "code": "valley-farmhouse",
                   "displayName": "Valley Farmhouse",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Valley Farmhouse/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Valley Farmhouse/tiled.jpg"
@@ -280,7 +342,7 @@
                   "name": "virginia",
                   "code": "virginia",
                   "displayName": "Virginia",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Virginia/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Virginia/tiled.jpg"
@@ -298,7 +360,7 @@
                   "name": "bay-port",
                   "code": "bay-port",
                   "displayName": "Bay Port",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Bay Port/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Bay Port/tiled.jpg"
@@ -308,7 +370,7 @@
                   "name": "biscayne-bay",
                   "code": "biscayne-bay",
                   "displayName": "Biscayne Bay",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Biscayne Bay/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Biscayne Bay/tiled.jpg"
@@ -318,7 +380,7 @@
                   "name": "cedar-key",
                   "code": "cedar-key",
                   "displayName": "Cedar Key",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Cedar Key/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Cedar Key/tiled.jpg"
@@ -328,7 +390,7 @@
                   "name": "coral-cove",
                   "code": "coral-cove",
                   "displayName": "Coral Cove",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Coral Cove/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Coral Cove/tiled.jpg"
@@ -339,7 +401,7 @@
                   "code": "cypress-cove",
                   "displayName": "Cypress Cove",
                   "enabled": false,
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Cypress Cove/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Cypress Cove/tiled.jpg"
@@ -349,7 +411,7 @@
                   "name": "gulf-harbor",
                   "code": "gulf-harbor",
                   "displayName": "Gulf Harbor",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Gulf Harbor/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Gulf Harbor/tiled.jpg"
@@ -359,7 +421,7 @@
                   "name": "heron-bay",
                   "code": "heron-bay",
                   "displayName": "Heron Bay",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Heron Bay/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Heron Bay/tiled.jpg"
@@ -369,7 +431,7 @@
                   "name": "key-largo",
                   "code": "key-largo",
                   "displayName": "Key Largo",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Key Largo/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Key Largo/tiled.jpg"
@@ -379,7 +441,7 @@
                   "name": "lighthouse-point",
                   "code": "lighthouse-point",
                   "displayName": "Lighthouse Point",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Lighthouse Point/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Lighthouse Point/tiled.jpg"
@@ -389,7 +451,7 @@
                   "name": "regatta-bay",
                   "code": "regatta-bay",
                   "displayName": "Regatta Bay",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Regatta Bay/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Regatta Bay/tiled.jpg"
@@ -399,7 +461,7 @@
                   "name": "sanibel-island",
                   "code": "sanibel-island",
                   "displayName": "Sanibel Island",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Sanibel Island/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Sanibel Island/tiled.jpg"
@@ -417,7 +479,7 @@
                   "name": "bunker-hill",
                   "code": "bunker-hill",
                   "displayName": "Bunker Hill",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Bunker Hill/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Bunker Hill/tiled.jpg"
@@ -427,7 +489,7 @@
                   "name": "concord",
                   "code": "concord",
                   "displayName": "Concord",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Concord/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Concord/tiled.jpg"
@@ -437,7 +499,7 @@
                   "name": "lexington",
                   "code": "lexington",
                   "displayName": "Lexington",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Lexington/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Lexington/tiled.jpg"
@@ -447,7 +509,7 @@
                   "name": "saratoga",
                   "code": "saratoga",
                   "displayName": "Saratoga",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Saratoga/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Saratoga/tiled.jpg"
@@ -457,7 +519,7 @@
                   "name": "trenton",
                   "code": "trenton",
                   "displayName": "Trenton",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Trenton/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Trenton/tiled.jpg"
@@ -467,7 +529,7 @@
                   "name": "yorktown",
                   "code": "yorktown",
                   "displayName": "Yorktown",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Yorktown/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Yorktown/tiled.jpg"
@@ -485,7 +547,7 @@
                   "name": "campfire",
                   "code": "campfire",
                   "displayName": "Campfire",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Campfire/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Campfire/tiled.jpg"
@@ -495,7 +557,7 @@
                   "name": "country-cabin",
                   "code": "country-cabin",
                   "displayName": "Country Cabin",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Country Cabin/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Country Cabin/tiled.jpg"
@@ -505,7 +567,7 @@
                   "name": "piedmont",
                   "code": "piedmont",
                   "displayName": "Piedmont",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Piedmont/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Piedmont/tiled.jpg"
@@ -515,7 +577,7 @@
                   "name": "roanoake",
                   "code": "roanoake",
                   "displayName": "Roanoake",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Roanoake/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Roanoake/tiled.jpg"
@@ -533,7 +595,7 @@
                   "name": "helena",
                   "code": "helena",
                   "displayName": "Helena",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Helena/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Helena/tiled.jpg"
@@ -543,7 +605,7 @@
                   "name": "park-hill",
                   "code": "park-hill",
                   "displayName": "Park Hill",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Park Hill/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Park Hill/tiled.jpg"
@@ -553,7 +615,7 @@
                   "name": "pelham",
                   "code": "pelham",
                   "displayName": "Pelham",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Pelham/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Pelham/tiled.jpg"
@@ -564,7 +626,7 @@
                   "code": "sunset",
                   "displayName": "Sunset",
                   "enabled": false,
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Sunset/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Sunset/tiled.jpg"
@@ -574,7 +636,7 @@
                   "name": "townsend",
                   "code": "townsend",
                   "displayName": "Townsend",
-                  "ppi": 32.5,
+                  "ppi": 20.83,
                   "thumbnail": "Townsend/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Townsend/tiled.jpg"
@@ -592,7 +654,7 @@
                   "name": "huntington-oak",
                   "code": "huntington-oak",
                   "displayName": "Huntington Oak",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Huntington Oak/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Huntington Oak/tiled.jpg"
@@ -602,7 +664,7 @@
                   "name": "normandy-coast",
                   "code": "normandy-coast",
                   "displayName": "Normandy Coast",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Normandy Coast/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Normandy Coast/tiled.jpg"
@@ -612,7 +674,7 @@
                   "name": "richmond",
                   "code": "richmond",
                   "displayName": "Richmond",
-                  "ppi": 41.80,
+                  "ppi": 26.79,
                   "thumbnail": "Richmond/thumbnail.jpg",
                   "metaData": {
                     "albedo": "Richmond/tiled.jpg"
