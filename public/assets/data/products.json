@@ -16,7 +16,8 @@
             {
               "name": "1-bathroom",
               "code": "1-bathroom",
-              "displayName": "Bathroom"
+              "displayName": "Bathroom",
+              "thumbnail": "thumbnail.jpg"
             }
           ]
         },
