@@ -36,7 +36,7 @@ export enum ServerFile {
     Preview = "preview",
 }
 
-const PANEL_TIMEOUT = 0;
+const PANEL_TIMEOUT = 1000;
 
 if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
     cbInitialize({

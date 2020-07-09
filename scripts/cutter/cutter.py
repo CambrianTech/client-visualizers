@@ -14,13 +14,14 @@ import random
 def crop_image(img):
     print(img)
 
-def tile_seamless(boards, num_rows, num_cols, seam_size):
+def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)):
     half_seam_size = seam_size // 2
     total_seam_width = num_cols * seam_size
     total_seam_height = num_rows * seam_size
 
     (h, w) = boards.shape[1:3]
     output = np.zeros((num_rows * h + total_seam_height, num_cols * w + total_seam_width, 3), dtype=np.uint8)
+    output[:] = seam_color
 
     for row in range(num_rows):
         for col in range(num_cols):
@@ -60,7 +61,7 @@ def crop_center(img,cropx,cropy):
     starty = y//2 - cropy//2    
     return img[starty:starty+cropy, startx:startx+cropx, :]
 
-def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=1024, seam_size=3, jpeg_quality=80):
+def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, seam_size=1, jpeg_quality=80):
     
     for row in data:
         image_width = row['width']
@@ -117,7 +118,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (i)), resize(crop, maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        tiled = tile_seamless(np.array(segments), 3, 7, seam_size)
+        tiled = tile_seamless(np.array(segments), 2, 7, seam_size)
         tiled = resize(tiled, maxsize) 
         cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
