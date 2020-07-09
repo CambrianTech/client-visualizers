@@ -16,10 +16,7 @@
             {
               "name": "1-bathroom",
               "code": "1-bathroom",
-              "displayName": "Bathroom",
-              "metaData": {
-                "isLocal": true
-              }
+              "displayName": "Bathroom"
             }
           ]
         },
@@ -31,18 +28,12 @@
             {
               "name": "2-bedroom",
               "code": "2-bedroom",
-              "displayName": "Bedroom",
-              "metaData": {
-                "isLocal": true
-              }
+              "displayName": "Bedroom"
             },
             {
               "name": "3-bedroom",
               "code": "3-bedroom",
-              "displayName": "Bedroom",
-              "metaData": {
-                "isLocal": true
-              }
+              "displayName": "Bedroom"
             }
           ]
         },
@@ -51,6 +42,14 @@
           "code": "kitchen",
           "displayName": "Kitchen",
           "scenes": [
+            {
+              "name": "kitchen-1",
+              "code": "kitchen-1",
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
+            },
             {
               "name": "1-dining",
               "code": "1-dining",
