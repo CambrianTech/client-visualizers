@@ -85,7 +85,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
         if index > 0:
             name = name[0:index]
 
-        name = name.title()
+        name = name.strip().title()
 
         print("Image: %s width: %f cm crop: %f x %f cm" % (name, image_width, crop_width, crop_height))
 
