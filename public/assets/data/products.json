@@ -16,49 +16,7 @@
             {
               "name": "1-bathroom",
               "code": "1-bathroom",
-              "displayName": "Bathroom",
-              "thumbnail": "thumbnail.jpg"
-            }
-          ]
-        },
-        {
-          "name": "kitchen",
-          "code": "kitchen",
-          "displayName": "Kitchen",
-          "scenes": [
-            {
-              "name": "kitchen-1",
-              "code": "kitchen-1",
-              "displayName": "Kitchen",
-              "metaData": {
-                "isLocal": true
-              }
-            }
-          ]
-        },
-        {
-          "name": "living-room",
-          "code": "living-room",
-          "enabled": false,
-          "displayName": "Living Room",
-          "scenes": [
-            {
-              "name": "living-room-1",
-              "code": "living-room-1",
-              "displayName": "Living Room"
-            }
-          ]
-        },
-        {
-          "name": "office",
-          "code": "office",
-          "enabled": false,
-          "displayName": "Office",
-          "scenes": [
-            {
-              "name": "office-1",
-              "code": "office-1",
-              "displayName": "Office"
+              "displayName": "Bathroom"
             }
           ]
         },
@@ -76,6 +34,108 @@
               "name": "3-bedroom",
               "code": "3-bedroom",
               "displayName": "Bedroom"
+            }
+          ]
+        },
+        {
+          "name": "kitchen",
+          "code": "kitchen",
+          "displayName": "Kitchen",
+          "scenes": [
+            {
+              "name": "kitchen-1",
+              "code": "kitchen-1",
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "1-dining",
+              "code": "1-dining",
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "1-kitchen",
+              "code": "1-kitchen",
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "living-room",
+          "code": "living-room",
+          "displayName": "Living Room",
+          "scenes": [
+            {
+              "name": "1-compact-apartment",
+              "code": "1-compact-apartment",
+              "displayName": "Living Room",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "1-living-room",
+              "code": "1-living-room",
+              "displayName": "Living Room",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "4-living-room",
+              "code": "4-living-room",
+              "displayName": "Living Room",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "6-living-room",
+              "code": "6-living-room",
+              "displayName": "Living Room",
+              "metaData": {
+                "isLocal": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "office",
+          "code": "office",
+          "displayName": "Office",
+          "scenes": [
+            {
+              "name": "1-business",
+              "code": "1-business",
+              "displayName": "Office",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "1-office",
+              "code": "1-office",
+              "displayName": "Office",
+              "enabled": false,
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "2-lobby",
+              "code": "2-lobby",
+              "displayName": "Office",
+              "metaData": {
+                "isLocal": true
+              }
             }
           ]
         }
