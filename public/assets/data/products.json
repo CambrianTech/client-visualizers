@@ -124,6 +124,7 @@
               "name": "1-office",
               "code": "1-office",
               "displayName": "Office",
+              "enabled": false,
               "metaData": {
                 "isLocal": true
               }

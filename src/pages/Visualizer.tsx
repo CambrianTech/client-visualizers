@@ -6,10 +6,12 @@ import {
     cbInitialize,
     DataFilter,
     Product,
-    ProductBase,
+    DataItem,
     ProductBrand,
     ProductColor,
     SwatchItem,
+    SceneCollection,
+    SceneInfo
 } from "react-home-ar";
 
 import {SiteContext} from '../data/SiteContext';
@@ -30,6 +32,7 @@ import {
     CBToolMode,
     CBVisualizer,
 } from "react-home-harmony";
+import {dispatchDataProperties} from "../index";
 
 export enum ServerFile {
     Mask = "mask",
@@ -63,6 +66,8 @@ export default function Visualizer(props: any) {
 
     const [ , setIsUploadedImage] = useState<boolean>();
 
+    const [showScenes, setShowScenes] = useState(false)
+
     const [statusText, setStatusText] = useState("")
     const [progressPercentage, setProgressPercentage] = useState(0)
     const [progressVisible, setProgressVisible] = useState(false)
@@ -77,6 +82,10 @@ export default function Visualizer(props: any) {
     const [selectedRow, setSelectedRow] = useState<SwatchItem>();
     const [selectedColumn, setSelectedColumn] = useState<SwatchItem>();
     const [basePath, setBasePath] = useState()
+
+    const [sceneListingItems, setSceneListingItems] = useState<SwatchItem[]>();
+    const [selectedSceneRow, setSelectedSceneRow] = useState<SwatchItem>();
+    const [selectedSceneColumn, setSelectedSceneColumn] = useState<SwatchItem>();
 
     //legacy stuff:
     const [materialProperties, setMaterialProperies] = useState<CBMaterialProperties>()
@@ -167,7 +176,7 @@ export default function Visualizer(props: any) {
 
     const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
 
-        if (!(swatchItem instanceof ProductBase)) return
+        if (!(swatchItem instanceof DataItem)) return
 
         if (!swatchItem.thumbnail && swatchItem.children.length) {
             return resolveThumbnailPath(swatchItem.children[0])
@@ -195,12 +204,49 @@ export default function Visualizer(props: any) {
             chooseColor(swatchItem)
         } else if (swatchItem instanceof Product) {
             setSelectedRow(swatchItem)
-        } else if (swatchItem instanceof ProductBase) {
+        } else if (swatchItem instanceof DataItem) {
             setListingItems(swatchItem.children)
             setNavigationItem(swatchItem)
         }
 
     }, [chooseColor]);
+
+    const getScenePath = useCallback((info:SceneInfo)=>{
+        const isLocal = info.metaData && info.metaData.hasOwnProperty("isLocal") && info.metaData.isLocal
+        return `${isLocal ? "assets" : basePath}/scenes/${info.collection.name}/${info.name}`
+    },[basePath])
+
+    const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
+        if (swatchItem instanceof SceneCollection) {
+            const col = swatchItem as SceneCollection
+            if (col.scenes.length) {
+                return resolveSceneThumbnailPath(col.scenes[0])
+            }
+        } else if (swatchItem instanceof SceneInfo) {
+            const scene = swatchItem as SceneInfo
+            return `${getScenePath(scene)}/preview.jpg`
+        }
+
+        return
+    }, [basePath]);
+
+    const sceneSelected = useCallback((swatchItem:SwatchItem) => {
+        if (swatchItem instanceof SceneInfo) {
+            const scene = swatchItem as SceneInfo
+            setSelectedSceneColumn(swatchItem)
+
+            const scenePath = getScenePath(scene)
+
+            fetch(scenePath + "/data.json")
+                .then(res => res.json())
+                .then(data => {
+                    dispatchDataProperties(scenePath, data, siteContext.dispatch)
+                })
+
+        } else if (swatchItem instanceof SceneCollection) {
+            setSelectedSceneRow(swatchItem)
+        }
+    }, [basePath, siteContext.dispatch]);
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children)
@@ -216,9 +262,16 @@ export default function Visualizer(props: any) {
 
     useEffect(() => {
         if (rootItem && !listingItems) {
-            setListingItems(rootItem.children)
+            if (!listingItems) {
+                setListingItems(rootItem.children)
+            }
+
+            if (!sceneListingItems) {
+                const brand = (rootItem as DataItem).brand
+                setSceneListingItems(brand.sceneCollections)
+            }
         }
-    }, [listingItems, rootItem]);
+    }, [listingItems, rootItem, sceneListingItems]);
 
     const panelMouseTimeout = useRef(0)
     const panelMouseOver = useCallback(() => {
@@ -272,14 +325,27 @@ export default function Visualizer(props: any) {
 
             <div ref={productSelectorPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
                 <div className={"panel"}>
-                    <div className={"title"}>Choose a Product</div>
-                    <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />
-                    <VerticalListing onClick={swatchSelected}
+                    <div className={"title"}>
+                        <div onClick={()=>setShowScenes(false)}>Choose a Product</div>
+                        <div onClick={()=>setShowScenes(true)}>Choose a Scene</div>
+                    </div>
+
+                    {!showScenes && <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />}
+
+                    <VerticalListing visible={!showScenes}
+                                     onClick={swatchSelected}
                                      swatches={listingItems}
                                      filters={allFilters}
                                      selectedSwatch={selectedRow}
                                      selectedSubSwatch={selectedColumn}
                                      resolveThumbnailPath={resolveThumbnailPath}/>
+
+                    <VerticalListing visible={showScenes}
+                                     onClick={sceneSelected}
+                                     swatches={sceneListingItems}
+                                     selectedSwatch={selectedSceneRow}
+                                     selectedSubSwatch={selectedSceneColumn}
+                                     resolveThumbnailPath={resolveSceneThumbnailPath}/>
                 </div>
                 <div className={"close-button-container"}>
                     <Fab className={"close-button"} onClick={()=>setPanelOpenClose(!panelOpen)} icon={<MaterialIcon icon={panelOpen ? "keyboard_arrow_left" :  "keyboard_arrow_right"} />} />
@@ -290,5 +356,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [allFilters, fov, isUploadedImage, listingItems, materialProperties, navClicked, navigationItem, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveThumbnailPath, rootNavClicked, rotation, rotationControlActive, rotationControlValue, selectedColumn, selectedRow, setPanelOpenClose, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolMode])
+    ), [allFilters, fov, isUploadedImage, listingItems, materialProperties, navClicked, navigationItem, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolMode])
 }

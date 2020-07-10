@@ -59,7 +59,15 @@
     color: #ffffff;
     font-weight: 800;
     padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    user-select: none;
 }
+
+.product-selector .panel .title > div {
+    cursor: pointer;
+}
+
 
 .product-selector .close-button-container {
     display: flex;
