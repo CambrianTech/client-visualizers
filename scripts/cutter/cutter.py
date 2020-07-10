@@ -52,7 +52,7 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)
 def resize(image, window_height):
     aspect_ratio = float(image.shape[1])/float(image.shape[0])
     window_width = window_height/aspect_ratio
-    image = cv2.resize(image, (int(window_height),int(window_width)))
+    image = cv2.resize(image, (int(window_height),int(window_width)), cv2.INTER_AREA)
     return image
 
 def crop_center(img,cropx,cropy):
@@ -61,7 +61,10 @@ def crop_center(img,cropx,cropy):
     starty = y//2 - cropy//2    
     return img[starty:starty+cropy, startx:startx+cropx, :]
 
-def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=1500, seam_size=1, jpeg_quality=80):
+def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, seam_size=2, jpeg_quality=90):
+
+    num_columns = 6
+    num_rows = 2
     
     for row in data:
         image_width = row['width']
@@ -92,6 +95,9 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
         path = os.path.join(input_dir, filename)
         img = cv2.imread(path)
+        if img is None:
+            print("%s not found, skipping" % filename)
+            continue
         height, width, channels = img.shape
 
         segments = image_width / crop_width
@@ -118,7 +124,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (i)), resize(crop, maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        tiled = tile_seamless(np.array(segments), 2, 8, seam_size)
+        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
         tiled = resize(tiled, maxsize) 
         cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
