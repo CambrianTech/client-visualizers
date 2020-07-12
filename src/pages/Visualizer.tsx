@@ -5,13 +5,13 @@ import './Visualizer.css'
 import {
     cbInitialize,
     DataFilter,
-    Product,
     DataItem,
+    Product,
     ProductBrand,
     ProductColor,
-    SwatchItem,
     SceneCollection,
-    SceneInfo
+    SceneInfo,
+    SwatchItem
 } from "react-home-ar";
 
 import {SiteContext} from '../data/SiteContext';
@@ -22,16 +22,14 @@ import {
     openImageDialog,
     ProductBreadcrumb,
     UploadProgress,
-    VerticalListing, VisualizerToolMode, VisualizerTools,
+    VerticalListing,
+    VisualizerToolMode,
+    VisualizerTools,
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {
-    CBMaterialProperties,
-    CBToolMode,
-    CBVisualizer,
-} from "react-home-harmony";
+import {CBMaterialProperties, CBToolMode, CBVisualizer,} from "react-home-harmony";
 import {dispatchDataProperties} from "../index";
 
 export enum ServerFile {
@@ -61,8 +59,6 @@ export default function Visualizer(props: any) {
     const [isToolOverlayOpen, setIsToolOverlayOpen] = useState(false);
 
     const _isMounted = useRef(false);
-
-    const [ , setIsUploadedImage] = useState<boolean>();
 
     const [showScenes, setShowScenes] = useState(false)
 
@@ -255,13 +251,6 @@ export default function Visualizer(props: any) {
         setNavigationItem(swatchItem)
     }, []);
 
-    const rootNavClicked = useCallback(() => {
-        if (rootItem) {
-            setListingItems(rootItem.children)
-            setNavigationItem(rootItem)
-        }
-    }, [rootItem]);
-
     useEffect(() => {
         if (rootItem && !listingItems) {
             if (!listingItems) {
@@ -303,7 +292,7 @@ export default function Visualizer(props: any) {
 
     const isUploadedImage = useCallback(() => {
         if (siteContext.state.sceneData) {
-            return siteContext.state.sceneData.backgroundUrl.indexOf("amazon.com") < 0
+            return siteContext.state.sceneData.backgroundUrl.indexOf("/scenes/") < 0
         }
         return false
     }, [siteContext.state.sceneData]);
@@ -320,9 +309,14 @@ export default function Visualizer(props: any) {
     }, [toolMode]);
 
     const isModePermitted = useCallback((mode: VisualizerToolMode) => {
+        if (mode === VisualizerToolMode.DrawSurface || mode === VisualizerToolMode.EraseSurface) {
+            return isUploadedImage()
+        } else if (mode === VisualizerToolMode.Translate) {
+            return false
+        }
 
         return true
-    }, []);
+    }, [isUploadedImage]);
 
     const toolChanged = useCallback((mode: VisualizerToolMode) => {
         if (!_isMounted.current) return
@@ -341,17 +335,20 @@ export default function Visualizer(props: any) {
 
     const rotateChanged = useCallback((radians: number) => {
         if (!_isMounted.current) return
-
-        //surfaceAsset.surfaceRotation = radians
+        setRotationControlActive(true)
+        setRotationControlValue(radians)
 
     }, []);
 
     const rotateFinished = useCallback((commit: boolean, radians: number) => {
         if (!_isMounted.current) return
 
-        //surfaceAsset.surfaceRotation = commit ? radians : initialRotation
+        dispatch({
+            type: "setFloorRotationOffset",
+            floorRotationOffset: radians
+        })
 
-    }, []);
+    }, [dispatch]);
 
     return useMemo(() => (
         <div className={"visualizer"}>
@@ -419,5 +416,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [allFilters, cbToolMode, fov, historySize, initialRotation, isToolOverlayOpen, isUploadedImage, listingItems, materialProperties, navClicked, navigationItem, onChangeImage, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode])
+    ), [allFilters, cbToolMode, fov, historySize, initialRotation, isModePermitted, isToolOverlayOpen, isUploadedImage, listingItems, materialProperties, navClicked, navigationItem, onChangeImage, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotateChanged, rotateFinished, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons])
 }
