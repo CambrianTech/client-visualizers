@@ -22,7 +22,7 @@ import {
     openImageDialog,
     ProductBreadcrumb,
     UploadProgress,
-    VerticalListing,
+    VerticalListing, VisualizerToolMode, VisualizerTools,
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
@@ -60,8 +60,6 @@ export default function Visualizer(props: any) {
 
     const [isToolOverlayOpen, setIsToolOverlayOpen] = useState(false);
 
-    const [toolMode, setToolMode] = useState(CBToolMode.Select);
-
     const _isMounted = useRef(false);
 
     const [ , setIsUploadedImage] = useState<boolean>();
@@ -95,6 +93,10 @@ export default function Visualizer(props: any) {
 
     const [rotationControlActive, setRotationControlActive] = useState(false);
     const [rotationControlValue, setRotationControlValue] = useState(0); // Temporary rotation offset (not applied yet)
+
+    const [toolMode, setToolMode] = useState(VisualizerToolMode.None);
+    const [historySize] = useState<number>(0);
+    const [initialRotation, setInitialRotation] = useState<number>(0);
 
     useEffect(() => {
         _isMounted.current = true;
@@ -228,7 +230,7 @@ export default function Visualizer(props: any) {
         }
 
         return
-    }, [basePath]);
+    }, [getScenePath]);
 
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem instanceof SceneInfo) {
@@ -246,7 +248,7 @@ export default function Visualizer(props: any) {
         } else if (swatchItem instanceof SceneCollection) {
             setSelectedSceneRow(swatchItem)
         }
-    }, [basePath, siteContext.dispatch]);
+    }, [getScenePath, siteContext.dispatch]);
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children)
@@ -306,11 +308,56 @@ export default function Visualizer(props: any) {
         return false
     }, [siteContext.state.sceneData]);
 
+    const cbToolMode = useMemo(()=>{
+        switch (toolMode) {
+            case VisualizerToolMode.DrawSurface:
+                return CBToolMode.Draw;
+            case VisualizerToolMode.EraseSurface:
+                return CBToolMode.Erase;
+            default:
+                return CBToolMode.Select
+        }
+    }, [toolMode]);
+
+    const isModePermitted = useCallback((mode: VisualizerToolMode) => {
+
+        return true
+    }, []);
+
+    const toolChanged = useCallback((mode: VisualizerToolMode) => {
+        if (!_isMounted.current) return
+        setToolMode(mode)
+
+        if (toolMode === VisualizerToolMode.Rotate) {
+            setInitialRotation(siteContext.state.rotation ? siteContext.state.rotation[1] : 0)
+        }
+
+    }, [siteContext.state.rotation, toolMode]);
+
+    const toolsShowHideButtons = useCallback((show: boolean) => {
+        if (!_isMounted.current) return
+        setIsToolOverlayOpen(!show)
+    }, []);
+
+    const rotateChanged = useCallback((radians: number) => {
+        if (!_isMounted.current) return
+
+        //surfaceAsset.surfaceRotation = radians
+
+    }, []);
+
+    const rotateFinished = useCallback((commit: boolean, radians: number) => {
+        if (!_isMounted.current) return
+
+        //surfaceAsset.surfaceRotation = commit ? radians : initialRotation
+
+    }, []);
+
     return useMemo(() => (
         <div className={"visualizer"}>
 
             <CBVisualizer
-                toolMode={toolMode}
+                toolMode={cbToolMode}
                 canLoad={true}
                 material={materialProperties}
                 defaultMaterial = {new CBMaterialProperties(20,"assets/scenes/blue-tile.jpeg")}
@@ -321,6 +368,22 @@ export default function Visualizer(props: any) {
                 floorRotation={rotation[1] + (rotationControlActive ? rotationControlValue : (siteContext.state.floorRotationOffset || 0))}
                 showControls={siteContext.state.showControls}
                 blendEdges={isUploadedImage()}
+            />
+
+            <VisualizerTools
+                visible={!isToolOverlayOpen}
+                mode={toolMode}
+                isModePermitted={isModePermitted}
+
+                changeMode={toolChanged}
+                onChangeImage={onChangeImage}
+
+                initialRotation={initialRotation}
+                onRotationChanged={rotateChanged}
+                onRotationFinished={rotateFinished}
+
+                historySize={historySize}
+                onShowHideButtons={toolsShowHideButtons}
             />
 
             <div ref={productSelectorPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
@@ -356,5 +419,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [allFilters, fov, isUploadedImage, listingItems, materialProperties, navClicked, navigationItem, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolMode])
+    ), [allFilters, cbToolMode, fov, historySize, initialRotation, isToolOverlayOpen, isUploadedImage, listingItems, materialProperties, navClicked, navigationItem, onChangeImage, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode])
 }
