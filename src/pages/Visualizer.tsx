@@ -336,7 +336,11 @@ export default function Visualizer(props: any) {
             setInitialRotation(siteContext.state.rotation ? siteContext.state.rotation[1] : 0)
         }
 
-    }, [siteContext.state.rotation, toolMode]);
+        if (toolMode !== VisualizerToolMode.ChooseScene) {
+            setPanelOpenClose(false)
+        }
+
+    }, [setPanelOpenClose, siteContext.state.rotation, toolMode]);
 
     const toolsShowHideButtons = useCallback((show: boolean) => {
         if (!_isMounted.current) return
