@@ -93,6 +93,8 @@ export default function Visualizer(props: any) {
     const [toolMode, setToolMode] = useState(VisualizerToolMode.None);
     const [historySize] = useState<number>(0);
     const [initialRotation, setInitialRotation] = useState<number>(0);
+    const [hasPhotoUpload, setHasPhotoUpload] = useState(false)
+    const [lightingOffset, setLightingOffset] = useState(0)
 
     useEffect(() => {
         _isMounted.current = true;
@@ -100,6 +102,14 @@ export default function Visualizer(props: any) {
         fetch('assets/data/products.json').then(res => res.json())
             .then(json => {
                 setBasePath(json.basePath)
+
+                if (json.hasOwnProperty("hasPhotoUpload")) {
+                    setHasPhotoUpload(json.hasPhotoUpload)
+                }
+
+                if (json.hasOwnProperty("lightingOffset")) {
+                    setLightingOffset(json.lightingOffset)
+                }
 
                 const brands:ProductBrand[] = []
                 for (const brandJson of json.brands) {
@@ -313,10 +323,12 @@ export default function Visualizer(props: any) {
             return isUploadedImage()
         } else if (mode === VisualizerToolMode.Translate) {
             return false
+        } else if (mode === VisualizerToolMode.PhotoUpload) {
+            return hasPhotoUpload
         }
 
         return true
-    }, [isUploadedImage]);
+    }, [hasPhotoUpload, isUploadedImage]);
 
     const toolChanged = useCallback((mode: VisualizerToolMode) => {
         if (!_isMounted.current) return
@@ -365,6 +377,7 @@ export default function Visualizer(props: any) {
                 floorRotation={rotation[1] + (rotationControlActive ? rotationControlValue : (siteContext.state.floorRotationOffset || 0))}
                 showControls={siteContext.state.showControls}
                 blendEdges={isUploadedImage()}
+                lightingOffset={lightingOffset}
             />
 
             <VisualizerTools
