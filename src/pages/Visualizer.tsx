@@ -94,6 +94,7 @@ export default function Visualizer(props: any) {
     const [historySize] = useState<number>(0);
     const [initialRotation, setInitialRotation] = useState<number>(0);
     const [hasPhotoUpload, setHasPhotoUpload] = useState(false)
+    const [hasScenes, setHasScenes] = useState(true)
     const [lightingOffset, setLightingOffset] = useState(0)
 
     useEffect(() => {
@@ -105,6 +106,10 @@ export default function Visualizer(props: any) {
 
                 if (json.hasOwnProperty("hasPhotoUpload")) {
                     setHasPhotoUpload(json.hasPhotoUpload)
+                }
+
+                if (json.hasOwnProperty("hasScenes")) {
+                    setHasScenes(json.hasScenes)
                 }
 
                 if (json.hasOwnProperty("lightingOffset")) {
@@ -321,26 +326,31 @@ export default function Visualizer(props: any) {
             return isUploadedImage()
         } else if (mode === VisualizerToolMode.Translate) {
             return false
-        } else if (mode === VisualizerToolMode.PhotoUpload) {
+        } else if (mode === VisualizerToolMode.ChoosePhoto) {
             return hasPhotoUpload
+        } else if (mode === VisualizerToolMode.ChooseScene) {
+            return hasScenes
         }
 
         return true
-    }, [hasPhotoUpload, isUploadedImage]);
+    }, [hasPhotoUpload, hasScenes, isUploadedImage]);
 
     const toolChanged = useCallback((mode: VisualizerToolMode) => {
         if (!_isMounted.current) return
         setToolMode(mode)
 
-        if (toolMode === VisualizerToolMode.Rotate) {
+        if (mode === VisualizerToolMode.Rotate) {
             setInitialRotation(siteContext.state.rotation ? siteContext.state.rotation[1] : 0)
+        } else if (mode === VisualizerToolMode.ChoosePhoto) {
+            openImageDialog()
+        } else if (mode === VisualizerToolMode.ChooseScene) {
+            setShowScenes(true)
         }
 
-        if (toolMode !== VisualizerToolMode.ChooseScene) {
-            setPanelOpenClose(false)
-        }
+        //panels will close for all modes except scenes.
+        setPanelOpenClose(mode === VisualizerToolMode.ChooseScene)
 
-    }, [setPanelOpenClose, siteContext.state.rotation, toolMode]);
+    }, [setPanelOpenClose, siteContext.state.rotation]);
 
     const toolsShowHideButtons = useCallback((show: boolean) => {
         if (!_isMounted.current) return
@@ -364,10 +374,7 @@ export default function Visualizer(props: any) {
 
     }, [dispatch]);
 
-    const onChooseScene = useCallback(() => {
-        setPanelOpenClose(true)
-        setShowScenes(true)
-    }, [setPanelOpenClose]);
+    const isPortrait = window.innerHeight > window.innerWidth
 
     return useMemo(() => (
         <div className={"visualizer"}>
@@ -393,8 +400,6 @@ export default function Visualizer(props: any) {
                 isModePermitted={isModePermitted}
 
                 changeMode={toolChanged}
-                onChoosePhoto={()=>openImageDialog()}
-                onChooseScene={onChooseScene}
 
                 initialRotation={initialRotation}
                 onRotationChanged={rotateChanged}
@@ -429,7 +434,7 @@ export default function Visualizer(props: any) {
                                      resolveThumbnailPath={resolveSceneThumbnailPath}/>
                 </div>
                 <div className={"close-button-container"}>
-                    <Fab className={"close-button"} onClick={()=>setPanelOpenClose(!panelOpen)} icon={<MaterialIcon icon={panelOpen ? "keyboard_arrow_left" :  "keyboard_arrow_right"} />} />
+                    <Fab className={"close-button"} onClick={()=>setPanelOpenClose(!panelOpen)} icon={<MaterialIcon icon={panelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
                 </div>
             </div>
 
@@ -437,5 +442,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [allFilters, cbToolMode, fov, historySize, initialRotation, isModePermitted, isToolOverlayOpen, isUploadedImage, lightingOffset, listingItems, materialProperties, navClicked, navigationItem, onChooseScene, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotateChanged, rotateFinished, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons])
+    ), [allFilters, cbToolMode, fov, historySize, initialRotation, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, lightingOffset, listingItems, materialProperties, navClicked, navigationItem, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotateChanged, rotateFinished, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons])
 }
