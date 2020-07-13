@@ -186,10 +186,7 @@ function App() {
                 })
 
                 const path = searchObject.rt + "/" + searchObject.r
-
                 const basePath = "assets/scenes/" + path
-
-                console.log(basePath + "/data.json")
 
                 fetch(basePath + "/data.json")
                     .then(res => res.json())
