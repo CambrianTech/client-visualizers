@@ -142,14 +142,12 @@ export default function Visualizer(props: any) {
             productSelectorPanel.current.classList.remove("open")
             if (open) {
                 productSelectorPanel.current.classList.add("open")
+            } else {
+                setShowScenes(false)
             }
         }
         _setPanelOpen(open)
     }, [productSelectorPanel]);
-
-    const onChangeImage = useCallback(() => {
-        openImageDialog()
-    }, [])
 
     const onImageChosen = useCallback((data: any) => {
         console.log(data)
@@ -362,6 +360,11 @@ export default function Visualizer(props: any) {
 
     }, [dispatch]);
 
+    const onChooseScene = useCallback(() => {
+        setPanelOpenClose(true)
+        setShowScenes(true)
+    }, [setPanelOpenClose]);
+
     return useMemo(() => (
         <div className={"visualizer"}>
 
@@ -386,7 +389,8 @@ export default function Visualizer(props: any) {
                 isModePermitted={isModePermitted}
 
                 changeMode={toolChanged}
-                onChangeImage={onChangeImage}
+                onChoosePhoto={()=>openImageDialog()}
+                onChooseScene={onChooseScene}
 
                 initialRotation={initialRotation}
                 onRotationChanged={rotateChanged}
@@ -429,5 +433,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [allFilters, cbToolMode, fov, historySize, initialRotation, isModePermitted, isToolOverlayOpen, isUploadedImage, lightingOffset, listingItems, materialProperties, navClicked, navigationItem, onChangeImage, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotateChanged, rotateFinished, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons])
+    ), [allFilters, cbToolMode, fov, historySize, initialRotation, isModePermitted, isToolOverlayOpen, isUploadedImage, lightingOffset, listingItems, materialProperties, navClicked, navigationItem, onChooseScene, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotateChanged, rotateFinished, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons])
 }
