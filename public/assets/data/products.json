@@ -18,7 +18,10 @@
             {
               "name": "1-bathroom",
               "code": "1-bathroom",
-              "displayName": "Bathroom"
+              "displayName": "Bathroom",
+              "metaData": {
+                "isLocal": true
+              }
             }
           ]
         },
@@ -30,12 +33,18 @@
             {
               "name": "2-bedroom",
               "code": "2-bedroom",
-              "displayName": "Bedroom"
+              "displayName": "Bedroom",
+              "metaData": {
+                "isLocal": true
+              }
             },
             {
               "name": "3-bedroom",
               "code": "3-bedroom",
-              "displayName": "Bedroom"
+              "displayName": "Bedroom",
+              "metaData": {
+                "isLocal": true
+              }
             }
           ]
         },

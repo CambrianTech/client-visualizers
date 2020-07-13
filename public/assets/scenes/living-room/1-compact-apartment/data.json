@@ -7,9 +7,9 @@
      "cameraRotation": [
           -0.0529879295918158,
           0.0,
-          -0.16
+          0.0
      ],
-     "floorRotation": 0.2140694750546708,
+     "floorRotation": 0.01,
      "fov": 85.0,
      "images": {
           "main": "image.jpg",
