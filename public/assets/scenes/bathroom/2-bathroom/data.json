@@ -5,11 +5,11 @@
           0.0
      ],
      "cameraRotation": [
-          -0.03931376233572336,
+          -0.160,
           0.0,
-          -0.038
+          -0.009
      ],
-     "floorRotation": 1.0949584197759512,
+     "floorRotation": 1.1090142920784196,
      "fov": 85.0,
      "images": {
           "main": "image.jpg",
@@ -19,4 +19,5 @@
                "floor": "mask.png"
           }
      }
+
 }
