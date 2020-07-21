@@ -133,6 +133,14 @@
               "metaData": {
                 "isLocal": true
               }
+            },
+            { 
+              "name": "5-kitchen",
+              "code": "5-kitchen",
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
             }
           ]
         },
