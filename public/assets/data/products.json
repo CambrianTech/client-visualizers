@@ -1,7 +1,7 @@
 {
   "basePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource",
   "hasPhotoUpload": false,
-  "lightingOffset": 0.5,
+  "lightingOffset": 0.3,
   "brands": [
     {
       "name": "flooring-one-source",

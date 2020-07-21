@@ -383,7 +383,7 @@ export default function Visualizer(props: any) {
                 toolMode={cbToolMode}
                 canLoad={true}
                 material={materialProperties}
-                defaultMaterial = {new CBMaterialProperties(20,"assets/scenes/blue-tile.jpeg")}
+                defaultMaterial = {new CBMaterialProperties(20,"assets/scenes/blue-tile.png")}
                 scene={siteContext.state.sceneData}
                 fov={fov}
                 cameraPosition={position}

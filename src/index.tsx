@@ -102,12 +102,12 @@ function App() {
 
         // Parse URL search string without the first character (typically question mark).
         // Also turn the keys into lowercase so their case doesn't matter.
-        const searchObject = objectToLowerCase(qs.parse(location.search.substr(1)))
+        const searchObject = objectToLowerCase(qs.parse(location.search.substr(1)));
 
-        searchObject.rt = "dining-room"
-        searchObject.r = "dining-room-1"
+        searchObject.rt = "bedroom";
+        searchObject.r = "2-bedroom";
 
-        const searchFov = searchObject.f as string
+        const searchFov = searchObject.f as string;
         if (searchFov) {
             const fov = parseFloat(searchFov)
             if (!siteState.fov || (fov - siteState.fov) > 0.0001) {
