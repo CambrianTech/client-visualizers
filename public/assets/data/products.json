@@ -22,6 +22,14 @@
               "metaData": {
                 "isLocal": true
               }
+            },
+              {
+              "name": "2-bathroom",
+              "code": "2-bathroom",
+              "displayName": "Bathroom",
+              "metaData": {
+                "isLocal": true
+              }
             }
           ]
         },
@@ -41,6 +49,30 @@
             {
               "name": "3-bedroom",
               "code": "3-bedroom",
+              "displayName": "Bedroom",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "4-bedroom",
+              "code": "4-bedroom",
+              "displayName": "Bedroom",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "5-bedroom",
+              "code": "5-bedroom",
+              "displayName": "Bedroom",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "6-bedroom",
+              "code": "6-bedroom",
               "displayName": "Bedroom",
               "metaData": {
                 "isLocal": true
@@ -72,6 +104,30 @@
             {
               "name": "1-kitchen",
               "code": "1-kitchen",
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "2-kitchen",
+              "code": "2-kitchen",
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "3-kitchen",
+              "code": "3-kitchen",
+              "displayName": "Kitchen",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "4-kitchen",
+              "code": "4-kitchen",
               "displayName": "Kitchen",
               "metaData": {
                 "isLocal": true
@@ -111,6 +167,30 @@
             {
               "name": "6-living-room",
               "code": "6-living-room",
+              "displayName": "Living Room",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "7-living-room",
+              "code": "7-living-room",
+              "displayName": "Living Room",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "8-living-room",
+              "code": "8-living-room",
+              "displayName": "Living Room",
+              "metaData": {
+                "isLocal": true
+              }
+            },
+            {
+              "name": "9-living-room",
+              "code": "9-living-room",
               "displayName": "Living Room",
               "metaData": {
                 "isLocal": true
