@@ -275,8 +275,9 @@ export default function Visualizer(props: any) {
         if (selectedRow && (!selectedColumn || selectedColumn.parent !== selectedRow)) {
             const swatch = selectedRow.children.length ? selectedRow.children[0] : undefined; //or default here
             setSelectedColumn(swatch);
+            setPanelOpenClose(true);
         }
-    }, [selectedColumn, selectedRow, swatchSelected])
+    }, [selectedColumn, selectedRow, setPanelOpenClose, swatchSelected])
 
     useEffect(() => {
         if (rootItem) {
