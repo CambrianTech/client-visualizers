@@ -7,7 +7,7 @@ import {
     DataFilter,
     DataItem,
     Product,
-    ProductBrand,
+    ProductBrand, ProductCollection,
     ProductColor,
     SceneCollection,
     SceneInfo,
@@ -217,14 +217,11 @@ export default function Visualizer(props: any) {
 
         if (swatchItem.parent && swatchItem.parent.hasColumns) {
             setSelectedColumn(swatchItem);
-            if (swatchItem instanceof ProductColor || swatchItem instanceof Product) {
-                showMaterial(swatchItem)
-            }
         } else {
             setSelectedRow(swatchItem)
         }
 
-    }, [showMaterial]);
+    }, []);
 
     const getScenePath = useCallback((info:SceneInfo)=>{
         const isLocal = info.metaData && info.metaData.hasOwnProperty("isLocal") && info.metaData.isLocal;
@@ -268,10 +265,55 @@ export default function Visualizer(props: any) {
         setNavigationItem(swatchItem)
     }, []);
 
+    useEffect(()=>{
+        if (selectedColumn instanceof Product || selectedColumn instanceof ProductColor) {
+            showMaterial(selectedColumn)
+        }
+    }, [selectedColumn, showMaterial])
+
     useEffect(() => {
-        if (rootItem && !listingItems) {
+        if (selectedRow && (!selectedColumn || selectedColumn.parent !== selectedRow)) {
+            const swatch = selectedRow.children.length ? selectedRow.children[0] : undefined; //or default here
+            setSelectedColumn(swatch);
+        }
+    }, [selectedColumn, selectedRow, swatchSelected])
+
+    useEffect(() => {
+        if (rootItem) {
             if (!listingItems) {
-                setListingItems(rootItem.children)
+                let items = rootItem.children as DataItem[];
+
+                const collection = siteContext.state.selectedCollection ? items.find(item=>item instanceof ProductCollection && item.code === siteContext.state.selectedCollection) as ProductCollection : undefined;
+                const product = siteContext.state.selectedProduct ? (collection ? collection.products : items).find(item=>item instanceof Product && item.code === siteContext.state.selectedProduct) as Product : undefined;
+                const color = siteContext.state.selectedColor ? (product ? product.colors : items).find(item=>item instanceof ProductColor && item.code === siteContext.state.selectedColor) as ProductColor : undefined;
+
+                let selectedRw:SwatchItem|undefined;
+                let selectedCol:SwatchItem|undefined;
+
+                if (color) {
+                    selectedCol = color;
+                    selectedRw = color.product;
+                    items = color.product.collection.products;
+                } else if (product) {
+                    if (product.hasColumns) {
+                        selectedRw = product
+                    } else {
+                        selectedRw = product.collection;
+                        selectedCol = product
+                    }
+
+                } else if (collection) {
+                    if (collection.hasColumns) {
+                        selectedRw = collection
+                    } else {
+                        selectedRw = collection.brand;
+                        selectedCol = collection
+                    }
+                }
+
+                setListingItems(items);
+                setSelectedRow(selectedRw);
+                setSelectedColumn(selectedCol);
             }
 
             if (!sceneListingItems) {
@@ -279,7 +321,7 @@ export default function Visualizer(props: any) {
                 setSceneListingItems(brand.sceneCollections)
             }
         }
-    }, [listingItems, rootItem, sceneListingItems]);
+    }, [listingItems, rootItem, sceneListingItems, siteContext.state.selectedCollection, siteContext.state.selectedColor, siteContext.state.selectedProduct]);
 
     const panelMouseTimeout = useRef(0);
     const panelMouseOver = useCallback(() => {

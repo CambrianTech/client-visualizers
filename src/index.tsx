@@ -199,7 +199,21 @@ function App() {
         if (searchObject.collection) {
             dispatchSiteState({
                 type: "setCollection",
-                collection:searchObject.collection
+                code:searchObject.collection
+            })
+        }
+
+        if (searchObject.product) {
+            dispatchSiteState({
+                type: "setProduct",
+                code:searchObject.product
+            })
+        }
+
+        if (searchObject.color) {
+            dispatchSiteState({
+                type: "setColor",
+                code:searchObject.color
             })
         }
 

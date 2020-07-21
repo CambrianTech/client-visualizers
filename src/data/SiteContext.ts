@@ -11,6 +11,8 @@ export type DerivedSiteState = {
 
 export type SharableVisualizerState = {
     selectedCollection: string | null
+    selectedProduct: string | null
+    selectedColor: string | null
     selectedSampleRoom: string | null
     selectedSampleRoomType: string | null
     selectedSamplePath: string | null
@@ -41,6 +43,8 @@ export function createEmptyState(): SiteState {
     return {
         // shared
         selectedCollection:null,
+        selectedProduct:null,
+        selectedColor:null,
         browserProperties: {},
         error: null,
 
@@ -81,7 +85,17 @@ export type SiteActionSetError = {
 
 export type SiteActionSetCollection = {
     type: "setCollection"
-    collection: string | null
+    code: string | null
+}
+
+export type SiteActionSetProduct = {
+    type: "setProduct"
+    code: string | null
+}
+
+export type SiteActionSetColor = {
+    type: "setColor"
+    code: string | null
 }
 
 export type SiteActionSetSceneData = {
@@ -127,7 +141,8 @@ export type SiteActionSetFloorRotationOffset = {
 
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | SiteActionSetFloorRotationOffset
-    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetCollection
+    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType
+    | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor;
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
     // Set the thing we are supposed to set. Also make sure anything depending
@@ -171,7 +186,13 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
             break;
 
         case "setCollection":
-            newState.selectedCollection = action.collection;
+            newState.selectedCollection = action.code;
+            break;
+        case "setProduct":
+            newState.selectedProduct = action.code;
+            break;
+        case "setColor":
+            newState.selectedColor = action.code;
             break;
 
         default:
