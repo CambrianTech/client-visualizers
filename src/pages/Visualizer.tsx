@@ -54,17 +54,17 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
 
 export default function Visualizer(props: any) {
     const siteContext = useContext(SiteContext)!;
-    const dispatch = siteContext.dispatch
+    const dispatch = siteContext.dispatch;
 
     const [isToolOverlayOpen, setIsToolOverlayOpen] = useState(false);
 
     const _isMounted = useRef(false);
 
-    const [showScenes, setShowScenes] = useState(false)
+    const [showScenes, setShowScenes] = useState(false);
 
-    const [statusText, setStatusText] = useState("")
-    const [progressPercentage, setProgressPercentage] = useState(0)
-    const [progressVisible, setProgressVisible] = useState(false)
+    const [statusText, setStatusText] = useState("");
+    const [progressPercentage, setProgressPercentage] = useState(0);
+    const [progressVisible, setProgressVisible] = useState(false);
 
     const [rootItem, setRootItem] = useState<SwatchItem>();
 
@@ -75,15 +75,15 @@ export default function Visualizer(props: any) {
     const [listingItems, setListingItems] = useState<SwatchItem[]>();
     const [selectedRow, setSelectedRow] = useState<SwatchItem>();
     const [selectedColumn, setSelectedColumn] = useState<SwatchItem>();
-    const [basePath, setBasePath] = useState()
-    const [logoPath, setLogoPath] = useState()
+    const [basePath, setBasePath] = useState();
+    const [logoPath, setLogoPath] = useState();
 
     const [sceneListingItems, setSceneListingItems] = useState<SwatchItem[]>();
     const [selectedSceneRow, setSelectedSceneRow] = useState<SwatchItem>();
     const [selectedSceneColumn, setSelectedSceneColumn] = useState<SwatchItem>();
 
     //legacy stuff:
-    const [materialProperties, setMaterialProperies] = useState<CBMaterialProperties>()
+    const [materialProperties, setMaterialProperies] = useState<CBMaterialProperties>();
     const position = siteContext.state.position || [0, 1, 0];
     const rotation = siteContext.state.rotation || [0, 0, 0];
     const fov = siteContext.state.fov || 60;
@@ -94,16 +94,16 @@ export default function Visualizer(props: any) {
     const [toolMode, setToolMode] = useState(VisualizerToolMode.None);
     const [historySize] = useState<number>(0);
     const [initialRotation, setInitialRotation] = useState<number>(0);
-    const [hasPhotoUpload, setHasPhotoUpload] = useState(false)
-    const [hasScenes, setHasScenes] = useState(true)
-    const [lightingOffset, setLightingOffset] = useState(0)
+    const [hasPhotoUpload, setHasPhotoUpload] = useState(false);
+    const [hasScenes, setHasScenes] = useState(true);
+    const [lightingOffset, setLightingOffset] = useState(0);
 
     useEffect(() => {
         _isMounted.current = true;
 
         fetch('assets/data/products.json').then(res => res.json())
             .then(json => {
-                setBasePath(json.basePath)
+                setBasePath(json.basePath);
 
                 if (json.hasOwnProperty("hasPhotoUpload")) {
                     setHasPhotoUpload(json.hasPhotoUpload)
@@ -121,14 +121,14 @@ export default function Visualizer(props: any) {
                     setLogoPath(json.siteLogoImage)
                 }
 
-                const brands:ProductBrand[] = []
+                const brands:ProductBrand[] = [];
                 for (const brandJson of json.brands) {
-                    const brand = new ProductBrand()
-                    brand.load(brandJson)
+                    const brand = new ProductBrand();
+                    brand.load(brandJson);
                     brands.push(brand)
                 }
 
-                let rootItem:SwatchItem = brands[0]
+                let rootItem:SwatchItem = brands[0];
                 while (rootItem.children.length === 1) {
                     if (!(rootItem.children[0] instanceof Product)) {
                         rootItem = rootItem.children[0]
@@ -138,7 +138,7 @@ export default function Visualizer(props: any) {
                 }
 
                 setRootItem(rootItem)
-            })
+            });
 
         return () => {
             _isMounted.current = false
@@ -146,10 +146,10 @@ export default function Visualizer(props: any) {
     }, []);
 
     const [panelOpen, _setPanelOpen] = useState<boolean>(false);
-    const productSelectorPanel = createRef<HTMLDivElement>()
+    const productSelectorPanel = createRef<HTMLDivElement>();
     const setPanelOpenClose = useCallback((open:boolean) => {
         if (productSelectorPanel.current) {
-            productSelectorPanel.current.classList.remove("open")
+            productSelectorPanel.current.classList.remove("open");
             if (open) {
                 productSelectorPanel.current.classList.add("open")
             } else {
@@ -161,17 +161,17 @@ export default function Visualizer(props: any) {
 
     const onImageChosen = useCallback((data: any) => {
         console.log(data)
-    }, [])
+    }, []);
 
     const onProgress = useCallback((uploadProgress: UploadProgress) => {
-        if (!_isMounted.current) return
+        if (!_isMounted.current) return;
         if (uploadProgress.message) {
             setStatusText(uploadProgress.message)
         }
         if (uploadProgress.progress !== undefined) {
             setProgressPercentage(uploadProgress.progress)
         }
-        setProgressVisible(uploadProgress.visible)
+        setProgressVisible(uploadProgress.visible);
 
         if (uploadProgress.error) {
             switch (uploadProgress.error.constructor) {
@@ -179,7 +179,7 @@ export default function Visualizer(props: any) {
                     const promise = uploadProgress.error as Promise<any>;
                     promise.catch((error: any) => {
                         dispatch({ type: "setError", error: error })
-                    })
+                    });
                     break;
                 }
                 default: {
@@ -192,22 +192,22 @@ export default function Visualizer(props: any) {
 
     const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
 
-        if (!(swatchItem instanceof DataItem)) return
+        if (!(swatchItem instanceof DataItem)) return;
 
         if (!swatchItem.thumbnail && swatchItem.children.length) {
             return resolveThumbnailPath(swatchItem.children[0])
         }
 
-        const path = `${basePath}/textures/${swatchItem.thumbnail}`
+        const path = `${basePath}/textures/${swatchItem.thumbnail}`;
 
         return path
 
     }, [basePath]);
 
-    const chooseColor = useCallback((color:ProductColor) => {
+    const showMaterial = useCallback((color:Product|ProductColor) => {
 
-        const albedoPath = `${basePath}/textures/${color.metaData.albedo}`
-        const ppi = color.ppi ? color.ppi : 20
+        const albedoPath = `${basePath}/textures/${color.metaData.albedo}`;
+        const ppi = color.ppi ? color.ppi : 20;
 
         setMaterialProperies(new CBMaterialProperties(ppi, albedoPath))
 
@@ -215,31 +215,30 @@ export default function Visualizer(props: any) {
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
-        if (swatchItem instanceof ProductColor) {
-            setSelectedColumn(swatchItem)
-            chooseColor(swatchItem)
-        } else if (swatchItem instanceof Product) {
+        if (swatchItem.parent && swatchItem.parent.hasColumns) {
+            setSelectedColumn(swatchItem);
+            if (swatchItem instanceof ProductColor || swatchItem instanceof Product) {
+                showMaterial(swatchItem)
+            }
+        } else {
             setSelectedRow(swatchItem)
-        } else if (swatchItem instanceof DataItem) {
-            setListingItems(swatchItem.children)
-            setNavigationItem(swatchItem)
         }
 
-    }, [chooseColor]);
+    }, [showMaterial]);
 
     const getScenePath = useCallback((info:SceneInfo)=>{
-        const isLocal = info.metaData && info.metaData.hasOwnProperty("isLocal") && info.metaData.isLocal
+        const isLocal = info.metaData && info.metaData.hasOwnProperty("isLocal") && info.metaData.isLocal;
         return `${isLocal ? "assets" : basePath}/scenes/${info.collection.name}/${info.name}`
-    },[basePath])
+    },[basePath]);
 
     const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
         if (swatchItem instanceof SceneCollection) {
-            const col = swatchItem as SceneCollection
+            const col = swatchItem as SceneCollection;
             if (col.scenes.length) {
                 return resolveSceneThumbnailPath(col.scenes[0])
             }
         } else if (swatchItem instanceof SceneInfo) {
-            const scene = swatchItem as SceneInfo
+            const scene = swatchItem as SceneInfo;
             return `${getScenePath(scene)}/preview.jpg`
         }
 
@@ -248,10 +247,10 @@ export default function Visualizer(props: any) {
 
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem instanceof SceneInfo) {
-            const scene = swatchItem as SceneInfo
-            setSelectedSceneColumn(swatchItem)
+            const scene = swatchItem as SceneInfo;
+            setSelectedSceneColumn(swatchItem);
 
-            const scenePath = getScenePath(scene)
+            const scenePath = getScenePath(scene);
 
             fetch(scenePath + "/data.json")
                 .then(res => res.json())
@@ -265,7 +264,7 @@ export default function Visualizer(props: any) {
     }, [getScenePath, siteContext.dispatch]);
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
-        setListingItems(swatchItem.children)
+        setListingItems(swatchItem.children);
         setNavigationItem(swatchItem)
     }, []);
 
@@ -276,22 +275,22 @@ export default function Visualizer(props: any) {
             }
 
             if (!sceneListingItems) {
-                const brand = (rootItem as DataItem).brand
+                const brand = (rootItem as DataItem).brand;
                 setSceneListingItems(brand.sceneCollections)
             }
         }
     }, [listingItems, rootItem, sceneListingItems]);
 
-    const panelMouseTimeout = useRef(0)
+    const panelMouseTimeout = useRef(0);
     const panelMouseOver = useCallback(() => {
         if (panelMouseTimeout.current) {
-            clearTimeout(panelMouseTimeout.current)
+            clearTimeout(panelMouseTimeout.current);
             panelMouseTimeout.current = 0
         }
     }, []);
 
     const panelMouseOut = useCallback(() => {
-        if (panelMouseTimeout.current) return
+        if (panelMouseTimeout.current) return;
 
         if (PANEL_TIMEOUT) {
             panelMouseTimeout.current = setTimeout(()=>{
@@ -303,10 +302,10 @@ export default function Visualizer(props: any) {
 
 
     const allFilters = useMemo<DataFilter[]>(()=>{
-        const allFilters:DataFilter[] = filters ? filters:[]
+        const allFilters:DataFilter[] = filters ? filters:[];
 
         return allFilters
-    }, [filters])
+    }, [filters]);
 
     const isUploadedImage = useCallback(() => {
         if (siteContext.state.sceneData) {
@@ -341,8 +340,8 @@ export default function Visualizer(props: any) {
     }, [hasPhotoUpload, hasScenes, isUploadedImage]);
 
     const toolChanged = useCallback((mode: VisualizerToolMode) => {
-        if (!_isMounted.current) return
-        setToolMode(mode)
+        if (!_isMounted.current) return;
+        setToolMode(mode);
 
         if (mode === VisualizerToolMode.Rotate) {
             setInitialRotation(siteContext.state.rotation ? siteContext.state.rotation[1] : 0)
@@ -358,19 +357,19 @@ export default function Visualizer(props: any) {
     }, [setPanelOpenClose, siteContext.state.rotation]);
 
     const toolsShowHideButtons = useCallback((show: boolean) => {
-        if (!_isMounted.current) return
+        if (!_isMounted.current) return;
         setIsToolOverlayOpen(!show)
     }, []);
 
     const rotateChanged = useCallback((radians: number) => {
-        if (!_isMounted.current) return
-        setRotationControlActive(true)
+        if (!_isMounted.current) return;
+        setRotationControlActive(true);
         setRotationControlValue(radians)
 
     }, []);
 
     const rotateFinished = useCallback((commit: boolean, radians: number) => {
-        if (!_isMounted.current) return
+        if (!_isMounted.current) return;
 
         dispatch({
             type: "setFloorRotationOffset",
@@ -379,7 +378,7 @@ export default function Visualizer(props: any) {
 
     }, [dispatch]);
 
-    const isPortrait = window.innerHeight > window.innerWidth
+    const isPortrait = window.innerHeight > window.innerWidth;
 
     return useMemo(() => (
         <div className={"visualizer"}>
