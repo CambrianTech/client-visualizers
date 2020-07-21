@@ -196,6 +196,13 @@ function App() {
             }
         }
 
+        if (searchObject.collection) {
+            dispatchSiteState({
+                type: "setCollection",
+                collection:searchObject.collection
+            })
+        }
+
     }, [siteState.fov, siteState.position, siteState.rotation, siteState.selectedSampleRoom, siteState.selectedSampleRoomType])
 
     const initialize = useCallback(() => {
