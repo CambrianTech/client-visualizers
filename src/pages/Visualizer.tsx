@@ -76,6 +76,7 @@ export default function Visualizer(props: any) {
     const [selectedRow, setSelectedRow] = useState<SwatchItem>();
     const [selectedColumn, setSelectedColumn] = useState<SwatchItem>();
     const [basePath, setBasePath] = useState()
+    const [logoPath, setLogoPath] = useState()
 
     const [sceneListingItems, setSceneListingItems] = useState<SwatchItem[]>();
     const [selectedSceneRow, setSelectedSceneRow] = useState<SwatchItem>();
@@ -114,6 +115,10 @@ export default function Visualizer(props: any) {
 
                 if (json.hasOwnProperty("lightingOffset")) {
                     setLightingOffset(json.lightingOffset)
+                }
+
+                if (json.hasOwnProperty("siteLogoImage")) {
+                    setLogoPath(json.siteLogoImage)
                 }
 
                 const brands:ProductBrand[] = []
@@ -378,6 +383,8 @@ export default function Visualizer(props: any) {
 
     return useMemo(() => (
         <div className={"visualizer"}>
+
+            {logoPath && <img className={"floating-logo"} src={`${basePath}/${logoPath}`} alt={"logo"} />}
 
             <CBVisualizer
                 toolMode={cbToolMode}
