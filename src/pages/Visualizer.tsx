@@ -461,8 +461,8 @@ export default function Visualizer(props: any) {
             <div ref={productSelectorPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
                 <div className={"panel"}>
                     <div className={"title"}>
-                        <div onClick={()=>setShowScenes(false)}>Choose a Product</div>
-                        <div onClick={()=>setShowScenes(true)}>Choose a Scene</div>
+                        <div className={"choose product" + (showScenes ? "" : " selected")} onClick={()=>setShowScenes(false)}>Choose a Product</div>
+                        <div className={"choose scene" + (showScenes ? " selected" : "")} onClick={()=>setShowScenes(true)}>Choose a Scene</div>
                     </div>
 
                     {!showScenes && <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />}
