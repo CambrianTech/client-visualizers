@@ -4,7 +4,6 @@ import json
 import cv2
 import numpy as np
 import sys
-from psd_tools import PSDImage
 from pathlib import Path
 from PIL import Image
 
@@ -61,10 +60,7 @@ def crop_center(img,cropx,cropy):
     starty = y//2 - cropy//2    
     return img[starty:starty+cropy, startx:startx+cropx, :]
 
-def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, seam_size=2, jpeg_quality=90):
-
-    num_columns = 6
-    num_rows = 2
+def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
     
     for row in data:
         image_width = row['width']
@@ -138,7 +134,14 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("input_dir", default='input', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
-def main(data_file, input_dir, output_dir):        
+@click.option("--size", default=1024, type=int)
+@click.option("--rows", default=2, type=int)
+@click.option("--columns", default=6, type=int)
+@click.option("--seam_size", default=2, type=int)
+@click.option("--img_is_metric", default=True, type=bool)
+@click.option("--crop_is_metric", default=False, type=bool)
+@click.option("--quality", default=70, type=int)
+def main(data_file, input_dir, output_dir, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality):        
 
     if not os.path.exists(input_dir):
         raise Exception('The json file does not exist at path {}'.format(json_path)) 
@@ -149,7 +152,8 @@ def main(data_file, input_dir, output_dir):
     with open(data_file) as f:
         data = json.load(f)
 
-    crop_tiles(data, input_dir, output_dir, True, False)
+    # crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize, seam_size, quality)
+    crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality)
     
     print("Done")
 
