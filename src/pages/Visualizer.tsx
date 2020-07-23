@@ -94,7 +94,6 @@ export default function Visualizer(props: any) {
 
     const [toolMode, setToolMode] = useState(VisualizerToolMode.None);
     const [historySize] = useState<number>(0);
-    const [initialRotation, setInitialRotation] = useState<number>(0);
     const [hasPhotoUpload, setHasPhotoUpload] = useState(false);
     const [hasScenes, setHasScenes] = useState(true);
     const [lightingOffset, setLightingOffset] = useState(0);
@@ -397,9 +396,7 @@ export default function Visualizer(props: any) {
         if (!_isMounted.current) return;
         setToolMode(mode);
 
-        if (mode === VisualizerToolMode.Rotate) {
-            setInitialRotation(siteContext.state.rotation ? siteContext.state.rotation[1] : 0)
-        } else if (mode === VisualizerToolMode.ChoosePhoto) {
+        if (mode === VisualizerToolMode.ChoosePhoto) {
             openImageDialog()
         } else if (mode === VisualizerToolMode.ChooseScene) {
             setShowScenes(true)
@@ -408,7 +405,7 @@ export default function Visualizer(props: any) {
         //panels will close for all modes except scenes.
         setPanelOpenClose(mode === VisualizerToolMode.ChooseScene)
 
-    }, [setPanelOpenClose, siteContext.state.rotation]);
+    }, [setPanelOpenClose]);
 
     const toolsShowHideButtons = useCallback((show: boolean) => {
         if (!_isMounted.current) return;
