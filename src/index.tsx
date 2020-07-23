@@ -17,21 +17,28 @@ import * as qs from "querystring";
 import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
+import {CBSceneProperties} from "react-home-harmony";
 
 const objectFitImages = require('object-fit-images')
 
 export const api:any = (window as any).cb
 
 export function dispatchDataProperties(basePath:string, data:any, dispatch: Dispatch<SiteAction>) {
+    const sceneProperties:CBSceneProperties = {
+        backgroundUrl: basePath + "/" + data.images["main"],
+        lightingUrl: basePath + "/" + data.images["lighting"],
+        masks:{
+            "floor": basePath + "/" + data.images["masks"]["floor"]
+        }
+    };
+
+    if (data.hasOwnProperty("anchorPoint")) {
+        sceneProperties.anchorPoint = data.anchorPoint;
+    }
+
     dispatch({
         type: "setSceneData",
-        sceneData: {
-            backgroundUrl: basePath + "/" + data.images["main"],
-            lightingUrl: basePath + "/" + data.images["lighting"],
-            masks:{
-                "floor": basePath + "/" + data.images["masks"]["floor"]
-            }
-        }
+        sceneData: sceneProperties
     })
 
     dispatch({

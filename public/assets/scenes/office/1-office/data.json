@@ -11,6 +11,7 @@
      ],
      "floorRotation": 2.550043456427842,
      "fov": 60.0,
+     "anchorPoint": [0.5,1.0],
      "images": {
           "main": "image.jpg",
           "preview": "preview.jpg",
