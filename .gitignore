@@ -29,3 +29,5 @@ report.*.json
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
 /scripts/cutter/output
+input
+output

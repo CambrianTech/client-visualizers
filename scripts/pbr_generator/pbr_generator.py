@@ -10,6 +10,12 @@ from math import sqrt
 
 import click
 
+def resize(image, window_height):
+    aspect_ratio = float(image.shape[1])/float(image.shape[0])
+    window_width = window_height/aspect_ratio
+    image = cv2.resize(image, (int(window_height),int(window_width)), cv2.INTER_AREA)
+    return image
+
 def get_image_paths(input_dir, pattern):
     files = []
     extensions = ('.png', '.jpg', '.jpeg')
@@ -21,10 +27,10 @@ def get_specular(img):
     hsv_image = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
     h, s, v = cv2.split(hsv_image)
 
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
+    clahe = cv2.createCLAHE(clipLimit=1.0, tileGridSize=(16,16))
     reduced = clahe.apply(v)
 
-    return v - reduced
+    return cv2.GaussianBlur(v - reduced,(5,5),0)
 
 def get_normals(img, filter="Scharr" ): # normal[0..2] band-array
 
@@ -86,16 +92,28 @@ def get_normals(img, filter="Scharr" ): # normal[0..2] band-array
     normals = normals[border_size:border_size + img.shape[0], border_size:border_size + img.shape[1]]
     return normals
 
-def import_directory(input_dir, output_dir, filter='Scharr', file_pattern='*', quality=90):
+def import_directory(input_dir, output_dir, filter='Scharr', file_pattern='*', quality=90, output_size=None):
     
     files = get_image_paths(input_dir,file_pattern)
 
     for path in files:
         image_path = str(path)
         name = os.path.splitext(os.path.basename(image_path))[0]
-        output_path = os.path.join(output_dir, name)
 
-        print(image_path)
+        if image_path.startswith(input_dir):
+            dir_name = image_path[1+len(input_dir):]
+            dir_name = os.path.dirname(dir_name)
+
+        if dir_name:
+            out_dir = os.path.join(output_dir, dir_name)
+            if not os.path.exists(out_dir):
+                os.makedirs(out_dir)
+        else:
+            out_dir = output_dir
+
+        output_path = os.path.join(out_dir, name)
+
+        print(output_path)
 
         img = Image.open(path)
         img.save(output_path + "_diffuse.png", "JPEG", quality=quality)
@@ -104,10 +122,15 @@ def import_directory(input_dir, output_dir, filter='Scharr', file_pattern='*', q
         img = np.array(img)
         
         normals = get_normals(img, filter)
+        if output_size:
+            normals=resize(normals, output_size)
         Image.fromarray(normals).save(output_path + "_normals.jpg", "JPEG", quality=quality)
 
         specular = get_specular(img)
-        Image.fromarray(specular).save(output_path + "_specular.jpg", "JPEG", quality=quality)
+        if output_size:
+            specular=resize(specular, output_size)
+
+        Image.fromarray(specular).save(output_path + "_specular.jpg", "JPEG", quality=int(quality/2))
 
 
 @click.command()
@@ -115,9 +138,10 @@ def import_directory(input_dir, output_dir, filter='Scharr', file_pattern='*', q
 @click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.option('--filter', '-f', type=click.STRING, default='Scharr')
 @click.option('--file_pattern', '-p', type=click.STRING, default='*')
-@click.option('--quality', type=int, default=100)
+@click.option('--quality', type=int, default=50)
+@click.option('--output_size', type=int, default=512)
 
-def main(input_dir, output_dir, filter, file_pattern, quality):
+def main(input_dir, output_dir, filter, file_pattern, quality, output_size):
 
     if not os.path.exists(input_dir):
         raise Exception('The json file does not exist at path {}'.format(json_path)) 
@@ -125,7 +149,7 @@ def main(input_dir, output_dir, filter, file_pattern, quality):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    import_directory(input_dir, output_dir, filter, file_pattern, quality)
+    import_directory(input_dir, output_dir, filter, file_pattern, quality, output_size)
     
     print("Done")
 

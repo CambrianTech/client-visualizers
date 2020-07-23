@@ -10,9 +10,6 @@ from PIL import Image
 import click
 import random
 
-def crop_image(img):
-    print(img)
-
 def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)):
     half_seam_size = seam_size // 2
     total_seam_width = num_cols * seam_size
@@ -43,7 +40,7 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)
         if col % 2 == 0:
             x = col * w + (col + 1) * seam_size - half_seam_size
             x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
-
+            
             output[:, x:x_max] = np.roll(output[:, x:x_max], h // 2, axis=0)
 
     return output
