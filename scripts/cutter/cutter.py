@@ -134,7 +134,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.argument("input_dir", default='input', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
-@click.option("--size", default=1024, type=int)
+@click.option("--size", default=1536, type=int)
 @click.option("--rows", default=2, type=int)
 @click.option("--columns", default=6, type=int)
 @click.option("--seam_size", default=2, type=int)
