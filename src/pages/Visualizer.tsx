@@ -215,7 +215,10 @@ export default function Visualizer(props: any) {
         const albedoPath = `${basePath}/textures/${color.metaData.albedo}`;
         const ppi = color.ppi ? color.ppi : 20;
 
-        setMaterialProperies(new CBMaterialProperties(ppi, albedoPath))
+        const normalsPath = color.metaData.hasOwnProperty("normals") ? `${basePath}/textures/${color.metaData.normals}` : undefined;
+        const specularPath = color.metaData.hasOwnProperty("specular") ? `${basePath}/textures/${color.metaData.specular}` : undefined;
+
+        setMaterialProperies(new CBMaterialProperties(ppi, albedoPath, normalsPath, specularPath))
 
     }, [basePath]);
 

@@ -104,8 +104,8 @@ function App() {
         // Also turn the keys into lowercase so their case doesn't matter.
         const searchObject = objectToLowerCase(qs.parse(location.search.substr(1)));
 
-        searchObject.rt = "bedroom";
-        searchObject.r = "2-bedroom";
+        searchObject.rt = "kitchen";
+        searchObject.r = "2-kitchen";
 
         const searchFov = searchObject.f as string;
         if (searchFov) {
