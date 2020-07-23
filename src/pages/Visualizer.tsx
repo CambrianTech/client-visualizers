@@ -7,7 +7,8 @@ import {
     DataFilter,
     DataItem,
     Product,
-    ProductBrand, ProductCollection,
+    ProductBrand,
+    ProductCollection,
     ProductColor,
     SceneCollection,
     SceneInfo,
@@ -97,6 +98,12 @@ export default function Visualizer(props: any) {
     const [hasPhotoUpload, setHasPhotoUpload] = useState(false);
     const [hasScenes, setHasScenes] = useState(true);
     const [lightingOffset, setLightingOffset] = useState(0);
+
+    const [, setNeedsUpload] = useState(false);
+    const [floorSize, ] = useState([100,100]);
+    const [translationControlActive, setTranslationControlActive] = useState(false);
+    const floorTranslationOrigin = [0,0,-2]
+    const [translationControlValue, setTranslationControlValue] = useState(floorTranslationOrigin); // Temporary rotation offset (not applied yet)
 
     useEffect(() => {
         _isMounted.current = true;
@@ -363,6 +370,10 @@ export default function Visualizer(props: any) {
                 return CBToolMode.Draw;
             case VisualizerToolMode.EraseSurface:
                 return CBToolMode.Erase;
+            case VisualizerToolMode.Rotate:
+                return CBToolMode.Rotate;
+            case VisualizerToolMode.Translate:
+                return CBToolMode.Translate;
             default:
                 return CBToolMode.Select
         }
@@ -408,18 +419,63 @@ export default function Visualizer(props: any) {
         if (!_isMounted.current) return;
         setRotationControlActive(true);
         setRotationControlValue(radians)
-
     }, []);
 
     const rotateFinished = useCallback((commit: boolean, radians: number) => {
         if (!_isMounted.current) return;
+        if (commit) {
+            dispatch({
+                type: "setRotation",
+                rotation: siteContext.state.rotation ? [siteContext.state.rotation[0], radians, siteContext.state.rotation[2]] : [0,radians,0]
+            });
+            setNeedsUpload(true)
+        }
+        setRotationControlActive(false)
+        setToolMode(VisualizerToolMode.None)
 
-        dispatch({
-            type: "setFloorRotationOffset",
-            floorRotationOffset: radians
-        })
+    }, [dispatch, siteContext.state.rotation]);
+
+    const translateChanged = useCallback((xPos: number, yPos: number) => {
+        if (!_isMounted.current) return;
+        setTranslationControlActive(true);
+        setTranslationControlValue([xPos, 0, yPos]);
+    }, []);
+
+    const translateFinished = useCallback((commit: boolean, xPos: number, yPos: number) => {
+        if (!_isMounted.current) return;
+        if (commit) {
+            dispatch({
+                type: "setFloorTranslation",
+                xPos: xPos,
+                yPos: yPos
+            });
+            setNeedsUpload(true)
+        }
+
+        setToolMode(VisualizerToolMode.None)
+        setTranslationControlActive(false)
 
     }, [dispatch]);
+
+    const floorRotation = useMemo(()=>{
+        if (rotationControlActive) {
+            return rotationControlValue
+        }
+        else {
+            return siteContext.state.rotation ? siteContext.state.rotation[1] : 0
+        }
+    }, [rotationControlActive, rotationControlValue, siteContext.state.rotation])
+
+    const floorPosition = useMemo(()=>{
+        if (translationControlActive) {
+            return translationControlValue
+        }
+        else if (siteContext.state.floorTranslation) {
+            return siteContext.state.floorTranslation
+        } else {
+            return floorTranslationOrigin
+        }
+    }, [floorTranslationOrigin, siteContext.state.floorTranslation, translationControlActive, translationControlValue])
 
     const isPortrait = window.innerHeight > window.innerWidth;
 
@@ -437,11 +493,14 @@ export default function Visualizer(props: any) {
                 fov={fov}
                 cameraPosition={position}
                 cameraRotation={[rotation[0], 0, rotation[2]]}
-                floorRotation={rotation[1] + (rotationControlActive ? rotationControlValue : (siteContext.state.floorRotationOffset || 0))}
-                showControls={siteContext.state.showControls}
+                floorSize={floorSize}
+                floorRotation={floorRotation}
                 blendEdges={isUploadedImage()}
                 lightingOffset={lightingOffset}
-            />
+                floorPosition={translationControlActive ? translationControlValue : floorPosition}
+                floorPositionUpdated={pos=>translateChanged(pos[0], pos[2])}
+                floorRotationUpdated={rot=>rotateChanged(rot)}
+                showControls={siteContext.state.showControls} />
 
             <VisualizerTools
                 visible={!isToolOverlayOpen}
@@ -450,9 +509,18 @@ export default function Visualizer(props: any) {
 
                 changeMode={toolChanged}
 
-                initialRotation={initialRotation}
                 onRotationChanged={rotateChanged}
                 onRotationFinished={rotateFinished}
+
+                onTranslationChanged={translateChanged}
+                onTranslationFinished={translateFinished}
+
+                initialRotation={floorRotation}
+                initialXPos={floorPosition[0]}
+                initialYPos={floorPosition[2]}
+
+                minTranslation={[-10, -10]}
+                maxTranslation={[10,0]}
 
                 historySize={historySize}
                 onShowHideButtons={toolsShowHideButtons}
@@ -491,5 +559,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [allFilters, basePath, cbToolMode, fov, historySize, initialRotation, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, lightingOffset, listingItems, logoPath, materialProperties, navClicked, navigationItem, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotateChanged, rotateFinished, rotation, rotationControlActive, rotationControlValue, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.floorRotationOffset, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons])
+    ), [allFilters, basePath, cbToolMode, floorPosition, floorRotation, floorSize, fov, historySize, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, lightingOffset, listingItems, logoPath, materialProperties, navClicked, navigationItem, onImageChosen, onProgress, panelMouseOut, panelMouseOver, panelOpen, position, productSelectorPanel, progressPercentage, progressVisible, resolveSceneThumbnailPath, resolveThumbnailPath, rotateChanged, rotateFinished, rotation, sceneListingItems, sceneSelected, selectedColumn, selectedRow, selectedSceneColumn, selectedSceneRow, setPanelOpenClose, showScenes, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons, translateChanged, translateFinished, translationControlActive, translationControlValue])
 }

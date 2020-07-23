@@ -46,7 +46,7 @@ export function dispatchDataProperties(basePath:string, data:any, dispatch: Disp
 
     dispatch({
         type: "setRotation",
-        rotation: [data.cameraRotation[0], data.floorRotation, data.cameraRotation[2]]
+        rotation: [data.cameraRotation[0], -data.floorRotation, data.cameraRotation[2]]
     })
 }
 
@@ -148,14 +148,6 @@ function App() {
                     rotation: [rx, ry, rz]
                 })
             }
-        }
-
-        const floorRotationOffset = searchObject.fro as string
-        if (floorRotationOffset) {
-            dispatchSiteState({
-                type: "setFloorRotationOffset",
-                floorRotationOffset: parseFloat(floorRotationOffset)
-            })
         }
 
         const scene = searchObject.scene as string

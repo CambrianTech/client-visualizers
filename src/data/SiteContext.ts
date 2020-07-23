@@ -20,7 +20,7 @@ export type SharableVisualizerState = {
     fov: number | null
     position: [number, number, number] | null
     rotation: [number, number, number] | null
-    floorRotationOffset: number | null
+    floorTranslation: number[] | null
 }
 
 export type DerivedVisualizerState = {
@@ -56,7 +56,7 @@ export function createEmptyState(): SiteState {
         fov: null,
         position: null,
         rotation: null,
-        floorRotationOffset: null,
+        floorTranslation: null,
 
         // Visualizer derived
         sceneData: null,
@@ -134,13 +134,14 @@ export type SiteActionSetShowControls = {
     showControls: boolean | undefined
 }
 
-export type SiteActionSetFloorRotationOffset = {
-    type: "setFloorRotationOffset"
-    floorRotationOffset: number | null
+export type ShawActionSetFloorTranslation = {
+    type: "setFloorTranslation"
+    xPos: number | null
+    yPos: number | null
 }
 
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
-    SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | SiteActionSetFloorRotationOffset
+    SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
     | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType
     | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor;
 
@@ -166,9 +167,15 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
         case "setRotation":
             newState.rotation = action.rotation;
             break;
-        case "setFloorRotationOffset":
-            newState.floorRotationOffset = action.floorRotationOffset;
-            break;
+
+        case "setFloorTranslation":
+            if (action.xPos !== null && action.yPos !== null) {
+                newState.floorTranslation = [action.xPos, 0, action.yPos]
+            } else {
+                newState.floorTranslation = null
+            }
+            break
+
         // Visualizer derived
         case "setSceneData":
             newState.sceneData = action.sceneData;

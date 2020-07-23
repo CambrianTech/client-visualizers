@@ -2,34 +2,6 @@ import {Dispatch} from "react";
 import {SiteAction} from "../data/SiteContext";
 import {MediaPaths} from "./Constants";
 
-const timeouts:any[] = []
-export function safelyTimeout(handler: ()=>void, timeout?: number): number {
-    const handle = window.setTimeout(()=>{
-        const index = timeouts.indexOf(handle)
-        if (index) {
-            timeouts.splice(index, 1);
-        }
-        handler()
-    }, timeout)
-    timeouts.push(handle)
-    return handle
-}
-
-export function safelyInterval(handler: ()=>void, timeout?: number): number {
-    const handle = window.setInterval(()=>{
-        handler()
-    }, timeout)
-    timeouts.push(handle)
-    return handle
-}
-
-export function clearTimeouts() {
-    while(timeouts.length > 0) {
-        const handle = timeouts.pop()
-        clearInterval(handle)
-    }
-}
-
 export function dispatchDataProperties(basePath:string|undefined, data:any, dispatch: Dispatch<SiteAction>) {
     dispatch({
         type: "setSceneData",
@@ -55,7 +27,7 @@ export function dispatchDataProperties(basePath:string|undefined, data:any, disp
 
     dispatch({
         type: "setRotation",
-        rotation: [data.cameraRotation[0], data.floorRotation, data.cameraRotation[2]]
+        rotation: [data.cameraRotation[0], -data.floorRotation, data.cameraRotation[2]]
     })
 }
 
