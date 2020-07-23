@@ -120,15 +120,13 @@ def import_directory(input_dir, output_dir, filter='Scharr', file_pattern='*', q
 
         #PIL -> opencv/numpy
         img = np.array(img)
+        if output_size:
+            img=resize(img, output_size)
         
         normals = get_normals(img, filter)
-        if output_size:
-            normals=resize(normals, output_size)
         Image.fromarray(normals).save(output_path + "_normals.jpg", "JPEG", quality=quality)
 
         specular = get_specular(img)
-        if output_size:
-            specular=resize(specular, output_size)
 
         Image.fromarray(specular).save(output_path + "_specular.jpg", "JPEG", quality=int(quality/2))
 
