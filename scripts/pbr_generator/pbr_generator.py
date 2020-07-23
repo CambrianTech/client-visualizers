@@ -116,7 +116,7 @@ def import_directory(input_dir, output_dir, filter='Scharr', file_pattern='*', q
         print(output_path)
 
         img = Image.open(path)
-        img.save(output_path + "_diffuse.png", "JPEG", quality=quality)
+        img.save(output_path + "_diffuse.jpg", "JPEG", quality=quality)
 
         #PIL -> opencv/numpy
         img = np.array(img)
