@@ -5,13 +5,13 @@
           0.0
      ],
      "cameraRotation": [
-          -0.24667904066062854,
+          -0.3,
           0.0,
           0.026
      ],
      "floorRotation": -0.05,
      "fov": 60.0,
-     "anchorPoint": [0.5,1.0],
+     "anchorPoint": [0.5,0.2],
      "images": {
           "main": "image.jpg",
           "preview": "preview.jpg",
