@@ -571,7 +571,7 @@ export default function Visualizer(props: any) {
                 </div>
             </div>
 
-            {selectedRow && selectedProduct && (
+            {!rightPanelOpen && selectedRow && selectedProduct && (
                 <div className={"product-name"}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
             )}
 
