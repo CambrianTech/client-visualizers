@@ -254,6 +254,22 @@
               "displayName": "Bellewood",
               "ppi": 28.44,
               "thumbnail": "Bellewood/thumbnail.jpg",
+              "albedo": "Bellewood/tiled_diffuse.jpg",
+              "normals": "Bellewood/tiled_normals.jpg",
+              "specular": "Bellewood/tiled_specular.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Bellewood/tiled_diffuse.jpg",
                 "normals": "Bellewood/tiled_normals.jpg",
@@ -266,6 +282,19 @@
               "displayName": "Bent Creek",
               "ppi": 28.44,
               "thumbnail": "Bent Creek/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Bent Creek/tiled_diffuse.jpg",
                 "normals": "Bent Creek/tiled_normals.jpg",
@@ -278,6 +307,19 @@
               "displayName": "Lodge Pine",
               "ppi": 36.57,
               "thumbnail": "Lodge Pine/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Lodge Pine/tiled_diffuse.jpg",
                 "normals": "Lodge Pine/tiled_normals.jpg",
@@ -290,6 +332,19 @@
               "displayName": "Monaco",
               "ppi": 36.57,
               "thumbnail": "Monaco/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Monaco/tiled_diffuse.jpg",
                 "normals": "Monaco/tiled_normals.jpg",
@@ -302,6 +357,19 @@
               "displayName": "Pub House",
               "ppi": 36.57,
               "thumbnail": "Pub House/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Pub House/tiled_diffuse.jpg",
                 "normals": "Pub House/tiled_normals.jpg",
@@ -314,6 +382,19 @@
               "displayName": "Serene Hills",
               "ppi": 28.44,
               "thumbnail": "Serene Hills/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Serene Hills/tiled_diffuse.jpg",
                 "normals": "Serene Hills/tiled_normals.jpg",
@@ -334,6 +415,19 @@
               "displayName": "Carmel Distressed Pine",
               "ppi": 36.57,
               "thumbnail": "Carmel Distressed Pine/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Carmel Distressed Pine/tiled_diffuse.jpg",
                 "normals": "Carmel Distressed Pine/tiled_normals.jpg",
@@ -346,6 +440,19 @@
               "displayName": "Montrose",
               "ppi": 36.57,
               "thumbnail": "Montrose/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Montrose/tiled_diffuse.jpg",
                 "normals": "Montrose/tiled_normals.jpg",
@@ -358,6 +465,19 @@
               "displayName": "Rustic Hickory",
               "ppi": 36.57,
               "thumbnail": "Rustic Hickory/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Rustic Hickory/tiled_diffuse.jpg",
                 "normals": "Rustic Hickory/tiled_normals.jpg",
@@ -378,6 +498,19 @@
               "displayName": "Ashbury",
               "ppi": 36.57,
               "thumbnail": "Ashbury/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Ashbury/tiled_diffuse.jpg",
                 "normals": "Ashbury/tiled_normals.jpg",
@@ -390,6 +523,19 @@
               "displayName": "Carlsbad",
               "ppi": 36.57,
               "thumbnail": "Carlsbad/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Carlsbad/tiled_diffuse.jpg",
                 "normals": "Carlsbad/tiled_normals.jpg",
@@ -402,6 +548,19 @@
               "displayName": "Glenbrook",
               "ppi": 36.57,
               "thumbnail": "Glenbrook/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Glenbrook/tiled_diffuse.jpg",
                 "normals": "Glenbrook/tiled_normals.jpg",
@@ -414,6 +573,19 @@
               "displayName": "Mineral Oak",
               "ppi": 36.57,
               "thumbnail": "Mineral Oak/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Mineral Oak/tiled_diffuse.jpg",
                 "normals": "Mineral Oak/tiled_normals.jpg",
@@ -426,6 +598,19 @@
               "displayName": "Mystic Cypress",
               "ppi": 36.57,
               "thumbnail": "Mystic Cypress/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Mystic Cypress/tiled_diffuse.jpg",
                 "normals": "Mystic Cypress/tiled_normals.jpg",
@@ -438,6 +623,19 @@
               "displayName": "Navajo Hills",
               "ppi": 36.57,
               "thumbnail": "Navajo Hills/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Navajo Hills/tiled_diffuse.jpg",
                 "normals": "Navajo Hills/tiled_normals.jpg",
@@ -451,6 +649,19 @@
               "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Pacific Walnut/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Pacific Walnut/tiled_diffuse.jpg",
                 "normals": "Pacific Walnut/tiled_normals.jpg",
@@ -463,6 +674,19 @@
               "displayName": "Pinion Pine",
               "ppi": 36.57,
               "thumbnail": "Pinion Pine/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Pinion Pine/tiled_diffuse.jpg",
                 "normals": "Pinion Pine/tiled_normals.jpg",
@@ -475,6 +699,19 @@
               "displayName": "Prairie",
               "ppi": 36.57,
               "thumbnail": "Prairie/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Prairie/tiled_diffuse.jpg",
                 "normals": "Prairie/tiled_normals.jpg",
@@ -488,6 +725,19 @@
               "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Smokey Mountain/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Smokey Mountain/tiled_diffuse.jpg",
                 "normals": "Smokey Mountain/tiled_normals.jpg",
@@ -509,6 +759,19 @@
               "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Natchez/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Natchez/tiled_diffuse.jpg",
                 "normals": "Natchez/tiled_normals.jpg",
@@ -521,6 +784,19 @@
               "displayName": "Olympia",
               "ppi": 36.57,
               "thumbnail": "Olympia/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Olympia/tiled_diffuse.jpg",
                 "normals": "Olympia/tiled_normals.jpg",
@@ -533,6 +809,19 @@
               "displayName": "Ponderosa Pine",
               "ppi": 36.57,
               "thumbnail": "Ponderosa Pine/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Ponderosa Pine/tiled_diffuse.jpg",
                 "normals": "Ponderosa Pine/tiled_normals.jpg",
@@ -545,6 +834,19 @@
               "displayName": "Southern Pine",
               "ppi": 36.57,
               "thumbnail": "Southern Pine/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Southern Pine/tiled_diffuse.jpg",
                 "normals": "Southern Pine/tiled_normals.jpg",
@@ -557,6 +859,19 @@
               "displayName": "Virginia",
               "ppi": 36.57,
               "thumbnail": "Virginia/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Virginia/tiled_diffuse.jpg",
                 "normals": "Virginia/tiled_normals.jpg",
@@ -577,6 +892,19 @@
               "displayName": "Bay Port",
               "ppi": 28.44,
               "thumbnail": "Bay Port/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Bay Port/tiled_diffuse.jpg",
                 "normals": "Bay Port/tiled_normals.jpg",
@@ -589,6 +917,19 @@
               "displayName": "Biscayne Bay",
               "ppi": 28.44,
               "thumbnail": "Biscayne Bay/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Biscayne Bay/tiled_diffuse.jpg",
                 "normals": "Biscayne Bay/tiled_normals.jpg",
@@ -601,6 +942,19 @@
               "displayName": "Cedar Key",
               "ppi": 28.44,
               "thumbnail": "Cedar Key/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Cedar Key/tiled_diffuse.jpg",
                 "normals": "Cedar Key/tiled_normals.jpg",
@@ -613,6 +967,19 @@
               "displayName": "Coral Cove",
               "ppi": 28.44,
               "thumbnail": "Coral Cove/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Coral Cove/tiled_diffuse.jpg",
                 "normals": "Coral Cove/tiled_normals.jpg",
@@ -626,6 +993,19 @@
               "enabled": false,
               "ppi": 28.44,
               "thumbnail": "Cypress Cove/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Cypress Cove/tiled_diffuse.jpg",
                 "normals": "Cypress Cove/tiled_normals.jpg",
@@ -638,6 +1018,19 @@
               "displayName": "Gulf Harbor",
               "ppi": 28.44,
               "thumbnail": "Gulf Harbor/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Gulf Harbor/tiled_diffuse.jpg",
                 "normals": "Gulf Harbor/tiled_normals.jpg",
@@ -650,6 +1043,19 @@
               "displayName": "Heron Bay",
               "ppi": 28.44,
               "thumbnail": "Heron Bay/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Heron Bay/tiled_diffuse.jpg",
                 "normals": "Heron Bay/tiled_normals.jpg",
@@ -662,6 +1068,19 @@
               "displayName": "Key Largo",
               "ppi": 28.44,
               "thumbnail": "Key Largo/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Key Largo/tiled_diffuse.jpg",
                 "normals": "Key Largo/tiled_normals.jpg",
@@ -674,6 +1093,19 @@
               "displayName": "Lighthouse Point",
               "ppi": 28.44,
               "thumbnail": "Lighthouse Point/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Lighthouse Point/tiled_diffuse.jpg",
                 "normals": "Lighthouse Point/tiled_normals.jpg",
@@ -686,6 +1118,19 @@
               "displayName": "Regatta Bay",
               "ppi": 28.44,
               "thumbnail": "Regatta Bay/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Regatta Bay/tiled_diffuse.jpg",
                 "normals": "Regatta Bay/tiled_normals.jpg",
@@ -698,6 +1143,19 @@
               "displayName": "Sanibel Island",
               "ppi": 28.44,
               "thumbnail": "Sanibel Island/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Sanibel Island/tiled_diffuse.jpg",
                 "normals": "Sanibel Island/tiled_normals.jpg",
@@ -718,6 +1176,19 @@
               "displayName": "Bunker Hill",
               "ppi": 36.57,
               "thumbnail": "Bunker Hill/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Bunker Hill/tiled_diffuse.jpg",
                 "normals": "Bunker Hill/tiled_normals.jpg",
@@ -730,6 +1201,19 @@
               "displayName": "Concord",
               "ppi": 36.57,
               "thumbnail": "Concord/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Concord/tiled_diffuse.jpg",
                 "normals": "Concord/tiled_normals.jpg",
@@ -742,6 +1226,19 @@
               "displayName": "Lexington",
               "ppi": 36.57,
               "thumbnail": "Lexington/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Lexington/tiled_diffuse.jpg",
                 "normals": "Lexington/tiled_normals.jpg",
@@ -754,6 +1251,19 @@
               "displayName": "Saratoga",
               "ppi": 36.57,
               "thumbnail": "Saratoga/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Saratoga/tiled_diffuse.jpg",
                 "normals": "Saratoga/tiled_normals.jpg",
@@ -766,6 +1276,19 @@
               "displayName": "Trenton",
               "ppi": 36.57,
               "thumbnail": "Trenton/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Trenton/tiled_diffuse.jpg",
                 "normals": "Trenton/tiled_normals.jpg",
@@ -778,6 +1301,19 @@
               "displayName": "Yorktown",
               "ppi": 36.57,
               "thumbnail": "Yorktown/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Yorktown/tiled_diffuse.jpg",
                 "normals": "Yorktown/tiled_normals.jpg",
@@ -798,6 +1334,19 @@
               "displayName": "Campfire",
               "ppi": 28.44,
               "thumbnail": "Campfire/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Campfire/tiled_diffuse.jpg",
                 "normals": "Campfire/tiled_normals.jpg",
@@ -810,6 +1359,19 @@
               "displayName": "Country Cabin",
               "ppi": 28.44,
               "thumbnail": "Country Cabin/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Country Cabin/tiled_diffuse.jpg",
                 "normals": "Country Cabin/tiled_normals.jpg",
@@ -822,6 +1384,19 @@
               "displayName": "Piedmont",
               "ppi": 28.44,
               "thumbnail": "Piedmont/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Piedmont/tiled_diffuse.jpg",
                 "normals": "Piedmont/tiled_normals.jpg",
@@ -834,6 +1409,19 @@
               "displayName": "Roanoake",
               "ppi": 28.44,
               "thumbnail": "Roanoake/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Roanoake/tiled_diffuse.jpg",
                 "normals": "Roanoake/tiled_normals.jpg",
@@ -854,6 +1442,19 @@
               "displayName": "Helena",
               "ppi": 28.44,
               "thumbnail": "Helena/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Helena/tiled_diffuse.jpg",
                 "normals": "Helena/tiled_normals.jpg",
@@ -866,6 +1467,19 @@
               "displayName": "Park Hill",
               "ppi": 36.57,
               "thumbnail": "Park Hill/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Park Hill/tiled_diffuse.jpg",
                 "normals": "Park Hill/tiled_normals.jpg",
@@ -878,6 +1492,19 @@
               "displayName": "Pelham",
               "ppi": 28.44,
               "thumbnail": "Pelham/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Pelham/tiled_diffuse.jpg",
                 "normals": "Pelham/tiled_normals.jpg",
@@ -891,6 +1518,19 @@
               "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Sunset/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Sunset/tiled_diffuse.jpg",
                 "normals": "Sunset/tiled_normals.jpg",
@@ -903,6 +1543,19 @@
               "displayName": "Townsend",
               "ppi": 28.44,
               "thumbnail": "Townsend/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Townsend/tiled_diffuse.jpg",
                 "normals": "Townsend/tiled_normals.jpg",
@@ -923,6 +1576,19 @@
               "displayName": "Huntington Oak",
               "ppi": 36.57,
               "thumbnail": "Huntington Oak/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Huntington Oak/tiled_diffuse.jpg",
                 "normals": "Huntington Oak/tiled_normals.jpg",
@@ -935,6 +1601,19 @@
               "displayName": "Normandy Coast",
               "ppi": 36.57,
               "thumbnail": "Normandy Coast/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Normandy Coast/tiled_diffuse.jpg",
                 "normals": "Normandy Coast/tiled_normals.jpg",
@@ -947,6 +1626,19 @@
               "displayName": "Richmond",
               "ppi": 36.57,
               "thumbnail": "Richmond/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/",
+                "preview": "Bellewood/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "metaData": {
                 "albedo": "Richmond/tiled_diffuse.jpg",
                 "normals": "Richmond/tiled_normals.jpg",
