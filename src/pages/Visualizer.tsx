@@ -575,10 +575,10 @@ export default function Visualizer(props: any) {
                 <div className={"product-name"}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
             )}
 
-            {selectedProduct && selectedProduct.details && (
+            {!leftPanelOpen && selectedProduct && selectedProduct.details && (
                 <div ref={rightPanel} className="product-details">
                     <div className={"close-button-container"}>
-                        <Fab className={"close-button"} onClick={()=>setPanelOpenClose(rightPanel, !rightPanelOpen)} icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
+                        <Fab className={"close-button"} onClick={()=>setPanelOpenClose(rightPanel, !rightPanelOpen)} textLabel={isPortrait ? "Details" : undefined} icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
                     </div>
                     <ProductInfo className={"panel"}
                                  product={selectedProduct}
