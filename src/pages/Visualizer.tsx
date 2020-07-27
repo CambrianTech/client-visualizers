@@ -582,7 +582,9 @@ export default function Visualizer(props: any) {
             {!leftPanelOpen && selectedProduct && selectedProduct.details && (
                 <div ref={rightPanel} className="product-details">
                     <div className={"close-button-container"}>
-                        <Fab className={"close-button"} onClick={()=>setPanelOpenClose(rightPanel, !rightPanelOpen)} textLabel={isPortrait ? "Details" : undefined} icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
+                        <Fab className={"close-button"} onClick={()=>setPanelOpenClose(rightPanel, !rightPanelOpen)}
+                             textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
+                             icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
                     </div>
                     <ProductInfo className={"panel"}
                                  product={selectedProduct}
