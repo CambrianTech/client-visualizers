@@ -5,6 +5,7 @@
   "siteLogoImage": "branding/logo-overlay-white.png",
   "defaultSceneCollection": "kitchen",
   "defaultScene": "2-kitchen",
+  "primaryColor": "#7ea13d",
   "brands": [
     {
       "name": "flooring-one-source",

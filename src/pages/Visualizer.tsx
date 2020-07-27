@@ -128,6 +128,10 @@ export default function Visualizer(props: any) {
                     setLogoPath(json.siteLogoImage)
                 }
 
+                if (json.hasOwnProperty("primaryColor")) {
+                    document.documentElement.style.setProperty("--mdc-theme-secondary", json.primaryColor)
+                }
+
                 const brands:ProductBrand[] = [];
                 for (const brandJson of json.brands) {
                     const brand = new ProductBrand();
