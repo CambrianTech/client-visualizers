@@ -88,7 +88,7 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<title>${attributes.title}</title>`;
     metaTags += `<meta name="HandheldFriendly" content="true">`;
     metaTags += `<meta name="description" content="${attributes.description}" />`;
-    metaTags += `<meta name="json" content="${exists}" />`;
+    metaTags += `<meta name="exists" content="${exists}" />`;
     metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
     metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
     metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
