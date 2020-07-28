@@ -16,8 +16,7 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-//const configPath = path.join(__dirname, "build/custom/products.json");
-const configPath = path.join(__dirname, "build", "index.html");
+const configPath = path.join(__dirname, "products.json");
 let exists = false
 try {
     if (fs.existsSync(configPath)) {
