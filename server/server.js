@@ -97,6 +97,12 @@ function getMetaTags(baseUrl, path, query) {
         metaTags += `<meta property="og:image:alt" content="${attributes.imageAlt}" />`;
     }
 
+    //style:
+    metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
+
+    //javascript settings
+    metaTags += `<script>var config=${JSON.stringify(config)}</script>`;
+
     return metaTags
 }
 

@@ -11,14 +11,14 @@
     "favicon": "custom/icon-small.png",
     "favicon192x192": "custom/icon-large.png",
     "appleShareIcon": "custom/icon-large.png",
-    "twitterAccount": "@flooringonesource"
+    "twitterAccount": "@flooringonesource",
+    "primaryColor": "#7ea13d",
+    "defaultSceneCollection": "kitchen",
+    "defaultScene": "2-kitchen"
   },
   "hasPhotoUpload": false,
   "lightingOffset": 0.3,
   "siteLogoImage": "branding/logo-overlay-white.png",
-  "defaultSceneCollection": "kitchen",
-  "defaultScene": "2-kitchen",
-  "primaryColor": "#7ea13d",
   "brands": [
     {
       "name": "flooring-one-source",
