@@ -16,7 +16,7 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-const configPath = path.join(__dirname, "build/public/custom/products.json");
+const configPath = path.join(__dirname, "build/custom/products.json");
 let exists = false
 try {
     if (fs.existsSync(configPath)) {
@@ -88,7 +88,7 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<title>${attributes.title}</title>`;
     metaTags += `<meta name="HandheldFriendly" content="true">`;
     metaTags += `<meta name="description" content="${attributes.description}" />`;
-    metaTags += `<meta name="json-exists" content="${configPath}" />`;
+    metaTags += `<meta name="json-exists" content="${configPath}, ${exists}" />`;
     metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
     metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
     metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
