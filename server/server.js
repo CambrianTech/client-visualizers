@@ -16,39 +16,44 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-const readJson = (path, cb) => {
-    fs.readFile(require.resolve(path), (err, data) => {
-        if (err)
-            cb(err)
-        else
-            cb(null, JSON.parse(data))
-    })
-}
+// const readJson = (path, cb) => {
+//     fs.readFile(require.resolve(path), (err, data) => {
+//         if (err)
+//             cb(err)
+//         else
+//             cb(null, JSON.parse(data))
+//     })
+// }
 
-let exists = false;
-let testVar = "nothing";
-try {
-    readJson('./products.json', (err, settings) => {
-        testVar = settings.config.siteTitle
-    })
-    exists = true
-} catch(err) {
-    console.error(err)
-}
+const json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
+const config = json.config;
 
-const config = {
-    shortSiteTitle: "Flooring One Source",
-    siteTitle: "Flooring One Source",
-    siteDescription: "Visualize flooring in your space",
-    siteImage: "custom/icon-large.png",
-    siteImageWidth: "1200",
-    siteImageHeight: "1000",
-    siteImageAlt: "Kitchen",
-    favicon: "custom/icon-small.png",
-    favicon192x192: "custom/icon-large.png",
-    appleShareIcon: "custom/icon-large.png",
-    twitterAccount: "@flooringonesource"
-};
+// const data = fs.readFileSync(require.resolve(path));
+// const config = JSON.parse(data).config
+
+// let exists = false;
+// let testVar = "nothing";
+// try {
+//     readJson('./products.json', (err, settings) => {
+//         testVar = settings.config.siteTitle
+//     })
+//     exists = true
+// } catch(err) {
+//     console.error(err)
+// }
+// const config = {
+//     shortSiteTitle: "Flooring One Source",
+//     siteTitle: "Flooring One Source",
+//     siteDescription: "Visualize flooring in your space",
+//     siteImage: "custom/icon-large.png",
+//     siteImageWidth: "1200",
+//     siteImageHeight: "1000",
+//     siteImageAlt: "Kitchen",
+//     favicon: "custom/icon-small.png",
+//     favicon192x192: "custom/icon-large.png",
+//     appleShareIcon: "custom/icon-large.png",
+//     twitterAccount: "@flooringonesource"
+// };
 
 function getTitleDescription(route) {
 
@@ -97,7 +102,6 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<title>${attributes.title}</title>`;
     metaTags += `<meta name="HandheldFriendly" content="true">`;
     metaTags += `<meta name="description" content="${attributes.description}" />`;
-    metaTags += `<meta name="exists" content="${exists}, ${testVar}" />`;
     metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
     metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
     metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
