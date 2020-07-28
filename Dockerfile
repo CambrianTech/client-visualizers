@@ -2,6 +2,7 @@
 FROM node:12.10-alpine as build-stage
 WORKDIR /app
 COPY package*.json /app/
+#COPY public/custom/products.json /app/
 RUN npm install
 COPY . /app/
 RUN npm run build
@@ -16,7 +17,7 @@ EXPOSE 80
 WORKDIR /opt/server
 
 COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
-COPY /app/build/public/custom/products.json /opt/server
+COPY --from=build-stage /app/build/public/custom/products.json /opt/server
 
 COPY server/ /opt/server
 
