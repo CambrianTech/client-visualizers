@@ -17,43 +17,23 @@ if (!uploadsBaseUrl) {
 }
 
 const config = {
-    shortSiteTitle: "Shaw",
-    siteTitle: "Floorvana+ by Shaw",
+    shortSiteTitle: "Flooring One Source",
+    siteTitle: "Flooring One Source",
     siteDescription: "Take inspiration to the next level. See YOUR room come to life",
-    siteImage: "assets/social/site-image.jpg",
+    siteImage: "custom/icon-large.png",
     siteImageWidth: "1200",
     siteImageHeight: "1000",
     siteImageAlt: "Kitchen",
-
-    favicon: "favicon.ico",
-    favicon192x192: "favicon-180x180.png",
-
-    appleShareIcon: "assets/social/apple-touch-icon-180x180.png",
-    twitterAccount: "@shawfloors"
+    favicon: "custom/icon-small.png",
+    favicon192x192: "custom/icon-large.png",
+    appleShareIcon: "custom/icon-large.png",
+    twitterAccount: "@flooringonesource"
 };
 
 function getTitleDescription(route) {
 
-    let title = undefined
-    let description = undefined
-
-    switch (route) {
-        case "/choose-source":
-            description = "Choose an image type, either a sample or an your own uploaded image, to see it visualized";
-            break;
-        case "/sample-images":
-            description = "Choose a room type to see it in the visualizer";
-            break;
-        case "/sample-image-listing":
-            description = "Choose a room to see it in the visualizer";
-            break;
-        case "/visualizer":
-            title = "Check out this flooring I found with the Floorvana+ visualizer by Shaw. What do you think? Feel free to edit and share back.";
-            description = "Interactive web visualizer for flooring. Upload your own image to see your space transformed.";
-            break;
-        default:
-
-    }
+    let title = undefined;
+    let description = undefined;
 
     return {"title":title, "description":description}
 }
