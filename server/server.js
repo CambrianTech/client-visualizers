@@ -19,7 +19,7 @@ if (!uploadsBaseUrl) {
 const config = {
     shortSiteTitle: "Flooring One Source",
     siteTitle: "Flooring One Source",
-    siteDescription: "Take inspiration to the next level. See YOUR room come to life",
+    siteDescription: "Visualize flooring in your space",
     siteImage: "custom/icon-large.png",
     siteImageWidth: "1200",
     siteImageHeight: "1000",
