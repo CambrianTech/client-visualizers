@@ -4,31 +4,20 @@ const path = require("path");
 const http = require("http");
 
 // Load env vars from .env file
-require("dotenv").config()
+require("dotenv").config();
 
 const app = express();
 
 // Regex used for verifying room and preview ids
-const idRegex = /^[a-zA-Z0-9]+$/
+const idRegex = /^[a-zA-Z0-9]+$/;
 
-const uploadsBaseUrl = process.env.CB_UPLOADS_URL
+const uploadsBaseUrl = process.env.CB_UPLOADS_URL;
 if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-const config = {
-    shortSiteTitle: "Flooring One Source",
-    siteTitle: "Flooring One Source",
-    siteDescription: "Visualize flooring in your space",
-    siteImage: "custom/icon-large.png",
-    siteImageWidth: "1200",
-    siteImageHeight: "1000",
-    siteImageAlt: "Kitchen",
-    favicon: "custom/icon-small.png",
-    favicon192x192: "custom/icon-large.png",
-    appleShareIcon: "custom/icon-large.png",
-    twitterAccount: "@flooringonesource"
-};
+const json = require('products.json');
+const config = json.config;
 
 function getTitleDescription(route) {
 
@@ -40,14 +29,14 @@ function getTitleDescription(route) {
 
 function getPageAttributes(url, path, query) {
 
-    const titleDesc = getTitleDescription(path)
+    const titleDesc = getTitleDescription(path);
     let _image = undefined;
-    let _imageWidth = undefined
-    let _imageHeight = undefined
+    let _imageWidth = undefined;
+    let _imageHeight = undefined;
     if (query.room && query.subroom && idRegex.test(query.room) && idRegex.test(query.subroom)) {
         _image = `${uploadsBaseUrl}/${query.room}/${query.subroom}/preview`;
         if (query.pw && query.ph) {
-            _imageWidth = query.pw
+            _imageWidth = query.pw;
             _imageHeight = query.ph
         }
     }
@@ -82,7 +71,7 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
 
     // Device specific
-    metaTags += `<link rel="apple-touch-icon" href="${baseUrl}/${config.appleShareIcon}" />`
+    metaTags += `<link rel="apple-touch-icon" href="${baseUrl}/${config.appleShareIcon}" />`;
 
     // OpenGraph tags
     metaTags += `<meta property="og:url" content="${url}" />`;
@@ -127,4 +116,4 @@ app.get("*", function (req, res) {
     });
 });
 
-http.createServer(app).listen(3000)
+http.createServer(app).listen(3000);

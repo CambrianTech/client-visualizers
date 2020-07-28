@@ -3,16 +3,14 @@
   "config": {
     "shortSiteTitle": "Flooring One Source",
     "siteTitle": "Flooring One Source",
-    "siteDescription": "Take inspiration to the next level. See YOUR room come to life",
+    "siteDescription": "See our great flooring products.",
     "siteImage": "assets/social/site-image.jpg",
     "siteImageWidth": "1200",
     "siteImageHeight": "1000",
-    "siteImageAlt": "Kitchen",
-
-    "favicon": "brand/icon-small.png",
-    "favicon192x192": "brand/icon-large.png",
-
-    "appleShareIcon": "brand/icon-large.png",
+    "siteImageAlt": "Flooring",
+    "favicon": "custom/icon-small.png",
+    "favicon192x192": "custom/icon-large.png",
+    "appleShareIcon": "custom/icon-large.png",
     "twitterAccount": "@flooringonesource"
   },
   "hasPhotoUpload": false,
