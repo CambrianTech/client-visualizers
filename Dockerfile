@@ -16,6 +16,7 @@ EXPOSE 80
 WORKDIR /opt/server
 
 COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
+COPY public/custom/products.json /opt/server
 COPY server/ /opt/server
 
 RUN apk add --update nodejs npm
