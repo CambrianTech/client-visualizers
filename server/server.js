@@ -16,10 +16,10 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-//const json = require('products.json');
+const configPath = path.join(__dirname, "build/public/assets/products.json");
 let exists = false
 try {
-    if (fs.existsSync('products.json')) {
+    if (fs.existsSync(configPath)) {
         //file exists
         exists = true
     }
