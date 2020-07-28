@@ -13,8 +13,8 @@
     "appleShareIcon": "custom/icon-large.png",
     "twitterAccount": "@flooringonesource",
     "primaryColor": "#7ea13d",
-    "defaultSceneCollection": "kitchen",
-    "defaultScene": "2-kitchen"
+    "defaultSceneCollection": "bedroom",
+    "defaultScene": "2-bedroom"
   },
   "hasPhotoUpload": false,
   "lightingOffset": 0.3,

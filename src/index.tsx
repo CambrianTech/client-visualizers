@@ -111,8 +111,13 @@ function App() {
         // Also turn the keys into lowercase so their case doesn't matter.
         const searchObject = objectToLowerCase(qs.parse(location.search.substr(1)));
 
-        searchObject.rt = "kitchen";
-        searchObject.r = "2-kitchen";
+        if (window.hasOwnProperty("defaultSceneCollection")) {
+            searchObject.rt = (window as any).defaultSceneCollection as string;
+            searchObject.r = (window as any).defaultScene as string;
+        } else {
+            searchObject.rt = "kitchen";
+            searchObject.r = "2-kitchen";
+        }
 
         const searchFov = searchObject.f as string;
         if (searchFov) {
