@@ -39,6 +39,13 @@ export enum ServerFile {
     Preview = "preview",
 }
 
+enum Panel {
+    None,
+    Products,
+    Scenes,
+    ProductInfo
+}
+
 const PANEL_TIMEOUT = 1000;
 
 if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
@@ -62,7 +69,7 @@ export default function Visualizer(props: any) {
 
     const _isMounted = useRef(false);
 
-    const [showScenes, setShowScenes] = useState(false);
+    const [activePanel, setActivePanel] = useState(Panel.Products);
 
     const [statusText, setStatusText] = useState("");
     const [progressPercentage, setProgressPercentage] = useState(0);
@@ -104,6 +111,14 @@ export default function Visualizer(props: any) {
     const [translationControlActive, setTranslationControlActive] = useState(false);
     const floorTranslationOrigin = [0,0,-2]
     const [translationControlValue, setTranslationControlValue] = useState(floorTranslationOrigin); // Temporary rotation offset (not applied yet)
+
+    const defaultPanel = useMemo(()=>{
+        if (siteContext.state.browserProperties.isMobile) {
+            return Panel.None
+        } else {
+            return Panel.Products
+        }
+    }, [siteContext.state.browserProperties.isMobile])
 
     useEffect(() => {
         _isMounted.current = true;
@@ -168,7 +183,7 @@ export default function Visualizer(props: any) {
             if (open) {
                 panel.current.classList.add("open")
             } else {
-                setShowScenes(false)
+                setActivePanel(defaultPanel)
             }
         }
         if (panel === leftPanel) {
@@ -176,7 +191,7 @@ export default function Visualizer(props: any) {
         } else {
             _setRightPanelOpen(open)
         }
-    }, [leftPanel]);
+    }, [defaultPanel, leftPanel]);
 
     const onImageChosen = useCallback((data: any) => {
         console.log(data)
@@ -415,7 +430,7 @@ export default function Visualizer(props: any) {
         if (mode === VisualizerToolMode.ChoosePhoto) {
             openImageDialog()
         } else if (mode === VisualizerToolMode.ChooseScene) {
-            setShowScenes(true)
+            setActivePanel(Panel.Scenes)
         }
 
         //panels will close for all modes except scenes.
@@ -493,16 +508,59 @@ export default function Visualizer(props: any) {
         } else {
             return floorTranslationOrigin
         }
-    }, [floorTranslationOrigin, siteContext.state.floorTranslation, translationControlActive, translationControlValue])
+    }, [floorTranslationOrigin, siteContext.state.floorTranslation, translationControlActive, translationControlValue]);
 
     const isPortrait = window.innerHeight > window.innerWidth;
 
     const selectedProduct = selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
 
+    const className = useMemo(()=>{
+        switch (activePanel) {
+            case Panel.Scenes:
+                return "visualizer scenes";
+            case Panel.Products:
+                return "visualizer products";
+            case Panel.ProductInfo:
+                return "visualizer info";
+            default:
+                return "visualizer";
+        }
+
+    }, [activePanel]);
+
     return useMemo(() => (
-        <div className={"visualizer"}>
+        <div className={className}>
 
             {logoPath && <img className={"floating-logo"} src={`${basePath}/${logoPath}`} alt={"logo"} />}
+
+            <div ref={leftPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
+                <div className={"panel"}>
+                    <div className={"title"}>
+                        <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>Choose a Product</div>
+                        <div className={"choose scene" + (activePanel === Panel.Scenes ? " selected" : "")} onClick={()=>setActivePanel(Panel.Scenes)}>Choose a Scene</div>
+                    </div>
+
+                    {activePanel === Panel.Products && <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />}
+
+                    <VerticalListing visible={activePanel === Panel.Products}
+                                     onClick={swatchSelected}
+                                     swatches={listingItems}
+                                     filters={allFilters}
+                                     selectedSwatch={selectedRow}
+                                     selectedSubSwatch={selectedColumn}
+                                     resolveThumbnailPath={resolveThumbnailPath}/>
+
+                    <VerticalListing visible={activePanel === Panel.Scenes}
+                                     onClick={sceneSelected}
+                                     swatches={sceneListingItems}
+                                     selectedSwatch={selectedSceneRow}
+                                     selectedSubSwatch={selectedSceneColumn}
+                                     resolveThumbnailPath={resolveSceneThumbnailPath}/>
+                </div>
+                <div className={"close-button-container"}>
+                    <Fab className={"close-button"} onClick={()=>setPanelOpenClose(leftPanel, !leftPanelOpen)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
+                </div>
+            </div>
 
             <CBVisualizer
                 toolMode={cbToolMode}
@@ -546,34 +604,7 @@ export default function Visualizer(props: any) {
                 onShowHideButtons={toolsShowHideButtons}
             />
 
-            <div ref={leftPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
-                <div className={"panel"}>
-                    <div className={"title"}>
-                        <div className={"choose product" + (showScenes ? "" : " selected")} onClick={()=>setShowScenes(false)}>Choose a Product</div>
-                        <div className={"choose scene" + (showScenes ? " selected" : "")} onClick={()=>setShowScenes(true)}>Choose a Scene</div>
-                    </div>
 
-                    {!showScenes && <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />}
-
-                    <VerticalListing visible={!showScenes}
-                                     onClick={swatchSelected}
-                                     swatches={listingItems}
-                                     filters={allFilters}
-                                     selectedSwatch={selectedRow}
-                                     selectedSubSwatch={selectedColumn}
-                                     resolveThumbnailPath={resolveThumbnailPath}/>
-
-                    <VerticalListing visible={showScenes}
-                                     onClick={sceneSelected}
-                                     swatches={sceneListingItems}
-                                     selectedSwatch={selectedSceneRow}
-                                     selectedSubSwatch={selectedSceneColumn}
-                                     resolveThumbnailPath={resolveSceneThumbnailPath}/>
-                </div>
-                <div className={"close-button-container"}>
-                    <Fab className={"close-button"} onClick={()=>setPanelOpenClose(leftPanel, !leftPanelOpen)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
-                </div>
-            </div>
 
             {!rightPanelOpen && selectedRow && selectedProduct && (
                 <div className={"product-name"}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
@@ -596,5 +627,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [logoPath, basePath, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, leftPanel, panelMouseOver, panelMouseOut, showScenes, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, leftPanelOpen, isPortrait, selectedProduct, rightPanel, rightPanelOpen, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText, setPanelOpenClose])
+    ), [className, logoPath, basePath, leftPanel, panelMouseOver, panelMouseOut, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, leftPanelOpen, isPortrait, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProduct, rightPanel, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText, setPanelOpenClose])
 }
