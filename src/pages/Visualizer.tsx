@@ -114,13 +114,25 @@ export default function Visualizer(props: any) {
     const floorTranslationOrigin = [0,0,-2]
     const [translationControlValue, setTranslationControlValue] = useState(floorTranslationOrigin); // Temporary rotation offset (not applied yet)
 
-    const defaultPanel = useMemo(()=>{
+    const selectedProduct = useMemo(()=>{
+        return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
+    }, [selectedColumn]);
+
+    const defaultLeftPanel = useMemo(()=>{
         if (siteContext.state.browserProperties.isMobile) {
             return Panel.None
         } else {
             return Panel.Products
         }
-    }, [siteContext.state.browserProperties.isMobile])
+    }, [siteContext.state.browserProperties.isMobile]);
+
+    const defaultRightPanel = useMemo(()=>{
+        if (selectedProduct && !siteContext.state.browserProperties.isMobile) {
+            return Panel.ProductInfo
+        } else {
+            return Panel.None
+        }
+    }, [selectedProduct, siteContext.state.browserProperties.isMobile]);
 
     useEffect(() => {
         _isMounted.current = true;
@@ -396,10 +408,10 @@ export default function Visualizer(props: any) {
         if (mode === VisualizerToolMode.ChooseScene) {
             setActivePanel(Panel.Scenes)
         } else {
-            setActivePanel(defaultPanel)
+            setActivePanel(defaultLeftPanel)
         }
 
-    }, [defaultPanel]);
+    }, [defaultLeftPanel]);
 
     const toolsShowHideButtons = useCallback((show: boolean) => {
         if (!_isMounted.current) return;
@@ -475,8 +487,6 @@ export default function Visualizer(props: any) {
 
     const isPortrait = window.innerHeight > window.innerWidth;
 
-    const selectedProduct = selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
-
     const className = useMemo(()=>{
         switch (activePanel) {
             case Panel.Scenes:
@@ -495,11 +505,11 @@ export default function Visualizer(props: any) {
 
     const leftPanelOpen = useMemo(()=>{
         return activePanel === Panel.Scenes || activePanel === Panel.Products
-    },[activePanel])
+    },[activePanel]);
 
     const rightPanelOpen = useMemo(()=>{
         return activePanel === Panel.ProductInfo || activePanel === Panel.Share
-    },[activePanel])
+    },[activePanel]);
 
     return useMemo(() => (
         <div className={className}>
@@ -533,9 +543,9 @@ export default function Visualizer(props: any) {
             </div>
 
             <div className={"visualizer-container"}>
-                <div className={"products-button close-button-container"}>
-                    <Fab className={"close-button"} onClick={()=>setActivePanel(Panel.Products)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
-                </div>
+                {defaultRightPanel !== Panel.None && <div className={"products-button close-button-container"}>
+                    <Fab className={"close-button"} onClick={()=>setActivePanel(leftPanelOpen ? defaultRightPanel : Panel.Products)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
+                </div>}
 
                 <CBVisualizer
                     toolMode={cbToolMode}
@@ -584,7 +594,7 @@ export default function Visualizer(props: any) {
                 )}
 
                 <div className={"product-details-button close-button-container"}>
-                    <Fab className={"close-button"} onClick={()=>setActivePanel(Panel.ProductInfo)}
+                    <Fab className={"close-button"} onClick={()=>setActivePanel(rightPanelOpen ? defaultLeftPanel : Panel.ProductInfo)}
                          textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
                          icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
                 </div>
@@ -601,5 +611,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, logoPath, basePath, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, leftPanelOpen, isPortrait, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProduct, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
+    ), [className, logoPath, basePath, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, defaultRightPanel, leftPanelOpen, isPortrait, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProduct, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText, defaultLeftPanel])
 }
