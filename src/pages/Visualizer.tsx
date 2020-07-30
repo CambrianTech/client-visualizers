@@ -44,7 +44,8 @@ enum Panel {
     None,
     Products,
     Scenes,
-    ProductInfo
+    ProductInfo,
+    Share
 }
 
 const PANEL_TIMEOUT = 1000;
@@ -483,7 +484,9 @@ export default function Visualizer(props: any) {
             case Panel.Products:
                 return "visualizer products";
             case Panel.ProductInfo:
-                return "visualizer info";
+                return "visualizer product-info";
+            case Panel.Share:
+                return "visualizer share";
             default:
                 return "visualizer";
         }
@@ -495,7 +498,7 @@ export default function Visualizer(props: any) {
     },[activePanel])
 
     const rightPanelOpen = useMemo(()=>{
-        return activePanel === Panel.ProductInfo
+        return activePanel === Panel.ProductInfo || activePanel === Panel.Share
     },[activePanel])
 
     return useMemo(() => (
@@ -587,13 +590,12 @@ export default function Visualizer(props: any) {
                 </div>
             </div>
 
-            {!leftPanelOpen && selectedProduct && selectedProduct.details && (
-                <div className="product-details">
-                    <ProductInfo className={"panel"}
-                                 product={selectedProduct}
-                                 resolveUrl={resolveDetailsUrl} />
-                </div>
-            )}
+            <div className="product-details">
+                <ProductInfo className={"panel"}
+                             product={selectedProduct}
+                             resolveUrl={resolveDetailsUrl} />
+            </div>
+
 
             <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>
 
