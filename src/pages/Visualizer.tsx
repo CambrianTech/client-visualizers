@@ -116,29 +116,33 @@ export default function Visualizer(props: any) {
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
 
+    const isPortrait = useMemo(()=>{
+        return siteContext.state.browserProperties.isPortrait
+    }, [siteContext.state.browserProperties.isPortrait])
+
     const defaultLeftPanel = useMemo(()=>{
-        if (siteContext.state.browserProperties.isPortrait) {
+        if (isPortrait) {
             return Panel.None
         } else {
             return Panel.Products
         }
-    }, [siteContext.state.browserProperties.isPortrait]);
+    }, [isPortrait]);
 
     const defaultRightPanel = useMemo(()=>{
-        if (selectedProduct && !siteContext.state.browserProperties.isMobile) {
-            return Panel.ProductInfo
-        } else {
+        if (isPortrait) {
             return Panel.None
+        } else {
+            return Panel.ProductInfo
         }
-    }, [selectedProduct, siteContext.state.browserProperties.isMobile]);
+    }, [isPortrait]);
 
     useEffect(()=>{
-        if (siteContext.state.browserProperties.isPortrait) {
+        if (isPortrait) {
             setActivePanel(Panel.None)
         } else {
             setActivePanel(Panel.Products)
         }
-    }, [siteContext.state.browserProperties.isPortrait]);
+    }, [isPortrait]);
 
 
     useEffect(() => {
@@ -492,8 +496,6 @@ export default function Visualizer(props: any) {
         }
     }, [floorTranslationOrigin, siteContext.state.floorTranslation, translationControlActive, translationControlValue]);
 
-    const isPortrait = window.innerHeight > window.innerWidth;
-
     const className = useMemo(()=>{
         switch (activePanel) {
             case Panel.Scenes:
@@ -600,11 +602,11 @@ export default function Visualizer(props: any) {
                     <div className={"product-name"}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
                 )}
 
-                {selectedProduct && <div className={"product-details-button close-button-container"}>
-                    <Fab className={"close-button"} onClick={()=>setActivePanel(rightPanelOpen ? defaultLeftPanel : Panel.ProductInfo)}
-                         textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
-                         icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
-                </div>}
+                {/*{selectedProduct && <div className={"product-details-button close-button-container"}>*/}
+                {/*    <Fab className={"close-button"} onClick={()=>setActivePanel(rightPanelOpen ? defaultLeftPanel : Panel.ProductInfo)}*/}
+                {/*         textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}*/}
+                {/*         icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />*/}
+                {/*</div>}*/}
             </div>
 
             <div className="product-details">
