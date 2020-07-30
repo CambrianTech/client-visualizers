@@ -48,8 +48,6 @@ enum Panel {
     Share
 }
 
-const PANEL_TIMEOUT = 1000;
-
 if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
     cbInitialize({
         uploadUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
@@ -71,7 +69,7 @@ export default function Visualizer(props: any) {
 
     const _isMounted = useRef(false);
 
-    const [activePanel, setActivePanel] = useState(Panel.Products);
+    const [activePanel, setActivePanel] = useState(Panel.None);
 
     const [statusText, setStatusText] = useState("");
     const [progressPercentage, setProgressPercentage] = useState(0);
@@ -119,12 +117,12 @@ export default function Visualizer(props: any) {
     }, [selectedColumn]);
 
     const defaultLeftPanel = useMemo(()=>{
-        if (siteContext.state.browserProperties.isMobile) {
+        if (siteContext.state.browserProperties.isPortrait) {
             return Panel.None
         } else {
             return Panel.Products
         }
-    }, [siteContext.state.browserProperties.isMobile]);
+    }, [siteContext.state.browserProperties.isPortrait]);
 
     const defaultRightPanel = useMemo(()=>{
         if (selectedProduct && !siteContext.state.browserProperties.isMobile) {
@@ -133,6 +131,15 @@ export default function Visualizer(props: any) {
             return Panel.None
         }
     }, [selectedProduct, siteContext.state.browserProperties.isMobile]);
+
+    useEffect(()=>{
+        if (siteContext.state.browserProperties.isPortrait) {
+            setActivePanel(Panel.None)
+        } else {
+            setActivePanel(Panel.Products)
+        }
+    }, [siteContext.state.browserProperties.isPortrait]);
+
 
     useEffect(() => {
         _isMounted.current = true;
@@ -543,7 +550,7 @@ export default function Visualizer(props: any) {
             </div>
 
             <div className={"visualizer-container"}>
-                {defaultRightPanel !== Panel.None && <div className={"products-button close-button-container"}>
+                {(defaultRightPanel !== Panel.None || defaultLeftPanel === Panel.None) && <div className={"products-button close-button-container"}>
                     <Fab className={"close-button"} onClick={()=>setActivePanel(leftPanelOpen ? defaultRightPanel : Panel.Products)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
                 </div>}
 

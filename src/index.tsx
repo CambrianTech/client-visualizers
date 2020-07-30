@@ -100,10 +100,10 @@ function App() {
 
     }, [browserProperties.browser])
 
-    // useEffect(() => {
-    //     dispatchSiteState({ type: "setBrowserProperties", browserProperties: browserProperties })
-    //     setCssVars()
-    // }, [browserProperties, setCssVars])
+    useEffect(() => {
+        dispatchSiteState({ type: "setBrowserProperties", browserProperties: browserProperties });
+        setCssVars();
+    }, [browserProperties, setCssVars]);
 
     const updateFromLocation = useCallback((location:any) => {
 
