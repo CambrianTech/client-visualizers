@@ -1,4 +1,4 @@
-import React, {createRef, useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
+import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
 import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
@@ -9,7 +9,8 @@ import {
     Product,
     ProductBrand,
     ProductCollection,
-    ProductColor, ProductItem,
+    ProductColor,
+    ProductItem,
     SceneCollection,
     SceneInfo,
     SwatchItem
@@ -22,11 +23,11 @@ import {
     ImageUpload,
     openImageDialog,
     ProductBreadcrumb,
+    ProductInfo,
     UploadProgress,
     VerticalListing,
     VisualizerToolMode,
-    VisualizerTools,
-    ProductInfo
+    VisualizerTools
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
@@ -171,28 +172,6 @@ export default function Visualizer(props: any) {
         }
     }, []);
 
-    const leftPanel = createRef<HTMLDivElement>();
-    const [leftPanelOpen, _setLeftPanelOpen] = useState<boolean>(false);
-
-    const rightPanel = createRef<HTMLDivElement>();
-    const [rightPanelOpen, _setRightPanelOpen] = useState<boolean>(false);
-
-    const setPanelOpenClose = useCallback((panel:React.RefObject<HTMLDivElement>, open:boolean) => {
-        if (panel.current) {
-            panel.current.classList.remove("open");
-            if (open) {
-                panel.current.classList.add("open")
-            } else {
-                setActivePanel(defaultPanel)
-            }
-        }
-        if (panel === leftPanel) {
-            _setLeftPanelOpen(open)
-        } else {
-            _setRightPanelOpen(open)
-        }
-    }, [defaultPanel, leftPanel]);
-
     const onImageChosen = useCallback((data: any) => {
         console.log(data)
     }, []);
@@ -312,9 +291,8 @@ export default function Visualizer(props: any) {
         if (selectedRow && (!selectedColumn || selectedColumn.parent !== selectedRow)) {
             const swatch = selectedRow.children.length ? selectedRow.children[0] : undefined; //or default here
             setSelectedColumn(swatch);
-            setPanelOpenClose(leftPanel, true);
         }
-    }, [leftPanel, selectedColumn, selectedRow, setPanelOpenClose, swatchSelected])
+    }, [selectedColumn, selectedRow, swatchSelected])
 
     useEffect(() => {
         if (rootItem) {
@@ -360,26 +338,6 @@ export default function Visualizer(props: any) {
             }
         }
     }, [listingItems, rootItem, sceneListingItems, siteContext.state.selectedCollection, siteContext.state.selectedColor, siteContext.state.selectedProduct]);
-
-    const panelMouseTimeout = useRef(0);
-    const panelMouseOver = useCallback(() => {
-        if (panelMouseTimeout.current) {
-            clearTimeout(panelMouseTimeout.current);
-            panelMouseTimeout.current = 0
-        }
-    }, []);
-
-    const panelMouseOut = useCallback(() => {
-        if (panelMouseTimeout.current) return;
-
-        if (PANEL_TIMEOUT) {
-            panelMouseTimeout.current = setTimeout(()=>{
-                setPanelOpenClose(leftPanel, false)
-            }, PANEL_TIMEOUT)
-        }
-
-    }, [leftPanel, setPanelOpenClose]);
-
 
     const allFilters = useMemo<DataFilter[]>(()=>{
         const allFilters:DataFilter[] = filters ? filters:[];
@@ -434,9 +392,13 @@ export default function Visualizer(props: any) {
         }
 
         //panels will close for all modes except scenes.
-        setPanelOpenClose(leftPanel, mode === VisualizerToolMode.ChooseScene)
+        if (mode === VisualizerToolMode.ChooseScene) {
+            setActivePanel(Panel.Scenes)
+        } else {
+            setActivePanel(defaultPanel)
+        }
 
-    }, [leftPanel, setPanelOpenClose]);
+    }, [defaultPanel]);
 
     const toolsShowHideButtons = useCallback((show: boolean) => {
         if (!_isMounted.current) return;
@@ -528,12 +490,20 @@ export default function Visualizer(props: any) {
 
     }, [activePanel]);
 
+    const leftPanelOpen = useMemo(()=>{
+        return activePanel === Panel.Scenes || activePanel === Panel.Products
+    },[activePanel])
+
+    const rightPanelOpen = useMemo(()=>{
+        return activePanel === Panel.ProductInfo
+    },[activePanel])
+
     return useMemo(() => (
         <div className={className}>
 
             {logoPath && <img className={"floating-logo"} src={`${basePath}/${logoPath}`} alt={"logo"} />}
 
-            <div ref={leftPanel} className={"product-selector"}>
+            <div className={"product-selector"}>
                 <div className={"panel"}>
                     <div className={"title"}>
                         <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>Choose a Product</div>
@@ -561,7 +531,7 @@ export default function Visualizer(props: any) {
 
             <div className={"visualizer-container"}>
                 <div className={"products-button close-button-container"}>
-                    <Fab className={"close-button"} onClick={()=>setPanelOpenClose(leftPanel, !leftPanelOpen)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
+                    <Fab className={"close-button"} onClick={()=>setActivePanel(Panel.Products)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
                 </div>
 
                 <CBVisualizer
@@ -611,14 +581,14 @@ export default function Visualizer(props: any) {
                 )}
 
                 <div className={"product-details-button close-button-container"}>
-                    <Fab className={"close-button"} onClick={()=>setPanelOpenClose(rightPanel, !rightPanelOpen)}
+                    <Fab className={"close-button"} onClick={()=>setActivePanel(Panel.ProductInfo)}
                          textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
                          icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
                 </div>
             </div>
 
             {!leftPanelOpen && selectedProduct && selectedProduct.details && (
-                <div ref={rightPanel} className="product-details">
+                <div className="product-details">
                     <ProductInfo className={"panel"}
                                  product={selectedProduct}
                                  resolveUrl={resolveDetailsUrl} />
@@ -629,5 +599,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, logoPath, basePath, leftPanel, panelMouseOver, panelMouseOut, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, leftPanelOpen, isPortrait, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProduct, rightPanel, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText, setPanelOpenClose])
+    ), [className, logoPath, basePath, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, leftPanelOpen, isPortrait, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProduct, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
 }
