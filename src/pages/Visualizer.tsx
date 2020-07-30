@@ -593,11 +593,11 @@ export default function Visualizer(props: any) {
                     <div className={"product-name"}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
                 )}
 
-                <div className={"product-details-button close-button-container"}>
+                {selectedProduct && <div className={"product-details-button close-button-container"}>
                     <Fab className={"close-button"} onClick={()=>setActivePanel(rightPanelOpen ? defaultLeftPanel : Panel.ProductInfo)}
                          textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
                          icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
-                </div>
+                </div>}
             </div>
 
             <div className="product-details">
