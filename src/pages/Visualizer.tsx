@@ -533,7 +533,7 @@ export default function Visualizer(props: any) {
 
             {logoPath && <img className={"floating-logo"} src={`${basePath}/${logoPath}`} alt={"logo"} />}
 
-            <div ref={leftPanel} className={"product-selector"} onMouseOver={panelMouseOver} onMouseOut={panelMouseOut}>
+            <div ref={leftPanel} className={"product-selector"}>
                 <div className={"panel"}>
                     <div className={"title"}>
                         <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>Choose a Product</div>
@@ -557,66 +557,68 @@ export default function Visualizer(props: any) {
                                      selectedSubSwatch={selectedSceneColumn}
                                      resolveThumbnailPath={resolveSceneThumbnailPath}/>
                 </div>
-                <div className={"close-button-container"}>
+            </div>
+
+            <div className={"visualizer-container"}>
+                <div className={"products-button close-button-container"}>
                     <Fab className={"close-button"} onClick={()=>setPanelOpenClose(leftPanel, !leftPanelOpen)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
+                </div>
+
+                <CBVisualizer
+                    toolMode={cbToolMode}
+                    canLoad={true}
+                    material={materialProperties}
+                    defaultMaterial = {new CBMaterialProperties(20,"assets/scenes/blue-tile.png")}
+                    scene={siteContext.state.sceneData}
+                    fov={fov}
+                    cameraPosition={position}
+                    cameraRotation={[rotation[0], 0, rotation[2]]}
+                    floorSize={floorSize}
+                    floorRotation={floorRotation}
+                    blendEdges={isUploadedImage()}
+                    lightingOffset={lightingOffset}
+                    floorPosition={translationControlActive ? translationControlValue : floorPosition}
+                    floorPositionUpdated={pos=>translateChanged(pos[0], pos[2])}
+                    floorRotationUpdated={rot=>rotateChanged(rot)}
+                    showControls={siteContext.state.showControls} />
+
+                <VisualizerTools
+                    visible={!isToolOverlayOpen}
+                    mode={toolMode}
+                    isModePermitted={isModePermitted}
+
+                    changeMode={toolChanged}
+
+                    onRotationChanged={rotateChanged}
+                    onRotationFinished={rotateFinished}
+
+                    onTranslationChanged={translateChanged}
+                    onTranslationFinished={translateFinished}
+
+                    initialRotation={floorRotation}
+                    initialXPos={floorPosition[0]}
+                    initialYPos={floorPosition[2]}
+
+                    minTranslation={[-10, -10]}
+                    maxTranslation={[10,0]}
+
+                    historySize={historySize}
+                    onShowHideButtons={toolsShowHideButtons}
+                />
+
+                {!rightPanelOpen && selectedRow && selectedProduct && (
+                    <div className={"product-name"}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
+                )}
+
+                <div className={"product-details-button close-button-container"}>
+                    <Fab className={"close-button"} onClick={()=>setPanelOpenClose(rightPanel, !rightPanelOpen)}
+                         textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
+                         icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
                 </div>
             </div>
 
-            <CBVisualizer
-                toolMode={cbToolMode}
-                canLoad={true}
-                material={materialProperties}
-                defaultMaterial = {new CBMaterialProperties(20,"assets/scenes/blue-tile.png")}
-                scene={siteContext.state.sceneData}
-                fov={fov}
-                cameraPosition={position}
-                cameraRotation={[rotation[0], 0, rotation[2]]}
-                floorSize={floorSize}
-                floorRotation={floorRotation}
-                blendEdges={isUploadedImage()}
-                lightingOffset={lightingOffset}
-                floorPosition={translationControlActive ? translationControlValue : floorPosition}
-                floorPositionUpdated={pos=>translateChanged(pos[0], pos[2])}
-                floorRotationUpdated={rot=>rotateChanged(rot)}
-                showControls={siteContext.state.showControls} />
-
-            <VisualizerTools
-                visible={!isToolOverlayOpen}
-                mode={toolMode}
-                isModePermitted={isModePermitted}
-
-                changeMode={toolChanged}
-
-                onRotationChanged={rotateChanged}
-                onRotationFinished={rotateFinished}
-
-                onTranslationChanged={translateChanged}
-                onTranslationFinished={translateFinished}
-
-                initialRotation={floorRotation}
-                initialXPos={floorPosition[0]}
-                initialYPos={floorPosition[2]}
-
-                minTranslation={[-10, -10]}
-                maxTranslation={[10,0]}
-
-                historySize={historySize}
-                onShowHideButtons={toolsShowHideButtons}
-            />
-
-
-
-            {!rightPanelOpen && selectedRow && selectedProduct && (
-                <div className={"product-name"}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
-            )}
-
             {!leftPanelOpen && selectedProduct && selectedProduct.details && (
                 <div ref={rightPanel} className="product-details">
-                    <div className={"close-button-container"}>
-                        <Fab className={"close-button"} onClick={()=>setPanelOpenClose(rightPanel, !rightPanelOpen)}
-                             textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
-                             icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
-                    </div>
                     <ProductInfo className={"panel"}
                                  product={selectedProduct}
                                  resolveUrl={resolveDetailsUrl} />
