@@ -302,7 +302,7 @@
         bottom: calc(var(--panel-height));
     }
 
-    .visualizer.product-info .products-button.close-button-container, .visualizer.scenes .products-button.close-button-container {
+    .visualizer.product-info .product-info-button.close-button-container, .visualizer.share .product-info-button.close-button-container {
         margin-left: 0;
         bottom: calc(var(--details-panel-height));
     }
