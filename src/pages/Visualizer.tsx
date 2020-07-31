@@ -109,7 +109,7 @@ export default function Visualizer(props: any) {
     const [, setNeedsUpload] = useState(false);
     const [floorSize, ] = useState([100,100]);
     const [translationControlActive, setTranslationControlActive] = useState(false);
-    const floorTranslationOrigin = [0,0,-2]
+    const floorTranslationOrigin = [0,0,-2];
     const [translationControlValue, setTranslationControlValue] = useState(floorTranslationOrigin); // Temporary rotation offset (not applied yet)
 
     const selectedProduct = useMemo(()=>{
@@ -118,7 +118,13 @@ export default function Visualizer(props: any) {
 
     const isPortrait = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait
-    }, [siteContext.state.browserProperties.isPortrait])
+    }, [siteContext.state.browserProperties.isPortrait]);
+
+    useEffect(()=>{
+        if (selectedProduct) {
+            console.log(selectedProduct.displayName)
+        }
+    }, [selectedProduct]);
 
     const defaultLeftPanel = useMemo(()=>{
         if (isPortrait) {
@@ -309,14 +315,14 @@ export default function Visualizer(props: any) {
         if (selectedColumn instanceof Product || selectedColumn instanceof ProductColor) {
             showMaterial(selectedColumn)
         }
-    }, [selectedColumn, showMaterial])
+    }, [selectedColumn, showMaterial]);
 
     useEffect(() => {
         if (selectedRow && (!selectedColumn || selectedColumn.parent !== selectedRow)) {
             const swatch = selectedRow.children.length ? selectedRow.children[0] : undefined; //or default here
             setSelectedColumn(swatch);
         }
-    }, [selectedColumn, selectedRow, swatchSelected])
+    }, [selectedColumn, selectedRow, swatchSelected]);
 
     useEffect(() => {
         if (rootItem) {
@@ -444,7 +450,7 @@ export default function Visualizer(props: any) {
             });
             setNeedsUpload(true)
         }
-        setRotationControlActive(false)
+        setRotationControlActive(false);
         setToolMode(VisualizerToolMode.None)
 
     }, [dispatch, siteContext.state.rotation]);
@@ -466,7 +472,7 @@ export default function Visualizer(props: any) {
             setNeedsUpload(true)
         }
 
-        setToolMode(VisualizerToolMode.None)
+        setToolMode(VisualizerToolMode.None);
         setTranslationControlActive(false)
 
     }, [dispatch]);
@@ -483,7 +489,7 @@ export default function Visualizer(props: any) {
         else {
             return siteContext.state.rotation ? siteContext.state.rotation[1] : 0
         }
-    }, [rotationControlActive, rotationControlValue, siteContext.state.rotation])
+    }, [rotationControlActive, rotationControlValue, siteContext.state.rotation]);
 
     const floorPosition = useMemo(()=>{
         if (translationControlActive) {

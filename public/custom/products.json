@@ -348,7 +348,6 @@
               "thumbnail": "Monaco/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#cambridge-hall",
-                "preview": "Monaco/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -456,7 +455,6 @@
               "thumbnail": "Montrose/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#diamond-board",
-                "preview": "Montrose/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed EVA"},
@@ -481,7 +479,6 @@
               "thumbnail": "Rustic Hickory/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#diamond-board",
-                "preview": "Rustic Hickory/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed EVA"},
@@ -1059,7 +1056,6 @@
               "thumbnail": "Heron Bay/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#kensington",
-                "preview": "Heron Bay/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1159,7 +1155,6 @@
               "thumbnail": "Sanibel Island/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#kensington",
-                "preview": "Sanibel Island/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1315,6 +1310,7 @@
               "displayName": "Yorktown",
               "ppi": 36.57,
               "thumbnail": "Yorktown/thumbnail.jpg",
+              "enabled": false,
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#revolutions",
                 "preview": "Yorktown/preview.jpg",
@@ -1375,7 +1371,6 @@
               "thumbnail": "Country Cabin/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#richburg-hills",
-                "preview": "Country Cabin/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},
@@ -1400,7 +1395,6 @@
               "thumbnail": "Piedmont/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#richburg-hills",
-                "preview": "Piedmont/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},
@@ -1425,7 +1419,6 @@
               "thumbnail": "Roanoake/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#richburg-hills",
-                "preview": "Roanoake/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},
@@ -1637,7 +1630,6 @@
               "thumbnail": "Richmond/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#wellington-heights",
-                "preview": "Richmond/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},
