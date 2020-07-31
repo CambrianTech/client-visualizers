@@ -120,12 +120,6 @@ export default function Visualizer(props: any) {
         return siteContext.state.browserProperties.isPortrait
     }, [siteContext.state.browserProperties.isPortrait]);
 
-    useEffect(()=>{
-        if (selectedProduct) {
-            console.log(selectedProduct.displayName)
-        }
-    }, [selectedProduct]);
-
     const defaultLeftPanel = useMemo(()=>{
         if (isPortrait) {
             return Panel.None
