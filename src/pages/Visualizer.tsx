@@ -574,7 +574,7 @@ export default function Visualizer(props: any) {
                     visible={!isToolOverlayOpen}
                     mode={toolMode}
                     isModePermitted={isModePermitted}
-
+                    showLabels={!isPortrait}
                     changeMode={toolChanged}
 
                     onRotationChanged={rotateChanged}
