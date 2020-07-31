@@ -164,12 +164,8 @@ export default function Visualizer(props: any) {
                     setLightingOffset(json.lightingOffset)
                 }
 
-                if (json.hasOwnProperty("siteLogoImage")) {
-                    setLogoPath(json.siteLogoImage)
-                }
-
-                if (json.hasOwnProperty("primaryColor")) {
-                    document.documentElement.style.setProperty("--mdc-theme-secondary", json.primaryColor)
+                if (json.config.hasOwnProperty("siteLogoImage")) {
+                    setLogoPath(json.config.siteLogoImage)
                 }
 
                 const brands:ProductBrand[] = [];

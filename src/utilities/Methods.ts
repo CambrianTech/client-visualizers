@@ -13,17 +13,17 @@ export function dispatchDataProperties(basePath:string|undefined, data:any, disp
             },
             ancorPoint:[0,0.75]
         },
-    })
+    });
 
     dispatch({
         type: "setFov",
         fov: data.fov
-    })
+    });
 
     dispatch({
         type: "setPosition",
         position: data.cameraPosition
-    })
+    });
 
     dispatch({
         type: "setRotation",
@@ -32,7 +32,7 @@ export function dispatchDataProperties(basePath:string|undefined, data:any, disp
 }
 
 export function selectScene(path: string, dispatch: Dispatch<SiteAction>) {
-    const jsonPath = MediaPaths.Scenes + "/" + path + "/data.json"
+    const jsonPath = MediaPaths.Scenes + "/" + path + "/data.json";
     fetch(jsonPath).then(res => res.json())
         .then(data => {
             dispatchDataProperties(MediaPaths.Scenes + "/" + path, data, dispatch)
@@ -40,7 +40,7 @@ export function selectScene(path: string, dispatch: Dispatch<SiteAction>) {
 }
 
 export function objectToLowerCase(object: any) {
-    const newObject: any = {}
+    const newObject: any = {};
 
     for (const key of Object.keys(object)) {
         newObject[key.toLocaleLowerCase()] = object[key]

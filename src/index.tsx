@@ -105,19 +105,36 @@ function App() {
         setCssVars();
     }, [browserProperties, setCssVars]);
 
+    const loadScene = useCallback((collection:string, scene:string)=> {
+        dispatchSiteState({
+            type: "setSelectedSampleRoomType",
+            selectedSampleRoomType: collection as string
+        })
+
+        dispatchSiteState({
+            type: "setSelectedSampleRoom",
+            selectedSampleRoom: scene as string,
+            selectedSamplePath: collection as string
+        })
+
+        const path = collection + "/" + scene
+        const basePath = "assets/scenes/" + path
+
+        fetch(basePath + "/data.json")
+            .then(res => res.json())
+            .then(data => {
+                dispatchDataProperties(basePath, data, dispatchSiteState)
+            })
+
+    }, []);
+
     const updateFromLocation = useCallback((location:any) => {
 
         // Parse URL search string without the first character (typically question mark).
         // Also turn the keys into lowercase so their case doesn't matter.
         const searchObject = objectToLowerCase(qs.parse(location.search.substr(1)));
 
-        if (window.hasOwnProperty("defaultSceneCollection")) {
-            searchObject.rt = (window as any).defaultSceneCollection as string;
-            searchObject.r = (window as any).defaultScene as string;
-        } else {
-            searchObject.rt = "kitchen";
-            searchObject.r = "2-kitchen";
-        }
+        let hasScene = false;
 
         const searchFov = searchObject.f as string;
         if (searchFov) {
@@ -174,30 +191,9 @@ function App() {
             })
         }
 
-        if (searchObject.rt) {
-            if (!siteState.selectedSampleRoomType || searchObject.rt !== siteState.selectedSampleRoomType) {
-                dispatchSiteState({
-                    type: "setSelectedSampleRoomType",
-                    selectedSampleRoomType: searchObject.rt as string
-                })
-            }
-
-            if (searchObject.r && (!siteState.selectedSampleRoom || searchObject.r !== siteState.selectedSampleRoom)) {
-                dispatchSiteState({
-                    type: "setSelectedSampleRoom",
-                    selectedSampleRoom: searchObject.r as string,
-                    selectedSamplePath: searchObject.rt as string
-                })
-
-                const path = searchObject.rt + "/" + searchObject.r
-                const basePath = "assets/scenes/" + path
-
-                fetch(basePath + "/data.json")
-                    .then(res => res.json())
-                    .then(data => {
-                        dispatchDataProperties(basePath, data, dispatchSiteState)
-                    })
-            }
+        if (searchObject.rt && searchObject.r) {
+            hasScene = true;
+            loadScene(searchObject.rt, searchObject.r)
         }
 
         if (searchObject.collection) {
@@ -221,7 +217,25 @@ function App() {
             })
         }
 
-    }, [siteState.fov, siteState.position, siteState.rotation, siteState.selectedSampleRoom, siteState.selectedSampleRoomType])
+        //load defaults
+        fetch('custom/products.json').then(res => res.json())
+            .then(json => {
+                const config = json.config as any;
+
+                if (!document.title && config.hasOwnProperty("siteTitle")) {
+                    document.title = config.siteTitle;
+                }
+
+                if (config.hasOwnProperty("primaryColor") && !document.documentElement.style.getPropertyValue("--mdc-theme-secondary")) {
+                    document.documentElement.style.setProperty("--mdc-theme-secondary", config.primaryColor)
+                }
+
+                if (!hasScene && config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
+                    loadScene(config.defaultSceneCollection, config.defaultScene)
+                }
+            });
+
+    }, [loadScene, siteState.fov, siteState.position, siteState.rotation])
 
     const initialize = useCallback(() => {
         setCssVars()
