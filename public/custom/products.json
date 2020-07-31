@@ -329,7 +329,7 @@
                   {"Padding": "1.0mm EVA"},
                   {"Overall Thickness": "4.2mm"},
                   {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -379,7 +379,7 @@
                   {"Padding": "1.0mm EVA"},
                   {"Overall Thickness": "4.2mm"},
                   {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -434,10 +434,10 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed EVA"},
                   {"Overall Thickness": "4.2mm"},
                   {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -459,10 +459,10 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed EVA"},
                   {"Overall Thickness": "4.2mm"},
                   {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -484,10 +484,10 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed EVA"},
                   {"Overall Thickness": "4.2mm"},
                   {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -517,11 +517,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -542,11 +542,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -567,11 +567,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -592,11 +592,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -617,11 +617,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -642,11 +642,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -668,11 +668,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -693,11 +693,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -718,11 +718,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -744,11 +744,11 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed IXPE"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
+                  {"Wear Layer": "12 mil"},
                   {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
+                  {"Surface": "Deep Wood Grain Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
               },
@@ -778,10 +778,10 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed EVA"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -803,10 +803,10 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed EVA"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -828,10 +828,10 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed EVA"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -853,10 +853,10 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed EVA"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
@@ -878,10 +878,10 @@
                 "preview": "Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
+                  {"Padding": "1.0mm Embossed EVA"},
                   {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
                   {"Surface": "Antique Wood Embossing"},
                   {"Edge": "Micro Bevel"}
                 ]
