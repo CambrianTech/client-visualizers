@@ -523,8 +523,6 @@ export default function Visualizer(props: any) {
     return useMemo(() => (
         <div className={className}>
 
-            {logoPath && <img className={"floating-logo"} src={`${basePath}/${logoPath}`} alt={"logo"} />}
-
             <div className={"product-selector"}>
                 <div className={"panel"}>
                     <div className={"title"}>
@@ -573,6 +571,8 @@ export default function Visualizer(props: any) {
                     floorPositionUpdated={pos=>translateChanged(pos[0], pos[2])}
                     floorRotationUpdated={rot=>rotateChanged(rot)}
                     showControls={siteContext.state.showControls} />
+
+                {logoPath && <img className={"floating-logo"} src={`${basePath}/${logoPath}`} alt={"logo"} />}
 
                 <VisualizerTools
                     visible={!isToolOverlayOpen}
