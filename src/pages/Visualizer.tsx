@@ -546,7 +546,7 @@ export default function Visualizer(props: any) {
             </div>
 
             <div className={"visualizer-container"}>
-                {(defaultRightPanel !== Panel.None || defaultLeftPanel === Panel.None) && <div className={"products-button close-button-container"}>
+                {selectedProduct && (defaultRightPanel !== Panel.None || defaultLeftPanel === Panel.None) && <div className={"products-button close-button-container"}>
                     <Fab className={"close-button"} onClick={()=>setActivePanel(leftPanelOpen ? defaultRightPanel : Panel.Products)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
                 </div>}
 

@@ -448,6 +448,30 @@
               }
             },
             {
+              "name": "carmel-distressed-pine",
+              "code": "carmel-distressed-pine",
+              "displayName": "Historic Kirsche",
+              "ppi": 36.57,
+              "thumbnail": "Historic Kirsche/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#diamond-board",
+                "specifications": [
+                  {"Plank Size": "7″ x 48″"},
+                  {"Padding": "1.0mm Embossed EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Click Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "metaData": {
+                "albedo": "Historic Kirsche/tiled_diffuse.jpg",
+                "normals": "Historic Kirsche/tiled_normals.jpg",
+                "specular": "Historic Kirsche/tiled_specular.jpg"
+              }
+            },
+            {
               "name": "montrose",
               "code": "monstrose",
               "displayName": "Montrose",
@@ -787,6 +811,56 @@
                 "albedo": "Natchez/tiled_diffuse.jpg",
                 "normals": "Natchez/tiled_normals.jpg",
                 "specular": "Natchez/tiled_specular.jpg"
+              }
+            },
+            {
+              "name": "athens",
+              "code": "athens",
+              "displayName": "Athens",
+              "enabled": false,
+              "ppi": 36.57,
+              "thumbnail": "Athens/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#kensington",
+                "specifications": [
+                  {"Plank Size": "7″ x 48″"},
+                  {"Padding": "1.0mm Embossed EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "metaData": {
+                "albedo": "Athens/tiled_diffuse.jpg",
+                "normals": "Athens/tiled_normals.jpg",
+                "specular": "Athens/tiled_specular.jpg"
+              }
+            },
+            {
+              "name": "mojave",
+              "code": "mojave",
+              "displayName": "Mojave",
+              "enabled": false,
+              "ppi": 36.57,
+              "thumbnail": "Mojave/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#kensington",
+                "specifications": [
+                  {"Plank Size": "7″ x 48″"},
+                  {"Padding": "1.0mm Embossed EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "metaData": {
+                "albedo": "Mojave/tiled_diffuse.jpg",
+                "normals": "Mojave/tiled_normals.jpg",
+                "specular": "Mojave/tiled_specular.jpg"
               }
             },
             {
@@ -1468,6 +1542,78 @@
               }
             },
             {
+              "name": "morning-mesa",
+              "code": "morning-mesa",
+              "displayName": "Morning Mesa",
+              "ppi": 36.57,
+              "thumbnail": "Morning Mesa/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#richburg-hills",
+                "preview": "Morning Mesa/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 60″"},
+                  {"Padding": "1.0mm Embossed IXPE"},
+                  {"Overall Thickness": "4.8mm"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
+                  {"Edge": "Painted Bevel"}
+                ]
+              },
+              "metaData": {
+                "albedo": "Morning Mesa/tiled_diffuse.jpg",
+                "normals": "Morning Mesa/tiled_normals.jpg",
+                "specular": "Morning Mesa/tiled_specular.jpg"
+              }
+            },
+            {
+              "name": "springfield",
+              "code": "springfield",
+              "displayName": "Springfield",
+              "ppi": 36.57,
+              "thumbnail": "Springfield/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#richburg-hills",
+                "preview": "Springfield/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 60″"},
+                  {"Padding": "1.0mm Embossed IXPE"},
+                  {"Overall Thickness": "4.8mm"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
+                  {"Edge": "Painted Bevel"}
+                ]
+              },
+              "metaData": {
+                "albedo": "Springfield/tiled_diffuse.jpg",
+                "normals": "Springfield/tiled_normals.jpg",
+                "specular": "Springfield/tiled_specular.jpg"
+              }
+            },
+            {
+              "name": "hillsboro",
+              "code": "hillsboro",
+              "displayName": "Hillsboro",
+              "ppi": 28.44,
+              "thumbnail": "Hillsboro/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#richburg-hills",
+                "preview": "Hillsboro/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 60″"},
+                  {"Padding": "1.0mm Embossed IXPE"},
+                  {"Overall Thickness": "4.8mm"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
+                  {"Edge": "Painted Bevel"}
+                ]
+              },
+              "metaData": {
+                "albedo": "Hillsboro/tiled_diffuse.jpg",
+                "normals": "Hillsboro/tiled_normals.jpg",
+                "specular": "Hillsboro/tiled_specular.jpg"
+              }
+            },
+            {
               "name": "park-hill",
               "code": "park-hill",
               "displayName": "Park Hill",
@@ -1524,7 +1670,6 @@
               "thumbnail": "Sunset/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-collection/rigid-core-planks/#richburg-hills",
-                "preview": "Sunset/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
