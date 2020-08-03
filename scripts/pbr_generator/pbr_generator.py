@@ -20,7 +20,10 @@ def get_image_paths(input_dir, pattern):
     files = []
     extensions = ('.png', '.jpg', '.jpeg')
     for ext in extensions:
-        files.extend(Path(input_dir).glob('**/' + pattern + ext))
+        if pattern:
+            files.extend(Path(input_dir).glob('**/' + pattern))
+        else:
+            files.extend(Path(input_dir).glob('**/*' + ext))
     return files
 
 def get_specular(img):
@@ -92,7 +95,7 @@ def get_normals(img, filter="Scharr" ): # normal[0..2] band-array
     normals = normals[border_size:border_size + img.shape[0], border_size:border_size + img.shape[1]]
     return normals
 
-def import_directory(input_dir, output_dir, filter='Scharr', file_pattern='*', quality=90, output_size=None):
+def import_directory(input_dir, output_dir, filter='Scharr', file_pattern=None, quality=90, output_size=None):
     
     files = get_image_paths(input_dir,file_pattern)
 
@@ -133,13 +136,13 @@ def import_directory(input_dir, output_dir, filter='Scharr', file_pattern='*', q
 
 @click.command()
 @click.argument("input_dir", default='input', type=click.Path(exists=True, file_okay=False, dir_okay=True))
-@click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
+@click.argument("output_dir", default='input', type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.option('--filter', '-f', type=click.STRING, default='Scharr')
-@click.option('--file_pattern', '-p', type=click.STRING, default='*')
+@click.option('--pattern', '-p', type=click.STRING, default=None)
 @click.option('--quality', type=int, default=50)
 @click.option('--output_size', type=int, default=512)
 
-def main(input_dir, output_dir, filter, file_pattern, quality, output_size):
+def main(input_dir, output_dir, filter, pattern, quality, output_size):
 
     if not os.path.exists(input_dir):
         raise Exception('The json file does not exist at path {}'.format(json_path)) 
@@ -147,7 +150,7 @@ def main(input_dir, output_dir, filter, file_pattern, quality, output_size):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    import_directory(input_dir, output_dir, filter, file_pattern, quality, output_size)
+    import_directory(input_dir, output_dir, filter, pattern, quality, output_size)
     
     print("Done")
 

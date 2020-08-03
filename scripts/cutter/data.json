@@ -51,7 +51,5 @@
 	{"image":"Springfield FF.jpg", "width":100.0, "unit":"cm", "crop-width":7.0, "crop-height":48.0, "crop-unit":"in"},
 	{"image":"Sunset FF (TW-2771-D03).jpg", "width":100.0, "unit":"cm", "crop-width":7.0, "crop-height":48.0, "crop-unit":"in"},
 	{"image":"Townsend FF (TCM380-4).jpg", "width":100.0, "unit":"cm", "crop-width":9.0, "crop-height":60.0, "crop-unit":"in"},
-	{"image":"Trenton FF (CDW-191-8 整版).jpg", "width":100.0, "unit":"cm", "crop-width":7.0, "crop-height":48.0, "crop-unit":"in"},
-	{"image":"Virginia FF (ORGW-320-12).jpg", "width":100.0, "unit":"cm", "crop-width":7.0, "crop-height":48.0, "crop-unit":"in"},
-	{"image":"Yorktown FF (CD191-12).jpg", "width":100.0, "unit":"cm", "crop-width":7.0, "crop-height":48.0, "crop-unit":"in"}
+	{"image":"Virginia FF (ORGW-320-12).jpg", "width":100.0, "unit":"cm", "crop-width":7.0, "crop-height":48.0, "crop-unit":"in"}
 ]
