@@ -15,7 +15,7 @@
     "primaryColor": "#7ea13d",
     "defaultSceneCollection": "office",
     "defaultScene": "1-business",
-    "defaultScenePath": "assets/scenes/",
+    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource/scenes/",
     "siteLogoImage": "branding/logo-overlay-white.png"
   },
   "hasPhotoUpload": false,
