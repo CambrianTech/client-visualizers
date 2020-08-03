@@ -116,6 +116,13 @@ export default function Visualizer(props: any) {
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
 
+    const selectedProductIsLight = useMemo(()=>{
+        if (selectedProduct && selectedProduct.metaData.hasOwnProperty("isLightColor")) {
+            return selectedProduct.metaData.isLightColor;
+        }
+        return false;
+    }, [selectedProduct]);
+
     const isPortrait = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait
     }, [siteContext.state.browserProperties.isPortrait]);
@@ -465,10 +472,13 @@ export default function Visualizer(props: any) {
 
     }, [dispatch]);
 
-    const resolveDetailsUrl = useCallback((name:string, url:string)=>{
+    const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
         //console.log(`${basePath}/textures/${url}`)
+        if (!url && name === "preview" && selectedProduct) {
+            return `${basePath}/textures/${selectedProduct.thumbnail}`
+        }
         return `${basePath}/textures/${url}`
-    }, [basePath]);
+    }, [basePath, selectedProduct]);
 
     const floorRotation = useMemo(()=>{
         if (rotationControlActive) {
@@ -593,7 +603,7 @@ export default function Visualizer(props: any) {
                 />
 
                 {!rightPanelOpen && selectedRow && selectedProduct && (
-                    <div className={"product-name"}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
+                    <div className={`product-name${selectedProductIsLight ? " dark":""}`}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
                 )}
 
                 {selectedProduct && <div className={"product-details-button close-button-container"}>
@@ -614,5 +624,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, logoPath, basePath, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, defaultRightPanel, leftPanelOpen, isPortrait, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProduct, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText, defaultLeftPanel])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, selectedProduct, defaultRightPanel, defaultLeftPanel, leftPanelOpen, isPortrait, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, logoPath, basePath, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProductIsLight, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
 }

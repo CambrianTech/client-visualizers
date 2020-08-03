@@ -281,7 +281,8 @@
               "metaData": {
                 "albedo": "Bellewood/tiled_diffuse.jpg",
                 "normals": "Bellewood/tiled_normals.jpg",
-                "specular": "Bellewood/tiled_specular.jpg"
+                "specular": "Bellewood/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -306,7 +307,8 @@
               "metaData": {
                 "albedo": "Bent Creek/tiled_diffuse.jpg",
                 "normals": "Bent Creek/tiled_normals.jpg",
-                "specular": "Bent Creek/tiled_specular.jpg"
+                "specular": "Bent Creek/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -355,7 +357,8 @@
               "metaData": {
                 "albedo": "Monaco/tiled_diffuse.jpg",
                 "normals": "Monaco/tiled_normals.jpg",
-                "specular": "Monaco/tiled_specular.jpg"
+                "specular": "Monaco/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -462,7 +465,8 @@
               "metaData": {
                 "albedo": "Historic Kirsche/tiled_diffuse.jpg",
                 "normals": "Historic Kirsche/tiled_normals.jpg",
-                "specular": "Historic Kirsche/tiled_specular.jpg"
+                "specular": "Historic Kirsche/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -643,7 +647,8 @@
               "metaData": {
                 "albedo": "Mystic Cypress/tiled_diffuse.jpg",
                 "normals": "Mystic Cypress/tiled_normals.jpg",
-                "specular": "Mystic Cypress/tiled_specular.jpg"
+                "specular": "Mystic Cypress/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -879,7 +884,8 @@
               "metaData": {
                 "albedo": "Olympia/tiled_diffuse.jpg",
                 "normals": "Olympia/tiled_normals.jpg",
-                "specular": "Olympia/tiled_specular.jpg"
+                "specular": "Olympia/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -954,7 +960,8 @@
               "metaData": {
                 "albedo": "Virginia/tiled_diffuse.jpg",
                 "normals": "Virginia/tiled_normals.jpg",
-                "specular": "Virginia/tiled_specular.jpg"
+                "specular": "Virginia/tiled_specular.jpg",
+                "isLightColor": true
               }
             }
           ]
@@ -1294,7 +1301,8 @@
               "metaData": {
                 "albedo": "Concord/tiled_diffuse.jpg",
                 "normals": "Concord/tiled_normals.jpg",
-                "specular": "Concord/tiled_specular.jpg"
+                "specular": "Concord/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -1532,7 +1540,8 @@
               "metaData": {
                 "albedo": "Helena/tiled_diffuse.jpg",
                 "normals": "Helena/tiled_normals.jpg",
-                "specular": "Helena/tiled_specular.jpg"
+                "specular": "Helena/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -1556,7 +1565,8 @@
               "metaData": {
                 "albedo": "Morning Mesa/tiled_diffuse.jpg",
                 "normals": "Morning Mesa/tiled_normals.jpg",
-                "specular": "Morning Mesa/tiled_specular.jpg"
+                "specular": "Morning Mesa/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -1580,7 +1590,8 @@
               "metaData": {
                 "albedo": "Springfield/tiled_diffuse.jpg",
                 "normals": "Springfield/tiled_normals.jpg",
-                "specular": "Springfield/tiled_specular.jpg"
+                "specular": "Springfield/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -1604,7 +1615,8 @@
               "metaData": {
                 "albedo": "Hillsboro/tiled_diffuse.jpg",
                 "normals": "Hillsboro/tiled_normals.jpg",
-                "specular": "Hillsboro/tiled_specular.jpg"
+                "specular": "Hillsboro/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -1652,7 +1664,8 @@
               "metaData": {
                 "albedo": "Pelham/tiled_diffuse.jpg",
                 "normals": "Pelham/tiled_normals.jpg",
-                "specular": "Pelham/tiled_specular.jpg"
+                "specular": "Pelham/tiled_specular.jpg",
+                "isLightColor": true
               }
             },
             {
@@ -1782,7 +1795,8 @@
               "metaData": {
                 "albedo": "Richmond/tiled_diffuse.jpg",
                 "normals": "Richmond/tiled_normals.jpg",
-                "specular": "Richmond/tiled_specular.jpg"
+                "specular": "Richmond/tiled_specular.jpg",
+                "isLightColor": true
               }
             }
           ]
