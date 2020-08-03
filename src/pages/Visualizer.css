@@ -265,6 +265,10 @@
     filter: brightness(100%) grayscale(100%);
 }
 
+.horizontal-swatch-listing-item.selected {
+    border:1px solid var(--mdc-theme-secondary, #555555);
+}
+
 /* Mobile Phone or iPad in portrait */
 @media (orientation: portrait) {
 
