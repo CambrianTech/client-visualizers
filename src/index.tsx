@@ -19,9 +19,9 @@ import {objectToLowerCase, selectScene} from "./utilities/Methods";
 import Visualizer from "./pages/Visualizer"
 import {CBSceneProperties} from "react-home-harmony";
 
-const objectFitImages = require('object-fit-images')
+const objectFitImages = require('object-fit-images');
 
-export const api:any = (window as any).cb
+export const api:any = (window as any).cb;
 
 export function dispatchDataProperties(basePath:string, data:any, dispatch: Dispatch<SiteAction>) {
     const sceneProperties:CBSceneProperties = {
@@ -39,17 +39,17 @@ export function dispatchDataProperties(basePath:string, data:any, dispatch: Disp
     dispatch({
         type: "setSceneData",
         sceneData: sceneProperties
-    })
+    });
 
     dispatch({
         type: "setFov",
         fov: data.fov
-    })
+    });
 
     dispatch({
         type: "setPosition",
         position: data.cameraPosition
-    })
+    });
 
     dispatch({
         type: "setRotation",
@@ -59,28 +59,28 @@ export function dispatchDataProperties(basePath:string, data:any, dispatch: Disp
 
 
 function App() {
-    const initialSiteState = createEmptyState()
-    const [siteState, dispatchSiteState] = useReducer(siteStateReducer, initialSiteState)
-    const [browserProperties, setBrowserProperties] = useState<BrowserProperties>({})
+    const initialSiteState = createEmptyState();
+    const [siteState, dispatchSiteState] = useReducer(siteStateReducer, initialSiteState);
+    const [browserProperties, setBrowserProperties] = useState<BrowserProperties>({});
     // Url load states
 
     //component mounted:
     useEffect(() => {
-        cssVars()
-        objectFitImages()
+        cssVars();
+        objectFitImages();
 
         return () => {
             //unmount
         }
-    }, [])
+    }, []);
 
     useEffect(() => {
         if (browserProperties.hasTouchpad) {
-            document.documentElement.style.setProperty("--scrollbar-style", "none")
-            document.documentElement.style.setProperty("--scrollbar-display", "none")
+            document.documentElement.style.setProperty("--scrollbar-style", "none");
+            document.documentElement.style.setProperty("--scrollbar-display", "none");
             document.documentElement.style.setProperty("--scrollbar-thickness", "0px")
         }
-    }, [browserProperties.hasTouchpad])
+    }, [browserProperties.hasTouchpad]);
 
     const setCssVars = useCallback(() => {
         if (!browserProperties.browser) return;
@@ -98,7 +98,7 @@ function App() {
         doc.style.setProperty("--app-width", `${width}px`);
         doc.style.setProperty("--inverse-app-width", `${-width}px`)
 
-    }, [browserProperties.browser])
+    }, [browserProperties.browser]);
 
     useEffect(() => {
         dispatchSiteState({ type: "setBrowserProperties", browserProperties: browserProperties });
@@ -109,16 +109,16 @@ function App() {
         dispatchSiteState({
             type: "setSelectedSampleRoomType",
             selectedSampleRoomType: collection as string
-        })
+        });
 
         dispatchSiteState({
             type: "setSelectedSampleRoom",
             selectedSampleRoom: scene as string,
             selectedSamplePath: collection as string
-        })
+        });
 
-        const path = collection + "/" + scene
-        const basePath = "assets/scenes/" + path
+        const path = collection + "/" + scene;
+        const basePath = "assets/scenes/" + path;
 
         fetch(basePath + "/data.json")
             .then(res => res.json())
@@ -138,7 +138,7 @@ function App() {
 
         const searchFov = searchObject.f as string;
         if (searchFov) {
-            const fov = parseFloat(searchFov)
+            const fov = parseFloat(searchFov);
             if (!siteState.fov || (fov - siteState.fov) > 0.0001) {
                 dispatchSiteState({
                     type: "setFov",
@@ -147,13 +147,13 @@ function App() {
             }
         }
 
-        const searchPosX = searchObject.px as string
-        const searchPosY = searchObject.py as string
-        const searchPosZ = searchObject.pz as string
+        const searchPosX = searchObject.px as string;
+        const searchPosY = searchObject.py as string;
+        const searchPosZ = searchObject.pz as string;
         if (searchPosX && searchPosY && searchPosZ) {
-            const px = parseFloat(searchPosX)
-            const py = parseFloat(searchPosY)
-            const pz = parseFloat(searchPosZ)
+            const px = parseFloat(searchPosX);
+            const py = parseFloat(searchPosY);
+            const pz = parseFloat(searchPosZ);
 
             if (!siteState.position || siteState.position[0] - px > 0.0001 || siteState.position[1] - py > 0.0001 || siteState.position[2] - pz > 0.0001) {
                 dispatchSiteState({
@@ -163,13 +163,13 @@ function App() {
             }
         }
 
-        const searchRotX = searchObject.rx as string
-        const searchRotY = searchObject.ry as string
-        const searchRotZ = searchObject.rz as string
+        const searchRotX = searchObject.rx as string;
+        const searchRotY = searchObject.ry as string;
+        const searchRotZ = searchObject.rz as string;
         if (searchRotX && searchRotY && searchRotZ) {
-            const rx = parseFloat(searchRotX)
-            const ry = parseFloat(searchRotY)
-            const rz = parseFloat(searchRotZ)
+            const rx = parseFloat(searchRotX);
+            const ry = parseFloat(searchRotY);
+            const rz = parseFloat(searchRotZ);
 
             if (!siteState.rotation || siteState.rotation[0] - rx > 0.0001 || siteState.rotation[1] - ry > 0.0001 || siteState.rotation[2] - rz > 0.0001) {
                 dispatchSiteState({
@@ -179,7 +179,7 @@ function App() {
             }
         }
 
-        const scene = searchObject.scene as string
+        const scene = searchObject.scene as string;
         if (scene) {
             selectScene(scene, dispatchSiteState)
         }
@@ -235,19 +235,19 @@ function App() {
                 }
             });
 
-    }, [loadScene, siteState.fov, siteState.position, siteState.rotation])
+    }, [loadScene, siteState.fov, siteState.position, siteState.rotation]);
 
     const initialize = useCallback(() => {
-        setCssVars()
-        window.addEventListener("resize", setCssVars)
-        window.addEventListener("orientation", setCssVars)
+        setCssVars();
+        window.addEventListener("resize", setCssVars);
+        window.addEventListener("orientation", setCssVars);
         window.setInterval(()=>{
             setCssVars()
-        }, 500)
+        }, 500);
 
         updateFromLocation(window.location)
 
-    }, [setCssVars, updateFromLocation])
+    }, [setCssVars, updateFromLocation]);
 
     const initializeRef = useRef(initialize);
     useEffect(() => { initializeRef.current = initialize; }, [initialize]);
@@ -283,4 +283,4 @@ function App() {
 ReactDOM.render(
     <App />,
     document.getElementById("root")
-)
+);

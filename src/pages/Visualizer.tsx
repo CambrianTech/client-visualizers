@@ -80,7 +80,7 @@ export default function Visualizer(props: any) {
     const [navigationItem, setNavigationItem] = useState<SwatchItem>();
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [filters, setFilters] = useState<DataFilter[]>();
+    const [filters, ] = useState<DataFilter[]>();
     const [listingItems, setListingItems] = useState<SwatchItem[]>();
     const [selectedRow, setSelectedRow] = useState<SwatchItem>();
     const [selectedColumn, setSelectedColumn] = useState<SwatchItem>();
@@ -231,9 +231,7 @@ export default function Visualizer(props: any) {
             return resolveThumbnailPath(swatchItem.children[0])
         }
 
-        const path = `${basePath}/textures/${swatchItem.thumbnail}`;
-
-        return path
+        return `${basePath}/textures/${swatchItem.thumbnail}`;
 
     }, [basePath]);
 
