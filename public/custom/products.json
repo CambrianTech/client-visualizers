@@ -15,7 +15,7 @@
     "primaryColor": "#7ea13d",
     "defaultSceneCollection": "kitchen",
     "defaultScene": "2-kitchen",
-    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource/scenes/",
+    "defaultScenePath": "assets/scenes/",
     "siteLogoImage": "branding/logo-overlay-white.png"
   },
   "hasPhotoUpload": false,
