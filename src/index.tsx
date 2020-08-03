@@ -105,7 +105,7 @@ function App() {
         setCssVars();
     }, [browserProperties, setCssVars]);
 
-    const loadScene = useCallback((collection:string, scene:string)=> {
+    const loadScene = useCallback((collection:string, scene:string, basePath?:string|undefined)=> {
         dispatchSiteState({
             type: "setSelectedSampleRoomType",
             selectedSampleRoomType: collection as string
@@ -118,12 +118,12 @@ function App() {
         });
 
         const path = collection + "/" + scene;
-        const basePath = "assets/scenes/" + path;
+        const _basePath = (basePath ? basePath : "assets/scenes/") + path;
 
-        fetch(basePath + "/data.json")
+        fetch(_basePath + "/data.json")
             .then(res => res.json())
             .then(data => {
-                dispatchDataProperties(basePath, data, dispatchSiteState)
+                dispatchDataProperties(_basePath, data, dispatchSiteState)
             })
 
     }, []);
@@ -231,7 +231,7 @@ function App() {
                 }
 
                 if (!hasScene && config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
-                    loadScene(config.defaultSceneCollection, config.defaultScene)
+                    loadScene(config.defaultSceneCollection, config.defaultScene, config.hasOwnProperty("defaultScenePath") ? config.defaultScenePath : undefined)
                 }
             });
 
