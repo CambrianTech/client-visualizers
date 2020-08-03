@@ -343,6 +343,7 @@
               "displayName": "Monaco",
               "ppi": 36.57,
               "thumbnail": "Monaco/thumbnail.jpg",
+              "preview": "Monaco/preview.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
                 "specifications": [
@@ -681,7 +682,6 @@
               "name": "pacific-walnut",
               "code": "pacific-walnut",
               "displayName": "Pacific Walnut",
-              "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Pacific Walnut/thumbnail.jpg",
               "details": {
@@ -757,7 +757,6 @@
               "name": "smokey-mountain",
               "code": "smokey-mountain",
               "displayName": "Smokey Mountain",
-              "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Smokey Mountain/thumbnail.jpg",
               "details": {
@@ -791,7 +790,6 @@
               "name": "natchez",
               "code": "natchez",
               "displayName": "Natchez",
-              "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Natchez/thumbnail.jpg",
               "details": {
@@ -817,7 +815,6 @@
               "name": "athens",
               "code": "athens",
               "displayName": "Athens",
-              "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Athens/thumbnail.jpg",
               "details": {
@@ -842,7 +839,6 @@
               "name": "mojave",
               "code": "mojave",
               "displayName": "Mojave",
-              "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Mojave/thumbnail.jpg",
               "details": {
@@ -890,31 +886,6 @@
               }
             },
             {
-              "name": "ponderosa-pine",
-              "code": "ponderosa-pine",
-              "displayName": "Ponderosa Pine",
-              "ppi": 36.57,
-              "thumbnail": "Ponderosa Pine/thumbnail.jpg",
-              "details": {
-                "url": "http://flooringone.flywheelsites.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Ponderosa Pine/preview.jpg",
-                "specifications": [
-                  {"Plank Size": "7″ x 48″"},
-                  {"Padding": "1.0mm Embossed EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "12 mil"},
-                  {"Locking Type": "Click Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "metaData": {
-                "albedo": "Ponderosa Pine/tiled_diffuse.jpg",
-                "normals": "Ponderosa Pine/tiled_normals.jpg",
-                "specular": "Ponderosa Pine/tiled_specular.jpg"
-              }
-            },
-            {
               "name": "southern-pine",
               "code": "southern-pine",
               "displayName": "Southern Pine",
@@ -937,6 +908,31 @@
                 "albedo": "Southern Pine/tiled_diffuse.jpg",
                 "normals": "Southern Pine/tiled_normals.jpg",
                 "specular": "Southern Pine/tiled_specular.jpg"
+              }
+            },
+            {
+              "name": "valley-farmhouse",
+              "code": "valley-farmhouse",
+              "displayName": "Valley Farmhouse",
+              "ppi": 36.57,
+              "thumbnail": "Valley Farmhouse/thumbnail.jpg",
+              "details": {
+                "url": "http://flooringone.flywheelsites.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#valley-farmhouse",
+                "preview": "Valley Farmhouse/preview.jpg",
+                "specifications": [
+                  {"Plank Size": "7″ x 48″"},
+                  {"Padding": "1.0mm Embossed EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "12 mil"},
+                  {"Locking Type": "Click Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "metaData": {
+                "albedo": "Valley Farmhouse/tiled_diffuse.jpg",
+                "normals": "Valley Farmhouse/tiled_normals.jpg",
+                "specular": "Valley Farmhouse/tiled_specular.jpg"
               }
             },
             {
@@ -1077,7 +1073,6 @@
               "name": "cypress-cove",
               "code": "cypress-cove",
               "displayName": "Cypress Cove",
-              "enabled": false,
               "ppi": 28.44,
               "thumbnail": "Cypress Cove/thumbnail.jpg",
               "details": {
@@ -1132,6 +1127,7 @@
               "thumbnail": "Heron Bay/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
+                "preview": "Heron Bay/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1387,7 +1383,6 @@
               "displayName": "Yorktown",
               "ppi": 36.57,
               "thumbnail": "Yorktown/thumbnail.jpg",
-              "enabled": false,
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#revolutions",
                 "preview": "Yorktown/preview.jpg",
@@ -1673,7 +1668,6 @@
               "name": "sunset",
               "code": "sunset",
               "displayName": "Sunset",
-              "enabled": false,
               "ppi": 36.57,
               "thumbnail": "Sunset/thumbnail.jpg",
               "details": {
@@ -1783,6 +1777,7 @@
               "thumbnail": "Richmond/thumbnail.jpg",
               "details": {
                 "url": "http://flooringone.flywheelsites.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#wellington-heights",
+                "preview": "Richmond/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},

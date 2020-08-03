@@ -615,6 +615,7 @@ export default function Visualizer(props: any) {
 
             <div className="product-details">
                 <ProductInfo className={"panel"}
+                             visible={activePanel === Panel.ProductInfo}
                              product={selectedProduct}
                              resolveUrl={resolveDetailsUrl} />
             </div>
