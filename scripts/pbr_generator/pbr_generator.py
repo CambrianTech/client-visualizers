@@ -18,11 +18,11 @@ def resize(image, window_height):
 
 def get_image_paths(input_dir, pattern):
     files = []
-    extensions = ('.png', '.jpg', '.jpeg')
-    for ext in extensions:
-        if pattern:
-            files.extend(Path(input_dir).glob('**/' + pattern))
-        else:
+    if pattern:
+        files.extend(Path(input_dir).glob('**/' + pattern))
+    else: 
+        extensions = ('.png', '.jpg', '.jpeg')
+        for ext in extensions:
             files.extend(Path(input_dir).glob('**/*' + ext))
     return files
 
