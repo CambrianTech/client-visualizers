@@ -554,7 +554,7 @@ export default function Visualizer(props: any) {
             </div>
 
             <div className={"visualizer-container"}>
-                {(selectedProduct || isPortrait) && (defaultRightPanel !== Panel.None || defaultLeftPanel === Panel.None) && (
+                {toolMode === VisualizerToolMode.None && (selectedProduct || isPortrait) && (defaultRightPanel !== Panel.None || defaultLeftPanel === Panel.None) && (
                     <div className={"products-button close-button-container"}>
                         <Fab className={"close-button"} onClick={()=>setActivePanel(leftPanelOpen ? defaultRightPanel : Panel.Products)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
                     </div>
@@ -608,11 +608,13 @@ export default function Visualizer(props: any) {
                     <div className={`product-name${selectedProductIsLight ? " dark":""}`}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
                 )}
 
-                {selectedProduct && <div className={"product-details-button close-button-container"}>
-                    <Fab className={"close-button"} onClick={()=>setActivePanel(rightPanelOpen ? defaultLeftPanel : Panel.ProductInfo)}
-                         textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
-                         icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
-                </div>}
+                {toolMode === VisualizerToolMode.None && selectedProduct && (!leftPanelOpen || !isPortrait) && (
+                    <div className={"product-details-button close-button-container"}>
+                        <Fab className={"close-button"} onClick={()=>setActivePanel(rightPanelOpen ? defaultLeftPanel : Panel.ProductInfo)}
+                             textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
+                             icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
+                    </div>
+                )}
             </div>
 
             <div className="product-details">
