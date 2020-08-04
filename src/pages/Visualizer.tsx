@@ -123,6 +123,10 @@ export default function Visualizer(props: any) {
         return false;
     }, [selectedProduct]);
 
+    const isMobile = useMemo(()=>{
+        return siteContext.state.browserProperties.isPortrait;
+    }, [siteContext.state.browserProperties.isPortrait]);
+
     const isPortrait = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait
     }, [siteContext.state.browserProperties.isPortrait]);
@@ -247,12 +251,12 @@ export default function Visualizer(props: any) {
         const albedoPath = `${basePath}/textures/${color.metaData.albedo}`;
         const ppi = color.ppi ? color.ppi : 20;
 
-        const normalsPath = color.metaData.hasOwnProperty("normals") ? `${basePath}/textures/${color.metaData.normals}` : undefined;
-        const specularPath = color.metaData.hasOwnProperty("specular") ? `${basePath}/textures/${color.metaData.specular}` : undefined;
+        const normalsPath = !isMobile && color.metaData.hasOwnProperty("normals") ? `${basePath}/textures/${color.metaData.normals}` : undefined;
+        const specularPath = !isMobile && color.metaData.hasOwnProperty("specular") ? `${basePath}/textures/${color.metaData.specular}` : undefined;
 
         setMaterialProperies(new CBMaterialProperties(ppi, albedoPath, normalsPath, specularPath))
 
-    }, [basePath]);
+    }, [basePath, isMobile]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
