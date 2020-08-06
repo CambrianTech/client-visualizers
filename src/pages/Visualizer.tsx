@@ -33,7 +33,7 @@ import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
 import {CBMaterialProperties, CBToolMode, CBVisualizer,} from "react-home-harmony";
-import {dispatchDataProperties} from "../index";
+import {dispatchDataProperties, SITE_PATH} from "../index";
 
 export enum ServerFile {
     Mask = "mask",
@@ -159,7 +159,7 @@ export default function Visualizer(props: any) {
     useEffect(() => {
         _isMounted.current = true;
 
-        fetch('custom/products.json').then(res => res.json())
+        fetch(`${SITE_PATH}/products.json`).then(res => res.json())
             .then(json => {
                 setBasePath(json.basePath);
 
