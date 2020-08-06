@@ -3,4 +3,8 @@ scripts
 */node_modules
 */assets/scenes
 
-#/sites
+/sites
+
+**/*.log
+**/.DS_Store
+**/Thumbs.db
