@@ -2,5 +2,5 @@
 scripts
 */node_modules
 */assets/scenes
-/sites
-!/sites/flooringonesource
+
+#/sites
