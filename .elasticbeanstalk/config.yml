@@ -2,6 +2,12 @@ branch-defaults:
   master:
     environment: flooring-one-source-dev
     group_suffix: null
+  sites/flooringonesource:
+    environment: flooring-one-source-dev
+environment-defaults:
+  flooring-one-source-dev:
+    branch: null
+    repository: null
 global:
   application_name: flooring-one-source
   branch: null
