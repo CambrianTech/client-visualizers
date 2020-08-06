@@ -5,6 +5,7 @@ COPY package*.json /app/
 RUN npm install
 COPY . /app/
 RUN npm run build
+COPY public/assets/custom /app/build/
 
 # 2. Copy built files into nginx container
 FROM nginx:1.17-alpine
