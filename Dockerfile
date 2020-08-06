@@ -1,7 +1,7 @@
 # 1. Build with npm
 FROM node:12.10-alpine as build-stage
 WORKDIR /app
-COPY public/assets/custom/products.json /app/
+COPY public/assets/custom/branding/products.json /app/
 COPY package*.json /app/
 RUN npm install
 COPY . /app/
