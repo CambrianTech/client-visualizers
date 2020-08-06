@@ -15,7 +15,7 @@ EXPOSE 80
 
 WORKDIR /opt/server
 
-COPY --from=build-stage /app/build/custom/products.json /opt/server/products.json
+COPY --from=build-stage /app/build/branding/products.json /opt/server/products.json
 COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
 COPY server/ /opt/server
 
