@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 ### sync data
-within sites for a given website:
+within project directory/sites for a given website:
 ```aws s3 sync s3://cambrianar-sites/<site_name> sites/<site_name>```
 
 In the project directory, you can run:
