@@ -47,6 +47,7 @@
     left:0;
     z-index: 3;
     width: 200px;
+    padding: 20px;
 }
 
 .visualizer-dat-gui {
@@ -322,6 +323,8 @@
 
     .floating-logo {
         width: 100px;
+        padding: 10px;
+
     }
 
     #legally-required-logo {
