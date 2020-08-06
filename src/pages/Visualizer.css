@@ -9,6 +9,7 @@
     --details-panel-close-width:230px;
 
     --mdc-theme-secondary:#018786;
+    --mdc-theme-inactive:rgba(0,0,0,0.3);
     --triangle-thickness:8px;
 }
 
@@ -117,7 +118,7 @@
     padding: 10px;
     text-align: center;
 
-    background: rgba(0,0,0,0.3);
+    background: var(--mdc-theme-inactive);
 }
 
 .product-selector .panel .title .choose.selected {

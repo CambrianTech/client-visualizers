@@ -98,7 +98,12 @@ function getMetaTags(baseUrl, path, query) {
     }
 
     //style:
-    metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
+    if (config.hasOwnProperty("primaryColor")) {
+        metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
+    }
+    if (config.hasOwnProperty("inactiveColor")) {
+        metaTags += `<style>:root {--mdc-theme-inactive:${config.inactiveColor};}</style>`;
+    }
 
     //javascript settings
     metaTags += `<script>var config=${JSON.stringify(config)}</script>`;
