@@ -231,6 +231,10 @@ function App() {
                     document.documentElement.style.setProperty("--mdc-theme-secondary", config.primaryColor)
                 }
 
+                if (config.hasOwnProperty("inactiveColor") && !document.documentElement.style.getPropertyValue("--mdc-theme-inactive")) {
+                    document.documentElement.style.setProperty("--mdc-theme-inactive", config.inactiveColor)
+                }
+
                 if (!hasScene && config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
                     loadScene(config.defaultSceneCollection, config.defaultScene, config.hasOwnProperty("defaultScenePath") ? config.defaultScenePath : undefined)
                 }
