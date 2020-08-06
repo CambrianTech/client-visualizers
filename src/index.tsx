@@ -21,7 +21,7 @@ import {CBSceneProperties} from "react-home-harmony";
 
 const objectFitImages = require('object-fit-images');
 
-export const SITE_PATH = "assets/branding";
+export const SITE_PATH = "assets/custom";
 export const api:any = (window as any).cb;
 
 export function dispatchDataProperties(basePath:string, data:any, dispatch: Dispatch<SiteAction>) {
@@ -219,7 +219,7 @@ function App() {
         }
 
         //load defaults
-        fetch(`${SITE_PATH}/products.json`).then(res => res.json())
+        fetch(`${SITE_PATH}/branding/products.json`).then(res => res.json())
             .then(json => {
                 const config = json.config as any;
 
