@@ -2,6 +2,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+### sync data
+within s3data for a given website:
+```aws s3 sync s3://cambrianar-sites/<site_name> s3data/<site_name>```
+
 In the project directory, you can run:
 
 ### `npm start`
