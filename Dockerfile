@@ -1,11 +1,11 @@
 # 1. Build with npm
 FROM node:12.10-alpine as build-stage
 WORKDIR /app
+COPY public/assets/custom/products.json /app/
 COPY package*.json /app/
 RUN npm install
 COPY . /app/
 RUN npm run build
-COPY public/assets/custom /app/build/
 
 # 2. Copy built files into nginx container
 FROM nginx:1.17-alpine
@@ -16,7 +16,7 @@ EXPOSE 80
 
 WORKDIR /opt/server
 
-COPY --from=build-stage /app/build/assets/custom/branding/products.json /opt/server/products.json
+COPY --from=build-stage /app/products.json /opt/server/products.json
 COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
 COPY server/ /opt/server
 
