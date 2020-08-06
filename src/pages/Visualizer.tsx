@@ -534,8 +534,12 @@ export default function Visualizer(props: any) {
             <div className={"product-selector"}>
                 <div className={"panel"}>
                     <div className={"title"}>
-                        <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>Choose a Product</div>
-                        <div className={"choose scene" + (activePanel === Panel.Scenes ? " selected" : "")} onClick={()=>setActivePanel(Panel.Scenes)}>Choose a Scene</div>
+                        <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>
+                            <div className={"choose-text"}>Choose a Product</div>
+                        </div>
+                        <div className={"choose scene" + (activePanel === Panel.Scenes ? " selected" : "")} onClick={()=>setActivePanel(Panel.Scenes)}>
+                            <div className={"choose-text"}>Choose a Scene</div>
+                        </div>
                     </div>
 
                     {activePanel === Panel.Products && <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />}
