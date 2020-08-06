@@ -102,7 +102,7 @@
 
 .product-selector .panel .title {
     flex-shrink: 0;
-    background: #1f1f1f;
+    background: var(--mdc-theme-secondary);
     color: #ffffff;
     font-weight: 800;
 
@@ -112,21 +112,18 @@
 }
 
 .product-selector .panel .title .choose {
-    background: var(--mdc-theme-secondary);
     flex-basis: 50%;
     cursor: pointer;
     padding: 10px;
     text-align: center;
 
-    -webkit-filter: brightness(50%);
+    background: rgba(0,0,0,0.3);
 }
 
 .product-selector .panel .title .choose.selected {
     color: #ffffff;
-    opacity: 1.0;
     position:relative;
-
-    -webkit-filter: unset;
+    background: transparent;
 }
 
 .product-selector .panel .title .choose.selected:after {
