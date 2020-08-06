@@ -4,7 +4,8 @@ scripts
 /node_modules
 /assets/scenes
 
-#/sites
+/sites/*
+!/sites/flooringonesource
 
 **/*.log
 **/.DS_Store
