@@ -117,13 +117,16 @@
     cursor: pointer;
     padding: 10px;
     text-align: center;
-    opacity: 0.8;
+
+    -webkit-filter: brightness(50%);
 }
 
 .product-selector .panel .title .choose.selected {
     color: #ffffff;
     opacity: 1.0;
     position:relative;
+
+    -webkit-filter: unset;
 }
 
 .product-selector .panel .title .choose.selected:after {
