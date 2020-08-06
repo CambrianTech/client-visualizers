@@ -159,7 +159,7 @@ export default function Visualizer(props: any) {
     useEffect(() => {
         _isMounted.current = true;
 
-        fetch(`${SITE_PATH}/products.json`).then(res => res.json())
+        fetch(`${SITE_PATH}/branding/products.json`).then(res => res.json())
             .then(json => {
                 setBasePath(json.basePath);
 
