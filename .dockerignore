@@ -1,9 +1,10 @@
 
 scripts
-*/node_modules
-*/assets/scenes
+/build
+/node_modules
+/assets/scenes
 
-/sites
+#/sites
 
 **/*.log
 **/.DS_Store

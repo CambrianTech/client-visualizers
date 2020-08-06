@@ -1,8 +1,9 @@
 # 1. Build with npm
 FROM node:12.10-alpine as build-stage
 WORKDIR /app
-COPY public/assets/custom/branding/products.json /app/
 COPY package*.json /app/
+COPY . /app/
+
 RUN npm install
 COPY . /app/
 RUN npm run build
@@ -16,7 +17,7 @@ EXPOSE 80
 
 WORKDIR /opt/server
 
-COPY --from=build-stage /app/products.json /opt/server/products.json
+COPY --from=build-stage /app/sites/flooringonesource/branding/products.json /opt/server/products.json
 COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
 COPY server/ /opt/server
 
