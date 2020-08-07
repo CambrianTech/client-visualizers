@@ -16,15 +16,6 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-export function getSubdomain(host) {
-    const parts = host.split('.');
-    const subdomain =  parts.length === 3 ? parts[0] : false;
-    if (subdomain && subdomain.length > 0 && subdomain !== "www") {
-        return subdomain
-    }
-    return null
-}
-
 let json = undefined;
 try {
     json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
@@ -134,7 +125,8 @@ function getMetaTags(baseUrl, path, query) {
 }
 
 app.get("*", function (req, res) {
-    const subdomain = getSubdomain(req.headers.host);
+    const parts = req.headers.host.split('.');
+    const subdomain = parts.length === 3 ? parts[0] : req.headers.host;
     fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
         if (err) {
             res.sendStatus(404);
