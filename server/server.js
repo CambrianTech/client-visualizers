@@ -17,7 +17,7 @@ if (!uploadsBaseUrl) {
 }
 
 const json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
-const config = json.config;
+const config = json ? json.config : undefined;
 
 function getTitleDescription(route) {
 
@@ -66,12 +66,13 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<title>${attributes.title}</title>`;
     metaTags += `<meta name="HandheldFriendly" content="true">`;
     metaTags += `<meta name="description" content="${attributes.description}" />`;
-    metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
-    metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
-    metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
 
-    // Device specific
-    metaTags += `<link rel="apple-touch-icon" href="${baseUrl}/${config.appleShareIcon}" />`;
+    if (config) {
+        metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
+        metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
+        metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
+        metaTags += `<link rel="apple-touch-icon" href="${baseUrl}/${config.appleShareIcon}" />`;
+    }
 
     // OpenGraph tags
     metaTags += `<meta property="og:url" content="${url}" />`;
@@ -90,19 +91,22 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<meta name="twitter:description" content="${attributes.description}" />`;
     metaTags += `<meta name="twitter:image" content="${attributes.image}" />`;
     metaTags += `<meta name="twitter:card" content="summary_large_image" />`;
-    metaTags += `<meta name="twitter:site" content="${config.twitterAccount}" />`;
 
     if (attributes.imageAlt) {
         metaTags += `<meta property="twitter:image:alt" content="${attributes.imageAlt}" />`;
         metaTags += `<meta property="og:image:alt" content="${attributes.imageAlt}" />`;
     }
 
-    //style:
-    if (config.hasOwnProperty("primaryColor")) {
-        metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
-    }
-    if (config.hasOwnProperty("inactiveColor")) {
-        metaTags += `<style>:root {--mdc-theme-inactive:${config.inactiveColor};}</style>`;
+    if (config) {
+        metaTags += `<meta name="twitter:site" content="${config.twitterAccount}" />`;
+
+        //style:
+        if (config.hasOwnProperty("primaryColor")) {
+            metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
+        }
+        if (config.hasOwnProperty("inactiveColor")) {
+            metaTags += `<style>:root {--mdc-theme-inactive:${config.inactiveColor};}</style>`;
+        }
     }
 
     //javascript settings

@@ -1,15 +1,9 @@
 branch-defaults:
-  master:
-    environment: flooring-one-source-dev
-    group_suffix: null
   sites/flooringonesource:
-    environment: flooring-one-source-dev
-environment-defaults:
-  flooring-one-source-dev:
-    branch: null
-    repository: null
+    environment: fos-dev
+    group_suffix: null
 global:
-  application_name: flooring-one-source
+  application_name: fos
   branch: null
   default_ec2_keyname: cambrian-servers
   default_platform: Docker 19.03.6-ce
