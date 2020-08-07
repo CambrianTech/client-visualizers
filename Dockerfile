@@ -5,7 +5,7 @@ COPY package*.json /app/
 COPY . /app/
 RUN npm install
 COPY . /app/
-RUN rm -rf /app/public/assets/custom
+#RUN rm -rf /app/public/assets/custom
 RUN npm run build
 
 # 2. Copy built files into nginx container
