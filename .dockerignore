@@ -5,7 +5,6 @@ scripts
 /assets/scenes
 
 /sites/*
-!/sites/flooringonesource
 
 **/*.log
 **/.DS_Store

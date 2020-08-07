@@ -125,18 +125,20 @@ function getConfig(subdomain) {
             if (json) {
                 return json.config;
             }
-        }
+        } else {
+            fs.writeFileSync(path, "{'test':'testing'}");
 
-        const url = `${REMOTE_STORE}`;
-        http.get(url, (response) =>{
-            const file = fs.createWriteStream(path, {flags : 'w'});
-            response.on("data",(data)=>{
-                file.write(data);
-            });
-            response.on("finish",()=>{
-                file.close();
-            });
-        });
+            // const url = `${REMOTE_STORE}`;
+            // http.get(url, (response) =>{
+            //     const file = fs.createWriteStream(path, {flags : 'w'});
+            //     response.on("data",(data)=>{
+            //         file.write(data);
+            //     });
+            //     response.on("finish",()=>{
+            //         file.close();
+            //     });
+            // });
+        }
 
         return undefined
     } catch (err) {
