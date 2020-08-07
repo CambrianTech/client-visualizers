@@ -122,10 +122,10 @@ function getConfig(subdomain) {
                 return json.config;
             }
         } else {
+            return `<script>/* GOT HERE: ${configPath} */</script>`;
+            //const files = fs.readdirSync(configPath);
 
-            const files = fs.readdirSync(configPath);
-
-            return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
+            //return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
 
             //return "<script>var wrote=true;</script>";
 
