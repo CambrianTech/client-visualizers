@@ -131,21 +131,24 @@ function getConfig(subdomain) {
             //return `<script>/* GOT here: ${configPath} */</script>`;
             //const files = fs.readdirSync(configPath);
             //return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
-            fs.writeFileSync(path.join(configPath, `joel.json`), "{'test':'testing'}");
+            //fs.writeFileSync(path.join(configPath, `joel.json`), "{'test':'testing'}");
 
-            return `<script>let wrote=true; //path: ${configPath}/joel.json</script>`;
+            //return `<script>let wrote=true; //path: ${configPath}/joel.json</script>`;
             //fs.writeFileSync(path, "{'test':'testing'}");
 
-            // const url = `${REMOTE_STORE}`;
-            // http.get(url, (response) =>{
-            //     const file = fs.createWriteStream(path, {flags : 'w'});
-            //     response.on("data",(data)=>{
-            //         file.write(data);
-            //     });
-            //     response.on("finish",()=>{
-            //         file.close();
-            //     });
-            // });
+            const url = `${REMOTE_STORE}/garrisoncollection/branding/products.json`;
+            http.get(url, (response) =>{
+                const file = fs.createWriteStream(path, {flags : 'w'});
+                if (file) {
+                    return `<script>/* got file: ${file} */</script>`;
+                    // response.on("data",(data)=>{
+                    //     file.write(data);
+                    // });
+                    // response.on("finish",()=>{
+                    //     file.close();
+                    // });
+                }
+            });
         }
     } catch (err) {
         return `<script>/* got err: ${JSON.stringify(err)} count:${line} */</script>`;
