@@ -16,6 +16,16 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
+export function getSubdomain() {
+    const parts = window.location.host.split('.');
+    const subdomain =  parts.length === 3 ? parts[0] : false;
+    if (subdomain && subdomain.length > 0 && subdomain !== "www") {
+        return subdomain
+    }
+    return null
+}
+
+const subdomain = getSubdomain();
 let siteName = "flooringonesource";
 
 let json = undefined;
@@ -127,6 +137,7 @@ function getMetaTags(baseUrl, path, query) {
 }
 
 app.get("*", function (req, res) {
+    const subdomain = req.headers.host;
     fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
         if (err) {
             res.sendStatus(404);
@@ -135,7 +146,7 @@ app.get("*", function (req, res) {
             const baseUrl = `${protocol}://${req.headers.host}`;
 
             let metaTags = config ? getMetaTags(baseUrl, req.originalUrl, req.query) : "";
-            metaTags += `<script>let siteName="${siteName}"</script>`;
+            metaTags += `<script>let siteName="${subdomain}"</script>`;
 
             data = data.replace("</head>", `${metaTags}</head>`);
 
