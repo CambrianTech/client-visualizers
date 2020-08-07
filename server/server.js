@@ -135,7 +135,7 @@ app.get("*", function (req, res) {
             const baseUrl = `${protocol}://${req.headers.host}`;
 
             let metaTags = config ? getMetaTags(baseUrl, req.originalUrl, req.query) : "";
-            metaTags += `<script>let siteName="${subdomain}"</script>`;
+            metaTags += `<script>window.siteName="${subdomain}"</script>`;
 
             data = data.replace("</head>", `${metaTags}</head>`);
 
