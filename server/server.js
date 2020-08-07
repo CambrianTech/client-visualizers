@@ -122,9 +122,16 @@ function getConfig(subdomain) {
                 return json.config;
             }
         } else {
-            fs.writeFileSync(path.join(configPath, "joel.json"), "{'test':'testing'}");
 
-            return "<script>var wrote=true;</script>";
+            const files = fs.readdirSync(configPath);
+
+            return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
+
+            //return "<script>var wrote=true;</script>";
+
+            // fs.writeFileSync(path.join(configPath, "joel.json"), "{'test':'testing'}");
+            //
+            // return "<script>var wrote=true;</script>";
             //fs.writeFileSync(path, "{'test':'testing'}");
 
             // const url = `${REMOTE_STORE}`;
@@ -139,7 +146,7 @@ function getConfig(subdomain) {
             // });
         }
     } catch (err) {
-        return `<script>/* error: ${JSON.stringify(err)} */</script>`;
+        return `<script>/* got error: ${JSON.stringify(err)} */</script>`;
     }
 
     return `<script>//NADA</script>`
