@@ -6,6 +6,7 @@ COPY . /app/
 RUN npm install
 COPY . /app/
 RUN rm -rf /app/public/assets/custom
+COPY sites /app/
 RUN npm run build
 
 # 2. Copy built files into nginx container
