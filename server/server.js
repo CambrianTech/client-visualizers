@@ -1,7 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const http = require("http");
+const https = require("https");
 
 // Load env vars from .env file
 require("dotenv").config();
@@ -137,7 +137,8 @@ function getConfig(subdomain) {
             //fs.writeFileSync(path, "{'test':'testing'}");
 
             const url = `${REMOTE_STORE}/garrisoncollection/branding/products.json`;
-            http.get(url, (response) =>{
+
+            https.get(url, (response) =>{
                 const file = fs.createWriteStream(filepath, {flags : 'w'});
                 if (file) {
                     response.on("data",(data)=>{
@@ -148,7 +149,7 @@ function getConfig(subdomain) {
                     });
                 }
             });
-            return `<script>/* writing json to : ${filepath} */</script>`;
+            return `<script>/* write json to : ${filepath} */</script>`;
         }
     } catch (err) {
         return `<script>/* got err: ${JSON.stringify(err)} count:${line} */</script>`;
