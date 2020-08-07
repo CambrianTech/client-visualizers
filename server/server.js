@@ -16,22 +16,22 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-let json = undefined;
-try {
-    json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
-
-    //fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
-    // if (json) {
-    //     //path.join(__dirname, "build", "index.html")
-    //     //path.join(__dirname, "build", "index.html")
-    //     fs.copyFileSync('./products.json', '/assets/custom/branding/products.json')
-    // }
-} catch (err) {
-    // Here you get the error when the file was not found,
-    // but you also get any other error
-}
-
-const config = json ? json.config : undefined;
+// let json = undefined;
+// try {
+//     json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
+//
+//     //fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
+//     // if (json) {
+//     //     //path.join(__dirname, "build", "index.html")
+//     //     //path.join(__dirname, "build", "index.html")
+//     //     fs.copyFileSync('./products.json', '/assets/custom/branding/products.json')
+//     // }
+// } catch (err) {
+//     // Here you get the error when the file was not found,
+//     // but you also get any other error
+// }
+//
+// const config = json ? json.config : undefined;
 
 function getTitleDescription(route) {
 
@@ -41,7 +41,7 @@ function getTitleDescription(route) {
     return {"title":title, "description":description}
 }
 
-function getPageAttributes(url, path, query) {
+function getPageAttributes(config, url, path, query) {
 
     const titleDesc = getTitleDescription(path);
     let _image = undefined;
@@ -68,11 +68,11 @@ function getPageAttributes(url, path, query) {
     return pageAttributes
 }
 
-function getMetaTags(baseUrl, path, query) {
+function getMetaTags(config, baseUrl, path, query) {
     let metaTags = "";
     const url = `${baseUrl}${path}`;
     const route = path.split('?')[0];
-    const attributes = getPageAttributes(baseUrl, route, query);
+    const attributes = getPageAttributes(config, baseUrl, route, query);
 
     metaTags += `<meta property="route" content="${route}" />`;
 
@@ -131,10 +131,14 @@ app.get("*", function (req, res) {
         if (err) {
             res.sendStatus(404);
         } else {
+
+            const json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
+            const config = json ? json.config : undefined;
+
             const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
             const baseUrl = `${protocol}://${req.headers.host}`;
 
-            let metaTags = config ? getMetaTags(baseUrl, req.originalUrl, req.query) : "";
+            let metaTags = config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
             metaTags += `<script>window.siteName="${subdomain}"</script>`;
 
             data = data.replace("</head>", `${metaTags}</head>`);
