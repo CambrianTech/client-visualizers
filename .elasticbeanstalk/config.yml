@@ -1,9 +1,9 @@
 branch-defaults:
-  sites/flooringonesource:
-    environment: fos-dev
+  master:
+    environment: client-visualizers-dev
     group_suffix: null
 global:
-  application_name: fos
+  application_name: client-visualizers
   branch: null
   default_ec2_keyname: cambrian-servers
   default_platform: Docker 19.03.6-ce

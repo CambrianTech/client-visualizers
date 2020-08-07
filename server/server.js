@@ -16,22 +16,9 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-// let json = undefined;
-// try {
-//     json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
-//
-//     //fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
-//     // if (json) {
-//     //     //path.join(__dirname, "build", "index.html")
-//     //     //path.join(__dirname, "build", "index.html")
-//     //     fs.copyFileSync('./products.json', '/assets/custom/branding/products.json')
-//     // }
-// } catch (err) {
-//     // Here you get the error when the file was not found,
-//     // but you also get any other error
-// }
-//
-// const config = json ? json.config : undefined;
+
+const CONFIG_STORE = "build/assets/sites";
+const REMOTE_STORE = "https://cambrianar-sites.s3.amazonaws.com";
 
 function getTitleDescription(route) {
 
@@ -126,10 +113,30 @@ function getMetaTags(config, baseUrl, path, query) {
 
 function getConfig(subdomain) {
     try {
-        const json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
-        const config = json ? json.config : undefined;
+        const configPath = path.join(__dirname, CONFIG_STORE);
 
-        return config
+        if (!fs.existsSync(configPath)) {
+            fs.mkdirSync(configPath);
+        }
+        const path = path.join(configPath, `${subdomain}.json`);
+        const json = JSON.parse(fs.readFileSync(path, 'utf-8'));
+
+        if (json) {
+            return json.config;
+        }
+
+        const url = `${REMOTE_STORE}`;
+        http.get(url, (response) =>{
+            const file = fs.createWriteStream(path, {flags : 'w'});
+            response.on("data",(data)=>{
+                file.write(data);
+            });
+            response.on("finish",()=>{
+                file.close();
+            });
+        });
+
+        return undefined
     } catch (err) {
 
     }
