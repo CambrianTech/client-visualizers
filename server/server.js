@@ -128,10 +128,9 @@ function getConfig(subdomain) {
             }
         } else {
             line += 100;
-            return `<script>/* GOT here: ${configPath} */</script>`;
-            //const files = fs.readdirSync(configPath);
-
-            //return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
+            //return `<script>/* GOT here: ${configPath} */</script>`;
+            const files = fs.readdirSync(configPath);
+            return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
 
             //return "<script>var wrote=true;</script>";
 
