@@ -17,7 +17,7 @@ if (!uploadsBaseUrl) {
 }
 
 
-const CONFIG_STORE = "build/assets/sites";
+const CONFIG_STORE = "sites";
 const REMOTE_STORE = "https://cambrianar-sites.s3.amazonaws.com";
 
 function getTitleDescription(route) {
@@ -114,10 +114,6 @@ function getMetaTags(config, baseUrl, path, query) {
 function getConfig(subdomain) {
     try {
         const configPath = path.join(__dirname, CONFIG_STORE);
-
-        if (!fs.existsSync(configPath)) {
-            fs.mkdirSync(configPath);
-        }
         const path = path.join(configPath, `${subdomain}.json`);
 
         if (fs.existsSync(path)) {
