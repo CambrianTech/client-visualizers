@@ -16,6 +16,8 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
+let siteName = "flooringonesource";
+
 let json = undefined;
 try {
     json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
@@ -122,7 +124,7 @@ function getMetaTags(baseUrl, path, query) {
     }
 
     //javascript settings
-    metaTags += `<script>var config=${JSON.stringify(config)}</script>`;
+    metaTags += `<script>let siteName="${siteName}"</script>`;
 
     return metaTags
 }

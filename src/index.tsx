@@ -21,7 +21,7 @@ import {CBSceneProperties} from "react-home-harmony";
 
 const objectFitImages = require('object-fit-images');
 
-let siteName = "flooringonesource";
+let siteName = (window as any).siteName;
 
 export const SITE_PATH = `https://cambrianar-sites.s3.amazonaws.com/${siteName}`;
 
