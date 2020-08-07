@@ -1,7 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const https = require("https");
+const http = require("http");
 
 // Load env vars from .env file
 require("dotenv").config();
@@ -114,59 +114,37 @@ function getMetaTags(config, baseUrl, path, query) {
 function getConfig(subdomain) {
     let line = 0;
     try {
-        line += 1;
         const configPath = path.join(__dirname, CONFIG_STORE);
-        line += 1;
         const filepath = path.join(configPath, `${subdomain}.json`);
-        line += 1;
         if (fs.existsSync(filepath)) {
-            line += 1;
             const json = JSON.parse(fs.readFileSync(filepath, 'utf-8'));
-            line += 1;
             if (json) {
                 return json.config;
             }
         } else {
             line += 100;
-            //return `<script>/* GOT here: ${configPath} */</script>`;
-            //const files = fs.readdirSync(configPath);
-            //return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
-            //fs.writeFileSync(path.join(configPath, `joel.json`), "{'test':'testing'}");
+            const files = fs.readdirSync(configPath);
 
-            //return `<script>let wrote=true; //path: ${configPath}/joel.json</script>`;
+            line += 100;
+            return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
+
+            //return "<script>var wrote=true;</script>";
+
+            // fs.writeFileSync(path.join(configPath, "joel.json"), "{'test':'testing'}");
+            //
+            // return "<script>var wrote=true;</script>";
             //fs.writeFileSync(path, "{'test':'testing'}");
 
-            //const url = `${REMOTE_STORE}/garrisoncollection/branding/products.json`;
-
-            https.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', (resp) => {
-                let data = '';
-
-                // A chunk of data has been recieved.
-                resp.on('data', (chunk) => {
-                    data += chunk;
-                });
-
-                // The whole response has been received. Print out the result.
-                resp.on('end', () => {
-                    console.log(JSON.parse(data).explanation);
-                });
-
-            }).on("error", (err) => {
-                console.log("Error: " + err.message);
-            });
-
-            // https.get(url, (response) =>{
-            //     const file = fs.createWriteStream(filepath, {flags : 'w'});
-            //     if (file) {
-            //         response.on("data",(data)=>{
-            //             file.write(data);
-            //         });
-            //         response.on("finish",()=>{
-            //             file.close();
-            //         });
-            //     }
+            // const url = `${REMOTE_STORE}`;
+            // http.get(url, (response) =>{
+            //     const file = fs.createWriteStream(path, {flags : 'w'});
+            //     response.on("data",(data)=>{
+            //         file.write(data);
+            //     });
+            //     response.on("finish",()=>{
+            //         file.close();
+            //     });
             // });
-            return `<script>/* write json to : ${filepath} */</script>`;
         }
     } catch (err) {
         return `<script>/* got err: ${JSON.stringify(err)} count:${line} */</script>`;

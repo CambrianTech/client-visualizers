@@ -22,11 +22,8 @@ COPY server/ /opt/server
 
 RUN mkdir -p /opt/server/sites
 RUN chmod -R 777 /opt/server/sites
-RUN touch /opt/server/sites/testing.json
-
-RUN mkdir -p /usr/share/nginx/html/sites
-RUN chmod -R 777 /usr/share/nginx/html/sites
-RUN touch /usr/share/nginx/html/sites/test.json
+RUN touch /opt/server/sites/test-1.json
+RUN touch /opt/server/sites/test-2.json
 
 RUN apk add --update nodejs npm
 RUN npm install
