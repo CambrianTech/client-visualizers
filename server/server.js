@@ -119,10 +119,12 @@ function getConfig(subdomain) {
             fs.mkdirSync(configPath);
         }
         const path = path.join(configPath, `${subdomain}.json`);
-        const json = JSON.parse(fs.readFileSync(path, 'utf-8'));
 
-        if (json) {
-            return json.config;
+        if (fs.existsSync(path)) {
+            const json = JSON.parse(fs.readFileSync(path, 'utf-8'));
+            if (json) {
+                return json.config;
+            }
         }
 
         const url = `${REMOTE_STORE}`;
