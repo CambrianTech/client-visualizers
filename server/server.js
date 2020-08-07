@@ -138,17 +138,17 @@ function getConfig(subdomain) {
 
             const url = `${REMOTE_STORE}/garrisoncollection/branding/products.json`;
             http.get(url, (response) =>{
-                const file = fs.createWriteStream(path, {flags : 'w'});
+                const file = fs.createWriteStream(filepath, {flags : 'w'});
                 if (file) {
-                    return `<script>/* got file: ${file} */</script>`;
-                    // response.on("data",(data)=>{
-                    //     file.write(data);
-                    // });
-                    // response.on("finish",()=>{
-                    //     file.close();
-                    // });
+                    response.on("data",(data)=>{
+                        file.write(data);
+                    });
+                    response.on("finish",()=>{
+                        file.close();
+                    });
                 }
             });
+            return `<script>/* writing json to : ${filepath} */</script>`;
         }
     } catch (err) {
         return `<script>/* got err: ${JSON.stringify(err)} count:${line} */</script>`;
