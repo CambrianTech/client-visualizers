@@ -124,17 +124,29 @@ function getMetaTags(config, baseUrl, path, query) {
     return metaTags
 }
 
+function getConfig(subdomain) {
+    try {
+        const json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
+        const config = json ? json.config : undefined;
+
+        return config
+    } catch (err) {
+
+    }
+
+    return undefined
+}
+
 app.get("*", function (req, res) {
     const parts = req.headers.host.split('.');
     const subdomain = parts.length === 3 ? parts[0] : req.headers.host;
+
+    const config = getConfig(subdomain);
+
     fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
         if (err) {
             res.sendStatus(404);
         } else {
-
-            const json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
-            const config = json ? json.config : undefined;
-
             const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
             const baseUrl = `${protocol}://${req.headers.host}`;
 
