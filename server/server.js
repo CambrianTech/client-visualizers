@@ -136,19 +136,36 @@ function getConfig(subdomain) {
             //return `<script>let wrote=true; //path: ${configPath}/joel.json</script>`;
             //fs.writeFileSync(path, "{'test':'testing'}");
 
-            const url = `${REMOTE_STORE}/garrisoncollection/branding/products.json`;
+            //const url = `${REMOTE_STORE}/garrisoncollection/branding/products.json`;
 
-            https.get(url, (response) =>{
-                const file = fs.createWriteStream(filepath, {flags : 'w'});
-                if (file) {
-                    response.on("data",(data)=>{
-                        file.write(data);
-                    });
-                    response.on("finish",()=>{
-                        file.close();
-                    });
-                }
+            https.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY', (resp) => {
+                let data = '';
+
+                // A chunk of data has been recieved.
+                resp.on('data', (chunk) => {
+                    data += chunk;
+                });
+
+                // The whole response has been received. Print out the result.
+                resp.on('end', () => {
+                    console.log(JSON.parse(data).explanation);
+                });
+
+            }).on("error", (err) => {
+                console.log("Error: " + err.message);
             });
+
+            // https.get(url, (response) =>{
+            //     const file = fs.createWriteStream(filepath, {flags : 'w'});
+            //     if (file) {
+            //         response.on("data",(data)=>{
+            //             file.write(data);
+            //         });
+            //         response.on("finish",()=>{
+            //             file.close();
+            //         });
+            //     }
+            // });
             return `<script>/* write json to : ${filepath} */</script>`;
         }
     } catch (err) {
