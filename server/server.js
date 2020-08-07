@@ -16,8 +16,22 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-const json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
-const config = json.config;
+let json = undefined;
+try {
+    json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
+
+    //fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
+    // if (json) {
+    //     //path.join(__dirname, "build", "index.html")
+    //     //path.join(__dirname, "build", "index.html")
+    //     fs.copyFileSync('./products.json', '/assets/custom/branding/products.json')
+    // }
+} catch (err) {
+    // Here you get the error when the file was not found,
+    // but you also get any other error
+}
+
+const config = json ? json.config : undefined;
 
 function getTitleDescription(route) {
 
@@ -66,12 +80,13 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<title>${attributes.title}</title>`;
     metaTags += `<meta name="HandheldFriendly" content="true">`;
     metaTags += `<meta name="description" content="${attributes.description}" />`;
+
+
     metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
     metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
     metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
-
-    // Device specific
     metaTags += `<link rel="apple-touch-icon" href="${baseUrl}/${config.appleShareIcon}" />`;
+
 
     // OpenGraph tags
     metaTags += `<meta property="og:url" content="${url}" />`;
@@ -90,12 +105,13 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<meta name="twitter:description" content="${attributes.description}" />`;
     metaTags += `<meta name="twitter:image" content="${attributes.image}" />`;
     metaTags += `<meta name="twitter:card" content="summary_large_image" />`;
-    metaTags += `<meta name="twitter:site" content="${config.twitterAccount}" />`;
 
     if (attributes.imageAlt) {
         metaTags += `<meta property="twitter:image:alt" content="${attributes.imageAlt}" />`;
         metaTags += `<meta property="og:image:alt" content="${attributes.imageAlt}" />`;
     }
+
+    metaTags += `<meta name="twitter:site" content="${config.twitterAccount}" />`;
 
     //style:
     if (config.hasOwnProperty("primaryColor")) {
@@ -105,20 +121,21 @@ function getMetaTags(baseUrl, path, query) {
         metaTags += `<style>:root {--mdc-theme-inactive:${config.inactiveColor};}</style>`;
     }
 
-    //javascript settings
-    metaTags += `<script>var config=${JSON.stringify(config)}</script>`;
-
     return metaTags
 }
 
 app.get("*", function (req, res) {
+    const parts = req.headers.host.split('.');
+    const subdomain = parts.length === 3 ? parts[0] : req.headers.host;
     fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
         if (err) {
             res.sendStatus(404);
         } else {
             const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
             const baseUrl = `${protocol}://${req.headers.host}`;
-            const metaTags = getMetaTags(baseUrl, req.originalUrl, req.query);
+
+            let metaTags = config ? getMetaTags(baseUrl, req.originalUrl, req.query) : "";
+            metaTags += `<script>window.siteName="${subdomain}"</script>`;
 
             data = data.replace("</head>", `${metaTags}</head>`);
 

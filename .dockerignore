@@ -1,5 +1,12 @@
 
 scripts
-*/node_modules
-*/assets/scenes
-/sites
+/build
+/node_modules
+/assets/scenes
+
+/sites/*
+!/sites/flooringonesource
+
+**/*.log
+**/.DS_Store
+**/Thumbs.db
