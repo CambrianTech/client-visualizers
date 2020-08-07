@@ -75,12 +75,12 @@ function getMetaTags(baseUrl, path, query) {
     metaTags += `<meta name="HandheldFriendly" content="true">`;
     metaTags += `<meta name="description" content="${attributes.description}" />`;
 
-    if (config) {
-        metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
-        metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
-        metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
-        metaTags += `<link rel="apple-touch-icon" href="${baseUrl}/${config.appleShareIcon}" />`;
-    }
+
+    metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
+    metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
+    metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
+    metaTags += `<link rel="apple-touch-icon" href="${baseUrl}/${config.appleShareIcon}" />`;
+
 
     // OpenGraph tags
     metaTags += `<meta property="og:url" content="${url}" />`;
@@ -105,16 +105,14 @@ function getMetaTags(baseUrl, path, query) {
         metaTags += `<meta property="og:image:alt" content="${attributes.imageAlt}" />`;
     }
 
-    if (config) {
-        metaTags += `<meta name="twitter:site" content="${config.twitterAccount}" />`;
+    metaTags += `<meta name="twitter:site" content="${config.twitterAccount}" />`;
 
-        //style:
-        if (config.hasOwnProperty("primaryColor")) {
-            metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
-        }
-        if (config.hasOwnProperty("inactiveColor")) {
-            metaTags += `<style>:root {--mdc-theme-inactive:${config.inactiveColor};}</style>`;
-        }
+    //style:
+    if (config.hasOwnProperty("primaryColor")) {
+        metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
+    }
+    if (config.hasOwnProperty("inactiveColor")) {
+        metaTags += `<style>:root {--mdc-theme-inactive:${config.inactiveColor};}</style>`;
     }
 
     //javascript settings
@@ -130,7 +128,9 @@ app.get("*", function (req, res) {
         } else {
             const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
             const baseUrl = `${protocol}://${req.headers.host}`;
-            const metaTags = getMetaTags(baseUrl, req.originalUrl, req.query);
+            const metaTags = config ? getMetaTags(baseUrl, req.originalUrl, req.query) : {
+
+            };
 
             data = data.replace("</head>", `${metaTags}</head>`);
 
