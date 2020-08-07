@@ -20,6 +20,10 @@ WORKDIR /opt/server
 COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
 COPY server/ /opt/server
 
+RUN mkdir -p /opt/server/sites
+RUN chmod -R 777 /opt/server/sites
+RUN touch /opt/server/sites/testing.json
+
 RUN mkdir -p /usr/share/nginx/html/sites
 RUN chmod -R 777 /usr/share/nginx/html/sites
 RUN touch /usr/share/nginx/html/sites/test.json

@@ -122,7 +122,10 @@ function getConfig(subdomain) {
                 return json.config;
             }
         } else {
-            fs.writeFileSync(path, "{'test':'testing'}");
+            fs.writeFileSync(path.join(configPath, "joel.json"), "{'test':'testing'}");
+
+            return "<script>var wrote=true;</script>";
+            //fs.writeFileSync(path, "{'test':'testing'}");
 
             // const url = `${REMOTE_STORE}`;
             // http.get(url, (response) =>{
@@ -138,7 +141,7 @@ function getConfig(subdomain) {
 
         return undefined
     } catch (err) {
-
+        return `<script>/* error: ${JSON.stringify(err)} */</script>`;
     }
 
     return undefined
@@ -157,7 +160,7 @@ app.get("*", function (req, res) {
             const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
             const baseUrl = `${protocol}://${req.headers.host}`;
 
-            let metaTags = config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
+            let metaTags = ""; //config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
             metaTags += `<script>window.siteName="${subdomain}"</script>`;
 
             data = data.replace("</head>", `${metaTags}</head>`);
