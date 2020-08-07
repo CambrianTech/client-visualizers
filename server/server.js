@@ -131,9 +131,9 @@ function getConfig(subdomain) {
             //return `<script>/* GOT here: ${configPath} */</script>`;
             //const files = fs.readdirSync(configPath);
             //return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
-            fs.writeFileSync(path.join(configPath, `${subdomain}.json`), "{'test':'testing'}");
+            fs.writeFileSync(path.join(configPath, `joel.json`), "{'test':'testing'}");
 
-            return "<script>var wrote=true;</script>";
+            return `<script>let wrote=true; //path: ${configPath}/joel.json</script>`;
             //fs.writeFileSync(path, "{'test':'testing'}");
 
             // const url = `${REMOTE_STORE}`;
