@@ -12,20 +12,21 @@ RUN npm run build
 FROM nginx:1.17-alpine
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build-stage /app/sites/flooringonesource /usr/share/nginx/html/assets/custom
 
-EXPOSE 80
-
-WORKDIR /opt/server
-
-COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
-COPY server/ /opt/server
-
-RUN apk add --update nodejs npm
-RUN npm install
-
-# To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
-RUN npm config set unsafe-perm true
-
-RUN npm install -g forever
-
-CMD sh start.sh
+#EXPOSE 80
+#
+#WORKDIR /opt/server
+#
+#COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
+#COPY server/ /opt/server
+#
+#RUN apk add --update nodejs npm
+#RUN npm install
+#
+## To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
+#RUN npm config set unsafe-perm true
+#
+#RUN npm install -g forever
+#
+#CMD sh start.sh

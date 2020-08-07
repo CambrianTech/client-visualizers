@@ -16,10 +16,16 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-
 let json = undefined;
 try {
     json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
+
+    //fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
+    // if (json) {
+    //     //path.join(__dirname, "build", "index.html")
+    //     //path.join(__dirname, "build", "index.html")
+    //     fs.copyFileSync('./products.json', '/assets/custom/branding/products.json')
+    // }
 } catch (err) {
     // Here you get the error when the file was not found,
     // but you also get any other error
