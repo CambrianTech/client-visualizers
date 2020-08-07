@@ -128,9 +128,7 @@ app.get("*", function (req, res) {
         } else {
             const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
             const baseUrl = `${protocol}://${req.headers.host}`;
-            const metaTags = config ? getMetaTags(baseUrl, req.originalUrl, req.query) : {
-
-            };
+            const metaTags = config ? getMetaTags(baseUrl, req.originalUrl, req.query) : "";
 
             data = data.replace("</head>", `${metaTags}</head>`);
 
