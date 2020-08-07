@@ -21,7 +21,10 @@ import {CBSceneProperties} from "react-home-harmony";
 
 const objectFitImages = require('object-fit-images');
 
-export const SITE_PATH = "assets/custom";
+let siteName = "flooringonesource";
+
+export const SITE_PATH = `https://cambrianar-sites.s3.amazonaws.com/${siteName}`;
+
 export const api:any = (window as any).cb;
 
 export function dispatchDataProperties(basePath:string, data:any, dispatch: Dispatch<SiteAction>) {
