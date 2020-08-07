@@ -6,14 +6,12 @@ COPY . /app/
 RUN npm install
 COPY . /app/
 RUN rm -rf /app/public/assets/custom
-COPY sites/flooringonesource /app/sites/
 RUN npm run build
 
 # 2. Copy built files into nginx container
 FROM nginx:1.17-alpine
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build-stage /app/sites/flooringonesource /usr/share/nginx/html/assets/custom
 
 EXPOSE 80
 
