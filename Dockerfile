@@ -10,8 +10,8 @@ RUN npm run build
 
 # 2. Copy built files into nginx container
 FROM nginx:1.17-alpine
-RUN mkdir -p /usr/share/nginx/html/sites
-COPY --from=build-stage /app/* /usr/share/nginx/html/sites
+RUN mkdir -p /opt/server/sites
+COPY --from=build-stage /app/* /opt/server/sites
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
 
