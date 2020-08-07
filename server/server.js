@@ -16,7 +16,15 @@ if (!uploadsBaseUrl) {
     throw new Error("CB_UPLOADS_URL not set.")
 }
 
-const json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
+
+let json = undefined;
+try {
+    json = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
+} catch (err) {
+    // Here you get the error when the file was not found,
+    // but you also get any other error
+}
+
 const config = json ? json.config : undefined;
 
 function getTitleDescription(route) {
