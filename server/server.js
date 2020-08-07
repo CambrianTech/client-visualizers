@@ -114,20 +114,21 @@ function getMetaTags(config, baseUrl, path, query) {
 function getConfig(subdomain) {
     let line = 0;
     try {
+        line += 1;
         const configPath = path.join(__dirname, CONFIG_STORE);
         line += 1;
-        const path = path.join(configPath, `${subdomain}.json`);
+        const filepath = path.join(configPath, `${subdomain}.json`);
         line += 1;
-        if (fs.existsSync(path)) {
+        if (fs.existsSync(filepath)) {
             line += 1;
-            const json = JSON.parse(fs.readFileSync(path, 'utf-8'));
+            const json = JSON.parse(fs.readFileSync(filepath, 'utf-8'));
             line += 1;
             if (json) {
                 return json.config;
             }
         } else {
             line += 100;
-            return `<script>/* GOT HERE: ${configPath} */</script>`;
+            return `<script>/* GOT here: ${configPath} */</script>`;
             //const files = fs.readdirSync(configPath);
 
             //return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
@@ -151,7 +152,7 @@ function getConfig(subdomain) {
             // });
         }
     } catch (err) {
-        return `<script>/* got error: ${JSON.stringify(err)} count:${line} */</script>`;
+        return `<script>/* got err: ${JSON.stringify(err)} count:${line} */</script>`;
     }
 
     return `<script>//NADA</script>`
