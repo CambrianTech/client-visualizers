@@ -23,6 +23,10 @@ const objectFitImages = require('object-fit-images');
 
 let siteName = (window as any).siteName;
 
+if (!siteName) {
+    siteName = "flooringonesource"
+}
+
 export const SITE_PATH = `https://cambrianar-sites.s3.amazonaws.com/${siteName}`;
 
 export const api:any = (window as any).cb;
