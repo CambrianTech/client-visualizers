@@ -3,16 +3,17 @@ FROM node:12.10-alpine as build-stage
 WORKDIR /app
 COPY package*.json /app/
 COPY . /app/
+COPY sites /app/
+
 RUN npm install
 COPY . /app/
 RUN rm -rf /app/public/assets/custom
-COPY sites /app/
 RUN npm run build
 
 # 2. Copy built files into nginx container
 FROM nginx:1.17-alpine
 RUN mkdir -p /opt/server/sites
-COPY --from=build-stage /app/build/assets/ /opt/server/sites
+COPY --from=build-stage /app/sites /opt/server/sites
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
 
