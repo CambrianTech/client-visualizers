@@ -4,37 +4,36 @@ WORKDIR /app
 COPY package*.json /app/
 #COPY . /app/
 COPY config /app/
+RUN npm install
+COPY . /app/
+RUN rm -rf /app/public/assets/custom
+RUN npm run build
 
-#RUN npm install
-#COPY . /app/
-#RUN rm -rf /app/public/assets/custom
-#RUN npm run build
-#
-## 2. Copy built files into nginx container
-#FROM nginx:1.17-alpine
-#RUN mkdir -p /opt/server/sites
-#COPY --from=build-stage /app/sites /opt/server/sites
-#COPY --from=build-stage /app/build/ /usr/share/nginx/html
-#COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
-#
-#EXPOSE 80
-#
-#WORKDIR /opt/server
-#
-#COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
-#COPY server/ /opt/server
-#
-#RUN mkdir -p /opt/server/sites
-#RUN chmod -R 777 /opt/server/sites
-#RUN touch /opt/server/sites/test-1.json
-#RUN touch /opt/server/sites/test-2.json
-#
-#RUN apk add --update nodejs npm
-#RUN npm install
-#
-## To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
-#RUN npm config set unsafe-perm true
-#
-#RUN npm install -g forever
-#
-#CMD sh start.sh
+# 2. Copy built files into nginx container
+FROM nginx:1.17-alpine
+RUN mkdir -p /opt/server/sites
+COPY --from=build-stage /app/config /opt/server/sites
+COPY --from=build-stage /app/build/ /usr/share/nginx/html
+COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+WORKDIR /opt/server
+
+COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
+COPY server/ /opt/server
+
+RUN mkdir -p /opt/server/sites
+RUN chmod -R 777 /opt/server/sites
+RUN touch /opt/server/sites/test-1.json
+RUN touch /opt/server/sites/test-2.json
+
+RUN apk add --update nodejs npm
+RUN npm install
+
+# To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
+RUN npm config set unsafe-perm true
+
+RUN npm install -g forever
+
+CMD sh start.sh
