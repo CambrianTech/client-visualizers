@@ -2,7 +2,6 @@
 FROM node:12.10-alpine as build-stage
 WORKDIR /app
 COPY package*.json /app/
-#COPY . /app/
 COPY config /app/
 RUN npm install
 COPY . /app/
@@ -25,8 +24,6 @@ COPY server/ /opt/server
 
 RUN mkdir -p /opt/server/sites
 RUN chmod -R 777 /opt/server/sites
-RUN touch /opt/server/sites/test-1.json
-RUN touch /opt/server/sites/test-2.json
 
 RUN apk add --update nodejs npm
 RUN npm install

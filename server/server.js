@@ -116,35 +116,11 @@ function getConfig(subdomain) {
     try {
         const configPath = path.join(__dirname, CONFIG_STORE);
         const filepath = path.join(configPath, `${subdomain}.json`);
-        if (fs.existsSync(filepath)) {
-            const json = JSON.parse(fs.readFileSync(filepath, 'utf-8'));
-            if (json) {
-                return json.config;
-            }
-        } else {
-            line += 100;
-            const files = fs.readdirSync(configPath);
-
-            line += 100;
-            return `<script>/* dir contents: ${JSON.stringify(files)} */</script>`;
-
-            //return "<script>var wrote=true;</script>";
-
-            // fs.writeFileSync(path.join(configPath, "joel.json"), "{'test':'testing'}");
-            //
-            // return "<script>var wrote=true;</script>";
-            //fs.writeFileSync(path, "{'test':'testing'}");
-
-            // const url = `${REMOTE_STORE}`;
-            // http.get(url, (response) =>{
-            //     const file = fs.createWriteStream(path, {flags : 'w'});
-            //     response.on("data",(data)=>{
-            //         file.write(data);
-            //     });
-            //     response.on("finish",()=>{
-            //         file.close();
-            //     });
-            // });
+        const defaultPath = path.join(configPath, `default.json`);
+        const exists = fs.existsSync(filepath);
+        const json = JSON.parse(fs.readFileSync(exists ? filepath : defaultPath, 'utf-8'));
+        if (json) {
+            return json.config;
         }
     } catch (err) {
         return `<script>/* got err: ${JSON.stringify(err)} count:${line} */</script>`;
