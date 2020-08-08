@@ -3,7 +3,7 @@ FROM node:12.10-alpine as build-stage
 WORKDIR /app
 COPY package*.json /app/
 #COPY . /app/
-COPY sites /app/
+COPY config /app/
 
 #RUN npm install
 #COPY . /app/
