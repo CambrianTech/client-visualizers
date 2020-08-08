@@ -120,6 +120,7 @@ function getConfig(subdomain) {
         const exists = fs.existsSync(filepath);
         const json = JSON.parse(fs.readFileSync(exists ? filepath : defaultPath, 'utf-8'));
         if (json) {
+            json.name = exists ? subdomain : "default";
             return json.config;
         }
     } catch (err) {
@@ -143,7 +144,7 @@ app.get("*", function (req, res) {
             const baseUrl = `${protocol}://${req.headers.host}`;
 
             let metaTags = config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
-            metaTags += `<script>window.siteName="${subdomain}"</script>`;
+            metaTags += `<script>window.siteName="${config.name}"</script>`;
 
             data = data.replace("</head>", `${metaTags}</head>`);
 
