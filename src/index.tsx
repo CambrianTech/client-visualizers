@@ -23,6 +23,7 @@ const objectFitImages = require('object-fit-images');
 
 let siteName = (window as any).siteName;
 
+
 if (!siteName) {
     siteName = process.env.REACT_APP_SITE_NAME
 }

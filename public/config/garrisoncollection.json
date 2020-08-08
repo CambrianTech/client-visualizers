@@ -20,7 +20,7 @@
     "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection/scenes/",
     "siteLogoImage": "branding/logo.svg"
   },
-  "hasPhotoUpload": false,
+  "hasPhotoUpload": true,
   "lightingOffset": 0.2,
   "brands": [
     {
