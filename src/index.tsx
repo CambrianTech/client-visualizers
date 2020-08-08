@@ -24,7 +24,7 @@ const objectFitImages = require('object-fit-images');
 let siteName = (window as any).siteName;
 
 if (!siteName) {
-    siteName = "flooringonesource"
+    siteName = process.env.REACT_APP_SITE_NAME
 }
 
 export const SITE_PATH = `https://cambrianar-sites.s3.amazonaws.com/${siteName}`;
