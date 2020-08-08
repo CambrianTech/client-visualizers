@@ -26,7 +26,7 @@
     "randomstring": "^1.1.5",
     "react": ">=16.13.1",
     "react-app-polyfill": "^1.0.1",
-    "react-cambrian-ui": "0.0.631",
+    "react-cambrian-ui": "0.0.632",
     "react-circular-progressbar": "^2.0.1",
     "react-client-info": "0.0.21",
     "react-dat-gui": "^3.0.0",
