@@ -18,14 +18,14 @@ import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
 import {CBSceneProperties} from "react-home-harmony";
+import {ImageProperties} from "react-cambrian-ui";
 
 const objectFitImages = require('object-fit-images');
 
 let siteName = (window as any).siteName;
 
-
 if (!siteName) {
-    siteName = process.env.REACT_APP_SITE_NAME
+    siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "default"
 }
 
 export const SITE_PATH = `https://cambrianar-sites.s3.amazonaws.com/${siteName}`;
@@ -64,8 +64,48 @@ export function dispatchDataProperties(basePath:string, data:any, dispatch: Disp
     dispatch({
         type: "setRotation",
         rotation: [data.cameraRotation[0], -data.floorRotation, data.cameraRotation[2]]
-    })
+    });
 }
+
+export function dispatchImageProperties(sceneProperties: ImageProperties, dispatch: Dispatch<SiteAction>) {
+
+    //Clear sample stuff still in URL
+    dispatch({
+        type: "setSelectedSampleRoomType",
+        selectedSampleRoomType: null
+    });
+
+    dispatch({
+        type: "setSelectedSampleRoom",
+        selectedSampleRoom: null,
+        selectedSamplePath: null
+    });
+
+    //set scene data
+    dispatch({
+        type: "setSceneData",
+        sceneData: sceneProperties.scene || null
+    });
+
+    dispatch({
+        type: "setFov",
+        fov: sceneProperties.fov || null
+    });
+
+    dispatch({
+        type: "setPosition",
+        position: sceneProperties.cameraPosition || null
+    });
+
+    const floorRotation = sceneProperties.floorRotation ? -sceneProperties.floorRotation : sceneProperties.cameraRotation[1];
+    dispatch({
+        type: "setRotation",
+        rotation: sceneProperties.cameraRotation ? [sceneProperties.cameraRotation[0], floorRotation, sceneProperties.cameraRotation[2]] : null
+    });
+
+    console.log("Dispatched!")
+}
+
 
 
 function App() {
@@ -128,7 +168,7 @@ function App() {
         });
 
         const path = collection + "/" + scene;
-        const _basePath = (basePath ? basePath : "assets/scenes/") + path;
+        const _basePath = (basePath ? basePath : "assets/scenes") + "/" +path;
 
         fetch(_basePath + "/data.json")
             .then(res => res.json())

@@ -1,9 +1,8 @@
 {
-  "basePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection",
   "config": {
     "name": "default",
-    "shortSiteTitle": "Your Website",
-    "siteTitle": "Your Website",
+    "shortSiteTitle": "Your Site",
+    "siteTitle": "Your Site",
     "siteDescription": "See our great flooring products.",
     "siteImage": "assets/social/site-image.jpg",
     "siteImageWidth": "1200",
@@ -12,16 +11,19 @@
     "favicon": "assets/custom/branding/icon-small.png",
     "favicon192x192": "assets/custom/branding/icon-large.png",
     "appleShareIcon": "assets/custom/branding/icon-large.png",
-    "twitterAccount": "@garrisoncollection",
-    "primaryColor": "#001a2d",
-    "inactiveColor": "rgba(127,127,127,0.3)",
+    "twitterAccount": "@yoursite",
+    "primaryColor": "#00b6cc",
+    "inactiveColor": "rgba(55,55,55,0.5)",
     "defaultSceneCollection": "office",
     "defaultScene": "1-business",
-    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection/scenes/",
-    "siteLogoImage": "branding/logo.svg"
+    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/default/scenes",
+    "siteLogoImage": "branding/logo.png",
+    "hasPhotoUpload": true,
+    "basePath": "https://cambrianar-sites.s3.amazonaws.com/default",
+    "hasScenes": true,
+    "legacy": true,
+    "lightingOffset": 0.2
   },
-  "hasPhotoUpload": false,
-  "lightingOffset": 0.2,
   "brands": [
     {
       "name": "flooring-one-source",
@@ -147,7 +149,7 @@
                 "isLocal": false
               }
             },
-            { 
+            {
               "name": "5-kitchen",
               "code": "5-kitchen",
               "displayName": "Kitchen",

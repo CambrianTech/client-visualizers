@@ -1,5 +1,4 @@
 {
-  "basePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection",
   "config": {
     "name": "garrisoncollection",
     "shortSiteTitle": "Garrison Collection",
@@ -17,11 +16,15 @@
     "inactiveColor": "rgba(127,127,127,0.3)",
     "defaultSceneCollection": "office",
     "defaultScene": "1-business",
-    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection/scenes/",
-    "siteLogoImage": "branding/logo.svg"
+    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection/scenes",
+    "siteLogoImage": "branding/logo.svg",
+
+    "hasPhotoUpload": true,
+    "basePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection",
+    "hasScenes": true,
+    "legacy": true,
+    "lightingOffset": 0.2
   },
-  "hasPhotoUpload": true,
-  "lightingOffset": 0.2,
   "brands": [
     {
       "name": "flooring-one-source",

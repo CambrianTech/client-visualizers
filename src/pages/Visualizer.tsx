@@ -20,6 +20,7 @@ import {SiteContext} from '../data/SiteContext';
 import MaterialIcon from "@material/react-material-icon";
 import {Fab} from "@material/react-fab";
 import {
+    ImageProperties,
     ImageUpload,
     openImageDialog,
     ProductBreadcrumb,
@@ -33,7 +34,7 @@ import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
 import {CBMaterialProperties, CBToolMode, CBVisualizer,} from "react-home-harmony";
-import {CONFIG_PATH, dispatchDataProperties} from "../index";
+import {CONFIG_PATH, dispatchDataProperties, dispatchImageProperties} from "../index";
 
 export enum ServerFile {
     Mask = "mask",
@@ -84,8 +85,6 @@ export default function Visualizer(props: any) {
     const [listingItems, setListingItems] = useState<SwatchItem[]>();
     const [selectedRow, setSelectedRow] = useState<SwatchItem>();
     const [selectedColumn, setSelectedColumn] = useState<SwatchItem>();
-    const [basePath, setBasePath] = useState();
-    const [logoPath, setLogoPath] = useState();
 
     const [sceneListingItems, setSceneListingItems] = useState<SwatchItem[]>();
     const [selectedSceneRow, setSelectedSceneRow] = useState<SwatchItem>();
@@ -102,9 +101,7 @@ export default function Visualizer(props: any) {
 
     const [toolMode, setToolMode] = useState(VisualizerToolMode.None);
     const [historySize] = useState<number>(0);
-    const [hasPhotoUpload, setHasPhotoUpload] = useState(false);
-    const [hasScenes, setHasScenes] = useState(true);
-    const [lightingOffset, setLightingOffset] = useState(0);
+    const [config, setConfig] = useState<any>(undefined);
 
     const [, setNeedsUpload] = useState(false);
     const [floorSize, ] = useState([100,100]);
@@ -161,22 +158,9 @@ export default function Visualizer(props: any) {
 
         fetch(CONFIG_PATH).then(res => res.json())
             .then(json => {
-                setBasePath(json.basePath);
 
-                if (json.hasOwnProperty("hasPhotoUpload")) {
-                    setHasPhotoUpload(json.hasPhotoUpload)
-                }
-
-                if (json.hasOwnProperty("hasScenes")) {
-                    setHasScenes(json.hasScenes)
-                }
-
-                if (json.hasOwnProperty("lightingOffset")) {
-                    setLightingOffset(json.lightingOffset)
-                }
-
-                if (json.config.hasOwnProperty("siteLogoImage")) {
-                    setLogoPath(json.config.siteLogoImage)
+                if (json.hasOwnProperty("config")) {
+                    setConfig(json.config)
                 }
 
                 const brands:ProductBrand[] = [];
@@ -203,9 +187,11 @@ export default function Visualizer(props: any) {
         }
     }, []);
 
-    const onImageChosen = useCallback((data: any) => {
-        console.log(data)
-    }, []);
+    const onImageChosen = useCallback((data: ImageProperties) => {
+        dispatchImageProperties(data, siteContext.dispatch);
+        console.log("here");
+        setNeedsUpload(true);
+    }, [siteContext.dispatch]);
 
     const onProgress = useCallback((uploadProgress: UploadProgress) => {
         if (!_isMounted.current) return;
@@ -236,27 +222,28 @@ export default function Visualizer(props: any) {
 
     const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
 
-        if (!(swatchItem instanceof DataItem)) return;
+        if (!config || !(swatchItem instanceof DataItem)) return;
 
         if (!swatchItem.thumbnail && swatchItem.children.length) {
             return resolveThumbnailPath(swatchItem.children[0])
         }
 
-        return `${basePath}/textures/${swatchItem.thumbnail}`;
+        return `${config.basePath}/textures/${swatchItem.thumbnail}`;
 
-    }, [basePath]);
+    }, [config]);
 
     const showMaterial = useCallback((color:Product|ProductColor) => {
+        if (!config) return;
 
-        const albedoPath = `${basePath}/textures/${color.metaData.albedo}`;
+        const albedoPath = `${config.basePath}/textures/${color.metaData.albedo}`;
         const ppi = color.ppi ? color.ppi : 20;
 
-        const normalsPath = !isMobile && color.metaData.hasOwnProperty("normals") ? `${basePath}/textures/${color.metaData.normals}` : undefined;
-        const specularPath = !isMobile && color.metaData.hasOwnProperty("specular") ? `${basePath}/textures/${color.metaData.specular}` : undefined;
+        const normalsPath = !isMobile && color.metaData.hasOwnProperty("normals") ? `${config.basePath}/textures/${color.metaData.normals}` : undefined;
+        const specularPath = !isMobile && color.metaData.hasOwnProperty("specular") ? `${config.basePath}/textures/${color.metaData.specular}` : undefined;
 
         setMaterialProperies(new CBMaterialProperties(ppi, albedoPath, normalsPath, specularPath))
 
-    }, [basePath, isMobile]);
+    }, [config, isMobile]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
@@ -269,9 +256,10 @@ export default function Visualizer(props: any) {
     }, []);
 
     const getScenePath = useCallback((info:SceneInfo)=>{
+        if (!config) return undefined;
         const isLocal = info.metaData && info.metaData.hasOwnProperty("isLocal") && info.metaData.isLocal;
-        return `${isLocal ? "assets" : basePath}/scenes/${info.collection.name}/${info.name}`
-    },[basePath]);
+        return `${isLocal ? "assets" : config.basePath}/scenes/${info.collection.name}/${info.name}`
+    },[config]);
 
     const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
         if (swatchItem instanceof SceneCollection) {
@@ -294,11 +282,13 @@ export default function Visualizer(props: any) {
 
             const scenePath = getScenePath(scene);
 
-            fetch(scenePath + "/data.json")
-                .then(res => res.json())
-                .then(data => {
-                    dispatchDataProperties(scenePath, data, siteContext.dispatch)
-                })
+            if (scenePath) {
+                fetch(scenePath + "/data.json")
+                    .then(res => res.json())
+                    .then(data => {
+                        dispatchDataProperties(scenePath, data, siteContext.dispatch)
+                    })
+            }
 
         } else if (swatchItem instanceof SceneCollection) {
             setSelectedSceneRow(swatchItem)
@@ -402,13 +392,13 @@ export default function Visualizer(props: any) {
         } else if (mode === VisualizerToolMode.Translate) {
             return false
         } else if (mode === VisualizerToolMode.ChoosePhoto) {
-            return hasPhotoUpload
+            return config.hasPhotoUpload
         } else if (mode === VisualizerToolMode.ChooseScene) {
-            return hasScenes
+            return config.hasScenes
         }
 
         return true
-    }, [hasPhotoUpload, hasScenes, isUploadedImage]);
+    }, [config, isUploadedImage]);
 
     const toolChanged = useCallback((mode: VisualizerToolMode) => {
         if (!_isMounted.current) return;
@@ -479,10 +469,10 @@ export default function Visualizer(props: any) {
     const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
         //console.log(`${basePath}/textures/${url}`)
         if (!url && name === "preview" && selectedProduct) {
-            return `${basePath}/textures/${selectedProduct.thumbnail}`
+            return `${config.basePath}/textures/${selectedProduct.thumbnail}`
         }
-        return `${basePath}/textures/${url}`
-    }, [basePath, selectedProduct]);
+        return `${config.basePath}/textures/${url}`
+    }, [config, selectedProduct]);
 
     const floorRotation = useMemo(()=>{
         if (rotationControlActive) {
@@ -561,7 +551,7 @@ export default function Visualizer(props: any) {
                 </div>
             </div>
 
-            <div className={"visualizer-container"}>
+            {config && <div className={"visualizer-container"}>
                 {toolMode === VisualizerToolMode.None && (selectedProduct || isPortrait) && (defaultRightPanel !== Panel.None || defaultLeftPanel === Panel.None) && (
                     <div className={"products-button close-button-container"}>
                         <Fab className={"close-button"} onClick={()=>setActivePanel(leftPanelOpen ? defaultRightPanel : Panel.Products)} icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />
@@ -580,13 +570,13 @@ export default function Visualizer(props: any) {
                     floorSize={floorSize}
                     floorRotation={floorRotation}
                     blendEdges={isUploadedImage()}
-                    lightingOffset={lightingOffset}
+                    lightingOffset={config.lightingOffset}
                     floorPosition={translationControlActive ? translationControlValue : floorPosition}
                     floorPositionUpdated={pos=>translateChanged(pos[0], pos[2])}
                     floorRotationUpdated={rot=>rotateChanged(rot)}
                     showControls={siteContext.state.showControls} />
 
-                {logoPath && <img className={"floating-logo"} src={`${basePath}/${logoPath}`} alt={"logo"} />}
+                <img className={"floating-logo"} src={`${config.basePath}/${config.siteLogoImage}`} alt={"logo"} />
 
                 <VisualizerTools
                     visible={!isToolOverlayOpen}
@@ -623,7 +613,7 @@ export default function Visualizer(props: any) {
                              icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
                     </div>
                 )}
-            </div>
+            </div>}
 
             <div className="product-details">
                 <ProductInfo className={"panel"}
@@ -632,10 +622,9 @@ export default function Visualizer(props: any) {
                              resolveUrl={resolveDetailsUrl} />
             </div>
 
-
-            <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>
+            {config && config.hasPhotoUpload && <ImageUpload legacy={config.legacy} onImageChosen={onImageChosen} onProgress={onProgress}/>}
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, selectedProduct, defaultRightPanel, defaultLeftPanel, leftPanelOpen, isPortrait, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, lightingOffset, translationControlActive, translationControlValue, floorPosition, logoPath, basePath, isToolOverlayOpen, toolMode, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProductIsLight, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, config, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProductIsLight, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
 }
