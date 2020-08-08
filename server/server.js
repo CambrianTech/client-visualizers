@@ -17,7 +17,7 @@ if (!uploadsBaseUrl) {
 }
 
 
-const CONFIG_STORE = "sites";
+const CONFIG_STORE = "config";
 const REMOTE_STORE = "https://cambrianar-sites.s3.amazonaws.com";
 
 function getTitleDescription(route) {
