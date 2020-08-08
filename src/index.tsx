@@ -18,7 +18,6 @@ import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
 import {CBSceneProperties} from "react-home-harmony";
-import {ImageProperties} from "react-cambrian-ui";
 
 const objectFitImages = require('object-fit-images');
 
@@ -33,12 +32,14 @@ export const CONFIG_PATH = `config/${siteName}.json`;
 
 export const api:any = (window as any).cb;
 
-export function dispatchDataProperties(basePath:string, data:any, dispatch: Dispatch<SiteAction>) {
+export function dispatchSceneProperties(data:any, dispatch: Dispatch<SiteAction>, basePath?:string) {
+
+    const pathPrefix = basePath ? basePath + (basePath.endsWith("/") ? "" : "/"): "";
     const sceneProperties:CBSceneProperties = {
-        backgroundUrl: basePath + "/" + data.images["main"],
-        lightingUrl: basePath + "/" + data.images["lighting"],
+        backgroundUrl: pathPrefix + data.images["main"],
+        lightingUrl: pathPrefix + data.images["lighting"],
         masks:{
-            "floor": basePath + "/" + data.images["masks"]["floor"]
+            "floor": pathPrefix + data.images["masks"]["floor"]
         }
     };
 
@@ -66,47 +67,6 @@ export function dispatchDataProperties(basePath:string, data:any, dispatch: Disp
         rotation: [data.cameraRotation[0], -data.floorRotation, data.cameraRotation[2]]
     });
 }
-
-export function dispatchImageProperties(sceneProperties: ImageProperties, dispatch: Dispatch<SiteAction>) {
-
-    //Clear sample stuff still in URL
-    dispatch({
-        type: "setSelectedSampleRoomType",
-        selectedSampleRoomType: null
-    });
-
-    dispatch({
-        type: "setSelectedSampleRoom",
-        selectedSampleRoom: null,
-        selectedSamplePath: null
-    });
-
-    //set scene data
-    dispatch({
-        type: "setSceneData",
-        sceneData: sceneProperties.scene || null
-    });
-
-    dispatch({
-        type: "setFov",
-        fov: sceneProperties.fov || null
-    });
-
-    dispatch({
-        type: "setPosition",
-        position: sceneProperties.cameraPosition || null
-    });
-
-    const floorRotation = sceneProperties.floorRotation ? -sceneProperties.floorRotation : sceneProperties.cameraRotation[1];
-    dispatch({
-        type: "setRotation",
-        rotation: sceneProperties.cameraRotation ? [sceneProperties.cameraRotation[0], floorRotation, sceneProperties.cameraRotation[2]] : null
-    });
-
-    console.log("Dispatched!")
-}
-
-
 
 function App() {
     const initialSiteState = createEmptyState();
@@ -168,12 +128,12 @@ function App() {
         });
 
         const path = collection + "/" + scene;
-        const _basePath = (basePath ? basePath : "assets/scenes") + "/" +path;
+        const _basePath = (basePath ? basePath : "assets/scenes") + "/" + path;
 
         fetch(_basePath + "/data.json")
             .then(res => res.json())
             .then(data => {
-                dispatchDataProperties(_basePath, data, dispatchSiteState)
+                dispatchSceneProperties(data, dispatchSiteState, _basePath)
             })
 
     }, []);

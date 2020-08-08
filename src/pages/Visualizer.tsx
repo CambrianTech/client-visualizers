@@ -34,7 +34,7 @@ import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
 import {CBMaterialProperties, CBToolMode, CBVisualizer,} from "react-home-harmony";
-import {CONFIG_PATH, dispatchDataProperties, dispatchImageProperties} from "../index";
+import {CONFIG_PATH, dispatchSceneProperties} from "../index";
 
 export enum ServerFile {
     Mask = "mask",
@@ -188,7 +188,7 @@ export default function Visualizer(props: any) {
     }, []);
 
     const onImageChosen = useCallback((data: ImageProperties) => {
-        dispatchImageProperties(data, siteContext.dispatch);
+        dispatchSceneProperties(data, siteContext.dispatch);
         console.log("here");
         setNeedsUpload(true);
     }, [siteContext.dispatch]);
@@ -286,7 +286,7 @@ export default function Visualizer(props: any) {
                 fetch(scenePath + "/data.json")
                     .then(res => res.json())
                     .then(data => {
-                        dispatchDataProperties(scenePath, data, siteContext.dispatch)
+                        dispatchSceneProperties(data, siteContext.dispatch, scenePath)
                     })
             }
 
@@ -622,7 +622,7 @@ export default function Visualizer(props: any) {
                              resolveUrl={resolveDetailsUrl} />
             </div>
 
-            {config && config.hasPhotoUpload && <ImageUpload legacy={config.legacy} onImageChosen={onImageChosen} onProgress={onProgress}/>}
+            {config && config.hasPhotoUpload && <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>}
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
