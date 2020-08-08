@@ -1,8 +1,8 @@
 {
   "basePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection",
   "config": {
-    "shortSiteTitle": "Flooring One Source",
-    "siteTitle": "Flooring One Source",
+    "shortSiteTitle": "Your Website",
+    "siteTitle": "Your Website",
     "siteDescription": "See our great flooring products.",
     "siteImage": "assets/social/site-image.jpg",
     "siteImageWidth": "1200",
