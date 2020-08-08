@@ -112,7 +112,7 @@ function getMetaTags(config, baseUrl, path, query) {
 }
 
 function getConfig(subdomain) {
-    let line = 0;
+
     try {
         const configPath = path.join(__dirname, CONFIG_STORE);
         const filepath = path.join(configPath, `${subdomain}.json`);
@@ -123,10 +123,10 @@ function getConfig(subdomain) {
             return json.config;
         }
     } catch (err) {
-        return `<script>/* got err: ${JSON.stringify(err)} count:${line} */</script>`;
+
     }
 
-    return `<script>//NADA</script>`
+    return undefined;
 }
 
 app.get("*", function (req, res) {
@@ -142,7 +142,7 @@ app.get("*", function (req, res) {
             const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
             const baseUrl = `${protocol}://${req.headers.host}`;
 
-            let metaTags = config; //config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
+            let metaTags = config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
             metaTags += `<script>window.siteName="${subdomain}"</script>`;
 
             data = data.replace("</head>", `${metaTags}</head>`);
