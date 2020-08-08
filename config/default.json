@@ -1,6 +1,7 @@
 {
   "basePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection",
   "config": {
+    "name": "default",
     "shortSiteTitle": "Your Website",
     "siteTitle": "Your Website",
     "siteDescription": "See our great flooring products.",

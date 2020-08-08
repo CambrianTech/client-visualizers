@@ -1,6 +1,7 @@
 {
   "basePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource",
   "config": {
+    "name": "flooringonesource",
     "shortSiteTitle": "Flooring One Source",
     "siteTitle": "Flooring One Source",
     "siteDescription": "See our great flooring products.",
