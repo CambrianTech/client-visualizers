@@ -28,6 +28,7 @@ if (!siteName) {
 }
 
 export const SITE_PATH = `https://cambrianar-sites.s3.amazonaws.com/${siteName}`;
+export const CONFIG_PATH = `config/${siteName}.json`;
 
 export const api:any = (window as any).cb;
 
@@ -226,7 +227,7 @@ function App() {
         }
 
         //load defaults
-        fetch(`${SITE_PATH}/branding/products.json`).then(res => res.json())
+        fetch(CONFIG_PATH).then(res => res.json())
             .then(json => {
                 const config = json.config as any;
 
