@@ -189,7 +189,6 @@ export default function Visualizer(props: any) {
 
     const onImageChosen = useCallback((data: ImageProperties) => {
         dispatchSceneProperties(data, siteContext.dispatch);
-        console.log("here");
         setNeedsUpload(true);
     }, [siteContext.dispatch]);
 
