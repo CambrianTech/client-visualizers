@@ -21,9 +21,6 @@ WORKDIR /opt/server
 COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
 COPY server/ /opt/server
 
-#RUN mkdir -p /opt/server/config
-#RUN chmod -R 777 /opt/server/config
-
 RUN apk add --update nodejs npm
 RUN npm install
 

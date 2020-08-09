@@ -69,10 +69,10 @@ function getMetaTags(config, baseUrl, path, query) {
     metaTags += `<meta name="description" content="${attributes.description}" />`;
 
 
-    metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.favicon}" />`;
-    metaTags += `<link rel="icon" sizes="32x32" href="${config.favicon}" />`;
-    metaTags += `<link rel="icon" sizes="192x192" href="${config.favicon192x192}" />`;
-    metaTags += `<link rel="apple-touch-icon" href="${baseUrl}/${config.appleShareIcon}" />`;
+    metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.basePath}/${config.favicon}" />`;
+    metaTags += `<link rel="icon" sizes="32x32" href="${config.basePath}/${config.favicon}" />`;
+    metaTags += `<link rel="icon" sizes="192x192" href="${config.basePath}/${config.favicon192x192}" />`;
+    metaTags += `<link rel="apple-touch-icon" href="${config.basePath}/${config.appleShareIcon}" />`;
 
 
     // OpenGraph tags
