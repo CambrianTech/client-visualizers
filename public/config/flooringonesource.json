@@ -3,6 +3,8 @@
     "name": "flooringonesource",
     "shortSiteTitle": "Flooring One Source",
     "siteTitle": "Flooring One Source",
+    "basePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource",
+
     "siteDescription": "See our great flooring products.",
     "siteImage": "branding/site-image.jpg",
     "siteImageWidth": "1333",
@@ -18,8 +20,8 @@
     "defaultScene": "1-business",
     "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource/scenes",
     "siteLogoImage": "branding/logo-overlay-white.png",
+
     "hasPhotoUpload": false,
-    "basePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource",
     "hasScenes": true,
     "legacy": true,
     "lightingOffset": 0.2

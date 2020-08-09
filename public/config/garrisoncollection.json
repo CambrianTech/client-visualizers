@@ -3,6 +3,7 @@
     "name": "garrisoncollection",
     "shortSiteTitle": "Garrison Collection",
     "siteTitle": "Garrison Collection",
+    "basePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection",
 
     "siteDescription": "See our great flooring products.",
     "siteImage": "branding/site-image.jpg",
@@ -13,15 +14,14 @@
     "favicon192x192": "branding/icon-large.png",
     "appleShareIcon": "branding/icon-large.png",
     "twitterAccount": "@garrisoncollection",
-    "primaryColor": "#7ea13d",
-    "inactiveColor": "rgba(0,0,0,0.3)",
+    "primaryColor": "#001a2d",
+    "inactiveColor": "rgba(127,127,127,0.3)",
     "defaultSceneCollection": "office",
     "defaultScene": "1-business",
-    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource/scenes",
-    "siteLogoImage": "branding/logo-overlay-white.png",
+    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection/scenes",
+    "siteLogoImage": "branding/logo.svg",
 
     "hasPhotoUpload": true,
-    "basePath": "https://cambrianar-sites.s3.amazonaws.com/garrisoncollection",
     "hasScenes": true,
     "legacy": true,
     "lightingOffset": 0.2
