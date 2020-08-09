@@ -45,7 +45,7 @@ function getPageAttributes(config, path, query) {
         title: titleDesc.title ? `${titleDesc.title} - ${config.shortSiteTitle}` : config.siteTitle,
         longTitle: titleDesc.title ? titleDesc.title : config.siteTitle,
         description: titleDesc.description  ? titleDesc.description : config.siteDescription,
-        image: _image ? _image : `${config.baseUrl}/${config.siteImage}`,
+        image: _image ? _image : `${config.basePath}/${config.siteImage}`,
         imageWidth: _image ? _imageWidth : config.siteImageWidth,
         imageHeight: _image ? _imageHeight : config.siteImageHeight,
         imageAlt: _image ? undefined : config.siteImageAlt,
