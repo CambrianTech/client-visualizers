@@ -18,7 +18,6 @@ if (!uploadsBaseUrl) {
 
 
 const CONFIG_STORE = "config";
-const REMOTE_STORE = "https://cambrianar-sites.s3.amazonaws.com";
 
 function getTitleDescription(route) {
 
@@ -28,7 +27,7 @@ function getTitleDescription(route) {
     return {"title":title, "description":description}
 }
 
-function getPageAttributes(config, url, path, query) {
+function getPageAttributes(config, path, query) {
 
     const titleDesc = getTitleDescription(path);
     let _image = undefined;
@@ -46,7 +45,7 @@ function getPageAttributes(config, url, path, query) {
         title: titleDesc.title ? `${titleDesc.title} - ${config.shortSiteTitle}` : config.siteTitle,
         longTitle: titleDesc.title ? titleDesc.title : config.siteTitle,
         description: titleDesc.description  ? titleDesc.description : config.siteDescription,
-        image: _image ? _image : `${url}/${config.siteImage}`,
+        image: _image ? _image : `${config.baseUrl}/${config.siteImage}`,
         imageWidth: _image ? _imageWidth : config.siteImageWidth,
         imageHeight: _image ? _imageHeight : config.siteImageHeight,
         imageAlt: _image ? undefined : config.siteImageAlt,
@@ -59,7 +58,7 @@ function getMetaTags(config, baseUrl, path, query) {
     let metaTags = "";
     const url = `${baseUrl}${path}`;
     const route = path.split('?')[0];
-    const attributes = getPageAttributes(config, baseUrl, route, query);
+    const attributes = getPageAttributes(config, route, query);
 
     metaTags += `<meta property="route" content="${route}" />`;
 
