@@ -407,11 +407,8 @@ export default function Visualizer(props: any) {
             openImageDialog()
         } else if (mode === VisualizerToolMode.ChooseScene) {
             setActivePanel(Panel.Scenes)
-        }
-
-        //panels will close for all modes except scenes.
-        if (mode === VisualizerToolMode.ChooseScene) {
-            setActivePanel(Panel.Scenes)
+        } else if (mode === VisualizerToolMode.Share) {
+            setActivePanel(Panel.Share)
         } else {
             setActivePanel(defaultLeftPanel)
         }
