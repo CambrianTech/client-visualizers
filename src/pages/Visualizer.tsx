@@ -520,7 +520,7 @@ export default function Visualizer(props: any) {
     return useMemo(() => (
         <div className={className}>
 
-            <div className={"product-selector"}>
+            <div className={"primary-panel"}>
                 <div className={"panel"}>
                     <div className={"title"}>
                         <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>
@@ -614,7 +614,7 @@ export default function Visualizer(props: any) {
                 )}
             </div>}
 
-            <div className="product-details">
+            <div className="secondary-panel">
                 <ProductInfo className={"panel"}
                              visible={activePanel === Panel.ProductInfo}
                              product={selectedProduct}
