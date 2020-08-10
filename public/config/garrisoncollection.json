@@ -264,11 +264,10 @@
           "metaData": {},
           "products": [
             {
-              "name": "brass",
-              "code": "brass",
-              "displayName": "Brass",
+              "name": "hardwoods",
+              "code": "hardwoods",
+              "displayName": "Hardwoods",
               "ppi": 28.44,
-              "thumbnail": "Brass/thumbnail.jpg",
               "colors": [
                 {
                   "name": "brass",
@@ -296,16 +295,7 @@
                     "specular": "Brass/tiled_specular.jpg",
                     "isLightColor": true
                   }
-                }
-              ]
-            },
-            {
-              "name": "Chantal",
-              "code": "Chantal",
-              "displayName": "Chantal",
-              "ppi": 28.44,
-              "thumbnail": "Chantal/thumbnail.jpg",
-              "colors": [
+                },
                 {
                   "name": "Chantal",
                   "code": "Chantal",
@@ -333,16 +323,7 @@
                     "specular": "Chantal/tiled_specular.jpg",
                     "isLightColor": true
                   }
-                }
-              ]
-            },
-            {
-              "name": "Chateau",
-              "code": "Chateau",
-              "displayName": "Chateau",
-              "ppi": 28.44,
-              "thumbnail": "Chateau/thumbnail.jpg",
-              "colors": [
+                },
                 {
                   "name": "Chateau",
                   "code": "Chateau",

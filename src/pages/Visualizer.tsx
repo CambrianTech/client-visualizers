@@ -517,6 +517,17 @@ export default function Visualizer(props: any) {
         return activePanel === Panel.ProductInfo || activePanel === Panel.Share
     },[activePanel]);
 
+    const rightPanelButtonText = useMemo(()=>{
+        if (rightPanelOpen && !isPortrait) {
+            return ""
+        }
+        else if (activePanel === Panel.Share) {
+            return isPortrait ? "Share" : "Share Project";
+        } else {
+            return isPortrait ? "Details" : "Product Details";
+        }
+    },[activePanel, isPortrait, rightPanelOpen]);
+
     return useMemo(() => (
         <div className={className}>
 
@@ -608,7 +619,7 @@ export default function Visualizer(props: any) {
                 {toolMode === VisualizerToolMode.None && selectedProduct && (!leftPanelOpen || !isPortrait) && (
                     <div className={"product-details-button close-button-container"}>
                         <Fab className={"close-button"} onClick={()=>setActivePanel(rightPanelOpen ? defaultLeftPanel : Panel.ProductInfo)}
-                             textLabel={rightPanelOpen ? (isPortrait ? "Details" : "") : (isPortrait ? "Details" : "Product Details")}
+                             textLabel={rightPanelButtonText}
                              icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />
                     </div>
                 )}
@@ -616,24 +627,25 @@ export default function Visualizer(props: any) {
 
             <div className="secondary-panel">
                 <div className={"panel"}>
-                <div className={"title"}>
-                    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
-                        <div className={"choose-text"}>Product Details</div>
-                    </div>
-                    <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>
-                        <div className={"choose-text"}>Share</div>
-                    </div>
-                </div>
 
-                <ProductInfo className={"info"}
-                             visible={activePanel === Panel.ProductInfo}
-                             product={selectedProduct}
-                             resolveUrl={resolveDetailsUrl} />
+                    {!isPortrait && <div className={"title"}>
+                        <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
+                            <div className={"choose-text"}>Product Details</div>
+                        </div>
+                        <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>
+                            <div className={"choose-text"}>Share</div>
+                        </div>
+                    </div>}
 
-                <SharePanel className={"share"}
-                             visible={activePanel === Panel.Share}
-                             product={selectedProduct}
-                             resolveUrl={resolveDetailsUrl} />
+                    <ProductInfo className={"info"}
+                                 visible={activePanel === Panel.ProductInfo}
+                                 product={selectedProduct}
+                                 resolveUrl={resolveDetailsUrl} />
+
+                    <SharePanel className={"share"}
+                                visible={activePanel === Panel.Share}
+                                product={selectedProduct}
+                                resolveUrl={resolveDetailsUrl} />
                 </div>
             </div>
 
@@ -641,5 +653,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, config, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, rightPanelOpen, selectedProductIsLight, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
 }

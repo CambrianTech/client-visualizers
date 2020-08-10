@@ -234,6 +234,7 @@
 
 .secondary-panel .info, .secondary-panel .share {
     padding: 20px;
+    height: 80%;
 }
 
 .secondary-panel ul {
@@ -286,7 +287,7 @@
     :root {
         --panel-width: 100vw;
         --panel-height: 70%;
-        --panel-close-height: 96px;
+        --panel-close-height: 86px;
 
         --details-panel-close-width:100px;
         --details-panel-close-height:50px;
@@ -336,8 +337,8 @@
     }
 
     .product-name {
-        bottom: 5px;
-        right: 5px;
+        bottom: 80px;
+        right: 25px;
     }
 
     .primary-panel, .secondary-panel {
@@ -352,7 +353,7 @@
         transition: bottom 200ms;
     }
 
-    .primary-panelr {
+    .primary-panel {
         bottom: calc(-1 * var(--panel-height));
     }
 
@@ -360,6 +361,10 @@
         position: absolute;
         bottom: calc(-1 * var(--details-panel-height));
         z-index: 10;
+    }
+
+    .secondary-panel .info, .secondary-panel .share {
+        height: 100%;
     }
 
     .visualizer.products .primary-panel,
