@@ -32,6 +32,7 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)
     for row in range(num_rows):
         for col in range(num_cols):
             board = random.choice(boards)
+
             # Randomly flip board
             if np.random.rand() > 0.5:
                 board = np.flip(board, axis=0)
@@ -138,11 +139,57 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
 def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
 
+    def assemble_tile(path, segments):
+        print("Assembling %s with %d images" % (path, len(segments)))
+
+            # make all vertical
+        for index in range(len(segments)):
+            (h, w) = segments[index].shape[0:2]
+            if w > h:
+                segments[index] = np.rot90(segments[index])
+
+        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
+        tiled = resize(tiled, maxsize)
+        
+        cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+
+
     files = get_image_paths(input_dir, pattern)
 
-    for file in files:
-        print(file)
-    print("Assemble!")
+    last_out_dir = None
+    images = []
+    for path in files:
+        
+        image_path = str(path)
+        name = os.path.splitext(os.path.basename(image_path))[0]
+
+        if image_path.startswith(input_dir):
+            dir_name = image_path[1+len(input_dir):]
+            dir_name = os.path.dirname(dir_name)
+
+        if dir_name:
+            out_dir = os.path.join(output_dir, dir_name)
+            if not os.path.exists(out_dir):
+                os.makedirs(out_dir)
+        else:
+            out_dir = output_dir
+
+        img = Image.open(path).convert('RGB')
+        img = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
+
+        if last_out_dir is None:
+            last_out_dir = out_dir
+        elif out_dir != last_out_dir:
+            assemble_tile(last_out_dir, images)
+            images = []
+            last_out_dir = out_dir
+
+        images.append(img)
+        
+        output_path = os.path.join(out_dir, name)
+        #print(image_path)
+    if len(images):
+        assemble_tile(last_out_dir,images)
 
 @click.command()
 @click.option('--mode', '-m', required=True, type=click.Choice(['assemble', 'cut'], case_sensitive=False))
