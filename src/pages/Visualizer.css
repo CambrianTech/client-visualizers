@@ -103,8 +103,10 @@
 
 .panel .title {
     flex-shrink: 0;
-    background: var(--mdc-theme-secondary);
+    flex-basis: 45px;
+    height: 45px;
     color: #ffffff;
+    background: var(--mdc-theme-secondary);
     font-weight: 800;
 
     display: flex;
@@ -113,11 +115,11 @@
 }
 
 .panel .title .choose {
+    height:45px;
     flex-basis: 50%;
     cursor: pointer;
     padding: 10px;
     text-align: center;
-
     background: var(--mdc-theme-inactive);
 }
 
