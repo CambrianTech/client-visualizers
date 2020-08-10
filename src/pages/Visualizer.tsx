@@ -25,6 +25,7 @@ import {
     openImageDialog,
     ProductBreadcrumb,
     ProductInfo,
+    SharePanel,
     UploadProgress,
     VerticalListing,
     VisualizerToolMode,
@@ -394,14 +395,15 @@ export default function Visualizer(props: any) {
             return config.hasPhotoUpload
         } else if (mode === VisualizerToolMode.ChooseScene) {
             return config.hasScenes
+        } else if (mode === VisualizerToolMode.Share) {
+            return selectedProduct != null
         }
 
         return true
-    }, [config, isUploadedImage]);
+    }, [config, isUploadedImage, selectedProduct]);
 
     const toolChanged = useCallback((mode: VisualizerToolMode) => {
         if (!_isMounted.current) return;
-        setToolMode(mode);
 
         if (mode === VisualizerToolMode.ChoosePhoto) {
             openImageDialog()
@@ -410,7 +412,8 @@ export default function Visualizer(props: any) {
         } else if (mode === VisualizerToolMode.Share) {
             setActivePanel(Panel.Share)
         } else {
-            setActivePanel(defaultLeftPanel)
+            setActivePanel(defaultLeftPanel);
+            setToolMode(mode);
         }
 
     }, [defaultLeftPanel]);
@@ -575,7 +578,7 @@ export default function Visualizer(props: any) {
                 <img className={"floating-logo"} src={`${config.basePath}/${config.siteLogoImage}`} alt={"logo"} />
 
                 <VisualizerTools
-                    visible={!isToolOverlayOpen}
+                    visible={!isToolOverlayOpen && !rightPanelOpen}
                     mode={toolMode}
                     isModePermitted={isModePermitted}
                     showLabels={!isPortrait}
@@ -614,6 +617,11 @@ export default function Visualizer(props: any) {
             <div className="product-details">
                 <ProductInfo className={"panel"}
                              visible={activePanel === Panel.ProductInfo}
+                             product={selectedProduct}
+                             resolveUrl={resolveDetailsUrl} />
+
+                <SharePanel className={"panel"}
+                             visible={activePanel === Panel.Share}
                              product={selectedProduct}
                              resolveUrl={resolveDetailsUrl} />
             </div>
