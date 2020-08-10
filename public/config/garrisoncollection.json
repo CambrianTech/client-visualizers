@@ -23,6 +23,7 @@
 
     "hasPhotoUpload": true,
     "hasScenes": true,
+    "hasShare": false,
     "legacy": true,
     "lightingOffset": 0.2
   },

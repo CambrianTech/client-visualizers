@@ -121,6 +121,13 @@ export default function Visualizer(props: any) {
         return false;
     }, [selectedProduct]);
 
+    const hasShare = useMemo(()=>{
+        if (config && selectedProduct) {
+            return config.hasOwnProperty("hasShare") ? config.hasShare : true;
+        }
+        return false
+    },[config, selectedProduct]);
+
     const isMobile = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait;
     }, [siteContext.state.browserProperties.isPortrait]);
@@ -396,11 +403,11 @@ export default function Visualizer(props: any) {
         } else if (mode === VisualizerToolMode.ChooseScene) {
             return config.hasScenes
         } else if (mode === VisualizerToolMode.Share) {
-            return selectedProduct != null
+            return hasShare
         }
 
         return true
-    }, [config, isUploadedImage, selectedProduct]);
+    }, [config, isUploadedImage, hasShare]);
 
     const toolChanged = useCallback((mode: VisualizerToolMode) => {
         if (!_isMounted.current) return;
@@ -628,7 +635,7 @@ export default function Visualizer(props: any) {
             <div className="secondary-panel">
                 <div className={"panel"}>
 
-                    {!isPortrait && <div className={"title"}>
+                    {!isPortrait && hasShare && <div className={"title"}>
                         <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
                             <div className={"choose-text"}>Product Details</div>
                         </div>
