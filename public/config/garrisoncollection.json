@@ -23,6 +23,7 @@
 
     "hasPhotoUpload": true,
     "hasScenes": true,
+    "hasShare": false,
     "legacy": true,
     "lightingOffset": 0.2
   },
@@ -264,11 +265,10 @@
           "metaData": {},
           "products": [
             {
-              "name": "brass",
-              "code": "brass",
-              "displayName": "Brass",
+              "name": "hardwoods",
+              "code": "hardwoods",
+              "displayName": "Hardwoods",
               "ppi": 28.44,
-              "thumbnail": "Brass/thumbnail.jpg",
               "colors": [
                 {
                   "name": "brass",
@@ -280,7 +280,6 @@
                   "specular": "Brass/tiled_specular.jpg",
                   "details": {
                     "url": "https://garrisoncollection.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                    "preview": "Brass/preview.jpg",
                     "specifications": [
                       {"Plank Size": "9″ x 48″"},
                       {"Padding": "1.0mm EVA"},
@@ -297,16 +296,7 @@
                     "specular": "Brass/tiled_specular.jpg",
                     "isLightColor": true
                   }
-                }
-              ]
-            },
-            {
-              "name": "Chantal",
-              "code": "Chantal",
-              "displayName": "Chantal",
-              "ppi": 28.44,
-              "thumbnail": "Chantal/thumbnail.jpg",
-              "colors": [
+                },
                 {
                   "name": "Chantal",
                   "code": "Chantal",
@@ -318,7 +308,6 @@
                   "specular": "Chantal/tiled_specular.jpg",
                   "details": {
                     "url": "https://garrisoncollection.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                    "preview": "Chantal/preview.jpg",
                     "specifications": [
                       {"Plank Size": "9″ x 48″"},
                       {"Padding": "1.0mm EVA"},
@@ -335,16 +324,7 @@
                     "specular": "Chantal/tiled_specular.jpg",
                     "isLightColor": true
                   }
-                }
-              ]
-            },
-            {
-              "name": "Chateau",
-              "code": "Chateau",
-              "displayName": "Chateau",
-              "ppi": 28.44,
-              "thumbnail": "Chateau/thumbnail.jpg",
-              "colors": [
+                },
                 {
                   "name": "Chateau",
                   "code": "Chateau",
@@ -356,7 +336,6 @@
                   "specular": "Chateau/tiled_specular.jpg",
                   "details": {
                     "url": "https://garrisoncollection.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                    "preview": "Chateau/preview.jpg",
                     "specifications": [
                       {"Plank Size": "9″ x 48″"},
                       {"Padding": "1.0mm EVA"},
