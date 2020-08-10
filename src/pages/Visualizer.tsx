@@ -615,15 +615,26 @@ export default function Visualizer(props: any) {
             </div>}
 
             <div className="secondary-panel">
-                <ProductInfo className={"panel"}
+                <div className={"panel"}>
+                <div className={"title"}>
+                    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
+                        <div className={"choose-text"}>Product Details</div>
+                    </div>
+                    <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>
+                        <div className={"choose-text"}>Share</div>
+                    </div>
+                </div>
+
+                <ProductInfo className={"info"}
                              visible={activePanel === Panel.ProductInfo}
                              product={selectedProduct}
                              resolveUrl={resolveDetailsUrl} />
 
-                <SharePanel className={"panel"}
+                <SharePanel className={"share"}
                              visible={activePanel === Panel.Share}
                              product={selectedProduct}
                              resolveUrl={resolveDetailsUrl} />
+                </div>
             </div>
 
             {config && config.hasPhotoUpload && <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>}
