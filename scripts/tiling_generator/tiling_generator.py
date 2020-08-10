@@ -10,6 +10,16 @@ from PIL import Image
 import click
 import random
 
+def get_image_paths(input_dir, pattern):
+    files = []
+    if pattern:
+        files.extend(Path(input_dir).glob('**/' + pattern))
+    else: 
+        extensions = ('.png', '.jpg', '.jpeg')
+        for ext in extensions:
+            files.extend(Path(input_dir).glob('**/*' + ext))
+    return files
+
 def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)):
     half_seam_size = seam_size // 2
     total_seam_width = num_cols * seam_size
@@ -126,11 +136,20 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             # crop = img[y0:y0+height , x0:x0+width, :]
 
+def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
+
+    files = get_image_paths(input_dir, pattern)
+
+    for file in files:
+        print(file)
+    print("Assemble!")
 
 @click.command()
-@click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.option('--mode', '-m', required=True, type=click.Choice(['assemble', 'cut'], case_sensitive=False))
 @click.argument("input_dir", default='input', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
+@click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.option('--pattern', '-p', type=click.STRING, default=None)
 @click.option("--size", default=1536, type=int)
 @click.option("--rows", default=2, type=int)
 @click.option("--columns", default=6, type=int)
@@ -138,19 +157,21 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 @click.option("--img_is_metric", default=True, type=bool)
 @click.option("--crop_is_metric", default=False, type=bool)
 @click.option("--quality", default=70, type=int)
-def main(data_file, input_dir, output_dir, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality):        
+def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality):        
 
     if not os.path.exists(input_dir):
-        raise Exception('The json file does not exist at path {}'.format(json_path)) 
+        raise Exception('The directory {} does not exist '.format(input_dir)) 
 
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-    with open(data_file) as f:
-        data = json.load(f)
 
-    # crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize, seam_size, quality)
-    crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality)
+    if mode == 'cut':
+        with open(data_file) as f:
+            data = json.load(f)
+        crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality)
+    elif mode == 'assemble':
+        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality)
     
     print("Done")
 
