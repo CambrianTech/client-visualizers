@@ -32,3 +32,4 @@ report.*.json
 input
 output
 /sites
+/scripts/tiling_generator/tiles
