@@ -35,7 +35,6 @@ import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
 import {
-    CBContentManager,
     CBMaterialProperties,
     CBMethods,
     CBSceneData,
@@ -111,7 +110,7 @@ export default function Visualizer(props: any) {
     const [historySize] = useState<number>(0);
     const [config, setConfig] = useState<any>(undefined);
 
-    const [, setNeedsUpload] = useState(false);
+    const [needsUpload, setNeedsUpload] = useState(true);
     const [floorSize, ] = useState([100,100]);
     const [translationControlActive, setTranslationControlActive] = useState(false);
     const floorTranslationOrigin = [0,0,-2];
@@ -579,15 +578,10 @@ export default function Visualizer(props: any) {
             setProgressVisible(visible);
             setProgressPercentage(percentage);
             setStatusText(status);
+        } else {
+            console.log(status)
         }
     }, [isMobile]);
-
-    const uploadFile = useCallback((canvas, name) => {
-        if (api.current) {
-            //TODO: put uploadFile into api
-            return CBContentManager.default.uploadFile(canvas, name);
-        }
-    }, [api]);
 
     const sceneLoaded = useCallback((data: CBSceneData, methods:CBMethods) => {
         api.current = methods;
@@ -731,6 +725,7 @@ export default function Visualizer(props: any) {
                     {config && siteContext.state.sceneData && api.current && scene.current && (
                         <SharePanel className={"share"}
                                     visible={activePanel === Panel.Share}
+                                    needsUpload={needsUpload}
                                     product={selectedProduct}
                                     getShareUrl={getShareUrl}
                                     shareSubject={config.shareSubject}
@@ -739,7 +734,6 @@ export default function Visualizer(props: any) {
                                     api={api.current}
                                     scene={siteContext.state.sceneData}
                                     data={scene.current}
-                                    uploadFile={uploadFile}
                                     isUploadedImage={isUploadedImage()}
                                     onCompleted={shareCompleted}
                                     onProgress={shareProgress} />
@@ -751,5 +745,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, sceneLoaded, sceneRendered, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, hasShare, resolveDetailsUrl, getShareUrl, saveClicked, uploadFile, shareCompleted, shareProgress, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, sceneLoaded, sceneRendered, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, hasShare, resolveDetailsUrl, needsUpload, getShareUrl, saveClicked, shareCompleted, shareProgress, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
 }
