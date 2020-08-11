@@ -665,15 +665,15 @@ export default function Visualizer(props: any) {
                                  product={selectedProduct}
                                  resolveUrl={resolveDetailsUrl} />
 
-                    {config && shareUrl && <SharePanel className={"share"}
-                                visible={activePanel === Panel.Share}
-                                product={selectedProduct}
-                                getShareUrl={()=>{return shareUrl}}
-                                shareSubject={config.shareSubject}
-                                onClose={()=>setActivePanel(defaultRightPanel)}
-                                onSave={saveClicked}
-                                shareImageUrl={shareImageUrl}
-                                beforeAfterImageUrl={beforeAfterImageUrl}/>}
+                    {/*{config && shareUrl && <SharePanel className={"share"}*/}
+                    {/*            visible={activePanel === Panel.Share}*/}
+                    {/*            product={selectedProduct}*/}
+                    {/*            getShareUrl={()=>{return shareUrl}}*/}
+                    {/*            shareSubject={config.shareSubject}*/}
+                    {/*            onClose={()=>setActivePanel(defaultRightPanel)}*/}
+                    {/*            onSave={saveClicked}*/}
+                    {/*            shareImageUrl={shareImageUrl}*/}
+                    {/*            beforeAfterImageUrl={beforeAfterImageUrl}/>}*/}
                 </div>
             </div>
 
