@@ -34,7 +34,14 @@ import {
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {CBMaterialProperties, CBToolMode, CBVisualizer,} from "react-home-harmony";
+import {
+    CBContentManager,
+    CBMaterialProperties,
+    CBMethods,
+    CBSceneData,
+    CBToolMode,
+    CBVisualizer,
+} from "react-home-harmony";
 import {CONFIG_PATH, dispatchSceneProperties} from "../index";
 
 export enum ServerFile {
@@ -131,6 +138,9 @@ export default function Visualizer(props: any) {
     const [shareUrl, ] = useState<string>("https://www.cnn.com");
     const [shareImageUrl, ] = useState<string>();
     const [beforeAfterImageUrl, ] = useState<string>();
+
+    const api = useRef<CBMethods>();
+    const scene = useRef<CBSceneData>();
 
     const isMobile = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait;
@@ -551,6 +561,52 @@ export default function Visualizer(props: any) {
 
     }, []);
 
+    const shareCompleted = useCallback(() => {
+
+        // if (shareImageUrl && shawState.selectedSubMaterial) {
+        //     deliverRenderedImage(`${shawState.selectedSubMaterial.displayName}-${shawState.selectedSubMaterial.name}-${shawState.selectedSubMaterial.json['SellingStyleNbr']}.png`, shareImageUrl)
+        // }
+
+    }, []);
+
+    const shareProgress = useCallback((visible: boolean, status: string, percentage: number) => {
+        if (isMobile) {
+            setProgressVisible(visible);
+            setProgressPercentage(percentage);
+            setStatusText(status);
+        }
+    }, [isMobile]);
+
+    const uploadFile = useCallback((canvas, name) => {
+        if (api.current) {
+            //TODO: put uploadFile into api
+            return CBContentManager.default.uploadFile(canvas, name);
+        }
+    }, [api]);
+
+    const sceneLoaded = useCallback((data: CBSceneData, methods:CBMethods) => {
+        api.current = methods;
+        scene.current = data;
+
+        if (!siteContext.state.floorTranslation) {
+            const forward = methods.getFloorCenter();
+            dispatch({
+                type: "setFloorTranslation",
+                xPos: forward[0],
+                yPos: forward[2]
+            });
+
+            setTranslationControlValue(forward)
+        } else {
+            setTranslationControlValue(siteContext.state.floorTranslation)
+        }
+
+    }, [dispatch, siteContext.state.floorTranslation]);
+
+    const sceneRendered = useCallback((data: CBSceneData) => {
+        scene.current = data
+    }, [scene]);
+
     return useMemo(() => (
         <div className={className}>
 
@@ -594,6 +650,8 @@ export default function Visualizer(props: any) {
                 <CBVisualizer
                     toolMode={cbToolMode}
                     canLoad={true}
+                    onSceneLoaded={sceneLoaded}
+                    onSceneRender={sceneRendered}
                     material={materialProperties}
                     defaultMaterial = {new CBMaterialProperties(20,"assets/img/blue-tile.png")}
                     scene={siteContext.state.sceneData}
@@ -665,15 +723,22 @@ export default function Visualizer(props: any) {
                                  product={selectedProduct}
                                  resolveUrl={resolveDetailsUrl} />
 
-                    {/*{config && shareUrl && <SharePanel className={"share"}*/}
-                    {/*            visible={activePanel === Panel.Share}*/}
-                    {/*            product={selectedProduct}*/}
-                    {/*            getShareUrl={()=>{return shareUrl}}*/}
-                    {/*            shareSubject={config.shareSubject}*/}
-                    {/*            onClose={()=>setActivePanel(defaultRightPanel)}*/}
-                    {/*            onSave={saveClicked}*/}
-                    {/*            shareImageUrl={shareImageUrl}*/}
-                    {/*            beforeAfterImageUrl={beforeAfterImageUrl}/>}*/}
+                    {config && shareUrl && siteContext.state.sceneData && api.current && scene.current && (
+                        <SharePanel className={"share"}
+                                    visible={activePanel === Panel.Share}
+                                    product={selectedProduct}
+                                    getShareUrl={()=>{return shareUrl}}
+                                    shareSubject={config.shareSubject}
+                                    onClose={()=>setActivePanel(defaultRightPanel)}
+                                    onSave={saveClicked}
+                                    api={api.current}
+                                    scene={siteContext.state.sceneData}
+                                    data={scene.current}
+                                    uploadFile={uploadFile}
+                                    isUploadedImage={isUploadedImage()}
+                                    onCompleted={shareCompleted}
+                                    onProgress={shareProgress} />
+                        )}
                 </div>
             </div>
 
