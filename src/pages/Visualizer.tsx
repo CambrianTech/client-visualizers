@@ -135,10 +135,6 @@ export default function Visualizer(props: any) {
         return false
     },[config, selectedProduct]);
 
-    const [shareUrl, ] = useState<string>("https://www.cnn.com");
-    const [shareImageUrl, ] = useState<string>();
-    const [beforeAfterImageUrl, ] = useState<string>();
-
     const api = useRef<CBMethods>();
     const scene = useRef<CBSceneData>();
 
@@ -553,6 +549,15 @@ export default function Visualizer(props: any) {
         }
     },[activePanel, isPortrait, rightPanelOpen]);
 
+    const getShareUrl = useCallback((socialNetwork:string) => {
+
+        // if (shareImageUrl && shawState.selectedSubMaterial) {
+        //     deliverRenderedImage(`${shawState.selectedSubMaterial.displayName}-${shawState.selectedSubMaterial.name}-${shawState.selectedSubMaterial.json['SellingStyleNbr']}.png`, shareImageUrl)
+        // }
+
+        return "https://www.cnn.com";
+    }, []);
+
     const saveClicked = useCallback(() => {
 
         // if (shareImageUrl && shawState.selectedSubMaterial) {
@@ -723,11 +728,11 @@ export default function Visualizer(props: any) {
                                  product={selectedProduct}
                                  resolveUrl={resolveDetailsUrl} />
 
-                    {config && shareUrl && siteContext.state.sceneData && api.current && scene.current && (
+                    {config && siteContext.state.sceneData && api.current && scene.current && (
                         <SharePanel className={"share"}
                                     visible={activePanel === Panel.Share}
                                     product={selectedProduct}
-                                    getShareUrl={()=>{return shareUrl}}
+                                    getShareUrl={getShareUrl}
                                     shareSubject={config.shareSubject}
                                     onClose={()=>setActivePanel(defaultRightPanel)}
                                     onSave={saveClicked}
@@ -746,5 +751,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, sceneLoaded, sceneRendered, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, hasShare, resolveDetailsUrl, shareUrl, saveClicked, uploadFile, shareCompleted, shareProgress, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, sceneLoaded, sceneRendered, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, hasShare, resolveDetailsUrl, getShareUrl, saveClicked, uploadFile, shareCompleted, shareProgress, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
 }
