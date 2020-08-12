@@ -568,22 +568,18 @@ export default function Visualizer(props: any) {
     }, [siteContext.state]);
 
     const shareCompleted = useCallback(() => {
+        setActivePanel(defaultLeftPanel);
+    }, [defaultLeftPanel]);
 
-        // if (shareImageUrl && shawState.selectedSubMaterial) {
-        //     deliverRenderedImage(`${shawState.selectedSubMaterial.displayName}-${shawState.selectedSubMaterial.name}-${shawState.selectedSubMaterial.json['SellingStyleNbr']}.png`, shareImageUrl)
-        // }
-
-    }, []);
-
-    const shareProgress = useCallback((visible: boolean, status: string, percentage: number) => {
-        if (isMobile) {
-            setProgressVisible(visible);
-            setProgressPercentage(percentage);
-            setStatusText(status);
-        } else {
-            console.log(status)
-        }
-    }, [isMobile]);
+    // const shareProgress = useCallback((visible: boolean, status: string, percentage: number) => {
+    //     // if (isMobile) {
+    //     //     setProgressVisible(visible);
+    //     //     setProgressPercentage(percentage);
+    //     //     setStatusText(status);
+    //     // } else {
+    //     //     console.log(status)
+    //     // }
+    // }, []);
 
     const sceneLoaded = useCallback((data: CBSceneData, methods:CBMethods) => {
         api.current = methods;
@@ -732,13 +728,12 @@ export default function Visualizer(props: any) {
                                     resolveThumbnailPath={resolveThumbnailPath}
                                     getShareUrl={getShareUrl}
                                     shareSubject={config.shareSubject}
-                                    onClose={()=>setActivePanel(defaultLeftPanel)}
+                                    onClose={shareCompleted}
                                     api={api.current}
                                     scene={siteContext.state.sceneData}
                                     data={scene.current}
                                     isUploadedImage={isUploadedImage()}
-                                    onCompleted={shareCompleted}
-                                    onProgress={shareProgress} />
+                                    onCompleted={shareCompleted} />
                         )}
                 </div>
             </div>
@@ -747,5 +742,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, sceneLoaded, sceneRendered, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, hasShare, resolveDetailsUrl, needsUpload, getShareUrl, shareCompleted, shareProgress, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
+    ), [activePanel, allFilters, cbToolMode, className, config, defaultLeftPanel, defaultRightPanel, floorPosition, floorRotation, floorSize, fov, getShareUrl, hasShare, historySize, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, materialProperties, navClicked, navigationItem, needsUpload, onImageChosen, onProgress, position, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, rotateChanged, rotateFinished, rotation, sceneListingItems, sceneLoaded, sceneRendered, sceneSelected, selectedColumn, selectedProduct, selectedProductIsLight, selectedRow, selectedSceneColumn, selectedSceneRow, shareCompleted, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons, translateChanged, translateFinished, translationControlActive, translationControlValue])
 }
