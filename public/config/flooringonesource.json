@@ -20,10 +20,11 @@
     "defaultScene": "1-business",
     "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/flooringonesource/scenes",
     "siteLogoImage": "branding/logo-overlay-white.png",
+    "shareSubject": "Check out this great Flooring One Source floor",
 
     "hasPhotoUpload": false,
     "hasScenes": true,
-    "hasShare": false,
+    "hasShare": true,
     "legacy": true,
     "lightingOffset": 0.2
   },

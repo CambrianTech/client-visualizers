@@ -3,7 +3,7 @@ import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
 import {
-    cbInitialize,
+    cbInitialize, CBServerFile,
     DataFilter,
     DataItem,
     Product,
@@ -16,7 +16,7 @@ import {
     SwatchItem
 } from "react-home-ar";
 
-import {SiteContext} from '../data/SiteContext';
+import {SiteContext, stateToUrl} from '../data/SiteContext';
 import MaterialIcon from "@material/react-material-icon";
 import {Fab} from "@material/react-fab";
 import {
@@ -34,13 +34,14 @@ import {
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {CBMaterialProperties, CBToolMode, CBVisualizer,} from "react-home-harmony";
+import {
+    CBMaterialProperties,
+    CBMethods,
+    CBSceneData,
+    CBToolMode,
+    CBVisualizer,
+} from "react-home-harmony";
 import {CONFIG_PATH, dispatchSceneProperties} from "../index";
-
-export enum ServerFile {
-    Mask = "mask",
-    Preview = "preview",
-}
 
 enum Panel {
     None,
@@ -56,7 +57,7 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
         projectHostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
         orientationImage:orientationImage,
-        uploadNames: [ServerFile.Mask, ServerFile.Preview],
+        uploadNames: [CBServerFile.Mask, CBServerFile.Preview, CBServerFile.Pinterest],
         logLevel:process.env.REACT_APP_CB_LOG_LEVEL
     })
 } else {
@@ -104,7 +105,7 @@ export default function Visualizer(props: any) {
     const [historySize] = useState<number>(0);
     const [config, setConfig] = useState<any>(undefined);
 
-    const [, setNeedsUpload] = useState(false);
+    const [needsUpload, setNeedsUpload] = useState(true);
     const [floorSize, ] = useState([100,100]);
     const [translationControlActive, setTranslationControlActive] = useState(false);
     const floorTranslationOrigin = [0,0,-2];
@@ -127,6 +128,9 @@ export default function Visualizer(props: any) {
         }
         return false
     },[config, selectedProduct]);
+
+    const api = useRef<CBMethods>();
+    const scene = useRef<CBSceneData>();
 
     const isMobile = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait;
@@ -260,7 +264,27 @@ export default function Visualizer(props: any) {
             setSelectedRow(swatchItem)
         }
 
-    }, []);
+        if (swatchItem instanceof ProductCollection) {
+            const collection = swatchItem as ProductCollection
+            dispatch({
+                type: "setCollection",
+                code: `${collection.code}`
+            });
+        } else if (swatchItem instanceof Product) {
+            const product = swatchItem as Product
+            dispatch({
+                type: "setProduct",
+                code: `${product.code}`
+            });
+        } else if (swatchItem instanceof ProductColor) {
+            const color = swatchItem as ProductColor
+            dispatch({
+                type: "setColor",
+                code: `${color.code}`
+            });
+        }
+
+    }, [dispatch]);
 
     const getScenePath = useCallback((info:SceneInfo)=>{
         if (!config) return undefined;
@@ -474,8 +498,12 @@ export default function Visualizer(props: any) {
 
     const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
         //console.log(`${basePath}/textures/${url}`)
-        if (!url && name === "preview" && selectedProduct) {
-            return `${config.basePath}/textures/${selectedProduct.thumbnail}`
+        if (!url && selectedProduct) {
+            if (name === "preview") {
+                return `${config.basePath}/textures/${selectedProduct.thumbnail}`
+            } else if (name==="share") {
+                return `${config.basePath}/textures/${selectedProduct.thumbnail}`
+            }
         }
         return `${config.basePath}/textures/${url}`
     }, [config, selectedProduct]);
@@ -535,6 +563,47 @@ export default function Visualizer(props: any) {
         }
     },[activePanel, isPortrait, rightPanelOpen]);
 
+    const getShareUrl = useCallback((socialNetwork:string) => {
+        return stateToUrl(siteContext.state, true)
+    }, [siteContext.state]);
+
+    const shareCompleted = useCallback(() => {
+        setActivePanel(defaultLeftPanel);
+    }, [defaultLeftPanel]);
+
+    // const shareProgress = useCallback((visible: boolean, status: string, percentage: number) => {
+    //     // if (isMobile) {
+    //     //     setProgressVisible(visible);
+    //     //     setProgressPercentage(percentage);
+    //     //     setStatusText(status);
+    //     // } else {
+    //     //     console.log(status)
+    //     // }
+    // }, []);
+
+    const sceneLoaded = useCallback((data: CBSceneData, methods:CBMethods) => {
+        api.current = methods;
+        scene.current = data;
+
+        if (!siteContext.state.floorTranslation) {
+            const forward = methods.getFloorCenter();
+            dispatch({
+                type: "setFloorTranslation",
+                xPos: forward[0],
+                yPos: forward[2]
+            });
+
+            setTranslationControlValue(forward)
+        } else {
+            setTranslationControlValue(siteContext.state.floorTranslation)
+        }
+
+    }, [dispatch, siteContext.state.floorTranslation]);
+
+    const sceneRendered = useCallback((data: CBSceneData) => {
+        scene.current = data
+    }, [scene]);
+
     return useMemo(() => (
         <div className={className}>
 
@@ -578,6 +647,8 @@ export default function Visualizer(props: any) {
                 <CBVisualizer
                     toolMode={cbToolMode}
                     canLoad={true}
+                    onSceneLoaded={sceneLoaded}
+                    onSceneRender={sceneRendered}
                     material={materialProperties}
                     defaultMaterial = {new CBMaterialProperties(20,"assets/img/blue-tile.png")}
                     scene={siteContext.state.sceneData}
@@ -649,10 +720,21 @@ export default function Visualizer(props: any) {
                                  product={selectedProduct}
                                  resolveUrl={resolveDetailsUrl} />
 
-                    <SharePanel className={"share"}
-                                visible={activePanel === Panel.Share}
-                                product={selectedProduct}
-                                resolveUrl={resolveDetailsUrl} />
+                    {config && siteContext.state.sceneData && api.current && scene.current && (
+                        <SharePanel className={"share"}
+                                    visible={activePanel === Panel.Share}
+                                    needsUpload={needsUpload}
+                                    product={selectedProduct}
+                                    resolveThumbnailPath={resolveThumbnailPath}
+                                    getShareUrl={getShareUrl}
+                                    shareSubject={config.shareSubject}
+                                    onClose={shareCompleted}
+                                    api={api.current}
+                                    scene={siteContext.state.sceneData}
+                                    data={scene.current}
+                                    isUploadedImage={isUploadedImage()}
+                                    onCompleted={shareCompleted} />
+                        )}
                 </div>
             </div>
 
@@ -660,5 +742,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, hasShare, resolveDetailsUrl, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
+    ), [activePanel, allFilters, cbToolMode, className, config, defaultLeftPanel, defaultRightPanel, floorPosition, floorRotation, floorSize, fov, getShareUrl, hasShare, historySize, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, materialProperties, navClicked, navigationItem, needsUpload, onImageChosen, onProgress, position, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, rotateChanged, rotateFinished, rotation, sceneListingItems, sceneLoaded, sceneRendered, sceneSelected, selectedColumn, selectedProduct, selectedProductIsLight, selectedRow, selectedSceneColumn, selectedSceneRow, shareCompleted, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons, translateChanged, translateFinished, translationControlActive, translationControlValue])
 }
