@@ -3,6 +3,7 @@
   "version": "0.2.00",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "@material/react-button": "^0.15.0",
     "@material/react-fab": "^0.15.0",
     "@material/react-icon-button": "^0.15.0",
@@ -26,7 +27,7 @@
     "randomstring": "^1.1.5",
     "react": ">=16.13.1",
     "react-app-polyfill": "^1.0.1",
-    "react-cambrian-ui": "0.0.682",
+    "react-cambrian-ui": "0.0.706",
     "react-circular-progressbar": "^2.0.1",
     "react-client-info": "0.0.21",
     "react-dat-gui": "^3.0.0",

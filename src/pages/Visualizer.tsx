@@ -740,7 +740,7 @@ export default function Visualizer(props: any) {
                                     resolveThumbnailPath={resolveThumbnailPath}
                                     getShareUrl={getShareUrl}
                                     shareSubject={config.shareSubject}
-                                    onClose={()=>setActivePanel(defaultRightPanel)}
+                                    onClose={()=>setActivePanel(defaultLeftPanel)}
                                     onSave={saveClicked}
                                     api={api.current}
                                     scene={siteContext.state.sceneData}
