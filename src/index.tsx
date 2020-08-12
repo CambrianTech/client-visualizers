@@ -115,7 +115,10 @@ function App() {
         setCssVars();
     }, [browserProperties, setCssVars]);
 
-    const loadScene = useCallback((collection:string, scene:string, basePath?:string|undefined)=> {
+    const loadScene = useCallback((collection:string, scene:string, config:any)=> {
+
+        const basePath = config.hasOwnProperty("defaultScenePath") ? config.defaultScenePath : undefined
+
         dispatchSiteState({
             type: "setSelectedSampleRoomType",
             selectedSampleRoomType: collection as string
@@ -129,8 +132,10 @@ function App() {
 
         const path = collection + "/" + scene;
         const _basePath = (basePath ? basePath : "assets/scenes") + "/" + path;
+        const dataPath = _basePath + "/data.json";
+        console.log(dataPath);
 
-        fetch(_basePath + "/data.json")
+        fetch(dataPath)
             .then(res => res.json())
             .then(data => {
                 dispatchSceneProperties(data, dispatchSiteState, _basePath)
@@ -201,11 +206,6 @@ function App() {
             })
         }
 
-        if (searchObject.rt && searchObject.r) {
-            hasScene = true;
-            loadScene(searchObject.rt, searchObject.r)
-        }
-
         if (searchObject.collection) {
             dispatchSiteState({
                 type: "setCollection",
@@ -232,6 +232,11 @@ function App() {
             .then(json => {
                 const config = json.config as any;
 
+                if (searchObject.rt && searchObject.r) {
+                    hasScene = true;
+                    loadScene(searchObject.rt, searchObject.r, config);
+                }
+
                 if (!document.title && config.hasOwnProperty("siteTitle")) {
                     document.title = config.siteTitle;
                 }
@@ -245,7 +250,7 @@ function App() {
                 }
 
                 if (!hasScene && config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
-                    loadScene(config.defaultSceneCollection, config.defaultScene, config.hasOwnProperty("defaultScenePath") ? config.defaultScenePath : undefined)
+                    loadScene(config.defaultSceneCollection, config.defaultScene, config);
                 }
             });
 

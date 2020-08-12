@@ -264,7 +264,27 @@ export default function Visualizer(props: any) {
             setSelectedRow(swatchItem)
         }
 
-    }, []);
+        if (swatchItem instanceof ProductCollection) {
+            const collection = swatchItem as ProductCollection
+            dispatch({
+                type: "setCollection",
+                code: `${collection.code}`
+            });
+        } else if (swatchItem instanceof Product) {
+            const product = swatchItem as Product
+            dispatch({
+                type: "setProduct",
+                code: `${product.code}`
+            });
+        } else if (swatchItem instanceof ProductColor) {
+            const color = swatchItem as ProductColor
+            dispatch({
+                type: "setColor",
+                code: `${color.code}`
+            });
+        }
+
+    }, [dispatch]);
 
     const getScenePath = useCallback((info:SceneInfo)=>{
         if (!config) return undefined;
