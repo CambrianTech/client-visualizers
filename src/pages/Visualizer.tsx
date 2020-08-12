@@ -567,14 +567,6 @@ export default function Visualizer(props: any) {
         return stateToUrl(siteContext.state, true)
     }, [siteContext.state]);
 
-    const saveClicked = useCallback(() => {
-
-        // if (shareImageUrl && shawState.selectedSubMaterial) {
-        //     deliverRenderedImage(`${shawState.selectedSubMaterial.displayName}-${shawState.selectedSubMaterial.name}-${shawState.selectedSubMaterial.json['SellingStyleNbr']}.png`, shareImageUrl)
-        // }
-
-    }, []);
-
     const shareCompleted = useCallback(() => {
 
         // if (shareImageUrl && shawState.selectedSubMaterial) {
@@ -741,7 +733,6 @@ export default function Visualizer(props: any) {
                                     getShareUrl={getShareUrl}
                                     shareSubject={config.shareSubject}
                                     onClose={()=>setActivePanel(defaultLeftPanel)}
-                                    onSave={saveClicked}
                                     api={api.current}
                                     scene={siteContext.state.sceneData}
                                     data={scene.current}
@@ -756,5 +747,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, sceneLoaded, sceneRendered, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, hasShare, resolveDetailsUrl, needsUpload, getShareUrl, saveClicked, shareCompleted, shareProgress, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, cbToolMode, sceneLoaded, sceneRendered, materialProperties, siteContext.state.sceneData, siteContext.state.showControls, fov, position, rotation, floorSize, floorRotation, isUploadedImage, translationControlActive, translationControlValue, floorPosition, isToolOverlayOpen, rightPanelOpen, isModePermitted, toolChanged, rotateChanged, rotateFinished, translateChanged, translateFinished, historySize, toolsShowHideButtons, selectedProductIsLight, rightPanelButtonText, hasShare, resolveDetailsUrl, needsUpload, getShareUrl, shareCompleted, shareProgress, onImageChosen, onProgress, progressVisible, progressPercentage, statusText])
 }

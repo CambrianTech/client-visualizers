@@ -457,7 +457,7 @@
 /* Mobile Only */
 @media only screen and (max-device-width: 480px) {
     :root {
-        --share-buttons-container-height:280px;
+        --share-buttons-container-height:235px;
         --share-buttons-button-height:35px;
     }
 }
