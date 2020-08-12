@@ -1,8 +1,18 @@
 import { createContext, Dispatch } from "react"
-import {CBMaterialProperties, CBSceneProperties} from "react-home-ar";
+import {CBContentManager, CBMaterialProperties, CBSceneProperties} from "react-home-ar";
 import { polyfill } from "smoothscroll-polyfill"
 import {BrowserProperties} from "react-client-info";
+import * as qs from "querystring";
 polyfill();
+
+export function getSubdomain() {
+    const parts = window.location.host.split('.');
+    const subdomain =  parts.length === 3 ? parts[0] : false;
+    if (subdomain && subdomain.length > 0 && subdomain !== "www" && subdomain !== "dev-staging" && subdomain !== "stg" && subdomain !== "staging") {
+        return subdomain
+    }
+    return null
+}
 
 export type DerivedSiteState = {
     browserProperties: BrowserProperties,
@@ -208,6 +218,81 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
 
     return newState
 }
+
+export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
+    // Check if current search parameters are the same as the one cosntructed from search.
+    // If not, modify the URL without navigating to it.
+
+    const searchObject: any = {};
+
+    if (shawState.selectedCollection) {
+        searchObject.collection = shawState.selectedCollection
+    }
+
+    if (shawState.selectedProduct) {
+        searchObject.product = shawState.selectedProduct
+    }
+
+    if (shawState.selectedColor) {
+        searchObject.color = shawState.selectedColor
+    }
+
+    if (shawState.selectedSampleRoom) {
+        searchObject.r = shawState.selectedSampleRoom
+    }
+
+    if (shawState.selectedSampleRoomType) {
+        searchObject.rt = shawState.selectedSampleRoomType
+    }
+
+    if (includeSceneParams) {
+        // Only copy fov / pos / rot for uploaded rooms as we can load them
+        // ourselves for sample rooms.
+        if (shawState.fov) {
+            searchObject.f = shawState.fov.toFixed(1);
+        }
+
+        if (shawState.position) {
+            searchObject.px = shawState.position[0].toFixed(2);
+            searchObject.py = shawState.position[1].toFixed(2);
+            searchObject.pz = shawState.position[2].toFixed(2);
+        }
+
+        if (shawState.rotation) {
+            searchObject.rx = shawState.rotation[0].toFixed(2);
+            searchObject.ry = shawState.rotation[1].toFixed(2);
+            searchObject.rz = shawState.rotation[2].toFixed(2);
+        }
+
+        if (shawState.previewWidth && shawState.previewHeight) {
+            searchObject.pw = shawState.previewWidth.toFixed(0);
+            searchObject.ph = shawState.previewHeight.toFixed(0);
+        }
+
+        if (CBContentManager.default.scene) {
+            CBContentManager.default.synchronize(searchObject);
+        }
+
+        if (shawState.floorTranslation) {
+            searchObject.tx = shawState.floorTranslation[0].toFixed(2);
+            searchObject.tz = shawState.floorTranslation[2].toFixed(2);
+        }
+
+    }
+
+    if (shawState.showControls) {
+        searchObject.controls = 1
+    }
+
+
+    let search = qs.stringify(searchObject);
+    if (search.length > 0) {
+        search = `?${search}`
+    }
+
+    return `${window.location.origin}${window.location.pathname}${search}`
+}
+
 
 export const SiteContext = createContext(createUndefinedStateContext());
 

@@ -6,7 +6,7 @@ import React, {useReducer, useEffect, useCallback, useState, useRef, Dispatch} f
 import * as ReactDOM from "react-dom"
 
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
-import {SiteContext, createEmptyState, siteStateReducer, SiteAction} from "./data/SiteContext"
+import {SiteContext, createEmptyState, siteStateReducer, SiteAction, stateToUrl} from "./data/SiteContext"
 import {BrowserProperties, WebClientInfo} from "react-client-info"
 
 import 'react-circular-progressbar/dist/styles.css'
@@ -271,6 +271,13 @@ function App() {
             initializeRef.current()
         }
     }, []);
+
+    useEffect(() => {
+        const url = stateToUrl(siteState, true)
+        if (url !== window.history.state) {
+            window.history.replaceState({}, "", url)
+        }
+    }, [siteState]);
 
     return (
         <Router>
