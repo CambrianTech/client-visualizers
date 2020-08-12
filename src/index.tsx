@@ -278,7 +278,7 @@ function App() {
     }, []);
 
     useEffect(() => {
-        const url = stateToUrl(siteState, true)
+        const url = stateToUrl(siteState, true);
         if (url !== window.history.state) {
             window.history.replaceState({}, "", url)
         }

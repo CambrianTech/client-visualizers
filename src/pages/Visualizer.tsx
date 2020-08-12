@@ -16,7 +16,7 @@ import {
     SwatchItem
 } from "react-home-ar";
 
-import {SiteContext} from '../data/SiteContext';
+import {SiteContext, stateToUrl} from '../data/SiteContext';
 import MaterialIcon from "@material/react-material-icon";
 import {Fab} from "@material/react-fab";
 import {
@@ -564,13 +564,8 @@ export default function Visualizer(props: any) {
     },[activePanel, isPortrait, rightPanelOpen]);
 
     const getShareUrl = useCallback((socialNetwork:string) => {
-
-        // if (shareImageUrl && shawState.selectedSubMaterial) {
-        //     deliverRenderedImage(`${shawState.selectedSubMaterial.displayName}-${shawState.selectedSubMaterial.name}-${shawState.selectedSubMaterial.json['SellingStyleNbr']}.png`, shareImageUrl)
-        // }
-
-        return "https://www.cnn.com";
-    }, []);
+        return stateToUrl(siteContext.state, true)
+    }, [siteContext.state]);
 
     const saveClicked = useCallback(() => {
 
