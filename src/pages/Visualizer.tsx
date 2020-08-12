@@ -3,7 +3,7 @@ import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
 import {
-    cbInitialize,
+    cbInitialize, CBServerFile,
     DataFilter,
     DataItem,
     Product,
@@ -43,11 +43,6 @@ import {
 } from "react-home-harmony";
 import {CONFIG_PATH, dispatchSceneProperties} from "../index";
 
-export enum ServerFile {
-    Mask = "mask",
-    Preview = "preview",
-}
-
 enum Panel {
     None,
     Products,
@@ -62,7 +57,7 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
         projectHostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
         orientationImage:orientationImage,
-        uploadNames: [ServerFile.Mask, ServerFile.Preview],
+        uploadNames: [CBServerFile.Mask, CBServerFile.Preview, CBServerFile.Pinterest],
         logLevel:process.env.REACT_APP_CB_LOG_LEVEL
     })
 } else {
@@ -727,6 +722,7 @@ export default function Visualizer(props: any) {
                                     visible={activePanel === Panel.Share}
                                     needsUpload={needsUpload}
                                     product={selectedProduct}
+                                    resolveThumbnailPath={resolveThumbnailPath}
                                     getShareUrl={getShareUrl}
                                     shareSubject={config.shareSubject}
                                     onClose={()=>setActivePanel(defaultRightPanel)}
