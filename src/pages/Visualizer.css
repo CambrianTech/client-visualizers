@@ -296,6 +296,10 @@
     -webkit-columns: 2;
 }
 
+.mobile-close {
+    visibility: hidden;
+}
+
 .horizontal-swatch-listing-content {
 
 }
@@ -414,6 +418,14 @@
     .secondary-panel {
         position: absolute;
         bottom: calc(-1 * var(--details-panel-height));
+        z-index: 10;
+    }
+
+    .mobile-close {
+        position: absolute;
+        visibility: visible;
+        bottom: 20px;
+        right: 20px;
         z-index: 10;
     }
 

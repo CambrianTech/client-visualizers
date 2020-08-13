@@ -730,11 +730,14 @@ export default function Visualizer(props: any) {
                                     onImageUploadCompleted={shareUploadComplete} />
                         )}
                 </div>
+
             </div>
 
-            {config && config.hasPhotoUpload && <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>}
+            {isMobile && <Fab className={"mobile-close"} icon={<MaterialIcon icon='close' />} onClick={()=>setActivePanel(defaultLeftPanel)}  />}
+
+            {config && rightPanelOpen && config.hasPhotoUpload && <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>}
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [activePanel, allFilters, cbToolMode, className, config, defaultLeftPanel, defaultRightPanel, floorPosition, floorRotation, floorSize, fov, getShareUrl, hasShare, historySize, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, materialProperties, navClicked, navigationItem, needsUpload, onImageChosen, onProgress, position, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, rotateChanged, rotateFinished, rotation, sceneListingItems, sceneLoaded, sceneRendered, sceneSelected, selectedColumn, selectedProduct, selectedProductIsLight, selectedRow, selectedSceneColumn, selectedSceneRow, shareCompleted, shareUploadComplete, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons, translateChanged, translateFinished, translationControlActive, translationControlValue])
+    ), [activePanel, allFilters, cbToolMode, className, config, defaultLeftPanel, defaultRightPanel, floorPosition, floorRotation, floorSize, fov, getShareUrl, hasShare, historySize, isMobile, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, materialProperties, navClicked, navigationItem, needsUpload, onImageChosen, onProgress, position, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, rotateChanged, rotateFinished, rotation, sceneListingItems, sceneLoaded, sceneRendered, sceneSelected, selectedColumn, selectedProduct, selectedProductIsLight, selectedRow, selectedSceneColumn, selectedSceneRow, shareCompleted, shareUploadComplete, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons, translateChanged, translateFinished, translationControlActive, translationControlValue])
 }
