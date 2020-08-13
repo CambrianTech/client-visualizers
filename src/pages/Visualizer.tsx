@@ -733,7 +733,7 @@ export default function Visualizer(props: any) {
 
             </div>
 
-            {isMobile && <Fab className={"mobile-close"} icon={<MaterialIcon icon='close' />} onClick={()=>setActivePanel(defaultLeftPanel)}  />}
+            {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} icon={<MaterialIcon icon='close' />} onClick={()=>setActivePanel(defaultLeftPanel)}  />}
 
             {config && rightPanelOpen && config.hasPhotoUpload && <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>}
 
