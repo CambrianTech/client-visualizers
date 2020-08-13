@@ -133,7 +133,6 @@ function App() {
         const path = collection + "/" + scene;
         const _basePath = (basePath ? basePath : "assets/scenes") + "/" + path;
         const dataPath = _basePath + "/data.json";
-        console.log(dataPath);
 
         fetch(dataPath)
             .then(res => res.json())

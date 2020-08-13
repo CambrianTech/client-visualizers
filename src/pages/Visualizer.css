@@ -2,7 +2,6 @@
     --panel-width: 450px;
     --panel-height: 100%;
     --panel-close-width:100px;
-    --panel-close-height:100%;
 
     --details-panel-width: 450px;
     --details-panel-height: 100%;
@@ -158,7 +157,7 @@
     position: absolute;
     top:0;
     z-index: 10;
-    height: var(--panel-close-height);
+    height: 100%;
     flex-basis: var(--panel-close-width);
 }
 
@@ -201,7 +200,6 @@
 
 .visualizer .close-button-container.product-details-button {
     flex-basis: var(--details-panel-close-width);
-    height: var(--panel-close-height);
 }
 
 .secondary-panel .panel {
@@ -345,7 +343,6 @@
     :root {
         --panel-width: 100vw;
         --panel-height: 70%;
-        --panel-close-height: 86px;
 
         --details-panel-close-width:100px;
         --details-panel-close-height:50px;
@@ -381,7 +378,7 @@
 
     .visualizer.products .products-button.close-button-container, .visualizer.scenes .products-button.close-button-container {
         margin-left: 0;
-        bottom: calc(var(--panel-height));
+        bottom: calc(var(--panel-height) - 20px);
     }
 
     .floating-logo {
@@ -395,7 +392,7 @@
     }
 
     .product-name {
-        bottom: 80px;
+        bottom: 10px;
         right: 25px;
     }
 
@@ -424,7 +421,7 @@
     .mobile-close {
         position: absolute;
         visibility: visible;
-        bottom: 20px;
+        bottom: 35px;
         right: 20px;
         z-index: 10;
     }
@@ -450,6 +447,8 @@
     .close-button-container {
         order: 0;
         width: 100%;
+        height: unset;
+        margin-bottom: 35px;
     }
 
     .mdc-fab {
@@ -464,7 +463,7 @@
     }
 
     .visualizer.product-info .product-details-button.close-button-container, .visualizer.share .product-details-button.close-button-container {
-        bottom: calc(var(--details-panel-height) - 96px);
+        bottom: calc(var(--details-panel-height) - 120px);
     }
 
     .visualizer .close-button-container.product-details-button .mdc-fab {
