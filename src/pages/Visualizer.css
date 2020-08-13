@@ -275,7 +275,20 @@
 
 .share-project-buttons .primary-buttons button {
     margin-top: 10px;
+    width: 100%;
     height: var(--share-buttons-button-height);
+}
+
+.share-touch-image-container {
+    position: relative;
+}
+
+.share-touch-image {
+
+}
+
+.share-touch-button {
+
 }
 
 .secondary-panel ul {
