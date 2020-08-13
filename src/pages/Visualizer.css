@@ -281,12 +281,8 @@
     position: relative;
 }
 
-.share-touch-image {
-
-}
-
-.share-touch-button {
-
+.social-share-buttons button {
+    margin-right: 5px;
 }
 
 .secondary-panel ul {
@@ -384,7 +380,6 @@
     .floating-logo {
         width: 100px;
         padding: 10px;
-
     }
 
     #legally-required-logo {
