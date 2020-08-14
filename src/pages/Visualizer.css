@@ -13,6 +13,8 @@
 
     --share-buttons-container-height:285px;
     --share-buttons-button-height:40px;
+    --horizontal-margin:20px;
+    --vertical-margin:20px;
 }
 
 .visualizer {
@@ -168,7 +170,12 @@
 
 .product-details-button.close-button-container {
     right: 0;
-    margin-right: 20px;
+    margin-right: var(--horizontal-margin);
+}
+
+.visualizer-tools {
+    top:var(--vertical-margin) !important;
+    right: var(--horizontal-margin) !important;
 }
 
 .close-button {
@@ -263,7 +270,7 @@
 .share-project-preview-image {
     width: 100%;
     height: 100%;
-    max-height: calc(100vh - var(--share-buttons-container-height))!important;
+    max-height: calc(var(--app-height) - var(--share-buttons-container-height))!important;
 }
 
 .share-project-buttons .primary-buttons {
@@ -478,6 +485,8 @@
     :root {
         --share-buttons-container-height:235px;
         --share-buttons-button-height:35px;
+        --horizontal-margin:10px;
+        --vertical-margin:0;
     }
 }
 
