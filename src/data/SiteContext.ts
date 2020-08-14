@@ -1,8 +1,9 @@
-import { createContext, Dispatch } from "react"
+import {createContext, Dispatch} from "react"
 import {CBContentManager, CBMaterialProperties, CBSceneProperties} from "react-home-ar";
 import { polyfill } from "smoothscroll-polyfill"
 import {BrowserProperties} from "react-client-info";
 import * as qs from "querystring";
+
 polyfill();
 
 export function getSubdomain() {

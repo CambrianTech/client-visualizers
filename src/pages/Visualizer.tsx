@@ -200,9 +200,9 @@ export default function Visualizer(props: any) {
     }, []);
 
     const onImageChosen = useCallback((data: ImageProperties) => {
-        dispatchSceneProperties(data, siteContext.dispatch);
+        dispatchSceneProperties(data, dispatch);
         setNeedsUpload(true);
-    }, [siteContext.dispatch]);
+    }, [dispatch]);
 
     const onProgress = useCallback((uploadProgress: UploadProgress) => {
         if (!_isMounted.current) return;
@@ -317,14 +317,25 @@ export default function Visualizer(props: any) {
                 fetch(scenePath + "/data.json")
                     .then(res => res.json())
                     .then(data => {
-                        dispatchSceneProperties(data, siteContext.dispatch, scenePath)
+                        dispatchSceneProperties(data, dispatch, scenePath);
+
+                        dispatch({
+                            type: "setSelectedSampleRoomType",
+                            selectedSampleRoomType: swatchItem.collection.code as string
+                        });
+
+                        dispatch({
+                            type: "setSelectedSampleRoom",
+                            selectedSampleRoom: swatchItem.code as string,
+                            selectedSamplePath: swatchItem.collection.code as string
+                        });
                     })
             }
 
         } else if (swatchItem instanceof SceneCollection) {
             setSelectedSceneRow(swatchItem)
         }
-    }, [getScenePath, siteContext.dispatch]);
+    }, [getScenePath, dispatch]);
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children);
@@ -644,7 +655,6 @@ export default function Visualizer(props: any) {
                     onSceneLoaded={sceneLoaded}
                     onSceneRender={sceneRendered}
                     material={materialProperties}
-                    defaultMaterial = {new CBMaterialProperties(20,"assets/img/blue-tile.png")}
                     scene={siteContext.state.sceneData}
                     fov={fov}
                     cameraPosition={position}
