@@ -3,7 +3,7 @@ import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
 import {
-    cbInitialize, CBServerFile,
+    cbInitialize,
     DataFilter,
     DataItem,
     Product,
@@ -42,6 +42,7 @@ import {
     CBVisualizer,
 } from "react-home-harmony";
 import {CONFIG_PATH, dispatchSceneProperties} from "../index";
+import {CBARLogLevel} from "react-home-ar/dist/core/internal/Utils";
 
 enum Panel {
     None,
@@ -57,8 +58,7 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
         projectHostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
         orientationImage:orientationImage,
-        uploadNames: [CBServerFile.Mask, CBServerFile.Preview, CBServerFile.Pinterest],
-        logLevel:process.env.REACT_APP_CB_LOG_LEVEL
+        logLevel:process.env.REACT_APP_CB_LOG_LEVEL ? parseInt(process.env.REACT_APP_CB_LOG_LEVEL) as CBARLogLevel : undefined
     })
 } else {
     throw new Error('REACT_APP_CB_GET_UPLOAD_URLS_URL, REACT_APP_CB_UPLOADS_URL, and REACT_APP_CB_SEGMENT_URL must be defined')
@@ -114,6 +114,8 @@ export default function Visualizer(props: any) {
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
+
+    const isRugCapable = false;//todo:Maybe look at product data
 
     const selectedProductIsLight = useMemo(()=>{
         if (selectedProduct && selectedProduct.metaData.hasOwnProperty("isLightColor")) {
@@ -460,6 +462,16 @@ export default function Visualizer(props: any) {
 
     }, [defaultLeftPanel]);
 
+    const assetClicked = useCallback(() => {
+        if (toolMode === VisualizerToolMode.None) {
+            if (isRugCapable) {
+                setToolMode(VisualizerToolMode.Translate);
+            } else {
+                setToolMode(VisualizerToolMode.Rotate)
+            }
+        }
+    }, [isRugCapable, toolMode]);
+
     const toolsShowHideButtons = useCallback((show: boolean) => {
         if (!_isMounted.current) return;
         setIsToolOverlayOpen(!show)
@@ -652,6 +664,7 @@ export default function Visualizer(props: any) {
                 <CBVisualizer
                     toolMode={cbToolMode}
                     canLoad={true}
+                    onAssetClick={assetClicked}
                     onSceneLoaded={sceneLoaded}
                     onSceneRender={sceneRendered}
                     material={materialProperties}
@@ -745,9 +758,9 @@ export default function Visualizer(props: any) {
 
             {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} icon={<MaterialIcon icon='close' />} onClick={()=>setActivePanel(defaultLeftPanel)}  />}
 
-            {config && rightPanelOpen && config.hasPhotoUpload && <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>}
+            {config && config.hasPhotoUpload && <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>}
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [activePanel, allFilters, cbToolMode, className, config, defaultLeftPanel, defaultRightPanel, floorPosition, floorRotation, floorSize, fov, getShareUrl, hasShare, historySize, isMobile, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, materialProperties, navClicked, navigationItem, needsUpload, onImageChosen, onProgress, position, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, rotateChanged, rotateFinished, rotation, sceneListingItems, sceneLoaded, sceneRendered, sceneSelected, selectedColumn, selectedProduct, selectedProductIsLight, selectedRow, selectedSceneColumn, selectedSceneRow, shareCompleted, shareUploadComplete, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons, translateChanged, translateFinished, translationControlActive, translationControlValue])
+    ), [activePanel, allFilters, assetClicked, cbToolMode, className, config, defaultLeftPanel, defaultRightPanel, floorPosition, floorRotation, floorSize, fov, getShareUrl, hasShare, historySize, isMobile, isModePermitted, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, materialProperties, navClicked, navigationItem, needsUpload, onImageChosen, onProgress, position, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, rotateChanged, rotateFinished, rotation, sceneListingItems, sceneLoaded, sceneRendered, sceneSelected, selectedColumn, selectedProduct, selectedProductIsLight, selectedRow, selectedSceneColumn, selectedSceneRow, shareCompleted, shareUploadComplete, siteContext.state.sceneData, siteContext.state.showControls, statusText, swatchSelected, toolChanged, toolMode, toolsShowHideButtons, translateChanged, translateFinished, translationControlActive, translationControlValue])
 }
