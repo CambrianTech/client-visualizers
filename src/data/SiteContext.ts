@@ -27,11 +27,6 @@ export type SharableVisualizerState = {
     selectedSampleRoom: string | null
     selectedSampleRoomType: string | null
     selectedSamplePath: string | null
-
-    fov: number | null
-    position: [number, number, number] | null
-    rotation: [number, number, number] | null
-    floorTranslation: number[] | null
 }
 
 export type DerivedVisualizerState = {
@@ -63,11 +58,6 @@ export function createEmptyState(): SiteState {
         selectedSampleRoom: null,
         selectedSampleRoomType: null,
         selectedSamplePath: null,
-
-        fov: null,
-        position: null,
-        rotation: null,
-        floorTranslation: null,
 
         // Visualizer derived
         sceneData: null,
@@ -169,23 +159,6 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
         case "setError":
             newState.error = action.error;
             break;
-        case "setFov":
-            newState.fov = action.fov;
-            break;
-        case "setPosition":
-            newState.position = action.position;
-            break;
-        case "setRotation":
-            newState.rotation = action.rotation;
-            break;
-
-        case "setFloorTranslation":
-            if (action.xPos !== null && action.yPos !== null) {
-                newState.floorTranslation = [action.xPos, 0, action.yPos]
-            } else {
-                newState.floorTranslation = null
-            }
-            break
 
         // Visualizer derived
         case "setSceneData":
@@ -249,34 +222,12 @@ export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
     if (includeSceneParams) {
         // Only copy fov / pos / rot for uploaded rooms as we can load them
         // ourselves for sample rooms.
-        if (shawState.fov) {
-            searchObject.f = shawState.fov.toFixed(1);
-        }
-
-        if (shawState.position) {
-            searchObject.px = shawState.position[0].toFixed(2);
-            searchObject.py = shawState.position[1].toFixed(2);
-            searchObject.pz = shawState.position[2].toFixed(2);
-        }
-
-        if (shawState.rotation) {
-            searchObject.rx = shawState.rotation[0].toFixed(2);
-            searchObject.ry = shawState.rotation[1].toFixed(2);
-            searchObject.rz = shawState.rotation[2].toFixed(2);
-        }
-
         if (shawState.previewWidth && shawState.previewHeight) {
             searchObject.pw = shawState.previewWidth.toFixed(0);
             searchObject.ph = shawState.previewHeight.toFixed(0);
         }
 
         CBContentManager.default.synchronize(searchObject);
-
-        if (shawState.floorTranslation) {
-            searchObject.tx = shawState.floorTranslation[0].toFixed(2);
-            searchObject.tz = shawState.floorTranslation[2].toFixed(2);
-        }
-
     }
 
     if (shawState.showControls) {

@@ -150,49 +150,6 @@ function App() {
 
         let hasScene = false;
 
-        const searchFov = searchObject.f as string;
-        if (searchFov) {
-            const fov = parseFloat(searchFov);
-            if (!siteState.fov || (fov - siteState.fov) > 0.0001) {
-                dispatchSiteState({
-                    type: "setFov",
-                    fov: fov
-                })
-            }
-        }
-
-        const searchPosX = searchObject.px as string;
-        const searchPosY = searchObject.py as string;
-        const searchPosZ = searchObject.pz as string;
-        if (searchPosX && searchPosY && searchPosZ) {
-            const px = parseFloat(searchPosX);
-            const py = parseFloat(searchPosY);
-            const pz = parseFloat(searchPosZ);
-
-            if (!siteState.position || siteState.position[0] - px > 0.0001 || siteState.position[1] - py > 0.0001 || siteState.position[2] - pz > 0.0001) {
-                dispatchSiteState({
-                    type: "setPosition",
-                    position: [px, py, pz]
-                })
-            }
-        }
-
-        const searchRotX = searchObject.rx as string;
-        const searchRotY = searchObject.ry as string;
-        const searchRotZ = searchObject.rz as string;
-        if (searchRotX && searchRotY && searchRotZ) {
-            const rx = parseFloat(searchRotX);
-            const ry = parseFloat(searchRotY);
-            const rz = parseFloat(searchRotZ);
-
-            if (!siteState.rotation || siteState.rotation[0] - rx > 0.0001 || siteState.rotation[1] - ry > 0.0001 || siteState.rotation[2] - rz > 0.0001) {
-                dispatchSiteState({
-                    type: "setRotation",
-                    rotation: [rx, ry, rz]
-                })
-            }
-        }
-
         const scene = searchObject.scene as string;
         if (scene) {
             selectScene(scene, dispatchSiteState)
@@ -253,7 +210,7 @@ function App() {
                 }
             });
 
-    }, [loadScene, siteState.fov, siteState.position, siteState.rotation]);
+    }, [loadScene]);
 
     const initialize = useCallback(() => {
         setCssVars();
