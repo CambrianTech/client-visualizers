@@ -1,5 +1,5 @@
 import {createContext, Dispatch} from "react"
-import {CBContentManager, CBMaterialProperties, CBSceneProperties} from "react-home-ar";
+import {CBARSceneProperties, CBContentManager, CBMaterialProperties} from "react-home-ar";
 import { polyfill } from "smoothscroll-polyfill"
 import {BrowserProperties} from "react-client-info";
 import * as qs from "querystring";
@@ -35,7 +35,7 @@ export type SharableVisualizerState = {
 }
 
 export type DerivedVisualizerState = {
-    sceneData:CBSceneProperties | null
+    sceneData:CBARSceneProperties | null
     materialProperties: CBMaterialProperties | null
     onMaterialTextureChanged: ((path: string) => (void)) | null
     previewWidth: number | null
@@ -111,7 +111,7 @@ export type SiteActionSetColor = {
 
 export type SiteActionSetSceneData = {
     type: "setSceneData"
-    sceneData: CBSceneProperties | null
+    sceneData: CBARSceneProperties | null
 }
 
 export type SiteActionSetSelectedSampleRoom = {
@@ -270,9 +270,7 @@ export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
             searchObject.ph = shawState.previewHeight.toFixed(0);
         }
 
-        if (CBContentManager.default.scene) {
-            CBContentManager.default.synchronize(searchObject);
-        }
+        CBContentManager.default.synchronize(searchObject);
 
         if (shawState.floorTranslation) {
             searchObject.tx = shawState.floorTranslation[0].toFixed(2);

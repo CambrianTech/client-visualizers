@@ -47,10 +47,10 @@ export function dispatchSceneProperties(data:any, dispatch: Dispatch<SiteAction>
         sceneProperties.anchorPoint = data.anchorPoint;
     }
 
-    dispatch({
-        type: "setSceneData",
-        sceneData: sceneProperties
-    });
+    // dispatch({
+    //     type: "setSceneData",
+    //     sceneData: sceneProperties
+    // });
 
     dispatch({
         type: "setFov",

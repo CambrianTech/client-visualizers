@@ -3,17 +3,17 @@ import {SiteAction} from "../data/SiteContext";
 import {MediaPaths} from "./Constants";
 
 export function dispatchDataProperties(basePath:string|undefined, data:any, dispatch: Dispatch<SiteAction>) {
-    dispatch({
-        type: "setSceneData",
-        sceneData: {
-            backgroundUrl: basePath + "/" + data.images["main"],
-            lightingUrl: basePath + "/" + data.images["lighting"],
-            masks:{
-                "floor": basePath + "/" + data.images["masks"]["floor"]
-            },
-            ancorPoint:[0,0.75]
-        },
-    });
+    // dispatch({
+    //     type: "setSceneData",
+    //     sceneData: {
+    //         backgroundUrl: basePath + "/" + data.images["main"],
+    //         lightingUrl: basePath + "/" + data.images["lighting"],
+    //         masks:{
+    //             "floor": basePath + "/" + data.images["masks"]["floor"]
+    //         },
+    //         ancorPoint:[0,0.75]
+    //     },
+    // });
 
     dispatch({
         type: "setFov",
