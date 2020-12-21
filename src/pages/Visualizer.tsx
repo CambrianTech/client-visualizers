@@ -3,10 +3,20 @@ import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
 import {
-    CBARContext, CBARSurfaceType,
+    CBARAsset,
+    CBARAssetType,
+    CBARContext,
+    CBAREventType,
+    CBARFilledTiledAsset, CBARIntersection,
+    CBARMouseEvent,
+    CBARPaintAsset,
+    CBARRugAsset, CBARScene, CBARSurface,
+    CBARSurfaceAsset,
+    CBARSurfaceType,
     CBARToolMode,
     CBARView,
     cbInitialize,
+    CBMaterialProperties,
     DataFilter,
     DataItem,
     Product,
@@ -56,7 +66,7 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
 }
 
 // let HARD_CODED_PATH:string|undefined;
-let HARD_CODED_PATH = "assets/scenes/hallway";
+let HARD_CODED_PATH = "assets/dining/data_v3.json";
 
 export default function Visualizer(props: any) {
     const siteContext = useContext(SiteContext)!;
@@ -86,26 +96,16 @@ export default function Visualizer(props: any) {
     const [selectedSceneRow, setSelectedSceneRow] = useState<SwatchItem>();
     const [selectedSceneColumn, setSelectedSceneColumn] = useState<SwatchItem>();
 
-    const [rotationControlActive, setRotationControlActive] = useState(false);
-    const [rotationControlValue, setRotationControlValue] = useState(0); // Temporary rotation offset (not applied yet)
-
     const [toolMode, setToolMode] = useState(CBARToolMode.None);
-    const [historySize] = useState<number>(0);
     const [config, setConfig] = useState<any>(undefined);
 
-    const [needsUpload, setNeedsUpload] = useState(true);
-    const [floorSize, ] = useState([100,100]);
-    const [translationControlActive, setTranslationControlActive] = useState(false);
-    const floorTranslationOrigin = [0,0,-2];
-    const [translationControlValue, setTranslationControlValue] = useState(floorTranslationOrigin); // Temporary rotation offset (not applied yet)
-
     const [context, setContext] = useState<CBARContext>();
+    const [currentScene, setCurrentScene] = useState<CBARScene>();
+    const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
 
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
-
-    const isRugCapable = false;//todo:Maybe look at product data
 
     const selectedProductIsLight = useMemo(()=>{
         if (selectedProduct && selectedProduct.metaData.hasOwnProperty("isLightColor")) {
@@ -190,7 +190,7 @@ export default function Visualizer(props: any) {
 
     const onImageChosen = useCallback((data: ImageProperties) => {
         dispatchSceneProperties(data, dispatch);
-        setNeedsUpload(true);
+        //setNeedsUpload(true);
     }, [dispatch]);
 
     const onProgress = useCallback((uploadProgress: ServerProgress) => {
@@ -233,7 +233,7 @@ export default function Visualizer(props: any) {
     }, [config]);
 
     const showMaterial = useCallback((color:Product|ProductColor) => {
-        if (!config) return;
+        if (!config || !context || !selectedSurface) return;
 
         const albedoPath = `${config.basePath}/textures/${color.metaData.albedo}`;
         const ppi = color.ppi ? color.ppi : 20;
@@ -241,8 +241,80 @@ export default function Visualizer(props: any) {
         const normalsPath = !isMobile && color.metaData.hasOwnProperty("normals") ? `${config.basePath}/textures/${color.metaData.normals}` : undefined;
         const specularPath = !isMobile && color.metaData.hasOwnProperty("specular") ? `${config.basePath}/textures/${color.metaData.specular}` : undefined;
 
+        const materialProps = {materials:[
+                {
+                    ppi: ppi,
+                    textures: {
+                        albedo: albedoPath
+                    },
+                    properties: {
+                        roughnessValue: 0.4,
+                        metalnessValue: 0.07
+                    }
+                }
+            ]};
 
-    }, [config, isMobile]);
+        let elevation = 0.0;
+        let currentAsset:CBARSurfaceAsset|undefined = undefined;
+
+        if (color.assetType === CBARAssetType.PaintSurface) {
+            currentAsset = new CBARPaintAsset(context);
+        } else if (color.assetType === CBARAssetType.Rug) {
+            const rugAsset = currentAsset = new CBARRugAsset(context);
+            //rugAsset.dimensions = [2,1];
+            //elevation = 0.005;
+        } else {
+            currentAsset = new CBARFilledTiledAsset(context);
+        }
+
+        selectedSurface.add(currentAsset, elevation);
+
+        currentAsset.loadProduct(color, materialProps).then(()=>{
+            //showHideLoading(false);
+            //setNeedsUpload(true);
+        }).catch((error:any) => {
+            //showHideLoading(false);
+            console.error(error)
+        })
+
+        //setMaterialProperies(data);
+
+    }, [config, context, isMobile, selectedSurface]);
+
+    const handleEvent = useCallback((event:CBARMouseEvent) => {
+        if (!currentScene) return;
+
+        if (event.type === CBAREventType.Rotate) {
+            setToolMode(CBARToolMode.Rotate);
+        } else if (event.type === CBAREventType.Translate) {
+            setToolMode(CBARToolMode.Translate)
+        }
+        else if (event.type === CBAREventType.TouchDown) {
+
+            const assetIntersections = event.intersections.filter(x => x.object instanceof CBARSurfaceAsset);
+            const surfaceIntersection = event.intersections.find(x => x.object instanceof CBARSurface);
+            const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
+            const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
+                const assetA = a.object as CBARSurfaceAsset;
+                const assetB = b.object as CBARSurfaceAsset;
+                if (assetA.type === assetB.type) return 0;
+                return assetA.type === CBARAssetType.Rug ? -1 : 1;
+            })[0].object as CBARSurfaceAsset : undefined;
+
+            setSelectedSurface(surface)
+
+        } else if (event.type === CBAREventType.TouchMove && selectedSurface) {
+            //setCurrentRotation(selectedAsset.surfaceRotation);
+            //setCurrentXPos(selectedAsset.surfacePosition.x);
+            //setCurrentYPos(selectedAsset.surfacePosition.y);
+        }
+    }, [currentScene, selectedSurface]);
+
+    useEffect(() => {
+        if (context) {
+            context.setHandler(handleEvent)
+        }
+    }, [context, handleEvent]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
@@ -495,7 +567,7 @@ export default function Visualizer(props: any) {
     }, [defaultLeftPanel]);
 
     const shareUploadComplete = useCallback(()=>{
-        setNeedsUpload(false);
+        //setNeedsUpload(false);
     }, []);
 
     const onContextCreated = useCallback((context:CBARContext) => {
@@ -506,7 +578,7 @@ export default function Visualizer(props: any) {
                 const path = HARD_CODED_PATH;
                 console.log("Loading scene at path", path);
                 context.loadSceneAtPath(path, [CBARSurfaceType.Floor, CBARSurfaceType.Wall]).then((scene)=>{
-                    //setCurrentScene(scene);
+                    setCurrentScene(scene);
                     console.log("Scene Loaded!");
                 }).catch(error=>{
                     console.log("Could not load scene!", error)
