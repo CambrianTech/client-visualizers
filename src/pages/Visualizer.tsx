@@ -26,8 +26,7 @@ import {
     ImageProperties,
     ImageUpload,
     ProductBreadcrumb,
-    ProductInfo,
-    UploadProgress,
+    ProductInfo, ServerProgress,
     VerticalListing,
     VisualizerToolMode
 } from "react-cambrian-ui";
@@ -194,10 +193,10 @@ export default function Visualizer(props: any) {
         setNeedsUpload(true);
     }, [dispatch]);
 
-    const onProgress = useCallback((uploadProgress: UploadProgress) => {
+    const onProgress = useCallback((uploadProgress: ServerProgress) => {
         if (!_isMounted.current) return;
         if (uploadProgress.message) {
-            setStatusText(uploadProgress.message)
+            //setProgressText(uploadProgress.message)
         }
         if (uploadProgress.progress !== undefined) {
             setProgressPercentage(uploadProgress.progress)

@@ -17,7 +17,7 @@ import * as qs from "querystring";
 import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
-import {CBSceneProperties} from "react-home-harmony";
+import {CBARSceneProperties} from "react-home-ar";
 
 const objectFitImages = require('object-fit-images');
 
@@ -35,37 +35,22 @@ export const api:any = (window as any).cb;
 export function dispatchSceneProperties(data:any, dispatch: Dispatch<SiteAction>, basePath?:string) {
 
     const pathPrefix = basePath ? basePath + (basePath.endsWith("/") ? "" : "/"): "";
-    const sceneProperties:CBSceneProperties = {
-        backgroundUrl: pathPrefix + data.images["main"],
-        lightingUrl: pathPrefix + data.images["lighting"],
-        masks:{
-            "floor": pathPrefix + data.images["masks"]["floor"]
-        }
-    };
+    // const sceneProperties:CBARSceneProperties = {
+    //     backgroundUrl: pathPrefix + data.images["main"],
+    //     lightingUrl: pathPrefix + data.images["lighting"],
+    //     masks:{
+    //         "floor": pathPrefix + data.images["masks"]["floor"]
+    //     }
+    // };
 
-    if (data.hasOwnProperty("anchorPoint")) {
-        sceneProperties.anchorPoint = data.anchorPoint;
-    }
+    // if (data.hasOwnProperty("anchorPoint")) {
+    //     sceneProperties.anchorPoint = data.anchorPoint;
+    // }
 
     // dispatch({
     //     type: "setSceneData",
     //     sceneData: sceneProperties
     // });
-
-    dispatch({
-        type: "setFov",
-        fov: data.fov
-    });
-
-    dispatch({
-        type: "setPosition",
-        position: data.cameraPosition
-    });
-
-    dispatch({
-        type: "setRotation",
-        rotation: [data.cameraRotation[0], -data.floorRotation, data.cameraRotation[2]]
-    });
 }
 
 function App() {
