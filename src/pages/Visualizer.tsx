@@ -268,9 +268,7 @@ export default function Visualizer(props: any) {
 
         if (!currentAsset) {
             if (color.assetType === CBARAssetType.PaintSurface) {
-                const paintAsset = new CBARPaintAsset(context);
-                paintAsset.color = color.color;
-                currentAsset = paintAsset
+                currentAsset = new CBARPaintAsset(context);
             } else if (color.assetType === CBARAssetType.Rug) {
                 const rugAsset = currentAsset = new CBARRugAsset(context);
                 rugAsset.dimensions = new THREE.Vector2(2,1);
@@ -289,7 +287,7 @@ export default function Visualizer(props: any) {
         })
     }, [config, context, selectedSurface]);
 
-    const handleEvent = useCallback((event:CBARMouseEvent) => {
+    const handleVisualizerEvent = useCallback((event:CBARMouseEvent) => {
         if (!currentScene) return;
 
         if (event.type === CBAREventType.Rotate) {
@@ -320,14 +318,14 @@ export default function Visualizer(props: any) {
 
     useEffect(() => {
         if (context) {
-            context.setHandler(handleEvent)
+            context.setHandler(handleVisualizerEvent)
         }
-    }, [context, handleEvent]);
+    }, [context, handleVisualizerEvent]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
         if (swatchItem.parent && swatchItem.parent.hasColumns) {
-            setSelectedColumn(swatchItem);
+            setSelectedColumn(selectedColumn === swatchItem ? undefined : swatchItem);
         } else {
             setSelectedRow(swatchItem)
         }
@@ -352,7 +350,7 @@ export default function Visualizer(props: any) {
             });
         }
 
-    }, [dispatch]);
+    }, [dispatch, selectedColumn]);
 
     const getScenePath = useCallback((info:SceneInfo)=>{
         if (!config) return undefined;
@@ -415,13 +413,6 @@ export default function Visualizer(props: any) {
             showMaterial(selectedColumn)
         }
     }, [selectedColumn, showMaterial]);
-
-    useEffect(() => {
-        if (selectedRow && (!selectedColumn || selectedColumn.parent !== selectedRow)) {
-            const swatch = selectedRow.children.length ? selectedRow.children[0] : undefined; //or default here
-            setSelectedColumn(swatch);
-        }
-    }, [selectedColumn, selectedRow, swatchSelected]);
 
     useEffect(() => {
         if (rootItem) {
@@ -667,7 +658,14 @@ export default function Visualizer(props: any) {
                 {/*/>*/}
 
                 {!rightPanelOpen && selectedRow && selectedProduct && (
-                    <div className={`product-name${selectedProductIsLight ? " dark":""}`}>{selectedRow.displayName} - {selectedProduct.displayName}</div>
+                    <div className={"floating-product-info"}>
+                        <div className={"product-swatch"} style={{background:selectedProduct.color}}>
+                            {selectedProduct.thumbnail && <img alt={selectedProduct.thumbnail} src={selectedProduct.thumbnail} />}
+                        </div>
+                        <div className={"product-name"}>
+                            {selectedRow.displayName} - {selectedProduct.displayName}
+                        </div>
+                    </div>
                 )}
 
                 {toolMode === CBARToolMode.None && selectedProduct && (!leftPanelOpen || !isPortrait) && (
