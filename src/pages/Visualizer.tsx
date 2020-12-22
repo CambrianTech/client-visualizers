@@ -26,7 +26,7 @@ import {
     ProductItem,
     SceneCollection,
     SceneInfo,
-    SwatchItem
+    SwatchItem, THREE
 } from "react-home-ar";
 
 import {SiteContext, stateToUrl} from '../data/SiteContext';
@@ -255,19 +255,20 @@ export default function Visualizer(props: any) {
             ]};
 
         let elevation = 0.0;
-        let currentAsset:CBARSurfaceAsset|undefined = undefined;
+        let currentAsset = selectedSurface.last();
 
-        if (color.assetType === CBARAssetType.PaintSurface) {
-            currentAsset = new CBARPaintAsset(context);
-        } else if (color.assetType === CBARAssetType.Rug) {
-            const rugAsset = currentAsset = new CBARRugAsset(context);
-            //rugAsset.dimensions = [2,1];
-            //elevation = 0.005;
-        } else {
-            currentAsset = new CBARFilledTiledAsset(context);
+        if (!currentAsset) {
+            if (color.assetType === CBARAssetType.PaintSurface) {
+                currentAsset = new CBARPaintAsset(context);
+            } else if (color.assetType === CBARAssetType.Rug) {
+                const rugAsset = currentAsset = new CBARRugAsset(context);
+                rugAsset.dimensions = new THREE.Vector2(2,1);
+                elevation = 0.005;
+            } else {
+                currentAsset = new CBARFilledTiledAsset(context);
+            }
+            selectedSurface.add(currentAsset, elevation);
         }
-
-        selectedSurface.add(currentAsset, elevation);
 
         currentAsset.loadProduct(color, materialProps).then(()=>{
             //showHideLoading(false);
