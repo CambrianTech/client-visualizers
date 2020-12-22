@@ -241,11 +241,13 @@ export default function Visualizer(props: any) {
         const normalsPath = !isMobile && color.metaData.hasOwnProperty("normals") ? `${config.basePath}/textures/${color.metaData.normals}` : undefined;
         const specularPath = !isMobile && color.metaData.hasOwnProperty("specular") ? `${config.basePath}/textures/${color.metaData.specular}` : undefined;
 
-        const materialProps = {materials:[
+        const materialProps = { materials:[
                 {
                     ppi: ppi,
                     textures: {
-                        albedo: albedoPath
+                        albedo: albedoPath,
+                        normals: normalsPath,
+                        roughness:specularPath
                     },
                     properties: {
                         roughnessValue: 0.4,
@@ -271,15 +273,10 @@ export default function Visualizer(props: any) {
         }
 
         currentAsset.loadProduct(color, materialProps).then(()=>{
-            //showHideLoading(false);
             //setNeedsUpload(true);
         }).catch((error:any) => {
-            //showHideLoading(false);
             console.error(error)
         })
-
-        //setMaterialProperies(data);
-
     }, [config, context, isMobile, selectedSurface]);
 
     const handleEvent = useCallback((event:CBARMouseEvent) => {
