@@ -7,7 +7,7 @@ import {
     CBARAssetType,
     CBARContext,
     CBAREventType,
-    CBARFilledTiledAsset, CBARIntersection,
+    CBARFilledTiledAsset, CBARIntersection, CBARMaterialProperties, CBARMaterialProperty,
     CBARMouseEvent,
     CBARPaintAsset,
     CBARRugAsset, CBARScene, CBARSurface,
@@ -44,6 +44,7 @@ import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
 import {CONFIG_PATH, dispatchSceneProperties} from "../index";
+import {object} from "prop-types";
 
 enum Panel {
     None,
@@ -108,7 +109,7 @@ export default function Visualizer(props: any) {
     }, [selectedColumn]);
 
     const selectedProductIsLight = useMemo(()=>{
-        if (selectedProduct && selectedProduct.metaData.hasOwnProperty("isLightColor")) {
+        if (selectedProduct && selectedProduct.metaData && selectedProduct.metaData.hasOwnProperty("isLightColor")) {
             return selectedProduct.metaData.isLightColor;
         }
         return false;
@@ -228,40 +229,48 @@ export default function Visualizer(props: any) {
             return resolveThumbnailPath(swatchItem.children[0])
         }
 
-        return `${config.basePath}/textures/${swatchItem.thumbnail}`;
+        return `${config.basePath}/${swatchItem.thumbnail}`;
 
     }, [config]);
 
     const showMaterial = useCallback((color:Product|ProductColor) => {
         if (!config || !context || !selectedSurface) return;
 
-        const albedoPath = `${config.basePath}/textures/${color.metaData.albedo}`;
-        const ppi = color.ppi ? color.ppi : 20;
+        let material:CBARMaterialProperties = {
+            properties: {
+                roughnessValue: 0.4,
+                metalnessValue: 0.07,
+                color:0.0,
+            }
+        };
+        material.properties = {};
+        material.textures = {};
+        material.ppi = color.ppi ? color.ppi : 20;
 
-        const normalsPath = !isMobile && color.metaData.hasOwnProperty("normals") ? `${config.basePath}/textures/${color.metaData.normals}` : undefined;
-        const specularPath = !isMobile && color.metaData.hasOwnProperty("specular") ? `${config.basePath}/textures/${color.metaData.specular}` : undefined;
+        if (color.metaData) {
+            if (color.metaData.hasOwnProperty("albedo")) {
+                material.textures.albedo = `${config.basePath}/${color.metaData.albedo}`
+            }
+            if (color.metaData.hasOwnProperty("normals")) {
+                material.textures.normals = `${config.basePath}/${color.metaData.normals}`
+            }
+            if (color.metaData.hasOwnProperty("specular")) {
+                material.textures.roughness = `${config.basePath}/${color.metaData.specular}`
+            }
+        }
 
-        const materialProps = { materials:[
-                {
-                    ppi: ppi,
-                    textures: {
-                        albedo: albedoPath,
-                        normals: normalsPath,
-                        roughness:specularPath
-                    },
-                    properties: {
-                        roughnessValue: 0.4,
-                        metalnessValue: 0.07
-                    }
-                }
-            ]};
+        if (color.color) {
+            material.properties.color = color.color;
+        }
 
         let elevation = 0.0;
         let currentAsset = selectedSurface.last();
 
         if (!currentAsset) {
             if (color.assetType === CBARAssetType.PaintSurface) {
-                currentAsset = new CBARPaintAsset(context);
+                const paintAsset = new CBARPaintAsset(context);
+                paintAsset.color = color.color;
+                currentAsset = paintAsset
             } else if (color.assetType === CBARAssetType.Rug) {
                 const rugAsset = currentAsset = new CBARRugAsset(context);
                 rugAsset.dimensions = new THREE.Vector2(2,1);
@@ -269,15 +278,16 @@ export default function Visualizer(props: any) {
             } else {
                 currentAsset = new CBARFilledTiledAsset(context);
             }
+            console.log(`Created asset of type ${currentAsset.type}, ${color.assetType} at elevation ${currentAsset.surfaceElevation}m`);
             selectedSurface.add(currentAsset, elevation);
         }
 
-        currentAsset.loadProduct(color, materialProps).then(()=>{
+        currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:material} : { materials:[material]}).then(()=>{
             //setNeedsUpload(true);
         }).catch((error:any) => {
             console.error(error)
         })
-    }, [config, context, isMobile, selectedSurface]);
+    }, [config, context, selectedSurface]);
 
     const handleEvent = useCallback((event:CBARMouseEvent) => {
         if (!currentScene) return;
@@ -513,12 +523,12 @@ export default function Visualizer(props: any) {
         //console.log(`${basePath}/textures/${url}`)
         if (!url && selectedProduct) {
             if (name === "preview") {
-                return `${config.basePath}/textures/${selectedProduct.thumbnail}`
+                return `${config.basePath}/${selectedProduct.thumbnail}`
             } else if (name==="share") {
-                return `${config.basePath}/textures/${selectedProduct.thumbnail}`
+                return `${config.basePath}/${selectedProduct.thumbnail}`
             }
         }
-        return `${config.basePath}/textures/${url}`
+        return `${config.basePath}/${url}`
     }, [config, selectedProduct]);
 
     const className = useMemo(()=>{
