@@ -3,11 +3,12 @@ import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
 import {
-    CBARAsset,
     CBARAssetType,
     CBARContext,
     CBAREventType,
-    CBARFilledTiledAsset, CBARIntersection, CBARMaterialProperties, CBARMaterialProperty,
+    CBARFilledTiledAsset,
+    CBARIntersection,
+    CBARMaterialProperties,
     CBARMouseEvent,
     CBARPaintAsset,
     CBARRugAsset, CBARScene, CBARSurface,
@@ -16,7 +17,6 @@ import {
     CBARToolMode,
     CBARView,
     cbInitialize,
-    CBMaterialProperties,
     DataFilter,
     DataItem,
     Product,
@@ -34,9 +34,9 @@ import MaterialIcon from "@material/react-material-icon";
 import {Fab} from "@material/react-fab";
 import {
     ImageProperties,
-    ImageUpload,
+    ImageUpload, openImageDialog,
     ProductBreadcrumb,
-    ProductInfo, ServerProgress,
+    ProductInfo, ServerProgress, ToolOperation, ToolsMenu, ToolsMenuAction,
     VerticalListing,
     VisualizerToolMode
 } from "react-cambrian-ui";
@@ -44,7 +44,6 @@ import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
 import {CONFIG_PATH, dispatchSceneProperties} from "../index";
-import {object} from "prop-types";
 
 enum Panel {
     None,
@@ -108,6 +107,8 @@ export default function Visualizer(props: any) {
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
 
+    const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
+
     const selectedProductIsLight = useMemo(()=>{
         if (selectedProduct && selectedProduct.metaData && selectedProduct.metaData.hasOwnProperty("isLightColor")) {
             return selectedProduct.metaData.isLightColor;
@@ -145,6 +146,10 @@ export default function Visualizer(props: any) {
             return Panel.ProductInfo
         }
     }, [isPortrait]);
+
+    const getPhoto = useCallback(()=>{
+        openImageDialog();
+    }, []);
 
     useEffect(()=>{
         if (isPortrait) {
@@ -233,6 +238,10 @@ export default function Visualizer(props: any) {
 
     }, [config]);
 
+    const assetClicked = useCallback((asset:CBARSurfaceAsset) => {
+        setSelectedAsset(asset);
+    }, []);
+
     const showMaterial = useCallback((color:Product|ProductColor) => {
         if (!config || !context || !selectedSurface) return;
 
@@ -309,12 +318,16 @@ export default function Visualizer(props: any) {
 
             setSelectedSurface(surface)
 
+            if (asset) {
+                assetClicked(asset);
+            }
+
         } else if (event.type === CBAREventType.TouchMove && selectedSurface) {
             //setCurrentRotation(selectedAsset.surfaceRotation);
             //setCurrentXPos(selectedAsset.surfacePosition.x);
             //setCurrentYPos(selectedAsset.surfacePosition.y);
         }
-    }, [currentScene, selectedSurface]);
+    }, [assetClicked, currentScene, selectedSurface]);
 
     useEffect(() => {
         if (context) {
@@ -583,11 +596,33 @@ export default function Visualizer(props: any) {
                     console.log("Could not load scene!", error)
                 });
             } else {
-                //getPhoto();
+                getPhoto();
             }
         }
 
-    }, [siteContext.state.sceneData, siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
+    }, [getPhoto, siteContext.state.sceneData, siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
+
+    const handleAction = useCallback((action:ToolsMenuAction) => {
+
+        switch (action.operation) {
+            case ToolOperation.ChoosePhoto:
+                getPhoto();
+                break;
+            case ToolOperation.ChooseScene:
+                setActivePanel(Panel.Scenes);
+                break;
+            case ToolOperation.Share:
+                setActivePanel(Panel.Share);
+                break;
+        }
+
+        if (action.operation && (Object.values(CBARToolMode) as string[]).indexOf(action.operation) >= 0) {
+            setToolMode(action.operation as CBARToolMode);
+        } else {
+            setToolMode(CBARToolMode.None);
+        }
+
+    }, [getPhoto]);
 
     return useMemo(() => (
         <div className={className}>
@@ -633,29 +668,12 @@ export default function Visualizer(props: any) {
 
                 <img className={"floating-logo"} src={`${config.basePath}/${config.siteLogoImage}`} alt={"logo"} />
 
-                {/*<VisualizerTools*/}
-                {/*    visible={!isToolOverlayOpen && !rightPanelOpen}*/}
-                {/*    mode={toolMode}*/}
-                {/*    isModePermitted={isModePermitted}*/}
-                {/*    showLabels={!isPortrait}*/}
-                {/*    changeMode={toolChanged}*/}
-
-                {/*    onRotationChanged={rotateChanged}*/}
-                {/*    onRotationFinished={rotateFinished}*/}
-
-                {/*    onTranslationChanged={translateChanged}*/}
-                {/*    onTranslationFinished={translateFinished}*/}
-
-                {/*    initialRotation={floorRotation}*/}
-                {/*    initialXPos={floorPosition[0]}*/}
-                {/*    initialYPos={floorPosition[2]}*/}
-
-                {/*    minTranslation={[-10, -10]}*/}
-                {/*    maxTranslation={[10,0]}*/}
-
-                {/*    historySize={historySize}*/}
-                {/*    onShowHideButtons={toolsShowHideButtons}*/}
-                {/*/>*/}
+                <ToolsMenu
+                    hidden={isToolOverlayOpen}
+                    selectedAsset={selectedAsset}
+                    selectedSurface={selectedSurface}
+                    onAction={handleAction}
+                />
 
                 {!rightPanelOpen && selectedRow && selectedProduct && (
                     <div className={"floating-product-info"}>
@@ -719,5 +737,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
         </div>
-    ), [activePanel, allFilters, className, config, defaultLeftPanel, defaultRightPanel, hasShare, isMobile, isPortrait, leftPanelOpen, listingItems, navClicked, navigationItem, onContextCreated, onImageChosen, onProgress, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, sceneListingItems, sceneSelected, selectedColumn, selectedProduct, selectedProductIsLight, selectedRow, selectedSceneColumn, selectedSceneRow, statusText, swatchSelected, toolMode])
+    ), [activePanel, allFilters, className, config, defaultLeftPanel, defaultRightPanel, handleAction, hasShare, isMobile, isPortrait, isToolOverlayOpen, leftPanelOpen, listingItems, navClicked, navigationItem, onContextCreated, onImageChosen, onProgress, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, sceneListingItems, sceneSelected, selectedAsset, selectedColumn, selectedProduct, selectedRow, selectedSceneColumn, selectedSceneRow, selectedSurface, statusText, swatchSelected, toolMode])
 }
