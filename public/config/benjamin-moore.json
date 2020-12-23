@@ -14,12 +14,12 @@
     "favicon192x192": "branding/icon-large.png",
     "appleShareIcon": "branding/icon-large.png",
     "twitterAccount": "@flooringonesource",
-    "primaryColor": "#7ea13d",
+    "primaryColor": "#26b",
     "inactiveColor": "rgba(0,0,0,0.3)",
     "defaultSceneCollection": "office",
     "defaultScene": "1-business",
     "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/benjamin-moore/scenes",
-    "siteLogoImage": "branding/logo-overlay-white.png",
+    "siteLogoImage": "branding/logo.png",
     "shareSubject": "Check out this great Benjamin Moore paint",
 
     "hasPhotoUpload": false,
@@ -42,12 +42,25 @@
           "code": "interiors",
           "displayName": "Interior Paint",
           "thumbnail": "thumbnails/interior-space.jpg",
+          "details": {
+            "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+            "preview": "Bellewood/preview.jpg",
+            "specifications": [
+              {"Plank Size": "9″ x 48″"},
+              {"Padding": "1.0mm EVA"},
+              {"Overall Thickness": "4.2mm"},
+              {"Wear Layer": "8 mil"},
+              {"Locking Type": "Drop Lock"},
+              {"Surface": "Antique Wood Embossing"},
+              {"Edge": "Micro Bevel"}
+            ]
+          },
           "products": [
             {
               "name": "color-trends-2020",
               "code": "ct-2020",
               "displayName": "Color Trends 2020",
-              "thumbnail": "thumbnails/color-trends-2020.png",
+              "thumbnail": "branding/bright-colors.jpg",
               "colors": [
                 {
                   "name": "white-heron",
@@ -110,22 +123,74 @@
                   "color": "rgb(46, 90, 113)"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "name": "exterior-paints",
-          "code": "exteriors",
-          "displayName": "Exterior Paint",
-          "thumbnail": "thumbnails/exterior-space.jpg",
-          "enabled": false,
-          "metaData": {},
-          "collections": [
+            },
             {
-              "name": "aura-exterior-paint",
-              "code": "aura-010",
-              "displayName": "Aura® Exterior Paint",
-              "thumbnail": "thumbnails/bmoore-aura.png"
+              "name": "whites",
+              "code": "whites",
+              "displayName": "Whites",
+              "thumbnail": "branding/whites.jpg",
+              "colors": [
+                {
+                  "name": "white-heron",
+                  "code": "OC-57",
+                  "displayName": "White Heron",
+                  "color": "rgb(241, 242, 235)"
+                },
+                {
+                  "name": "first-light",
+                  "code": "2102-70",
+                  "displayName": "First Light",
+                  "color": "rgb(240, 227, 223)"
+                },
+                {
+                  "name": "crystalline",
+                  "code": "AF-485",
+                  "displayName": "Crystalline",
+                  "color": "rgb(202, 213, 201)"
+                },
+                {
+                  "name": "windmill-wings",
+                  "code": "2067-60",
+                  "displayName": "Windmill Wings",
+                  "color": "rgb(189, 211, 238)"
+                },
+                {
+                  "name": "buxton-blue",
+                  "code": "HC-149",
+                  "displayName": "Buxton Blue",
+                  "color": "rgb(158, 183, 187)"
+                },
+                {
+                  "name": "golden-straw",
+                  "code": "2152-50",
+                  "displayName": "Golden Straw",
+                  "color": "rgb(240, 222, 182)"
+                },
+                {
+                  "name": "thunder",
+                  "code": "AF-685",
+                  "displayName": "Thunder",
+                  "color": "rgb(240, 222, 182)"
+                },
+                {
+                  "name": "cushing-green",
+                  "code": "HC-125",
+                  "displayName": "Cushing Green",
+                  "color": "rgb(105, 119, 103)"
+                },
+                {
+                  "name": "oxford-gray",
+                  "code": "2128-40",
+                  "displayName": "Oxford Gray",
+                  "color": "rgb(131, 145, 161)"
+                },
+                {
+                  "name": "blue-danube",
+                  "code": "2062-30",
+                  "displayName": "Blue Danube",
+                  "color": "rgb(46, 90, 113)"
+                }
+              ]
             }
           ]
         }
