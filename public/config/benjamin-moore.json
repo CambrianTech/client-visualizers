@@ -488,7 +488,7 @@
                   "code": "2128-60",
                   "displayName": "Beacon Gray",
                   "color": "rgb(205, 215, 222)"
-                },
+                }, 
                 {
                   "name": "van-deusen-blue",
                   "code": "HC-156",
