@@ -57,79 +57,73 @@
           },
           "products": [
             {
-              "name": "color-trends-2020",
-              "code": "ct-2020",
-              "displayName": "Color Trends 2020",
+              "name": "color-trends-2021",
+              "code": "ct-2021",
+              "displayName": "Color Trends 2021",
               "thumbnail": "branding/bright-colors.jpg",
               "colors": [
                 {
-                  "name": "white-heron",
-                  "code": "OC-57",
-                  "displayName": "White Heron",
-                  "color": "rgb(241, 242, 235)"
+                  "name": "atrium-white",
+                  "code": "OC-145",
+                  "displayName": "Atrium White",
+                  "color": "rgb(242,239,232)"
                 },
                 {
-                  "name": "first-light",
-                  "code": "2102-70",
-                  "displayName": "First Light",
-                  "color": "rgb(240, 227, 223)"
+                  "name": "foggy-morning",
+                  "code": "2106-70",
+                  "displayName": "Foggy Morning",
+                  "color": "rgb(236,227,220)"
                 },
                 {
-                  "name": "crystalline",
-                  "code": "AF-485",
-                  "displayName": "Crystalline",
-                  "color": "rgb(202, 213, 201)"
+                  "name": "beacon-hill-damask",
+                  "code": "HC-2",
+                  "displayName": "Beacon Hill Damask",
+                  "color": "rgb(229,219,171)"
                 },
                 {
-                  "name": "windmill-wings",
-                  "code": "2067-60",
-                  "displayName": "Windmill Wings",
-                  "color": "rgb(189, 211, 238)"
+                  "name": "chestertown-buff",
+                  "code": "HC-9",
+                  "displayName": "Chestertown Buff",
+                  "color": "rgb(221,191,134)"
                 },
                 {
-                  "name": "buxton-blue",
-                  "code": "HC-149",
-                  "displayName": "Buxton Blue",
-                  "color": "rgb(158, 183, 187)"
+                  "name": "muslin",
+                  "code": "OC-12",
+                  "displayName": "Muslin",
+                  "color": "rgb(225,214,193)"
                 },
                 {
-                  "name": "golden-straw",
-                  "code": "2152-50",
-                  "displayName": "Golden Straw",
-                  "color": "rgb(240, 222, 182)"
+                  "name": "rosy-peach",
+                  "code": "2089-20",
+                  "displayName": "Rosy Peach",
+                  "color": "rgb(181,94,79)"
                 },
                 {
-                  "name": "thunder",
-                  "code": "AF-685",
-                  "displayName": "Thunder",
-                  "color": "rgb(240, 222, 182)"
+                  "name": "potters-clay",
+                  "code": "1221",
+                  "displayName": "Potters Clay",
+                  "color": "rgb(185, 135, 102)"
                 },
                 {
-                  "name": "cushing-green",
-                  "code": "HC-125",
-                  "displayName": "Cushing Green",
-                  "color": "rgb(105, 119, 103)"
-                },
-                {
-                  "name": "oxford-gray",
-                  "code": "2128-40",
-                  "displayName": "Oxford Gray",
-                  "color": "rgb(131, 145, 161)"
-                },
-                {
-                  "name": "blue-danube",
-                  "code": "2062-30",
-                  "displayName": "Blue Danube",
-                  "color": "rgb(46, 90, 113)"
+                  "name": "amazon-soil",
+                  "code": "2115-30",
+                  "displayName": "Amazon Soil",
+                  "color": "rgb(111,91,92)"
                 }
               ]
             },
             {
               "name": "whites",
               "code": "whites",
-              "displayName": "Whites",
+              "displayName": "Best-Selling Whites",
               "thumbnail": "branding/whites.jpg",
               "colors": [
+                {
+                  "name": "chantilly-lace",
+                  "code": "OC-65",
+                  "displayName": "Chantilly Lace",
+                  "color": "rgb(244, 246, 241)"
+                },
                 {
                   "name": "white-heron",
                   "code": "OC-57",
@@ -137,61 +131,75 @@
                   "color": "rgb(241, 242, 235)"
                 },
                 {
-                  "name": "first-light",
-                  "code": "2102-70",
-                  "displayName": "First Light",
-                  "color": "rgb(240, 227, 223)"
+                  "name": "white-dove",
+                  "code": "OC-17",
+                  "displayName": "White Dove",
+                  "color": "rgb(239, 238, 229)"
                 },
                 {
-                  "name": "crystalline",
-                  "code": "AF-485",
-                  "displayName": "Crystalline",
-                  "color": "rgb(202, 213, 201)"
+                  "name": "simply-white",
+                  "code": "OC-117",
+                  "displayName": "Simply White",
+                  "color": "rgb(246, 246, 237)"
                 },
                 {
-                  "name": "windmill-wings",
-                  "code": "2067-60",
-                  "displayName": "Windmill Wings",
-                  "color": "rgb(189, 211, 238)"
+                  "name": "cloud-white",
+                  "code": "OC-130",
+                  "displayName": "Cloud White",
+                  "color": "rgb(242, 241, 230)"
                 },
                 {
-                  "name": "buxton-blue",
-                  "code": "HC-149",
-                  "displayName": "Buxton Blue",
-                  "color": "rgb(158, 183, 187)"
-                },
-                {
-                  "name": "golden-straw",
-                  "code": "2152-50",
-                  "displayName": "Golden Straw",
-                  "color": "rgb(240, 222, 182)"
-                },
-                {
-                  "name": "thunder",
-                  "code": "AF-685",
-                  "displayName": "Thunder",
-                  "color": "rgb(240, 222, 182)"
-                },
-                {
-                  "name": "cushing-green",
-                  "code": "HC-125",
-                  "displayName": "Cushing Green",
-                  "color": "rgb(105, 119, 103)"
-                },
-                {
-                  "name": "oxford-gray",
-                  "code": "2128-40",
-                  "displayName": "Oxford Gray",
-                  "color": "rgb(131, 145, 161)"
-                },
-                {
-                  "name": "blue-danube",
-                  "code": "2062-30",
-                  "displayName": "Blue Danube",
-                  "color": "rgb(46, 90, 113)"
+                  "name": "navajo-white",
+                  "code": "OC-95",
+                  "displayName": "Navajo White",
+                  "color": "rgb(238, 231, 213)"
                 }
               ]
-            }
+            },
+            {
+              "name": "greens",
+              "code": "greens",
+              "displayName": "Best-Selling Greens",
+              "thumbnail": "branding/whites.jpg",
+              "colors": [
+                {
+                  "name": "november-rain",
+                  "code": "2142-60",
+                  "displayName": "November Rain",
+                  "color": "rgb(224, 222, 208)"
+                },
+                {
+                  "name": "soft-fern",
+                  "code": "2144-40",
+                  "displayName": "Soft Fern",
+                  "color": "rgb(200, 202, 178)"
+                },
+                {
+                  "name": "guilford-green",
+                  "code": "HC-116",
+                  "displayName": "Guilford Green",
+                  "color": "rgb(203, 205, 174)"
+                },
+                {
+                  "name": "saybrook-sage",
+                  "code": "HC-114",
+                  "displayName": "Saybrook Sage",
+                  "color": "rgb(177, 183, 162)"
+                },
+                {
+                  "name": "gloucester-sage",
+                  "code": "HC-100",
+                  "displayName": "Gloucester Sage",
+                  "color": "rgb(123, 118, 101)"
+                },
+                {
+                  "name": "hunter-green",
+                  "code": "2041-10",
+                  "displayName": "Hunter Green",
+                  "color": "rgb(42, 69, 61)"
+                }
+              ]
+            }     
           ]
         }
       ]
