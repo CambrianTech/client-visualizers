@@ -73,8 +73,6 @@ export default function Visualizer(props: any) {
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
 
-    const [isToolOverlayOpen, setIsToolOverlayOpen] = useState(false);
-
     const _isMounted = useRef(false);
 
     const [activePanel, setActivePanel] = useState(Panel.None);
@@ -115,6 +113,10 @@ export default function Visualizer(props: any) {
     }, [selectedColumn]);
 
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
+
+    const isToolOverlayOpen = useMemo(()=>{
+        return toolMode === CBARToolMode.Rotate || toolMode === CBARToolMode.Translate || toolMode === CBARToolMode.DrawSurface || toolMode === CBARToolMode.EraseSurface
+    }, [toolMode]);
 
     const hasShare = useMemo(()=>{
         if (config && selectedProduct) {
