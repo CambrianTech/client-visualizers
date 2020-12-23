@@ -44,7 +44,7 @@ import {
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {CONFIG_PATH, dispatchSceneProperties} from "../index";
+import {dispatchSceneProperties} from "../index";
 import {BrowserType} from "react-client-info";
 
 enum Panel {
@@ -99,7 +99,11 @@ export default function Visualizer(props: any) {
     const [selectedSceneColumn, setSelectedSceneColumn] = useState<SwatchItem>();
 
     const [toolMode, setToolMode] = useState(CBARToolMode.None);
-    const [config, setConfig] = useState<any>(undefined);
+    const config = useMemo(()=>{
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.config;
+        }
+    }, [siteContext.state.siteData]);
 
     const [context, setContext] = useState<CBARContext>();
     const [currentScene, setCurrentScene] = useState<CBARScene>();
@@ -170,35 +174,30 @@ export default function Visualizer(props: any) {
         }
     }, [isPortrait]);
 
+    useEffect(()=>{
+        if (siteContext.state.siteData) {
+            const brands:ProductBrand[] = [];
+            for (const brandJson of siteContext.state.siteData.brands) {
+                const brand = new ProductBrand();
+                brand.load(brandJson);
+                brands.push(brand)
+            }
+
+            let rootItem:SwatchItem = brands[0];
+            while (rootItem.children.length === 1) {
+                if (!(rootItem.children[0] instanceof Product)) {
+                    rootItem = rootItem.children[0]
+                } else {
+                    break;
+                }
+            }
+            setRootItem(rootItem)
+        }
+
+    }, [siteContext.state.siteData]);
 
     useEffect(() => {
         _isMounted.current = true;
-
-        fetch(CONFIG_PATH).then(res => res.json())
-            .then(json => {
-
-                if (json.hasOwnProperty("config")) {
-                    setConfig(json.config)
-                }
-
-                const brands:ProductBrand[] = [];
-                for (const brandJson of json.brands) {
-                    const brand = new ProductBrand();
-                    brand.load(brandJson);
-                    brands.push(brand)
-                }
-
-                let rootItem:SwatchItem = brands[0];
-                while (rootItem.children.length === 1) {
-                    if (!(rootItem.children[0] instanceof Product)) {
-                        rootItem = rootItem.children[0]
-                    } else {
-                        break;
-                    }
-                }
-
-                setRootItem(rootItem)
-            });
 
         return () => {
             _isMounted.current = false

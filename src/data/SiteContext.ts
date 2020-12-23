@@ -18,6 +18,7 @@ export function getSubdomain() {
 export type DerivedSiteState = {
     browserProperties: BrowserProperties,
     error: Error | null
+    siteData: any
 }
 
 export type SharableVisualizerState = {
@@ -51,8 +52,10 @@ export function createEmptyState(): SiteState {
         selectedCollection:null,
         selectedProduct:null,
         selectedColor:null,
+
         browserProperties: {},
         error: null,
+        siteData:undefined,
 
         // Visualizer shared
         selectedSampleRoom: null,
@@ -97,6 +100,11 @@ export type SiteActionSetProduct = {
 export type SiteActionSetColor = {
     type: "setColor"
     code: string | null
+}
+
+export type SiteActionSetSiteData = {
+    type: "setSiteData"
+    siteData: string | null
 }
 
 export type SiteActionSetSceneData = {
@@ -144,7 +152,7 @@ export type ShawActionSetFloorTranslation = {
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
     | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType
-    | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor;
+    | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor | SiteActionSetSiteData;
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
     // Set the thing we are supposed to set. Also make sure anything depending
@@ -184,6 +192,10 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
             break;
         case "setColor":
             newState.selectedColor = action.code;
+            break;
+
+        case "setSiteData":
+            newState.siteData = action.siteData;
             break;
 
         default:

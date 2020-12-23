@@ -26,11 +26,11 @@ if (!siteName) {
     siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "default"
 }
 
-export const SITE_PATH = `https://cambrianar-sites.s3.amazonaws.com/${siteName}`;
-export const CONFIG_PATH = `config/${siteName}.json`;
+const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
+export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
+const CONFIG_PATH = `config/${siteName}.json`;
 
 export const api:any = (window as any).cb;
-
 export function dispatchSceneProperties(data:any, dispatch: Dispatch<SiteAction>, basePath?:string) {
 
     const pathPrefix = basePath ? basePath + (basePath.endsWith("/") ? "" : "/"): "";
@@ -171,6 +171,13 @@ function App() {
         fetch(CONFIG_PATH).then(res => res.json())
             .then(json => {
                 const config = json.config as any;
+
+                config.basePath = SITE_PATH;
+
+                dispatchSiteState({
+                    type: "setSiteData",
+                    siteData:json
+                });
 
                 if (searchObject.rt && searchObject.r) {
                     hasScene = true;
