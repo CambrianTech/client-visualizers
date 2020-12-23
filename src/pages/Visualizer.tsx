@@ -38,8 +38,7 @@ import {
     ImageUpload, openImageDialog,
     ProductBreadcrumb,
     ProductInfo, ServerProgress, SharePanel, ToolOperation, ToolsMenu, ToolsMenuAction,
-    VerticalListing,
-    VisualizerToolMode
+    VerticalListing
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
@@ -110,20 +109,12 @@ export default function Visualizer(props: any) {
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
 
     const [needsUpload, setNeedsUpload] = useState(false);
-    const [performUpload, setPerformUpload] = useState(false);
 
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
 
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
-
-    const selectedProductIsLight = useMemo(()=>{
-        if (selectedProduct && selectedProduct.metaData && selectedProduct.metaData.hasOwnProperty("isLightColor")) {
-            return selectedProduct.metaData.isLightColor;
-        }
-        return false;
-    }, [selectedProduct]);
 
     const hasShare = useMemo(()=>{
         if (config && selectedProduct) {
@@ -500,44 +491,6 @@ export default function Visualizer(props: any) {
         // }
         return false
     }, []);
-
-    const isModePermitted = useCallback((mode: VisualizerToolMode) => {
-        if (mode === VisualizerToolMode.DrawSurface || mode === VisualizerToolMode.EraseSurface) {
-            return isUploadedImage()
-        } else if (mode === VisualizerToolMode.Translate) {
-            return false
-        } else if (mode === VisualizerToolMode.ChoosePhoto) {
-            return config.hasPhotoUpload
-        } else if (mode === VisualizerToolMode.ChooseScene) {
-            return config.hasScenes
-        } else if (mode === VisualizerToolMode.Share) {
-            return hasShare
-        }
-
-        return true
-    }, [config, isUploadedImage, hasShare]);
-
-    const toolChanged = useCallback((mode: CBARToolMode) => {
-        if (!_isMounted.current) return;
-
-        // if (mode === CBARToolMode.ChoosePhoto) {
-        //     openImageDialog()
-        // } else if (mode === CBARToolMode.ChooseScene) {
-        //     setActivePanel(Panel.Scenes)
-        // } else if (mode === CBARToolMode.Share) {
-        //     setActivePanel(Panel.Share)
-        // } else {
-        //     setActivePanel(defaultLeftPanel);
-        //     //setToolMode(mode);
-        // }
-
-    }, []);
-
-    const toolsShowHideButtons = useCallback((show: boolean) => {
-        if (!_isMounted.current) return;
-        setIsToolOverlayOpen(!show)
-    }, []);
-
 
     const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
         //console.log(`${basePath}/textures/${url}`)
