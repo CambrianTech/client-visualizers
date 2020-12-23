@@ -153,7 +153,6 @@ export default function Visualizer(props: any) {
     }, [isPortrait]);
 
     const getPhoto = useCallback(()=>{
-        console.log("GET PHOTO");
         openImageDialog();
     }, []);
 
@@ -206,10 +205,12 @@ export default function Visualizer(props: any) {
         }
     }, []);
 
-    const onImageChosen = useCallback((data: ImageProperties) => {
-        dispatchSceneProperties(data, dispatch);
-        setNeedsUpload(true);
-    }, [dispatch]);
+    const onImageChosen = useCallback((props: ImageProperties) => {
+        dispatch({
+            type: "setSceneData",
+            sceneData: props
+        });
+    },[dispatch]);
 
     const onProgress = useCallback((uploadProgress: ServerProgress) => {
         if (!_isMounted.current) return;
@@ -621,6 +622,17 @@ export default function Visualizer(props: any) {
         }
 
     }, [getPhoto, siteContext.state.sceneData, siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
+
+    useEffect(() => {
+        if (context && siteContext.state.sceneData) {
+            context.loadSceneData(siteContext.state.sceneData).then((scene)=>{
+                console.log("V2 Scene Loaded!");
+                setCurrentScene(scene);
+            }).catch(error=>{
+                console.log("Could not load scene!", error)
+            })
+        }
+    }, [context, siteContext.state.sceneData]);
 
     const handleAction = useCallback((action:ToolsMenuAction) => {
 

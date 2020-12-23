@@ -17,7 +17,6 @@ import * as qs from "querystring";
 import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
-import {CBARSceneProperties} from "react-home-ar";
 
 const objectFitImages = require('object-fit-images');
 
