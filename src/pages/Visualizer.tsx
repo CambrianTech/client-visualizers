@@ -33,10 +33,11 @@ import {SiteContext, stateToUrl} from '../data/SiteContext';
 import MaterialIcon from "@material/react-material-icon";
 import {Fab} from "@material/react-fab";
 import {
+    DefaultToolsMenuActions, EditSurfaceTool,
     ImageProperties,
     ImageUpload, openImageDialog,
     ProductBreadcrumb,
-    ProductInfo, ServerProgress, ToolOperation, ToolsMenu, ToolsMenuAction,
+    ProductInfo, ServerProgress, SharePanel, ToolOperation, ToolsMenu, ToolsMenuAction,
     VerticalListing,
     VisualizerToolMode
 } from "react-cambrian-ui";
@@ -44,6 +45,7 @@ import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
 import {CONFIG_PATH, dispatchSceneProperties} from "../index";
+import {BrowserType} from "react-client-info";
 
 enum Panel {
     None,
@@ -78,7 +80,7 @@ export default function Visualizer(props: any) {
 
     const [activePanel, setActivePanel] = useState(Panel.None);
 
-    const [statusText, setStatusText] = useState("");
+    const [progressText, setProgressText] = useState("");
     const [progressPercentage, setProgressPercentage] = useState(0);
     const [progressVisible, setProgressVisible] = useState(false);
 
@@ -102,6 +104,9 @@ export default function Visualizer(props: any) {
     const [context, setContext] = useState<CBARContext>();
     const [currentScene, setCurrentScene] = useState<CBARScene>();
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
+
+    const [needsUpload, setNeedsUpload] = useState(false);
+    const [performUpload, setPerformUpload] = useState(false);
 
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
@@ -148,6 +153,7 @@ export default function Visualizer(props: any) {
     }, [isPortrait]);
 
     const getPhoto = useCallback(()=>{
+        console.log("GET PHOTO");
         openImageDialog();
     }, []);
 
@@ -202,13 +208,13 @@ export default function Visualizer(props: any) {
 
     const onImageChosen = useCallback((data: ImageProperties) => {
         dispatchSceneProperties(data, dispatch);
-        //setNeedsUpload(true);
+        setNeedsUpload(true);
     }, [dispatch]);
 
     const onProgress = useCallback((uploadProgress: ServerProgress) => {
         if (!_isMounted.current) return;
         if (uploadProgress.message) {
-            //setProgressText(uploadProgress.message)
+            setProgressText(uploadProgress.message)
         }
         if (uploadProgress.progress !== undefined) {
             setProgressPercentage(uploadProgress.progress)
@@ -298,7 +304,7 @@ export default function Visualizer(props: any) {
         setSelectedAsset(currentAsset);
 
         currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:material} : { materials:[material]}).then(()=>{
-            //setNeedsUpload(true);
+            setNeedsUpload(true);
         }).catch((error:any) => {
             console.error(error)
         })
@@ -589,7 +595,7 @@ export default function Visualizer(props: any) {
     }, [defaultLeftPanel]);
 
     const shareUploadComplete = useCallback(()=>{
-        //setNeedsUpload(false);
+        setNeedsUpload(false);
     }, []);
 
     const onContextCreated = useCallback((context:CBARContext) => {
@@ -601,6 +607,10 @@ export default function Visualizer(props: any) {
                 console.log("Loading scene at path", path);
                 context.loadSceneAtPath(path, [CBARSurfaceType.Wall]).then((scene)=>{
                     setCurrentScene(scene);
+                    const wall = scene.geometry.surfaces.find(surface=>surface.type === CBARSurfaceType.Wall);
+                    if (wall) {
+                        setSelectedSurface(wall)
+                    }
                     console.log("Scene Loaded!");
                 }).catch(error=>{
                     console.log("Could not load scene!", error)
@@ -636,6 +646,39 @@ export default function Visualizer(props: any) {
         }
 
     }, [getPhoto, removeAsset]);
+
+    const isEditable = useCallback(() => {
+        if (currentScene) {
+            return currentScene.isEditable;
+        }
+        return false
+    }, [currentScene]);
+
+    const toolActions = useMemo<ToolsMenuAction[]>(()=>{
+        let actions = [...DefaultToolsMenuActions];
+
+        if (isEditable()) {
+            actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
+        } else {
+            actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
+        }
+
+        const canEdit = siteContext.state.browserProperties.browser !== BrowserType.LegacyIE
+            && siteContext.state.browserProperties.browser !== BrowserType.IE11
+            && isEditable();
+
+        if (!canEdit) {
+            actions = actions.filter(item=>item.operation !== CBARToolMode.DrawSurface && item.operation !== CBARToolMode.EraseSurface);
+        }
+
+        return actions
+    }, [isEditable, siteContext.state.browserProperties.browser]);
+
+    const editSurfaceFinished = useCallback(() => {
+        if (!_isMounted.current) return;
+
+        setToolMode(CBARToolMode.None);
+    }, []);
 
     return useMemo(() => (
         <div className={className}>
@@ -682,11 +725,19 @@ export default function Visualizer(props: any) {
                 <img className={"floating-logo"} src={`${config.basePath}/${config.siteLogoImage}`} alt={"logo"} />
 
                 <ToolsMenu
+                    actions={toolActions}
                     hidden={isToolOverlayOpen}
                     selectedAsset={selectedAsset}
                     selectedSurface={selectedSurface}
                     onAction={handleAction}
                 />
+
+                <EditSurfaceTool onEditFinished={editSurfaceFinished}
+                                 surface={selectedSurface}
+                                 toolMode={toolMode}
+                                 onToolChanged={setToolMode} />
+
+                <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />
 
                 {!rightPanelOpen && selectedRow && selectedProduct && (
                     <div className={"floating-product-info"}>
@@ -725,21 +776,18 @@ export default function Visualizer(props: any) {
                                  product={selectedProduct}
                                  resolveUrl={resolveDetailsUrl} />
 
-                    {/*{config && siteContext.state.sceneData && api.current && scene.current && (*/}
-                    {/*    <SharePanel className={"share"}*/}
-                    {/*                visible={activePanel === Panel.Share}*/}
-                    {/*                needsUpload={needsUpload}*/}
-                    {/*                product={selectedProduct}*/}
-                    {/*                resolveThumbnailPath={resolveThumbnailPath}*/}
-                    {/*                getShareUrl={getShareUrl}*/}
-                    {/*                shareSubject={config.shareSubject}*/}
-                    {/*                onClose={shareCompleted}*/}
-                    {/*                api={api.current}*/}
-                    {/*                scene={siteContext.state.sceneData}*/}
-                    {/*                data={scene.current}*/}
-                    {/*                isUploadedImage={isUploadedImage()}*/}
-                    {/*                onImageUploadCompleted={shareUploadComplete} />*/}
-                    {/*    )}*/}
+                    {config && siteContext.state.sceneData && (
+                        <SharePanel className={"share"}
+                                    visible={activePanel === Panel.Share}
+                                    needsUpload={needsUpload}
+                                    product={selectedProduct}
+                                    resolveThumbnailPath={resolveThumbnailPath}
+                                    getShareUrl={getShareUrl}
+                                    shareSubject={config.shareSubject}
+                                    onClose={shareCompleted}
+                                    isUploadedImage={isUploadedImage()}
+                                    onImageUploadCompleted={shareUploadComplete} />
+                        )}
                 </div>
 
             </div>
@@ -748,7 +796,7 @@ export default function Visualizer(props: any) {
 
             {config && config.hasPhotoUpload && <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}/>}
 
-            <Progress visible={progressVisible} percentage={progressPercentage} statusText={statusText} />
+            <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, allFilters, className, config, defaultLeftPanel, defaultRightPanel, handleAction, hasShare, isMobile, isPortrait, isToolOverlayOpen, leftPanelOpen, listingItems, navClicked, navigationItem, onContextCreated, onImageChosen, onProgress, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, sceneListingItems, sceneSelected, selectedAsset, selectedColumn, selectedProduct, selectedRow, selectedSceneColumn, selectedSceneRow, selectedSurface, statusText, swatchSelected, toolMode])
+    ), [activePanel, allFilters, className, config, defaultLeftPanel, defaultRightPanel, editSurfaceFinished, getShareUrl, handleAction, hasShare, isMobile, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, navClicked, navigationItem, needsUpload, onContextCreated, onImageChosen, onProgress, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, sceneListingItems, sceneSelected, selectedAsset, selectedColumn, selectedProduct, selectedRow, selectedSceneColumn, selectedSceneRow, selectedSurface, shareCompleted, shareUploadComplete, siteContext.state.sceneData, progressText, swatchSelected, toolActions, toolMode])
 }
