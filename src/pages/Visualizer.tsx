@@ -151,6 +151,12 @@ export default function Visualizer(props: any) {
         openImageDialog();
     }, []);
 
+    const removeAsset = useCallback(()=>{
+        if (selectedAsset) {
+            selectedAsset.removeFromScene();
+        }
+    }, [selectedAsset]);
+
     useEffect(()=>{
         if (isPortrait) {
             setActivePanel(Panel.None)
@@ -288,6 +294,8 @@ export default function Visualizer(props: any) {
             console.log(`Created asset of type ${currentAsset.type}, ${color.assetType} at elevation ${currentAsset.surfaceElevation}m`);
             selectedSurface.add(currentAsset, elevation);
         }
+
+        setSelectedAsset(currentAsset);
 
         currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:material} : { materials:[material]}).then(()=>{
             //setNeedsUpload(true);
@@ -605,6 +613,9 @@ export default function Visualizer(props: any) {
     const handleAction = useCallback((action:ToolsMenuAction) => {
 
         switch (action.operation) {
+            case ToolOperation.Remove:
+                removeAsset();
+                break;
             case ToolOperation.ChoosePhoto:
                 getPhoto();
                 break;
@@ -622,7 +633,7 @@ export default function Visualizer(props: any) {
             setToolMode(CBARToolMode.None);
         }
 
-    }, [getPhoto]);
+    }, [getPhoto, removeAsset]);
 
     return useMemo(() => (
         <div className={className}>
