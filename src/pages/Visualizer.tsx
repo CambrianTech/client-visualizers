@@ -597,7 +597,7 @@ export default function Visualizer(props: any) {
             if (HARD_CODED_PATH || (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom)) {
                 const path = HARD_CODED_PATH;
                 console.log("Loading scene at path", path);
-                context.loadSceneAtPath(path, [CBARSurfaceType.Floor, CBARSurfaceType.Wall]).then((scene)=>{
+                context.loadSceneAtPath(path, [CBARSurfaceType.Wall]).then((scene)=>{
                     setCurrentScene(scene);
                     console.log("Scene Loaded!");
                 }).catch(error=>{
