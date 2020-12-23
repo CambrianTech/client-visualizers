@@ -158,7 +158,7 @@
               "name": "neutrals",
               "code": "neutrals",
               "displayName": "Best-Selling Neutrals",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/neutrals.jpg",
               "colors": [
                 {
                   "name": "shaker-beige",
@@ -202,7 +202,7 @@
               "name": "grays",
               "code": "grays",
               "displayName": "Best-Selling Grays",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/grays.jpg",
               "colors": [
                 {
                   "name": "revere-pewter",
@@ -246,7 +246,7 @@
               "name": "blacks",
               "code": "blacks",
               "displayName": "Best-Selling Blacks",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/blacks.jpg",
               "colors": [
                 {
                   "name": "gray",
@@ -290,7 +290,7 @@
               "name": "reds",
               "code": "reds",
               "displayName": "Best-Selling Reds ",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/reds.jpg",
               "colors": [
                 {
                   "name": "million-dollar-red",
@@ -334,7 +334,7 @@
               "name": "oranges",
               "code": "oranges",
               "displayName": "Best-Selling Oranges",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/oranges.jpg",
               "colors": [
                 {
                   "name": "peach-parfait",
@@ -378,7 +378,7 @@
               "name": "yellows",
               "code": "yellows",
               "displayName": "Best-Selling Yellows",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/yellows.jpg",
               "colors": [
                 {
                   "name": "mannequin-cream",
@@ -422,7 +422,7 @@
               "name": "greens",
               "code": "greens",
               "displayName": "Best-Selling Greens",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/greens.jpg",
               "colors": [
                 {
                   "name": "november-rain",
@@ -467,7 +467,7 @@
               "name": "blues",
               "code": "blues",
               "displayName": "Best-Selling Blues",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/blues.jpg",
               "colors": [
                 {
                   "name": "palladian-blue",
@@ -511,7 +511,7 @@
               "name": "purples",
               "code": "purples",
               "displayName": "Best-Selling Purples",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/purples.jpg",
               "colors": [
                 {
                   "name": "lily-lavender",
