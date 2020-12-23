@@ -3,8 +3,7 @@
     "name": "benjamin-moore",
     "siteTitle": "Benjamin Moore Paints",
     "shortSiteTitle": "Benjamin Moore",
-    "basePath": "https://cambrianar-sites.s3.amazonaws.com/benjamin-moore",
-
+    "basePath": "cambrianar-sites/benjamin-moore",
     "siteDescription": "See our great paint products.",
     "siteImage": "branding/site-image.jpg",
     "siteImageWidth": "1333",
