@@ -324,7 +324,9 @@ export default function Visualizer(props: any) {
                 return assetA.type === CBARAssetType.Rug ? -1 : 1;
             })[0].object as CBARSurfaceAsset : undefined;
 
-            setSelectedSurface(surface)
+            if (surface) {
+                setSelectedSurface(surface);
+            }
 
             if (asset) {
                 assetClicked(asset);
