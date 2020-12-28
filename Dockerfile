@@ -2,7 +2,7 @@
 FROM node:14.7.0-alpine as build-stage
 WORKDIR /app
 COPY package*.json /app/
-RUN npm install --legacy-peer-deps
+RUN npm install -force
 COPY . /app/
 RUN rm -rf /app/public/assets/custom
 RUN npm run build
@@ -22,11 +22,11 @@ COPY --from=build-stage /app/build/index.html /opt/server/build/index.html
 COPY server/ /opt/server
 
 RUN apk add --update nodejs npm
-RUN npm install --legacy-peer-deps
+RUN npm install -force
 
 # To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
 RUN npm config set unsafe-perm true
 
-RUN npm install  --legacy-peer-deps -g forever
+RUN npm install  -force -g forever
 
 CMD sh start.sh
