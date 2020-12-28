@@ -40,25 +40,25 @@
           "code": "interiors",
           "displayName": "Interior Paint",
           "thumbnail": "thumbnails/interior-space.jpg",
-          "details": {
-            "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-            "preview": "Bellewood/preview.jpg",
-            "specifications": [
-              {"Plank Size": "9″ x 48″"},
-              {"Padding": "1.0mm EVA"},
-              {"Overall Thickness": "4.2mm"},
-              {"Wear Layer": "8 mil"},
-              {"Locking Type": "Drop Lock"},
-              {"Surface": "Antique Wood Embossing"},
-              {"Edge": "Micro Bevel"}
-            ]
-          },
           "products": [
             {
               "name": "color-trends-2021",
               "code": "ct-2021",
               "displayName": "Color Trends 2021",
               "thumbnail": "branding/bright-colors.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "atrium-white",
@@ -115,6 +115,19 @@
               "code": "whites",
               "displayName": "Best-Selling Whites",
               "thumbnail": "branding/whites.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "chantilly-lace",
@@ -159,6 +172,19 @@
               "code": "neutrals",
               "displayName": "Best-Selling Neutrals",
               "thumbnail": "branding/neutrals.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "shaker-beige",
@@ -203,6 +229,19 @@
               "code": "grays",
               "displayName": "Best-Selling Grays",
               "thumbnail": "branding/grays.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "revere-pewter",
@@ -247,6 +286,19 @@
               "code": "blacks",
               "displayName": "Best-Selling Blacks",
               "thumbnail": "branding/blacks.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "gray",
@@ -291,6 +343,19 @@
               "code": "reds",
               "displayName": "Best-Selling Reds ",
               "thumbnail": "branding/reds.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "million-dollar-red",
@@ -335,6 +400,19 @@
               "code": "oranges",
               "displayName": "Best-Selling Oranges",
               "thumbnail": "branding/oranges.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "peach-parfait",
@@ -379,6 +457,19 @@
               "code": "yellows",
               "displayName": "Best-Selling Yellows",
               "thumbnail": "branding/yellows.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "mannequin-cream",
@@ -423,6 +514,19 @@
               "code": "greens",
               "displayName": "Best-Selling Greens",
               "thumbnail": "branding/greens.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "november-rain",
@@ -468,6 +572,19 @@
               "code": "blues",
               "displayName": "Best-Selling Blues",
               "thumbnail": "branding/blues.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "palladian-blue",
@@ -512,6 +629,19 @@
               "code": "purples",
               "displayName": "Best-Selling Purples",
               "thumbnail": "branding/purples.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/Bedroom_Carousel_PinkBedroom_650.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
               "colors": [
                 {
                   "name": "lily-lavender",
