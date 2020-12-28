@@ -27,7 +27,6 @@ export type SharableVisualizerState = {
     selectedColor: string | null
     selectedSampleRoom: string | null
     selectedSampleRoomType: string | null
-    selectedSamplePath: string | null
 }
 
 export type DerivedVisualizerState = {
@@ -60,7 +59,6 @@ export function createEmptyState(): SiteState {
         // Visualizer shared
         selectedSampleRoom: null,
         selectedSampleRoomType: null,
-        selectedSamplePath: null,
 
         // Visualizer derived
         sceneData: null,
@@ -115,7 +113,6 @@ export type SiteActionSetSceneData = {
 export type SiteActionSetSelectedSampleRoom = {
     type: "setSelectedSampleRoom"
     selectedSampleRoom: string | null
-    selectedSamplePath: string | null
 }
 
 export type SiteActionSetSelectedSampleRoomType = {
@@ -178,7 +175,6 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
 
         case "setSelectedSampleRoom":
             newState.selectedSampleRoom = action.selectedSampleRoom;
-            newState.selectedSamplePath = action.selectedSamplePath;
             break;
         case "setSelectedSampleRoomType":
             newState.selectedSampleRoomType = action.selectedSampleRoomType;

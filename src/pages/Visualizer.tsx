@@ -43,7 +43,7 @@ import {
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {dispatchSceneProperties} from "../index";
+import {getScenePaths} from "../index";
 import {BrowserType} from "react-client-info";
 
 enum Panel {
@@ -65,9 +65,6 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
 } else {
     throw new Error('REACT_APP_CB_GET_UPLOAD_URLS_URL, REACT_APP_CB_UPLOADS_URL, and REACT_APP_CB_SEGMENT_URL must be defined')
 }
-
-// let HARD_CODED_PATH:string|undefined;
-let HARD_CODED_PATH = "assets/dining/data_v3.json";
 
 export default function Visualizer(props: any) {
     const siteContext = useContext(SiteContext)!;
@@ -374,12 +371,6 @@ export default function Visualizer(props: any) {
 
     }, [dispatch, selectedColumn]);
 
-    const getScenePath = useCallback((info:SceneInfo)=>{
-        if (!config) return undefined;
-        const isLocal = info.metaData && info.metaData.hasOwnProperty("isLocal") && info.metaData.isLocal;
-        return `${isLocal ? "assets" : config.basePath}/scenes/${info.collection.name}/${info.name}`
-    },[config]);
-
     const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
         if (swatchItem instanceof SceneCollection) {
             const col = swatchItem as SceneCollection;
@@ -388,42 +379,30 @@ export default function Visualizer(props: any) {
             }
         } else if (swatchItem instanceof SceneInfo) {
             const scene = swatchItem as SceneInfo;
-            return `${getScenePath(scene)}/preview.jpg`
+            return getScenePaths(scene.collection.name, scene.name).preview
         }
 
         return
-    }, [getScenePath]);
+    }, []);
 
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem instanceof SceneInfo) {
-            const scene = swatchItem as SceneInfo;
             setSelectedSceneColumn(swatchItem);
 
-            const scenePath = getScenePath(scene);
+            dispatch({
+                type: "setSelectedSampleRoomType",
+                selectedSampleRoomType: swatchItem.collection.code as string
+            });
 
-            if (scenePath) {
-                fetch(scenePath + "/data.json")
-                    .then(res => res.json())
-                    .then(data => {
-                        dispatchSceneProperties(data, dispatch, scenePath);
-
-                        dispatch({
-                            type: "setSelectedSampleRoomType",
-                            selectedSampleRoomType: swatchItem.collection.code as string
-                        });
-
-                        dispatch({
-                            type: "setSelectedSampleRoom",
-                            selectedSampleRoom: swatchItem.code as string,
-                            selectedSamplePath: swatchItem.collection.code as string
-                        });
-                    })
-            }
+            dispatch({
+                type: "setSelectedSampleRoom",
+                selectedSampleRoom: swatchItem.code as string,
+            });
 
         } else if (swatchItem instanceof SceneCollection) {
             setSelectedSceneRow(swatchItem)
         }
-    }, [getScenePath, dispatch]);
+    }, [dispatch]);
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children);
@@ -553,29 +532,28 @@ export default function Visualizer(props: any) {
         setNeedsUpload(false);
     }, []);
 
-    const onContextCreated = useCallback((context:CBARContext) => {
-        setContext(context);
+    const [dataPath, setDataPath] = useState<string>();
 
-        if (!siteContext.state.sceneData) {
-            if (HARD_CODED_PATH || (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom)) {
-                const path = HARD_CODED_PATH;
-                console.log("Loading scene at path", path);
-                context.loadSceneAtPath(path, [CBARSurfaceType.Wall]).then((scene)=>{
-                    setCurrentScene(scene);
-                    const wall = scene.geometry.surfaces.find(surface=>surface.type === CBARSurfaceType.Wall);
-                    if (wall) {
-                        setSelectedSurface(wall)
-                    }
-                    console.log("Scene Loaded!");
-                }).catch(error=>{
-                    console.log("Could not load scene!", error)
-                });
-            } else {
-                getPhoto();
-            }
+    useEffect(()=>{
+        if (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom) {
+            setDataPath(getScenePaths(siteContext.state.selectedSampleRoomType, siteContext.state.selectedSampleRoom).data);
         }
+    }, [siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
 
-    }, [getPhoto, siteContext.state.sceneData, siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
+    useEffect(()=>{
+        if (dataPath && context) {
+            context.loadSceneAtPath(dataPath, [CBARSurfaceType.Wall]).then((scene)=>{
+                setCurrentScene(scene);
+                const wall = scene.geometry.surfaces.find(surface=>surface.type === CBARSurfaceType.Wall);
+                if (wall) {
+                    setSelectedSurface(wall)
+                }
+                console.log("Scene Loaded!");
+            }).catch(error=>{
+                console.log("Could not load scene!", error)
+            });
+        }
+    }, [context, dataPath]);
 
     useEffect(() => {
         if (context && siteContext.state.sceneData) {
@@ -697,7 +675,7 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                <CBARView className={"cbarview"} onContextCreated={onContextCreated} toolMode={toolMode} />
+                <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
 
                 <img className={"floating-logo"} src={`${config.basePath}/${config.siteLogoImage}`} alt={"logo"} />
 
@@ -779,5 +757,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, onContextCreated, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
 }

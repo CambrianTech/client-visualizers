@@ -30,27 +30,15 @@ const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
 export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
 const CONFIG_PATH = `config/${siteName}.json`;
 
-export const api:any = (window as any).cb;
-export function dispatchSceneProperties(data:any, dispatch: Dispatch<SiteAction>, basePath?:string) {
-
-    //const pathPrefix = basePath ? basePath + (basePath.endsWith("/") ? "" : "/"): "";
-    // const sceneProperties:CBARSceneProperties = {
-    //     backgroundUrl: pathPrefix + data.images["main"],
-    //     lightingUrl: pathPrefix + data.images["lighting"],
-    //     masks:{
-    //         "floor": pathPrefix + data.images["masks"]["floor"]
-    //     }
-    // };
-
-    // if (data.hasOwnProperty("anchorPoint")) {
-    //     sceneProperties.anchorPoint = data.anchorPoint;
-    // }
-
-    // dispatch({
-    //     type: "setSceneData",
-    //     sceneData: sceneProperties
-    // });
-}
+export const getScenePaths = (collectionName?:string, sceneName?:string)=>{
+    const basePath = `${SITE_PATH}/scenes/${collectionName}/${sceneName}`;
+    return {
+        base:basePath,
+        data:`${basePath}/data.json`,
+        thumbnail:`${basePath}/preview.jpg`,
+        preview:`${basePath}/preview.jpg`
+    }
+};
 
 function App() {
     const initialSiteState = createEmptyState();
@@ -99,9 +87,7 @@ function App() {
         setCssVars();
     }, [browserProperties, setCssVars]);
 
-    const loadScene = useCallback((collection:string, scene:string, config:any)=> {
-
-        const basePath = config.hasOwnProperty("defaultScenePath") ? config.defaultScenePath : undefined
+    const loadScene = useCallback((collection:string, scene:string)=> {
 
         dispatchSiteState({
             type: "setSelectedSampleRoomType",
@@ -111,18 +97,7 @@ function App() {
         dispatchSiteState({
             type: "setSelectedSampleRoom",
             selectedSampleRoom: scene as string,
-            selectedSamplePath: collection as string
         });
-
-        const path = collection + "/" + scene;
-        const _basePath = (basePath ? basePath : "assets/scenes") + "/" + path;
-        const dataPath = _basePath + "/data.json";
-
-        fetch(dataPath)
-            .then(res => res.json())
-            .then(data => {
-                dispatchSceneProperties(data, dispatchSiteState, _basePath)
-            })
 
     }, []);
 
@@ -181,7 +156,7 @@ function App() {
 
                 if (searchObject.rt && searchObject.r) {
                     hasScene = true;
-                    loadScene(searchObject.rt, searchObject.r, config);
+                    loadScene(searchObject.rt, searchObject.r);
                 }
 
                 if (!document.title && config.hasOwnProperty("siteTitle")) {
@@ -196,9 +171,6 @@ function App() {
                     document.documentElement.style.setProperty("--mdc-theme-inactive", config.inactiveColor)
                 }
 
-                if (!hasScene && config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
-                    loadScene(config.defaultSceneCollection, config.defaultScene, config);
-                }
             });
 
     }, [loadScene]);

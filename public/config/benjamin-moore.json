@@ -14,12 +14,8 @@
     "twitterAccount": "@benjamin-moore",
     "primaryColor": "#26b",
     "inactiveColor": "rgba(0,0,0,0.3)",
-    "defaultSceneCollection": "office",
-    "defaultScene": "1-business",
-    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/benjamin-moore/scenes",
     "siteLogoImage": "branding/logo.png",
     "shareSubject": "Check out this great Benjamin Moore paint",
-
     "hasPhotoUpload": false,
     "hasScenes": true,
     "hasShare": true,
@@ -34,6 +30,20 @@
       "surfaceTypes": ["wall"],
       "assetType": "paint-surface",
       "thumbnail": "thumbnails/benjamin+moore+paint+web.jpg",
+      "sceneCollections": [
+        {
+          "name": "bedroom",
+          "code": "bedroom",
+          "displayName": "Bedroom",
+          "scenes": [
+            {
+              "name": "bedroom-1",
+              "code": "bedroom-1",
+              "displayName": "Bedroom"
+            }
+          ]
+        }
+      ],
       "collections": [
         {
           "name": "interior-paints",
@@ -49,16 +59,7 @@
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
                 "preview": "branding/bright-colors.jpg",
-                "content": "Nourish the spirit with the comforting, sunbaked hues of the Color Trends 2021 palette, including Aegean Teal 2136-40.\n\nCelebrate the simple pleasures—think the faded rumple of linen sheets in the morning and perfectly ripened fruits on the windowsill. The twelve hues in the palette radiate warmth and wellbeing. These are colors that make your home feel even more like home. Settle in.",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
+                "content": "Nourish the spirit with the comforting, sunbaked hues of the Color Trends 2021 palette, including Aegean Teal 2136-40.\n\nCelebrate the simple pleasures—think the faded rumple of linen sheets in the morning and perfectly ripened fruits on the windowsill. The twelve hues in the palette radiate warmth and wellbeing. These are colors that make your home feel even more like home. Settle in."
               },
               "colors": [
                 {
