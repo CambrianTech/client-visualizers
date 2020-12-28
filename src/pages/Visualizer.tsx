@@ -244,6 +244,13 @@ export default function Visualizer(props: any) {
         setSelectedAsset(asset);
     }, []);
 
+    useEffect(()=>{
+        if (selectedAsset && selectedAsset.product) {
+            setSelectedRow(selectedAsset.product.parent);
+            setSelectedColumn(selectedAsset.product);
+        }
+    }, [selectedAsset]);
+
     const showMaterial = useCallback((color:Product|ProductColor) => {
         if (!config || !context || !selectedSurface) return;
 
@@ -327,7 +334,6 @@ export default function Visualizer(props: any) {
             if (asset) {
                 assetClicked(asset);
             }
-
         } else if (event.type === CBAREventType.TouchMove && selectedSurface) {
             //setCurrentRotation(selectedAsset.surfaceRotation);
             //setCurrentXPos(selectedAsset.surfacePosition.x);
@@ -341,35 +347,42 @@ export default function Visualizer(props: any) {
         }
     }, [context, handleVisualizerEvent]);
 
+    useEffect(()=>{
+        if (selectedColumn && selectedSurface && !selectedSurface.length()) {
+            showMaterial(selectedColumn as ProductColor);
+        }
+    }, [selectedColumn, selectedSurface, showMaterial]);
+
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
         if (swatchItem.parent && swatchItem.parent.hasColumns) {
             setSelectedColumn(selectedColumn === swatchItem ? undefined : swatchItem);
+            showMaterial(swatchItem as ProductColor);
         } else {
-            setSelectedRow(swatchItem)
+            setSelectedRow(swatchItem);
         }
 
         if (swatchItem instanceof ProductCollection) {
-            const collection = swatchItem as ProductCollection
+            const collection = swatchItem as ProductCollection;
             dispatch({
                 type: "setCollection",
                 code: `${collection.code}`
             });
         } else if (swatchItem instanceof Product) {
-            const product = swatchItem as Product
+            const product = swatchItem as Product;
             dispatch({
                 type: "setProduct",
                 code: `${product.code}`
             });
         } else if (swatchItem instanceof ProductColor) {
-            const color = swatchItem as ProductColor
+            const color = swatchItem as ProductColor;
             dispatch({
                 type: "setColor",
                 code: `${color.code}`
             });
         }
 
-    }, [dispatch, selectedColumn]);
+    }, [dispatch, selectedColumn, showMaterial]);
 
     const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
         if (swatchItem instanceof SceneCollection) {
@@ -408,12 +421,6 @@ export default function Visualizer(props: any) {
         setListingItems(swatchItem.children);
         setNavigationItem(swatchItem)
     }, []);
-
-    useEffect(()=>{
-        if (selectedColumn instanceof Product || selectedColumn instanceof ProductColor) {
-            showMaterial(selectedColumn)
-        }
-    }, [selectedColumn, showMaterial]);
 
     useEffect(() => {
         if (rootItem) {
