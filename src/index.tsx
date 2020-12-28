@@ -33,7 +33,7 @@ const CONFIG_PATH = `config/${siteName}.json`;
 export const api:any = (window as any).cb;
 export function dispatchSceneProperties(data:any, dispatch: Dispatch<SiteAction>, basePath?:string) {
 
-    const pathPrefix = basePath ? basePath + (basePath.endsWith("/") ? "" : "/"): "";
+    //const pathPrefix = basePath ? basePath + (basePath.endsWith("/") ? "" : "/"): "";
     // const sceneProperties:CBARSceneProperties = {
     //     backgroundUrl: pathPrefix + data.images["main"],
     //     lightingUrl: pathPrefix + data.images["lighting"],

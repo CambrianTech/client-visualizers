@@ -22,7 +22,7 @@ import {
     Product,
     ProductBrand,
     ProductCollection,
-    ProductColor, ProductDetails,
+    ProductColor,
     ProductItem,
     SceneCollection,
     SceneInfo,
@@ -779,5 +779,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, allFilters, className, config, defaultLeftPanel, defaultRightPanel, editSurfaceFinished, getShareUrl, handleAction, hasShare, isMobile, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, navClicked, navigationItem, needsUpload, onContextCreated, onImageChosen, onProgress, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, sceneListingItems, sceneSelected, selectedAsset, selectedColumn, selectedProduct, selectedRow, selectedSceneColumn, selectedSceneRow, selectedSurface, shareCompleted, shareUploadComplete, siteContext.state.sceneData, progressText, swatchSelected, toolActions, toolMode])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, onContextCreated, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
 }
