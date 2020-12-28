@@ -657,27 +657,6 @@ export default function Visualizer(props: any) {
         return undefined
     }, [selectedProduct]);
 
-    const productDetailsImage:string|undefined = useMemo(()=>{
-        if (productDetails && productDetails.preview) {
-            return productDetails.preview
-        }
-        return undefined
-    }, [productDetails]);
-
-    const productUrl = useMemo(()=>{
-        if (productDetails && productDetails.url) {
-            return productDetails.url
-        }
-        return undefined
-    }, [productDetails]);
-
-    const specifications = useMemo(()=>{
-        if (productDetails && productDetails.specifications) {
-            return productDetails.specifications
-        }
-        return undefined
-    }, [productDetails]);
-
     return useMemo(() => (
         <div className={className}>
 
@@ -775,9 +754,7 @@ export default function Visualizer(props: any) {
                                      title={selectedProduct.parent.displayName}
                                      subTitle={selectedProduct.displayName}
                                      resolveUrl={resolveDetailsUrl}
-                                     previewUrl={productDetailsImage}
-                                     specifications={specifications}
-                                     url={productUrl}
+                                     details={productDetails}
                         />)}
 
                     {config && siteContext.state.sceneData && (
