@@ -54,6 +54,28 @@
               "displayName": "Bedroom"
             }
           ]
+        },
+        {
+          "name": "living-rooms",
+          "code": "living-rooms",
+          "displayName": "Living Room",
+          "scenes": [
+            {
+              "name": "living-room-1",
+              "code": "living-room-1",
+              "displayName": "Living Room"
+            },
+            {
+              "name": "bedroom-2",
+              "code": "bedroom-2",
+              "displayName": "Bedroom"
+            },
+            {
+              "name": "bedroom-3",
+              "code": "bedroom-3",
+              "displayName": "Bedroom"
+            }
+          ]
         }
       ],
       "collections": [
