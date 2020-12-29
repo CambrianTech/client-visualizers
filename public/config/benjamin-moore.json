@@ -54,6 +54,18 @@
               "displayName": "Bedroom"
             }
           ]
+        },
+        {
+          "name": "dining",
+          "code": "dining",
+          "displayName": "Dining",
+          "scenes": [
+            {
+              "name": "dining-1",
+              "code": "dining-1",
+              "displayName": "Dining"
+            }
+          ]
         }
       ],
       "collections": [
