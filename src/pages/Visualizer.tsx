@@ -548,8 +548,9 @@ export default function Visualizer(props: any) {
     }, [siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
 
     useEffect(()=>{
-        if (dataPath && context) {
-            context.loadSceneAtPath(dataPath, [CBARSurfaceType.Wall]).then((scene)=>{
+        if (dataPath && context && rootItem) {
+            const brand = rootItem as DataItem;
+            context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
                 setCurrentScene(scene);
                 console.log("Scene Loaded!");
             }).catch(error=>{

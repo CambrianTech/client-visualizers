@@ -5500,7 +5500,7 @@
                     "maxX": 780.0
                 },
                 "images": {
-                    "mask": "https://s3.amazonaws.com/cb-backend-data/evyTxImcKd/plane_masks/mask_7.png"
+                    "mask": "plane_masks/mask_7.png"
                 },
                 "contours": [
                     [
