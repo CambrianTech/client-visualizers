@@ -99,7 +99,7 @@
                     "maxX": 727.0
                 },
                 "images": {
-                    "mask": "https://s3.amazonaws.com/cb-backend-data/IY8PMo8Yhc/plane_masks/mask_2.png"
+                    "mask": "plane_masks/mask_2.png"
                 }
             },
             {
@@ -124,7 +124,7 @@
                     "maxX": 647.0
                 },
                 "images": {
-                    "mask": "https://s3.amazonaws.com/cb-backend-data/IY8PMo8Yhc/plane_masks/mask_3.png"
+                    "mask": "plane_masks/mask_3.png"
                 }
             },
             {
