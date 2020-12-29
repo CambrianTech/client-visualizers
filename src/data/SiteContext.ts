@@ -18,6 +18,7 @@ export function getSubdomain() {
 export type DerivedSiteState = {
     browserProperties: BrowserProperties,
     error: Error | null
+    siteData: any
 }
 
 export type SharableVisualizerState = {
@@ -26,7 +27,6 @@ export type SharableVisualizerState = {
     selectedColor: string | null
     selectedSampleRoom: string | null
     selectedSampleRoomType: string | null
-    selectedSamplePath: string | null
 }
 
 export type DerivedVisualizerState = {
@@ -51,13 +51,14 @@ export function createEmptyState(): SiteState {
         selectedCollection:null,
         selectedProduct:null,
         selectedColor:null,
+
         browserProperties: {},
         error: null,
+        siteData:undefined,
 
         // Visualizer shared
         selectedSampleRoom: null,
         selectedSampleRoomType: null,
-        selectedSamplePath: null,
 
         // Visualizer derived
         sceneData: null,
@@ -99,6 +100,11 @@ export type SiteActionSetColor = {
     code: string | null
 }
 
+export type SiteActionSetSiteData = {
+    type: "setSiteData"
+    siteData: string | null
+}
+
 export type SiteActionSetSceneData = {
     type: "setSceneData"
     sceneData: CBARSceneProperties | null
@@ -107,7 +113,6 @@ export type SiteActionSetSceneData = {
 export type SiteActionSetSelectedSampleRoom = {
     type: "setSelectedSampleRoom"
     selectedSampleRoom: string | null
-    selectedSamplePath: string | null
 }
 
 export type SiteActionSetSelectedSampleRoomType = {
@@ -144,7 +149,7 @@ export type ShawActionSetFloorTranslation = {
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
     | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType
-    | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor;
+    | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor | SiteActionSetSiteData;
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
     // Set the thing we are supposed to set. Also make sure anything depending
@@ -170,7 +175,6 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
 
         case "setSelectedSampleRoom":
             newState.selectedSampleRoom = action.selectedSampleRoom;
-            newState.selectedSamplePath = action.selectedSamplePath;
             break;
         case "setSelectedSampleRoomType":
             newState.selectedSampleRoomType = action.selectedSampleRoomType;
@@ -184,6 +188,10 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
             break;
         case "setColor":
             newState.selectedColor = action.code;
+            break;
+
+        case "setSiteData":
+            newState.siteData = action.siteData;
             break;
 
         default:

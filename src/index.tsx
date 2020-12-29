@@ -2,11 +2,11 @@ import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 import cssVars from 'css-vars-ponyfill'
 
-import React, {useReducer, useEffect, useCallback, useState, useRef, Dispatch} from "react"
+import React, {useReducer, useEffect, useCallback, useState, useRef} from "react"
 import * as ReactDOM from "react-dom"
 
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
-import {SiteContext, createEmptyState, siteStateReducer, SiteAction, stateToUrl} from "./data/SiteContext"
+import {SiteContext, createEmptyState, siteStateReducer, stateToUrl} from "./data/SiteContext"
 import {BrowserProperties, WebClientInfo} from "react-client-info"
 
 import 'react-circular-progressbar/dist/styles.css'
@@ -26,31 +26,19 @@ if (!siteName) {
     siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "default"
 }
 
-export const SITE_PATH = `https://cambrianar-sites.s3.amazonaws.com/${siteName}`;
-export const CONFIG_PATH = `config/${siteName}.json`;
+const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
+export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
+const CONFIG_PATH = `config/${siteName}.json`;
 
-export const api:any = (window as any).cb;
-
-export function dispatchSceneProperties(data:any, dispatch: Dispatch<SiteAction>, basePath?:string) {
-
-    const pathPrefix = basePath ? basePath + (basePath.endsWith("/") ? "" : "/"): "";
-    // const sceneProperties:CBARSceneProperties = {
-    //     backgroundUrl: pathPrefix + data.images["main"],
-    //     lightingUrl: pathPrefix + data.images["lighting"],
-    //     masks:{
-    //         "floor": pathPrefix + data.images["masks"]["floor"]
-    //     }
-    // };
-
-    // if (data.hasOwnProperty("anchorPoint")) {
-    //     sceneProperties.anchorPoint = data.anchorPoint;
-    // }
-
-    // dispatch({
-    //     type: "setSceneData",
-    //     sceneData: sceneProperties
-    // });
-}
+export const getScenePaths = (collectionName?:string, sceneName?:string)=>{
+    const basePath = `${SITE_PATH}/scenes/${collectionName}/${sceneName}`;
+    return {
+        base:basePath,
+        data:`${basePath}/data.json`,
+        thumbnail:`${basePath}/thumbnail.jpg`,
+        preview:`${basePath}/preview.jpg`
+    }
+};
 
 function App() {
     const initialSiteState = createEmptyState();
@@ -99,9 +87,7 @@ function App() {
         setCssVars();
     }, [browserProperties, setCssVars]);
 
-    const loadScene = useCallback((collection:string, scene:string, config:any)=> {
-
-        const basePath = config.hasOwnProperty("defaultScenePath") ? config.defaultScenePath : undefined
+    const loadScene = useCallback((collection:string, scene:string)=> {
 
         dispatchSiteState({
             type: "setSelectedSampleRoomType",
@@ -111,18 +97,7 @@ function App() {
         dispatchSiteState({
             type: "setSelectedSampleRoom",
             selectedSampleRoom: scene as string,
-            selectedSamplePath: collection as string
         });
-
-        const path = collection + "/" + scene;
-        const _basePath = (basePath ? basePath : "assets/scenes") + "/" + path;
-        const dataPath = _basePath + "/data.json";
-
-        fetch(dataPath)
-            .then(res => res.json())
-            .then(data => {
-                dispatchSceneProperties(data, dispatchSiteState, _basePath)
-            })
 
     }, []);
 
@@ -131,8 +106,6 @@ function App() {
         // Parse URL search string without the first character (typically question mark).
         // Also turn the keys into lowercase so their case doesn't matter.
         const searchObject = objectToLowerCase(qs.parse(location.search.substr(1)));
-
-        let hasScene = false;
 
         const scene = searchObject.scene as string;
         if (scene) {
@@ -172,9 +145,25 @@ function App() {
             .then(json => {
                 const config = json.config as any;
 
+                config.basePath = SITE_PATH;
+
+                dispatchSiteState({
+                    type: "setSiteData",
+                    siteData:json
+                });
+
                 if (searchObject.rt && searchObject.r) {
-                    hasScene = true;
-                    loadScene(searchObject.rt, searchObject.r, config);
+                    loadScene(searchObject.rt, searchObject.r);
+                } else if (config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
+                    dispatchSiteState({
+                        type: "setSelectedSampleRoomType",
+                        selectedSampleRoomType: config.defaultSceneCollection
+                    });
+
+                    dispatchSiteState({
+                        type: "setSelectedSampleRoom",
+                        selectedSampleRoom: config.defaultScene
+                    });
                 }
 
                 if (!document.title && config.hasOwnProperty("siteTitle")) {
@@ -189,9 +178,6 @@ function App() {
                     document.documentElement.style.setProperty("--mdc-theme-inactive", config.inactiveColor)
                 }
 
-                if (!hasScene && config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
-                    loadScene(config.defaultSceneCollection, config.defaultScene, config);
-                }
             });
 
     }, [loadScene]);

@@ -13,7 +13,6 @@ import {
     CBARPaintAsset,
     CBARRugAsset, CBARScene, CBARSurface,
     CBARSurfaceAsset,
-    CBARSurfaceType,
     CBARToolMode,
     CBARView,
     cbInitialize,
@@ -38,13 +37,12 @@ import {
     ImageUpload, openImageDialog,
     ProductBreadcrumb,
     ProductInfo, ServerProgress, SharePanel, ToolOperation, ToolsMenu, ToolsMenuAction,
-    VerticalListing,
-    VisualizerToolMode
+    VerticalListing
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {CONFIG_PATH, dispatchSceneProperties} from "../index";
+import {getScenePaths} from "../index";
 import {BrowserType} from "react-client-info";
 
 enum Panel {
@@ -67,14 +65,9 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
     throw new Error('REACT_APP_CB_GET_UPLOAD_URLS_URL, REACT_APP_CB_UPLOADS_URL, and REACT_APP_CB_SEGMENT_URL must be defined')
 }
 
-// let HARD_CODED_PATH:string|undefined;
-let HARD_CODED_PATH = "assets/dining/data_v3.json";
-
 export default function Visualizer(props: any) {
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
-
-    const [isToolOverlayOpen, setIsToolOverlayOpen] = useState(false);
 
     const _isMounted = useRef(false);
 
@@ -99,14 +92,17 @@ export default function Visualizer(props: any) {
     const [selectedSceneColumn, setSelectedSceneColumn] = useState<SwatchItem>();
 
     const [toolMode, setToolMode] = useState(CBARToolMode.None);
-    const [config, setConfig] = useState<any>(undefined);
+    const config = useMemo(()=>{
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.config;
+        }
+    }, [siteContext.state.siteData]);
 
     const [context, setContext] = useState<CBARContext>();
     const [currentScene, setCurrentScene] = useState<CBARScene>();
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
 
     const [needsUpload, setNeedsUpload] = useState(false);
-    const [performUpload, setPerformUpload] = useState(false);
 
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
@@ -114,12 +110,9 @@ export default function Visualizer(props: any) {
 
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
 
-    const selectedProductIsLight = useMemo(()=>{
-        if (selectedProduct && selectedProduct.metaData && selectedProduct.metaData.hasOwnProperty("isLightColor")) {
-            return selectedProduct.metaData.isLightColor;
-        }
-        return false;
-    }, [selectedProduct]);
+    const isToolOverlayOpen = useMemo(()=>{
+        return toolMode === CBARToolMode.Rotate || toolMode === CBARToolMode.Translate || toolMode === CBARToolMode.DrawSurface || toolMode === CBARToolMode.EraseSurface
+    }, [toolMode]);
 
     const hasShare = useMemo(()=>{
         if (config && selectedProduct) {
@@ -170,35 +163,30 @@ export default function Visualizer(props: any) {
         }
     }, [isPortrait]);
 
+    useEffect(()=>{
+        if (siteContext.state.siteData) {
+            const brands:ProductBrand[] = [];
+            for (const brandJson of siteContext.state.siteData.brands) {
+                const brand = new ProductBrand();
+                brand.load(brandJson);
+                brands.push(brand)
+            }
+
+            let rootItem:SwatchItem = brands[0];
+            while (rootItem.children.length === 1) {
+                if (!(rootItem.children[0] instanceof Product)) {
+                    rootItem = rootItem.children[0]
+                } else {
+                    break;
+                }
+            }
+            setRootItem(rootItem)
+        }
+
+    }, [siteContext.state.siteData]);
 
     useEffect(() => {
         _isMounted.current = true;
-
-        fetch(CONFIG_PATH).then(res => res.json())
-            .then(json => {
-
-                if (json.hasOwnProperty("config")) {
-                    setConfig(json.config)
-                }
-
-                const brands:ProductBrand[] = [];
-                for (const brandJson of json.brands) {
-                    const brand = new ProductBrand();
-                    brand.load(brandJson);
-                    brands.push(brand)
-                }
-
-                let rootItem:SwatchItem = brands[0];
-                while (rootItem.children.length === 1) {
-                    if (!(rootItem.children[0] instanceof Product)) {
-                        rootItem = rootItem.children[0]
-                    } else {
-                        break;
-                    }
-                }
-
-                setRootItem(rootItem)
-            });
 
         return () => {
             _isMounted.current = false
@@ -254,6 +242,13 @@ export default function Visualizer(props: any) {
     const assetClicked = useCallback((asset:CBARSurfaceAsset) => {
         setSelectedAsset(asset);
     }, []);
+
+    useEffect(()=>{
+        if (selectedAsset && selectedAsset.product) {
+            setSelectedRow(selectedAsset.product.parent);
+            setSelectedColumn(selectedAsset.product);
+        }
+    }, [selectedAsset]);
 
     const showMaterial = useCallback((color:Product|ProductColor) => {
         if (!config || !context || !selectedSurface) return;
@@ -335,10 +330,11 @@ export default function Visualizer(props: any) {
                 setSelectedSurface(surface);
             }
 
+            //console.log("click", event.intersections);
+
             if (asset) {
                 assetClicked(asset);
             }
-
         } else if (event.type === CBAREventType.TouchMove && selectedSurface) {
             //setCurrentRotation(selectedAsset.surfaceRotation);
             //setCurrentXPos(selectedAsset.surfacePosition.x);
@@ -352,41 +348,42 @@ export default function Visualizer(props: any) {
         }
     }, [context, handleVisualizerEvent]);
 
+    useEffect(()=>{
+        if (selectedColumn && selectedSurface && !selectedSurface.length()) {
+            showMaterial(selectedColumn as ProductColor);
+        }
+    }, [selectedColumn, selectedSurface, showMaterial]);
+
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
 
         if (swatchItem.parent && swatchItem.parent.hasColumns) {
             setSelectedColumn(selectedColumn === swatchItem ? undefined : swatchItem);
+            showMaterial(swatchItem as ProductColor);
         } else {
-            setSelectedRow(swatchItem)
+            setSelectedRow(swatchItem);
         }
 
         if (swatchItem instanceof ProductCollection) {
-            const collection = swatchItem as ProductCollection
+            const collection = swatchItem as ProductCollection;
             dispatch({
                 type: "setCollection",
                 code: `${collection.code}`
             });
         } else if (swatchItem instanceof Product) {
-            const product = swatchItem as Product
+            const product = swatchItem as Product;
             dispatch({
                 type: "setProduct",
                 code: `${product.code}`
             });
         } else if (swatchItem instanceof ProductColor) {
-            const color = swatchItem as ProductColor
+            const color = swatchItem as ProductColor;
             dispatch({
                 type: "setColor",
                 code: `${color.code}`
             });
         }
 
-    }, [dispatch, selectedColumn]);
-
-    const getScenePath = useCallback((info:SceneInfo)=>{
-        if (!config) return undefined;
-        const isLocal = info.metaData && info.metaData.hasOwnProperty("isLocal") && info.metaData.isLocal;
-        return `${isLocal ? "assets" : config.basePath}/scenes/${info.collection.name}/${info.name}`
-    },[config]);
+    }, [dispatch, selectedColumn, showMaterial]);
 
     const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
         if (swatchItem instanceof SceneCollection) {
@@ -396,53 +393,37 @@ export default function Visualizer(props: any) {
             }
         } else if (swatchItem instanceof SceneInfo) {
             const scene = swatchItem as SceneInfo;
-            return `${getScenePath(scene)}/preview.jpg`
+            return getScenePaths(scene.collection.name, scene.name).preview
         }
 
         return
-    }, [getScenePath]);
+    }, []);
 
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem instanceof SceneInfo) {
-            const scene = swatchItem as SceneInfo;
             setSelectedSceneColumn(swatchItem);
 
-            const scenePath = getScenePath(scene);
+            dispatch({
+                type: "setSelectedSampleRoomType",
+                selectedSampleRoomType: swatchItem.collection.code as string
+            });
 
-            if (scenePath) {
-                fetch(scenePath + "/data.json")
-                    .then(res => res.json())
-                    .then(data => {
-                        dispatchSceneProperties(data, dispatch, scenePath);
+            dispatch({
+                type: "setSelectedSampleRoom",
+                selectedSampleRoom: swatchItem.code as string,
+            });
 
-                        dispatch({
-                            type: "setSelectedSampleRoomType",
-                            selectedSampleRoomType: swatchItem.collection.code as string
-                        });
-
-                        dispatch({
-                            type: "setSelectedSampleRoom",
-                            selectedSampleRoom: swatchItem.code as string,
-                            selectedSamplePath: swatchItem.collection.code as string
-                        });
-                    })
-            }
+            setActivePanel(Panel.Products);
 
         } else if (swatchItem instanceof SceneCollection) {
             setSelectedSceneRow(swatchItem)
         }
-    }, [getScenePath, dispatch]);
+    }, [dispatch]);
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children);
         setNavigationItem(swatchItem)
     }, []);
-
-    useEffect(()=>{
-        if (selectedColumn instanceof Product || selectedColumn instanceof ProductColor) {
-            showMaterial(selectedColumn)
-        }
-    }, [selectedColumn, showMaterial]);
 
     useEffect(() => {
         if (rootItem) {
@@ -501,44 +482,6 @@ export default function Visualizer(props: any) {
         // }
         return false
     }, []);
-
-    const isModePermitted = useCallback((mode: VisualizerToolMode) => {
-        if (mode === VisualizerToolMode.DrawSurface || mode === VisualizerToolMode.EraseSurface) {
-            return isUploadedImage()
-        } else if (mode === VisualizerToolMode.Translate) {
-            return false
-        } else if (mode === VisualizerToolMode.ChoosePhoto) {
-            return config.hasPhotoUpload
-        } else if (mode === VisualizerToolMode.ChooseScene) {
-            return config.hasScenes
-        } else if (mode === VisualizerToolMode.Share) {
-            return hasShare
-        }
-
-        return true
-    }, [config, isUploadedImage, hasShare]);
-
-    const toolChanged = useCallback((mode: CBARToolMode) => {
-        if (!_isMounted.current) return;
-
-        // if (mode === CBARToolMode.ChoosePhoto) {
-        //     openImageDialog()
-        // } else if (mode === CBARToolMode.ChooseScene) {
-        //     setActivePanel(Panel.Scenes)
-        // } else if (mode === CBARToolMode.Share) {
-        //     setActivePanel(Panel.Share)
-        // } else {
-        //     setActivePanel(defaultLeftPanel);
-        //     //setToolMode(mode);
-        // }
-
-    }, []);
-
-    const toolsShowHideButtons = useCallback((show: boolean) => {
-        if (!_isMounted.current) return;
-        setIsToolOverlayOpen(!show)
-    }, []);
-
 
     const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
         //console.log(`${basePath}/textures/${url}`)
@@ -599,35 +542,32 @@ export default function Visualizer(props: any) {
         setNeedsUpload(false);
     }, []);
 
-    const onContextCreated = useCallback((context:CBARContext) => {
-        setContext(context);
+    const [dataPath, setDataPath] = useState<string>();
 
-        if (!siteContext.state.sceneData) {
-            if (HARD_CODED_PATH || (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom)) {
-                const path = HARD_CODED_PATH;
-                console.log("Loading scene at path", path);
-                context.loadSceneAtPath(path, [CBARSurfaceType.Wall]).then((scene)=>{
-                    setCurrentScene(scene);
-                    const wall = scene.geometry.surfaces.find(surface=>surface.type === CBARSurfaceType.Wall);
-                    if (wall) {
-                        setSelectedSurface(wall)
-                    }
-                    console.log("Scene Loaded!");
-                }).catch(error=>{
-                    console.log("Could not load scene!", error)
-                });
-            } else {
-                getPhoto();
-            }
+    useEffect(()=>{
+        if (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom) {
+            setDataPath(getScenePaths(siteContext.state.selectedSampleRoomType, siteContext.state.selectedSampleRoom).data);
         }
+    }, [siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
 
-    }, [getPhoto, siteContext.state.sceneData, siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
+    useEffect(()=>{
+        if (dataPath && context && rootItem) {
+            const brand = rootItem as DataItem;
+            context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
+                setCurrentScene(scene);
+                console.log("Static Scene Loaded!");
+            }).catch(error=>{
+                console.log("Could not load scene!", error)
+            });
+        }
+    }, [context, dataPath, rootItem]);
 
     useEffect(() => {
         if (context && siteContext.state.sceneData) {
             context.loadSceneData(siteContext.state.sceneData).then((scene)=>{
-                console.log("V2 Scene Loaded!");
+                console.log("Dynamic Scene Loaded!");
                 setCurrentScene(scene);
+                setDataPath(undefined);
             }).catch(error=>{
                 console.log("Could not load scene!", error)
             })
@@ -661,7 +601,7 @@ export default function Visualizer(props: any) {
 
     const isEditable = useCallback(() => {
         if (currentScene) {
-            return currentScene.isEditable;
+            return currentScene.isEditable && !dataPath;
         }
         return false
     }, [currentScene]);
@@ -673,6 +613,7 @@ export default function Visualizer(props: any) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
         } else {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
+            actions = actions.filter(item=>item.operation !== CBARToolMode.DrawSurface && item.operation !== CBARToolMode.EraseSurface);
         }
 
         const canEdit = siteContext.state.browserProperties.browser !== BrowserType.LegacyIE
@@ -691,6 +632,17 @@ export default function Visualizer(props: any) {
 
         setToolMode(CBARToolMode.None);
     }, []);
+
+    const productDetails = useMemo(()=>{
+        let product:DataItem|undefined = selectedProduct;
+        while (product) {
+            if (product.details) {
+                return product.details
+            }
+            product = product.parent as DataItem
+        }
+        return undefined
+    }, [selectedProduct]);
 
     return useMemo(() => (
         <div className={className}>
@@ -732,7 +684,7 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                <CBARView className={"cbarview"} onContextCreated={onContextCreated} toolMode={toolMode} />
+                <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
 
                 <img className={"floating-logo"} src={`${config.basePath}/${config.siteLogoImage}`} alt={"logo"} />
 
@@ -783,10 +735,14 @@ export default function Visualizer(props: any) {
                         </div>
                     </div>}
 
-                    <ProductInfo className={"info"}
-                                 visible={activePanel === Panel.ProductInfo}
-                                 product={selectedProduct}
-                                 resolveUrl={resolveDetailsUrl} />
+                    {selectedProduct && selectedProduct.parent && (
+                        <ProductInfo className={"info"}
+                                     visible={activePanel === Panel.ProductInfo}
+                                     title={selectedProduct.parent.displayName}
+                                     subTitle={selectedProduct.displayName}
+                                     resolveUrl={resolveDetailsUrl}
+                                     details={productDetails}
+                        />)}
 
                     {config && siteContext.state.sceneData && (
                         <SharePanel className={"share"}
@@ -810,5 +766,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, allFilters, className, config, defaultLeftPanel, defaultRightPanel, editSurfaceFinished, getShareUrl, handleAction, hasShare, isMobile, isPortrait, isToolOverlayOpen, isUploadedImage, leftPanelOpen, listingItems, navClicked, navigationItem, needsUpload, onContextCreated, onImageChosen, onProgress, progressPercentage, progressVisible, resolveDetailsUrl, resolveSceneThumbnailPath, resolveThumbnailPath, rightPanelButtonText, rightPanelOpen, sceneListingItems, sceneSelected, selectedAsset, selectedColumn, selectedProduct, selectedRow, selectedSceneColumn, selectedSceneRow, selectedSurface, shareCompleted, shareUploadComplete, siteContext.state.sceneData, progressText, swatchSelected, toolActions, toolMode])
+    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
 }
