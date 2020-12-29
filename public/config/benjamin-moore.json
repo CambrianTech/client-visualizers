@@ -66,14 +66,9 @@
               "displayName": "Living Room"
             },
             {
-              "name": "bedroom-2",
-              "code": "bedroom-2",
-              "displayName": "Bedroom"
-            },
-            {
-              "name": "bedroom-3",
-              "code": "bedroom-3",
-              "displayName": "Bedroom"
+              "name": "living-room-2",
+              "code": "living-room-2",
+              "displayName": "Living Room"
             }
           ]
         },
