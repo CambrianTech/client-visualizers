@@ -609,10 +609,7 @@ export default function Visualizer(props: any) {
     const toolActions = useMemo<ToolsMenuAction[]>(()=>{
         let actions = [...DefaultToolsMenuActions];
 
-        if (isEditable()) {
-            actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
-        } else {
-            actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
+        if (!isEditable()) {
             actions = actions.filter(item=>item.operation !== CBARToolMode.DrawSurface && item.operation !== CBARToolMode.EraseSurface);
         }
 
