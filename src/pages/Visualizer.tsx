@@ -413,6 +413,8 @@ export default function Visualizer(props: any) {
                 selectedSampleRoom: swatchItem.code as string,
             });
 
+            setActivePanel(Panel.Products);
+
         } else if (swatchItem instanceof SceneCollection) {
             setSelectedSceneRow(swatchItem)
         }
