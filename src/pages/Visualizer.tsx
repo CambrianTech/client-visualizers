@@ -604,7 +604,7 @@ export default function Visualizer(props: any) {
             return currentScene.isEditable && !dataPath;
         }
         return false
-    }, [currentScene]);
+    }, [currentScene, dataPath]);
 
     const toolActions = useMemo<ToolsMenuAction[]>(()=>{
         let actions = [...DefaultToolsMenuActions];
