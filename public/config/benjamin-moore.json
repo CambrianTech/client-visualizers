@@ -16,6 +16,8 @@
     "inactiveColor": "rgba(0,0,0,0.3)",
     "siteLogoImage": "branding/logo.png",
     "shareSubject": "Check out this great Benjamin Moore paint",
+    "defaultSceneCollection": "bedroom",
+    "defaultScene": "bedroom-1",
     "hasPhotoUpload": false,
     "hasScenes": true,
     "hasShare": true,
