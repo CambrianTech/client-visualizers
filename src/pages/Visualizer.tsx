@@ -13,7 +13,6 @@ import {
     CBARPaintAsset,
     CBARRugAsset, CBARScene, CBARSurface,
     CBARSurfaceAsset,
-    CBARSurfaceType,
     CBARToolMode,
     CBARView,
     cbInitialize,
@@ -557,7 +556,7 @@ export default function Visualizer(props: any) {
                 console.log("Could not load scene!", error)
             });
         }
-    }, [context, dataPath]);
+    }, [context, dataPath, rootItem]);
 
     useEffect(() => {
         if (context && siteContext.state.sceneData) {
