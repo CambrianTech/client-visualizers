@@ -1104,7 +1104,7 @@
                     "maxX": 359.0
                 },
                 "images": {
-                    "mask": "https://s3.amazonaws.com/cb-backend-data/evyTxImcKd/plane_masks/mask_1.png"
+                    "mask": "plane_masks/mask_1.png"
                 },
                 "contours": [
                     [
@@ -3437,7 +3437,7 @@
                     "maxX": 780.0
                 },
                 "images": {
-                    "mask": "https://s3.amazonaws.com/cb-backend-data/evyTxImcKd/plane_masks/mask_2.png"
+                    "mask": "plane_masks/mask_2.png"
                 },
                 "contours": [
                     [

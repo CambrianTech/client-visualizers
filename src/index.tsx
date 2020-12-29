@@ -2,11 +2,11 @@ import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 import cssVars from 'css-vars-ponyfill'
 
-import React, {useReducer, useEffect, useCallback, useState, useRef, Dispatch} from "react"
+import React, {useReducer, useEffect, useCallback, useState, useRef} from "react"
 import * as ReactDOM from "react-dom"
 
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
-import {SiteContext, createEmptyState, siteStateReducer, SiteAction, stateToUrl} from "./data/SiteContext"
+import {SiteContext, createEmptyState, siteStateReducer, stateToUrl} from "./data/SiteContext"
 import {BrowserProperties, WebClientInfo} from "react-client-info"
 
 import 'react-circular-progressbar/dist/styles.css'
@@ -107,8 +107,6 @@ function App() {
         // Also turn the keys into lowercase so their case doesn't matter.
         const searchObject = objectToLowerCase(qs.parse(location.search.substr(1)));
 
-        let hasScene = false;
-
         const scene = searchObject.scene as string;
         if (scene) {
             selectScene(scene, dispatchSiteState)
@@ -155,7 +153,6 @@ function App() {
                 });
 
                 if (searchObject.rt && searchObject.r) {
-                    hasScene = true;
                     loadScene(searchObject.rt, searchObject.r);
                 }
 
