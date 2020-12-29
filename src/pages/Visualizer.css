@@ -53,6 +53,7 @@
     z-index: 3;
     height: 80px;
     padding: 20px;
+    pointer-events: none;
 }
 
 .visualizer-dat-gui {
