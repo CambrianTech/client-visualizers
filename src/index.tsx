@@ -35,7 +35,7 @@ export const getScenePaths = (collectionName?:string, sceneName?:string)=>{
     return {
         base:basePath,
         data:`${basePath}/data.json`,
-        thumbnail:`${basePath}/preview.jpg`,
+        thumbnail:`${basePath}/thumbnail.jpg`,
         preview:`${basePath}/preview.jpg`
     }
 };

@@ -40,6 +40,11 @@
               "name": "bedroom-1",
               "code": "bedroom-1",
               "displayName": "Bedroom"
+            },
+            {
+              "name": "bedroom-2",
+              "code": "bedroom-2",
+              "displayName": "Bedroom"
             }
           ]
         }
