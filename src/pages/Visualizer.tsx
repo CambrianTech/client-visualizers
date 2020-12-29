@@ -551,10 +551,6 @@ export default function Visualizer(props: any) {
         if (dataPath && context) {
             context.loadSceneAtPath(dataPath, [CBARSurfaceType.Wall]).then((scene)=>{
                 setCurrentScene(scene);
-                const wall = scene.geometry.surfaces.find(surface=>surface.type === CBARSurfaceType.Wall);
-                if (wall) {
-                    setSelectedSurface(wall)
-                }
                 console.log("Scene Loaded!");
             }).catch(error=>{
                 console.log("Could not load scene!", error)
