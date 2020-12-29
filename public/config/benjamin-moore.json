@@ -86,6 +86,11 @@
               "name": "dining-1",
               "code": "dining-1",
               "displayName": "Dining Room"
+            },
+            {
+              "name": "dining-2",
+              "code": "dining-2",
+              "displayName": "Dining Room"
             }
           ]
         }
