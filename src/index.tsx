@@ -154,6 +154,16 @@ function App() {
 
                 if (searchObject.rt && searchObject.r) {
                     loadScene(searchObject.rt, searchObject.r);
+                } else if (config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
+                    dispatchSiteState({
+                        type: "setSelectedSampleRoomType",
+                        selectedSampleRoomType: config.defaultSceneCollection
+                    });
+
+                    dispatchSiteState({
+                        type: "setSelectedSampleRoom",
+                        selectedSampleRoom: config.defaultScene
+                    });
                 }
 
                 if (!document.title && config.hasOwnProperty("siteTitle")) {
