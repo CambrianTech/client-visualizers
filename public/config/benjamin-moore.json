@@ -27,7 +27,7 @@
       "name": "benjamin-moore",
       "code": "benjamin-moore-inc",
       "displayName": "Benjamin Moore Paints",
-      "surfaceTypes": ["wall"],
+      "surfaceTypes": ["wall", "horizontal", "floor"],
       "assetType": "paint-surface",
       "thumbnail": "thumbnails/benjamin+moore+paint+web.jpg",
       "sceneCollections": [
