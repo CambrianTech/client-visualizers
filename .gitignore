@@ -34,3 +34,4 @@ output
 /sites
 /scripts/tiling_generator/tiles
 /scripts/pbr_generator/textures
+.vscode
