@@ -330,6 +330,8 @@ export default function Visualizer(props: any) {
                 setSelectedSurface(surface);
             }
 
+            console.log("click", event.intersections);
+
             if (asset) {
                 assetClicked(asset);
             }
