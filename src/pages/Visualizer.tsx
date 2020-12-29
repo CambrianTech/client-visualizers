@@ -555,7 +555,7 @@ export default function Visualizer(props: any) {
             const brand = rootItem as DataItem;
             context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
                 setCurrentScene(scene);
-                console.log("Scene Loaded!");
+                console.log("Static Scene Loaded!");
             }).catch(error=>{
                 console.log("Could not load scene!", error)
             });
@@ -565,8 +565,9 @@ export default function Visualizer(props: any) {
     useEffect(() => {
         if (context && siteContext.state.sceneData) {
             context.loadSceneData(siteContext.state.sceneData).then((scene)=>{
-                console.log("V2 Scene Loaded!");
+                console.log("Dynamic Scene Loaded!");
                 setCurrentScene(scene);
+                setDataPath(undefined);
             }).catch(error=>{
                 console.log("Could not load scene!", error)
             })
@@ -600,7 +601,7 @@ export default function Visualizer(props: any) {
 
     const isEditable = useCallback(() => {
         if (currentScene) {
-            return currentScene.isEditable;
+            return currentScene.isEditable && !dataPath;
         }
         return false
     }, [currentScene]);
@@ -612,6 +613,7 @@ export default function Visualizer(props: any) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
         } else {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
+            actions = actions.filter(item=>item.operation !== CBARToolMode.DrawSurface && item.operation !== CBARToolMode.EraseSurface);
         }
 
         const canEdit = siteContext.state.browserProperties.browser !== BrowserType.LegacyIE
