@@ -1,12 +1,18 @@
 branch-defaults:
+  feature-sdk20:
+    environment: client-visualizers-sdk2
   master:
     environment: client-visualizers-dev
     group_suffix: null
+environment-defaults:
+  client-visualizers-dev:
+    branch: null
+    repository: null
 global:
   application_name: client-visualizers
   branch: null
   default_ec2_keyname: cambrian-servers
-  default_platform: Docker 19.03.6-ce
+  default_platform: Docker running on 64bit Amazon Linux 2
   default_region: us-east-1
   include_git_submodules: true
   instance_profile: null
