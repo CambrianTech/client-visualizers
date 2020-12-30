@@ -10,7 +10,6 @@ import {SiteContext, createEmptyState, siteStateReducer, stateToUrl} from "./dat
 import {BrowserProperties, WebClientInfo} from "react-client-info"
 
 import 'react-circular-progressbar/dist/styles.css'
-import '@material/react-button/dist/button.css';
 import '@material/react-fab/dist/fab.css';
 
 import * as qs from "querystring";
