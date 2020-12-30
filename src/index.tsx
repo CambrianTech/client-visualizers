@@ -9,9 +9,6 @@ import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom
 import {SiteContext, createEmptyState, siteStateReducer, stateToUrl} from "./data/SiteContext"
 import {BrowserProperties, WebClientInfo} from "react-client-info"
 
-import 'react-circular-progressbar/dist/styles.css'
-import '@material/react-fab/dist/fab.css';
-
 import * as qs from "querystring";
 import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
