@@ -255,7 +255,7 @@ export default function Visualizer(props: any) {
 
         let material:CBARMaterialProperties = {};
         material.properties = {
-            metalnessValue: -0.2
+            metalnessValue: -0.05
         };
         material.textures = {};
         material.ppi = color.ppi ? color.ppi : 20;
