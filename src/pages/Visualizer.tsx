@@ -253,14 +253,10 @@ export default function Visualizer(props: any) {
     const showMaterial = useCallback((color:Product|ProductColor) => {
         if (!config || !context || !selectedSurface) return;
 
-        let material:CBARMaterialProperties = {
-            properties: {
-                roughnessValue: 0.4,
-                metalnessValue: 0.07,
-                color:0.0,
-            }
+        let material:CBARMaterialProperties = {};
+        material.properties = {
+            metalnessValue: -0.2
         };
-        material.properties = {};
         material.textures = {};
         material.ppi = color.ppi ? color.ppi : 20;
 
