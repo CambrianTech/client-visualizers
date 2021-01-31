@@ -78,7 +78,6 @@ export default function Visualizer(props: any) {
     const [progressVisible, setProgressVisible] = useState(false);
 
     const [rootItem, setRootItem] = useState<SwatchItem>();
-
     const [navigationItem, setNavigationItem] = useState<SwatchItem>();
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -126,6 +125,20 @@ export default function Visualizer(props: any) {
         }
         return false
     },[config, selectedProduct]);
+
+    const hasPhotoUpload = useMemo(()=>{
+        if (config) {
+            return config.hasOwnProperty("hasPhotoUpload") ? config.hasPhotoUpload : true;
+        }
+        return false
+    },[config]);
+
+    const hasScenes = useMemo(()=>{
+        if (config) {
+            return config.hasOwnProperty("hasScenes") ? config.hasScenes : true;
+        }
+        return false
+    },[config]);
 
     const isMobile = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait;
@@ -584,7 +597,7 @@ export default function Visualizer(props: any) {
 
     useEffect(()=>{
         if (currentScene) {
-            const floor = currentScene.geometry.surfaces.find(surface=>surface.type == CBARSurfaceType.Floor);
+            const floor = currentScene.geometry.surfaces.find(surface=>surface.type === CBARSurfaceType.Floor);
             if (floor) {
                 setSelectedSurface(floor);
             }
@@ -630,6 +643,14 @@ export default function Visualizer(props: any) {
             actions = actions.filter(item=>item.operation !== CBARToolMode.DrawSurface && item.operation !== CBARToolMode.EraseSurface);
         }
 
+        if (!hasPhotoUpload) {
+            actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
+        }
+
+        if (!hasScenes) {
+            actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
+        }
+
         const canEdit = siteContext.state.browserProperties.browser !== BrowserType.LegacyIE
             && siteContext.state.browserProperties.browser !== BrowserType.IE11
             && isEditable();
@@ -639,7 +660,7 @@ export default function Visualizer(props: any) {
         }
 
         return actions
-    }, [isEditable, siteContext.state.browserProperties.browser]);
+    }, [hasPhotoUpload, hasScenes, isEditable, siteContext.state.browserProperties.browser]);
 
     const editSurfaceFinished = useCallback(() => {
         if (!_isMounted.current) return;
