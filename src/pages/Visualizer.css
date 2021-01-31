@@ -56,6 +56,10 @@
     pointer-events: none;
 }
 
+.MuiFab-primary {
+    background-color: var(--mdc-theme-secondary) !important;
+}
+
 .visualizer-dat-gui {
     top:auto;
     bottom: 20px;

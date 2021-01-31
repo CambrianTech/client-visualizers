@@ -21,7 +21,7 @@
     "siteLogoImage": "branding/logo-black.png",
     "shareSubject": "Check out this great Divine Floor",
 
-    "hasPhotoUpload": false,
+    "hasPhotoUpload": true,
     "hasScenes": true,
     "hasShare": true,
     "legacy": true,
