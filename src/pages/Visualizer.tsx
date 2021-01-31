@@ -12,7 +12,7 @@ import {
     CBARMouseEvent,
     CBARPaintAsset,
     CBARRugAsset, CBARScene, CBARSurface,
-    CBARSurfaceAsset,
+    CBARSurfaceAsset, CBARSurfaceType,
     CBARToolMode,
     CBARView,
     cbInitialize,
@@ -377,6 +377,9 @@ export default function Visualizer(props: any) {
                 type: "setProduct",
                 code: `${product.code}`
             });
+            if (product.colors.length) {
+                swatchSelected(product.colors[0])
+            }
         } else if (swatchItem instanceof ProductColor) {
             const color = swatchItem as ProductColor;
             dispatch({
@@ -575,6 +578,15 @@ export default function Visualizer(props: any) {
             })
         }
     }, [context, siteContext.state.sceneData]);
+
+    useEffect(()=>{
+        if (currentScene) {
+            const floor = currentScene.geometry.surfaces.find(surface=>surface.type == CBARSurfaceType.Floor);
+            if (floor) {
+                setSelectedSurface(floor);
+            }
+        }
+    }, [currentScene]);
 
     const handleAction = useCallback((action:ToolsMenuAction) => {
 
