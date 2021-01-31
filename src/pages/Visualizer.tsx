@@ -395,7 +395,7 @@ export default function Visualizer(props: any) {
             }
         } else if (swatchItem instanceof SceneInfo) {
             const scene = swatchItem as SceneInfo;
-            return getScenePaths(scene.collection.name, scene.name).preview
+            return getScenePaths(scene.collection.code, scene.code).preview
         }
 
         return
