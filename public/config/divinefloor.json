@@ -366,6 +366,9 @@
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/E01003.jpg"
                   }
                 }
               ]
