@@ -276,7 +276,7 @@
               "specular": "Bellewood/tiled_specular.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "Bellewood/preview.jpg",
+                "preview": "textures/Bellewood/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -302,7 +302,7 @@
               "thumbnail": "Bent Creek/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "Bent Creek/preview.jpg",
+                "preview": "textures/Bent Creek/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -328,7 +328,7 @@
               "thumbnail": "Lodge Pine/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "Lodge Pine/preview.jpg",
+                "preview": "textures/Lodge Pine/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -351,7 +351,7 @@
               "displayName": "Monaco",
               "ppi": 36.57,
               "thumbnail": "Monaco/thumbnail.jpg",
-              "preview": "Monaco/preview.jpg",
+              "preview": "textures/Monaco/preview.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
                 "specifications": [
@@ -379,7 +379,7 @@
               "thumbnail": "Pub House/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "Pub House/preview.jpg",
+                "preview": "textures/Pub House/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -404,7 +404,7 @@
               "thumbnail": "Serene Hills/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "Serene Hills/preview.jpg",
+                "preview": "textures/Serene Hills/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -437,7 +437,7 @@
               "thumbnail": "Carmel Distressed Pine/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#diamond-board",
-                "preview": "Carmel Distressed Pine/preview.jpg",
+                "preview": "textures/Carmel Distressed Pine/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed EVA"},
@@ -543,7 +543,7 @@
               "thumbnail": "Ashbury/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Ashbury/preview.jpg",
+                "preview": "textures/Ashbury/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -568,7 +568,7 @@
               "thumbnail": "Carlsbad/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Carlsbad/preview.jpg",
+                "preview": "textures/Carlsbad/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -593,7 +593,7 @@
               "thumbnail": "Glenbrook/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Glenbrook/preview.jpg",
+                "preview": "textures/Glenbrook/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -618,7 +618,7 @@
               "thumbnail": "Mineral Oak/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Mineral Oak/preview.jpg",
+                "preview": "textures/Mineral Oak/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -643,7 +643,7 @@
               "thumbnail": "Mystic Cypress/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Mystic Cypress/preview.jpg",
+                "preview": "textures/Mystic Cypress/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -669,7 +669,7 @@
               "thumbnail": "Navajo Hills/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Navajo Hills/preview.jpg",
+                "preview": "textures/Navajo Hills/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -694,7 +694,7 @@
               "thumbnail": "Pacific Walnut/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Pacific Walnut/preview.jpg",
+                "preview": "textures/Pacific Walnut/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -719,7 +719,7 @@
               "thumbnail": "Pinion Pine/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Pinion Pine/preview.jpg",
+                "preview": "textures/Pinion Pine/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -744,7 +744,7 @@
               "thumbnail": "Prairie/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Prairie/preview.jpg",
+                "preview": "textures/Prairie/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -769,7 +769,7 @@
               "thumbnail": "Smokey Mountain/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#highlands",
-                "preview": "Smokey Mountain/preview.jpg",
+                "preview": "textures/Smokey Mountain/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -802,7 +802,7 @@
               "thumbnail": "Natchez/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Natchez/preview.jpg",
+                "preview": "textures/Natchez/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed EVA"},
@@ -875,7 +875,7 @@
               "thumbnail": "Olympia/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Olympia/preview.jpg",
+                "preview": "textures/Olympia/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed EVA"},
@@ -901,7 +901,7 @@
               "thumbnail": "Southern Pine/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Southern Pine/preview.jpg",
+                "preview": "textures/Southern Pine/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed EVA"},
@@ -926,7 +926,7 @@
               "thumbnail": "Valley Farmhouse/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#valley-farmhouse",
-                "preview": "Valley Farmhouse/preview.jpg",
+                "preview": "textures/Valley Farmhouse/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed EVA"},
@@ -951,7 +951,7 @@
               "thumbnail": "Virginia/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Virginia/preview.jpg",
+                "preview": "textures/Virginia/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed EVA"},
@@ -985,7 +985,7 @@
               "thumbnail": "Bay Port/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Bay Port/preview.jpg",
+                "preview": "textures/Bay Port/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1010,7 +1010,7 @@
               "thumbnail": "Biscayne Bay/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Biscayne Bay/preview.jpg",
+                "preview": "textures/Biscayne Bay/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1035,7 +1035,7 @@
               "thumbnail": "Cedar Key/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Cedar Key/preview.jpg",
+                "preview": "textures/Cedar Key/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1060,7 +1060,7 @@
               "thumbnail": "Coral Cove/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Coral Cove/preview.jpg",
+                "preview": "textures/Coral Cove/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1085,7 +1085,7 @@
               "thumbnail": "Cypress Cove/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Cypress Cove/preview.jpg",
+                "preview": "textures/Cypress Cove/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1110,7 +1110,7 @@
               "thumbnail": "Gulf Harbor/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Gulf Harbor/preview.jpg",
+                "preview": "textures/Gulf Harbor/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1135,7 +1135,7 @@
               "thumbnail": "Heron Bay/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Heron Bay/preview.jpg",
+                "preview": "textures/Heron Bay/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1160,7 +1160,7 @@
               "thumbnail": "Key Largo/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Key Largo/preview.jpg",
+                "preview": "textures/Key Largo/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1185,7 +1185,7 @@
               "thumbnail": "Lighthouse Point/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Lighthouse Point/preview.jpg",
+                "preview": "textures/Lighthouse Point/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1210,7 +1210,7 @@
               "thumbnail": "Regatta Bay/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#kensington",
-                "preview": "Regatta Bay/preview.jpg",
+                "preview": "textures/Regatta Bay/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1267,7 +1267,7 @@
               "thumbnail": "Bunker Hill/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#revolutions",
-                "preview": "Bunker Hill/preview.jpg",
+                "preview": "textures/Bunker Hill/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1292,7 +1292,7 @@
               "thumbnail": "Concord/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#revolutions",
-                "preview": "Concord/preview.jpg",
+                "preview": "textures/Concord/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 60″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1318,7 +1318,7 @@
               "thumbnail": "Lexington/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#revolutions",
-                "preview": "Lexington/preview.jpg",
+                "preview": "textures/Lexington/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 60″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1343,7 +1343,7 @@
               "thumbnail": "Saratoga/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#revolutions",
-                "preview": "Saratoga/preview.jpg",
+                "preview": "textures/Saratoga/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1368,7 +1368,7 @@
               "thumbnail": "Trenton/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#revolutions",
-                "preview": "Trenton/preview.jpg",
+                "preview": "textures/Trenton/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1393,7 +1393,7 @@
               "thumbnail": "Yorktown/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#revolutions",
-                "preview": "Yorktown/preview.jpg",
+                "preview": "textures/Yorktown/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1426,7 +1426,7 @@
               "thumbnail": "Campfire/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#richburg-hills",
-                "preview": "Campfire/preview.jpg",
+                "preview": "textures/Campfire/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},
@@ -1531,7 +1531,7 @@
               "thumbnail": "Helena/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/direct-container-collections/direct-container-rigid-core-flooring/#richburg-hills",
-                "preview": "Helena/preview.jpg",
+                "preview": "textures/Helena/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 60″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1556,7 +1556,7 @@
               "thumbnail": "Morning Mesa/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/direct-container-collections/direct-container-rigid-core-flooring/#richburg-hills",
-                "preview": "Morning Mesa/preview.jpg",
+                "preview": "textures/Morning Mesa/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 60″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1581,7 +1581,7 @@
               "thumbnail": "Springfield/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/direct-container-collections/direct-container-rigid-core-flooring/#richburg-hills",
-                "preview": "Springfield/preview.jpg",
+                "preview": "textures/Springfield/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 60″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1606,7 +1606,7 @@
               "thumbnail": "Hillsboro/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/direct-container-collections/direct-container-rigid-core-flooring/#richburg-hills",
-                "preview": "Hillsboro/preview.jpg",
+                "preview": "textures/Hillsboro/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 60″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1631,7 +1631,7 @@
               "thumbnail": "Park Hill/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/direct-container-collections/direct-container-rigid-core-flooring/#richburg-hills",
-                "preview": "Park Hill/preview.jpg",
+                "preview": "textures/Park Hill/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1655,7 +1655,7 @@
               "thumbnail": "Pelham/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/direct-container-collections/direct-container-rigid-core-flooring/#richburg-hills",
-                "preview": "Pelham/preview.jpg",
+                "preview": "textures/Pelham/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 60″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1703,7 +1703,7 @@
               "thumbnail": "Townsend/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/direct-container-collections/direct-container-rigid-core-flooring/#richburg-hills",
-                "preview": "Townsend/preview.jpg",
+                "preview": "textures/Townsend/preview.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 60″"},
                   {"Padding": "1.0mm Embossed IXPE"},
@@ -1735,7 +1735,7 @@
               "thumbnail": "Huntington Oak/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#wellington-heights",
-                "preview": "Huntington Oak/preview.jpg",
+                "preview": "textures/Huntington Oak/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},
@@ -1760,7 +1760,7 @@
               "thumbnail": "Normandy Coast/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#wellington-heights",
-                "preview": "Normandy Coast/preview.jpg",
+                "preview": "textures/Normandy Coast/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},
@@ -1785,7 +1785,7 @@
               "thumbnail": "Richmond/thumbnail.jpg",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#wellington-heights",
-                "preview": "Richmond/preview.jpg",
+                "preview": "textures/Richmond/preview.jpg",
                 "specifications": [
                   {"Plank Size": "7″ x 48″"},
                   {"Padding": "1.5mm Embossed EVA"},

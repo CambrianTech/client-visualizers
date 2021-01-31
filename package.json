@@ -44,7 +44,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sync": "aws s3 sync s3://cambrianar-sites public/cambrianar-sites"
   },
   "eslintConfig": {
     "extends": "react-app"
