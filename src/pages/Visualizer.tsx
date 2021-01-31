@@ -369,8 +369,14 @@ export default function Visualizer(props: any) {
         }
     }, [selectedColumn, selectedSurface, showMaterial]);
 
-    const swatchSelected = useCallback((swatchItem:SwatchItem) => {
+    const productsClicked = useCallback(()=>{
+        setActivePanel(Panel.Products);
+        if (rootItem) {
+            setListingItems(rootItem.children);
+        }
+    }, [rootItem]);
 
+    const swatchSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem.parent && swatchItem.parent.hasColumns) {
             setSelectedColumn(selectedColumn === swatchItem ? undefined : swatchItem);
             showMaterial(swatchItem as ProductColor);
@@ -686,7 +692,7 @@ export default function Visualizer(props: any) {
             <div className={"primary-panel"}>
                 <div className={"panel"}>
                     <div className={"title"}>
-                        <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>
+                        <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={productsClicked}>
                             <div className={"choose-text"}>Choose a Product</div>
                         </div>
                         <div className={"choose scene" + (activePanel === Panel.Scenes ? " selected" : "")} onClick={()=>setActivePanel(Panel.Scenes)}>
@@ -802,5 +808,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [className, activePanel, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, texturePath, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
+    ), [className, activePanel, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, texturePath, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
 }
