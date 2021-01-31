@@ -384,6 +384,7 @@ export default function Visualizer(props: any) {
                 type: "setCollection",
                 code: `${collection.code}`
             });
+            setListingItems(swatchItem.children);
         } else if (swatchItem instanceof Product) {
             const product = swatchItem as Product;
             dispatch({
