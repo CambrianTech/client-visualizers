@@ -98,6 +98,12 @@ export default function Visualizer(props: any) {
         }
     }, [siteContext.state.siteData]);
 
+    const texturePath = useMemo(()=>{
+        if (config) {
+            return `${config.basePath}/textures`
+        }
+    }, [config]);
+
     const [context, setContext] = useState<CBARContext>();
     const [currentScene, setCurrentScene] = useState<CBARScene>();
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
@@ -229,15 +235,15 @@ export default function Visualizer(props: any) {
 
     const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
 
-        if (!config || !(swatchItem instanceof DataItem)) return;
+        if (!(swatchItem instanceof DataItem)) return;
 
         if (!swatchItem.thumbnail && swatchItem.children.length) {
             return resolveThumbnailPath(swatchItem.children[0])
         }
 
-        return `${config.basePath}/${swatchItem.thumbnail}`;
+        return `${texturePath}/${swatchItem.thumbnail}`;
 
-    }, [config]);
+    }, [texturePath]);
 
     const assetClicked = useCallback((asset:CBARSurfaceAsset) => {
         setSelectedAsset(asset);
@@ -251,7 +257,7 @@ export default function Visualizer(props: any) {
     }, [selectedAsset]);
 
     const showMaterial = useCallback((color:Product|ProductColor) => {
-        if (!config || !context || !selectedSurface) return;
+        if (!context || !selectedSurface) return;
 
         let material:CBARMaterialProperties = {};
         material.properties = {
@@ -262,13 +268,13 @@ export default function Visualizer(props: any) {
 
         if (color.metaData) {
             if (color.metaData.hasOwnProperty("albedo")) {
-                material.textures.albedo = `${config.basePath}/${color.metaData.albedo}`
+                material.textures.albedo = `${texturePath}/${color.metaData.albedo}`
             }
             if (color.metaData.hasOwnProperty("normals")) {
-                material.textures.normals = `${config.basePath}/${color.metaData.normals}`
+                material.textures.normals = `${texturePath}/${color.metaData.normals}`
             }
             if (color.metaData.hasOwnProperty("specular")) {
-                material.textures.roughness = `${config.basePath}/${color.metaData.specular}`
+                material.textures.roughness = `${texturePath}/${color.metaData.specular}`
             }
         }
 
@@ -300,7 +306,7 @@ export default function Visualizer(props: any) {
         }).catch((error:any) => {
             console.error(error)
         })
-    }, [config, context, selectedSurface]);
+    }, [texturePath, context, selectedSurface]);
 
     const handleVisualizerEvent = useCallback((event:CBARMouseEvent) => {
         if (!currentScene) return;
@@ -699,7 +705,7 @@ export default function Visualizer(props: any) {
                 {!rightPanelOpen && selectedRow && selectedProduct && (
                     <div className={"floating-product-info"}>
                         <div className={"product-swatch"} style={{background:selectedProduct.color}}>
-                            {selectedProduct.thumbnail && <img alt={selectedProduct.thumbnail} src={selectedProduct.thumbnail} />}
+                            {texturePath && <img alt={selectedProduct.displayName} src={`${texturePath}/${selectedProduct.thumbnail}`} />}
                         </div>
                         <div className={"product-name"}>
                             {selectedRow.displayName} - {selectedProduct.displayName}
