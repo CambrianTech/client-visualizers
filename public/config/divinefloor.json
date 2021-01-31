@@ -231,7 +231,6 @@
         {
           "code": "hardwood",
           "displayName": "Hardwood",
-          "metaData": {},
           "products": [
             {
               "code": "louis-xiv-1",
@@ -245,13 +244,15 @@
                   "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
                     "specifications": [
                       {"Qty per Box": "15.540"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/535538.jpg"
                   }
                 },
                 {
@@ -261,13 +262,15 @@
                   "thumbnail": "hardwood/louis-xiv/moulins/thumbnail.png",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "preview": "hardwood/louis-xiv/moulins/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/moulins/tiled_diffuse.jpg",
                   "details": {
                     "specifications": [
                       {"Qty per Box": "15.540"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/538934.jpg"
                   }
                 }
               ]
@@ -300,7 +303,6 @@
         {
           "code": "laminate",
           "displayName": "Laminate",
-          "metaData": {},
           "products": [
             {
               "code": "louis-xiv-1",
@@ -314,13 +316,15 @@
                   "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
                     "specifications": [
                       {"Qty per Box": "15.540"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/535538.jpg"
                   }
                 },
                 {
@@ -330,13 +334,15 @@
                   "thumbnail": "hardwood/louis-xiv/moulins/thumbnail.png",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "preview": "hardwood/louis-xiv/moulins/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/moulins/tiled_diffuse.jpg",
                   "details": {
                     "specifications": [
                       {"Qty per Box": "15.540"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/538934.jpg"
                   }
                 }
               ]
