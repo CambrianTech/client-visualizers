@@ -568,8 +568,9 @@ export default function Visualizer(props: any) {
     }, [context, dataPath, rootItem]);
 
     useEffect(() => {
-        if (context && siteContext.state.sceneData) {
-            context.loadSceneData(siteContext.state.sceneData).then((scene)=>{
+        if (context && siteContext.state.sceneData && rootItem) {
+            const brand = rootItem as DataItem;
+            context.loadSceneData(siteContext.state.sceneData, brand.surfaceTypes).then((scene)=>{
                 console.log("Dynamic Scene Loaded!");
                 setCurrentScene(scene);
                 setDataPath(undefined);
@@ -577,7 +578,9 @@ export default function Visualizer(props: any) {
                 console.log("Could not load scene!", error)
             })
         }
-    }, [context, siteContext.state.sceneData]);
+    }, [context, rootItem, siteContext.state.sceneData]);
+
+
 
     useEffect(()=>{
         if (currentScene) {
