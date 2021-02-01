@@ -311,22 +311,24 @@
             {
               "code": "farmhouse",
               "displayName": "Farmhouse",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "repeating/EW3102.jpg",
               "colors": [
                 {
                   "code": "vernazza",
                   "displayName": "vernazza",
                   "ppi": 28.44,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "repeating/EW3102.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
                     "specifications": [
                       {"Qty per Box": "15.540"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/EW3102.jpg"
                   }
                 }
               ]
@@ -334,22 +336,24 @@
             {
               "code": "cosmopolitan",
               "displayName": "Cosmopolitan",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "repeating/EW3102.jpg",
               "colors": [
                 {
                   "code": "vernazza",
                   "displayName": "vernazza",
                   "ppi": 28.44,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "repeating/EW3102.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
                     "specifications": [
                       {"Qty per Box": "15.540"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/EW3102.jpg"
                   }
                 }
               ]
