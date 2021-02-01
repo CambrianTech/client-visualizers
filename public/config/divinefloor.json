@@ -315,7 +315,7 @@
               "colors": [
                 {
                   "code": "vernazza",
-                  "displayName": "vernazza",
+                  "displayName": "Vernazza",
                   "ppi": 28.44,
                   "thumbnail": "repeating/EW3102.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
@@ -329,6 +329,24 @@
                   },
                   "metaData": {
                     "albedo": "repeating/EW3102.jpg"
+                  }
+                },
+                {
+                  "code": "vernazza",
+                  "displayName": "Vernazza Heringbone",
+                  "ppi": 28.44,
+                  "thumbnail": "repeating/EW3102-H.jpg",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/EW3102-H.jpg"
                   }
                 }
               ]
