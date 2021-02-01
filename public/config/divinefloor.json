@@ -252,9 +252,7 @@
                       {"Texture": "Brushed"}
                     ]
                   },
-                  "metaData": {
-                    "albedo": "repeating/535538.jpg"
-                  }
+                  "metaData": {"albedo": "repeating/535538.jpg"}
                 },
                 {
                   "code": "moulins",
