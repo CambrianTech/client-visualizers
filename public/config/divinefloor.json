@@ -539,39 +539,30 @@
               "thumbnail": "branding/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "Vernazza",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "textures/EW3102.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW3102.jpg"
-                  }
-                },
-                {
-                  "code": "vernazza",
-                  "displayName": "Vernazza Heringbone",
-                  "ppi": 50,
-                  "thumbnail": "textures/EW3102-H.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "details": {
-                    "specifications": [
-                      {"Qty per Box": "15.540"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/EW3102-H.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -582,21 +573,30 @@
               "thumbnail": "branding/Cosmo-840px_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "vernazza",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "textures/EW3102.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW3102.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -607,19 +607,30 @@
               "thumbnail": "branding/Amarosa-840px_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "vernazza",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -630,19 +641,30 @@
               "thumbnail": "branding/Naturhaus-840px_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "vernazza",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -653,19 +675,30 @@
               "thumbnail": "branding/French-840px_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "vernazza",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -676,19 +709,30 @@
               "thumbnail": "branding/TKO-840px_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "vernazza",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -699,19 +743,30 @@
               "thumbnail": "branding/Coastline-840px2_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "vernazza",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -729,39 +784,30 @@
               "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
-                  "code": "montpellier",
-                  "displayName": "MONTPELLIER",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/535538.jpg"
-                  }
-                },
-                {
-                  "code": "moulins",
-                  "displayName": "MOULINS",
-                  "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/moulins/thumbnail.png",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/moulins/LouisXIV-Montpellier-Planks-RS.webp",
-                  "details": {
-                    "specifications": [
-                      {"Qty per Box": "15.540"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/538934.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -772,22 +818,30 @@
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "VERNAZZA",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -798,39 +852,30 @@
               "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
-                  "code": "montpellier",
-                  "displayName": "MONTPELLIER",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/535538.jpg"
-                  }
-                },
-                {
-                  "code": "moulins",
-                  "displayName": "MOULINS",
-                  "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/moulins/thumbnail.png",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/moulins/LouisXIV-Montpellier-Planks-RS.webp",
-                  "details": {
-                    "specifications": [
-                      {"Qty per Box": "15.540"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/538934.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -841,22 +886,30 @@
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "VERNAZZA",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -874,39 +927,30 @@
               "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
-                  "code": "montpellier",
-                  "displayName": "MONTPELLIER",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/535538.jpg"
-                  }
-                },
-                {
-                  "code": "moulins",
-                  "displayName": "MOULINS",
-                  "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/moulins/thumbnail.png",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/moulins/LouisXIV-Montpellier-Planks-RS.webp",
-                  "details": {
-                    "specifications": [
-                      {"Qty per Box": "15.540"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/538934.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -917,22 +961,30 @@
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "VERNAZZA",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -943,22 +995,30 @@
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "VERNAZZA",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -969,22 +1029,30 @@
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "VERNAZZA",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -1002,39 +1070,30 @@
               "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
-                  "code": "montpellier",
-                  "displayName": "MONTPELLIER",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/535538.jpg"
-                  }
-                },
-                {
-                  "code": "moulins",
-                  "displayName": "MOULINS",
-                  "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/moulins/thumbnail.png",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/moulins/LouisXIV-Montpellier-Planks-RS.webp",
-                  "details": {
-                    "specifications": [
-                      {"Qty per Box": "15.540"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/538934.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -1045,22 +1104,30 @@
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "vernazza",
-                  "displayName": "VERNAZZA",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
-                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
-                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
                   "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
                       {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
-                      {"Texture": "Brushed"}
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
