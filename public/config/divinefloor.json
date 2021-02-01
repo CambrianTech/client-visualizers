@@ -285,7 +285,25 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "repeating/538934.jpg"
+                    "albedo": "repeating/E09007.jpg"
+                  }
+                },
+                {
+                  "code": "moulins-parquet",
+                  "displayName": "MOULINS Parquet",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/moulins/thumbnail.png",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/moulins/LouisXIV-Montpellier-Planks-RS.webp",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/E09007-P.jpg"
                   }
                 }
               ]
