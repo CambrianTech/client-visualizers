@@ -512,13 +512,16 @@ export default function Visualizer(props: any) {
         //console.log(`${basePath}/textures/${url}`)
         if (!url && selectedProduct) {
             if (name === "preview") {
-                return `${config.basePath}/${selectedProduct.thumbnail}`
+                return `${brandPath}/${selectedProduct.thumbnail}`
             } else if (name==="share") {
-                return `${config.basePath}/${selectedProduct.thumbnail}`
+                return `${brandPath}/${selectedProduct.thumbnail}`
             }
         }
-        return `${config.basePath}/${url}`
-    }, [config, selectedProduct]);
+        if (url) {
+            return url.startsWith("http") ? url : `${brandPath}/${url}`
+        }
+        return "";
+    }, [brandPath, selectedProduct]);
 
     const className = useMemo(()=>{
         switch (activePanel) {
@@ -728,7 +731,7 @@ export default function Visualizer(props: any) {
 
                 <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
 
-                <img className={"floating-logo"} src={`${config.basePath}/${config.siteLogoImage}`} alt={"logo"} />
+                <img className={"floating-logo"} src={`${brandPath}/${config.siteLogoImage}`} alt={"logo"} />
 
                 <ToolsMenu
                     actions={toolActions}
