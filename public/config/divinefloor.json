@@ -298,6 +298,144 @@
                   }
                 }
               ]
+            },
+            {
+              "code": "cosmopolitan",
+              "displayName": "Cosmopolitan",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "vernazza",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "code": "amarosa",
+              "displayName": "Amarosa",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "vernazza",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "code": "naturhaus",
+              "displayName": "Naturhaus",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "vernazza",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "code": "french-impressions",
+              "displayName": "French Impressions",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "vernazza",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "code": "tko",
+              "displayName": "TKO",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "vernazza",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "code": "coastline",
+              "displayName": "Coastline",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "vernazza",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -307,8 +445,8 @@
           "thumbnail": "specialty-hardwood/thumbnail.png",
           "products": [
             {
-              "code": "louis-xiv-1",
-              "displayName": "LOUIS XIV",
+              "code": "chevron-hardwood",
+              "displayName": "Chevron Hardwood",
               "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
@@ -350,8 +488,77 @@
               ]
             },
             {
-              "code": "farmhouse",
-              "displayName": "Farmhouse",
+              "code": "herringbone-hardood",
+              "displayName": "Herringbone Hardwood",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "VERNAZZA",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/E01003.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "code": "parquet-hardwood",
+              "displayName": "Parquet Hardwood",
+              "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
+              "colors": [
+                {
+                  "code": "montpellier",
+                  "displayName": "MONTPELLIER",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/535538.jpg"
+                  }
+                },
+                {
+                  "code": "moulins",
+                  "displayName": "MOULINS",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/moulins/thumbnail.png",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/moulins/LouisXIV-Montpellier-Planks-RS.webp",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/538934.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "code": "xl-hardood",
+              "displayName": "XL Hardwood",
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
@@ -383,8 +590,8 @@
           "thumbnail": "luxury-vinyl/thumbnail.png",
           "products": [
             {
-              "code": "louis-xiv-1",
-              "displayName": "LOUIS XIV",
+              "code": "passage",
+              "displayName": "Passage",
               "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
@@ -426,8 +633,60 @@
               ]
             },
             {
-              "code": "farmhouse",
+              "code": "voyage",
               "displayName": "Farmhouse",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "VERNAZZA",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/E01003.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "code": "voyage-2",
+              "displayName": "Voyage-ii",
+              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "colors": [
+                {
+                  "code": "vernazza",
+                  "displayName": "VERNAZZA",
+                  "ppi": 28.44,
+                  "thumbnail": "hardwood/louis-xiv/montpellier/thumbnail.webp",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "preview": "hardwood/louis-xiv/montpellier/LouisXIV-Montpellier-Planks-RS.webp",
+                  "albedo": "hardwood/louis-xiv/montpellier/tiled_diffuse.jpg",
+                  "details": {
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "repeating/E01003.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "code": "quest",
+              "displayName": "Quest",
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
@@ -459,8 +718,8 @@
           "thumbnail": "laminate/thumbnail.png",
           "products": [
             {
-              "code": "louis-xiv-1",
-              "displayName": "LOUIS XIV",
+              "code": "maestro",
+              "displayName": "Maestro",
               "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
@@ -502,8 +761,8 @@
               ]
             },
             {
-              "code": "farmhouse",
-              "displayName": "Farmhouse",
+              "code": "naturhaus",
+              "displayName": "Naturhaus Laminate",
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
