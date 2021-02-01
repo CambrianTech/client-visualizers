@@ -231,12 +231,12 @@
         {
           "code": "hardwood",
           "displayName": "Hardwood",
-          "thumbnail": "hardwood/thumbnail.png",
+          "thumbnail": "branding/hardwood.png",
           "products": [
             {
               "code": "louis-xiv-1",
               "displayName": "Louis XIV",
-              "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
+              "thumbnail": "branding/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
                   "code": "montpellier",
@@ -311,7 +311,7 @@
             {
               "code": "farmhouse",
               "displayName": "Farmhouse",
-              "thumbnail": "repeating/EW3102.jpg",
+              "thumbnail": "branding/Farmhouse2-20_240x.png",
               "colors": [
                 {
                   "code": "vernazza",
@@ -354,7 +354,7 @@
             {
               "code": "cosmopolitan",
               "displayName": "Cosmopolitan",
-              "thumbnail": "repeating/EW3102.jpg",
+              "thumbnail": "branding/Cosmo-840px_240x.png",
               "colors": [
                 {
                   "code": "vernazza",
@@ -379,7 +379,7 @@
             {
               "code": "amarosa",
               "displayName": "Amarosa",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/Amarosa-840px_240x.png",
               "colors": [
                 {
                   "code": "vernazza",
@@ -402,7 +402,7 @@
             {
               "code": "naturhaus",
               "displayName": "Naturhaus",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/Naturhaus-840px_240x.png",
               "colors": [
                 {
                   "code": "vernazza",
@@ -425,7 +425,7 @@
             {
               "code": "french-impressions",
               "displayName": "French Impressions",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/French-840px_240x.png",
               "colors": [
                 {
                   "code": "vernazza",
@@ -448,7 +448,7 @@
             {
               "code": "tko",
               "displayName": "TKO",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/TKO-840px_240x.png",
               "colors": [
                 {
                   "code": "vernazza",
@@ -471,7 +471,7 @@
             {
               "code": "coastline",
               "displayName": "Coastline",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/Coastline-840px2_240x.png",
               "colors": [
                 {
                   "code": "vernazza",
@@ -496,7 +496,7 @@
         {
           "code": "specialty-hardwood",
           "displayName": "Specialty Hardwood",
-          "thumbnail": "specialty-hardwood/thumbnail.png",
+          "thumbnail": "branding/specialty-hardwood.png",
           "products": [
             {
               "code": "chevron-hardwood",
@@ -641,7 +641,7 @@
         {
           "code": "luxury-vinyl",
           "displayName": "Luxury Vinyl",
-          "thumbnail": "luxury-vinyl/thumbnail.png",
+          "thumbnail": "branding/luxury-vinyl.png",
           "products": [
             {
               "code": "passage",
@@ -769,7 +769,7 @@
         {
           "code": "laminate",
           "displayName": "Laminate",
-          "thumbnail": "laminate/thumbnail.png",
+          "thumbnail": "branding/laminate.png",
           "products": [
             {
               "code": "maestro",

@@ -97,9 +97,9 @@ export default function Visualizer(props: any) {
         }
     }, [siteContext.state.siteData]);
 
-    const texturePath = useMemo(()=>{
+    const brandPath = useMemo(()=>{
         if (config) {
-            return `${config.basePath}/textures`
+            return `${config.basePath}`
         }
     }, [config]);
 
@@ -254,9 +254,9 @@ export default function Visualizer(props: any) {
             return resolveThumbnailPath(swatchItem.children[0])
         }
 
-        return `${texturePath}/${swatchItem.thumbnail}`;
+        return `${brandPath}/${swatchItem.thumbnail}`;
 
-    }, [texturePath]);
+    }, [brandPath]);
 
     const assetClicked = useCallback((asset:CBARSurfaceAsset) => {
         setSelectedAsset(asset);
@@ -281,13 +281,13 @@ export default function Visualizer(props: any) {
 
         if (color.metaData) {
             if (color.metaData.hasOwnProperty("albedo")) {
-                material.textures.albedo = `${texturePath}/${color.metaData.albedo}`
+                material.textures.albedo = `${brandPath}/${color.metaData.albedo}`
             }
             if (color.metaData.hasOwnProperty("normals")) {
-                material.textures.normals = `${texturePath}/${color.metaData.normals}`
+                material.textures.normals = `${brandPath}/${color.metaData.normals}`
             }
             if (color.metaData.hasOwnProperty("specular")) {
-                material.textures.roughness = `${texturePath}/${color.metaData.specular}`
+                material.textures.roughness = `${brandPath}/${color.metaData.specular}`
             }
         }
 
@@ -319,7 +319,7 @@ export default function Visualizer(props: any) {
         }).catch((error:any) => {
             console.error(error)
         })
-    }, [texturePath, context, selectedSurface]);
+    }, [brandPath, context, selectedSurface]);
 
     const handleVisualizerEvent = useCallback((event:CBARMouseEvent) => {
         if (!currentScene) return;
@@ -748,7 +748,7 @@ export default function Visualizer(props: any) {
                 {!rightPanelOpen && selectedRow && selectedProduct && (
                     <div className={"floating-product-info"}>
                         <div className={"product-swatch"} style={{background:selectedProduct.color}}>
-                            {texturePath && <img alt={selectedProduct.displayName} src={`${texturePath}/${selectedProduct.thumbnail}`} />}
+                            {brandPath && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
                         </div>
                         <div className={"product-name"}>
                             {selectedRow.displayName} - {selectedProduct.displayName}
@@ -808,5 +808,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [className, activePanel, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, texturePath, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
+    ), [className, activePanel, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, brandPath, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
 }
