@@ -539,22 +539,22 @@
               "thumbnail": "branding/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "E09002",
-                  "displayName": "CHAMPAGNE",
+                  "code": "EW3102",
+                  "displayName": "EUROPEAN OAK",
                   "ppi": 50,
-                  "thumbnail": "textures/E09002.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "thumbnail": "textures/EW3102.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-vernazza-europeanoak-8156",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse-Vernazza-RS-6_1024x1024.jpg?v=1609802047",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "23.310"},
                       {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
+                      {"Finish": "Hard Wax Oil"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
-                      {"Species": "French White Oak"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "European Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
                       {"Installation Methods": "Nail/Glue"},
@@ -562,7 +562,331 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E09002.jpg"
+                    "albedo": "textures/EW3102.jpg"
+                  }
+                },
+                {
+                  "code": "EW3102-H",
+                  "displayName": "EUROPEAN OAK H",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW3102-H.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-vernazza-europeanoak-8156",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse-Vernazza-RS-6_1024x1024.jpg?v=1609802047",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "European Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW3102-H.jpg"
+                  }
+                },
+                {
+                  "code": "EW3104",
+                  "displayName": "CORSANELLO",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW3104.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-corsanello-walnut-8158",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_1ed217ff-0cde-48eb-bcf5-6e3cd9769159_1024x1024.jpg?v=1570809415",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW3104.jpg"
+                  }
+                },
+                {
+                  "code": "EW3104-H",
+                  "displayName": "CORSANELLO H",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW3104-H.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-corsanello-walnut-8161",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse_Corsanello_Herringbone-chair_1024x1024.jpg?v=1570809508",
+                    "specifications": [
+                      {"Qty per Box": "14.100"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW3104-H.jpg"
+                  }
+                },
+                {
+                  "code": "E03002",
+                  "displayName": "CABBIAVOLI",
+                  "ppi": 50,
+                  "thumbnail": "textures/E03002.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-chateauneuf-europeanoak-6488",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse_Cabbiavoli-RS_1024x1024.jpg?v=1601050141",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E03002.jpg"
+                  }
+                },
+                {
+                  "code": "E03016",
+                  "displayName": "TENUTA MORIANO",
+                  "ppi": 50,
+                  "thumbnail": "textures/E03016.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-tenutamoriano-europeanoak-5925",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Tenuta-4_1024x1024.jpg?v=1570809842",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E03016.jpg"
+                  }
+                },
+                {
+                  "code": "E03015",
+                  "displayName": "QUADRIFOGLIO",
+                  "ppi": 50,
+                  "thumbnail": "textures/E03015.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-quadrifoglio-europeanoak-6495",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse-Quadrifoglio-scene-1_1024x1024.jpg?v=1570809733",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E03015.jpg"
+                  }
+                },
+                {
+                  "code": "E03004",
+                  "displayName": "CHATEAUNEUF",
+                  "ppi": 50,
+                  "thumbnail": "textures/E03004.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-chateauneuf-european-oak",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse-Chateauneuf-RS_1024x1024.jpg?v=1570809182",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E03004.jpg"
+                  }
+                },
+                {
+                  "code": "E03014",
+                  "displayName": "MONTBELLARD",
+                  "ppi": 50,
+                  "thumbnail": "textures/E03014.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-montbellard-europeanoak-6486",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse-Chateauneuf-RS_1024x1024.jpg?v=1570809182",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "European Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E03014.jpg"
+                  }
+                },
+                {
+                  "code": "EW3105-X",
+                  "displayName": "ABRUZZO",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW3105-X.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-abruzzo-maple-8162",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_6f100cd0-a21f-45dc-b0aa-c6979d7c1a65_1024x1024.jpg?v=1570808693",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Maple"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW3105-X.jpg"
+                  }
+                },
+                {
+                  "code": "E03006",
+                  "displayName": "ESCAMBERT",
+                  "ppi": 50,
+                  "thumbnail": "textures/E03006.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-escambert-europeanoak-6490",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Escambert_1_1024x1024.jpg?v=1570809616",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Maple"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E03006.jpg"
+                  }
+                },
+                {
+                  "code": "EW3106-X",
+                  "displayName": "GREGORIANO",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW3106-X.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-escambert-europeanoak-6490",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Escambert_1_1024x1024.jpg?v=1570809616",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Maple"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW3106-X.jpg"
+                  }
+                },
+                {
+                  "code": "EW3101",
+                  "displayName": "TERENZI",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW3101.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-terenzi-maple-8155",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse-Terenzi-RS6_1024x1024.jpg?v=1586364784",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Maple"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW3101.jpg"
                   }
                 }
               ]
