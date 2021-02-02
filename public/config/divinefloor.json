@@ -954,29 +954,407 @@
             },
             {
               "code": "amarosa",
-              "displayName": "Amarosa",
+              "displayName": "Amarosa/ Amarosa Grande",
               "thumbnail": "branding/Amarosa-840px_240x.png",
               "colors": [
                 {
-                  "code": "E09002",
-                  "displayName": "CHAMPAGNE",
+                  "code": "EW1201",
+                  "displayName": "Puro",
                   "ppi": 50,
                   "thumbnail": "textures/E09002.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-puro-oak-7985",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/AmarosaGrande-Puro-scene-1.jpg?v=1589980521",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "29.450"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW1105",
+                  "displayName": "Luminoso",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-luminoso-ash-3069",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Luminoso-scene-1.jpg?v=1585664316",
+                    "specifications": [
+                      {"Qty per Box": "29.53"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Ash"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW1102",
+                  "displayName": "Grigio",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-grigio-oak-3065",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Grigio-scene-1.jpg?v=1585664108",
+                    "specifications": [
+                      {"Qty per Box": "29.53"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW1203",
+                  "displayName": "Cigarro",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-cigarro-oak-7987",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/AmarosaGrande-Cigarro-scene-1.jpg?v=1589980516",
+                    "specifications": [
+                      {"Qty per Box": "29.450"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E01016",
+                  "displayName": "Allure",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-allure-walnut-2049",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Allure-scene-1.jpg?v=1589980509",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
                       {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
-                      {"Species": "French White Oak"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Walnut"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW1107",
+                  "displayName": "Natural",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-oak-4810",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Natural_Oak-scene-1.jpg?v=1585664507",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW1101",
+                  "displayName": "Fresco",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-fresco-ash-3064",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Fresco-scene-1.jpg?v=1585663957",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Ash"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW1202",
+                  "displayName": "Caldo",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-caldo-oak-7986",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/AmarosaGrande-Caldo-scene-1.jpg?v=1589980514",
+                    "specifications": [
+                      {"Qty per Box": "29.450"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E01008",
+                  "displayName": "Chateau",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-chateau-walnut-2056",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Chateau-scene-1.jpg?v=1589980511",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Smooth"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E01005",
+                  "displayName": "Iced",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-iced-walnut-4231",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Iced-scene-1.jpg?v=1585664202",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E01011",
+                  "displayName": "Natural",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-hickory-1414",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Natural_Hickory-scene-1.jpg?v=1585664432",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Hickory"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW1204",
+                  "displayName": "Profundo",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-profundo-oak-7988",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/AmarosaGrande-Profundo-scene-1.jpg?v=1589980519",
+                    "specifications": [
+                      {"Qty per Box": "29.450"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E01009",
+                  "displayName": "Natural",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-sapele-7750",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Natural_Sapele-scene-1.jpg?v=1585664567",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Smooth"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Sapele"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW1103",
+                  "displayName": "Tono Medio",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-tonomedio-ash-3066",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Tono_Medio-scene-1.jpg?v=1585664621",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Ash"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E01003",
+                  "displayName": "Basalt",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-basalt-oak",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Basalt-scene-1.jpg?v=1591810435",
+                    "specifications": [
+                      {"Qty per Box": "29.53"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
                       {"Over Radiant Heat": "Yes"}
                     ]
                   },
@@ -992,25 +1370,106 @@
               "thumbnail": "branding/Naturhaus-840px_240x.png",
               "colors": [
                 {
-                  "code": "E09002",
-                  "displayName": "CHAMPAGNE",
+                  "code": "535538",
+                  "displayName": "Oak Crème",
                   "ppi": 50,
                   "thumbnail": "textures/E09002.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "url": "https://divinefloor.com/collections/naturhaus-wood/products/naturhaus-oak-creme-white-markant",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Parkett_Haro_Oak_Creme_White-RS.jpg?v=1572025331",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "34.12"},
                       {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
+                      {"Finish": "naturaLin"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
-                      {"Species": "French White Oak"},
+                      {"Width": "7\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "86 1/2\""},
+                      {"Species": "Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "538934",
+                  "displayName": "Oak Crystal White",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/naturhaus-wood/products/naturhaus-oak-crystal-white-markant",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Parkett_Haro_Oak_Crystal_White-RS.jpg?v=1572025239",
+                    "specifications": [
+                      {"Qty per Box": "34.12"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "naturaLin"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "86 1/2\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "538940",
+                  "displayName": "Fumed Oak Puro White",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/naturhaus-wood/products/naturhaus-fumed-oak-puro-white-sauvage",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Parkett_Haro_Fumed_Oak_Puro_White-RS2.jpg?v=1572025152",
+                    "specifications": [
+                      {"Qty per Box": "34.1216"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "naturaLin"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "86 1/2\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "539088",
+                  "displayName": "Oak Reed Brown",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/naturhaus-wood/products/naturhaus-oak-reed-brown-markant",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Parkett_Haro_Oak_Reed_Brown-RS.jpg?v=1572025364",
+                    "specifications": [
+                      {"Qty per Box": "34.12"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "naturaLin"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "86 1/2\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
                       {"Over Radiant Heat": "Yes"}
                     ]
                   },
@@ -1026,26 +1485,242 @@
               "thumbnail": "branding/French-840px_240x.png",
               "colors": [
                 {
-                  "code": "E09002",
-                  "displayName": "CHAMPAGNE",
+                  "code": "EW4106",
+                  "displayName": "Chardonnay",
                   "ppi": 50,
                   "thumbnail": "textures/E09002.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-chardonnay-oak-7989",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Chardonnay-scene-1.jpg?v=1585668300",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "29.530"},
                       {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
-                      {"Species": "French White Oak"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Hand-Scraped, Artisan Blend"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
+                      {"Installation Methods": "Nail/Glue/Float"},
                       {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E04003",
+                  "displayName": "Natural",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-natural-walnut-8372",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/FrenchImpressions-Natural_Walnut-scene-1.jpg?v=1585668593",
+                    "specifications": [
+                      {"Qty per Box": "23.56"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Hand-Scraped"},
+                      {"Width": "3\", 4\",5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW4102",
+                  "displayName": "Charlemagne",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-charlemagne-oak-3071",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Charlemagne-scene-1.jpg?v=1585668344",
+                    "specifications": [
+                      {"Qty per Box": "29.53"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E02003",
+                  "displayName": "Disaronno",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-disaronno-hickory-7159",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/FrenchImpressions-Disaronno-scene-1.jpg?v=1585668388",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed, Hand-Scraped"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Hickory"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW4101",
+                  "displayName": "Chambord",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-chambord-hickory-3070",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Chambord-scene-1.jpg?v=1585668261",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed, Hand-Scraped"},
+                      {"Width": "3\", 4\", 5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Hickory"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW4107",
+                  "displayName": "Giverny",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-giverny-oak-7990",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Giverny-scene-1.jpg?v=1585668477",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Hand-Scraped"},
+                      {"Width": "3\", 4\", 5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW4103",
+                  "displayName": "Fontainebleau",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-fontainebleau-oak-3072",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Fontainebleau-scene-1.jpg?v=1585668444",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed, Hand-Scraped"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW4104",
+                  "displayName": "Montresor",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-montresor-maple-3073",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Montresor-scene-1.jpg?v=1585668549",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Hand-Scraped"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Maple"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "E04007",
+                  "displayName": "Tanzania",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-tanzania-maple-2143",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/FrenchImpressions-Tanzania-scene-1.jpg?v=1585668636",
+                    "specifications": [
+                      {"Qty per Box": "29.530"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Smooth, Hand-Scraped"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "Random"},
+                      {"Species": "Maple"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
                     ]
                   },
                   "metaData": {
@@ -1060,25 +1735,268 @@
               "thumbnail": "branding/TKO-840px_240x.png",
               "colors": [
                 {
-                  "code": "E09002",
-                  "displayName": "CHAMPAGNE",
+                  "code": "EW7006",
+                  "displayName": "Hammer Fist",
                   "ppi": 50,
                   "thumbnail": "textures/E09002.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-hammerfist-oak-6634",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_93295803-0051-4aa3-8ce6-91177fc284cd_1024x1024.jpg?v=1585251951",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "24.610"},
                       {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
+                      {"Finish": "Pro-Tect"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
+                      {"Width": "5\""},
                       {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
-                      {"Species": "French White Oak"},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7010",
+                  "displayName": "Southpaw",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-southpaw-oak-7991",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/TKO-Southpaw-RS2.jpg?v=1591820095",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Pro-Tect"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7003",
+                  "displayName": "Left Hook",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-lefthook-maple-6636",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/TKO-Left_Hook-flr-1_1024x1024.jpg?v=1585251947",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Pro-Tect"},
+                      {"Texture": "Smooth"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Maple"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7001",
+                  "displayName": "Bare Knuckle",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-bareknuckle-maple-6638",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_d383b864-fe9f-4f8a-b279-9ec03787e307_1024x1024.jpg?v=1585251952",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Pro-Tect"},
+                      {"Texture": "Smooth"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Maple"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7009",
+                  "displayName": "Sucker Punch",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-suckerpunch-oak-6631",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_afc91c15-8205-4586-bbfe-c3b686e5db31_1024x1024.jpg?v=1585251943",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Pro-Tect"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7002",
+                  "displayName": "Haymaker",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-haymaker-maple-6637",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_3b627ca1-ded1-4506-a1ca-11ba6250d9c6_1024x1024.jpg?v=1585251949",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Pro-Tect"},
+                      {"Texture": "Smooth"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Maple"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7011",
+                  "displayName": "Uppercut",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-uppercut-oak-7992",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_2c2aff0f-c42d-4a87-a5f4-ab3ed49b76c3_1024x1024.jpg?v=1585251941",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7008",
+                  "displayName": "Right Hook",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-righthook-oak-6632",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_f83d731c-473d-4db7-8259-ed7fffb978f7_1024x1024.jpg?v=1585251945",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Pro-Tect"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7004",
+                  "displayName": "Lightweight",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-lightweight-maple-6635",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_b8361d4b-f061-4983-9e50-1dbd88ee566c_1024x1024.jpg?v=1585251946",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Pro-Tect"},
+                      {"Texture": "Smooth"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Maple"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "No"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EW7007",
+                  "displayName": "Heavyweight",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/tko/products/tko-heavyweight-oak-6633",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_463ff262-e2c4-42a3-aebf-5680f9f9d270_1024x1024.jpg?v=1585251948",
+                    "specifications": [
+                      {"Qty per Box": "24.610"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Pro-Tect"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": ""},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
                       {"Over Radiant Heat": "Yes"}
                     ]
                   },
@@ -1094,25 +2012,214 @@
               "thumbnail": "branding/Coastline-840px2_240x.png",
               "colors": [
                 {
-                  "code": "E09002",
-                  "displayName": "CHAMPAGNE",
+                  "code": "EC5108",
+                  "displayName": "Nautical Mile",
                   "ppi": 50,
                   "thumbnail": "textures/E09002.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "url": "https://divinefloor.com/collections/coastline/products/coastline-nauticalmile-riftoak-3083",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Nautical_Mile-scene-1.jpg?v=1585664980",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "25.830"},
                       {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
-                      {"Species": "French White Oak"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Rift Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EC5105",
+                  "displayName": "High Tide",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/coastline/products/coastline-hightide-riftoak-3080",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-High_Tide-scene-1.jpg?v=1585664764",
+                    "specifications": [
+                      {"Qty per Box": "25.830"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Rift Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EC5106",
+                  "displayName": "Lost at Sea",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/coastline/products/coastline-lostatsea-riftoak-3081",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Lost_At_Sea-scene-1.jpg?v=1585664900",
+                    "specifications": [
+                      {"Qty per Box": "25.830"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Rift Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EC5104",
+                  "displayName": "Shipwrecked",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/coastline/products/coastline-shipwrecked-oak-3078",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Shipwrecked-scene-1.jpg?v=1589982693",
+                    "specifications": [
+                      {"Qty per Box": "25.830"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EC5101",
+                  "displayName": "Arctic Bark",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/coastline/products/coastline-arcticbark-ash-3075",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Arctic_Bark-scene-1.jpg?v=1585664684",
+                    "specifications": [
+                      {"Qty per Box": "25.830"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Ash"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EC5102",
+                  "displayName": "Lagoon",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/coastline/products/coastline-lagoon-ash-3076",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Lagoon-scene-1.jpg?v=1589982125",
+                    "specifications": [
+                      {"Qty per Box": "25.830"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Ash"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EC5107",
+                  "displayName": "Moonlit Shore",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/coastline/products/coastline-moonlitshore-riftoak-3082",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Moonlit_Shore-scene-1.jpg?v=1585664939",
+                    "specifications": [
+                      {"Qty per Box": "25.830"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Rift Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E09002.jpg"
+                  }
+                },
+                {
+                  "code": "EC5103",
+                  "displayName": "Ashore",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/coastline/products/coastline-ashore-oak-3077",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Ashore-scene-1.jpg?v=1585664724",
+                    "specifications": [
+                      {"Qty per Box": "25.830"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "1/2\""},
+                      {"Length": "Random"},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue/Float"},
                       {"Over Radiant Heat": "Yes"}
                     ]
                   },
