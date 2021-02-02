@@ -888,6 +888,33 @@
                   "metaData": {
                     "albedo": "textures/EW3101.jpg"
                   }
+                },
+                {
+                  "code": "E03003",
+                  "displayName": "CAPBOURTEIL",
+                  "ppi": 50,
+                  "thumbnail": "textures/E03003.jpg",
+                  "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-capbourteil-europeanoak-6489",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Farmhouse-CapBourteil-RS_1024x1024.jpg?v=1570808873",
+                    "specifications": [
+                      {"Qty per Box": "23.310"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed, Riverstone"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "European Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/E03003.jpg"
+                  }
                 }
               ]
             },
