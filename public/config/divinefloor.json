@@ -1780,25 +1780,25 @@
             {
               "code": "chevron-hardwood",
               "displayName": "Chevron Hardwood",
-              "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
+              "thumbnail": "branding/Chevron_240x.png",
               "colors": [
                 {
-                  "code": "E09002",
-                  "displayName": "CHAMPAGNE",
+                  "code": "EW8011-C",
+                  "displayName": "NAKED",
                   "ppi": 50,
-                  "thumbnail": "textures/E09002.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "thumbnail": "textures/EW8011-C.jpg",
+                  "url": "https://divinefloor.com/collections/chevron-hardwood/products/cosmopolitan-naked-europeanoak-8150",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_ba4563cf-f18c-4f1f-8151-9fbf2787d21c_1024x1024.jpg?v=1570807793",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "20.180"},
                       {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
-                      {"Species": "French White Oak"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Smooth"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "24 5/8\""},
+                      {"Species": "European Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
                       {"Installation Methods": "Nail/Glue"},
@@ -1806,33 +1806,60 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E09002.jpg"
+                    "albedo": "textures/EW8011-C.jpg"
                   }
-                }
+                },
+                {
+                  "code": "EW8002-C",
+                  "displayName": "CHARLIE",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW8002-C.jpg",
+                  "url": "https://divinefloor.com/collections/chevron-hardwood/products/cosmopolitan-charlie-europeanoak-8151",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_a57dd4e1-8926-46a5-a2ad-ec6e58d4f733_1024x1024.jpg?v=1570806681",
+                    "specifications": [
+                      {"Qty per Box": "20.180"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "24 5/8\""},
+                      {"Species": "European Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW8002-C.jpg"
+                  }
+                }                
               ]
             },
             {
-              "code": "herringbone-hardood",
+              "code": "herringbone-hardwood",
               "displayName": "Herringbone Hardwood",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/Herringbone_240x.png",
               "colors": [
                 {
-                  "code": "E09002",
-                  "displayName": "CHAMPAGNE",
+                  "code": "EW3102-H",
+                  "displayName": "VERNAZZA",
                   "ppi": 50,
-                  "thumbnail": "textures/E09002.jpg",
-                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                  "thumbnail": "textures/EW3102-H.jpg",
+                  "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-vernazza-europeanoak-8159",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_65af8608-b599-4760-b606-3a4d79320506_1024x1024.jpg?v=1603996461",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "14.100"},
                       {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
+                      {"Finish": "Hard Wax Oil"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
-                      {"Species": "French White Oak"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "European Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
                       {"Installation Methods": "Nail/Glue"},
@@ -1840,15 +1867,69 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E09002.jpg"
+                    "albedo": "textures/EW3102-H.jpg"
                   }
-                }
+                },
+                {
+                  "code": "EW3104-H",
+                  "displayName": "CORSANELLO",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW3104-H.jpg",
+                  "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-corsanello-walnut-8161",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_207ba078-9fc6-4b01-a706-07081136aed6_1024x1024.jpg?v=1570809446",
+                    "specifications": [
+                      {"Qty per Box": "14.100"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Hard Wax Oil"},
+                      {"Texture": "Brushed"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "Walnut"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW3104-H.jpg"
+                  }
+                },
+                {
+                  "code": "EW3103-H",
+                  "displayName": "COMPIANO",
+                  "ppi": 50,
+                  "thumbnail": "textures/EW3103-H.jpg",
+                  "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-compiano-europeanoak-8160",
+                  "details": {
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_382fc53b-73dc-4ee0-940e-a50484a60c0f_1024x1024.jpg?v=1570809332",
+                    "specifications": [
+                      {"Qty per Box": "14.100"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed, Saw Marks"},
+                      {"Width": "5\""},
+                      {"Thickness": "5/8\""},
+                      {"Length": "34 3/8\""},
+                      {"Species": "European Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/EW3103-H.jpg"
+                  }
+                }                                
               ]
             },
             {
               "code": "parquet-hardwood",
               "displayName": "Parquet Hardwood",
-              "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
+              "thumbnail": "branding/Parquet-840px_240x.png",
               "colors": [
                 {
                   "code": "E09002",
@@ -1880,9 +1961,9 @@
               ]
             },
             {
-              "code": "xl-hardood",
+              "code": "xl-hardwood",
               "displayName": "XL Hardwood",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/XL-1_240x.png",
               "colors": [
                 {
                   "code": "E09002",
