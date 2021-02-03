@@ -5,10 +5,11 @@ import cv2
 import numpy as np
 import sys
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageEnhance
 
 import click
 import random
+import math
 
 def get_image_paths(input_dir, pattern):
     files = []
@@ -195,8 +196,95 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
     if len(images):
         assemble_segments(last_out_dir,images)
 
+def find_tile_lines(gray, apertureSize=5, use_hough=False):
+    diagonal = math.hypot(gray.shape[0], gray.shape[1])
+
+    minLineLength = int(diagonal / 30)
+    maxLineGap = int(diagonal / 10)
+
+    if use_hough:
+        _, thresh1 = cv2.threshold(gray,127,255,cv2.THRESH_BINARY)
+        edges = cv2.Canny(thresh1,50,200,apertureSize)
+        lines = cv2.HoughLinesP(edges,1,np.pi/180,10,minLineLength,maxLineGap)
+    else:
+        fld = cv2.ximgproc.createFastLineDetector(minLineLength, maxLineGap, 80, 200, apertureSize)
+        lines = fld.detect(gray)
+
+    return lines
+
+def find_tiles(img, max_size=1920):
+
+    size = img.shape[:2]
+    scale = min(max_size / min(size[0], size[1]), 1.0)
+    if scale < 1.0:
+        size = (int(scale * size[0]), int(scale * size[1]))
+        img = cv2.resize(img, (size[1], size[0]))
+
+    diagonal = math.hypot(img.shape[0], img.shape[1])
+    image = Image.fromarray(img).convert('L')
+    gray = np.array(image)
+
+    image = ImageEnhance.Contrast(image).enhance(20.0)
+    image = ImageEnhance.Sharpness(image).enhance(10.0)
+    enhanced = np.array(image)
+
+    # _, thresh1 = cv2.threshold(gray,127,255,cv2.THRESH_BINARY)
+    # edges = cv2.Canny(thresh1,50,200, apertureSize = 5)
+    # return edges
+    all_lines = find_tile_lines(gray)
+    all_lines = np.concatenate((all_lines,find_tile_lines(gray)))
+
+    debug = img.copy()
+    if debug is not None:
+        for line in all_lines:
+            cv2.line(debug,(line[0][0],line[0][1]),(line[0][2],line[0][3]),(0,255,0),6)
+
+    return debug
+
+def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
+    files = get_image_paths(input_dir, pattern)
+
+    textures_output_dir = os.path.join(output_dir, "textures")
+    if not os.path.exists(textures_output_dir):
+        os.makedirs(textures_output_dir)
+
+    thumbnails_output_dir = os.path.join(output_dir, "thumbnails")
+    if not os.path.exists(thumbnails_output_dir):
+        os.makedirs(thumbnails_output_dir)
+
+    debug_output_dir = os.path.join(output_dir, "debug")
+    if not os.path.exists(debug_output_dir):
+        os.makedirs(debug_output_dir)
+
+    for path in files:
+        filename = os.path.basename(path).split('.')[0].strip()
+        img = np.array(Image.open(path).convert('RGB'))
+        size = img.shape[:2]
+        scale = min(max_size / min(size[0], size[1]), 1.0)
+        if scale < 1.0:
+            size = (int(scale * size[0]), int(scale * size[1]))
+            img = cv2.resize(img, (size[1], size[0]))
+
+        print(filename, scale)
+        debug = find_tiles(img)
+        if debug is not None:
+            Image.fromarray(debug).save(os.path.join(debug_output_dir, filename + ".jpg"))
+
+        #save image
+        Image.fromarray(img).save(os.path.join(textures_output_dir, filename + ".jpg"))
+
+        #save thumb
+        t_scale = thumbnail_size / min(size[0], size[1])
+        t_size = (int(t_scale * size[0]), int(t_scale * size[1]))
+        t_img = cv2.resize(img, (t_size[1], t_size[0]))
+        t_left = t_size[1]-thumbnail_size
+        t_top = t_size[0]-thumbnail_size
+
+        Image.fromarray(t_img).crop((t_left, t_top, t_left+thumbnail_size, t_top+thumbnail_size)).save(os.path.join(thumbnails_output_dir, filename + ".jpg"))
+
+
 @click.command()
-@click.option('--mode', '-m', required=True, type=click.Choice(['assemble', 'cut'], case_sensitive=False))
+@click.option('--mode', '-m', required=True, type=click.Choice(['assemble', 'cut', 'extract'], case_sensitive=False))
 @click.argument("input_dir", default='input', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
@@ -216,8 +304,9 @@ def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, s
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
-
-    if mode == 'cut':
+    if mode == 'extract':
+        extract_tiles(input_dir, output_dir, pattern, max_size=size)
+    elif mode == 'cut':
         with open(data_file) as f:
             data = json.load(f)
         crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality)

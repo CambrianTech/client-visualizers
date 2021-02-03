@@ -281,13 +281,16 @@ export default function Visualizer(props: any) {
 
         if (color.metaData) {
             if (color.metaData.hasOwnProperty("albedo")) {
-                material.textures.albedo = `${brandPath}/${color.metaData.albedo}`
+                material.textures.albedo = `${brandPath}/${color.metaData.albedo}`;
             }
             if (color.metaData.hasOwnProperty("normals")) {
-                material.textures.normals = `${brandPath}/${color.metaData.normals}`
+                material.textures.normals = `${brandPath}/${color.metaData.normals}`;
             }
             if (color.metaData.hasOwnProperty("specular")) {
-                material.textures.roughness = `${brandPath}/${color.metaData.specular}`
+                material.textures.roughness = `${brandPath}/${color.metaData.specular}`;
+            }
+            if (color.metaData.hasOwnProperty("mirrored")) {
+                material.mirrored = color.metaData.mirrored;
             }
         }
 
