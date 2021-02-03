@@ -2887,7 +2887,7 @@
             {
               "code": "passage",
               "displayName": "Passage",
-              "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
+              "thumbnail": "branding/Passage-840px_240x.png",
               "colors": [
                 {
                   "code": "VT1007",
@@ -3164,7 +3164,7 @@
             {
               "code": "voyage",
               "displayName": "Voyage",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/Voyage-option1-840px_240x.png",
               "colors": [
                 {
                   "code": "VP2027",
@@ -3657,7 +3657,7 @@
             {
               "code": "voyage-2",
               "displayName": "Voyage II",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/Voyage_II-840px2_240x.png",
               "colors": [
                 {
                   "code": "VP3002",
@@ -3880,7 +3880,7 @@
             {
               "code": "quest",
               "displayName": "Quest",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/Quest-840px_240x.png",
               "colors": [
                 {
                   "code": "VP4007",
@@ -4245,7 +4245,7 @@
             {
               "code": "maestro",
               "displayName": "Maestro",
-              "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
+              "thumbnail": "branding/Test_Maestro-30_240x.png",
               "colors": [
                 {
                   "code": "L22005",
@@ -4495,7 +4495,7 @@
             {
               "code": "naturhaus",
               "displayName": "Naturhaus Laminate",
-              "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
+              "thumbnail": "branding/Naturhaus-840px_240x.png",
               "colors": [
                 {
                   "code": "539149",
