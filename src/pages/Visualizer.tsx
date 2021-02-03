@@ -789,6 +789,7 @@ export default function Visualizer(props: any) {
                                      visible={activePanel === Panel.ProductInfo}
                                      title={selectedProduct.parent.displayName}
                                      subTitle={selectedProduct.displayName}
+                                     code={selectedProduct.code}
                                      resolveUrl={resolveDetailsUrl}
                                      details={productDetails}
                         />)}
