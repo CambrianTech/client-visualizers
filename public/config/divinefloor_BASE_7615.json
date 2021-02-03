@@ -241,7 +241,7 @@
                 {
                   "code": "E09006",
                   "displayName": "MONTPELLIER",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09006.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "details": {
@@ -266,7 +266,7 @@
                 {
                   "code": "E09006-P",
                   "displayName": "MONTPELLIER PARQUET",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09006-P.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0046",
                   "details": {
@@ -291,7 +291,7 @@
                 {
                   "code": "E09007",
                   "displayName": "MOULINS",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09007.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-moulins-frenchwhiteoak-0051",
                   "details": {
@@ -318,7 +318,7 @@
                 {
                   "code": "E09002",
                   "displayName": "CHAMPAGNE",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-moulins-frenchwhiteoak-0047",
                   "details": {
@@ -345,7 +345,7 @@
                 {
                   "code": "E09002-P",
                   "displayName": "CHAMPAGNE Parquet",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09002-P.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-champagne-whiteoak-2428",
                   "details": {
@@ -372,7 +372,7 @@
                 {
                   "code": "E09003",
                   "displayName": "LORRAINE",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09003.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-champagne-whiteoak-2433",
                   "details": {
@@ -399,7 +399,7 @@
                 {
                   "code": "E09003-P",
                   "displayName": "LORRAINE P",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09003-P.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-lorraine-whiteoak-2432",
                   "details": {
@@ -426,7 +426,7 @@
                 {
                   "code": "E09001",
                   "displayName": "CASTILLON",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09001.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-castillon-whiteoak-2425",
                   "details": {
@@ -453,7 +453,7 @@
                 {
                   "code": "E09001-P",
                   "displayName": "CASTILLON P",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09001-P.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-castillon-whiteoak-2434",
                   "details": {
@@ -480,7 +480,7 @@
                 {
                   "code": "E09004",
                   "displayName": "ORLEANS",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09004.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-orleans-whiteoak-2431",
                   "details": {
@@ -507,7 +507,7 @@
                 {
                   "code": "E09004-P",
                   "displayName": "ORLEANS P",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09004-P.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-orleans-whiteoak-2431",
                   "details": {
@@ -541,7 +541,7 @@
                 {
                   "code": "EW3102",
                   "displayName": "EUROPEAN OAK",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3102.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-vernazza-europeanoak-8156",
                   "details": {
@@ -568,7 +568,7 @@
                 {
                   "code": "EW3102-H",
                   "displayName": "EUROPEAN OAK H",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3102-H.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-vernazza-europeanoak-8156",
                   "details": {
@@ -595,7 +595,7 @@
                 {
                   "code": "EW3104",
                   "displayName": "CORSANELLO",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3104.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-corsanello-walnut-8158",
                   "details": {
@@ -622,7 +622,7 @@
                 {
                   "code": "EW3104-H",
                   "displayName": "CORSANELLO H",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3104-H.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-corsanello-walnut-8161",
                   "details": {
@@ -649,7 +649,7 @@
                 {
                   "code": "E03002",
                   "displayName": "CABBIAVOLI",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E03002.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-chateauneuf-europeanoak-6488",
                   "details": {
@@ -676,7 +676,7 @@
                 {
                   "code": "E03016",
                   "displayName": "TENUTA MORIANO",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E03016.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-tenutamoriano-europeanoak-5925",
                   "details": {
@@ -703,7 +703,7 @@
                 {
                   "code": "E03015",
                   "displayName": "QUADRIFOGLIO",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E03015.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-quadrifoglio-europeanoak-6495",
                   "details": {
@@ -730,7 +730,7 @@
                 {
                   "code": "E03004",
                   "displayName": "CHATEAUNEUF",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E03004.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-chateauneuf-european-oak",
                   "details": {
@@ -757,7 +757,7 @@
                 {
                   "code": "E03014",
                   "displayName": "MONTBELLARD",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E03014.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-montbellard-europeanoak-6486",
                   "details": {
@@ -784,7 +784,7 @@
                 {
                   "code": "EW3105-X",
                   "displayName": "ABRUZZO",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3105-X.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-abruzzo-maple-8162",
                   "details": {
@@ -811,7 +811,7 @@
                 {
                   "code": "E03006",
                   "displayName": "ESCAMBERT",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E03006.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-escambert-europeanoak-6490",
                   "details": {
@@ -838,7 +838,7 @@
                 {
                   "code": "EW3106-X",
                   "displayName": "GREGORIANO",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3106-X.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-escambert-europeanoak-6490",
                   "details": {
@@ -865,7 +865,7 @@
                 {
                   "code": "EW3101",
                   "displayName": "TERENZI",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3101.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-terenzi-maple-8155",
                   "details": {
@@ -892,7 +892,7 @@
                 {
                   "code": "E03003",
                   "displayName": "CAPBOURTEIL",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E03003.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-capbourteil-europeanoak-6489",
                   "details": {
@@ -919,7 +919,7 @@
                 {
                   "code": "EW3103-H",
                   "displayName": "COMPIANO H",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3103-H.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-compiano-europeanoak-8160",
                   "details": {
@@ -946,7 +946,7 @@
                 {
                   "code": "EW3103",
                   "displayName": "COMPIANO",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3103.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-compiano-europeanoak-8157",
                   "details": {
@@ -973,7 +973,7 @@
                 {
                   "code": "E03005",
                   "displayName": "DES FLEURS",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E03005.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-desfleurs-europeanoak-6493",
                   "details": {
@@ -1007,7 +1007,7 @@
                 {
                   "code": "E08011",
                   "displayName": "NAKED",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08011.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-naked-europeanoak-9975",
                   "details": {
@@ -1034,7 +1034,7 @@
                 {
                   "code": "EW8011-C",
                   "displayName": "NAKED C",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW8011-C.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-naked-europeanoak-8150",
                   "details": {
@@ -1061,7 +1061,7 @@
                 {
                   "code": "EW8002-C",
                   "displayName": "CHARLIE C",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW8002-C.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-charlie-europeanoak-8151",
                   "details": {
@@ -1088,7 +1088,7 @@
                 {
                   "code": "E08002",
                   "displayName": "CHARLIE",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08002.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-charlie-europeanoak-6509",
                   "details": {
@@ -1115,7 +1115,7 @@
                 {
                   "code": "E08009",
                   "displayName": "ICICLE",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08009.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-icicle-europeanoak-6507",
                   "details": {
@@ -1142,7 +1142,7 @@
                 {
                   "code": "E08018",
                   "displayName": "ZAMBONI",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08018.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-zamboni-europeanoak-6517",
                   "details": {
@@ -1169,7 +1169,7 @@
                 {
                   "code": "E08019",
                   "displayName": "ROME",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08019.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-rome-europeanoak-6505",
                   "details": {
@@ -1196,7 +1196,7 @@
                 {
                   "code": "E08003",
                   "displayName": "CHATEAU",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08003.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-chateau-europeanoak-6508",
                   "details": {
@@ -1223,7 +1223,7 @@
                 {
                   "code": "EW8021",
                   "displayName": "SCANTILY CLAD",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW8021.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-scantilyclad-europeanoak-9931",
                   "details": {
@@ -1250,7 +1250,7 @@
                 {
                   "code": "E08012",
                   "displayName": "OLD MONEY",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08012.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-oldmoney-europeanoak-6516",
                   "details": {
@@ -1277,7 +1277,7 @@
                 {
                   "code": "E08008",
                   "displayName": "HUNTER",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08008.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-hunter-europeanoak-6514",
                   "details": {
@@ -1304,7 +1304,7 @@
                 {
                   "code": "E08010",
                   "displayName": "MALIBU",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08010.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-malibu-europeanoak-6515",
                   "details": {
@@ -1331,7 +1331,7 @@
                 {
                   "code": "E08015",
                   "displayName": "SHANGHAI SUNRISE",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08015.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-shanghaisunrise-europeanoak-6504",
                   "details": {
@@ -1358,7 +1358,7 @@
                 {
                   "code": "E08006",
                   "displayName": "FARMER'S TAN",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08006.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-farmerstan-europeanoak-0412",
                   "details": {
@@ -1385,7 +1385,7 @@
                 {
                   "code": "E08014",
                   "displayName": "PROVENCE",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08014.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-provence-europeanoak-6511",
                   "details": {
@@ -1412,7 +1412,7 @@
                 {
                   "code": "EW8001-X",
                   "displayName": "BAREFOOT",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW8001-X.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-barefoot-europeanoak-8153",
                   "details": {
@@ -1439,7 +1439,7 @@
                 {
                   "code": "EW8020-X",
                   "displayName": "FAWN OVER",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW8020-X.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-fawnover-europeanoak-8154",
                   "details": {
@@ -1466,7 +1466,7 @@
                 {
                   "code": "EW8013-X",
                   "displayName": "OVER 40",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW8013-X.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-over40-europeanoak-8152",
                   "details": {
@@ -1493,7 +1493,7 @@
                 {
                   "code": "E08005",
                   "displayName": "DOWNWARD DOG",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08005.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-downwarddog-europeanoak-6513",
                   "details": {
@@ -1520,7 +1520,7 @@
                 {
                   "code": "E08004",
                   "displayName": "COUNTRY ROAD",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08004.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-countryroad-europeanoak-6503",
                   "details": {
@@ -1547,7 +1547,7 @@
                 {
                   "code": "E08007",
                   "displayName": "GATSBY",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08007.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-gatsby-europeanoak-6510",
                   "details": {
@@ -1574,7 +1574,7 @@
                 {
                   "code": "E08017",
                   "displayName": "VEGAS",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E08017.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-vegas-europeanoak-2374",
                   "details": {
@@ -1609,7 +1609,7 @@
                   "code": "EW1201",
                   "displayName": "PURO",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1201.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-puro-oak-7985",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/AmarosaGrande-Puro-scene-1.jpg?v=1589980521",
@@ -1629,14 +1629,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1201.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW1105",
                   "displayName": "LUMINOSO",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1105.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-luminoso-ash-3069",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Luminoso-scene-1.jpg?v=1585664316",
@@ -1656,14 +1656,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1105.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW1102",
                   "displayName": "GRIGIO",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1102.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-grigio-oak-3065",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Grigio-scene-1.jpg?v=1585664108",
@@ -1683,14 +1683,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1102.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW1203",
                   "displayName": "CIGARRO",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1203.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-cigarro-oak-7987",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/AmarosaGrande-Cigarro-scene-1.jpg?v=1589980516",
@@ -1710,14 +1710,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1203.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E01016",
                   "displayName": "ALLURE",
                   "ppi": 50,
-                  "thumbnail": "textures/E01016.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-allure-walnut-2049",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Allure-scene-1.jpg?v=1589980509",
@@ -1737,14 +1737,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01016.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW1107",
                   "displayName": "NATURAL",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1107.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-oak-4810",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Natural_Oak-scene-1.jpg?v=1585664507",
@@ -1764,14 +1764,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1107.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW1101",
                   "displayName": "FRESCO",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1101.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-fresco-ash-3064",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Fresco-scene-1.jpg?v=1585663957",
@@ -1791,14 +1791,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1101.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW1202",
                   "displayName": "CALDO",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1202.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-caldo-oak-7986",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/AmarosaGrande-Caldo-scene-1.jpg?v=1589980514",
@@ -1818,14 +1818,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1202.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E01008",
                   "displayName": "CHATEAU",
                   "ppi": 50,
-                  "thumbnail": "textures/E01008.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-chateau-walnut-2056",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Chateau-scene-1.jpg?v=1589980511",
@@ -1845,14 +1845,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01008.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E01005",
                   "displayName": "ICED",
                   "ppi": 50,
-                  "thumbnail": "textures/E01005.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-iced-walnut-4231",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Iced-scene-1.jpg?v=1585664202",
@@ -1872,14 +1872,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01005.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E01011",
                   "displayName": "NATURAL",
                   "ppi": 50,
-                  "thumbnail": "textures/E01011.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-hickory-1414",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Natural_Hickory-scene-1.jpg?v=1585664432",
@@ -1899,14 +1899,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01011.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW1204",
                   "displayName": "PROFUNDO",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1204.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-profundo-oak-7988",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/AmarosaGrande-Profundo-scene-1.jpg?v=1589980519",
@@ -1926,14 +1926,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1204.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E01009",
                   "displayName": "Natural",
                   "ppi": 50,
-                  "thumbnail": "textures/E01009.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-sapele-7750",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Natural_Sapele-scene-1.jpg?v=1585664567",
@@ -1953,14 +1953,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01009.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW1103",
                   "displayName": "TONO MEDIO",
                   "ppi": 50,
-                  "thumbnail": "textures/EW1103.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-tonomedio-ash-3066",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Tono_Medio-scene-1.jpg?v=1585664621",
@@ -1980,14 +1980,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW1103.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E01003",
                   "displayName": "BASALT",
                   "ppi": 50,
-                  "thumbnail": "textures/E01003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-basalt-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Amarosa-Basalt-scene-1.jpg?v=1591810435",
@@ -2007,7 +2007,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E01003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -2021,7 +2021,7 @@
                   "code": "535538",
                   "displayName": "OAK CRÈME",
                   "ppi": 50,
-                  "thumbnail": "textures/535538.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/naturhaus-wood/products/naturhaus-oak-creme-white-markant",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Parkett_Haro_Oak_Creme_White-RS.jpg?v=1572025331",
@@ -2041,14 +2041,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/535538.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "538934",
                   "displayName": "OAK CRYSTAL WHITE",
                   "ppi": 50,
-                  "thumbnail": "textures/538934.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/naturhaus-wood/products/naturhaus-oak-crystal-white-markant",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Parkett_Haro_Oak_Crystal_White-RS.jpg?v=1572025239",
@@ -2068,14 +2068,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/538934.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "538940",
                   "displayName": "FUMED OAK PURO WHITE",
                   "ppi": 50,
-                  "thumbnail": "textures/538940.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/naturhaus-wood/products/naturhaus-fumed-oak-puro-white-sauvage",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Parkett_Haro_Fumed_Oak_Puro_White-RS2.jpg?v=1572025152",
@@ -2095,14 +2095,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/538940.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "539088",
                   "displayName": "OAK REED BROWN",
                   "ppi": 50,
-                  "thumbnail": "textures/539088.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/naturhaus-wood/products/naturhaus-oak-reed-brown-markant",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Parkett_Haro_Oak_Reed_Brown-RS.jpg?v=1572025364",
@@ -2122,7 +2122,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/539088.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -2136,7 +2136,7 @@
                   "code": "EW4106",
                   "displayName": "CHARDONNAY",
                   "ppi": 50,
-                  "thumbnail": "textures/EW4106.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-chardonnay-oak-7989",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Chardonnay-scene-1.jpg?v=1585668300",
@@ -2156,14 +2156,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW4106.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E04003",
                   "displayName": "NATURAL",
                   "ppi": 50,
-                  "thumbnail": "textures/E04003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-natural-walnut-8372",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/FrenchImpressions-Natural_Walnut-scene-1.jpg?v=1585668593",
@@ -2183,14 +2183,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E04003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW4102",
                   "displayName": "Charlemagne",
                   "ppi": 50,
-                  "thumbnail": "textures/EW4102.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-charlemagne-oak-3071",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Charlemagne-scene-1.jpg?v=1585668344",
@@ -2210,14 +2210,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW4102.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E02003",
                   "displayName": "DISARONNO",
                   "ppi": 50,
-                  "thumbnail": "textures/E02003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-disaronno-hickory-7159",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/FrenchImpressions-Disaronno-scene-1.jpg?v=1585668388",
@@ -2237,14 +2237,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E02003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW4101",
                   "displayName": "CHAMBORD",
                   "ppi": 50,
-                  "thumbnail": "textures/EW4101.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-chambord-hickory-3070",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Chambord-scene-1.jpg?v=1585668261",
@@ -2264,14 +2264,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW4101.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW4107",
                   "displayName": "GIVERNY",
                   "ppi": 50,
-                  "thumbnail": "textures/EW4107.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-giverny-oak-7990",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Giverny-scene-1.jpg?v=1585668477",
@@ -2291,14 +2291,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW4107.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW4103",
                   "displayName": "FONTAINEBLEAU",
                   "ppi": 50,
-                  "thumbnail": "textures/EW4103.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-fontainebleau-oak-3072",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Fontainebleau-scene-1.jpg?v=1585668444",
@@ -2318,14 +2318,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW4103.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW4104",
                   "displayName": "MONTRESOR",
                   "ppi": 50,
-                  "thumbnail": "textures/EW4104.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-montresor-maple-3073",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/French_Impressions-Montresor-scene-1.jpg?v=1585668549",
@@ -2345,14 +2345,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW4104.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E04007",
                   "displayName": "TANZANIA",
                   "ppi": 50,
-                  "thumbnail": "textures/E04007.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-tanzania-maple-2143",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/FrenchImpressions-Tanzania-scene-1.jpg?v=1585668636",
@@ -2372,7 +2372,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E04007.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -2386,7 +2386,7 @@
                   "code": "EW7006",
                   "displayName": "HAMMER FIST",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7006.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-hammerfist-oak-6634",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_93295803-0051-4aa3-8ce6-91177fc284cd_1024x1024.jpg?v=1585251951",
@@ -2406,14 +2406,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7006.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7010",
                   "displayName": "SOUTHPAW",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7010.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-southpaw-oak-7991",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/TKO-Southpaw-RS2.jpg?v=1591820095",
@@ -2433,14 +2433,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7010.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7003",
                   "displayName": "LEFT HOOK",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-lefthook-maple-6636",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/TKO-Left_Hook-flr-1_1024x1024.jpg?v=1585251947",
@@ -2460,14 +2460,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7001",
                   "displayName": "BARE KNUCKLE",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7001.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-bareknuckle-maple-6638",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_d383b864-fe9f-4f8a-b279-9ec03787e307_1024x1024.jpg?v=1585251952",
@@ -2487,14 +2487,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7001.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7009",
                   "displayName": "SUCKER PUNCH",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7009.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-suckerpunch-oak-6631",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_afc91c15-8205-4586-bbfe-c3b686e5db31_1024x1024.jpg?v=1585251943",
@@ -2514,14 +2514,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7009.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7002",
                   "displayName": "HAYMAKER",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7002.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-haymaker-maple-6637",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_3b627ca1-ded1-4506-a1ca-11ba6250d9c6_1024x1024.jpg?v=1585251949",
@@ -2541,14 +2541,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7002.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7011",
                   "displayName": "UPPERCUT",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7011.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-uppercut-oak-7992",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_2c2aff0f-c42d-4a87-a5f4-ab3ed49b76c3_1024x1024.jpg?v=1585251941",
@@ -2568,14 +2568,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7011.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7008",
                   "displayName": "RIGHT HOOK",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7008.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-righthook-oak-6632",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_f83d731c-473d-4db7-8259-ed7fffb978f7_1024x1024.jpg?v=1585251945",
@@ -2595,14 +2595,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7008.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7004",
                   "displayName": "LIGHTWEIGHT",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7004.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-lightweight-maple-6635",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_b8361d4b-f061-4983-9e50-1dbd88ee566c_1024x1024.jpg?v=1585251946",
@@ -2622,14 +2622,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7004.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EW7007",
                   "displayName": "HEAVYWEIGHT",
                   "ppi": 50,
-                  "thumbnail": "textures/EW7007.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/tko/products/tko-heavyweight-oak-6633",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_463ff262-e2c4-42a3-aebf-5680f9f9d270_1024x1024.jpg?v=1585251948",
@@ -2649,7 +2649,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW7007.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -2663,7 +2663,7 @@
                   "code": "EC5108",
                   "displayName": "NAUTICAL MILE",
                   "ppi": 50,
-                  "thumbnail": "textures/EC5108.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/coastline/products/coastline-nauticalmile-riftoak-3083",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Nautical_Mile-scene-1.jpg?v=1585664980",
@@ -2683,14 +2683,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EC5108.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EC5105",
                   "displayName": "HIGH TIDE",
                   "ppi": 50,
-                  "thumbnail": "textures/EC5105.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/coastline/products/coastline-hightide-riftoak-3080",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-High_Tide-scene-1.jpg?v=1585664764",
@@ -2710,14 +2710,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EC5105.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EC5106",
                   "displayName": "LOST AT SEA",
                   "ppi": 50,
-                  "thumbnail": "textures/EC5106.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/coastline/products/coastline-lostatsea-riftoak-3081",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Lost_At_Sea-scene-1.jpg?v=1585664900",
@@ -2737,14 +2737,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EC5106.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EC5104",
                   "displayName": "SHIPWRECKED",
                   "ppi": 50,
-                  "thumbnail": "textures/EC5104.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/coastline/products/coastline-shipwrecked-oak-3078",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Shipwrecked-scene-1.jpg?v=1589982693",
@@ -2764,14 +2764,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EC5104.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EC5101",
                   "displayName": "ARCTIC BARK",
                   "ppi": 50,
-                  "thumbnail": "textures/EC5101.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/coastline/products/coastline-arcticbark-ash-3075",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Arctic_Bark-scene-1.jpg?v=1585664684",
@@ -2791,14 +2791,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EC5101.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EC5102",
                   "displayName": "LAGOON",
                   "ppi": 50,
-                  "thumbnail": "textures/EC5102.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/coastline/products/coastline-lagoon-ash-3076",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Lagoon-scene-1.jpg?v=1589982125",
@@ -2818,14 +2818,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EC5102.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EC5107",
                   "displayName": "MOONLIT SHORE",
                   "ppi": 50,
-                  "thumbnail": "textures/EC5107.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/coastline/products/coastline-moonlitshore-riftoak-3082",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Moonlit_Shore-scene-1.jpg?v=1585664939",
@@ -2845,14 +2845,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EC5107.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "EC5103",
                   "displayName": "ASHORE",
                   "ppi": 50,
-                  "thumbnail": "textures/EC5103.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/coastline/products/coastline-ashore-oak-3077",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Coastline-Ashore-scene-1.jpg?v=1585664724",
@@ -2872,7 +2872,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EC5103.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -2892,7 +2892,7 @@
                 {
                   "code": "EW8011-C",
                   "displayName": "NAKED",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW8011-C.jpg",
                   "url": "https://divinefloor.com/collections/chevron-hardwood/products/cosmopolitan-naked-europeanoak-8150",
                   "details": {
@@ -2919,7 +2919,7 @@
                 {
                   "code": "EW8002-C",
                   "displayName": "CHARLIE",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW8002-C.jpg",
                   "url": "https://divinefloor.com/collections/chevron-hardwood/products/cosmopolitan-charlie-europeanoak-8151",
                   "details": {
@@ -2953,7 +2953,7 @@
                 {
                   "code": "EW3102-H",
                   "displayName": "VERNAZZA",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3102-H.jpg",
                   "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-vernazza-europeanoak-8159",
                   "details": {
@@ -2980,7 +2980,7 @@
                 {
                   "code": "EW3104-H",
                   "displayName": "CORSANELLO",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3104-H.jpg",
                   "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-corsanello-walnut-8161",
                   "details": {
@@ -3007,7 +3007,7 @@
                 {
                   "code": "EW3103-H",
                   "displayName": "COMPIANO",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/EW3103-H.jpg",
                   "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-compiano-europeanoak-8160",
                   "details": {
@@ -3039,21 +3039,21 @@
               "thumbnail": "branding/Parquet-840px_240x.png",
               "colors": [
                 {
-                  "code": "E09002-P",
+                  "code": "E09002",
                   "displayName": "CHAMPAGNE",
-                  "ppi": 45,
-                  "thumbnail": "textures/E09002-P.jpg",
-                  "url": "https://divinefloor.com/collections/parquet-hardwood-1/products/louisxiv-champagne-whiteoak-2433",
+                  "ppi": 50,
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV_Champagne-RS_14dd3f62-6524-4da5-90a7-b3d00e8eb968_1024x1024.jpg?v=1570811136",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
-                      {"Qty per Box": "13.780"},
+                      {"Qty per Box": "15.540"},
                       {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"},
-                      {"Width": "31 1/2\""},
+                      {"Width": "7 1/2\""},
                       {"Thickness": "3/4\""},
-                      {"Length": "31 1/2\""},
+                      {"Length": "74 3/4\""},
                       {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
@@ -3062,144 +3062,9 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/E09002-P.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
-                },
-                {
-                  "code": "E09006-P",
-                  "displayName": "MONTPELLIER",
-                  "ppi": 45,
-                  "thumbnail": "textures/E09006-P.jpg",
-                  "url": "https://divinefloor.com/collections/parquet-hardwood-1/products/louisxiv-montpellier-frenchwhiteoak-0046",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Parquet-RS_1024x1024.jpg?v=1575660940",
-                    "specifications": [
-                      {"Qty per Box": "13.780"},
-                      {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"},
-                      {"Width": "31 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "31 1/24\""},
-                      {"Species": "French White Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/E09006-P.jpg"
-                  }
-                },
-                {
-                  "code": "E09007-P",
-                  "displayName": "MOULINS",
-                  "ppi": 45,
-                  "thumbnail": "textures/E09007-P.jpg",
-                  "url": "https://divinefloor.com/collections/parquet-hardwood-1/products/louisxiv-moulins-frenchwhiteoak-0047",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Moulins_2018-Parquet-RS_1024x1024.jpg?v=1574869869",
-                    "specifications": [
-                      {"Qty per Box": "13.780"},
-                      {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"},
-                      {"Width": "31 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "31 1/2\""},
-                      {"Species": "French White Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/E09007-P.jpg"
-                  }
-                },
-                {
-                  "code": "E09001-P",
-                  "displayName": "CASTILLON",
-                  "ppi": 45,
-                  "thumbnail": "textures/E09001-P.jpg",
-                  "url": "https://divinefloor.com/collections/parquet-hardwood-1/products/louisxiv-castillon-whiteoak-2434",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV_Castillon-RS_1024x1024.jpg?v=1570810947",
-                    "specifications": [
-                      {"Qty per Box": "13.780"},
-                      {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"},
-                      {"Width": "31 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "31 1/2\""},
-                      {"Species": "French White Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/E09001-P.jpg"
-                  }
-                },
-                {
-                  "code": "E09003-P",
-                  "displayName": "LORRAINE",
-                  "ppi": 45,
-                  "thumbnail": "textures/E09003-P.jpg",
-                  "url": "https://divinefloor.com/collections/parquet-hardwood-1/products/louisxiv-lorraine-whiteoak-2432",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV_Lorraine-RS_320a9319-ac6f-4024-b6a4-d3d6f0626e50_1024x1024.jpg?v=1570811310",
-                    "specifications": [
-                      {"Qty per Box": "13.780"},
-                      {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"},
-                      {"Width": "31 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "31 1/2\""},
-                      {"Species": "French White Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/E09003-P.jpg"
-                  }
-                },
-                {
-                  "code": "E09004-P",
-                  "displayName": "ORLEANS",
-                  "ppi": 45,
-                  "thumbnail": "textures/E09004-P.jpg",
-                  "url": "https://divinefloor.com/collections/parquet-hardwood-1/products/louisxiv-orleans-whiteoak-2431",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_84940afd-f071-4a6c-91fe-3f521f0dd3f5_1024x1024.jpg?v=1570811570",
-                    "specifications": [
-                      {"Qty per Box": "13.780"},
-                      {"Product Category": "Hardwood"},
-                      {"Finish": "Olio"},
-                      {"Texture": "Brushed"},
-                      {"Width": "31 1/2\""},
-                      {"Thickness": "3/4\""},
-                      {"Length": "31 1/2\""},
-                      {"Species": "French White Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/E09004-P.jpg"
-                  }
-                }                                                                                
+                }
               ]
             },
             {
@@ -3210,7 +3075,7 @@
                 {
                   "code": "E09002",
                   "displayName": "CHAMPAGNE",
-                  "ppi": 45,
+                  "ppi": 50,
                   "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "details": {
@@ -3252,7 +3117,7 @@
                   "code": "VT1007",
                   "displayName": "LA DOLCE VITA",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1007.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-ladolcevita-9761",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-LaDolceVita-WhiteHall.jpg?v=1604424527",
@@ -3272,14 +3137,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1007.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1009",
                   "displayName": "SUNSET BOULEVARD",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1009.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-sunsetboulevard-9763",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Sunset_Boulevard-scene-1.jpg?v=1585669267",
@@ -3299,14 +3164,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1009.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1004",
                   "displayName": "MILLIONAIRESS",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1004.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-millionairess-0354",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Millionairess-Bunker.jpg?v=1604424673",
@@ -3326,14 +3191,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1004.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1001",
                   "displayName": "BOCACCIO'70",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1001.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-bocaccio70-0351",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Bocaccio_70-Bathroom-regular.jpg?v=1604424183",
@@ -3353,14 +3218,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1001.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1008",
                   "displayName": "CLEOPATRA",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1008.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-cleopatra-9762",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Cleopatra-Jasper.jpg?v=1604424447",
@@ -3380,14 +3245,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1008.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1006",
                   "displayName": "ARABESQUE",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1006.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-arabesque-moorish-tile",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Arabesque-WhiteHall.jpg?v=1604424110",
@@ -3407,14 +3272,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1006.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1002",
                   "displayName": "LADY LIBERTY",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1002.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-ladyliberty-0352",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-LadyLiberty-Bathroom.jpg?v=1604424611",
@@ -3434,14 +3299,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1002.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1003",
                   "displayName": "BRIEF ENCOUNTER",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-ladyliberty-0352",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-BriefEncounter-KitchenCliff.jpg?v=1604424344",
@@ -3461,14 +3326,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1010",
                   "displayName": "DARK VICTORY",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1010.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-darkvictory-9764",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Dark_Victory-scene-1.jpg?v=1585665666",
@@ -3488,14 +3353,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1010.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VT1005",
                   "displayName": "PRIDE & PASSION",
                   "ppi": 50,
-                  "thumbnail": "textures/VT1005.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/passage/products/passage-darkvictory-9764",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Pride_Passion-WhiteHall-Regular.jpg?v=1604424742",
@@ -3515,7 +3380,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1005.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -3529,7 +3394,7 @@
                   "code": "VP2027",
                   "displayName": "CINCINNATI KID",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2027.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-cincinnatikid-rusticoak-4212",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Cincinnati_Kid-scene-1.jpg?v=1585667560",
@@ -3549,14 +3414,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2027.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP2019",
                   "displayName": "BAREFOOT CONTESSA",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2019.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-barefoot-contessa-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Barefoot_Contessa-scene-1.jpg?v=1585667404",
@@ -3576,14 +3441,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2019.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP2023",
                   "displayName": "UP THE RIVER",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2023.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-uptheriver-oak-3322",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Up_the_River-scene-1.jpg?v=1585668142",
@@ -3603,14 +3468,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2023.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02005",
                   "displayName": "CHAIN LIGHTNING",
                   "ppi": 50,
-                  "thumbnail": "textures/V02005.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-chainlightning-oak-4197",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Chain_Lightning-scene-1.jpg?v=1585667490",
@@ -3630,14 +3495,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02005.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP2021",
                   "displayName": "INVISIBLE STRIPES",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2021.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-invisiblestripes-oak-3320",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Invisible_Stripes-scene-1.jpg?v=1585667777",
@@ -3657,14 +3522,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2021.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP2024",
                   "displayName": "GREAT ESCAPE",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2024.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-greatescape-oak-4209",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-GreatEscape-scene-1.jpg?v=1585667704",
@@ -3684,14 +3549,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2024.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02018",
                   "displayName": "VIRGINIA CITY",
                   "ppi": 50,
-                  "thumbnail": "textures/V02018.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-virginiacity-oak-4203",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Virginia_City-scene-1.jpg?v=1585668173",
@@ -3711,14 +3576,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02018.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02012",
                   "displayName": "ROARING TWENTIES",
                   "ppi": 50,
-                  "thumbnail": "textures/V02012.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-roaringtwenties-oak-4199",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Roaring_Twenties-scene-1.jpg?v=1585668019",
@@ -3738,14 +3603,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02012.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP2022",
                   "displayName": "PETRIFIED FOREST",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2022.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-petrifiedforest-oak-5542",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Petrified_Forest-scene-1.jpg?v=1585667984",
@@ -3765,14 +3630,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2022.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02007",
                   "displayName": "IN A LONELY PLACE",
                   "ppi": 50,
-                  "thumbnail": "textures/V02007.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-inalonelyplace-oak-4198",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Lonely_Place-scene-1.jpg?v=1585667743",
@@ -3792,14 +3657,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02007.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02002",
                   "displayName": "AFRICAN QUEEN",
                   "ppi": 50,
-                  "thumbnail": "textures/V02002.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-africanqueen-oak-4196",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-African_Queen-scene-1.jpg?v=1585667370",
@@ -3819,14 +3684,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02002.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02008",
                   "displayName": "KEY LARGO",
                   "ppi": 50,
-                  "thumbnail": "textures/V02008.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-keylargo-oak-4571",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-KeyLargo-scene-1.jpg?v=1585667908",
@@ -3846,14 +3711,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02008.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP2026",
                   "displayName": "LE MANS",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2026.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-lemans-oak-4211",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-LeMans-scene-1.jpg?v=1585667946",
@@ -3873,14 +3738,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2026.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP2020",
                   "displayName": "DARK PASSAGE",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2020.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-darkpassage-oak-4205",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Dark_Passage-scene-1.jpg?v=1585667600",
@@ -3900,14 +3765,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2020.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02014",
                   "displayName": "SAHARA",
                   "ppi": 50,
-                  "thumbnail": "textures/V02014.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-sahara-oak-4200",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Sahara-scene-1.jpg?v=1585668107",
@@ -3927,14 +3792,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02014.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP2025",
                   "displayName": "GETWAWAY",
                   "ppi": 50,
-                  "thumbnail": "textures/VP2025.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-getwaway-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Getaway-scene-1.jpg?v=1585667634",
@@ -3954,14 +3819,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP2025.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02013",
                   "displayName": "SABRINA",
                   "ppi": 50,
-                  "thumbnail": "textures/V02013.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-sabrina-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-Sabrina-scene-1.jpg?v=1585668077",
@@ -3981,14 +3846,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02013.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "V02003",
                   "displayName": "BIG SLEEP",
                   "ppi": 50,
-                  "thumbnail": "textures/V02003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-1/products/voyage-bigsleep-oak-4570",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage-BigSleep-scene-1.jpg?v=1585667449",
@@ -4008,7 +3873,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/V02003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -4022,7 +3887,7 @@
                   "code": "VP3002",
                   "displayName": "THE FRESHMAN",
                   "ppi": 50,
-                  "thumbnail": "textures/VP3002.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-ii/products/voyageii-thefreshman-oak-0358",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/VoyageII-TheFreshman-Bathroomcopy.jpg?v=1604424951",
@@ -4042,14 +3907,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP3002.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP3005",
                   "displayName": "VIVA ZAPATA!",
                   "ppi": 50,
-                  "thumbnail": "textures/VP3005.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-ii/products/voyage-ii-viva-zapata-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage_II-Viva_Zapata_-scene-1.jpg?v=1585667257",
@@ -4069,14 +3934,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP3005.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP3001",
                   "displayName": "ON THE WATERFRONT",
                   "ppi": 50,
-                  "thumbnail": "textures/VP3001.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-ii/products/voyage-ii-on-the-waterfront-maple",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage_II-On_the_Waterfront-scene-1.jpg?v=1585666812",
@@ -4096,14 +3961,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP3001.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP3004",
                   "displayName": "ONE-EYED JACKS",
                   "ppi": 50,
-                  "thumbnail": "textures/VP3004.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-ii/products/voyageii-oneeyedjacks-rusticpine-0360",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage_II-One_Eyed_Jacks-scene-1.jpg?v=1585666851",
@@ -4123,14 +3988,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP3004.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP3003",
                   "displayName": "MISSOURI BREAKS",
                   "ppi": 50,
-                  "thumbnail": "textures/VP3003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-ii/products/voyageii-oneeyedjacks-rusticpine-0360",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/VoyageII-MissouriBreaks-KitchenCliff.jpg?v=1604424853",
@@ -4150,14 +4015,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP3003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP3003",
                   "displayName": "THE SCORE",
                   "ppi": 50,
-                  "thumbnail": "textures/VP3003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-ii/products/voyage-ii-the-score-vintage-painted-wood",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage_II-The_Score-scene-1.jpg?v=1585667108",
@@ -4177,14 +4042,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP3003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP3007",
                   "displayName": "THE WILD ONE",
                   "ppi": 50,
-                  "thumbnail": "textures/VP3007.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-ii/products/voyage-ii-the-wild-one-american-walnut",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage_II-The_Wild_One-scene-1.jpg?v=1585667199",
@@ -4204,14 +4069,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP3007.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP3006",
                   "displayName": "THE NIGHTCOMERS",
                   "ppi": 50,
-                  "thumbnail": "textures/VP3006.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/voyage-ii/products/voyageii-thenightcomers-maple-0362",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Voyage_II-The_Nightcomers-scene-1.jpg?v=1585666953",
@@ -4231,7 +4096,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP3006.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -4245,7 +4110,7 @@
                   "code": "VP4007",
                   "displayName": "BUCKET LIST",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4007.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-bucketlist-oak-0052",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Quest_Bucket_List_RS-1.jpg?v=1585666268",
@@ -4265,14 +4130,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4007.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4001",
                   "displayName": "CHASING ICE",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4001.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-chasingice-oak-5941",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Quest_Chasing_Ice_RS-1.jpg?v=1585666330",
@@ -4292,14 +4157,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4001.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4002",
                   "displayName": "ENDLESS SUMMER",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4002.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-endlesssummer-oak-5942",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Quest_Endless_Sunner_RS-1.jpg?v=1585666397",
@@ -4319,14 +4184,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4002.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4003",
                   "displayName": "INTO THE WILD",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4003.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-intothewild-oak-5943",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Quest_Into_the_wild_RS-1.jpg?v=1585666491",
@@ -4346,14 +4211,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4003.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4006",
                   "displayName": "MISS SUNSHINE",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4006.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-misssunshine-oak-0050",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Quest_Miss_Sunshine_RS-1_49e6ea69-93ae-4b20-9a9c-6a720885b284.jpg?v=1585666542",
@@ -4373,14 +4238,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4006.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4005",
                   "displayName": "NORTH FACE",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4005.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-misssunshine-oak-0050",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Quest_North_Face_RS-1.jpg?v=1585666600",
@@ -4400,14 +4265,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4005.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4004",
                   "displayName": "TRACKS",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4004.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-tracks-walnut-5944",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Quest_Tracks_RS-1.jpg?v=1585666653",
@@ -4427,14 +4292,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4004.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4106",
                   "displayName": "BURNING CAIN XL",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4106.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-burning-cain-xl-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/QuestXLBurningCain-RS.jpg?v=1590783685",
@@ -4454,14 +4319,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4106.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4102",
                   "displayName": "POINT BLANK XL",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4102.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-burning-cain-xl-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/QuestPointBlankXLRS.jpg?v=1590781895",
@@ -4481,14 +4346,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4102.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4105",
                   "displayName": "THE MATRIX XL",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4105.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-burning-cain-xl-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/QuestTheMatrixXLRS.jpg?v=1597856016",
@@ -4508,14 +4373,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4105.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4101",
                   "displayName": "VANISHING POINT XL",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4101.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-vanishing-point-xl-boxwood",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/QuestXLVanishingPoint-RS.jpg?v=1590781552",
@@ -4535,14 +4400,14 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4101.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "VP4104",
                   "displayName": "WILLOW XL",
                   "ppi": 50,
-                  "thumbnail": "textures/VP4104.jpg",
+                  "thumbnail": "textures/E09002.jpg",
                   "url": "https://divinefloor.com/collections/quest/products/quest-willow-xl-oak",
                   "details": {
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/QuestXLWillow-RS.jpg?v=1590782594",
@@ -4562,7 +4427,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VP4104.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -4580,246 +4445,30 @@
               "thumbnail": "hardwood/louis-xiv/Louis_XIV-840px2_240x.png",
               "colors": [
                 {
-                  "code": "L22005",
-                  "displayName": "OPUS",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "textures/L22005.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-opus-oak-7895",
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_8ddb0728-2572-40be-bd46-cdbda176a90d_1024x1024.jpg?v=1585251985",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Texture"},
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
                       {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
+                      {"Installation Methods": "Nail/Glue"},
                       {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/L22005.jpg"
-                  }
-                },
-                {
-                  "code": "L22009",
-                  "displayName": "DOLCE",
-                  "ppi": 50,
-                  "thumbnail": "textures/L22009.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-dolce-oak-7899",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_fd5998aa-c2aa-4d14-8c5c-943c5d0faaeb_1024x1024.jpg?v=1585251992",
-                    "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Satin Finish"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/L22009.jpg"
-                  }
-                },
-                {
-                  "code": "L22006",
-                  "displayName": "INTERMEZZO",
-                  "ppi": 50,
-                  "thumbnail": "textures/L22006.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-intermezzo-oak-7896",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_0e4567c4-68ce-4d14-87bb-771b99177f44_1024x1024.jpg?v=1585251989",
-                    "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Texture"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/L22006.jpg"
-                  }
-                },
-                {
-                  "code": "L22004",
-                  "displayName": "OPERETTA",
-                  "ppi": 50,
-                  "thumbnail": "textures/L22004.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-operetta-oak-7894",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_356c4a35-39bc-45c3-b7ac-d45dd79d7971_1024x1024.jpg?v=1585251986",
-                    "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Texture"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/L22004.jpg"
-                  }
-                },
-                {
-                  "code": "L22003",
-                  "displayName": "MEZZO",
-                  "ppi": 50,
-                  "thumbnail": "textures/L22003.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-mezzo-oak-7893",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_ac68253c-bd84-45ea-be92-dcfee963541d_1024x1024.jpg?v=1585251988",
-                    "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Satin Finish"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/L22003.jpg"
-                  }
-                },
-                {
-                  "code": "L22010",
-                  "displayName": "FORTE",
-                  "ppi": 50,
-                  "thumbnail": "textures/L22010.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-forte-oak-7900",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_450da95a-082a-4e44-bba8-63a766725e7b_1024x1024.jpg?v=1585251990",
-                    "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Satin Finish"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/L22010.jpg"
-                  }
-                },
-                {
-                  "code": "L22002",
-                  "displayName": "ENERGICO",
-                  "ppi": 50,
-                  "thumbnail": "textures/L22002.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-energico-oak-7892",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_386be2ce-acc4-43f7-81a7-a7617b43e932_1024x1024.jpg?v=1585251991",
-                    "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Satin Finish"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/L22002.jpg"
-                  }
-                },
-                {
-                  "code": "L22001",
-                  "displayName": "CADENZA",
-                  "ppi": 50,
-                  "thumbnail": "textures/L22001.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-cadenza-oak-7891",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_d3b82d15-ca3a-4058-b257-1c87002040de_1024x1024.jpg?v=1585251994",
-                    "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Texture"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/L22001.jpg"
-                  }
-                },
-                {
-                  "code": "L22007",
-                  "displayName": "TEMPO",
-                  "ppi": 50,
-                  "thumbnail": "textures/L22007.jpg",
-                  "url": "https://divinefloor.com/collections/maestro/products/maestro-tempo-oak-7897",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_03287944-04c3-43a0-9db2-de4e38bce559_1024x1024.jpg?v=1585251983",
-                    "specifications": [
-                      {"Qty per Box": "18.620"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "Water Shield"},
-                      {"Texture": "In-registered Texture"},
-                      {"Width": "7 1/2\""},
-                      {"Thickness": "3/8\""},
-                      {"Length": "50 5/8\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/L22007.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
@@ -4830,111 +4479,30 @@
               "thumbnail": "hardwood/farmhouse/Farmhouse2-20_240x.png",
               "colors": [
                 {
-                  "code": "539149",
-                  "displayName": "OAK EMILIA VELVET WHITE",
+                  "code": "E09002",
+                  "displayName": "CHAMPAGNE",
                   "ppi": 50,
-                  "thumbnail": "textures/539149.jpg",
-                  "url": "https://divinefloor.com/collections/naturhaus-laminate/products/naturhaus-oak-emilia-velvet-white",
+                  "thumbnail": "textures/E09002.jpg",
+                  "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
                   "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Laminat_Haro_Oak_Emilia_Velvet_White-RS.jpg?v=1591816210",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
                     "specifications": [
-                      {"Qty per Box": "28.85"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "200 Aqua Moisture Protection"},
-                      {"Texture": "Authentic Soft"},
-                      {"Width": "9 1/2\""},
-                      {"Thickness": "5/16\""},
-                      {"Length": "86 1/2\""},
-                      {"Species": "Oak"},
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
+                      {"Installation Methods": "Nail/Glue"},
                       {"Over Radiant Heat": "Yes"}
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/539149.jpg"
-                  }
-                },
-                {
-                  "code": "537374",
-                  "displayName": "OAK SICILIA WHITE",
-                  "ppi": 50,
-                  "thumbnail": "textures/537374.jpg",
-                  "url": "https://divinefloor.com/collections/naturhaus-laminate/products/naturhaus-oak-sicilia-white",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Laminat_Haro_Oak_Sicilia_White-RS.jpg?v=1572026153",
-                    "specifications": [
-                      {"Qty per Box": "28.85"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "200 Aqua Moisture Protection"},
-                      {"Texture": "Authentic Matt"},
-                      {"Width": "9 1/2\""},
-                      {"Thickness": "5/16\""},
-                      {"Length": "86 1/2\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/537374.jpg"
-                  }
-                },
-                {
-                  "code": "537379",
-                  "displayName": "OAK VENETO MOCCA",
-                  "ppi": 50,
-                  "thumbnail": "textures/537379.jpg",
-                  "url": "https://divinefloor.com/collections/naturhaus-laminate/products/naturhaus-oak-veneto-mocca",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Laminat_Haro_Oak_Veneto_Mocca-RS.jpg?v=1572026384",
-                    "specifications": [
-                      {"Qty per Box": "28.85"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "200 Aqua Moisture Protection"},
-                      {"Texture": "Authentic Matt"},
-                      {"Width": "9 1/2\""},
-                      {"Thickness": "5/16\""},
-                      {"Length": "86 1/2\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/537379.jpg"
-                  }
-                },
-                {
-                  "code": "537375",
-                  "displayName": "OAK VENETO SAND",
-                  "ppi": 50,
-                  "thumbnail": "textures/537375.jpg",
-                  "url": "https://divinefloor.com/collections/naturhaus-laminate/products/naturhaus-oak-veneto-sand",
-                  "details": {
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Laminat_Haro_Oak_Veneto_Sand-RS.jpg?v=1572026281",
-                    "specifications": [
-                      {"Qty per Box": "28.85"},
-                      {"Product Category": "Laminate"},
-                      {"Finish": "200 Aqua Moisture Protection"},
-                      {"Texture": "Authentic Matt"},
-                      {"Width": "9 1/2\""},
-                      {"Thickness": "5/16\""},
-                      {"Length": "86 1/2\""},
-                      {"Species": "Oak"},
-                      {"Edge Detail": "4V"},
-                      {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Float"},
-                      {"Over Radiant Heat": "Yes"}
-                    ]
-                  },
-                  "metaData": {
-                    "albedo": "textures/537375.jpg"
+                    "albedo": "textures/E09002.jpg"
                   }
                 }
               ]
