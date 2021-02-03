@@ -291,6 +291,7 @@ export default function Visualizer(props: any) {
             }
             if (color.metaData.hasOwnProperty("mirrored")) {
                 material.mirrored = color.metaData.mirrored;
+                console.log("mirror", material.mirrored);
             }
         }
 
