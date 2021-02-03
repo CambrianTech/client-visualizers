@@ -201,7 +201,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 @click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.option('--pattern', '-p', type=click.STRING, default=None)
-@click.option("--size", default=1536, type=int)
+@click.option("--size", default=2048, type=int)
 @click.option("--rows", default=2, type=int)
 @click.option("--columns", default=6, type=int)
 @click.option("--seam_size", default=2, type=int)
