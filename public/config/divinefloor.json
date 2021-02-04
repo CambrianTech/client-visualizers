@@ -265,7 +265,7 @@
                 },
                 {
                   "code": "E09006-P",
-                  "displayName": "MONTPELLIER PARQUET",
+                  "displayName": "MONTPELLIER P",
                   "ppi": 20,
                   "thumbnail": "thumbnails/E09006-P.jpg",
                   "details": {
@@ -317,7 +317,7 @@
                 },
                 {
                   "code": "E09007-P",
-                  "displayName": "MOULINS PARQUET",
+                  "displayName": "MOULINS P",
                   "ppi": 20,
                   "thumbnail": "thumbnails/E09007-P.jpg",
                   "details": {
@@ -369,7 +369,7 @@
                 },
                 {
                   "code": "E09002-P",
-                  "displayName": "CHAMPAGNE PARQUET",
+                  "displayName": "CHAMPAGNE P",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09002-P.jpg",
                   "details": {
@@ -424,7 +424,7 @@
                 },
                 {
                   "code": "E09003-P",
-                  "displayName": "LORRAINE PARQUET",
+                  "displayName": "LORRAINE P",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09003-P.jpg",
                   "details": {
@@ -534,7 +534,7 @@
                 },
                 {
                   "code": "E09004-P",
-                  "displayName": "ORLEANS PARQUET",
+                  "displayName": "ORLEANS P",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09004-P.jpg",
                   "details": {
@@ -1969,7 +1969,7 @@
                 },
                 {
                   "code": "E01009",
-                  "displayName": "Natural",
+                  "displayName": "NATURAL",
                   "ppi": 50,
                   "thumbnail": "thumbnails/E01009.jpg",
                   "details": {
@@ -2226,7 +2226,7 @@
                 },
                 {
                   "code": "EW4102",
-                  "displayName": "Charlemagne",
+                  "displayName": "CHARLEMAGNE",
                   "ppi": 50,
                   "thumbnail": "thumbnails/EW4102.jpg",
                   "details": {
