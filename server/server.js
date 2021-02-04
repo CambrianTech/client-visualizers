@@ -100,6 +100,9 @@ function getMetaTags(config, baseUrl, path, query) {
     metaTags += `<meta name="twitter:site" content="${config.twitterAccount}" />`;
 
     //style:
+    if (config.hasOwnProperty("buttonTextColor")) {
+        metaTags += `<style>:root {--mdc-theme-primary:${config.buttonTextColor};}</style>`;
+    }
     if (config.hasOwnProperty("primaryColor")) {
         metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
     }

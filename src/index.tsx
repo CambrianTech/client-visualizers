@@ -166,6 +166,10 @@ function App() {
                     document.title = config.siteTitle;
                 }
 
+                if (config.hasOwnProperty("buttonTextColor") && !document.documentElement.style.getPropertyValue("--mdc-theme-primary")) {
+                    document.documentElement.style.setProperty("--mdc-theme-primary", config.buttonTextColor)
+                }
+
                 if (config.hasOwnProperty("primaryColor") && !document.documentElement.style.getPropertyValue("--mdc-theme-secondary")) {
                     document.documentElement.style.setProperty("--mdc-theme-secondary", config.primaryColor)
                 }

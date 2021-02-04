@@ -55,7 +55,8 @@
     top:0;
     left:0;
     z-index: 3;
-    height: 100px;
+    max-width: 120px;
+    max-height: 100px;
     margin: 20px;
     pointer-events: none;
 }
@@ -431,7 +432,8 @@
     }
 
     .floating-logo {
-        width: 100px;
+        max-width: 80px;
+        max-height: 80px;
         padding: 10px;
     }
 

@@ -11,8 +11,11 @@ import {
     CBARMaterialProperties,
     CBARMouseEvent,
     CBARPaintAsset,
-    CBARRugAsset, CBARScene, CBARSurface,
-    CBARSurfaceAsset, CBARSurfaceType,
+    CBARRugAsset,
+    CBARScene,
+    CBARSurface,
+    CBARSurfaceAsset,
+    CBARSurfaceType,
     CBARToolMode,
     CBARView,
     cbInitialize,
@@ -25,18 +28,26 @@ import {
     ProductItem,
     SceneCollection,
     SceneInfo,
-    SwatchItem, THREE
+    SwatchItem,
+    THREE
 } from "react-home-ar";
 
 import {SiteContext, stateToUrl} from '../data/SiteContext';
 import MaterialIcon from "@material/react-material-icon";
 import {Fab} from "@material/react-fab";
 import {
-    DefaultToolsMenuActions, EditSurfaceTool,
+    DefaultToolsMenuActions,
+    EditSurfaceTool,
     ImageProperties,
-    ImageUpload, openImageDialog,
+    ImageUpload,
+    openImageDialog,
     ProductBreadcrumb,
-    ProductInfo, ServerProgress, SharePanel, ToolOperation, ToolsMenu, ToolsMenuAction,
+    ProductInfo, RotateTool,
+    ServerProgress,
+    SharePanel,
+    ToolOperation,
+    ToolsMenu,
+    ToolsMenuAction, TranslateTool,
     VerticalListing
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
@@ -114,6 +125,18 @@ export default function Visualizer(props: any) {
     }, [selectedColumn]);
 
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
+
+    const [initialRotation, setInitialRotation] = useState<number>(0);
+    const [currentRotation, setCurrentRotation] = useState<number>(0);
+    useEffect(()=>{setCurrentRotation(initialRotation);}, [initialRotation]);
+
+    const [initialXPos, setInitialXPos] = useState<number>(0);
+    const [currentXPos, setCurrentXPos] = useState<number>(0);
+    useEffect(()=>{setCurrentXPos(initialXPos);}, [initialXPos]);
+
+    const [initialYPos, setInitialYPos] = useState<number>(0);
+    const [currentYPos, setCurrentYPos] = useState<number>(0);
+    useEffect(()=>{setCurrentYPos(initialYPos);}, [initialYPos]);
 
     const isToolOverlayOpen = useMemo(()=>{
         return toolMode === CBARToolMode.Rotate || toolMode === CBARToolMode.Translate || toolMode === CBARToolMode.DrawSurface || toolMode === CBARToolMode.EraseSurface
@@ -268,6 +291,14 @@ export default function Visualizer(props: any) {
             setSelectedColumn(selectedAsset.product);
         }
     }, [selectedAsset]);
+
+    useEffect(()=>{
+        if (selectedAsset) {
+            setInitialXPos(selectedAsset.surfacePosition.x);
+            setInitialYPos(selectedAsset.surfacePosition.y);
+            setInitialRotation(selectedAsset.surfaceRotation);
+        }
+    },[selectedAsset]);
 
     const showMaterial = useCallback((color:Product|ProductColor) => {
         if (!context || !selectedSurface) return;
@@ -661,10 +692,6 @@ export default function Visualizer(props: any) {
     const toolActions = useMemo<ToolsMenuAction[]>(()=>{
         let actions = [...DefaultToolsMenuActions];
 
-        if (!isEditable()) {
-            actions = actions.filter(item=>item.operation !== CBARToolMode.DrawSurface && item.operation !== CBARToolMode.EraseSurface);
-        }
-
         if (!hasPhotoUpload) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
         }
@@ -672,6 +699,8 @@ export default function Visualizer(props: any) {
         if (!hasScenes) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
         }
+
+        actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePattern);
 
         const canEdit = siteContext.state.browserProperties.browser !== BrowserType.LegacyIE
             && siteContext.state.browserProperties.browser !== BrowserType.IE11
@@ -689,6 +718,42 @@ export default function Visualizer(props: any) {
 
         setToolMode(CBARToolMode.None);
     }, []);
+
+    const rotateChanged = useCallback((radians: number) => {
+        if (!_isMounted.current || !selectedAsset) return;
+
+        selectedAsset.surfaceRotation = radians
+
+    }, [selectedAsset]);
+
+    const rotateFinished = useCallback((commit: boolean, radians: number) => {
+        if (!_isMounted.current) return;
+
+        if (selectedAsset) {
+            selectedAsset.surfaceRotation = commit ? radians : initialRotation;
+        }
+
+        setToolMode(CBARToolMode.None);
+    }, [initialRotation, selectedAsset]);
+
+    const translationChanged = useCallback((xPos: number, yPos: number) => {
+        if (!_isMounted.current) return;
+
+        if (selectedAsset) {
+            selectedAsset.setSurfacePosition(xPos, yPos);
+        }
+
+    }, [selectedAsset]);
+
+    const translationFinished = useCallback((commit: boolean, xPos: number, yPos: number) => {
+        if (!_isMounted.current) return;
+
+        if (selectedAsset) {
+            selectedAsset.setSurfacePosition(commit ? xPos : initialXPos, commit ? yPos : initialYPos);
+        }
+
+        setToolMode(CBARToolMode.None);
+    }, [initialXPos, initialYPos, selectedAsset]);
 
     const productDetails = useMemo(()=>{
         let product:DataItem|undefined = selectedProduct;
@@ -759,6 +824,17 @@ export default function Visualizer(props: any) {
                                  toolMode={toolMode}
                                  onToolChanged={setToolMode} />
 
+                <RotateTool visible={toolMode === CBARToolMode.Rotate}
+                            rotation={toolMode === CBARToolMode.Rotate ? currentRotation : initialRotation}
+                            onRotationChanged={rotateChanged}
+                            onRotationFinished={rotateFinished} />
+
+                <TranslateTool visible={toolMode === CBARToolMode.Translate}
+                               xPos={toolMode === CBARToolMode.Translate ? currentXPos : initialXPos}
+                               yPos={toolMode === CBARToolMode.Translate ? currentYPos : initialYPos}
+                               onTranslationChanged={translationChanged}
+                               onTranslationFinished={translationFinished} />
+
                 <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />
 
                 {!rightPanelOpen && selectedRow && selectedProduct && (
@@ -825,5 +901,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [className, activePanel, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, onImageChosen, onProgress, rightPanelOpen, brandPath, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
+    ), [className, activePanel, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, selectedProduct, isPortrait, defaultRightPanel, defaultLeftPanel, leftPanelOpen, brandPath, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, onImageChosen, onProgress, rightPanelOpen, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, siteContext.state.sceneData, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText])
 }

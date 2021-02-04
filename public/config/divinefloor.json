@@ -14,6 +14,7 @@
     "appleShareIcon": "branding/logo-black.png",
     "twitterAccount": "@divinefloor",
     "primaryColor": "#000",
+    "buttonTextColor": "#fff",
     "inactiveColor": "rgba(255,255,255,0.2)",
     "defaultSceneCollection": "office",
     "defaultScene": "1-business",
