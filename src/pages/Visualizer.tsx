@@ -746,6 +746,7 @@ export default function Visualizer(props: any) {
                 <img className={"floating-logo"} src={`${brandPath}/${config.siteLogoImage}`} alt={"logo"} />
 
                 <ToolsMenu
+                    className={"tools-menu"}
                     actions={toolActions}
                     hidden={isToolOverlayOpen}
                     selectedAsset={selectedAsset}
