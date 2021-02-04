@@ -393,7 +393,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E09003.jpg"
+                    "mirroredX": true, "albedo": "textures/E09003.jpg",
+                    "crop": {"left": "50px", "top": "0px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
@@ -420,6 +421,7 @@
                     ]
                   },
                   "metaData": {
+                    "mirroredX": true,
                     "albedo": "textures/E09003-P.jpg"
                   }
                 },
@@ -1605,7 +1607,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E08017.jpg"
+                    "mirroredX": true, "albedo": "textures/E08017.jpg"
                   }
                 }                                                                                                                                                                
               ]
@@ -1639,7 +1641,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1201.jpg"
+                    "mirroredX": true, "albedo": "textures/EW1201.jpg"
                   }
                 },
                 {
@@ -1666,7 +1668,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1105.jpg"
+                    "mirroredX": true, "albedo": "textures/EW1105.jpg"
                   }
                 },
                 {
@@ -1693,7 +1695,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1102.jpg"
+                    "mirroredX": true, "albedo": "textures/EW1102.jpg"
                   }
                 },
                 {
@@ -1748,7 +1750,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E01016.jpg"
+                    "mirroredX": true, "albedo": "textures/E01016.jpg"
                   }
                 },
                 {
@@ -1775,7 +1777,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1107.jpg"
+                    "mirroredX": true, "albedo": "textures/EW1107.jpg"
                   }
                 },
                 {
@@ -1802,7 +1804,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1101.jpg"
+                    "mirroredX": true, "albedo": "textures/EW1101.jpg"
                   }
                 },
                 {
@@ -1829,7 +1831,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1202.jpg"
+                    "mirroredX": true, "albedo": "textures/EW1202.jpg"
                   }
                 },
                 {
@@ -1856,7 +1858,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E01008.jpg"
+                    "mirroredX": true, "albedo": "textures/E01008.jpg"
                   }
                 },
                 {
@@ -1883,7 +1885,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E01005.jpg"
+                    "mirroredX": true, "albedo": "textures/E01005.jpg"
                   }
                 },
                 {
@@ -1910,7 +1912,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E01011.jpg"
+                    "mirroredX": true, "albedo": "textures/E01011.jpg"
                   }
                 },
                 {
@@ -1937,7 +1939,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1204.jpg"
+                    "mirroredX": true, "albedo": "textures/EW1204.jpg"
                   }
                 },
                 {
@@ -1964,7 +1966,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E01009.jpg"
+                    "mirroredX": true, "albedo": "textures/E01009.jpg"
                   }
                 },
                 {
@@ -1991,7 +1993,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1103.jpg"
+                    "mirroredX": true, "albedo": "textures/EW1103.jpg"
                   }
                 },
                 {
@@ -2018,7 +2020,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E01003.jpg"
+                    "mirroredX": true, "albedo": "textures/E01003.jpg"
                   }
                 }
               ]
@@ -2052,7 +2054,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/535538.jpg"
+                    "mirroredX": true, "albedo": "textures/535538.jpg"
                   }
                 },
                 {
@@ -2079,7 +2081,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/538934.jpg"
+                    "mirroredX": true, "albedo": "textures/538934.jpg"
                   }
                 },
                 {
@@ -2106,7 +2108,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/538940.jpg"
+                    "mirroredX": true, "albedo": "textures/538940.jpg"
                   }
                 },
                 {
@@ -2133,7 +2135,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/539088.jpg"
+                    "mirroredX": true, "albedo": "textures/539088.jpg"
                   }
                 }
               ]
@@ -2167,7 +2169,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW4106.jpg"
+                    "mirroredX": true, "albedo": "textures/EW4106.jpg"
                   }
                 },
                 {
@@ -2194,7 +2196,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E04003.jpg"
+                    "mirroredX": true, "albedo": "textures/E04003.jpg"
                   }
                 },
                 {
@@ -2221,7 +2223,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW4102.jpg"
+                    "mirroredX": true, "albedo": "textures/EW4102.jpg"
                   }
                 },
                 {
@@ -2248,7 +2250,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E02003.jpg"
+                    "mirroredX": true, "albedo": "textures/E02003.jpg"
                   }
                 },
                 {
@@ -2275,7 +2277,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW4101.jpg"
+                    "mirroredX": true, "albedo": "textures/EW4101.jpg"
                   }
                 },
                 {
@@ -2302,7 +2304,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW4107.jpg"
+                    "mirroredX": true, "albedo": "textures/EW4107.jpg"
                   }
                 },
                 {
@@ -2329,7 +2331,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW4103.jpg"
+                    "mirroredX": true, "albedo": "textures/EW4103.jpg"
                   }
                 },
                 {
@@ -2356,7 +2358,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW4104.jpg"
+                    "mirroredX": true, "albedo": "textures/EW4104.jpg"
                   }
                 },
                 {
@@ -2383,7 +2385,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E04007.jpg"
+                    "mirroredX": true, "albedo": "textures/E04007.jpg"
                   }
                 }
               ]
@@ -2417,7 +2419,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7006.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7006.jpg"
                   }
                 },
                 {
@@ -2444,7 +2446,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7010.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7010.jpg"
                   }
                 },
                 {
@@ -2471,7 +2473,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7003.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7003.jpg"
                   }
                 },
                 {
@@ -2498,7 +2500,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7001.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7001.jpg"
                   }
                 },
                 {
@@ -2525,7 +2527,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7009.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7009.jpg"
                   }
                 },
                 {
@@ -2552,7 +2554,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7002.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7002.jpg"
                   }
                 },
                 {
@@ -2579,7 +2581,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7011.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7011.jpg"
                   }
                 },
                 {
@@ -2606,7 +2608,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7008.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7008.jpg"
                   }
                 },
                 {
@@ -2633,7 +2635,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7004.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7004.jpg"
                   }
                 },
                 {
@@ -2660,7 +2662,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW7007.jpg"
+                    "mirroredX": true, "albedo": "textures/EW7007.jpg"
                   }
                 }
               ]
@@ -2694,7 +2696,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EC5108.jpg"
+                    "mirroredX": true, "albedo": "textures/EC5108.jpg"
                   }
                 },
                 {
@@ -2721,7 +2723,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EC5105.jpg"
+                    "mirroredX": true, "albedo": "textures/EC5105.jpg"
                   }
                 },
                 {
@@ -2748,7 +2750,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EC5106.jpg"
+                    "mirroredX": true, "albedo": "textures/EC5106.jpg"
                   }
                 },
                 {
@@ -2775,7 +2777,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EC5104.jpg"
+                    "mirroredX": true, "albedo": "textures/EC5104.jpg"
                   }
                 },
                 {
@@ -2802,7 +2804,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EC5101.jpg"
+                    "mirroredX": true, "albedo": "textures/EC5101.jpg"
                   }
                 },
                 {
@@ -2829,7 +2831,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EC5102.jpg"
+                    "mirroredX": true, "albedo": "textures/EC5102.jpg"
                   }
                 },
                 {
@@ -2856,7 +2858,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EC5107.jpg"
+                    "mirroredX": true, "albedo": "textures/EC5107.jpg"
                   }
                 },
                 {
@@ -2883,7 +2885,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EC5103.jpg"
+                    "mirroredX": true, "albedo": "textures/EC5103.jpg"
                   }
                 }
               ]
