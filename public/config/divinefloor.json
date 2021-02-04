@@ -266,7 +266,7 @@
                 {
                   "code": "E09006-P",
                   "displayName": "MONTPELLIER PARQUET",
-                  "ppi": 45,
+                  "ppi": 20,
                   "thumbnail": "thumbnails/E09006-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0046",
@@ -447,7 +447,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E09001.jpg"
+                    "mirrored": true, "albedo": "textures/E09001.jpg",
+                    "crop": {"left": "5px", "top": "0px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
@@ -1547,7 +1548,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E08004.jpg"
+                    "mirrored": true, "albedo": "textures/E08004.jpg",
+                    "crop": {"left": "0px", "top": "5px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
@@ -1574,7 +1576,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E08007.jpg"
+                    "mirrored": true, "albedo": "textures/E08007.jpg",
+                    "crop": {"left": "0px", "top": "5px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
@@ -1716,7 +1719,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1203.jpg"
+                    "mirrored": true, "albedo": "textures/EW1203.jpg",
+                    "crop": {"left": "0px", "top": "5px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
@@ -2919,7 +2923,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1007.jpg"
+                    "albedo": "textures/VT1007.jpg",
+                    "crop": {"left": "330px", "top": "0px", "bottom": "0px", "right": "1030px"}
                   }
                 },
                 {
@@ -3027,7 +3032,9 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1008.jpg"
+                    "albedo": "textures/VT1008.jpg",
+                    "mirrored": true,
+                    "crop": {"left": "0px", "top": "220px", "bottom": "220px", "right": "0px"}
                   }
                 },
                 {
@@ -3081,7 +3088,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1002.jpg"
+                    "mirrored": true, "albedo": "textures/VT1002.jpg",
+                    "crop": {"left": "0px", "top": "220px", "bottom": "22∂0px", "right": "0px"}
                   }
                 },
                 {
@@ -3439,7 +3447,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/V02007.jpg"
+                    "mirrored": true, "albedo": "textures/V02007.jpg",
+                    "crop": {"left": "200px", "top": "20px", "bottom": "0px", "right": "200px"}
                   }
                 },
                 {
@@ -3547,7 +3556,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP2020.jpg"
+                    "mirroredX": true, "albedo": "textures/VP2020.jpg",
+                    "crop": {"left": "10px", "top": "20px", "bottom": "10px", "right": "800px"}
                   }
                 },
                 {
@@ -3689,7 +3699,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP3002.jpg"
+                    "mirrored": true, "albedo": "textures/VP3002.jpg",
+                    "crop": {"left": "0px", "top": "20px", "bottom": "0px", "right": "1200px"}
                   }
                 },
                 {
@@ -3770,7 +3781,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP3004.jpg"
+                    "mirrored": true, "albedo": "textures/VP3004.jpg",
+                    "crop": {"left": "400px", "top": "800px", "bottom": "0px", "right": "3200px"}
                   }
                 },
                 {
@@ -3878,7 +3890,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP3006.jpg"
+                    "mirroredX": true, "albedo": "textures/VP3006.jpg",
+                    "crop": {"left": "180px", "top": "0px", "bottom": "0px", "right": "500px"}
                   }
                 }
               ]
@@ -3912,7 +3925,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4007.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4007.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
                   }
                 },
                 {
@@ -3939,7 +3953,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4001.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4001.jpg"
                   }
                 },
                 {
@@ -3966,7 +3980,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4002.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4002.jpg"
                   }
                 },
                 {
@@ -3993,7 +4007,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4003.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4003.jpg",
+                    "crop": {"left": "420px", "top": "0px", "bottom": "0px", "right": "775px"}
                   }
                 },
                 {
@@ -4020,7 +4035,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4006.jpg"
+                    "mirrored": true, "albedo": "textures/VP4006.jpg",
+                    "crop": {"left": "0px", "top": "0px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
@@ -4047,7 +4063,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4005.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4005.jpg",
+                    "crop": {"left": "400px", "top": "0px", "bottom": "0px", "right": "740px"}
                   }
                 },
                 {
@@ -4074,7 +4091,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4004.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4004.jpg"
                   }
                 },
                 {
@@ -4101,7 +4118,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4106.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4106.jpg"
                   }
                 },
                 {
@@ -4128,7 +4145,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4103.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4103.jpg"
                   }
                 },                
                 {
@@ -4155,7 +4172,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4102.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4102.jpg"
                   }
                 },
                 {
@@ -4182,7 +4199,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4105.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4105.jpg"
                   }
                 },
                 {
@@ -4209,7 +4226,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4101.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4101.jpg"
                   }
                 },
                 {
@@ -4236,7 +4253,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP4104.jpg"
+                    "mirroredX": true, "albedo": "textures/VP4104.jpg"
                   }
                 }
               ]
