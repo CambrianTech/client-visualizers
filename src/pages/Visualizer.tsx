@@ -661,10 +661,6 @@ export default function Visualizer(props: any) {
     const toolActions = useMemo<ToolsMenuAction[]>(()=>{
         let actions = [...DefaultToolsMenuActions];
 
-        if (!isEditable()) {
-            actions = actions.filter(item=>item.operation !== CBARToolMode.DrawSurface && item.operation !== CBARToolMode.EraseSurface);
-        }
-
         if (!hasPhotoUpload) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
         }
@@ -672,6 +668,8 @@ export default function Visualizer(props: any) {
         if (!hasScenes) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
         }
+
+        actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePattern);
 
         const canEdit = siteContext.state.browserProperties.browser !== BrowserType.LegacyIE
             && siteContext.state.browserProperties.browser !== BrowserType.IE11
