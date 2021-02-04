@@ -450,12 +450,12 @@ export default function Visualizer(props: any) {
                 selectedSampleRoom: swatchItem.code as string,
             });
 
-            setActivePanel(Panel.Products);
+            setActivePanel(isPortrait ? Panel.None : Panel.Products);
 
         } else if (swatchItem instanceof SceneCollection) {
             setSelectedSceneRow(swatchItem)
         }
-    }, [dispatch]);
+    }, [dispatch, isPortrait]);
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children);
