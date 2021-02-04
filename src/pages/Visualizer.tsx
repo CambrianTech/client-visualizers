@@ -254,7 +254,7 @@ export default function Visualizer(props: any) {
             return resolveThumbnailPath(swatchItem.children[0])
         }
 
-        return `${brandPath}/${swatchItem.thumbnail}`;
+        return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("http") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
 
     }, [brandPath]);
 
