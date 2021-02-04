@@ -272,13 +272,13 @@
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0046",
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Parquet-RS_1024x1024.jpg?v=1575660940",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "13.780"},
                       {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
+                      {"Width": "31 1/2\""},
                       {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
+                      {"Length": "31 1/2\""},
                       {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
@@ -307,7 +307,7 @@
                       {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
+                      {"Installation Methods": "Nail/Glue/Float"},
                       {"Over Radiant Heat": "Yes"}
                     ]
                   },
@@ -316,13 +316,38 @@
                   }
                 },
                 {
+                  "code": "E09007-P",
+                  "displayName": "MOULINS PARQUET",
+                  "ppi": 20,
+                  "thumbnail": "thumbnails/E09007-P.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-moulins-frenchwhiteoak-0047",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Moulins_2018-Parquet-RS_1024x1024.jpg?v=1574869869",
+                    "specifications": [
+                      {"Qty per Box": "13.780"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "31 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "31 1/2\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {"albedo": "textures/E09007-P.jpg"}
+                },                
+                {
                   "code": "E09002",
                   "displayName": "CHAMPAGNE",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09002.jpg",
                   "details": {
-                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-moulins-frenchwhiteoak-0047",
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Moulins_2018-Parquet-RS_1024x1024.jpg?v=1574869869",
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-champagne-whiteoak-2428",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Champagne_2_Plank_1024x1024.jpg?v=1580765337",
                     "specifications": [
                       {"Qty per Box": "15.540"},
                       {"Product Category": "Hardwood"},
@@ -344,20 +369,20 @@
                 },
                 {
                   "code": "E09002-P",
-                  "displayName": "CHAMPAGNE Parquet",
+                  "displayName": "CHAMPAGNE PARQUET",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09002-P.jpg",
                   "details": {
-                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-champagne-whiteoak-2428",
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV_Champagne-RS_1024x1024.jpg?v=1570811023",
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-champagne-whiteoak-2433",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV_Champagne-RS_14dd3f62-6524-4da5-90a7-b3d00e8eb968_1024x1024.jpg?v=1570811136",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "13.780"},
                       {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
+                      {"Width": "31 1/2\""},
                       {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
+                      {"Length": "31 1/2\""},
                       {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
@@ -375,8 +400,8 @@
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09003.jpg",
                   "details": {
-                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-champagne-whiteoak-2433",
-                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV_Champagne-RS_14dd3f62-6524-4da5-90a7-b3d00e8eb968_1024x1024.jpg?v=1570811136",
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-lorraine-whiteoak-2429",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Lorraine-2_1024x1024.jpg?v=1570811231",
                     "specifications": [
                       {"Qty per Box": "15.540"},
                       {"Product Category": "Hardwood"},
@@ -399,20 +424,20 @@
                 },
                 {
                   "code": "E09003-P",
-                  "displayName": "LORRAINE P",
+                  "displayName": "LORRAINE PARQUET",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09003-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-lorraine-whiteoak-2432",
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV_Lorraine-RS_320a9319-ac6f-4024-b6a4-d3d6f0626e50_1024x1024.jpg?v=1570811310",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "13.780"},
                       {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
+                      {"Width": "31 1/2\""},
                       {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
+                      {"Length": "31 1/2\""},
                       {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
@@ -462,13 +487,13 @@
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-castillon-whiteoak-2434",
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV_Castillon-RS_1024x1024.jpg?v=1570810947",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "13.780"},
                       {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
+                      {"Width": "31 1/2\""},
                       {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
+                      {"Length": "31 1/2\""},
                       {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
@@ -486,7 +511,7 @@
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09004.jpg",
                   "details": {
-                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-orleans-whiteoak-2431",
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-orleans-whiteoak-2430",
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_84940afd-f071-4a6c-91fe-3f521f0dd3f5_1024x1024.jpg?v=1570811570",
                     "specifications": [
                       {"Qty per Box": "15.540"},
@@ -499,7 +524,7 @@
                       {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
-                      {"Installation Methods": "Nail/Glue"},
+                      {"Installation Methods": "Nail/Glue/Float"},
                       {"Over Radiant Heat": "Yes"}
                     ]
                   },
@@ -509,20 +534,20 @@
                 },
                 {
                   "code": "E09004-P",
-                  "displayName": "ORLEANS P",
+                  "displayName": "ORLEANS PARQUET",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09004-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-orleans-whiteoak-2431",
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/imageviewer_84940afd-f071-4a6c-91fe-3f521f0dd3f5_1024x1024.jpg?v=1570811570",
                     "specifications": [
-                      {"Qty per Box": "15.540"},
+                      {"Qty per Box": "13.780"},
                       {"Product Category": "Hardwood"},
                       {"Finish": "Olio"},
                       {"Texture": "Brushed"},
-                      {"Width": "7 1/2\""},
+                      {"Width": "31 1/2\""},
                       {"Thickness": "3/4\""},
-                      {"Length": "74 3/4\""},
+                      {"Length": "31 1/2\""},
                       {"Species": "French White Oak"},
                       {"Edge Detail": "4V"},
                       {"Grade Levels": "On/Above/Below"},
