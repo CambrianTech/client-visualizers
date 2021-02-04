@@ -568,7 +568,7 @@
                 {
                   "code": "EW3102-H",
                   "displayName": "EUROPEAN OAK H",
-                  "ppi": 45,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/EW3102-H.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-vernazza-europeanoak-8156",
                   "details": {
@@ -589,7 +589,9 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW3102-H.jpg"
+                    "albedo": "textures/EW3102-H.jpg",
+                    "mirrored": true,
+                    "crop": {"left": "235px", "top": "55px", "bottom": "20px", "right": "0px"}
                   }
                 },
                 {
@@ -622,7 +624,7 @@
                 {
                   "code": "EW3104-H",
                   "displayName": "CORSANELLO H",
-                  "ppi": 45,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/EW3104-H.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-corsanello-walnut-8161",
                   "details": {
@@ -643,7 +645,9 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW3104-H.jpg"
+                    "albedo": "textures/EW3104-H.jpg",
+                    "mirrored": true,
+                    "crop": {"left": "260px", "top": "0px", "bottom": "90px", "right": "0px"}
                   }
                 },
                 {
@@ -919,7 +923,7 @@
                 {
                   "code": "EW3103-H",
                   "displayName": "COMPIANO H",
-                  "ppi": 45,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/EW3103-H.jpg",
                   "url": "https://divinefloor.com/collections/farmhouse-1/products/farmhouse-compiano-europeanoak-8160",
                   "details": {
@@ -940,7 +944,9 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/EW3103-H.jpg"
+                    "albedo": "textures/EW3103-H.jpg",
+                    "mirrored": true,
+                    "crop": {"left": "80px", "top": "0px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
@@ -1034,7 +1040,7 @@
                 {
                   "code": "EW8011-C",
                   "displayName": "NAKED C",
-                  "ppi": 45,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW8011-C.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-naked-europeanoak-8150",
                   "details": {
@@ -1061,7 +1067,7 @@
                 {
                   "code": "EW8002-C",
                   "displayName": "CHARLIE C",
-                  "ppi": 45,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW8002-C.jpg",
                   "url": "https://divinefloor.com/collections/cosmopolitan-1/products/cosmopolitan-charlie-europeanoak-8151",
                   "details": {
@@ -2892,7 +2898,7 @@
                 {
                   "code": "EW8011-C",
                   "displayName": "NAKED",
-                  "ppi": 45,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW8011-C.jpg",
                   "url": "https://divinefloor.com/collections/chevron-hardwood/products/cosmopolitan-naked-europeanoak-8150",
                   "details": {
@@ -2919,7 +2925,7 @@
                 {
                   "code": "EW8002-C",
                   "displayName": "CHARLIE",
-                  "ppi": 45,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW8002-C.jpg",
                   "url": "https://divinefloor.com/collections/chevron-hardwood/products/cosmopolitan-charlie-europeanoak-8151",
                   "details": {
@@ -2953,7 +2959,7 @@
                 {
                   "code": "EW3102-H",
                   "displayName": "VERNAZZA",
-                  "ppi": 45,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/EW3102-H.jpg",
                   "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-vernazza-europeanoak-8159",
                   "details": {
@@ -2980,7 +2986,7 @@
                 {
                   "code": "EW3104-H",
                   "displayName": "CORSANELLO",
-                  "ppi": 45,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/EW3104-H.jpg",
                   "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-corsanello-walnut-8161",
                   "details": {
@@ -3007,7 +3013,7 @@
                 {
                   "code": "EW3103-H",
                   "displayName": "COMPIANO",
-                  "ppi": 45,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/EW3103-H.jpg",
                   "url": "https://divinefloor.com/collections/herringbone-hardwood/products/farmhouse-compiano-europeanoak-8160",
                   "details": {

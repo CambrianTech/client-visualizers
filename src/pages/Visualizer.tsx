@@ -291,7 +291,15 @@ export default function Visualizer(props: any) {
             }
             if (color.metaData.hasOwnProperty("mirrored")) {
                 material.mirrored = color.metaData.mirrored;
-                console.log("mirror", material.mirrored);
+            }
+            if (color.metaData.hasOwnProperty("mirroredX")) {
+                material.mirroredX = color.metaData.mirroredX;
+            }
+            if (color.metaData.hasOwnProperty("mirroredY")) {
+                material.mirroredY = color.metaData.mirroredY;
+            }
+            if (color.metaData.hasOwnProperty("crop")) {
+                material.crop = color.metaData.crop;
             }
         }
 
