@@ -173,26 +173,6 @@ export default function Visualizer(props: any) {
         return siteContext.state.browserProperties.isPortrait
     }, [siteContext.state.browserProperties.isPortrait]);
 
-    const defaultLeftPanel = useMemo(()=>{
-        if (isPortrait) {
-            return Panel.None
-        } else {
-            return Panel.Products
-        }
-    }, [isPortrait]);
-
-    const defaultRightPanel = useMemo(()=>{
-        if (isPortrait) {
-            return Panel.None
-        } else {
-            return Panel.ProductInfo
-        }
-    }, [isPortrait]);
-
-    const getPhoto = useCallback(()=>{
-        openImageDialog();
-    }, []);
-
     const removeAsset = useCallback(()=>{
         if (selectedAsset) {
             selectedAsset.removeFromScene();
@@ -557,20 +537,6 @@ export default function Visualizer(props: any) {
         return "";
     }, [brandPath, selectedProduct]);
 
-    const panelClassName = useMemo(()=>{
-        switch (activePanel) {
-            case Panel.Scenes:
-                return "scenes";
-            case Panel.Products:
-                return "products";
-            case Panel.ProductInfo:
-                return "product-info";
-            case Panel.Share:
-                return "share";
-        }
-        return "";
-    }, [activePanel]);
-
     const leftPanelOpen = useMemo(()=>{
         return activePanel === Panel.Scenes || activePanel === Panel.Products
     },[activePanel]);
@@ -598,8 +564,8 @@ export default function Visualizer(props: any) {
     }, [siteContext.state]);
 
     const shareCompleted = useCallback(() => {
-        setActivePanel(defaultLeftPanel);
-    }, [defaultLeftPanel]);
+        setActivePanel(Panel.None);
+    }, []);
 
     const shareUploadComplete = useCallback(()=>{
         setNeedsUpload(false);
@@ -622,6 +588,7 @@ export default function Visualizer(props: any) {
             }).then((scene)=>{
                 console.log("Scene Loaded!");
                 setCurrentScene(scene);
+                setDataPath(undefined);
             }).catch(error=>{
                 console.log("Could not load scene!", error)
             })
@@ -644,7 +611,7 @@ export default function Visualizer(props: any) {
                 removeAsset();
                 break;
             case ToolOperation.ChoosePhoto:
-                getPhoto();
+                openImageDialog();
                 break;
             case ToolOperation.ChooseScene:
                 setActivePanel(Panel.Scenes);
@@ -660,7 +627,7 @@ export default function Visualizer(props: any) {
             setToolMode(CBARToolMode.None);
         }
 
-    }, [getPhoto, removeAsset]);
+    }, [removeAsset]);
 
     const isEditable = useCallback(() => {
         if (currentScene) {
@@ -750,10 +717,23 @@ export default function Visualizer(props: any) {
         return !(currentScene || dataPath || siteContext.state.sceneData || progressVisible)
     }, [currentScene, dataPath, siteContext.state.sceneData, progressVisible]);
 
+    const panelTimer = useRef(0);
+    const setPanelTimer = useCallback(()=>{
+        panelTimer.current = window.setTimeout(()=>{
+            setActivePanel(Panel.None);
+        }, 1000);
+    }, [panelTimer]);
+
+    const clearPanelTimer = useCallback(()=>{
+        if (panelTimer.current) {
+            window.clearTimeout(panelTimer.current);
+        }
+    }, [panelTimer]);
+
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
-            <div className={"panel a"}>
+            <div className={"panel a"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
                 <div className={"title"}>
                     {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={productsClicked}>
                         <div className={"choose-text"}>Choose a Product</div>
@@ -855,7 +835,7 @@ export default function Visualizer(props: any) {
 
             </div>}
 
-            <div className={"panel c"}>
+            <div className={"panel c"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
 
                 {!isPortrait && hasShare && <div className={"title"}>
                     <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
@@ -890,9 +870,9 @@ export default function Visualizer(props: any) {
                 )}
             </div>
 
-            {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} icon={<MaterialIcon icon='close' />} onClick={()=>setActivePanel(defaultLeftPanel)}  />}
+            {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} icon={<MaterialIcon icon='close' />} onClick={()=>setActivePanel(Panel.None)}  />}
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, onImageChosen, onProgress, showUploadButton, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, defaultLeftPanel])
+    ), [activePanel, currentScene, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, onImageChosen, onProgress, showUploadButton, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer])
 }

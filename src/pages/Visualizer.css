@@ -84,6 +84,8 @@
     max-height: 100px;
     margin: 20px;
     pointer-events: none;
+
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
 }
 
 .image-upload {
