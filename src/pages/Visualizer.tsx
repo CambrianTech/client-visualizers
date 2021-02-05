@@ -275,7 +275,10 @@ export default function Visualizer(props: any) {
     },[selectedAsset]);
 
     const showMaterial = useCallback((color:Product|ProductColor) => {
-        if (!context || !selectedSurface) return;
+        if (!context || !selectedSurface) {
+            console.log("Show material failed", selectedSurface);
+            return;
+        };
 
         let material:CBARMaterialProperties = {};
         material.properties = {
@@ -333,6 +336,7 @@ export default function Visualizer(props: any) {
 
         currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:material} : { materials:[material]}).then(()=>{
             setNeedsUpload(true);
+            console.log("Loaded product", material);
         }).catch((error:any) => {
             console.error(error)
         })
@@ -600,6 +604,7 @@ export default function Visualizer(props: any) {
             const floor = currentScene.geometry.surfaces.find(surface=>surface.type === CBARSurfaceType.Floor);
             if (floor) {
                 setSelectedSurface(floor);
+                console.log("Set selected surface to first floor.")
             }
         }
     }, [currentScene]);

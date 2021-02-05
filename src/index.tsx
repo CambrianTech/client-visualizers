@@ -136,6 +136,21 @@ function App() {
             })
         }
 
+        if (searchObject.room) {
+
+
+        } else if (searchObject.r && searchObject.rt) {
+            dispatchSiteState({
+                type: "setSelectedSampleRoomType",
+                selectedSampleRoomType: searchObject.rt
+            });
+
+            dispatchSiteState({
+                type: "setSelectedSampleRoom",
+                selectedSampleRoom: searchObject.r,
+            });
+        }
+
         //load defaults
         fetch(CONFIG_PATH).then(res => res.json())
             .then(json => {
