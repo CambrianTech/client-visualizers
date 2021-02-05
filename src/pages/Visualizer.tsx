@@ -367,12 +367,12 @@ export default function Visualizer(props: any) {
             if (asset) {
                 assetClicked(asset);
             }
-        } else if (event.type === CBAREventType.TouchMove && selectedSurface) {
-            //setCurrentRotation(selectedAsset.surfaceRotation);
-            //setCurrentXPos(selectedAsset.surfacePosition.x);
-            //setCurrentYPos(selectedAsset.surfacePosition.y);
+        } else if (selectedAsset && event.type === CBAREventType.TouchMove) {
+            setCurrentRotation(selectedAsset.surfaceRotation);
+            setCurrentXPos(selectedAsset.surfacePosition.x);
+            setCurrentYPos(selectedAsset.surfacePosition.y);
         }
-    }, [assetClicked, currentScene, selectedSurface]);
+    }, [assetClicked, currentScene, selectedAsset]);
 
     useEffect(() => {
         if (context) {
@@ -669,7 +669,8 @@ export default function Visualizer(props: any) {
     const rotateChanged = useCallback((radians: number) => {
         if (!_isMounted.current || !selectedAsset) return;
 
-        selectedAsset.surfaceRotation = radians
+        selectedAsset.surfaceRotation = radians;
+        console.log(radians);
 
     }, [selectedAsset]);
 
