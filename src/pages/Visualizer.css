@@ -25,7 +25,7 @@
     left:calc(-1 * var(--panel-width));
 
     display: flex;
-    transition: all 200ms;
+    transition: left 200ms;
 }
 
 .panel {
@@ -41,13 +41,12 @@
     flex-basis: var(--panel-width);
     flex-grow: 0;
     flex-shrink: 0;
+    z-index: 1;
 }
 
 .panel:nth-child(2) {
     flex-grow: 1;
     flex-shrink: 1;
-    flex-basis: auto;
-    border: 3px solid red;
 }
 
 .panels.scenes, .panels.products {
