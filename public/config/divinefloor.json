@@ -817,7 +817,7 @@
                 },
                 {
                   "code": "EW3105-X",
-                  "displayName": "ABRUZZO",
+                  "displayName": "ABRUZZO XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW3105-X.jpg",
                   "details": {
@@ -871,7 +871,7 @@
                 },
                 {
                   "code": "EW3106-X",
-                  "displayName": "GREGORIANO",
+                  "displayName": "GREGORIANO XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW3106-X.jpg",
                   "details": {
@@ -1447,7 +1447,7 @@
                 },
                 {
                   "code": "EW8001-X",
-                  "displayName": "BAREFOOT",
+                  "displayName": "BAREFOOT XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW8001-X.jpg",
                   "details": {
@@ -1474,7 +1474,7 @@
                 },
                 {
                   "code": "EW8020-X",
-                  "displayName": "FAWN OVER",
+                  "displayName": "FAWN OVER XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW8020-X.jpg",
                   "details": {
@@ -1501,7 +1501,7 @@
                 },
                 {
                   "code": "EW8013-X",
-                  "displayName": "OVER 40",
+                  "displayName": "OVER 40 XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW8013-X.jpg",
                   "details": {
