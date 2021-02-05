@@ -753,7 +753,7 @@ export default function Visualizer(props: any) {
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
-            <div className={"panel"}>
+            <div className={"panel a"}>
                 <div className={"title"}>
                     {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={productsClicked}>
                         <div className={"choose-text"}>Choose a Product</div>
@@ -783,7 +783,7 @@ export default function Visualizer(props: any) {
             </div>
 
             {config &&
-            <div className={"panel"}>
+            <div className={"panel b"}>
 
                 <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
 
@@ -797,7 +797,7 @@ export default function Visualizer(props: any) {
                                 <div className={"upload-room-text"}>Choose Scene</div>
                             </div>
                         </Button>
-                        <Button variant="contained" color="primary" onClick={()=>openImageDialog()}>
+                        <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
                             <div className={"upload-room-button"}>
                                 <MaterialIcon icon='add_a_photo' className={"upload-room-icon"} />
                                 <div className={"upload-room-text"}>Upload Room</div>
@@ -855,7 +855,7 @@ export default function Visualizer(props: any) {
 
             </div>}
 
-            <div className={"panel"}>
+            <div className={"panel c"}>
 
                 {!isPortrait && hasShare && <div className={"title"}>
                     <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
