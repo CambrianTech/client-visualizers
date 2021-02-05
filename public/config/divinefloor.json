@@ -1781,7 +1781,7 @@
                 },
                 {
                   "code": "EW1107",
-                  "displayName": "NATURAL",
+                  "displayName": "NATURAL OAK",
                   "ppi": 50,
                   "thumbnail": "thumbnails/EW1107.jpg",
                   "details": {
@@ -1916,7 +1916,7 @@
                 },
                 {
                   "code": "E01011",
-                  "displayName": "NATURAL",
+                  "displayName": "NATURAL HICKORY",
                   "ppi": 50,
                   "thumbnail": "thumbnails/E01011.jpg",
                   "details": {
@@ -1970,7 +1970,7 @@
                 },
                 {
                   "code": "E01009",
-                  "displayName": "NATURAL",
+                  "displayName": "NATURAL SAPELE",
                   "ppi": 50,
                   "thumbnail": "thumbnails/E01009.jpg",
                   "details": {
