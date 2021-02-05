@@ -16,8 +16,6 @@
     "primaryColor": "#000",
     "buttonTextColor": "#fff",
     "inactiveColor": "rgba(255,255,255,0.2)",
-    "defaultSceneCollection": "office",
-    "defaultScene": "1-business",
     "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/divinefloor/scenes",
     "siteLogoImage": "branding/logo-black.png",
     "shareSubject": "Check out this great Divine Floor",

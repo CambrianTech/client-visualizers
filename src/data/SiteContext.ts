@@ -30,7 +30,7 @@ export type SharableVisualizerState = {
 }
 
 export type DerivedVisualizerState = {
-    sceneData:CBARSceneProperties | null
+    sceneData:CBARSceneProperties | undefined
     materialProperties: CBMaterialProperties | null
     onMaterialTextureChanged: ((path: string) => (void)) | null
     previewWidth: number | null
@@ -61,7 +61,7 @@ export function createEmptyState(): SiteState {
         selectedSampleRoomType: null,
 
         // Visualizer derived
-        sceneData: null,
+        sceneData: undefined,
         materialProperties: null,
         onMaterialTextureChanged: null,
         previewWidth: null,
@@ -107,7 +107,7 @@ export type SiteActionSetSiteData = {
 
 export type SiteActionSetSceneData = {
     type: "setSceneData"
-    sceneData: CBARSceneProperties | null
+    sceneData: CBARSceneProperties | undefined
 }
 
 export type SiteActionSetSelectedSampleRoom = {

@@ -17,33 +17,67 @@
     --vertical-margin:20px;
 }
 
-.visualizer {
+.panels {
     position: absolute;
     top:0;
-    width: calc(var(--app-width) + var(--panel-width));
-    height: var(--app-height);
-    overflow: hidden;
+    height: 100vh;
+    width:calc(100vw + 2 * var(--panel-width));
+    left:calc(-1 * var(--panel-width));
 
     display: flex;
-
-    transition: left 200ms;
+    transition: all 200ms;
 }
 
-.visualizer-container {
+.panel {
     position: relative;
-    width: calc(var(--app-width) - var(--panel-width));
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    min-width:var(--panel-width);
+    pointer-events: auto;
+}
+
+.panel:nth-child(1), .panel:nth-child(3) {
+    flex-basis: var(--panel-width);
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.panel:nth-child(2) {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    border: 3px solid red;
+}
+
+.panels.scenes, .panels.products {
+    left:0;
+}
+
+.panels.product-info, .panels.share {
+    left:calc(-2 * var(--panel-width));
+}
+
+.panel .close-button {
+    position: absolute;
+    top:calc(50vh - 25px);
+    z-index: 100000;
+}
+
+.panel .close-button.panel-a {
+    left:30px;
+}
+
+.panel .close-button.panel-c {
+    right:30px;
 }
 
 .visualizer-tools {
     z-index: 100 !important;
 }
 
-.visualizer.products, .visualizer.scenes  {
-    left:0;
-}
-
-.visualizer.product-info, .visualizer.share  {
-    left: calc(-1 * var(--details-panel-width));
+.visualizer  {
+    left: calc(-1 * var(--panel-width));
 }
 
 .visualizer.product-info .tools-menu {
@@ -59,6 +93,35 @@
     max-height: 100px;
     margin: 20px;
     pointer-events: none;
+}
+
+.image-upload {
+    position: absolute;
+    top:0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfdfdf;
+}
+
+.image-upload .content > * {
+    margin: 20px;
+}
+
+.image-upload .upload-room-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-upload .upload-room-button .upload-room-icon {
+    font-size: 100px;
+}
+
+.image-upload .upload-room-button .upload-room-text {
+    font-size: 20px;
 }
 
 .MuiFab-primary {
@@ -104,17 +167,6 @@
     left:0;
 }
 
-.panel {
-    flex-grow: 1;
-    flex-shrink: 1;
-
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    min-width:var(--panel-width);
-    pointer-events: auto;
-}
-
 .panel .title {
     flex-shrink: 0;
     flex-basis: 45px;
@@ -131,6 +183,7 @@
 .panel .title .choose {
     height:45px;
     flex-basis: 50%;
+    flex-grow: 1;
     cursor: pointer;
     padding: 10px;
     text-align: center;
