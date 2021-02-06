@@ -53,7 +53,7 @@ import {
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {getScenePaths} from "../index";
+import {getScenePaths, getUploadedRoomPaths} from "../index";
 import {BrowserType} from "react-client-info";
 import {Button} from "@material-ui/core";
 
@@ -210,9 +210,17 @@ export default function Visualizer(props: any) {
     }, []);
 
     const onImageChosen = useCallback((props: ImageProperties) => {
+
+        dispatch({type: "clearRoomData"});
+
         dispatch({
             type: "setSceneData",
             sceneData: props
+        });
+
+        dispatch({
+            type: "setSelectedRoom",
+            selectedRoom: props.roomId
         });
     },[dispatch]);
 
@@ -581,23 +589,36 @@ export default function Visualizer(props: any) {
         }
     }, [siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
 
-    useEffect(() => {
-        if (context && rootItem && (siteContext.state.sceneData || dataPath)) {
+    useEffect(()=>{
+        if (siteContext.state.selectedRoom) {
+            setDataPath(getUploadedRoomPaths(siteContext.state.selectedRoom).data);
+        }
+    }, [siteContext.state.selectedRoom]);
+
+    useEffect(()=>{
+        if (dataPath && context && rootItem) {
             const brand = rootItem as DataItem;
-            console.log("Loading scene");
-            context.loadScene({
-                dataPath,
-                sceneData: siteContext.state.sceneData,
-                surfaceTypes: brand.surfaceTypes
-            }).then((scene)=>{
-                console.log("Scene Loaded!");
+            context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
+                setCurrentScene(scene);
+                console.log("Static Scene Loaded!");
+            }).catch(error=>{
+                console.log("Could not load scene!", error)
+            });
+        }
+    }, [context, dataPath, rootItem]);
+
+    useEffect(() => {
+        if (context && siteContext.state.sceneData && rootItem) {
+            const brand = rootItem as DataItem;
+            context.loadSceneData(siteContext.state.sceneData, brand.surfaceTypes).then((scene)=>{
+                console.log("Dynamic Scene Loaded!");
                 setCurrentScene(scene);
                 setDataPath(undefined);
             }).catch(error=>{
                 console.log("Could not load scene!", error)
             })
         }
-    }, [context, dataPath, rootItem, siteContext.state.sceneData]);
+    }, [context, rootItem, siteContext.state.sceneData]);
 
     useEffect(()=>{
         if (currentScene) {
