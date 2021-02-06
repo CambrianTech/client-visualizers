@@ -264,7 +264,7 @@
                 },
                 {
                   "code": "E09006-P",
-                  "displayName": "MONTPELLIER P",
+                  "displayName": "MONTPELLIER PARQUET",
                   "ppi": 20,
                   "thumbnail": "thumbnails/E09006-P.jpg",
                   "details": {
@@ -316,7 +316,7 @@
                 },
                 {
                   "code": "E09007-P",
-                  "displayName": "MOULINS P",
+                  "displayName": "MOULINS PARQUET",
                   "ppi": 20,
                   "thumbnail": "thumbnails/E09007-P.jpg",
                   "details": {
@@ -368,7 +368,7 @@
                 },
                 {
                   "code": "E09002-P",
-                  "displayName": "CHAMPAGNE P",
+                  "displayName": "CHAMPAGNE PARQUET",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09002-P.jpg",
                   "details": {
@@ -423,7 +423,7 @@
                 },
                 {
                   "code": "E09003-P",
-                  "displayName": "LORRAINE P",
+                  "displayName": "LORRAINE PARQUET",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09003-P.jpg",
                   "details": {
@@ -479,7 +479,7 @@
                 },
                 {
                   "code": "E09001-P",
-                  "displayName": "CASTILLON P",
+                  "displayName": "CASTILLON PARQUET",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09001-P.jpg",
                   "details": {
@@ -533,7 +533,7 @@
                 },
                 {
                   "code": "E09004-P",
-                  "displayName": "ORLEANS P",
+                  "displayName": "ORLEANS PARQUET",
                   "ppi": 45,
                   "thumbnail": "thumbnails/E09004-P.jpg",
                   "details": {
@@ -594,7 +594,7 @@
                 },
                 {
                   "code": "EW3102-H",
-                  "displayName": "VERNAZZA H",
+                  "displayName": "VERNAZZA HERRINGBONE",
                   "ppi": 25,
                   "thumbnail": "thumbnails/EW3102-H.jpg",
                   "details": {
@@ -650,7 +650,7 @@
                 },
                 {
                   "code": "EW3104-H",
-                  "displayName": "CORSANELLO H",
+                  "displayName": "CORSANELLO HERRINGBONE",
                   "ppi": 25,
                   "thumbnail": "thumbnails/EW3104-H.jpg",
                   "details": {
@@ -815,7 +815,7 @@
                 },
                 {
                   "code": "EW3105-X",
-                  "displayName": "ABRUZZO",
+                  "displayName": "ABRUZZO XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW3105-X.jpg",
                   "details": {
@@ -869,7 +869,7 @@
                 },
                 {
                   "code": "EW3106-X",
-                  "displayName": "GREGORIANO",
+                  "displayName": "GREGORIANO XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW3106-X.jpg",
                   "details": {
@@ -950,7 +950,7 @@
                 },
                 {
                   "code": "EW3103-H",
-                  "displayName": "COMPIANO H",
+                  "displayName": "COMPIANO HERRINGBONE",
                   "ppi": 25,
                   "thumbnail": "thumbnails/EW3103-H.jpg",
                   "details": {
@@ -1067,7 +1067,7 @@
                 },
                 {
                   "code": "EW8011-C",
-                  "displayName": "NAKED C",
+                  "displayName": "NAKED CHEVRON",
                   "ppi": 30,
                   "thumbnail": "thumbnails/EW8011-C.jpg",
                   "details": {
@@ -1094,7 +1094,7 @@
                 },
                 {
                   "code": "EW8002-C",
-                  "displayName": "CHARLIE C",
+                  "displayName": "CHARLIE CHEVRON",
                   "ppi": 30,
                   "thumbnail": "thumbnails/EW8002-C.jpg",
                   "details": {
@@ -1445,7 +1445,7 @@
                 },
                 {
                   "code": "EW8001-X",
-                  "displayName": "BAREFOOT",
+                  "displayName": "BAREFOOT XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW8001-X.jpg",
                   "details": {
@@ -1472,7 +1472,7 @@
                 },
                 {
                   "code": "EW8020-X",
-                  "displayName": "FAWN OVER",
+                  "displayName": "FAWN OVER XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW8020-X.jpg",
                   "details": {
@@ -1499,7 +1499,7 @@
                 },
                 {
                   "code": "EW8013-X",
-                  "displayName": "OVER 40",
+                  "displayName": "OVER 40 XL",
                   "ppi": 45,
                   "thumbnail": "thumbnails/EW8013-X.jpg",
                   "details": {
@@ -1779,7 +1779,7 @@
                 },
                 {
                   "code": "EW1107",
-                  "displayName": "NATURAL",
+                  "displayName": "NATURAL OAK",
                   "ppi": 50,
                   "thumbnail": "thumbnails/EW1107.jpg",
                   "details": {
@@ -1914,7 +1914,7 @@
                 },
                 {
                   "code": "E01011",
-                  "displayName": "NATURAL",
+                  "displayName": "NATURAL HICKORY",
                   "ppi": 50,
                   "thumbnail": "thumbnails/E01011.jpg",
                   "details": {
@@ -1968,7 +1968,7 @@
                 },
                 {
                   "code": "E01009",
-                  "displayName": "NATURAL",
+                  "displayName": "NATURAL SAPELE",
                   "ppi": 50,
                   "thumbnail": "thumbnails/E01009.jpg",
                   "details": {
@@ -2056,7 +2056,7 @@
               "colors": [
                 {
                   "code": "535538",
-                  "displayName": "OAK CRÈME",
+                  "displayName": "OAK CRÈME WHITE",
                   "ppi": 50,
                   "thumbnail": "thumbnails/535538.jpg",
                   "details": {
@@ -2198,7 +2198,7 @@
                 },
                 {
                   "code": "E04003",
-                  "displayName": "NATURAL",
+                  "displayName": "NATURAL WALNUT",
                   "ppi": 50,
                   "thumbnail": "thumbnails/E04003.jpg",
                   "details": {
