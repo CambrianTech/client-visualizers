@@ -780,13 +780,13 @@ export default function Visualizer(props: any) {
                         <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
                             <div className={"upload-room-button"}>
                                 <MaterialIcon icon='insert_photo' className={"upload-room-icon"} />
-                                <div className={"upload-room-text"}>Choose Scene</div>
+                                <div className={"upload-room-text"}>Choose a Scene</div>
                             </div>
                         </Button>
                         <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
                             <div className={"upload-room-button"}>
                                 <MaterialIcon icon='add_a_photo' className={"upload-room-icon"} />
-                                <div className={"upload-room-text"}>Upload Room</div>
+                                <div className={"upload-room-text"}>Upload My Room</div>
                             </div>
                         </Button>
                     </div>

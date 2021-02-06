@@ -442,6 +442,10 @@ panel.c {
         height: var(--app-height);
     }
 
+    .panel .close-button {
+        border: 1px solid green;
+    }
+
     .cbarview {
         position: absolute;
         top:0;
