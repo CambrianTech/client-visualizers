@@ -144,18 +144,6 @@
     background-color: #00afff;
 }
 
-.primary-panel {
-    width:var(--panel-width);
-    height: var(--panel-height);
-
-    font-family: Avenir, sans-serif;
-    display: flex;
-    flex-direction: row;
-    transition: left 200ms;
-    z-index: 10;
-    pointer-events: none;
-}
-
 .panel .title {
     flex-shrink: 0;
     flex-basis: 45px;
@@ -199,33 +187,6 @@
     border-right: solid var(--triangle-thickness) transparent;
 }
 
-.close-button-container {
-    flex-grow: 0;
-    flex-shrink: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    position: absolute;
-    top:0;
-    z-index: 10;
-    height: 100%;
-    flex-basis: var(--panel-close-width);
-    pointer-events: none;
-}
-
-.products-button.close-button-container {
-    left: 0;
-    margin-left: 20px;
-}
-
-.product-details-button.close-button-container {
-    right: 0;
-    margin-right: var(--horizontal-margin);
-}
-
 .visualizer-tools {
     top:var(--vertical-margin) !important;
     right: var(--horizontal-margin) !important;
@@ -256,10 +217,6 @@ panel.c {
 
     pointer-events: none;
     background-color: white;
-}
-
-.panels .close-button-container.product-details-button {
-    flex-basis: var(--details-panel-close-width);
 }
 
 .panel.c .panel {
@@ -434,16 +391,16 @@ panel.c {
         height: var(--app-height);
     }
 
+    .panel {
+        transition: bottom 200ms;
+    }
+
     .panel.b {
         position: absolute;
         top:0;
         left:0;
         width: var(--app-width);
         height: var(--app-height);
-    }
-
-    .panel .close-button {
-        border: 1px solid green;
     }
 
     .cbarview {
@@ -456,17 +413,21 @@ panel.c {
         top:-70vh;
     }
 
-    .close-button-container {
+    .panel .close-button {
         top:unset;
         bottom: 0;
         transition: bottom 200ms;
     }
 
-    .products-button.close-button-container {
-        margin-left: 0;
+    .panel .close-button.panel-a {
+        left:calc(50% - 28px);
     }
 
-    .panels.products .products-button.close-button-container, .panels.scenes .products-button.close-button-container {
+    .panel .close-button.panel-c {
+        right:10px;
+    }
+
+    .panels.products .close-button.panel-a, .panels.scenes .close-button.panel-c {
         margin-left: 0;
         bottom: calc(var(--panel-height) - 20px);
     }
@@ -500,7 +461,11 @@ panel.c {
         right: 25px;
     }
 
-    .primary-panel, .panel.c {
+    .panel {
+        position: absolute;
+    }
+
+    .panel.c {
         position: absolute;
         top:unset;
         left:0;
@@ -512,7 +477,7 @@ panel.c {
         transition: bottom 200ms;
     }
 
-    .primary-panel {
+    .panel.b {
         bottom: calc(-1 * var(--panel-height));
     }
 
@@ -548,30 +513,37 @@ panel.c {
         min-width:var(--details-panel-width);
     }
 
-    .close-button-container {
+    .close-button {
         order: 0;
         width: 100%;
         height: unset;
         margin-bottom: 35px;
     }
 
-    .mdc-fab {
+    .panels .mdc-fab {
         width: 45px;
         height: 45px;
+        z-index: 1;
     }
 
-    .panels .close-button-container.product-details-button {
+    .panels.product-info .mdc-fab.close-button.panel-c {
+        z-index: 20;
+    }
+
+    .panels.products .mdc-fab.close-button.panel-c {
+        visibility: hidden;
+    }
+
+    .panels.products .floating-product-info {
+        visibility: hidden;
+    }
+
+    .panels .mdc-fab--extended {
         width: unset;
-        bottom: 0;
-        z-index: 11;
     }
 
-    .panels.product-info .product-details-button.close-button-container, .panels.share .product-details-button.close-button-container {
+    .panels.product-info .panel-c.close-button, .panels.share .panel-c.close-button {
         bottom: calc(var(--details-panel-height) - 120px);
-    }
-
-    .panels .close-button-container.product-details-button .mdc-fab {
-        width: unset;
     }
 
     .panels.products .visualizer-tools,
