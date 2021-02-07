@@ -26,11 +26,28 @@ const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
 export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
 const CONFIG_PATH = `config/${siteName}.json`;
 
-export const getScenePaths = (collectionName?:string, sceneName?:string)=>{
+export type RoomPaths = {
+    base:string,
+    data:string,
+    thumbnail:string,
+    preview:string
+}
+
+export const getScenePaths = (collectionName?:string, sceneName?:string):RoomPaths =>{
     const basePath = `${SITE_PATH}/scenes/${collectionName}/${sceneName}`;
     return {
         base:basePath,
         data:`${basePath}/data.json`,
+        thumbnail:`${basePath}/thumbnail.jpg`,
+        preview:`${basePath}/preview.jpg`
+    }
+};
+
+export const getUploadedRoomPaths = (roomID?:string):RoomPaths=>{
+    const basePath = `${process.env.REACT_APP_CB_UPLOADS_URL}/${roomID}`;
+    return {
+        base:basePath,
+        data:`${basePath}/data_v3.json`,
         thumbnail:`${basePath}/thumbnail.jpg`,
         preview:`${basePath}/preview.jpg`
     }
@@ -134,6 +151,23 @@ function App() {
                 type: "setColor",
                 code:searchObject.color
             })
+        }
+
+        if (searchObject.room) {
+            dispatchSiteState({
+                type: "setSelectedRoom",
+                selectedRoom: searchObject.room
+            });
+        } else if (searchObject.r && searchObject.rt) {
+            dispatchSiteState({
+                type: "setSelectedSampleRoomType",
+                selectedSampleRoomType: searchObject.rt
+            });
+
+            dispatchSiteState({
+                type: "setSelectedSampleRoom",
+                selectedSampleRoom: searchObject.r,
+            });
         }
 
         //load defaults

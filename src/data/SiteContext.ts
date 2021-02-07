@@ -27,10 +27,11 @@ export type SharableVisualizerState = {
     selectedColor: string | null
     selectedSampleRoom: string | null
     selectedSampleRoomType: string | null
+    selectedRoom:string|null
 }
 
 export type DerivedVisualizerState = {
-    sceneData:CBARSceneProperties | null
+    sceneData:CBARSceneProperties | undefined
     materialProperties: CBMaterialProperties | null
     onMaterialTextureChanged: ((path: string) => (void)) | null
     previewWidth: number | null
@@ -59,9 +60,10 @@ export function createEmptyState(): SiteState {
         // Visualizer shared
         selectedSampleRoom: null,
         selectedSampleRoomType: null,
+        selectedRoom:null,
 
         // Visualizer derived
-        sceneData: null,
+        sceneData: undefined,
         materialProperties: null,
         onMaterialTextureChanged: null,
         previewWidth: null,
@@ -107,7 +109,7 @@ export type SiteActionSetSiteData = {
 
 export type SiteActionSetSceneData = {
     type: "setSceneData"
-    sceneData: CBARSceneProperties | null
+    sceneData: CBARSceneProperties | undefined
 }
 
 export type SiteActionSetSelectedSampleRoom = {
@@ -118,6 +120,15 @@ export type SiteActionSetSelectedSampleRoom = {
 export type SiteActionSetSelectedSampleRoomType = {
     type: "setSelectedSampleRoomType"
     selectedSampleRoomType: string | null
+}
+
+export type SiteActionSetSelectedRoom = {
+    type: "setSelectedRoom"
+    selectedRoom: string | null
+}
+
+export type SiteActionClearRoomData = {
+    type: "clearRoomData"
 }
 
 export type SiteActionSetFov = {
@@ -148,7 +159,7 @@ export type ShawActionSetFloorTranslation = {
 
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
-    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType
+    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionClearRoomData
     | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor | SiteActionSetSiteData;
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
@@ -178,6 +189,14 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
             break;
         case "setSelectedSampleRoomType":
             newState.selectedSampleRoomType = action.selectedSampleRoomType;
+            break;
+        case "setSelectedRoom":
+            newState.selectedRoom = action.selectedRoom;
+            break;
+        case "clearRoomData":
+            newState.selectedSampleRoomType = null;
+            newState.selectedSampleRoom = null;
+            newState.selectedRoom = null;
             break;
 
         case "setCollection":
@@ -225,6 +244,10 @@ export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
 
     if (shawState.selectedSampleRoomType) {
         searchObject.rt = shawState.selectedSampleRoomType
+    }
+
+    if (shawState.selectedRoom) {
+        searchObject.room = shawState.selectedRoom
     }
 
     if (includeSceneParams) {
