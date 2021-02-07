@@ -370,6 +370,12 @@ panel.c {
     border:1px solid var(--mdc-theme-secondary, #555555);
 }
 
+
+.makeStyles-speedDial-1 {
+    top: 30px !important;
+    right: 30px !important;
+}
+
 /* Mobile Phone or iPad in portrait */
 @media (orientation: portrait) {
 
@@ -551,6 +557,11 @@ panel.c {
     .panels.product-info .visualizer-tools,
     .panels.share .visualizer-tools {
         visibility: hidden;
+    }
+
+    .makeStyles-speedDial-1 {
+        top: 25px !important;
+        right: 10px !important;
     }
 }
 

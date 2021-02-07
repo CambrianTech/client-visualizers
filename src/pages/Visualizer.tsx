@@ -344,7 +344,6 @@ export default function Visualizer(props: any) {
 
         currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:material} : { materials:[material]}).then(()=>{
             setNeedsUpload(true);
-            console.log("Loaded product", material);
         }).catch((error:any) => {
             console.error(error)
         })
@@ -465,6 +464,11 @@ export default function Visualizer(props: any) {
             dispatch({
                 type: "setSelectedSampleRoom",
                 selectedSampleRoom: swatchItem.code as string,
+            });
+
+            dispatch({
+                type: "setSelectedRoom",
+                selectedRoom: null
             });
 
             setActivePanel(Panel.None);
