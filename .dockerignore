@@ -5,6 +5,8 @@ scripts
 /assets/scenes
 
 /sites/*
+/public/cambrianar-sites
+
 
 **/*.log
 **/.DS_Store
