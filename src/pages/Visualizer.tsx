@@ -398,13 +398,26 @@ export default function Visualizer(props: any) {
         }
     }, [selectedColumn, selectedSurface, showMaterial]);
 
-    const productsClicked = useCallback(()=>{
-        setActivePanel(Panel.Products);
-        setHasSeenProducts(true);
-        if (rootItem) {
+    useEffect(()=>{
+        if (selectedProduct) {
+            setHasSeenProducts(true);
+        }
+    }, [selectedProduct]);
+
+    const productsClicked = useCallback((gotoRoot?:boolean)=>{
+        if (activePanel === Panel.Products || activePanel === Panel.Scenes) {
+            setActivePanel(Panel.None);
+        } else {
+            if (currentScene) {
+                setActivePanel(Panel.Products);
+            } else {
+                setActivePanel(Panel.Scenes);
+            }
+        }
+        if (rootItem && gotoRoot) {
             setListingItems(rootItem.children);
         }
-    }, [rootItem]);
+    }, [activePanel, currentScene, rootItem]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem.parent && swatchItem.parent.hasColumns) {
@@ -772,7 +785,7 @@ export default function Visualizer(props: any) {
 
             <div className={"panel a"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
                 <div className={"title"}>
-                    {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={productsClicked}>
+                    {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>productsClicked(true)}>
                         <div className={"choose-text"}>Choose a Product</div>
                     </div>}
                     <div className={"choose scene" + (activePanel === Panel.Scenes ? " selected" : "")} onClick={()=>setActivePanel(Panel.Scenes)}>
