@@ -145,11 +145,12 @@ export default function Visualizer(props: any) {
     }, [toolMode]);
 
     const hasShare = useMemo(()=>{
-        if (config && selectedProduct) {
-            return config.hasOwnProperty("hasShare") ? config.hasShare : true;
-        }
+        //disabled for now:
+        // if (config && selectedProduct) {
+        //     return config.hasOwnProperty("hasShare") ? config.hasShare : true;
+        // }
         return false
-    },[config, selectedProduct]);
+    },[]);
 
     const hasPhotoUpload = useMemo(()=>{
         if (config) {
@@ -678,6 +679,10 @@ export default function Visualizer(props: any) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
         }
 
+        if (!hasShare) {
+            actions = actions.filter(item=>item.operation !== ToolOperation.Share);
+        }
+
         actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePattern);
 
         const canEdit = siteContext.state.browserProperties.browser !== BrowserType.LegacyIE
@@ -689,7 +694,7 @@ export default function Visualizer(props: any) {
         }
 
         return actions
-    }, [hasPhotoUpload, hasScenes, isEditable, siteContext.state.browserProperties.browser]);
+    }, [hasPhotoUpload, hasScenes, hasShare, isEditable, siteContext.state.browserProperties.browser]);
 
     const editSurfaceFinished = useCallback(() => {
         if (!_isMounted.current) return;
@@ -868,13 +873,14 @@ export default function Visualizer(props: any) {
 
             <div className={"panel c"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
 
-                {!isPortrait && hasShare && <div className={"title"}>
+                {!isPortrait && <div className={"title"}>
                     <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
                         <div className={"choose-text"}>Product Details</div>
                     </div>
+                    {hasShare &&
                     <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>
                         <div className={"choose-text"}>Share</div>
-                    </div>
+                    </div>}
                 </div>}
 
                 {selectedProduct && selectedProduct.parent && (
