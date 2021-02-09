@@ -563,10 +563,10 @@ export default function Visualizer(props: any) {
 
     const leftPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
-            return isPortrait ? "" : "Products";
+            return isPortrait && selectedProduct ? "" : "Products";
         }
         return undefined
-    },[activePanel, currentScene, isPortrait]);
+    },[activePanel, currentScene, isPortrait, selectedProduct]);
 
     const rightPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
@@ -817,10 +817,9 @@ export default function Visualizer(props: any) {
                     </div>
                 </div>
 
-                {!showUploadButton && <ToolsMenu
+                {!showUploadButton && currentScene && !isToolOverlayOpen && <ToolsMenu
                     className={"tools-menu"}
                     actions={toolActions}
-                    hidden={isToolOverlayOpen}
                     selectedAsset={selectedAsset}
                     selectedSurface={selectedSurface}
                     onAction={handleAction}

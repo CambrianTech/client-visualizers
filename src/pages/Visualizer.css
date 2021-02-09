@@ -568,11 +568,6 @@ panel.c {
     .panels.share .visualizer-tools {
         visibility: hidden;
     }
-
-    .makeStyles-speedDial-1 {
-        top: 25px !important;
-        right: 10px !important;
-    }
 }
 
 /* Mobile Only */
@@ -591,6 +586,15 @@ panel.c {
     .image-upload .content {
         display: flex;
         flex-direction: column-reverse;
+    }
+
+    .makeStyles-speedDial-1 {
+        top: 25px !important;
+        right: 10px !important;
+    }
+
+    .MuiFab-sizeSmall {
+        margin: 6px !important;
     }
 }
 
