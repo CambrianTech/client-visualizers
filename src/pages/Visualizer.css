@@ -378,6 +378,22 @@ panel.c {
     right: 30px !important;
 }
 
+.bounce {
+    -webkit-animation: bounce .5s infinite alternate;
+    -moz-animation: bounce .5s infinite alternate;
+    animation: bounce .5s infinite alternate;
+}
+
+@-webkit-keyframes bounce {
+    to { -webkit-transform: scale(1.1); }
+}
+@-moz-keyframes bounce {
+    to { -moz-transform: scale(1.1); }
+}
+@keyframes bounce {
+    to { transform: scale(1.1); }
+}
+
 /* Mobile Phone or iPad in portrait */
 @media (orientation: portrait) {
 

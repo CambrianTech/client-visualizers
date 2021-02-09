@@ -119,7 +119,7 @@ export default function Visualizer(props: any) {
     const [context, setContext] = useState<CBARContext>();
     const [currentScene, setCurrentScene] = useState<CBARScene>();
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
-
+    const [hasSeenProducts, setHasSeenProducts] = useState(false);
     const [needsUpload, setNeedsUpload] = useState(false);
 
     const selectedProduct = useMemo(()=>{
@@ -399,6 +399,7 @@ export default function Visualizer(props: any) {
 
     const productsClicked = useCallback(()=>{
         setActivePanel(Panel.Products);
+        setHasSeenProducts(true);
         if (rootItem) {
             setListingItems(rootItem.children);
         }
@@ -855,7 +856,7 @@ export default function Visualizer(props: any) {
 
                 <img className={"floating-logo"} src={`${brandPath}/${config.siteLogoImage}`} alt={"logo"} />
 
-                {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.Products :  Panel.None)}
+                {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a" + (hasSeenProducts ? "" : " bounce")} onClick={()=>productsClicked()}
                      textLabel={leftPanelButtonText}
                      icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />}
 
@@ -904,5 +905,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, onImageChosen, onProgress, showUploadButton, toolActions, isToolOverlayOpen, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer])
+    ), [activePanel, currentScene, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer])
 }
