@@ -36,3 +36,5 @@ output
 /scripts/pbr_generator/textures
 .vscode
 cambrianar-sites
+/server/dist
+/server/node_modules

@@ -1,0 +1,179 @@
+{
+  "brands": [
+    {
+      "name":"default",
+      "dataClient": "shaw",
+      "landing": "choose-source",
+      "availableCollections": ["pdms-resilient", "pdms-sheet", "pdms-hardwood", "pdms-carpet-tile", "pdms-broadloom", "pdms-rugs"],
+      "hasPhotoUpload": true,
+      "hasScenes": true,
+      "availableScenes": []
+    },
+    {
+      "name": "ShawContract",
+      "dataClient": "pdms",
+      "subdomain": "shawcontract"
+    },
+    {
+      "name":"Patcraft",
+      "subdomain":"patcraft"
+    },
+    {
+      "name":"USFloors",
+      "subdomain":"USFloors"
+    },
+    {
+      "name":"Philadelphia",
+      "subdomain":"Philadelphia"
+    },
+    {
+      "name":"ShawFloors",
+      "subdomain":"ShawFloors",
+      "availableCollections": ["shaw-carpet", "shaw-resilient", "shaw-hardwood","shaw-laminate","shaw-tile"],
+      "logo": "assets/img/brands/shawfloors/shaw-logo.svg",
+      "splash": [
+        "assets/img/brands/shawfloors/landing-bg-img-800.jpg",
+        "assets/img/brands/shawfloors/landing-bg-img-1440.jpg",
+        "assets/img/brands/shawfloors/landing-bg-img-1440.jpg, assets/img/brands/shawfloors/landing-bg-img-1440@2x.jpg 2x, assets/img/brands/shawfloors/landing-bg-img-1440@3x.jpg 3x"
+      ]
+    },
+    {
+      "name":"AndersonTuftex",
+      "subdomain":"AndersonTuftex"
+    },
+    {
+      "name":"FifthAndMain",
+      "subdomain":"FifthAndMain"
+    },
+    {
+      "name":"Floorigami",
+      "subdomain":"Floorigami"
+    },
+    {
+      "name":"HomeDepot",
+      "subdomain":"HomeDepot"
+    },
+    {
+      "name":"Coretec",
+      "subdomain":"Coretec"
+    }
+  ],
+  "collections": [
+    {
+      "code":"pdms-resilient",
+      "displayName": "Vinyl",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/vinyl.jpg",
+      "inventoryType": "Resilient",
+      "filter": "InventorySubType eq 'Resilient LVT/Plank'"
+    },
+    {
+      "code":"pdms-sheet",
+      "displayName": "Sheet",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/vinyl.jpg",
+      "filter": "InventoryType eq 'Resilient' and InventorySubType eq 'Resilient Sheet/Roll'",
+    },
+    {
+      "code":"pdms-hardwood",
+      "displayName": "Hardwood",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/hardwood.jpg",
+      "filter": "InventoryType eq 'Hardwood' and InventorySubType eq 'Hardwood'",
+      "dataFilter": "productType eq 'Engineered Hi-Density Core' or productType eq 'Engineered Ply-Core')"
+    },
+    {
+      "code":"pdms-laminate",
+      "displayName": "Laminate",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/laminate.jpg",
+      "filter": "InventoryType eq 'Hardwood' and InventorySubType eq 'Hardwood'"
+    },
+    {
+      "code":"pdms-carpet-tile",
+      "dataClient": "pdms",
+      "displayName": "Carpet Tile",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/floorigami.jpg",
+      "filter": "InventoryType eq 'Carpet' and InventorySubType eq 'CARPET TILE'"
+    },
+    {
+      "code":"pdms-broadloom",
+      "displayName": "Broadloom",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/carpet.jpg",
+      "filter": "InventoryType eq 'Carpet' and InventorySubType eq 'Carpet'"
+    },
+    {
+      "code":"pdms-rugs",
+      "displayName": "Rugs",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/floorigami.jpg",
+      "filter": "InventoryType eq 'Carpet' and InventorySubType eq 'MFG RUGS'"
+    },
+    {
+      "code":"pdms-ceramics",
+      "displayName": "Tile & Stone",
+      "surfaceTypes": ["floor", "wall"],
+      "thumbnail": "assets/img/material-types/tile.jpg",
+      "filter": "InventoryType eq 'TileStone' and InventorySubType eq 'CERAMICS'"
+    },
+    {
+      "code":"pdms-lvt",
+      "displayName": "LVT",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/tile.jpg",
+      "filter": "InventoryType eq 'Resilient' and InventorySubType eq 'Resilient LVT/Plank'"
+    },
+    {
+      "code":"shaw-carpet",
+      "displayName": "Carpet",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/carpet.jpg",
+      "path": "Carpets",
+      "select": "UniqueId,SellingStyleNbr,SellingStyleName,SellingColorName,ColorCount",
+      "orderBy": "StyleSequence,UniqueId",
+      "filter": "IsDropped eq false and HasMainImage eq true and ProductGroupPermanentName eq 'shawfloors' and ProductGroupShowOnVizTool eq true and IsDefaultStyleColor eq true and (StaticRoomFlag eq true or HasRenderImage eq true) and IsDuplicate eq false and ProductCode ne '22'"
+    },
+    {
+      "code":"shaw-resilient",
+      "displayName": "Vinyl",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/vinyl.jpg",
+      "path": "Resilient",
+      "select": "UniqueId,SellingStyleNbr,SellingStyleName,SellingColorName,ColorCount",
+      "orderBy": "StyleSequence,UniqueId",
+      "filter": "IsDropped eq false and HasMainImage eq true and ProductGroupPermanentName eq 'shawfloors' and ProductGroupShowOnVizTool eq true and IsDefaultStyleColor eq true and (StaticRoomFlag eq true or HasRenderImage eq true) and CollectionDesc ne 'COREtec Stone'"
+    },
+    {
+      "code":"shaw-hardwood",
+      "displayName": "Hardwood",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/hardwood.jpg",
+      "path": "Hardwoods",
+      "select": "UniqueId,SellingStyleNbr,SellingStyleName,SellingColorName,ColorCount",
+      "orderBy": "StyleSequence,UniqueId",
+      "filter": "IsDropped eq false and HasMainImage eq true and ProductGroupPermanentName eq 'shawfloors' and ProductGroupShowOnVizTool eq true and IsDefaultStyleColor eq true and (StaticRoomFlag eq true or HasRenderImage eq true)"
+    },
+    {
+      "code":"shaw-laminate",
+      "displayName": "Laminate",
+      "surfaceTypes": ["floor"],
+      "thumbnail": "assets/img/material-types/laminate.jpg",
+      "path": "Laminates",
+      "select": "UniqueId,SellingStyleNbr,SellingStyleName,SellingColorName,ColorCount",
+      "orderBy": "StyleSequence,UniqueId",
+      "filter": "IsDropped eq false and HasMainImage eq true and ProductGroupPermanentName eq 'shawfloors' and ProductGroupShowOnVizTool eq true and IsDefaultStyleColor eq true and (StaticRoomFlag eq true or HasRenderImage eq true)"
+    },
+    {
+      "code":"shaw-tile",
+      "displayName": "Tile & Stone",
+      "surfaceTypes": ["floor", "wall"],
+      "thumbnail": "assets/img/material-types/tile.jpg",
+      "path": "Ceramics",
+      "select": "UniqueId,SellingStyleNbr,SellingColorNbr,SellingStyleName,SellingColorName,SurfaceTexture,SizeDesc,InstallOnWalls,InstallOnCountertops,InstallOnExterior,InstallOnFloors",
+      "orderBy": "StyleSequence,UniqueId",
+      "filter": "IsDropped eq false and HasMainImage eq true and ProductGroupPermanentName eq 'shawfloors' and ProductGroupShowOnVizTool eq true and IsDefaultStyleColor eq true and SellingColorNbr eq DefaultSsColorNumber and (StaticRoomFlag eq 1 or HasRenderImage eq true) and InstallOnFloors eq true"
+    }
+  ]
+}

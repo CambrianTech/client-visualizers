@@ -135,7 +135,6 @@ function getConfig(subdomain) {
 app.get("*", function (req, res) {
     const parts = req.headers.host.split('.');
     const subdomain = parts.length === 3 ? parts[0] : req.headers.host;
-
     const config = getConfig(subdomain);
 
     fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {

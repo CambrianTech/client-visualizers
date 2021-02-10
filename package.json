@@ -45,7 +45,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sync": "aws s3 sync s3://cambrianar-sites public/cambrianar-sites"
+    "sync": "mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/divinefloor cambrianar-sites/divinefloor --recursive"
   },
   "eslintConfig": {
     "extends": "react-app"
