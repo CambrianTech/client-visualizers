@@ -8,7 +8,7 @@ dotenv.config();
 
 const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 : false;
 const port = isDevelop ? 3010 : 3000;
-const indexPath = process.env.IS_DEVELOP ? '../build/index.html' : '/opt/server/build/index.html';
+const rootPath = path.join(__dirname, process.env.IS_DEVELOP ? '../../build' : 'build');
 const isDebug = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP.trim())===1 : false;
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
@@ -182,24 +182,32 @@ function getConfig(subdomain:string) {
 
 app.get("*", (req, res) => {
 
-    const parts = req.headers.host.split('.');
-    const subdomain = parts.length === 3 ? parts[0] : req.headers.host;
-    const config = getConfig(subdomain);
+    if (req.path === "/" || req.path === "/index.html") {
+        const parts = req.headers.host.split('.');
+        const subdomain = parts.length === 3 ? parts[0] : req.headers.host;
+        const config = getConfig(subdomain);
 
-    fs.readFile(indexPath, "utf8", (err, data) => {
-        if (err) {
-            res.status(404).send(`${indexPath} couldn't be found`);
-        } else {
-            const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
-            const baseUrl = `${protocol}://${req.headers.host}`;
-            let metaTags = config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
-            if (config) metaTags += `<script>window.siteName="${config.name}"</script>`;
+        const indexPath = path.join(rootPath, "index.html");
+        fs.readFile(indexPath, "utf8", (err, data) => {
+            if (err) {
+                res.status(404).send(`${indexPath} couldn't be found`);
+            } else {
+                const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
+                const baseUrl = `${protocol}://${req.headers.host}`;
+                let metaTags = config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
+                if (config) metaTags += `<script>window.siteName="${config.name}"</script>`;
 
-            data = data.replace("</head>", `${metaTags}</head>`);
+                data = data.replace("</head>", `${metaTags}</head>`);
 
-            res.send(data);
-        }
-    });
+                res.send(data);
+            }
+        });
+    } else {
+        const filePath = path.join(rootPath, req.path);
+        // console.log("Requested", req.path, filePath);
+        res.sendFile(filePath);
+    }
+
 });
 
 // start the Express server
