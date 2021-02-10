@@ -7,9 +7,9 @@ const app = express();
 dotenv.config();
 
 const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 : false;
-const port = isDevelop ? 3010 : 3000;
-const rootPath = path.join(__dirname, process.env.IS_DEVELOP ? '../../build' : 'build');
-const isDebug = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP.trim())===1 : false;
+const port = 3000;
+const rootPath = path.join(__dirname, isDevelop ? '../../build' : 'build');
+const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1 : false;
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
 const CONFIG_STORE = "config";

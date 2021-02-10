@@ -45,6 +45,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "server": "npm run build; open http://localhost:3000; cd server; npm start;",
     "sync": "mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/divinefloor cambrianar-sites/divinefloor --recursive"
   },
   "eslintConfig": {
