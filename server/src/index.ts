@@ -8,7 +8,7 @@ dotenv.config();
 
 const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 : false;
 const port = isDevelop ? 3010 : 3000;
-const indexPath = '/opt/server/build/index.html';
+const indexPath = process.env.IS_DEVELOP ? '../build/index.html' : '/opt/server/build/index.html';
 const isDebug = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP.trim())===1 : false;
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
@@ -193,7 +193,7 @@ app.get("*", (req, res) => {
             const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
             const baseUrl = `${protocol}://${req.headers.host}`;
             let metaTags = config ? getMetaTags(config, baseUrl, req.originalUrl, req.query) : "";
-            metaTags += `<script>window.siteName="${config.name}"</script>`;
+            if (config) metaTags += `<script>window.siteName="${config.name}"</script>`;
 
             data = data.replace("</head>", `${metaTags}</head>`);
 
