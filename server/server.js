@@ -54,7 +54,7 @@ function getPageAttributes(config, path, query) {
     return pageAttributes
 }
 
-function getMetaTags(config, baseUrl, path, query) {
+export function getMetaTags(config, baseUrl, path, query) {
     let metaTags = "";
     const url = `${baseUrl}${path}`;
     const route = path.split('?')[0];
