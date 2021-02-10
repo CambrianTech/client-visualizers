@@ -2,6 +2,10 @@
   "name": "client-visualizers",
   "version": "0.3.00",
   "private": true,
+  "config" : {
+    "port" : "3000",
+    "default_site": "default"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material/react-fab": "^0.15.0",
@@ -45,8 +49,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "npm run build; open http://localhost:3000; cd server; npm start;",
-    "sync": "mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/divinefloor cambrianar-sites/divinefloor --recursive"
+    "server": "npm run build; open http://localhost:$npm_package_config_port; cd server; npm start;",
+    "sync": "mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/$npm_package_config_default_site cambrianar-sites/$npm_package_config_default_site --recursive"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -11,7 +11,7 @@ const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 
 const port = 3000;
 const buildPath = path.join(__dirname, isDevelop ? '../../build' : 'build');
 const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1 : false;
-const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : undefined;
+const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "default";
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
 const CONFIG_STORE = "config";
@@ -74,7 +74,7 @@ app.get("*", (req, res) => {
             }
         });
     } else {
-        const filePath = path.join(buildPath, req.path);
+        const filePath = path.join(buildPath, decodeURI(req.path));
         console.log("Requested", req.path, subdomain);
         res.sendFile(filePath);
     }
