@@ -53,7 +53,7 @@ app.get("*", (req, res) => {
 
     const parts = req.headers.host.split('.');
     const subdomain = parts.length === 3 ? parts[0] : defaultSite;
-    console.log("subdomain", subdomain);
+    console.log("using site", subdomain);
 
     if (req.path === "/" || req.path === "/index.html") {
         const config = getConfig(subdomain);

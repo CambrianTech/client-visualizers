@@ -1,6 +1,7 @@
 type DataItem = {
     code:string,
     displayName:string
+    metaData?:any
 }
 
 export type SiteConfig = DataItem & {
