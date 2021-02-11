@@ -1,10 +1,10 @@
-type DataItem = {
+type ConfigItem = {
     code:string,
     displayName:string
     metaData?:any
 }
 
-export type SiteConfig = DataItem & {
+export type SiteConfig = ConfigItem & {
     dataClient?:string,
     basePath:string,
     config:GlobalConfig,
@@ -48,14 +48,14 @@ export type GlobalConfig = {
     siteLogoImage?: string,
 }
 
-export type BrandConfig = DataItem & {
+export type BrandConfig = ConfigItem & {
     surfaceTypes?:string[]
     assetType?:string,
     collections?:CollectionConfig[]
     sceneCollections?:SceneCollectionConfig[]
 }
 
-export type CollectionConfig = DataItem & {
+export type CollectionConfig = ConfigItem & {
     products?:ProductConfig[]
     collections?:CollectionConfig[]
     dataClient?:string,
@@ -67,25 +67,25 @@ export type CollectionConfig = DataItem & {
     path?:string
 }
 
-export type SceneCollectionConfig = DataItem & {
+export type SceneCollectionConfig = ConfigItem & {
     scenes:SceneConfig[]
 }
 
-export type SceneConfig = DataItem & {
+export type SceneConfig = ConfigItem & {
     image?:string
 }
 
-export type InstallationPattern = DataItem & {
+export type InstallationPattern = ConfigItem & {
     image?:string
 }
 
-export type ProductConfig = DataItem & {
+export type ProductConfig = ConfigItem & {
     ppi:number
     colors:ColorConfig[]
     numColors?:number
     patterns?:InstallationPattern[]
 }
 
-export type ColorConfig = DataItem & {
+export type ColorConfig = ConfigItem & {
 
 }
