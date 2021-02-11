@@ -1,28 +1,19 @@
 {
   "config": {
-    "name": "default",
-    "shortSiteTitle": "Your Site",
-    "siteTitle": "Your Site",
-    "siteDescription": "See our great flooring products.",
-    "siteImage": "assets/social/site-image.jpg",
-    "siteImageWidth": "1200",
-    "siteImageHeight": "1000",
-    "siteImageAlt": "Flooring",
-    "favicon": "assets/custom/branding/icon-small.png",
-    "favicon192x192": "assets/custom/branding/icon-large.png",
-    "appleShareIcon": "assets/custom/branding/icon-large.png",
-    "twitterAccount": "@yoursite",
-    "primaryColor": "#00b6cc",
-    "inactiveColor": "rgba(55,55,55,0.5)",
-    "defaultSceneCollection": "office",
-    "defaultScene": "1-business",
-    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/default/scenes",
-    "siteLogoImage": "branding/logo.png",
-    "hasPhotoUpload": true,
-    "basePath": "https://cambrianar-sites.s3.amazonaws.com/default",
-    "hasScenes": true,
-    "legacy": true,
-    "lightingOffset": 0.2
+    "code": "default",
+    "displayName": "Your Site",
+    "siteConfig": {
+      "description": "See your products here.",
+      "favicon": "branding/logo.png",
+      "primaryColor": "#00b6cc",
+      "buttonTextColor": "#000",
+      "inactiveColor": "rgba(55,55,55,0.5)"
+    },
+    "visualizerConfig": {
+      "hasPhotoUpload": true,
+      "hasScenes": true,
+      "hasShare":true
+    }
   },
   "brands": [
     {

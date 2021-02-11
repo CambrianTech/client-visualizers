@@ -1,31 +1,58 @@
-export type BrandConfig = {
-    name:string
-    dataClient:string
-    subdomain?:string
-    availableCollections:string[]
-    availableScenes: []
-    landing:string
-    logo?:string
-    splash?:string[]|undefined
-    hasPhotoUpload: boolean,
-    hasScenes: boolean
+type DataItem = {
+    code:string,
+    displayName:string
 }
 
-export type CollectionConfig = {
+export type BrandConfig = DataItem & {
     dataClient?:string,
-    code:string,
-    displayName:string,
+    siteConfig:SiteConfig,
+    visualizerConfig:VisualizerConfig,
+}
+
+export type VisualizerConfig = {
+    availableCollections?: string[],
+    availableScenes?: []
+    hasPhotoUpload: boolean,
+    hasScenes: boolean,
+    hasShare:boolean,
+}
+
+export type SiteConfig = {
+    subdomain?: string,
+    title?:string,
+    longTitle?:string
+    shortTitle?:string,
+    description: string,
+    favicon?: string,
+    favicon192x192?: string,
+
+    primaryColor: string,
+    buttonTextColor: string,
+    inactiveColor: string,
+
+    image?: string,
+    imageWidth?: number,
+    imageHeight?: number,
+    imageAlt?: string,
+
+    landing?:string
+    logo?:string
+    splash?:string[]|undefined
+
+    appleShareIcon?: string,
+    twitterAccount?: string,
+    siteLogoImage?: string,
+    shareSubject?: string,
+}
+
+export type CollectionConfig = DataItem & {
+    dataClient?:string,
     surfaceTypes: string[],
     thumbnail: string,
     select?:string
     filter:string
     orderBy?:string
     path?:string
-}
-
-type DataItem = {
-    code:string,
-    displayName:string
 }
 
 export type ProductCollection = DataItem & {

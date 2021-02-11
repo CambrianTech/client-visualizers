@@ -1,30 +1,20 @@
 {
   "config": {
-    "name": "divinefloor",
-    "shortSiteTitle": "Divine Floor",
-    "siteTitle": "Divine Floor",
-    "basePath": "https://cambrianar-sites.s3.amazonaws.com/divinefloor",
-    "siteDescription": "See our great flooring products.",
-    "siteImage": "branding/logo-black.png",
-    "siteImageWidth": "1333",
-    "siteImageHeight": "1000",
-    "siteImageAlt": "Flooring",
-    "favicon": "branding/logo-black.png",
-    "favicon192x192": "branding/logo-black.png",
-    "appleShareIcon": "branding/logo-black.png",
-    "twitterAccount": "@divinefloor",
-    "primaryColor": "#000",
-    "buttonTextColor": "#fff",
-    "inactiveColor": "rgba(255,255,255,0.2)",
-    "defaultScenePath": "https://cambrianar-sites.s3.amazonaws.com/divinefloor/scenes",
-    "siteLogoImage": "branding/logo-black.png",
-    "shareSubject": "Check out this great Divine Floor",
-
-    "hasPhotoUpload": true,
-    "hasScenes": true,
-    "hasShare": true,
-    "legacy": true,
-    "lightingOffset": 0.2
+    "code": "divinefloor",
+    "displayName": "Divine Floor",
+    "siteConfig": {
+      "description": "See Divine Floor's great flooring products.",
+      "favicon": "branding/logo-black.png",
+      "favicon192x192": "branding/logo-black.png",
+      "primaryColor": "#000",
+      "buttonTextColor": "#fff",
+      "inactiveColor": "rgba(255,255,255,0.2)"
+    },
+    "visualizerConfig": {
+      "hasPhotoUpload": true,
+      "hasScenes": true,
+      "hasShare":true
+    }
   },
   "brands": [
     {

@@ -1,19 +1,19 @@
-abstract class HtmlTag {
+export abstract class HtmlTag {
     abstract render() : string;
 }
 
-export class TitleTag extends HtmlTag {
-    constructor(public title:string) {
+export class HtmlGenericTag extends HtmlTag {
+    constructor(public tag:string, public content?:any) {
         super()
     }
 
     render() {
-        return `<title>${this.title}</title>`;
+        return `<${this.tag}>${this.content}</${this.tag}>`
     }
 }
 
 export class MetaDataTag extends HtmlTag {
-    constructor(public property:string, public content:string) {
+    constructor(public property:string, public content:any) {
         super()
     }
 

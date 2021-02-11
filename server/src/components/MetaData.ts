@@ -1,5 +1,8 @@
 
 // Regex used for verifying room and preview ids
+import {BrandConfig} from "../data/DataTypes";
+import {HtmlTag, LinkTag, MetaDataTag, HtmlGenericTag} from "./HtmlTag";
+
 const idRegex = /^[a-zA-Z0-9]+$/;
 
 // const config = {
@@ -71,61 +74,65 @@ function getPageAttributes(config:any, uploadsBaseUrl:string, path:string, query
     return pageAttributes
 }
 
-export function getMetaTags(config:any, uploadsBaseUrl:string,baseUrl:string, path:string, query:any) {
-    let metaTags = "";
-    const url = `${baseUrl}${path}`;
+export function getHeaderTags(config:BrandConfig, path:string) {
+    const allTags:HtmlTag[] = [];
+
+    // primary tags:
+    const title = config.siteConfig.title ? config.siteConfig.title : config.displayName;
+    allTags.push(new HtmlGenericTag("title", title));
+    allTags.push(new MetaDataTag("description", config.siteConfig.description));
+    allTags.push(new MetaDataTag("HandheldFriendly", "true"));
+
     const route = path.split('?')[0];
-    const attributes = getPageAttributes(config, uploadsBaseUrl, route, query);
+    allTags.push(new MetaDataTag("route", route));
 
-    metaTags += `<meta property="route" content="${route}" />`;
-
-    // General tags
-    metaTags += `<title>${attributes.title}</title>`;
-    metaTags += `<meta name="HandheldFriendly" content="true">`;
-    metaTags += `<meta name="description" content="${attributes.description}" />`;
-
-
-    metaTags += `<link rel="shortcut icon" sizes="32x32" href="${config.basePath}/${config.favicon}" />`;
-    metaTags += `<link rel="icon" sizes="32x32" href="${config.basePath}/${config.favicon}" />`;
-    metaTags += `<link rel="icon" sizes="192x192" href="${config.basePath}/${config.favicon192x192}" />`;
-    metaTags += `<link rel="apple-touch-icon" href="${config.basePath}/${config.appleShareIcon}" />`;
-
+    // icons:
+    allTags.push(new LinkTag("shortcut icon", config.siteConfig.favicon));
+    allTags.push(new LinkTag("icon", config.siteConfig.favicon, 'sizes="32x32"'));
+    if (config.siteConfig.favicon192x192) {
+        allTags.push(new LinkTag("icon", config.siteConfig.favicon, 'sizes="192x192"'));
+    }
+    if (config.siteConfig.appleShareIcon) {
+        allTags.push(new LinkTag("apple-touch-icon", config.siteConfig.appleShareIcon));
+    }
 
     // OpenGraph tags
-    metaTags += `<meta property="og:url" content="${url}" />`;
-    metaTags += `<meta property="og:type" content="website" />`;
-    metaTags += `<meta property="og:title" content="${attributes.longTitle}" />`;
-    metaTags += `<meta property="og:description" content="${attributes.description}" />`;
-    metaTags += `<meta property="og:image" content="${attributes.image}" />`;
+    allTags.push(new MetaDataTag("og:url", path));
+    allTags.push(new MetaDataTag("og:type", "website"));
+    allTags.push(new MetaDataTag("og:title", config.siteConfig.longTitle ? config.siteConfig.longTitle: title));
+    allTags.push(new MetaDataTag("og:description", config.siteConfig.description));
 
-    if (attributes.imageWidth && attributes.imageHeight) {
-        metaTags += `<meta property="og:image:width" content="${attributes.imageWidth}" />`;
-        metaTags += `<meta property="og:image:height" content="${attributes.imageHeight}" />`;
+    // site image
+    if (config.siteConfig.image) {
+        allTags.push(new MetaDataTag("og:image", config.siteConfig.image));
+        if (config.siteConfig.imageAlt) {
+            allTags.push(new MetaDataTag("og:image:alt", config.siteConfig.imageAlt));
+        }
+        if (config.siteConfig.imageWidth && config.siteConfig.imageHeight) {
+            allTags.push(new MetaDataTag("og:image:width", config.siteConfig.imageWidth));
+            allTags.push(new MetaDataTag("og:image:height", config.siteConfig.imageHeight));
+        }
     }
 
-    // Twitter tags
-    metaTags += `<meta name="twitter:title" content="${attributes.longTitle}" />`;
-    metaTags += `<meta name="twitter:description" content="${attributes.description}" />`;
-    metaTags += `<meta name="twitter:image" content="${attributes.image}" />`;
-    metaTags += `<meta name="twitter:card" content="summary_large_image" />`;
-
-    if (attributes.imageAlt) {
-        metaTags += `<meta property="twitter:image:alt" content="${attributes.imageAlt}" />`;
-        metaTags += `<meta property="og:image:alt" content="${attributes.imageAlt}" />`;
+    // twitter
+    allTags.push(new MetaDataTag("twitter:title", config.siteConfig.longTitle ? config.siteConfig.longTitle: title));
+    allTags.push(new MetaDataTag("twitter:description", config.siteConfig.description));
+    allTags.push(new MetaDataTag("twitter:site", config.siteConfig.twitterAccount));
+    allTags.push(new MetaDataTag("twitter:card", "summary_large_image"));
+    if (config.siteConfig.image) {
+        allTags.push(new MetaDataTag("twitter:image", config.siteConfig.image));
+        if (config.siteConfig.imageAlt) {
+            allTags.push(new MetaDataTag("twitter:image:alt", config.siteConfig.imageAlt));
+        }
     }
 
-    metaTags += `<meta name="twitter:site" content="${config.twitterAccount}" />`;
+    allTags.push(new HtmlGenericTag("script", `window.siteName="${config.code}"`));
+    allTags.push(new HtmlGenericTag("style",
+        `:root {
+            --mdc-theme-primary:${config.siteConfig.buttonTextColor};
+            --mdc-theme-secondary:${config.siteConfig.primaryColor};
+            --mdc-theme-inactive:${config.siteConfig.inactiveColor};
+        }`));
 
-    // style:
-    if (config.hasOwnProperty("buttonTextColor")) {
-        metaTags += `<style>:root {--mdc-theme-primary:${config.buttonTextColor};}</style>`;
-    }
-    if (config.hasOwnProperty("primaryColor")) {
-        metaTags += `<style>:root {--mdc-theme-secondary:${config.primaryColor};}</style>`;
-    }
-    if (config.hasOwnProperty("inactiveColor")) {
-        metaTags += `<style>:root {--mdc-theme-inactive:${config.inactiveColor};}</style>`;
-    }
-
-    return metaTags
+    return allTags;
 }

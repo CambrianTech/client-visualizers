@@ -9,7 +9,8 @@
     "radix": false,
     "no-console": false,
     "no-shadowed-variable": false,
-    "no-empty": false
+    "no-empty": false,
+    "max-classes-per-file": 100
   },
   "rulesDirectory": []
 }

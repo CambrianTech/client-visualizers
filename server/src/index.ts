@@ -2,7 +2,7 @@ import express from "express";
 import * as dotenv from "dotenv";
 import * as path from "path";
 import * as fs from "fs";
-import {getMetaTags} from './components/MetaData';
+import {getHeaderTags} from './components/MetaData';
 
 const app = express();
 dotenv.config();
@@ -63,12 +63,14 @@ app.get("*", (req, res) => {
             if (err) {
                 res.status(404).send(`${indexPath} couldn't be found`);
             } else {
-                const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
-                const baseUrl = `${protocol}://${req.headers.host}`;
-                let metaTags = config ? getMetaTags(config, uploadsBaseUrl, baseUrl, req.originalUrl, req.query) : "";
-                if (config) metaTags += `<script>window.siteName="${config.name}"</script>`;
+                // const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
+                // const baseUrl = `${protocol}://${req.headers.host}`;
+                console.log("Got config", config);
+                const tags = getHeaderTags(config, req.path);
 
-                data = data.replace("</head>", `${metaTags}</head>`);
+                let content = "";
+                tags.forEach(tag=>content += tag.render() + "\n");
+                data = data.replace("</head>", `${content}</head>`);
 
                 res.send(data);
             }
