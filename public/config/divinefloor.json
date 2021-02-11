@@ -43,38 +43,23 @@
           "scenes": [
             {
               "code": "2-bedroom",
-              "displayName": "Bedroom",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Bedroom"
             },
             {
               "code": "3-bedroom",
-              "displayName": "Bedroom",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Bedroom"
             },
             {
               "code": "4-bedroom",
-              "displayName": "Bedroom",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Bedroom"
             },
             {
               "code": "5-bedroom",
-              "displayName": "Bedroom",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Bedroom"
             },
             {
               "code": "6-bedroom",
-              "displayName": "Bedroom",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Bedroom"
             }
           ]
         },
@@ -84,52 +69,31 @@
           "scenes": [
             {
               "code": "kitchen-1",
-              "displayName": "Kitchen",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Kitchen"
             },
             {
               "code": "1-dining",
-              "displayName": "Kitchen",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Kitchen"
             },
             {
               "code": "1-kitchen",
-              "displayName": "Kitchen",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Kitchen"
             },
             {
               "code": "2-kitchen",
-              "displayName": "Kitchen",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Kitchen"
             },
             {
               "code": "3-kitchen",
-              "displayName": "Kitchen",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Kitchen"
             },
             {
               "code": "4-kitchen",
-              "displayName": "Kitchen",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Kitchen"
             },
             {
               "code": "5-kitchen",
-              "displayName": "Kitchen",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Kitchen"
             }
           ]
         },
@@ -139,52 +103,31 @@
           "scenes": [
             {
               "code": "1-compact-apartment",
-              "displayName": "Living Room",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Living Room"
             },
             {
               "code": "1-living-room",
-              "displayName": "Living Room",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Living Room"
             },
             {
               "code": "4-living-room",
-              "displayName": "Living Room",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Living Room"
             },
             {
               "code": "6-living-room",
-              "displayName": "Living Room",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Living Room"
             },
             {
               "code": "7-living-room",
-              "displayName": "Living Room",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Living Room"
             },
             {
               "code": "8-living-room",
-              "displayName": "Living Room",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Living Room"
             },
             {
               "code": "9-living-room",
-              "displayName": "Living Room",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Living Room"
             }
           ]
         },
@@ -194,24 +137,15 @@
           "scenes": [
             {
               "code": "1-business",
-              "displayName": "Office",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Office"
             },
             {
               "code": "1-office",
-              "displayName": "Office",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Office"
             },
             {
               "code": "2-lobby",
-              "displayName": "Office",
-              "metaData": {
-                "isLocal": false
-              }
+              "displayName": "Office"
             }
           ]
         }
