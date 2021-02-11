@@ -104,17 +104,6 @@ export default function Visualizer(props: any) {
     const [selectedSceneColumn, setSelectedSceneColumn] = useState<SwatchItem>();
 
     const [toolMode, setToolMode] = useState(CBARToolMode.None);
-    const config = useMemo(()=>{
-        if (siteContext.state.siteData) {
-            return siteContext.state.siteData.config;
-        }
-    }, [siteContext.state.siteData]);
-
-    const brandPath = useMemo(()=>{
-        if (config) {
-            return `${config.basePath}`
-        }
-    }, [config]);
 
     const [context, setContext] = useState<CBARContext>();
     const [currentScene, setCurrentScene] = useState<CBARScene>();
@@ -144,27 +133,32 @@ export default function Visualizer(props: any) {
         return toolMode === CBARToolMode.Rotate || toolMode === CBARToolMode.Translate || toolMode === CBARToolMode.DrawSurface || toolMode === CBARToolMode.EraseSurface
     }, [toolMode]);
 
+    const brandPath = useMemo(()=>{
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.basePath
+        }
+    },[siteContext.state.siteData]);
+
     const hasShare = useMemo(()=>{
-        //disabled for now:
-        // if (config && selectedProduct) {
-        //     return config.hasOwnProperty("hasShare") ? config.hasShare : true;
-        // }
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.visualizerConfig.hasShare
+        }
         return false
-    },[]);
+    },[siteContext.state.siteData]);
 
     const hasPhotoUpload = useMemo(()=>{
-        if (config) {
-            return config.hasOwnProperty("hasPhotoUpload") ? config.hasPhotoUpload : true;
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.visualizerConfig.hasPhotoUpload
         }
         return false
-    },[config]);
+    },[siteContext.state.siteData]);
 
     const hasScenes = useMemo(()=>{
-        if (config) {
-            return config.hasOwnProperty("hasScenes") ? config.hasScenes : true;
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.visualizerConfig.hasScenes
         }
         return false
-    },[config]);
+    },[siteContext.state.siteData]);
 
     const isMobile = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait;
@@ -812,12 +806,12 @@ export default function Visualizer(props: any) {
 
             </div>
 
-            {config &&
+            {siteContext.state.siteData &&
             <div className={"panel b"}>
 
                 <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
 
-                {config && config.hasPhotoUpload && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
+                {hasPhotoUpload && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
                 <div className={"image-upload"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
                     <div className="content">
@@ -872,7 +866,7 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                <img className={"floating-logo"} src={`${brandPath}/${config.siteLogoImage}`} alt={"logo"} />
+                {siteContext.state.siteData && <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.config.logo}`} alt={"logo"} />}
 
                 {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a" + (hasSeenProducts ? "" : " bounce")} onClick={()=>productsClicked()}
                      textLabel={leftPanelButtonText}
@@ -906,14 +900,14 @@ export default function Visualizer(props: any) {
                                  details={productDetails}
                     />)}
 
-                {config && currentScene && (
+                {siteContext.state.siteData && currentScene && (
                     <SharePanel className={"share"}
                                 visible={activePanel === Panel.Share}
                                 needsUpload={needsUpload}
                                 product={selectedProduct}
                                 resolveThumbnailPath={resolveThumbnailPath}
                                 getShareUrl={getShareUrl}
-                                shareSubject={config.shareSubject}
+                                shareSubject={siteContext.state.siteData.config.shareSubject}
                                 onClose={shareCompleted}
                                 isUploadedImage={isUploadedImage()}
                                 onImageUploadCompleted={shareUploadComplete} />
@@ -924,5 +918,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, hasPhotoUpload, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }

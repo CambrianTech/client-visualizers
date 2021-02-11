@@ -1,19 +1,19 @@
 {
+  "code": "default",
+  "displayName": "Your Site",
+  "basePath": "https://cambrianar-sites.s3.amazonaws.com/default",
   "config": {
-    "code": "default",
-    "displayName": "Your Site",
-    "siteConfig": {
-      "description": "See your products here.",
-      "favicon": "branding/logo.png",
-      "primaryColor": "#00b6cc",
-      "buttonTextColor": "#000",
-      "inactiveColor": "rgba(55,55,55,0.5)"
-    },
-    "visualizerConfig": {
-      "hasPhotoUpload": true,
-      "hasScenes": true,
-      "hasShare":true
-    }
+    "logo": "branding/logo.png",
+    "description": "See your products here.",
+    "favicon": "branding/logo.png",
+    "primaryColor": "#00b6cc",
+    "buttonTextColor": "#000",
+    "inactiveColor": "rgba(55,55,55,0.5)"
+  },
+  "visualizerConfig": {
+    "hasPhotoUpload": true,
+    "hasScenes": true,
+    "hasShare": true
   },
   "brands": [
     {

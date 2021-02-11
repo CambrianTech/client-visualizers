@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import * as path from "path";
 import * as fs from "fs";
 import {getHeaderTags} from './components/MetaData';
+import {SiteConfig} from "./data/DataTypes";
 
 const app = express();
 dotenv.config();
@@ -32,7 +33,7 @@ if (isDebug) {
     }
 }
 
-function getConfig(subdomain:string) {
+function getConfig(subdomain:string) : SiteConfig | undefined {
 
     const configPath = path.join(buildPath, CONFIG_STORE);
     try {
@@ -40,10 +41,7 @@ function getConfig(subdomain:string) {
         const defaultPath = path.join(configPath, `default.json`);
         const exists = fs.existsSync(filepath);
         const json = JSON.parse(fs.readFileSync(exists ? filepath : defaultPath, 'utf-8'));
-        if (json) {
-            json.name = exists ? subdomain : "default";
-            return json.config;
-        }
+        return json
     } catch (err) {
         console.error(`Could not find config at ${configPath}`);
     }
@@ -55,6 +53,7 @@ app.get("*", (req, res) => {
 
     const parts = req.headers.host.split('.');
     const subdomain = parts.length === 3 ? parts[0] : defaultSite;
+    console.log("subdomain", subdomain);
 
     if (req.path === "/" || req.path === "/index.html") {
         const config = getConfig(subdomain);
@@ -65,7 +64,7 @@ app.get("*", (req, res) => {
             } else {
                 // const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
                 // const baseUrl = `${protocol}://${req.headers.host}`;
-                console.log("Got config", config);
+                // console.log("Got config", config);
                 const tags = getHeaderTags(config, req.path);
 
                 let content = "";

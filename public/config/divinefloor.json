@@ -1,20 +1,20 @@
 {
+  "code": "divinefloor",
+  "displayName": "Divine Floor",
+  "basePath": "https://cambrianar-sites.s3.amazonaws.com/divinefloor",
   "config": {
-    "code": "divinefloor",
-    "displayName": "Divine Floor",
-    "siteConfig": {
-      "description": "See Divine Floor's great flooring products.",
-      "favicon": "branding/logo-black.png",
-      "favicon192x192": "branding/logo-black.png",
-      "primaryColor": "#000",
-      "buttonTextColor": "#fff",
-      "inactiveColor": "rgba(255,255,255,0.2)"
-    },
-    "visualizerConfig": {
-      "hasPhotoUpload": true,
-      "hasScenes": true,
-      "hasShare":true
-    }
+    "logo": "branding/logo-black.png",
+    "description": "See Divine Floor's great flooring products.",
+    "favicon": "branding/logo-black.png",
+    "favicon192x192": "branding/logo-black.png",
+    "primaryColor": "#000",
+    "buttonTextColor": "#fff",
+    "inactiveColor": "rgba(255,255,255,0.2)"
+  },
+  "visualizerConfig": {
+    "hasPhotoUpload": true,
+    "hasScenes": true,
+    "hasShare": true
   },
   "brands": [
     {

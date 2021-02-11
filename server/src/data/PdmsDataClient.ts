@@ -1,4 +1,4 @@
-import {CollectionConfig, Product, ProductCollection, ProductColor} from "./DataTypes";
+import {CollectionConfig, ColorConfig, ProductConfig} from "./DataTypes";
 import {oDataClientConfig, OpenDataClient} from "./OpenDataClient";
 
 export type pdmsConfig = oDataClientConfig & {
@@ -11,7 +11,7 @@ export class PdmsDataClient extends OpenDataClient {
         super(config, debugPath)
     }
 
-    protected parseProduct(item:any) : Product | undefined {
+    protected parseProduct(item:any) : ProductConfig | undefined {
         if (!item.hasOwnProperty("sellingStyleName")
             || !item.hasOwnProperty("sellingStyleNumber")
             || !item.hasOwnProperty("colors")
@@ -22,7 +22,7 @@ export class PdmsDataClient extends OpenDataClient {
             return
         }
 
-        const product:Product = {
+        const product:ProductConfig = {
             ppi:20,
             code:item.sellingStyleNumber,
             displayName:item.sellingStyleName,
@@ -52,7 +52,7 @@ export class PdmsDataClient extends OpenDataClient {
         return product
     }
 
-    protected parseColor(item:any) : ProductColor | undefined {
+    protected parseColor(item:any) : ColorConfig | undefined {
         if (!item.hasOwnProperty("colorName")
             || !item.hasOwnProperty("colorNumber")) {
             return
@@ -64,9 +64,9 @@ export class PdmsDataClient extends OpenDataClient {
         }
     }
 
-    getCollection(brand:string, params:CollectionConfig) : Promise<ProductCollection> {
+    getCollection(brand:string, params:CollectionConfig) : Promise<CollectionConfig> {
 
-        const collection:ProductCollection = {
+        const collection:CollectionConfig = {
             code:params.code,
             displayName:params.displayName,
             products:[]
@@ -86,7 +86,7 @@ export class PdmsDataClient extends OpenDataClient {
                 }
             });
         }).then(()=>{
-            return new Promise<ProductCollection>((resolve)=>{
+            return new Promise<CollectionConfig>((resolve)=>{
                 resolve(collection)
             })
         })

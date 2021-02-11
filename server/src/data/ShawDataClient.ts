@@ -1,5 +1,5 @@
 import {oDataClientConfig, OpenDataClient} from "./OpenDataClient";
-import {CollectionConfig, Product, ProductCollection, ProductColor} from "./DataTypes";
+import {CollectionConfig, ProductConfig} from "./DataTypes";
 
 export type shawConfig = oDataClientConfig & {
 
@@ -10,9 +10,9 @@ export class ShawDataClient extends OpenDataClient {
         super(config, debugPath)
     }
 
-    protected parseProduct(item:any) : Product | undefined {
+    protected parseProduct(item:any) : ProductConfig | undefined {
 
-        const product:Product = {
+        const product:ProductConfig = {
             ppi:20,
             code:item.SellingStyleNbr,
             displayName:item.SellingStyleName,
@@ -22,16 +22,16 @@ export class ShawDataClient extends OpenDataClient {
         return product
     }
 
-    protected parseColor(item:any) : ProductColor | undefined {
+    protected parseColor(item:any) : CollectionConfig | undefined {
         return {
             code:item.SellingColorNbr,
             displayName:item.SellingColorName
         }
     }
 
-    getCollection(brand:string, params:CollectionConfig) : Promise<ProductCollection> {
+    getCollection(brand:string, params:CollectionConfig) : Promise<CollectionConfig> {
 
-        const collection:ProductCollection = {
+        const collection:CollectionConfig = {
             code:params.code,
             displayName:params.displayName,
             products:[]
@@ -43,7 +43,7 @@ export class ShawDataClient extends OpenDataClient {
         return this.oDataRequest(url, "@odata.count",(json:any)=>{
             const items = json.value as any[];
             const productCodes:string[] = [];
-            const newProducts:Product[] = [];
+            const newProducts:ProductConfig[] = [];
             items.forEach(item=>{
                 const product = this.parseProduct(item);
                 newProducts.push(product);
@@ -66,7 +66,7 @@ export class ShawDataClient extends OpenDataClient {
             }
             return newProducts
         }).then(()=>{
-            return new Promise<ProductCollection>((resolve)=>{
+            return new Promise<CollectionConfig>((resolve)=>{
                 Promise.all(colorPromises).then(()=>{
                     console.log(`Final collection has ${collection.products.length} products`);
                     resolve(collection)

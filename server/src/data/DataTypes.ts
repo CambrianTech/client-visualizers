@@ -3,10 +3,12 @@ type DataItem = {
     displayName:string
 }
 
-export type BrandConfig = DataItem & {
+export type SiteConfig = DataItem & {
     dataClient?:string,
-    siteConfig:SiteConfig,
+    basePath:string,
+    config:GlobalConfig,
     visualizerConfig:VisualizerConfig,
+    brands:BrandConfig[]
 }
 
 export type VisualizerConfig = {
@@ -17,7 +19,7 @@ export type VisualizerConfig = {
     hasShare:boolean,
 }
 
-export type SiteConfig = {
+export type GlobalConfig = {
     subdomain?: string,
     title?:string,
     longTitle?:string
@@ -26,9 +28,11 @@ export type SiteConfig = {
     favicon?: string,
     favicon192x192?: string,
 
+    logo: string,
     primaryColor: string,
     buttonTextColor: string,
     inactiveColor: string,
+    shareSubject: string,
 
     image?: string,
     imageWidth?: number,
@@ -36,41 +40,51 @@ export type SiteConfig = {
     imageAlt?: string,
 
     landing?:string
-    logo?:string
     splash?:string[]|undefined
 
     appleShareIcon?: string,
     twitterAccount?: string,
     siteLogoImage?: string,
-    shareSubject?: string,
+}
+
+export type BrandConfig = DataItem & {
+    surfaceTypes?:string[]
+    assetType?:string,
+    collections?:CollectionConfig[]
+    sceneCollections?:SceneCollectionConfig[]
 }
 
 export type CollectionConfig = DataItem & {
+    products?:ProductConfig[]
+    collections?:CollectionConfig[]
     dataClient?:string,
-    surfaceTypes: string[],
-    thumbnail: string,
+    surfaceTypes?: string[],
+    thumbnail?: string,
     select?:string
-    filter:string
+    filter?:string
     orderBy?:string
     path?:string
 }
 
-export type ProductCollection = DataItem & {
-    products?:Product[]
-    collections?:ProductCollection[]
+export type SceneCollectionConfig = DataItem & {
+    scenes:SceneConfig[]
+}
+
+export type SceneConfig = DataItem & {
+    image?:string
 }
 
 export type InstallationPattern = DataItem & {
     image?:string
 }
 
-export type Product = DataItem & {
+export type ProductConfig = DataItem & {
     ppi:number
-    colors:ProductColor[]
+    colors:ColorConfig[]
     numColors?:number
     patterns?:InstallationPattern[]
 }
 
-export type ProductColor = DataItem & {
+export type ColorConfig = DataItem & {
 
 }
