@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 import * as path from "path";
 import * as fs from "fs";
 import {getHeaderTags} from './components/MetaData';
-import {SiteConfig} from "./data/DataTypes";
+import {SiteConfig} from "cambrian-base";
 
 const app = express();
 dotenv.config();

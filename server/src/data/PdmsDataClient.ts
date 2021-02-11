@@ -1,5 +1,5 @@
-import {CollectionConfig, ColorConfig, ProductConfig} from "./DataTypes";
 import {oDataClientConfig, OpenDataClient} from "./OpenDataClient";
+import {CollectionConfig, ColorConfig, ProductConfig} from "cambrian-base";
 
 export type pdmsConfig = oDataClientConfig & {
     uid:string

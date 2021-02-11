@@ -1,5 +1,5 @@
 import {oDataClientConfig, OpenDataClient} from "./OpenDataClient";
-import {CollectionConfig, ProductConfig} from "./DataTypes";
+import {CollectionConfig, ProductConfig} from "cambrian-base";
 
 export type shawConfig = oDataClientConfig & {
 

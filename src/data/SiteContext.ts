@@ -3,7 +3,7 @@ import {CBARSceneProperties, CBContentManager, CBMaterialProperties} from "react
 import { polyfill } from "smoothscroll-polyfill"
 import {BrowserProperties} from "react-client-info";
 import * as qs from "querystring";
-import {SiteConfig} from "../../server/src/data/DataTypes";
+import {SiteConfig} from "cambrian-base";
 
 polyfill();
 

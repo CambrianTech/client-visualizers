@@ -1,7 +1,8 @@
 
 // Regex used for verifying room and preview ids
-import {SiteConfig} from "../data/DataTypes";
 import {HtmlTag, LinkTag, MetaDataTag, HtmlGenericTag} from "./HtmlTag";
+import {SiteConfig} from "cambrian-base";
+import {config} from "dotenv";
 
 const idRegex = /^[a-zA-Z0-9]+$/;
 
@@ -71,24 +72,24 @@ export function getHeaderTags(site:SiteConfig, path:string) {
     allTags.push(new MetaDataTag("route", route));
 
     // icons:
-    allTags.push(new LinkTag("shortcut icon", site.config.favicon));
-    allTags.push(new LinkTag("icon", site.config.favicon, 'sizes="32x32"'));
+    allTags.push(new LinkTag("icon", `${site.basePath}/${site.config.favicon}`, 'type="image/png"'));
+    allTags.push(new LinkTag("shortcut icon", `${site.basePath}/${site.config.favicon}`,'type="image/png"'));
     if (site.config.favicon192x192) {
-        allTags.push(new LinkTag("icon", site.config.favicon, 'sizes="192x192"'));
+        allTags.push(new LinkTag("icon", `${site.basePath}/${site.config.favicon}`, 'type="image/png" sizes="192x192"'));
     }
     if (site.config.appleShareIcon) {
-        allTags.push(new LinkTag("apple-touch-icon", site.config.appleShareIcon));
+        allTags.push(new LinkTag("apple-touch-icon", `${site.basePath}/${site.config.appleShareIcon}`));
     }
 
     // OpenGraph tags
-    allTags.push(new MetaDataTag("og:url", path));
+    allTags.push(new MetaDataTag("og:url", `${site.basePath}/${path}`));
     allTags.push(new MetaDataTag("og:type", "website"));
     allTags.push(new MetaDataTag("og:title", site.config.longTitle ? site.config.longTitle: title));
     allTags.push(new MetaDataTag("og:description", site.config.description));
 
     // site image
     if (site.config.image) {
-        allTags.push(new MetaDataTag("og:image", site.config.image));
+        allTags.push(new MetaDataTag("og:image", `${site.basePath}/${site.config.image}`));
         if (site.config.imageAlt) {
             allTags.push(new MetaDataTag("og:image:alt", site.config.imageAlt));
         }
@@ -104,7 +105,7 @@ export function getHeaderTags(site:SiteConfig, path:string) {
     allTags.push(new MetaDataTag("twitter:site", site.config.twitterAccount));
     allTags.push(new MetaDataTag("twitter:card", "summary_large_image"));
     if (site.config.image) {
-        allTags.push(new MetaDataTag("twitter:image", site.config.image));
+        allTags.push(new MetaDataTag("twitter:image", `${site.basePath}/${site.config.image}`));
         if (site.config.imageAlt) {
             allTags.push(new MetaDataTag("twitter:image:alt", site.config.imageAlt));
         }
