@@ -1,0 +1,51 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+    commands:
+      # Install selenium prerequisites
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - apt-get update
+      - apt-get install xvfb python3-pip build-essential -y
+      - pip3 install selenium awscli requests boto3
+      - cp xvfb.init /etc/init.d/xvfb
+      - chmod +x /etc/init.d/xvfb
+      - update-rc.d xvfb defaults
+      - service xvfb start
+      - export PATH="$PATH:`pwd`/webdrivers"
+  pre_build:
+    commands:
+      - REPOSITORY_URI=$ECR_REPOSITORY_URI
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+  build:
+    commands:
+      - echo Build started on `date`
+
+      - echo Copying env files from $CODEBUILD_SRC_DIR_EnvFiles
+      - cp --verbose -rf $CODEBUILD_SRC_DIR_EnvFiles/. .
+
+      - echo Building docker image
+      - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
+      - docker tag $REPOSITORY_URI:$IMAGE_TAG $REPOSITORY_URI:latest
+
+      - echo Testing docker image
+      - docker run -p 8080:80 -dt $REPOSITORY_URI:$IMAGE_TAG
+      - sleep 10
+      - python3 -m unittest discover tests
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - python3 writeartifacts.py $CODEBUILD_SRC_DIR/Dockerrun.aws.json $REPOSITORY_URI:$IMAGE_TAG
+      - echo Pushing docker image
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI:$IMAGE_TAG
+artifacts:
+  name: BeanstalkDockerrun
+  base-directory: $CODEBUILD_SRC_DIR
+  files:
+    - Dockerrun.aws.json
