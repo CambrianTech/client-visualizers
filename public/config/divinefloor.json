@@ -192,6 +192,7 @@
                   "displayName": "MONTPELLIER PARQUET",
                   "ppi": 20,
                   "thumbnail": "thumbnails/E09006-P.jpg",
+                  "albedo": "textures/E09006-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0046",
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Parquet-RS_1024x1024.jpg?v=1575660940",
@@ -209,8 +210,7 @@
                       {"Installation Methods": "Nail/Glue"},
                       {"Over Radiant Heat": "Yes"}
                     ]
-                  },
-                  "metaData": {"albedo": "textures/E09006-P.jpg"}
+                  }
                 },
                 {
                   "code": "E09007",

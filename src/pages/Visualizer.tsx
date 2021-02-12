@@ -286,8 +286,6 @@ export default function Visualizer(props: any) {
         const materials:CBARMaterialProperties[] = [];
 
         if (color.textures.length) {
-            console.log("Using non metadata");
-
             color.textures.forEach(tex=>{
                 const material:CBARMaterialProperties = {};
                 material.properties = {
@@ -318,7 +316,6 @@ export default function Visualizer(props: any) {
                 materials.push(material);
             });
         } else if (color.metaData) {
-            console.log("Using metadata");
             const material:CBARMaterialProperties = {};
             material.properties = {
                 metalnessValue: -0.05,
