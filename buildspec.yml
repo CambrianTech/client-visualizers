@@ -10,6 +10,7 @@ phases:
       - apt-get update
       - apt-get install xvfb python3-pip build-essential -y
       - pip3 install selenium awscli requests boto3
+      - ls -l
       - cp xvfb.init /etc/init.d/xvfb
       - chmod +x /etc/init.d/xvfb
       - update-rc.d xvfb defaults
