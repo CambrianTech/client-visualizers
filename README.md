@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Just a test
+
 ### sync data
 within project directory/sites for a given website:
 ```aws s3 sync s3://cambrianar-sites/<site_name> sites/<site_name>```
