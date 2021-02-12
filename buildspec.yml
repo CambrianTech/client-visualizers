@@ -6,7 +6,7 @@ phases:
       docker: 18
     commands:
       # Install selenium prerequisites
-      #- curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
       - apt-get update
       - apt-get install xvfb python3-pip build-essential -y
       - pip3 install selenium awscli requests boto3
