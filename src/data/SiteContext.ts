@@ -3,6 +3,7 @@ import {CBARSceneProperties, CBContentManager, CBMaterialProperties} from "react
 import { polyfill } from "smoothscroll-polyfill"
 import {BrowserProperties} from "react-client-info";
 import * as qs from "querystring";
+import {SiteConfig} from "cambrian-base";
 
 polyfill();
 
@@ -18,7 +19,7 @@ export function getSubdomain() {
 export type DerivedSiteState = {
     browserProperties: BrowserProperties,
     error: Error | null
-    siteData: any
+    siteData: SiteConfig | undefined
 }
 
 export type SharableVisualizerState = {
@@ -104,7 +105,7 @@ export type SiteActionSetColor = {
 
 export type SiteActionSetSiteData = {
     type: "setSiteData"
-    siteData: string | null
+    siteData: SiteConfig
 }
 
 export type SiteActionSetSceneData = {

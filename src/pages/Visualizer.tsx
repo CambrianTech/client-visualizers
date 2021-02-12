@@ -104,17 +104,6 @@ export default function Visualizer(props: any) {
     const [selectedSceneColumn, setSelectedSceneColumn] = useState<SwatchItem>();
 
     const [toolMode, setToolMode] = useState(CBARToolMode.None);
-    const config = useMemo(()=>{
-        if (siteContext.state.siteData) {
-            return siteContext.state.siteData.config;
-        }
-    }, [siteContext.state.siteData]);
-
-    const brandPath = useMemo(()=>{
-        if (config) {
-            return `${config.basePath}`
-        }
-    }, [config]);
 
     const [context, setContext] = useState<CBARContext>();
     const [currentScene, setCurrentScene] = useState<CBARScene>();
@@ -144,27 +133,32 @@ export default function Visualizer(props: any) {
         return toolMode === CBARToolMode.Rotate || toolMode === CBARToolMode.Translate || toolMode === CBARToolMode.DrawSurface || toolMode === CBARToolMode.EraseSurface
     }, [toolMode]);
 
+    const brandPath = useMemo(()=>{
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.basePath
+        }
+    },[siteContext.state.siteData]);
+
     const hasShare = useMemo(()=>{
-        //disabled for now:
-        // if (config && selectedProduct) {
-        //     return config.hasOwnProperty("hasShare") ? config.hasShare : true;
-        // }
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.visualizerConfig.hasShare
+        }
         return false
-    },[]);
+    },[siteContext.state.siteData]);
 
     const hasPhotoUpload = useMemo(()=>{
-        if (config) {
-            return config.hasOwnProperty("hasPhotoUpload") ? config.hasPhotoUpload : true;
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.visualizerConfig.hasPhotoUpload
         }
         return false
-    },[config]);
+    },[siteContext.state.siteData]);
 
     const hasScenes = useMemo(()=>{
-        if (config) {
-            return config.hasOwnProperty("hasScenes") ? config.hasScenes : true;
+        if (siteContext.state.siteData) {
+            return siteContext.state.siteData.visualizerConfig.hasScenes
         }
         return false
-    },[config]);
+    },[siteContext.state.siteData]);
 
     const isMobile = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait;
@@ -283,20 +277,53 @@ export default function Visualizer(props: any) {
         }
     },[selectedAsset]);
 
-    const showMaterial = useCallback((color:Product|ProductColor) => {
+    const showMaterial = useCallback((color:ProductItem) => {
         if (!context || !selectedSurface) {
             console.log("Show material failed", selectedSurface);
             return;
         };
 
-        let material:CBARMaterialProperties = {};
-        material.properties = {
-            metalnessValue: -0.05
-        };
-        material.textures = {};
-        material.ppi = color.ppi ? color.ppi : 20;
+        const materials:CBARMaterialProperties[] = [];
 
-        if (color.metaData) {
+        if (color.textures.length) {
+            color.textures.forEach(tex=>{
+                const material:CBARMaterialProperties = {};
+                material.properties = {
+                    metalnessValue: -0.05
+                };
+                material.textures = {};
+                material.ppi = color.ppi ? color.ppi : 20;
+                material.crop = color.crop;
+                material.mirrored = color.mirrored;
+                material.mirroredX = color.mirroredX;
+                material.mirroredY = color.mirroredY;
+
+                if (color.color) {
+                    material.properties.color = color.color;
+                }
+                if (tex.albedoPath) {
+                    material.textures.albedo = `${brandPath}/${tex.albedoPath}`;
+                }
+                if (tex.normalsPath) {
+                    material.textures.normals = `${brandPath}/${tex.normalsPath}`;
+                }
+                if (tex.roughnessPath) {
+                    material.textures.roughness = `${brandPath}/${tex.roughnessPath}`;
+                }
+                if (tex.specularPath) {
+                    material.textures.specular = `${brandPath}/${tex.specularPath}`;
+                }
+                materials.push(material);
+            });
+        } else if (color.metaData) {
+            const material:CBARMaterialProperties = {};
+            material.properties = {
+                metalnessValue: -0.05,
+            };
+            material.textures = {};
+            material.ppi = color.ppi ? color.ppi : 20;
+
+            //phase out this data approach:
             if (color.metaData.hasOwnProperty("albedo")) {
                 material.textures.albedo = `${brandPath}/${color.metaData.albedo}`;
             }
@@ -318,10 +345,11 @@ export default function Visualizer(props: any) {
             if (color.metaData.hasOwnProperty("crop")) {
                 material.crop = color.metaData.crop;
             }
-        }
+            if (color.color) {
+                material.properties.color = color.color;
+            }
 
-        if (color.color) {
-            material.properties.color = color.color;
+            materials.push(material);
         }
 
         let elevation = 0.0;
@@ -341,13 +369,14 @@ export default function Visualizer(props: any) {
             selectedSurface.add(currentAsset, elevation);
         }
 
-        setSelectedAsset(currentAsset);
-
-        currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:material} : { materials:[material]}).then(()=>{
-            setNeedsUpload(true);
-        }).catch((error:any) => {
-            console.error(error)
-        })
+        if (materials.length) {
+            setSelectedAsset(currentAsset);
+            currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:materials[0]} : { materials:materials}).then(()=>{
+                setNeedsUpload(true);
+            }).catch((error:any) => {
+                console.error(error)
+            })
+        }
     }, [brandPath, context, selectedSurface]);
 
     const handleVisualizerEvent = useCallback((event:CBARMouseEvent) => {
@@ -753,12 +782,12 @@ export default function Visualizer(props: any) {
     }, [initialXPos, initialYPos, selectedAsset]);
 
     const productDetails = useMemo(()=>{
-        let product:DataItem|undefined = selectedProduct;
+        let product:ProductItem|undefined = selectedProduct;
         while (product) {
             if (product.details) {
                 return product.details
             }
-            product = product.parent as DataItem
+            product = product.parent as ProductItem
         }
         return undefined
     }, [selectedProduct]);
@@ -812,12 +841,12 @@ export default function Visualizer(props: any) {
 
             </div>
 
-            {config &&
+            {siteContext.state.siteData &&
             <div className={"panel b"}>
 
                 <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
 
-                {config && config.hasPhotoUpload && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
+                {hasPhotoUpload && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
                 <div className={"image-upload"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
                     <div className="content">
@@ -872,7 +901,7 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                <img className={"floating-logo"} src={`${brandPath}/${config.siteLogoImage}`} alt={"logo"} />
+                {siteContext.state.siteData && <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.config.logo}`} alt={"logo"} />}
 
                 {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a" + (hasSeenProducts ? "" : " bounce")} onClick={()=>productsClicked()}
                      textLabel={leftPanelButtonText}
@@ -906,14 +935,14 @@ export default function Visualizer(props: any) {
                                  details={productDetails}
                     />)}
 
-                {config && currentScene && (
+                {siteContext.state.siteData && currentScene && (
                     <SharePanel className={"share"}
                                 visible={activePanel === Panel.Share}
                                 needsUpload={needsUpload}
                                 product={selectedProduct}
                                 resolveThumbnailPath={resolveThumbnailPath}
                                 getShareUrl={getShareUrl}
-                                shareSubject={config.shareSubject}
+                                shareSubject={siteContext.state.siteData.config.shareSubject}
                                 onClose={shareCompleted}
                                 isUploadedImage={isUploadedImage()}
                                 onImageUploadCompleted={shareUploadComplete} />
@@ -924,5 +953,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, productsClicked, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, config, toolMode, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, hasPhotoUpload, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }
