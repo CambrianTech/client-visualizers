@@ -38,7 +38,7 @@ export class PdmsDataClient extends OpenDataClient {
                 product.patterns.push({
                     code:pattern.tricycleCode,
                     displayName:pattern.name,
-                    image:pattern.imageLink
+                    thumbnail:pattern.imageLink
                 })
             })
         }
