@@ -277,20 +277,56 @@ export default function Visualizer(props: any) {
         }
     },[selectedAsset]);
 
-    const showMaterial = useCallback((color:Product|ProductColor) => {
+    const showMaterial = useCallback((color:ProductItem) => {
         if (!context || !selectedSurface) {
             console.log("Show material failed", selectedSurface);
             return;
         };
 
-        let material:CBARMaterialProperties = {};
-        material.properties = {
-            metalnessValue: -0.05
-        };
-        material.textures = {};
-        material.ppi = color.ppi ? color.ppi : 20;
+        const materials:CBARMaterialProperties[] = [];
 
-        if (color.metaData) {
+        if (color.textures.length) {
+            console.log("Using non metadata");
+
+            color.textures.forEach(tex=>{
+                const material:CBARMaterialProperties = {};
+                material.properties = {
+                    metalnessValue: -0.05
+                };
+                material.textures = {};
+                material.ppi = color.ppi ? color.ppi : 20;
+                material.crop = color.crop;
+                material.mirrored = color.mirrored;
+                material.mirroredX = color.mirroredX;
+                material.mirroredY = color.mirroredY;
+
+                if (color.color) {
+                    material.properties.color = color.color;
+                }
+                if (tex.albedoPath) {
+                    material.textures.albedo = `${brandPath}/${tex.albedoPath}`;
+                }
+                if (tex.normalsPath) {
+                    material.textures.normals = `${brandPath}/${tex.normalsPath}`;
+                }
+                if (tex.roughnessPath) {
+                    material.textures.roughness = `${brandPath}/${tex.roughnessPath}`;
+                }
+                if (tex.specularPath) {
+                    material.textures.specular = `${brandPath}/${tex.specularPath}`;
+                }
+                materials.push(material);
+            });
+        } else if (color.metaData) {
+            console.log("Using metadata");
+            const material:CBARMaterialProperties = {};
+            material.properties = {
+                metalnessValue: -0.05,
+            };
+            material.textures = {};
+            material.ppi = color.ppi ? color.ppi : 20;
+
+            //phase out this data approach:
             if (color.metaData.hasOwnProperty("albedo")) {
                 material.textures.albedo = `${brandPath}/${color.metaData.albedo}`;
             }
@@ -312,10 +348,11 @@ export default function Visualizer(props: any) {
             if (color.metaData.hasOwnProperty("crop")) {
                 material.crop = color.metaData.crop;
             }
-        }
+            if (color.color) {
+                material.properties.color = color.color;
+            }
 
-        if (color.color) {
-            material.properties.color = color.color;
+            materials.push(material);
         }
 
         let elevation = 0.0;
@@ -335,13 +372,14 @@ export default function Visualizer(props: any) {
             selectedSurface.add(currentAsset, elevation);
         }
 
-        setSelectedAsset(currentAsset);
-
-        currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:material} : { materials:[material]}).then(()=>{
-            setNeedsUpload(true);
-        }).catch((error:any) => {
-            console.error(error)
-        })
+        if (materials.length) {
+            setSelectedAsset(currentAsset);
+            currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:materials[0]} : { materials:materials}).then(()=>{
+                setNeedsUpload(true);
+            }).catch((error:any) => {
+                console.error(error)
+            })
+        }
     }, [brandPath, context, selectedSurface]);
 
     const handleVisualizerEvent = useCallback((event:CBARMouseEvent) => {
@@ -747,12 +785,12 @@ export default function Visualizer(props: any) {
     }, [initialXPos, initialYPos, selectedAsset]);
 
     const productDetails = useMemo(()=>{
-        let product:DataItem|undefined = selectedProduct;
+        let product:ProductItem|undefined = selectedProduct;
         while (product) {
             if (product.details) {
                 return product.details
             }
-            product = product.parent as DataItem
+            product = product.parent as ProductItem
         }
         return undefined
     }, [selectedProduct]);
