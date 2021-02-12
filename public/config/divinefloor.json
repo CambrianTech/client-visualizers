@@ -263,7 +263,7 @@
                     ]
                   },
                   "metaData": {"albedo": "textures/E09007-P.jpg"}
-                },                
+                },
                 {
                   "code": "E09002",
                   "displayName": "CHAMPAGNE",
@@ -955,7 +955,7 @@
                   "metaData": {
                     "mirroredX": true, "albedo": "textures/E03005.jpg"
                   }
-                }                                                              
+                }
               ]
             },
             {
@@ -1558,7 +1558,7 @@
                   "metaData": {
                     "mirroredX": true, "albedo": "textures/E08017.jpg"
                   }
-                }                                                                                                                                                                
+                }
               ]
             },
             {
@@ -4099,7 +4099,7 @@
                   "metaData": {
                     "mirroredX": true, "albedo": "textures/VP4103.jpg"
                   }
-                },                
+                },
                 {
                   "code": "VP4102",
                   "displayName": "POINT BLANK XL",
