@@ -32,7 +32,7 @@ phases:
       #- echo Copying env files from $CODEBUILD_SRC_DIR_EnvFiles
       #- cp --verbose -rf $CODEBUILD_SRC_DIR_EnvFiles/. .
 
-      - echo Building docker image $REPOSITORY_URI:$IMAGE_TAG
+      - echo Building docker image on repo "$REPOSITORY_URI" and image "$IMAGE_TAG"
       - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
       - docker tag $REPOSITORY_URI:$IMAGE_TAG $REPOSITORY_URI:latest
 
