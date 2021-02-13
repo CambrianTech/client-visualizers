@@ -36,10 +36,10 @@ phases:
       - docker build -t $REPOSITORY_URI:$IMAGE_TAG .
       - docker tag $REPOSITORY_URI:$IMAGE_TAG $REPOSITORY_URI:latest
 
-      - echo Testing docker image
-      - docker run -p 8080:80 -dt $REPOSITORY_URI:$IMAGE_TAG
-      - sleep 10
-      - python3 -m unittest discover tests
+      #- echo Testing docker image
+      #- docker run -p 8080:80 -dt $REPOSITORY_URI:$IMAGE_TAG
+      #- sleep 10
+      #- python3 -m unittest discover tests
   post_build:
     commands:
       - echo Build completed on `date`
