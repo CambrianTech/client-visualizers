@@ -10,7 +10,7 @@ dotenv.config();
 
 const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 : false;
 const port = 3000;
-const buildPath = path.join(__dirname, isDevelop ? '../../build' : 'build');
+const buildPath = path.join(__dirname, isDevelop ? '../../build' : '../build');
 const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1 : false;
 const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "default";
 const cacheRoot = path.join(__dirname, 'cache');
