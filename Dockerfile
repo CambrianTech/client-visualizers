@@ -33,5 +33,4 @@ RUN npm config set unsafe-perm true
 
 RUN npm install -g forever
 
-CMD ls
 CMD sh start.sh
