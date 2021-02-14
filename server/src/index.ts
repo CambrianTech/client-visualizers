@@ -2,8 +2,7 @@ import express from "express";
 import * as dotenv from "dotenv";
 import * as path from "path";
 import * as fs from "fs";
-import {getHeaderTags} from './components/MetaData';
-import {SiteConfig} from "cambrian-base";
+import {getHeaderTags, SiteConfig} from "cambrian-base";
 
 const app = express();
 dotenv.config();
