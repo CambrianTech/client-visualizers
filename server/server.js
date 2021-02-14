@@ -54,7 +54,7 @@ function getPageAttributes(config, path, query) {
     return pageAttributes
 }
 
-export function getMetaTags(config, baseUrl, path, query) {
+function getMetaTags(config, baseUrl, path, query) {
     let metaTags = "";
     const url = `${baseUrl}${path}`;
     const route = path.split('?')[0];
@@ -135,6 +135,7 @@ function getConfig(subdomain) {
 app.get("*", function (req, res) {
     const parts = req.headers.host.split('.');
     const subdomain = parts.length === 3 ? parts[0] : req.headers.host;
+
     const config = getConfig(subdomain);
 
     fs.readFile(path.join(__dirname, "build", "index.html"), "utf8", function (err, data) {
