@@ -18,6 +18,7 @@ phases:
       - export PATH="$PATH:`pwd`/webdrivers"
   pre_build:
     commands:
+      - echo Warning, REPOSITORY_URI has been hard coded
       # REPOSITORY_URI hard coded for now:
       - REPOSITORY_URI=312943975091.dkr.ecr.us-east-1.amazonaws.com/client-visualizers
       #- REPOSITORY_URI=$ECR_REPOSITORY_URI
