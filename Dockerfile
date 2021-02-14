@@ -24,10 +24,12 @@ COPY server/ /opt/server
 
 RUN apk add --update nodejs npm
 RUN npm install
+RUN npm run build
 
 # To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
 RUN npm config set unsafe-perm true
 
 RUN npm install -g forever
 
+CMD ls
 CMD sh start.sh
