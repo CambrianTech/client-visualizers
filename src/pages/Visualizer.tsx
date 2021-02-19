@@ -44,7 +44,6 @@ import {
     ServerProgress,
     SharePanel,
     ToolOperation,
-    ToolsMenu,
     ToolsMenuAction, TranslateTool,
     VerticalListing
 } from "react-cambrian-ui";
@@ -54,6 +53,7 @@ import orientationImage from "../data/orientation6.jpg";
 import {getScenePaths, getUploadedRoomPaths} from "../index";
 import {BrowserType} from "react-client-info";
 import {Button, Fab, Icon} from "@material-ui/core";
+import {VisualizerTools} from "../components/VisualizerTools";
 
 enum Panel {
     None="",
@@ -78,7 +78,6 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
 export default function Visualizer(props: any) {
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
-
     const _isMounted = useRef(false);
 
     const [activePanel,setActivePanel] = useState(Panel.None);
@@ -863,13 +862,10 @@ export default function Visualizer(props: any) {
                     </div>
                 </div>
 
-                {!showUploadButton && currentScene && !isToolOverlayOpen && <ToolsMenu
-                    className={"tools-menu"}
+                <VisualizerTools
+                    hidden={showUploadButton || !currentScene || isToolOverlayOpen}
                     actions={toolActions}
-                    selectedAsset={selectedAsset}
-                    selectedSurface={selectedSurface}
-                    onAction={handleAction}
-                />}
+                    handleAction={handleAction} />
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}
@@ -886,7 +882,6 @@ export default function Visualizer(props: any) {
                                yPos={toolMode === CBARToolMode.Translate ? currentYPos : initialYPos}
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
-
 
                 {!rightPanelOpen && selectedRow && selectedProduct && (
                     <div className={"floating-product-info"}>
@@ -957,5 +952,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, hasPhotoUpload, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, hasPhotoUpload, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }
