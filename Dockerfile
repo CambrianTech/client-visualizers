@@ -1,6 +1,5 @@
 # 1. Build with npm
-#FROM node:14.7.0-alpine as build-stage
-FROM 312943975091.dkr.ecr.us-east-1.amazonaws.com/client-visualizers:node-14.7.0-alpine as build-stage
+FROM public.ecr.aws/j7v0i7y2/client-resources:node-14.7.0-alpine as build-stage
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
@@ -9,9 +8,7 @@ RUN rm -rf /app/public/assets/cambrianar-sites
 RUN npm run build
 
 # 2. Copy built files into nginx container
-#FROM nginx:1.17-alpine
-FROM 312943975091.dkr.ecr.us-east-1.amazonaws.com/client-visualizers:nginx-1.17-alpine
-#RUN mkdir -p /opt/server/sites
+FROM public.ecr.aws/j7v0i7y2/client-resources:nginx-1.17-alpine
 COPY --from=build-stage /app/build/config /opt/server/config
 COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
 
