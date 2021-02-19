@@ -8,6 +8,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "@types/jsonp": "^0.2.0",
     "@types/randomstring": "^1.1.6",
     "@types/react": "^17.0.1",
@@ -26,7 +27,7 @@
     "randomstring": "^1.1.5",
     "react": "^17.0.1",
     "react-app-polyfill": "^1.0.1",
-    "react-cambrian-ui": "^0.0.1113",
+    "react-cambrian-ui": "^0.0.1114",
     "react-circular-progressbar": "^2.0.1",
     "react-client-info": "0.0.21",
     "react-dat-gui": "^3.0.0",
