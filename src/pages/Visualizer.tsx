@@ -137,11 +137,11 @@ export default function Visualizer(props: any) {
     },[siteContext.state.siteData]);
 
     const hasShare = useMemo(()=>{
-        if (siteContext.state.siteData) {
-            return siteContext.state.siteData.visualizerConfig.hasShare
-        }
+        // if (siteContext.state.siteData) {
+        //     return siteContext.state.siteData.visualizerConfig.hasShare
+        // }
         return false
-    },[siteContext.state.siteData]);
+    },[]);
 
     const hasPhotoUpload = useMemo(()=>{
         if (siteContext.state.siteData) {
