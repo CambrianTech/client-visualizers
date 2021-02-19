@@ -1,5 +1,4 @@
 import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
-import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
 import {
