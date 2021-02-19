@@ -8,7 +8,7 @@ const app = express();
 dotenv.config();
 
 const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 : false;
-const port = 3000;
+const port = isDevelop ? 3010 : 3000;
 const buildPath = path.join(__dirname, isDevelop ? '../../build' : '../build');
 const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1 : false;
 const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "default";
@@ -54,16 +54,19 @@ app.get("*", (req, res) => {
     const subdomain = parts.length === 3 ? parts[0] : defaultSite;
     console.log("using site", subdomain);
 
-    if (req.path === "/" || req.path === "/index.html") {
+    const filePath = path.join(buildPath, decodeURI(req.path));
+    console.log("Requested", req.path, subdomain);
+
+    if (req.path !== "/" && req.path !== "/index.html" && fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    }
+    else {
         const config = getConfig(subdomain);
         const indexPath = path.join(buildPath, "index.html");
         fs.readFile(indexPath, "utf8", (err, data) => {
             if (err) {
                 res.status(404).send(`${indexPath} couldn't be found`);
             } else {
-                // const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
-                // const baseUrl = `${protocol}://${req.headers.host}`;
-                // console.log("Got config", config);
                 const tags = getHeaderTags(config, req.path);
 
                 let content = "";
@@ -73,16 +76,11 @@ app.get("*", (req, res) => {
                 res.send(data);
             }
         });
-    } else {
-        const filePath = path.join(buildPath, decodeURI(req.path));
-        console.log("Requested", req.path, subdomain);
-        res.sendFile(filePath);
     }
-
 });
 
 // start the Express server
 app.listen( port, () => {
     // tslint:disable-next-line:no-console
-    console.log( `server started at http://localhost:${ port }` );
+    console.log( `Webserver started at http://localhost:${ port }` );
 } );

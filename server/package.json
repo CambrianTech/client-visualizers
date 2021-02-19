@@ -10,11 +10,12 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "node .",
+    "server": "npm run build; node .",
+    "start": "cd ..; npm run build; cd server; open http://localhost:3010 && node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "cambrian-base": "^1.0.33",
+    "cambrian-base": "^1.0.41",
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
   },

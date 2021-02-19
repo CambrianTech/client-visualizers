@@ -3,7 +3,6 @@
   "version": "0.3.00",
   "private": true,
   "config": {
-    "server_port": "3010",
     "default_site": "divinefloor"
   },
   "dependencies": {
@@ -45,11 +44,11 @@
     "superagent": "^5.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run start-server\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "npm run build; open http://localhost:$npm_package_config_server_port; cd server; npm start;",
+    "start-server": "cd server; npm run server",
     "sync": "mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/$npm_package_config_default_site cambrianar-sites/$npm_package_config_default_site --recursive"
   },
   "eslintConfig": {
@@ -71,6 +70,7 @@
   "devDependencies": {
     "source-map-loader": "^0.2.4",
     "typescript": "^3.5.2",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.5",
+    "concurrently": "^5.3.0"
   }
 }
