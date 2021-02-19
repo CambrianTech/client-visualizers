@@ -6,15 +6,13 @@
     "default_site": "divinefloor"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material/react-fab": "^0.15.0",
-    "@material/react-material-icon": "^0.15.0",
-    "@researchgate/react-intersection-observer": "^1.0.1",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "@types/jsonp": "^0.2.0",
     "@types/randomstring": "^1.1.6",
-    "@types/react": "^17.0.0",
+    "@types/react": "^17.0.1",
     "@types/react-circular-progressbar": "^1.0.2",
-    "@types/react-dom": "^17.0.0",
+    "@types/react-dom": "^17.0.1",
     "@types/react-modal": "^3.8.2",
     "@types/react-navigation": "^3.0.7",
     "@types/react-router-dom": "^4.3.4",
@@ -28,16 +26,15 @@
     "randomstring": "^1.1.5",
     "react": "^17.0.1",
     "react-app-polyfill": "^1.0.1",
-    "react-cambrian-ui": "^0.0.1087",
+    "react-cambrian-ui": "^0.0.1091",
     "react-circular-progressbar": "^2.0.1",
     "react-client-info": "0.0.21",
     "react-dat-gui": "^3.0.0",
     "react-dom": "^17.0.1",
     "react-dropzone": "^10.1.5",
-    "react-home-ar": "0.0.1797",
-    "react-lazy-elements": "^0.0.4",
+    "react-home-ar": "^0.0.1797",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.3.0",
+    "react-scripts": "^4.0.2",
     "react-transition-group": "^4.1.1",
     "serve": "^11.3.2",
     "smoothscroll-polyfill": "^0.4.4",
@@ -68,9 +65,9 @@
     ]
   },
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "source-map-loader": "^0.2.4",
     "typescript": "^3.5.2",
-    "webpack-cli": "^3.3.5",
-    "concurrently": "^5.3.0"
+    "webpack-cli": "^4.5.0"
   }
 }

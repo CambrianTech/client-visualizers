@@ -1,11 +1,8 @@
 import React from "react"
-
 import './DrawingTools.css'
-
 import {CBARToolMode} from "react-home-ar";
-import MaterialIcon from "@material/react-material-icon";
-import {Fab} from "@material/react-fab";
 import {MediaPaths} from "../utilities/Constants";
+import {Fab, Icon} from "@material-ui/core";
 
 type DrawingToolsProps = {
     visible: boolean
@@ -24,14 +21,23 @@ export const DrawingToolsCached = React.memo<DrawingToolsProps>(
                     <div className="visualizer-drawing-tools-content">
                         <div>
                             <div className="visualizer-drawing-tools-mode">
-                                <Fab className="tool-button" disabled={!cProps.historySize} style={{opacity: cProps.historySize ? 1.0 : 0.5}}
-                                     onClick={() => cProps.onUndoClicked()} icon={<MaterialIcon icon='undo' />} />
-                                <Fab className="tool-button" onClick={() => cProps.onToolModeChanged(CBARToolMode.DrawSurface)} icon={<MaterialIcon icon='format_paint' />} />
-                                <Fab className="tool-button" onClick={() => cProps.onToolModeChanged(CBARToolMode.EraseSurface)} icon={<img src={`${MediaPaths.Images}/eraser.svg`} alt={'eraser'} />} />
+                                <Fab className="tool-button" disabled={!cProps.historySize} style={{opacity: cProps.historySize ? 1.0 : 0.5}} onClick={() => cProps.onUndoClicked()}>
+                                    <Icon>undo</Icon>
+                                </Fab>
+                                <Fab className="tool-button" onClick={() => cProps.onToolModeChanged(CBARToolMode.DrawSurface)}>
+                                    <Icon>format_paint</Icon>
+                                </Fab>
+                                <Fab className="tool-button" onClick={() => cProps.onToolModeChanged(CBARToolMode.EraseSurface)}>
+                                    <img src={`${MediaPaths.Images}/eraser.svg`} alt={'eraser'} />
+                                </Fab>
                             </div>
                             <div className="visualizer-drawing-tools-actions">
-                                <Fab className="tool-button" style={{backgroundColor:"#555"}} onClick={() => cProps.onToolFinished(false)} icon={<MaterialIcon icon='close' />} />
-                                <Fab className="tool-button" onClick={() => cProps.onToolFinished(true)} icon={<MaterialIcon icon='check' />} />
+                                <Fab className="tool-button" style={{backgroundColor:"#555"}} onClick={() => cProps.onToolFinished(false)}>
+                                    <Icon>close</Icon>
+                                </Fab>
+                                <Fab className="tool-button" onClick={() => cProps.onToolFinished(true)}>
+                                    <Icon>check</Icon>
+                                </Fab>
                             </div>
                         </div>
                     </div>

@@ -33,8 +33,6 @@ import {
 } from "react-home-ar";
 
 import {SiteContext, stateToUrl} from '../data/SiteContext';
-import MaterialIcon from "@material/react-material-icon";
-import {Fab} from "@material/react-fab";
 import {
     DefaultToolsMenuActions,
     EditSurfaceTool,
@@ -55,7 +53,7 @@ import orientationImage from "../data/orientation6.jpg";
 
 import {getScenePaths, getUploadedRoomPaths} from "../index";
 import {BrowserType} from "react-client-info";
-import {Button} from "@material-ui/core";
+import {Button, Fab, Icon} from "@material-ui/core";
 
 enum Panel {
     None="",
@@ -848,18 +846,18 @@ export default function Visualizer(props: any) {
 
                 {hasPhotoUpload && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
-                <div className={"image-upload"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
+                <div className={"choose-scene"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
                     <div className="content">
                         <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
-                            <div className={"upload-room-button"}>
-                                <MaterialIcon icon='insert_photo' className={"upload-room-icon"} />
-                                <div className={"upload-room-text"}>Choose a Scene</div>
+                            <div className={"button-content"}>
+                                <Icon className={"button-icon"}>insert_photo</Icon>
+                                <div className={"button-text"}>Choose Scene</div>
                             </div>
                         </Button>
                         <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
-                            <div className={"upload-room-button"}>
-                                <MaterialIcon icon='add_a_photo' className={"upload-room-icon"} />
-                                <div className={"upload-room-text"}>Upload My Room</div>
+                            <div className={"button-content"}>
+                                <Icon className={"button-icon"}>add_a_photo</Icon>
+                                <div className={"button-text"}>Upload Photo</div>
                             </div>
                         </Button>
                     </div>
@@ -904,12 +902,18 @@ export default function Visualizer(props: any) {
                 {siteContext.state.siteData && <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.config.logo}`} alt={"logo"} />}
 
                 {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a" + (hasSeenProducts ? "" : " bounce")} onClick={()=>productsClicked()}
-                     textLabel={leftPanelButtonText}
-                     icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />}
+                                                                      aria-label={leftPanelButtonText}>
+                    <Icon>
+                        {leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")}
+                    </Icon>
+                </Fab>}
 
                 {currentScene && selectedProduct && <Fab className={"close-button panel-c"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)}
-                     textLabel={rightPanelButtonText}
-                     icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />}
+                                                         aria-label={rightPanelButtonText}>
+                    <Icon>
+                        {rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")}
+                    </Icon>
+                </Fab>}
 
             </div>}
 
@@ -949,7 +953,7 @@ export default function Visualizer(props: any) {
                 )}
             </div>
 
-            {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} icon={<MaterialIcon icon='close' />} onClick={()=>setActivePanel(Panel.None)}  />}
+            {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} onClick={()=>setActivePanel(Panel.None)}><Icon>close</Icon></Fab>}
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
