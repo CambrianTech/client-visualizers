@@ -16,6 +16,7 @@ const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
 const domain = process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
 const CONFIG_STORE = "config";
+const baseDataPath = process.env.CB_SITE_DATA_URL ? process.env.CB_SITE_DATA_URL.trim() : "";
 
 const uploadsBaseUrl = process.env.CB_UPLOADS_URL;
 if (!uploadsBaseUrl) {
@@ -68,8 +69,10 @@ app.get("*", (req, res) => {
             if (err) {
                 res.status(404).send(`${indexPath} couldn't be found`);
             } else {
+                console.log(config);
                 const request:RequestContext = {
                     site: config,
+                    basePath:baseDataPath,
                     path: req.path,
                     query: req.path,
                     domain,

@@ -49,10 +49,11 @@ import {
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {getScenePaths, getUploadedRoomPaths} from "../index";
+import {getScenePaths, getUploadedRoomPaths, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
 import {Button, Fab, Icon} from "@material-ui/core";
 import {VisualizerTools} from "../components/VisualizerTools";
+import {ApiCapabilityName} from "cambrian-base";
 
 enum Panel {
     None="",
@@ -131,30 +132,19 @@ export default function Visualizer(props: any) {
 
     const brandPath = useMemo(()=>{
         if (siteContext.state.siteData) {
-            return siteContext.state.siteData.basePath
+            return SITE_PATH;
         }
     },[siteContext.state.siteData]);
 
-    const hasShare = useMemo(()=>{
-        // if (siteContext.state.siteData) {
-        //     return siteContext.state.siteData.visualizerConfig.hasShare
-        // }
-        return false
-    },[]);
-
-    const hasPhotoUpload = useMemo(()=>{
+    const isFeatureEnabled = useCallback((name:ApiCapabilityName) => {
         if (siteContext.state.siteData) {
-            return siteContext.state.siteData.visualizerConfig.hasPhotoUpload
+            const feature = siteContext.state.siteData.features.capabilities.find(f=>f.name === name);
+            if (feature) {
+                return feature.enabled;
+            }
         }
         return false
-    },[siteContext.state.siteData]);
-
-    const hasScenes = useMemo(()=>{
-        if (siteContext.state.siteData) {
-            return siteContext.state.siteData.visualizerConfig.hasScenes
-        }
-        return false
-    },[siteContext.state.siteData]);
+    }, [siteContext.state.siteData]);
 
     const isMobile = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait;
@@ -709,15 +699,15 @@ export default function Visualizer(props: any) {
     const toolActions = useMemo<ToolsMenuAction[]>(()=>{
         let actions = [...DefaultToolsMenuActions];
 
-        if (!hasPhotoUpload) {
+        if (!isFeatureEnabled("upload")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
         }
 
-        if (!hasScenes) {
+        if (!isFeatureEnabled("scenes")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
         }
 
-        if (!hasShare) {
+        if (!isFeatureEnabled("share")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.Share);
         }
 
@@ -732,7 +722,7 @@ export default function Visualizer(props: any) {
         }
 
         return actions
-    }, [hasPhotoUpload, hasScenes, hasShare, isEditable, siteContext.state.browserProperties.browser]);
+    }, [isFeatureEnabled, isEditable, siteContext.state.browserProperties.browser]);
 
     const editSurfaceFinished = useCallback(() => {
         if (!_isMounted.current) return;
@@ -842,7 +832,7 @@ export default function Visualizer(props: any) {
 
                 <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
 
-                {hasPhotoUpload && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
+                {isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
                 <div className={"choose-scene"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
                     <div className="content">
@@ -893,7 +883,7 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                {siteContext.state.siteData && <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.config.logo}`} alt={"logo"} />}
+                {siteContext.state.siteData && <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo}`} alt={"logo"} />}
 
                 {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a" + (hasSeenProducts ? "" : " bounce")} onClick={()=>productsClicked()}
                                                                       aria-label={leftPanelButtonText}>
@@ -917,7 +907,7 @@ export default function Visualizer(props: any) {
                     <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
                         <div className={"choose-text"}>Product Details</div>
                     </div>
-                    {hasShare &&
+                    {isFeatureEnabled("share") && siteContext.state.siteData && siteContext.state.siteData.appearance.sharing &&
                     <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>
                         <div className={"choose-text"}>Share</div>
                     </div>}
@@ -933,14 +923,14 @@ export default function Visualizer(props: any) {
                                  details={productDetails}
                     />)}
 
-                {siteContext.state.siteData && currentScene && (
+                {siteContext.state.siteData && currentScene && siteContext.state.siteData.appearance.sharing && (
                     <SharePanel className={"share"}
                                 visible={activePanel === Panel.Share}
                                 needsUpload={needsUpload}
                                 product={selectedProduct}
                                 resolveThumbnailPath={resolveThumbnailPath}
                                 getShareUrl={getShareUrl}
-                                shareSubject={siteContext.state.siteData.config.shareSubject}
+                                shareSubject={siteContext.state.siteData.appearance.sharing.subject}
                                 onClose={shareCompleted}
                                 isUploadedImage={isUploadedImage()}
                                 onImageUploadCompleted={shareUploadComplete} />
@@ -951,5 +941,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, hasPhotoUpload, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, isFeatureEnabled, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }

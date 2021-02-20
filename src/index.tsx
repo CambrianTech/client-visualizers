@@ -13,10 +13,11 @@ import * as qs from "querystring";
 import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
+import {SiteConfig} from "cambrian-base";
 
 const objectFitImages = require('object-fit-images');
 
-let siteName = (window as any).siteName;
+export let siteName = (window as any).siteName;
 
 if (!siteName) {
     siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "default"
@@ -173,9 +174,7 @@ function App() {
         //load defaults
         fetch(CONFIG_PATH).then(res => res.json())
             .then(json => {
-                const config = json.config as any;
-
-                config.basePath = SITE_PATH;
+                const config = json as SiteConfig;
 
                 dispatchSiteState({
                     type: "setSiteData",
@@ -184,32 +183,32 @@ function App() {
 
                 if (searchObject.rt && searchObject.r) {
                     loadScene(searchObject.rt, searchObject.r);
-                } else if (config.hasOwnProperty("defaultSceneCollection") && config.hasOwnProperty("defaultScene")) {
+                } else if (config.features.defaultSceneCollection && config.features.defaultScene) {
                     dispatchSiteState({
                         type: "setSelectedSampleRoomType",
-                        selectedSampleRoomType: config.defaultSceneCollection
+                        selectedSampleRoomType: config.features.defaultSceneCollection
                     });
 
                     dispatchSiteState({
                         type: "setSelectedSampleRoom",
-                        selectedSampleRoom: config.defaultScene
+                        selectedSampleRoom: config.features.defaultScene
                     });
                 }
 
-                if (!document.title && config.hasOwnProperty("siteTitle")) {
-                    document.title = config.siteTitle;
+                if (!document.title && config.appearance.header.title) {
+                    document.title = config.appearance.header.title;
                 }
 
-                if (config.hasOwnProperty("buttonTextColor") && !document.documentElement.style.getPropertyValue("--mdc-theme-primary")) {
-                    document.documentElement.style.setProperty("--mdc-theme-primary", config.buttonTextColor)
+                if (config.appearance.buttonTextColor && !document.documentElement.style.getPropertyValue("--mdc-theme-primary")) {
+                    document.documentElement.style.setProperty("--mdc-theme-primary", config.appearance.buttonTextColor)
                 }
 
-                if (config.hasOwnProperty("primaryColor") && !document.documentElement.style.getPropertyValue("--mdc-theme-secondary")) {
-                    document.documentElement.style.setProperty("--mdc-theme-secondary", config.primaryColor)
+                if (config.appearance.primaryColor && !document.documentElement.style.getPropertyValue("--mdc-theme-secondary")) {
+                    document.documentElement.style.setProperty("--mdc-theme-secondary", config.appearance.primaryColor)
                 }
 
-                if (config.hasOwnProperty("inactiveColor") && !document.documentElement.style.getPropertyValue("--mdc-theme-inactive")) {
-                    document.documentElement.style.setProperty("--mdc-theme-inactive", config.inactiveColor)
+                if (config.appearance.inactiveColor && !document.documentElement.style.getPropertyValue("--mdc-theme-inactive")) {
+                    document.documentElement.style.setProperty("--mdc-theme-inactive", config.appearance.inactiveColor)
                 }
 
             });
