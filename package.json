@@ -40,11 +40,11 @@
     "superagent": "^5.1.0"
   },
   "scripts": {
-    "start": "concurrently \"npm run start-server\" \"react-scripts start\"",
+    "start": "concurrently \"cd server; npm run server\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-server": "cd server; npm run server",
+    "server": "npm run build; cd server; open http://localhost:3010; npm run server;",
     "sync": "mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/$npm_package_config_default_site cambrianar-sites/$npm_package_config_default_site --recursive"
   },
   "eslintConfig": {

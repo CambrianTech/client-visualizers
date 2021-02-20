@@ -1,8 +1,8 @@
 import express from "express";
-import * as dotenv from "dotenv";
+import * as dotenv from "dotenv-flow";
 import * as path from "path";
 import * as fs from "fs";
-import {getHeaderTags, SiteConfig} from "cambrian-base";
+import {getHeaderTags, RequestContext, SiteConfig} from "cambrian-base";
 
 const app = express();
 dotenv.config();
@@ -14,6 +14,7 @@ const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1
 const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "default";
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
+const domain = process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
 const CONFIG_STORE = "config";
 
 const uploadsBaseUrl = process.env.CB_UPLOADS_URL;
@@ -67,7 +68,14 @@ app.get("*", (req, res) => {
             if (err) {
                 res.status(404).send(`${indexPath} couldn't be found`);
             } else {
-                const tags = getHeaderTags(config, req.path);
+                const request:RequestContext = {
+                    site: config,
+                    path: req.path,
+                    query: req.path,
+                    domain,
+                    subdomain
+                };
+                const tags = getHeaderTags(request);
 
                 let content = "";
                 tags.forEach(tag=>content += tag.render() + "\n");
@@ -82,5 +90,5 @@ app.get("*", (req, res) => {
 // start the Express server
 app.listen( port, () => {
     // tslint:disable-next-line:no-console
-    console.log( `Webserver started at http://localhost:${ port }` );
+    console.log( `Server started at http://localhost:${ port }` );
 } );
