@@ -54,7 +54,6 @@ app.get("*", (req, res) => {
 
     const parts = req.headers.host.split('.');
     const subdomain = parts.length === 3 ? parts[0] : defaultSite;
-    console.log("using site", subdomain);
 
     const filePath = path.join(buildPath, decodeURI(req.path));
     console.log("Requested", req.path, subdomain);
@@ -69,14 +68,11 @@ app.get("*", (req, res) => {
             if (err) {
                 res.status(404).send(`${indexPath} couldn't be found`);
             } else {
-                console.log(config);
                 const request:RequestContext = {
                     site: config,
-                    basePath:baseDataPath,
+                    host:baseDataPath,
                     path: req.path,
-                    query: req.path,
-                    domain,
-                    subdomain
+                    query: req.path
                 };
                 const tags = getHeaderTags(request);
 
