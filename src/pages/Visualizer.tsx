@@ -138,7 +138,7 @@ export default function Visualizer(props: any) {
 
     const isFeatureEnabled = useCallback((name:ApiCapabilityName) => {
         if (siteContext.state.siteData) {
-            const feature = siteContext.state.siteData.features.capabilities.find(f=>f.name === name);
+            const feature = siteContext.state.siteData.features.find(f=>f.name === name);
             if (feature) {
                 return feature.enabled;
             }
@@ -779,8 +779,11 @@ export default function Visualizer(props: any) {
     }, [selectedProduct]);
 
     const showUploadButton = useMemo(()=>{
+        if ((!isFeatureEnabled("scenes") && !isFeatureEnabled("upload"))) {
+            return false;
+        }
         return !(currentScene || dataPath || siteContext.state.sceneData || progressVisible)
-    }, [currentScene, dataPath, siteContext.state.sceneData, progressVisible]);
+    }, [currentScene, dataPath, siteContext.state.sceneData, progressVisible, isFeatureEnabled]);
 
     const panelTimer = useRef(0);
     const setPanelTimer = useCallback(()=>{
@@ -836,18 +839,18 @@ export default function Visualizer(props: any) {
 
                 <div className={"choose-scene"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
                     <div className="content">
-                        <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
+                        {isFeatureEnabled("scenes") && <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
                             <div className={"button-content"}>
                                 <Icon className={"button-icon"}>insert_photo</Icon>
                                 <div className={"button-text"}>Choose Scene</div>
                             </div>
-                        </Button>
-                        <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
+                        </Button>}
+                        {isFeatureEnabled("upload") && <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
                             <div className={"button-content"}>
                                 <Icon className={"button-icon"}>add_a_photo</Icon>
                                 <div className={"button-text"}>Upload Photo</div>
                             </div>
-                        </Button>
+                        </Button>}
                     </div>
                 </div>
 

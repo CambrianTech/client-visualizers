@@ -183,17 +183,18 @@ function App() {
 
                 if (searchObject.rt && searchObject.r) {
                     loadScene(searchObject.rt, searchObject.r);
-                } else if (config.features.defaultSceneCollection && config.features.defaultScene) {
-                    dispatchSiteState({
-                        type: "setSelectedSampleRoomType",
-                        selectedSampleRoomType: config.features.defaultSceneCollection
-                    });
-
-                    dispatchSiteState({
-                        type: "setSelectedSampleRoom",
-                        selectedSampleRoom: config.features.defaultScene
-                    });
                 }
+                // else if (config.features && config.features.defaultScene) {
+                //     dispatchSiteState({
+                //         type: "setSelectedSampleRoomType",
+                //         selectedSampleRoomType: config.features.defaultSceneCollection
+                //     });
+                //
+                //     dispatchSiteState({
+                //         type: "setSelectedSampleRoom",
+                //         selectedSampleRoom: config.features.defaultScene
+                //     });
+                // }
 
                 if (!document.title && config.appearance.header.title) {
                     document.title = config.appearance.header.title;

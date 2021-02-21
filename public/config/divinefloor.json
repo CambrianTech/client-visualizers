@@ -16,12 +16,10 @@
       "subject": "Check out this floor from Divine Floor"
     }
   },
-  "features": {
-    "capabilities": [
-      {"name":"scenes", "enabled":true},
-      {"name":"upload", "enabled":true}
-    ]
-  },
+  "features":  [
+    {"name":"scenes", "enabled":true},
+    {"name":"upload", "enabled":true}
+  ],
   "brands": [
     {
       "code": "divine-floor",
