@@ -3,7 +3,7 @@
   "displayName": "Divine Floor",
   "subdomain": "divinefloor",
   "appearance": {
-    "logo": "branding/logo-black.png",
+    "logo": {"src":"branding/logo-black.png", "alt":"Divine floor logo"},
     "primaryColor": "#000",
     "buttonTextColor": "#fff",
     "inactiveColor": "rgba(255,255,255,0.2)",

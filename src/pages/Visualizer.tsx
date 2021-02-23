@@ -44,7 +44,7 @@ import {
     SharePanel,
     ToolOperation,
     ToolsMenuAction, TranslateTool,
-    VerticalListing
+    VerticalListing, PickImageSource
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
@@ -798,6 +798,14 @@ export default function Visualizer(props: any) {
         }
     }, [panelTimer]);
 
+    const sourceChosen = useCallback((source:ApiCapabilityName)=>{
+        if (source === 'upload') {
+
+        } else if (source === 'scenes') {
+
+        }
+    }, []);
+
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
@@ -886,7 +894,8 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                {siteContext.state.siteData && <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo}`} alt={"logo"} />}
+                {siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
+                    <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}
 
                 {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a" + (hasSeenProducts ? "" : " bounce")} onClick={()=>productsClicked()}
                                                                       aria-label={leftPanelButtonText}>

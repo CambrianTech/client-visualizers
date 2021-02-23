@@ -11,7 +11,7 @@ const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 
 const port = isDevelop ? 3010 : 3000;
 const buildPath = path.join(__dirname, isDevelop ? '../../build' : '../build');
 const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1 : false;
-const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "default";
+const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "divinefloor";
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
 const domain = process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
@@ -34,12 +34,16 @@ if (isDebug) {
     }
 }
 
+function getDomain(host:string) {
+    return (host.indexOf("staging.") >= 0) ? "staging." + domain : domain;
+}
+
 function getConfig(subdomain:string) : SiteConfig | undefined {
 
     const configPath = path.join(buildPath, CONFIG_STORE);
     try {
         const filepath = path.join(configPath, `${subdomain}.json`);
-        const defaultPath = path.join(configPath, `default.json`);
+        const defaultPath = path.join(configPath, `${defaultSite}.json`);
         const exists = fs.existsSync(filepath);
         const json = JSON.parse(fs.readFileSync(exists ? filepath : defaultPath, 'utf-8'));
         return json
@@ -52,17 +56,18 @@ function getConfig(subdomain:string) : SiteConfig | undefined {
 
 app.get("*", (req, res) => {
 
-    const parts = req.headers.host.split('.');
-    const subdomain = parts.length === 3 ? parts[0] : defaultSite;
-
     const filePath = path.join(buildPath, decodeURI(req.path));
-    console.log("Requested", req.path, subdomain);
-
     if (req.path !== "/" && req.path !== "/index.html" && fs.existsSync(filePath)) {
         res.sendFile(filePath);
     }
     else {
+        const domain = getDomain(req.headers.host);
+        const subdomain = req.headers.host.replace("." + domain, "");
+
+        console.log("Requested", req.path, subdomain);
+
         const config = getConfig(subdomain);
+        console.log(config);
         const indexPath = path.join(buildPath, "index.html");
         fs.readFile(indexPath, "utf8", (err, data) => {
             if (err) {
@@ -70,9 +75,9 @@ app.get("*", (req, res) => {
             } else {
                 const request:RequestContext = {
                     site: config,
-                    host:baseDataPath,
+                    host: `${baseDataPath}/${config.code}`,
                     path: req.path,
-                    query: req.path
+                    query: req.query
                 };
                 const tags = getHeaderTags(request);
 
