@@ -848,16 +848,16 @@ export default function Visualizer(props: any) {
 
                 <div className={"choose-scene"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
                     <div className="content">
-                        {isFeatureEnabled("scenes") && <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
-                            <div className={"button-content"}>
-                                <Icon className={"button-icon"}>insert_photo</Icon>
-                                <div className={"button-text"}>Choose Scene</div>
-                            </div>
-                        </Button>}
                         {isFeatureEnabled("upload") && <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
                             <div className={"button-content"}>
                                 <Icon className={"button-icon"}>add_a_photo</Icon>
                                 <div className={"button-text"}>Upload Photo</div>
+                            </div>
+                        </Button>}
+                        {isFeatureEnabled("scenes") && <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
+                            <div className={"button-content"}>
+                                <Icon className={"button-icon"}>insert_photo</Icon>
+                                <div className={"button-text"}>Choose Scene</div>
                             </div>
                         </Button>}
                     </div>
