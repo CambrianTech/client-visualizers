@@ -1,5 +1,4 @@
 import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
-import 'react-dat-gui/build/react-dat-gui.css'
 import './Visualizer.css'
 
 import {
@@ -33,8 +32,6 @@ import {
 } from "react-home-ar";
 
 import {SiteContext, stateToUrl} from '../data/SiteContext';
-import MaterialIcon from "@material/react-material-icon";
-import {Fab} from "@material/react-fab";
 import {
     DefaultToolsMenuActions,
     EditSurfaceTool,
@@ -42,20 +39,21 @@ import {
     ImageUpload,
     openImageDialog,
     ProductBreadcrumb,
-    ProductInfo, RotateTool,
+    ProductDetails, RotateTool,
     ServerProgress,
     SharePanel,
     ToolOperation,
-    ToolsMenu,
     ToolsMenuAction, TranslateTool,
-    VerticalListing
+    VerticalListing, PickImageSource
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {getScenePaths, getUploadedRoomPaths} from "../index";
+import {getScenePaths, getUploadedRoomPaths, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
-import {Button} from "@material-ui/core";
+import {Button, Fab, Icon} from "@material-ui/core";
+import {VisualizerTools} from "../components/VisualizerTools";
+import {ApiCapabilityName} from "cambrian-base";
 
 enum Panel {
     None="",
@@ -80,7 +78,6 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
 export default function Visualizer(props: any) {
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
-
     const _isMounted = useRef(false);
 
     const [activePanel,setActivePanel] = useState(Panel.None);
@@ -135,30 +132,19 @@ export default function Visualizer(props: any) {
 
     const brandPath = useMemo(()=>{
         if (siteContext.state.siteData) {
-            return siteContext.state.siteData.basePath
+            return SITE_PATH;
         }
     },[siteContext.state.siteData]);
 
-    const hasShare = useMemo(()=>{
+    const isFeatureEnabled = useCallback((name:ApiCapabilityName) => {
         if (siteContext.state.siteData) {
-            return siteContext.state.siteData.visualizerConfig.hasShare
+            const feature = siteContext.state.siteData.features.find(f=>f.name === name);
+            if (feature) {
+                return feature.enabled;
+            }
         }
         return false
-    },[siteContext.state.siteData]);
-
-    const hasPhotoUpload = useMemo(()=>{
-        if (siteContext.state.siteData) {
-            return siteContext.state.siteData.visualizerConfig.hasPhotoUpload
-        }
-        return false
-    },[siteContext.state.siteData]);
-
-    const hasScenes = useMemo(()=>{
-        if (siteContext.state.siteData) {
-            return siteContext.state.siteData.visualizerConfig.hasScenes
-        }
-        return false
-    },[siteContext.state.siteData]);
+    }, [siteContext.state.siteData]);
 
     const isMobile = useMemo(()=>{
         return siteContext.state.browserProperties.isPortrait;
@@ -434,7 +420,10 @@ export default function Visualizer(props: any) {
     }, [selectedProduct]);
 
     const productsClicked = useCallback((gotoRoot?:boolean)=>{
-        if (activePanel === Panel.Products || activePanel === Panel.Scenes) {
+        if (rootItem && gotoRoot) {
+            setListingItems(rootItem.children);
+        }
+        else if (activePanel === Panel.Products || activePanel === Panel.Scenes) {
             setActivePanel(Panel.None);
         } else {
             if (currentScene) {
@@ -443,9 +432,7 @@ export default function Visualizer(props: any) {
                 setActivePanel(Panel.Scenes);
             }
         }
-        if (rootItem && gotoRoot) {
-            setListingItems(rootItem.children);
-        }
+
     }, [activePanel, currentScene, rootItem]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
@@ -607,7 +594,7 @@ export default function Visualizer(props: any) {
 
     const leftPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
-            return isPortrait && selectedProduct ? "" : "Products";
+            return isPortrait && selectedProduct ? undefined : "Products";
         }
         return undefined
     },[activePanel, currentScene, isPortrait, selectedProduct]);
@@ -713,15 +700,15 @@ export default function Visualizer(props: any) {
     const toolActions = useMemo<ToolsMenuAction[]>(()=>{
         let actions = [...DefaultToolsMenuActions];
 
-        if (!hasPhotoUpload) {
+        if (!isFeatureEnabled("upload")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
         }
 
-        if (!hasScenes) {
+        if (!isFeatureEnabled("scenes")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
         }
 
-        if (!hasShare) {
+        if (!isFeatureEnabled("share")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.Share);
         }
 
@@ -736,7 +723,7 @@ export default function Visualizer(props: any) {
         }
 
         return actions
-    }, [hasPhotoUpload, hasScenes, hasShare, isEditable, siteContext.state.browserProperties.browser]);
+    }, [isFeatureEnabled, isEditable, siteContext.state.browserProperties.browser]);
 
     const editSurfaceFinished = useCallback(() => {
         if (!_isMounted.current) return;
@@ -793,8 +780,11 @@ export default function Visualizer(props: any) {
     }, [selectedProduct]);
 
     const showUploadButton = useMemo(()=>{
+        if ((!isFeatureEnabled("scenes") && !isFeatureEnabled("upload"))) {
+            return false;
+        }
         return !(currentScene || dataPath || siteContext.state.sceneData || progressVisible)
-    }, [currentScene, dataPath, siteContext.state.sceneData, progressVisible]);
+    }, [currentScene, dataPath, siteContext.state.sceneData, progressVisible, isFeatureEnabled]);
 
     const panelTimer = useRef(0);
     const setPanelTimer = useCallback(()=>{
@@ -808,6 +798,14 @@ export default function Visualizer(props: any) {
             window.clearTimeout(panelTimer.current);
         }
     }, [panelTimer]);
+
+    const sourceChosen = useCallback((source:ApiCapabilityName)=>{
+        if (source === 'upload') {
+
+        } else if (source === 'scenes') {
+
+        }
+    }, []);
 
     return useMemo(() => (
         <div className={"panels " + activePanel}>
@@ -846,32 +844,29 @@ export default function Visualizer(props: any) {
 
                 <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
 
-                {hasPhotoUpload && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
+                {isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
-                <div className={"image-upload"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
+                <div className={"choose-scene"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
                     <div className="content">
-                        <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
-                            <div className={"upload-room-button"}>
-                                <MaterialIcon icon='insert_photo' className={"upload-room-icon"} />
-                                <div className={"upload-room-text"}>Choose a Scene</div>
+                        {isFeatureEnabled("scenes") && <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
+                            <div className={"button-content"}>
+                                <Icon className={"button-icon"}>insert_photo</Icon>
+                                <div className={"button-text"}>Choose Scene</div>
                             </div>
-                        </Button>
-                        <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
-                            <div className={"upload-room-button"}>
-                                <MaterialIcon icon='add_a_photo' className={"upload-room-icon"} />
-                                <div className={"upload-room-text"}>Upload My Room</div>
+                        </Button>}
+                        {isFeatureEnabled("upload") && <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
+                            <div className={"button-content"}>
+                                <Icon className={"button-icon"}>add_a_photo</Icon>
+                                <div className={"button-text"}>Upload Photo</div>
                             </div>
-                        </Button>
+                        </Button>}
                     </div>
                 </div>
 
-                {!showUploadButton && currentScene && !isToolOverlayOpen && <ToolsMenu
-                    className={"tools-menu"}
+                <VisualizerTools
+                    hidden={showUploadButton || !currentScene || isToolOverlayOpen}
                     actions={toolActions}
-                    selectedAsset={selectedAsset}
-                    selectedSurface={selectedSurface}
-                    onAction={handleAction}
-                />}
+                    handleAction={handleAction} />
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}
@@ -889,7 +884,6 @@ export default function Visualizer(props: any) {
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
 
-
                 {!rightPanelOpen && selectedRow && selectedProduct && (
                     <div className={"floating-product-info"}>
                         <div className={"product-swatch"} style={{background:selectedProduct.color}}>
@@ -901,32 +895,40 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                {siteContext.state.siteData && <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.config.logo}`} alt={"logo"} />}
+                {siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
+                    <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}
 
-                {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a" + (hasSeenProducts ? "" : " bounce")} onClick={()=>productsClicked()}
-                     textLabel={leftPanelButtonText}
-                     icon={<MaterialIcon icon={leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")} />} />}
+                {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
+                                                                      onClick={()=>productsClicked()}>
+                    <Icon>
+                        {leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")}
+                    </Icon>
+                    {leftPanelButtonText}
+                </Fab>}
 
-                {currentScene && selectedProduct && <Fab className={"close-button panel-c"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)}
-                     textLabel={rightPanelButtonText}
-                     icon={<MaterialIcon icon={rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")} />} />}
+                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-c"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)}>
+                    <Icon>
+                        {rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")}
+                    </Icon>
+                    {rightPanelButtonText}
+                </Fab>}
 
             </div>}
 
             <div className={"panel c"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
 
-                {!isPortrait && <div className={"title"}>
-                    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
-                        <div className={"choose-text"}>Product Details</div>
-                    </div>
-                    {hasShare &&
-                    <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>
-                        <div className={"choose-text"}>Share</div>
-                    </div>}
-                </div>}
+                {/*{!isPortrait && <div className={"title"}>*/}
+                {/*    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>*/}
+                {/*        <div className={"choose-text"}>Product Details</div>*/}
+                {/*    </div>*/}
+                {/*    {isFeatureEnabled("share") && siteContext.state.siteData && siteContext.state.siteData.appearance.sharing &&*/}
+                {/*    <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>*/}
+                {/*        <div className={"choose-text"}>Share</div>*/}
+                {/*    </div>}*/}
+                {/*</div>}*/}
 
                 {selectedProduct && selectedProduct.parent && (
-                    <ProductInfo className={"info"}
+                    <ProductDetails className={"info"}
                                  visible={activePanel === Panel.ProductInfo}
                                  title={selectedProduct.parent.displayName}
                                  subTitle={selectedProduct.displayName}
@@ -935,23 +937,23 @@ export default function Visualizer(props: any) {
                                  details={productDetails}
                     />)}
 
-                {siteContext.state.siteData && currentScene && (
+                {siteContext.state.siteData && currentScene && siteContext.state.siteData.appearance.sharing && (
                     <SharePanel className={"share"}
                                 visible={activePanel === Panel.Share}
                                 needsUpload={needsUpload}
                                 product={selectedProduct}
                                 resolveThumbnailPath={resolveThumbnailPath}
                                 getShareUrl={getShareUrl}
-                                shareSubject={siteContext.state.siteData.config.shareSubject}
+                                shareSubject={siteContext.state.siteData.appearance.sharing.subject}
                                 onClose={shareCompleted}
                                 isUploadedImage={isUploadedImage()}
                                 onImageUploadCompleted={shareUploadComplete} />
                 )}
             </div>
 
-            {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} icon={<MaterialIcon icon='close' />} onClick={()=>setActivePanel(Panel.None)}  />}
+            {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} onClick={()=>setActivePanel(Panel.None)}><Icon>close</Icon></Fab>}
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, hasPhotoUpload, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedAsset, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, hasShare, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, isFeatureEnabled, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }

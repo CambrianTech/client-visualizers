@@ -1,20 +1,22 @@
 import express from "express";
-import * as dotenv from "dotenv";
+import * as dotenv from "dotenv-flow";
 import * as path from "path";
 import * as fs from "fs";
-import {getHeaderTags, SiteConfig} from "cambrian-base";
+import {getHeaderTags, RequestContext, SiteConfig} from "cambrian-base";
 
 const app = express();
 dotenv.config();
 
 const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 : false;
-const port = 3000;
+const port = isDevelop ? 3010 : 3000;
 const buildPath = path.join(__dirname, isDevelop ? '../../build' : '../build');
 const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1 : false;
-const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "default";
+const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "divinefloor";
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
+const domain = process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
 const CONFIG_STORE = "config";
+const baseDataPath = process.env.CB_SITE_DATA_URL ? process.env.CB_SITE_DATA_URL.trim() : "";
 
 const uploadsBaseUrl = process.env.CB_UPLOADS_URL;
 if (!uploadsBaseUrl) {
@@ -32,12 +34,16 @@ if (isDebug) {
     }
 }
 
+function getDomain(host:string) {
+    return (host.indexOf("staging.") >= 0) ? "staging." + domain : domain;
+}
+
 function getConfig(subdomain:string) : SiteConfig | undefined {
 
     const configPath = path.join(buildPath, CONFIG_STORE);
     try {
         const filepath = path.join(configPath, `${subdomain}.json`);
-        const defaultPath = path.join(configPath, `default.json`);
+        const defaultPath = path.join(configPath, `${defaultSite}.json`);
         const exists = fs.existsSync(filepath);
         const json = JSON.parse(fs.readFileSync(exists ? filepath : defaultPath, 'utf-8'));
         return json
@@ -50,21 +56,30 @@ function getConfig(subdomain:string) : SiteConfig | undefined {
 
 app.get("*", (req, res) => {
 
-    const parts = req.headers.host.split('.');
-    const subdomain = parts.length === 3 ? parts[0] : defaultSite;
-    console.log("using site", subdomain);
+    const filePath = path.join(buildPath, decodeURI(req.path));
+    if (req.path !== "/" && req.path !== "/index.html" && fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    }
+    else {
+        const domain = getDomain(req.headers.host);
+        const subdomain = req.headers.host.replace("." + domain, "");
 
-    if (req.path === "/" || req.path === "/index.html") {
+        console.log("Requested", req.path, subdomain);
+
         const config = getConfig(subdomain);
+        console.log(config);
         const indexPath = path.join(buildPath, "index.html");
         fs.readFile(indexPath, "utf8", (err, data) => {
             if (err) {
                 res.status(404).send(`${indexPath} couldn't be found`);
             } else {
-                // const protocol = req.headers.hasOwnProperty("x-forwarded-proto") ? req.headers["x-forwarded-proto"] : req.protocol;
-                // const baseUrl = `${protocol}://${req.headers.host}`;
-                // console.log("Got config", config);
-                const tags = getHeaderTags(config, req.path);
+                const request:RequestContext = {
+                    site: config,
+                    host: `${baseDataPath}/${config.code}`,
+                    path: req.path,
+                    query: req.query
+                };
+                const tags = getHeaderTags(request);
 
                 let content = "";
                 tags.forEach(tag=>content += tag.render() + "\n");
@@ -73,16 +88,11 @@ app.get("*", (req, res) => {
                 res.send(data);
             }
         });
-    } else {
-        const filePath = path.join(buildPath, decodeURI(req.path));
-        console.log("Requested", req.path, subdomain);
-        res.sendFile(filePath);
     }
-
 });
 
 // start the Express server
 app.listen( port, () => {
     // tslint:disable-next-line:no-console
-    console.log( `server started at http://localhost:${ port }` );
+    console.log( `Server started at http://localhost:${ port }` );
 } );

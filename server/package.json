@@ -10,17 +10,20 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "node .",
+    "server": "NODE_ENV=development node .",
+    "start": "cd ..; npm run build; cd server; open http://localhost:3010 && npm run server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "cambrian-base": "^1.0.22",
-    "dotenv": "^8.2.0",
+    "@types/dotenv-flow": "^3.1.0",
+    "cambrian-base": "^1.0.66",
+    "dotenv-flow": "^3.2.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.22",
+    "concurrently": "^5.3.0",
     "tslint": "^6.1.3",
     "typescript": "^4.1.3"
   }

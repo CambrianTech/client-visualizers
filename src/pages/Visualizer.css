@@ -89,7 +89,7 @@
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
 }
 
-.image-upload {
+.choose-scene {
     position: absolute;
     top:0;
     z-index: 100;
@@ -101,20 +101,21 @@
     background-color: #dfdfdf;
 }
 
-.image-upload .content > * {
+.choose-scene .content > * {
     margin: 20px;
 }
 
-.image-upload .upload-room-button {
+.choose-scene .button-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.image-upload .upload-room-button .upload-room-icon {
+.choose-scene .button-content .button-icon {
     font-size: 100px;
 }
 
-.image-upload .upload-room-button .upload-room-text {
+.choose-scene .button-content .button-text {
     font-size: 20px;
 }
 
@@ -595,11 +596,11 @@ panel.c {
         --vertical-margin:0;
     }
 
-    .image-upload {
+    .choose-scene {
         z-index: 0;
     }
 
-    .image-upload .content {
+    .choose-scene .content {
         display: flex;
         flex-direction: column-reverse;
     }
