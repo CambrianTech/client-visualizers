@@ -39,7 +39,7 @@ import {
     ImageUpload,
     openImageDialog,
     ProductBreadcrumb,
-    ProductInfo, RotateTool,
+    ProductDetails, RotateTool,
     ServerProgress,
     SharePanel,
     ToolOperation,
@@ -420,7 +420,10 @@ export default function Visualizer(props: any) {
     }, [selectedProduct]);
 
     const productsClicked = useCallback((gotoRoot?:boolean)=>{
-        if (activePanel === Panel.Products || activePanel === Panel.Scenes) {
+        if (rootItem && gotoRoot) {
+            setListingItems(rootItem.children);
+        }
+        else if (activePanel === Panel.Products || activePanel === Panel.Scenes) {
             setActivePanel(Panel.None);
         } else {
             if (currentScene) {
@@ -429,9 +432,7 @@ export default function Visualizer(props: any) {
                 setActivePanel(Panel.Scenes);
             }
         }
-        if (rootItem && gotoRoot) {
-            setListingItems(rootItem.children);
-        }
+
     }, [activePanel, currentScene, rootItem]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
@@ -916,18 +917,18 @@ export default function Visualizer(props: any) {
 
             <div className={"panel c"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
 
-                {!isPortrait && <div className={"title"}>
-                    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
-                        <div className={"choose-text"}>Product Details</div>
-                    </div>
-                    {isFeatureEnabled("share") && siteContext.state.siteData && siteContext.state.siteData.appearance.sharing &&
-                    <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>
-                        <div className={"choose-text"}>Share</div>
-                    </div>}
-                </div>}
+                {/*{!isPortrait && <div className={"title"}>*/}
+                {/*    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>*/}
+                {/*        <div className={"choose-text"}>Product Details</div>*/}
+                {/*    </div>*/}
+                {/*    {isFeatureEnabled("share") && siteContext.state.siteData && siteContext.state.siteData.appearance.sharing &&*/}
+                {/*    <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>*/}
+                {/*        <div className={"choose-text"}>Share</div>*/}
+                {/*    </div>}*/}
+                {/*</div>}*/}
 
                 {selectedProduct && selectedProduct.parent && (
-                    <ProductInfo className={"info"}
+                    <ProductDetails className={"info"}
                                  visible={activePanel === Panel.ProductInfo}
                                  title={selectedProduct.parent.displayName}
                                  subTitle={selectedProduct.displayName}
