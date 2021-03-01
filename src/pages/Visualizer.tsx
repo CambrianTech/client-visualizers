@@ -593,7 +593,7 @@ export default function Visualizer(props: any) {
 
     const leftPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
-            return isPortrait && selectedProduct ? "" : "Products";
+            return isPortrait && selectedProduct ? undefined : "Products";
         }
         return undefined
     },[activePanel, currentScene, isPortrait, selectedProduct]);
@@ -897,18 +897,19 @@ export default function Visualizer(props: any) {
                 {siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
                     <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}
 
-                {(currentScene || activePanel !== Panel.None) && <Fab className={"close-button panel-a" + (hasSeenProducts ? "" : " bounce")} onClick={()=>productsClicked()}
-                                                                      aria-label={leftPanelButtonText}>
+                {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
+                                                                      onClick={()=>productsClicked()}>
                     <Icon>
                         {leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")}
                     </Icon>
+                    {leftPanelButtonText}
                 </Fab>}
 
-                {currentScene && selectedProduct && <Fab className={"close-button panel-c"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)}
-                                                         aria-label={rightPanelButtonText}>
+                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-c"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)}>
                     <Icon>
                         {rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")}
                     </Icon>
+                    {rightPanelButtonText}
                 </Fab>}
 
             </div>}
