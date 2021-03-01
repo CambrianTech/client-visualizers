@@ -446,6 +446,8 @@ panel.c {
 
     .panel .close-button.panel-a {
         left:calc(50% - 28px);
+        width: 48px;
+        height: 48px;
     }
 
     .panel .close-button.panel-c {
@@ -481,12 +483,35 @@ panel.c {
         padding: 10px;
     }
 
+    .panels.product-info .MuiSpeedDial-root,
+    .panels.products .MuiSpeedDial-root,
+    .panels.scenes .MuiSpeedDial-root,
+    .panels.share .MuiSpeedDial-root
+    {
+        visibility: hidden;
+    }
+
     .panels.product-info .floating-product-info,
     .panels.products .floating-product-info,
     .panels.scenes .floating-product-info,
     .panels.share .floating-product-info
     {
         visibility: hidden;
+    }
+
+    .panels.product-info .close-button,
+    .panels.products .close-button,
+    .panels.scenes .close-button,
+    .panels.share .close-button
+    {
+        visibility: hidden;
+    }
+
+    .panels.products .close-button.panel-a,
+    .panels.scenes .close-button.panel-a,
+    .panels.product-info .close-button.panel-c
+    {
+        visibility: visible;
     }
 
     #legally-required-logo {
@@ -576,7 +601,9 @@ panel.c {
     }
 
     .panels.product-info .panel-c.close-button, .panels.share .panel-c.close-button {
-        bottom: calc(var(--details-panel-height) - 120px);
+        bottom: calc(var(--details-panel-height) - 80px);
+        width: 48px;
+        height: 48px;
     }
 
     .panels.products .visualizer-tools,
