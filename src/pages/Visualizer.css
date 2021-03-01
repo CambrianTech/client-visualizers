@@ -440,7 +440,7 @@ panel.c {
 
     .panel .close-button {
         top:unset;
-        bottom: 0;
+        bottom: 30px;
         transition: bottom 200ms;
     }
 
@@ -454,7 +454,7 @@ panel.c {
 
     .panels.products .close-button.panel-a, .panels.scenes .close-button.panel-a {
         margin-left: 0;
-        bottom: calc(var(--panel-height) - 20px);
+        bottom: calc(var(--panel-height) + 10px);
     }
 
     .panels.products .tools-menu, .panels.scenes .tools-menu {

@@ -596,7 +596,7 @@ export default function Visualizer(props: any) {
 
     const leftPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
-            return isPortrait && selectedProduct ? undefined : "Products";
+            return isPortrait ? undefined : "Products";
         }
         return undefined
     },[activePanel, currentScene, isPortrait, selectedProduct]);
