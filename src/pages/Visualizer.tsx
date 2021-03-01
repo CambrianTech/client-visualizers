@@ -75,6 +75,8 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
     throw new Error('REACT_APP_CB_GET_UPLOAD_URLS_URL, REACT_APP_CB_UPLOADS_URL, and REACT_APP_CB_SEGMENT_URL must be defined')
 }
 
+const InsideIframe = (window !== window.parent);
+
 export default function Visualizer(props: any) {
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
@@ -895,8 +897,8 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                {/*{siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&*/}
-                {/*    <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}*/}
+                {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
+                    <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}
 
                 {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
                                                                       onClick={()=>productsClicked()}>
