@@ -895,8 +895,8 @@ export default function Visualizer(props: any) {
                     </div>
                 )}
 
-                {siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
-                    <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}
+                {/*{siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&*/}
+                {/*    <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}*/}
 
                 {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
                                                                       onClick={()=>productsClicked()}>

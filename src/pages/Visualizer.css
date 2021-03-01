@@ -588,7 +588,7 @@ panel.c {
 }
 
 /* Mobile Only */
-@media only screen and (max-device-width: 480px) {
+@media (max-device-width: 480px) {
     :root {
         --share-buttons-container-height:235px;
         --share-buttons-button-height:35px;
@@ -602,7 +602,7 @@ panel.c {
 
     .choose-scene .content {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .makeStyles-speedDial-1 {
