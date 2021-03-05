@@ -2866,7 +2866,7 @@
                     "specifications": [
                       {"Qty per Box": "19.370"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Coral"},
                       {"Width": "12\""},
                       {"Thickness": "1/4\""},
@@ -2921,7 +2921,7 @@
                     "specifications": [
                       {"Qty per Box": "19.370"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Coral"},
                       {"Width": "12\""},
                       {"Thickness": "1/4\""},
@@ -2948,7 +2948,7 @@
                     "specifications": [
                       {"Qty per Box": "19.370"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Coral"},
                       {"Width": "12\""},
                       {"Thickness": "1/4\""},
@@ -2975,7 +2975,7 @@
                     "specifications": [
                       {"Qty per Box": "19.370"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Coral"},
                       {"Width": "12\""},
                       {"Thickness": "1/4\""},
@@ -3004,7 +3004,7 @@
                     "specifications": [
                       {"Qty per Box": "19.370"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Coral"},
                       {"Width": "12\""},
                       {"Thickness": "1/4\""},
@@ -3031,7 +3031,7 @@
                     "specifications": [
                       {"Qty per Box": "19.370"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Coral"},
                       {"Width": "12\""},
                       {"Thickness": "1/4\""},
@@ -3059,7 +3059,7 @@
                     "specifications": [
                       {"Qty per Box": "19.370"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Coral"},
                       {"Width": "12\""},
                       {"Thickness": "1/4\""},
@@ -3086,7 +3086,7 @@
                     "specifications": [
                       {"Qty per Box": "23.68"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Linen"},
                       {"Width": "24\""},
                       {"Thickness": "5/16\""},
@@ -3113,7 +3113,7 @@
                     "specifications": [
                       {"Qty per Box": "19.370"},
                       {"Product Category": "Vinyl"},
-                      {"Finish": "Uv Lacquer"},
+                      {"Finish": "UV Lacquer"},
                       {"Texture": "Coral"},
                       {"Width": "12\""},
                       {"Thickness": "1/4\""},
@@ -3128,7 +3128,142 @@
                   "metaData": {
                     "mirrored": true, "albedo": "textures/VT1005.jpg"
                   }
-                }
+                },
+                {
+                  "code": "VT1013",
+                  "displayName": "HAVANA",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VT1013.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/passage/products/passage-havana-vein-cut-travertine",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Havana-RS.jpg?v=1608668396",
+                    "specifications": [
+                      {"Qty per Box": "19.370"},
+                      {"Product Category": "Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Honed"},
+                      {"Width": "12\""},
+                      {"Thickness": "1/4\""},
+                      {"Length": "24\""},
+                      {"Species": "Vein Cut Travertine"},
+                      {"Edge Detail": "Enhanced Painted Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": true, "albedo": "textures/VT1013.jpg"
+                  }
+                },
+                {
+                  "code": "VT1014",
+                  "displayName": "SITTING PRETTY",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VT1014.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/passage/products/passage-sitting-pretty-marble",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Sitting-Pretty-RS.jpg?v=1608668657",
+                    "specifications": [
+                      {"Qty per Box": "19.370"},
+                      {"Product Category": "Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Coral"},
+                      {"Width": "12\""},
+                      {"Thickness": "1/4\""},
+                      {"Length": "24\""},
+                      {"Species": "Marble"},
+                      {"Edge Detail": "Enhanced Painted Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": true, "albedo": "textures/VT1014.jpg"
+                  }
+                },
+                {
+                  "code": "VT1015",
+                  "displayName": "SYLVIA SCARLETT",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VT1015.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/passage/products/passage-sylvia-scarlett-concrete",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Sylvia-Scarlett-RS.jpg?v=1608669426",
+                    "specifications": [
+                      {"Qty per Box": "19.370"},
+                      {"Product Category": "Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Shale"},
+                      {"Width": "12\""},
+                      {"Thickness": "1/4\""},
+                      {"Length": "24\""},
+                      {"Species": "Concrete"},
+                      {"Edge Detail": "Enhanced Painted Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": true, "albedo": "textures/VT1015.jpg"
+                  }
+                },
+                {
+                  "code": "VT1012",
+                  "displayName": "CALAMITY JANE",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VT1012.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/passage/products/passage-calamity-jane-shale",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Calamity-Jane-RS.jpg?v=1608667758",
+                    "specifications": [
+                      {"Qty per Box": "19.370"},
+                      {"Product Category": "Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Shale"},
+                      {"Width": "12\""},
+                      {"Thickness": "1/4\""},
+                      {"Length": "24\""},
+                      {"Species": "Concrete"},
+                      {"Edge Detail": "Enhanced Painted Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": true, "albedo": "textures/VT1012.jpg"
+                  }
+                },
+                {
+                  "code": "VT1011",
+                  "displayName": "BOMBSHELL",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VT1011.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/passage/products/passage-bombshell-black-marble",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Passage-Bombshell-RS.jpg?v=1608667483",
+                    "specifications": [
+                      {"Qty per Box": "19.370"},
+                      {"Product Category": "Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Coral"},
+                      {"Width": "12\""},
+                      {"Thickness": "1/4\""},
+                      {"Length": "24\""},
+                      {"Species": "Black Marble"},
+                      {"Edge Detail": "Enhanced Painted Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": true, "albedo": "textures/VT1011.jpg"
+                  }
+                }                                                                
               ]
             },
             {
@@ -3792,7 +3927,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP3003.jpg"
+                    "mirrored": true, "albedo": "textures/VP3008.jpg"
                   }
                 },
                 {
@@ -3849,7 +3984,7 @@
                     "mirroredX": true, "albedo": "textures/VP3006.jpg",
                     "crop": {"left": "180px", "top": "0px", "bottom": "0px", "right": "500px"}
                   }
-                }
+                }                                                                
               ]
             },
             {
@@ -4206,6 +4341,265 @@
                   },
                   "metaData": {
                     "mirroredX": true, "albedo": "textures/VP4104.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "code": "journey",
+              "displayName": "Journey",
+              "thumbnail": "branding/Journey-840px_240x.png",
+              "colors": [
+                {
+                  "code": "VP5001",
+                  "displayName": "WHITE RABBIT",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5001.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-white-rabbit-oak",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-White-Rabbit-RS.jpg?v=1610121980",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Open Grain"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5001.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                  }
+                },
+                {
+                  "code": "VP5002",
+                  "displayName": "DREAMS",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5002.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-dreams-oak",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-Dreams-RS.jpg?v=1610119122",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Saw Cut"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5002.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                  }
+                },
+                {
+                  "code": "VP5004",
+                  "displayName": "SILVER SPRINGS",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5004.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-silver-springs-oak",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-Silver-Springs-RS.jpg?v=1610120746",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Open Grain"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5004.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                  }
+                },
+                {
+                  "code": "VP5005",
+                  "displayName": "GOOD VIBRATIONS",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5005.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-good-vibrations-maple",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-Good-Vibrations-RS.jpg?v=1610119643",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Saw Cut"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5005.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                  }
+                },
+                {
+                  "code": "VP5006",
+                  "displayName": "CALIFORNIA DREAMIN'",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5006.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-california-dreamin-oak",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-California-Dreamin_-RS.jpg?v=1610118807",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Open Grain"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5006.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                  }
+                },
+                {
+                  "code": "VP5007",
+                  "displayName": "BROWN SUGAR",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5007.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-brown-sugar-oak",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-Brown-Sugar-RS.jpg?v=1610117179",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Wood Tick"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Maple"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5007.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                  }
+                },
+                {
+                  "code": "VP5008",
+                  "displayName": "INTO THE MYSTIC",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5008.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-into-the-mystic-oak",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-Into-The-Mystic-RS.jpg?v=1610120162",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Open Grain"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5008.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                  }
+                },
+                {
+                  "code": "VP5009",
+                  "displayName": "SMOKE ON THE WATER",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5009.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-smoke-on-the-water-oak",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-Smoke-on-the-Water-RS.jpg?v=1610121384",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Open Grain"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5009.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                  }
+                },
+                {
+                  "code": "VP5003",
+                  "displayName": "MOONDANCE",
+                  "ppi": 50,
+                  "thumbnail": "thumbnails/VP5003.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/journey/products/journey-moondance-oak",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Journey-Moondance-RS.jpg?v=1610120479",
+                    "specifications": [
+                      {"Qty per Box": "23.33"},
+                      {"Product Category": "Loose Lay Vinyl"},
+                      {"Finish": "UV Lacquer"},
+                      {"Texture": "Open Grain"},
+                      {"Width": "7\""},
+                      {"Thickness": "3/16\""},
+                      {"Length": "48\""},
+                      {"Species": "Oak"},
+                      {"Edge Detail": "Micro-Bevel"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Glue/Float"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": true, "albedo": "textures/VP5003.jpg",
+                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
                   }
                 }
               ]
