@@ -1600,7 +1600,7 @@
                 {
                   "code": "EW1105",
                   "displayName": "LUMINOSO",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW1105.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-luminoso-ash-3069",
@@ -1627,7 +1627,7 @@
                 {
                   "code": "EW1102",
                   "displayName": "GRIGIO",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW1102.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-grigio-oak-3065",
@@ -1682,7 +1682,7 @@
                 {
                   "code": "E01016",
                   "displayName": "ALLURE",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/E01016.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-allure-walnut-2049",
@@ -1736,7 +1736,7 @@
                 {
                   "code": "EW1101",
                   "displayName": "FRESCO",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW1101.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-fresco-ash-3064",
@@ -1790,7 +1790,7 @@
                 {
                   "code": "E01008",
                   "displayName": "CHATEAU",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/E01008.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-chateau-walnut-2056",
@@ -1817,7 +1817,7 @@
                 {
                   "code": "E01005",
                   "displayName": "ICED",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/E01005.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-iced-walnut-4231",
@@ -1844,7 +1844,7 @@
                 {
                   "code": "E01011",
                   "displayName": "NATURAL HICKORY",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/E01011.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-hickory-1414",
@@ -1898,7 +1898,7 @@
                 {
                   "code": "E01009",
                   "displayName": "NATURAL SAPELE",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/E01009.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-sapele-7750",
@@ -1925,7 +1925,7 @@
                 {
                   "code": "EW1103",
                   "displayName": "TONO MEDIO",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW1103.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-tonomedio-ash-3066",
@@ -1952,7 +1952,7 @@
                 {
                   "code": "E01003",
                   "displayName": "BASALT",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/E01003.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-basalt-oak",
@@ -3860,7 +3860,7 @@
                 {
                   "code": "VP4007",
                   "displayName": "BUCKET LIST",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4007.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-bucketlist-oak-0052",
@@ -3881,14 +3881,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4007.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP4007.jpg"
                   }
                 },
                 {
                   "code": "VP4001",
                   "displayName": "CHASING ICE",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4001.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-chasingice-oak-5941",
@@ -3915,7 +3914,7 @@
                 {
                   "code": "VP4002",
                   "displayName": "ENDLESS SUMMER",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4002.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-endlesssummer-oak-5942",
@@ -3942,7 +3941,7 @@
                 {
                   "code": "VP4003",
                   "displayName": "INTO THE WILD",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4003.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-intothewild-oak-5943",
@@ -3963,14 +3962,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4003.jpg",
-                    "crop": {"left": "420px", "top": "0px", "bottom": "0px", "right": "775px"}
+                    "mirroredX": true, "albedo": "textures/VP4003.jpg"
                   }
                 },
                 {
                   "code": "VP4006",
                   "displayName": "MISS SUNSHINE",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4006.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-misssunshine-oak-0050",
@@ -3991,14 +3989,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4006.jpg",
-                    "crop": {"left": "0px", "top": "0px", "bottom": "0px", "right": "0px"}
+                    "mirroredX": true, "albedo": "textures/VP4006.jpg"
                   }
                 },
                 {
                   "code": "VP4005",
                   "displayName": "NORTH FACE",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4005.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-misssunshine-oak-0050",
@@ -4019,14 +4016,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4005.jpg",
-                    "crop": {"left": "400px", "top": "0px", "bottom": "0px", "right": "740px"}
+                    "mirroredX": true, "albedo": "textures/VP4005.jpg"
                   }
                 },
                 {
                   "code": "VP4004",
                   "displayName": "TRACKS",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4004.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-tracks-walnut-5944",
@@ -4053,7 +4049,7 @@
                 {
                   "code": "VP4106",
                   "displayName": "BURNING CAIN XL",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4106.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-burning-cain-xl-oak",
@@ -4080,7 +4076,7 @@
                 {
                   "code": "VP4103",
                   "displayName": "LABYRINTH XL",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4103.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-labyrinth-xl-oak",
@@ -4107,7 +4103,7 @@
                 {
                   "code": "VP4102",
                   "displayName": "POINT BLANK XL",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4102.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-burning-cain-xl-oak",
@@ -4134,7 +4130,7 @@
                 {
                   "code": "VP4105",
                   "displayName": "THE MATRIX XL",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4105.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-burning-cain-xl-oak",
@@ -4161,7 +4157,7 @@
                 {
                   "code": "VP4101",
                   "displayName": "VANISHING POINT XL",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4101.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-vanishing-point-xl-boxwood",
@@ -4188,7 +4184,7 @@
                 {
                   "code": "VP4104",
                   "displayName": "WILLOW XL",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP4104.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/quest/products/quest-willow-xl-oak",
