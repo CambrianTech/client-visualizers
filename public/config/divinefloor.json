@@ -1709,7 +1709,7 @@
                 {
                   "code": "EW1107",
                   "displayName": "NATURAL OAK",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW1107.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosa-natural-oak-4810",
@@ -3872,8 +3872,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VP3004.jpg",
-                    "crop": {"left": "400px", "top": "800px", "bottom": "0px", "right": "3200px"}
+                    "mirrored": true, "albedo": "textures/VP3004.jpg"
                   }
                 },
                 {
