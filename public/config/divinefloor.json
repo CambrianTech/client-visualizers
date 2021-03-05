@@ -4353,7 +4353,7 @@
                 {
                   "code": "VP5001",
                   "displayName": "WHITE RABBIT",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5001.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-white-rabbit-oak",
@@ -4374,14 +4374,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5001.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5001.jpg"
                   }
                 },
                 {
                   "code": "VP5002",
                   "displayName": "DREAMS",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5002.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-dreams-oak",
@@ -4402,14 +4401,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5002.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5002.jpg"
                   }
                 },
                 {
                   "code": "VP5004",
                   "displayName": "SILVER SPRINGS",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5004.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-silver-springs-oak",
@@ -4430,14 +4428,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5004.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5004.jpg"
                   }
                 },
                 {
                   "code": "VP5005",
                   "displayName": "GOOD VIBRATIONS",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5005.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-good-vibrations-maple",
@@ -4458,14 +4455,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5005.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5005.jpg"
                   }
                 },
                 {
                   "code": "VP5006",
                   "displayName": "CALIFORNIA DREAMIN'",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5006.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-california-dreamin-oak",
@@ -4486,8 +4482,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5006.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5006.jpg"
                   }
                 },
                 {
@@ -4514,14 +4509,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5007.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5007.jpg"
                   }
                 },
                 {
                   "code": "VP5008",
                   "displayName": "INTO THE MYSTIC",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5008.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-into-the-mystic-oak",
@@ -4542,14 +4536,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5008.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5008.jpg"
                   }
                 },
                 {
                   "code": "VP5009",
                   "displayName": "SMOKE ON THE WATER",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5009.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-smoke-on-the-water-oak",
@@ -4570,14 +4563,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5009.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5009.jpg"
                   }
                 },
                 {
                   "code": "VP5003",
                   "displayName": "MOONDANCE",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5003.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-moondance-oak",
@@ -4598,8 +4590,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5003.jpg",
-                    "crop": {"left": "600px", "top": "0px", "bottom": "0px", "right": "200px"}
+                    "mirroredX": true, "albedo": "textures/VP5003.jpg"
                   }
                 }
               ]
