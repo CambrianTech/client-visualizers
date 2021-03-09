@@ -1573,7 +1573,7 @@
                 {
                   "code": "EW1201",
                   "displayName": "PURO",
-                  "ppi": 50,
+                  "ppi": 26.7,
                   "thumbnail": "thumbnails/EW1201.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-puro-oak-7985",
@@ -1594,7 +1594,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1201.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1201.jpg"
                   }
                 },
                 {
@@ -1654,7 +1654,7 @@
                 {
                   "code": "EW1203",
                   "displayName": "CIGARRO",
-                  "ppi": 50,
+                  "ppi": 26.6,
                   "thumbnail": "thumbnails/EW1203.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-cigarro-oak-7987",
@@ -1675,7 +1675,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1203.jpg",
+                    "mirrored": false, "albedo": "textures/EW1203.jpg",
                     "crop": {"left": "0px", "top": "5px", "bottom": "0px", "right": "0px"}
                   }
                 },
@@ -1763,7 +1763,7 @@
                 {
                   "code": "EW1202",
                   "displayName": "CALDO",
-                  "ppi": 50,
+                  "ppi": 26.6,
                   "thumbnail": "thumbnails/EW1202.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-caldo-oak-7986",
@@ -1784,7 +1784,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1202.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1202.jpg"
                   }
                 },
                 {
@@ -1871,7 +1871,7 @@
                 {
                   "code": "EW1204",
                   "displayName": "PROFUNDO",
-                  "ppi": 50,
+                  "ppi": 26.6,
                   "thumbnail": "thumbnails/EW1204.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-profundo-oak-7988",
@@ -1892,7 +1892,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1204.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1204.jpg"
                   }
                 },
                 {
