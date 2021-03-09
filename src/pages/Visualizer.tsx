@@ -287,8 +287,8 @@ export default function Visualizer(props: any) {
             color.textures.forEach(tex=>{
                 const material:CBARMaterialProperties = {};
                 material.properties = {
-                    roughnessValue: 0.4,
-                    metalnessValue: 0.0
+                    roughnessValue: 0.5,
+                    metalnessValue: 0.13
                 };
                 material.textures = {};
                 material.ppi = color.ppi ? color.ppi : 20;
