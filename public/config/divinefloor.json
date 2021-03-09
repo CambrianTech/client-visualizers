@@ -1621,7 +1621,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1105.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1105.jpg"
                   }
                 },
                 {
@@ -1648,7 +1648,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1102.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1102.jpg"
                   }
                 },
                 {
@@ -1703,7 +1703,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E01016.jpg"
+                    "mirroredX": false, "albedo": "textures/E01016.jpg"
                   }
                 },
                 {
@@ -1730,7 +1730,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1107.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1107.jpg"
                   }
                 },
                 {
@@ -1757,7 +1757,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1101.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1101.jpg"
                   }
                 },
                 {
@@ -1811,7 +1811,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E01008.jpg"
+                    "mirroredX": false, "albedo": "textures/E01008.jpg"
                   }
                 },
                 {
@@ -1838,7 +1838,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E01005.jpg"
+                    "mirroredX": false, "albedo": "textures/E01005.jpg"
                   }
                 },
                 {
@@ -1865,7 +1865,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E01011.jpg"
+                    "mirroredX": false, "albedo": "textures/E01011.jpg"
                   }
                 },
                 {
@@ -1919,7 +1919,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E01009.jpg"
+                    "mirroredX": false, "albedo": "textures/E01009.jpg"
                   }
                 },
                 {
@@ -1946,7 +1946,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1103.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1103.jpg"
                   }
                 },
                 {
@@ -1973,7 +1973,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E01003.jpg"
+                    "mirroredX": false, "albedo": "textures/E01003.jpg"
                   }
                 }
               ]
@@ -4015,7 +4015,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4007.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4007.jpg"
                   }
                 },
                 {
@@ -4042,7 +4042,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4001.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4001.jpg"
                   }
                 },
                 {
@@ -4069,7 +4069,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4002.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4002.jpg"
                   }
                 },
                 {
@@ -4096,7 +4096,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4003.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4003.jpg"
                   }
                 },
                 {
@@ -4123,7 +4123,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4006.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4006.jpg"
                   }
                 },
                 {
@@ -4150,7 +4150,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4005.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4005.jpg"
                   }
                 },
                 {
@@ -4177,7 +4177,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4004.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4004.jpg"
                   }
                 },
                 {
@@ -4204,7 +4204,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4106.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4106.jpg"
                   }
                 },
                 {
@@ -4231,7 +4231,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4103.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4103.jpg"
                   }
                 },
                 {
@@ -4258,7 +4258,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4102.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4102.jpg"
                   }
                 },
                 {
@@ -4285,7 +4285,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4105.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4105.jpg"
                   }
                 },
                 {
@@ -4312,7 +4312,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4101.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4101.jpg"
                   }
                 },
                 {
@@ -4339,7 +4339,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP4104.jpg"
+                    "mirroredX": false, "albedo": "textures/VP4104.jpg"
                   }
                 }
               ]
@@ -4373,7 +4373,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5001.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5001.jpg"
                   }
                 },
                 {
@@ -4400,7 +4400,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5002.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5002.jpg"
                   }
                 },
                 {
@@ -4427,7 +4427,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5004.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5004.jpg"
                   }
                 },
                 {
@@ -4454,7 +4454,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5005.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5005.jpg"
                   }
                 },
                 {
@@ -4481,13 +4481,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5006.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5006.jpg"
                   }
                 },
                 {
                   "code": "VP5007",
                   "displayName": "BROWN SUGAR",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/VP5007.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/journey/products/journey-brown-sugar-oak",
@@ -4508,7 +4508,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5007.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5007.jpg"
                   }
                 },
                 {
@@ -4535,7 +4535,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5008.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5008.jpg"
                   }
                 },
                 {
@@ -4562,7 +4562,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5009.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5009.jpg"
                   }
                 },
                 {
@@ -4589,7 +4589,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VP5003.jpg"
+                    "mirroredX": false, "albedo": "textures/VP5003.jpg"
                   }
                 }
               ]
