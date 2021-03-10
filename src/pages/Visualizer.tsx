@@ -287,7 +287,7 @@ export default function Visualizer(props: any) {
             color.textures.forEach(tex=>{
                 const material:CBARMaterialProperties = {};
                 material.properties = {
-                    roughnessValue: 0.9,
+                    roughnessValue: 0.5,
                     metalnessValue: 0.07
                 };
                 material.textures = {};
