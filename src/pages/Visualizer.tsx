@@ -288,7 +288,7 @@ export default function Visualizer(props: any) {
                 const material:CBARMaterialProperties = {};
                 material.properties = {
                     roughnessValue: 0.5,
-                    metalnessValue: 0.13
+                    metalnessValue: 0.07
                 };
                 material.textures = {};
                 material.ppi = color.ppi ? color.ppi : 20;
@@ -644,12 +644,15 @@ export default function Visualizer(props: any) {
     }, [siteContext.state.selectedRoom]);
 
     const [isLoading, setIsLoading] = useState(false);
+
     useEffect(()=>{
-        if (dataPath && context && rootItem && !isLoading && !currentScene) {
+        if (dataPath && context && rootItem && !isLoading) {
             const brand = rootItem as DataItem;
             setIsLoading(true);
+            console.log("Loading static scene at path", dataPath)
             context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
                 setCurrentScene(scene);
+                setDataPath(undefined);
                 console.log("Static Scene Loaded!");
                 setIsLoading(false);
             }).catch(error=>{
