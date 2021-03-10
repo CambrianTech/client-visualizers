@@ -7,7 +7,10 @@
     --details-panel-height: 100%;
     --details-panel-close-width:230px;
 
-    --mdc-theme-secondary:#018786;
+    --mdc-theme-primary:#018786;
+    --mdc-theme-on-primary:#ffffff;
+    --mdc-theme-secondary:#ffffff;
+    --mdc-theme-on-secondary:#000000;
     --mdc-theme-inactive:rgba(0,0,0,0.3);
     --triangle-thickness:8px;
 
@@ -105,6 +108,10 @@
     margin: 20px;
 }
 
+.choose-scene .button img {
+    max-width: 30vw;
+}
+
 .choose-scene .button-content {
     display: flex;
     flex-direction: column;
@@ -120,7 +127,17 @@
 }
 
 .MuiFab-primary {
+    background-color: var(--mdc-theme-primary) !important;
+}
+
+.MuiButton-containedPrimary {
+    background-color: var(--mdc-theme-primary) !important;
+    color: var(--mdc-theme-on-primary) !important;
+}
+
+.MuiButton-containedSecondary {
     background-color: var(--mdc-theme-secondary) !important;
+    color: var(--mdc-theme-on-secondary) !important;
 }
 
 .visualizer-dat-gui {
@@ -151,8 +168,8 @@
     flex-shrink: 0;
     flex-basis: 45px;
     height: 45px;
-    color: #ffffff;
-    background: var(--mdc-theme-secondary);
+    color: var(--mdc-theme-on-primary);
+    background: var(--mdc-theme-primary);
     font-weight: 800;
 
     display: flex;
@@ -171,7 +188,7 @@
 }
 
 .panel .title .choose.selected {
-    color: #ffffff;
+    color: var(--mdc-theme-on-primary);
     position:relative;
     background: transparent;
 }
@@ -370,7 +387,7 @@ panel.c {
 }
 
 .horizontal-swatch-listing-item.selected {
-    border:1px solid var(--mdc-theme-secondary, #555555);
+    border:1px solid var(--mdc-theme-primary, #555555);
 }
 
 
@@ -630,6 +647,11 @@ panel.c {
     .choose-scene .content {
         display: flex;
         flex-direction: column;
+    }
+
+    .choose-scene .button img {
+        max-width: unset;
+        max-height: 30vh;
     }
 
     .makeStyles-speedDial-1 {

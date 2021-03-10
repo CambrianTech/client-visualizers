@@ -184,31 +184,28 @@ function App() {
                 if (searchObject.rt && searchObject.r) {
                     loadScene(searchObject.rt, searchObject.r);
                 }
-                // else if (config.features && config.features.defaultScene) {
-                //     dispatchSiteState({
-                //         type: "setSelectedSampleRoomType",
-                //         selectedSampleRoomType: config.features.defaultSceneCollection
-                //     });
-                //
-                //     dispatchSiteState({
-                //         type: "setSelectedSampleRoom",
-                //         selectedSampleRoom: config.features.defaultScene
-                //     });
-                // }
 
                 if (!document.title && config.appearance.header.title) {
                     document.title = config.appearance.header.title;
                 }
 
-                if (config.appearance.buttonTextColor && !document.documentElement.style.getPropertyValue("--mdc-theme-primary")) {
-                    document.documentElement.style.setProperty("--mdc-theme-primary", config.appearance.buttonTextColor)
+                if (!document.documentElement.style.getPropertyValue("--mdc-theme-primary")) {
+                    document.documentElement.style.setProperty("--mdc-theme-primary", config.appearance.primaryColor)
                 }
 
-                if (config.appearance.primaryColor && !document.documentElement.style.getPropertyValue("--mdc-theme-secondary")) {
-                    document.documentElement.style.setProperty("--mdc-theme-secondary", config.appearance.primaryColor)
+                if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-primary")) {
+                    document.documentElement.style.setProperty("--mdc-theme-on-primary", config.appearance.primaryTextColor)
                 }
 
-                if (config.appearance.inactiveColor && !document.documentElement.style.getPropertyValue("--mdc-theme-inactive")) {
+                if (!document.documentElement.style.getPropertyValue("--mdc-theme-secondary")) {
+                    document.documentElement.style.setProperty("--mdc-theme-secondary", config.appearance.secondaryColor)
+                }
+
+                if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-secondary")) {
+                    document.documentElement.style.setProperty("--mdc-theme-on-secondary", config.appearance.secondaryTextColor)
+                }
+
+                if (!document.documentElement.style.getPropertyValue("--mdc-theme-inactive")) {
                     document.documentElement.style.setProperty("--mdc-theme-inactive", config.appearance.inactiveColor)
                 }
 

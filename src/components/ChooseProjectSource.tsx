@@ -62,7 +62,7 @@ export const SourceButton = React.memo<SourceButtonProps>(
             return null
         }
         return (
-            <Button variant="contained" color={props.color} onClick={()=>props.onSourceClicked(props.appearance.name)}>
+            <Button className={"button"} variant="contained" color={props.color} onClick={()=>props.onSourceClicked(props.appearance.name)}>
                 <div className={"button-content"}>
                     {props.appearance.materialIcon && <Icon className={"button-icon"}>{props.appearance.materialIcon}</Icon>}
                     {props.appearance.text && <div className={"button-text"}>{props.appearance.text}</div>}
