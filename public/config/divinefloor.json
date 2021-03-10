@@ -168,9 +168,9 @@
                 {
                   "code": "E09006",
                   "displayName": "MONTPELLIER",
-                  "ppi": 45,
+                  "ppi": 26.7,
                   "thumbnail": "thumbnails/E09006.jpg",
-                  "mirrored": true,
+                  "mirrored": false,
                   "albedo": "textures/E09006.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
@@ -194,7 +194,7 @@
                 {
                   "code": "E09006-P",
                   "displayName": "MONTPELLIER PARQUET",
-                  "ppi": 20,
+                  "ppi": 15.9,
                   "thumbnail": "thumbnails/E09006-P.jpg",
                   "albedo": "textures/E09006-P.jpg",
                   "details": {
@@ -219,7 +219,7 @@
                 {
                   "code": "E09007",
                   "displayName": "MOULINS",
-                  "ppi": 45,
+                  "ppi": 26.7,
                   "thumbnail": "thumbnails/E09007.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-moulins-frenchwhiteoak-0051",
@@ -240,13 +240,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E09007.jpg"
+                    "mirrored": false, "albedo": "textures/E09007.jpg"
                   }
                 },
                 {
                   "code": "E09007-P",
                   "displayName": "MOULINS PARQUET",
-                  "ppi": 20,
+                  "ppi": 15.9,
                   "thumbnail": "thumbnails/E09007-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-moulins-frenchwhiteoak-0047",
@@ -271,7 +271,7 @@
                 {
                   "code": "E09002",
                   "displayName": "CHAMPAGNE",
-                  "ppi": 45,
+                  "ppi": 26.7,
                   "thumbnail": "thumbnails/E09002.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-champagne-whiteoak-2428",
@@ -292,13 +292,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E09002.jpg"
+                    "mirrored": false, "albedo": "textures/E09002.jpg"
                   }
                 },
                 {
                   "code": "E09002-P",
                   "displayName": "CHAMPAGNE PARQUET",
-                  "ppi": 45,
+                  "ppi": 19,
                   "thumbnail": "thumbnails/E09002-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-champagne-whiteoak-2433",
@@ -325,7 +325,7 @@
                 {
                   "code": "E09003",
                   "displayName": "LORRAINE",
-                  "ppi": 45,
+                  "ppi": 26.7,
                   "thumbnail": "thumbnails/E09003.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-lorraine-whiteoak-2429",
@@ -346,14 +346,14 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E09003.jpg",
+                    "mirroredX": false, "albedo": "textures/E09003.jpg",
                     "crop": {"left": "50px", "top": "0px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
                   "code": "E09003-P",
                   "displayName": "LORRAINE PARQUET",
-                  "ppi": 45,
+                  "ppi": 19,
                   "thumbnail": "thumbnails/E09003-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-lorraine-whiteoak-2432",
@@ -374,14 +374,14 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true,
+                    "mirroredX": false,
                     "albedo": "textures/E09003-P.jpg"
                   }
                 },
                 {
                   "code": "E09001",
                   "displayName": "CASTILLON",
-                  "ppi": 45,
+                  "ppi": 32,
                   "thumbnail": "thumbnails/E09001.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-castillon-whiteoak-2425",
@@ -402,14 +402,14 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E09001.jpg",
+                    "mirrored": false, "albedo": "textures/E09001.jpg",
                     "crop": {"left": "5px", "top": "0px", "bottom": "0px", "right": "0px"}
                   }
                 },
                 {
                   "code": "E09001-P",
                   "displayName": "CASTILLON PARQUET",
-                  "ppi": 45,
+                  "ppi": 19,
                   "thumbnail": "thumbnails/E09001-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-castillon-whiteoak-2434",
@@ -436,7 +436,7 @@
                 {
                   "code": "E09004",
                   "displayName": "ORLEANS",
-                  "ppi": 45,
+                  "ppi": 26.7,
                   "thumbnail": "thumbnails/E09004.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-orleans-whiteoak-2430",
@@ -457,13 +457,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/E09004.jpg"
+                    "mirrored": false, "albedo": "textures/E09004.jpg"
                   }
                 },
                 {
                   "code": "E09004-P",
                   "displayName": "ORLEANS PARQUET",
-                  "ppi": 45,
+                  "ppi": 19,
                   "thumbnail": "thumbnails/E09004-P.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-orleans-whiteoak-2431",
@@ -1573,7 +1573,7 @@
                 {
                   "code": "EW1201",
                   "displayName": "PURO",
-                  "ppi": 50,
+                  "ppi": 26.7,
                   "thumbnail": "thumbnails/EW1201.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-puro-oak-7985",
@@ -1594,7 +1594,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1201.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1201.jpg"
                   }
                 },
                 {
@@ -1654,7 +1654,7 @@
                 {
                   "code": "EW1203",
                   "displayName": "CIGARRO",
-                  "ppi": 50,
+                  "ppi": 26.6,
                   "thumbnail": "thumbnails/EW1203.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-cigarro-oak-7987",
@@ -1675,7 +1675,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/EW1203.jpg",
+                    "mirrored": false, "albedo": "textures/EW1203.jpg",
                     "crop": {"left": "0px", "top": "5px", "bottom": "0px", "right": "0px"}
                   }
                 },
@@ -1763,7 +1763,7 @@
                 {
                   "code": "EW1202",
                   "displayName": "CALDO",
-                  "ppi": 50,
+                  "ppi": 26.6,
                   "thumbnail": "thumbnails/EW1202.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-caldo-oak-7986",
@@ -1784,7 +1784,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1202.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1202.jpg"
                   }
                 },
                 {
@@ -1871,7 +1871,7 @@
                 {
                   "code": "EW1204",
                   "displayName": "PROFUNDO",
-                  "ppi": 50,
+                  "ppi": 26.6,
                   "thumbnail": "thumbnails/EW1204.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/amarosa-1/products/amarosagrande-profundo-oak-7988",
@@ -1892,7 +1892,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW1204.jpg"
+                    "mirroredX": false, "albedo": "textures/EW1204.jpg"
                   }
                 },
                 {
@@ -2101,7 +2101,7 @@
                 {
                   "code": "EW4106",
                   "displayName": "CHARDONNAY",
-                  "ppi": 50,
+                  "ppi": 30,
                   "thumbnail": "thumbnails/EW4106.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-chardonnay-oak-7989",
@@ -2122,13 +2122,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW4106.jpg"
+                    "mirroredX": false, "albedo": "textures/EW4106.jpg"
                   }
                 },
                 {
                   "code": "E04003",
                   "displayName": "NATURAL WALNUT",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/E04003.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-natural-walnut-8372",
@@ -2149,13 +2149,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E04003.jpg"
+                    "mirroredX": false, "albedo": "textures/E04003.jpg"
                   }
                 },
                 {
                   "code": "EW4102",
                   "displayName": "CHARLEMAGNE",
-                  "ppi": 50,
+                  "ppi": 40,
                   "thumbnail": "thumbnails/EW4102.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-charlemagne-oak-3071",
@@ -2176,13 +2176,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW4102.jpg"
+                    "mirroredX": false, "albedo": "textures/EW4102.jpg"
                   }
                 },
                 {
                   "code": "E02003",
                   "displayName": "DISARONNO",
-                  "ppi": 50,
+                  "ppi": 40,
                   "thumbnail": "thumbnails/E02003.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-disaronno-hickory-7159",
@@ -2203,7 +2203,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E02003.jpg"
+                    "mirroredX": false, "albedo": "textures/E02003.jpg"
                   }
                 },
                 {
@@ -2230,13 +2230,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW4101.jpg"
+                    "mirroredX": false, "albedo": "textures/EW4101.jpg"
                   }
                 },
                 {
                   "code": "EW4107",
                   "displayName": "GIVERNY",
-                  "ppi": 50,
+                  "ppi": 33.3,
                   "thumbnail": "thumbnails/EW4107.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-giverny-oak-7990",
@@ -2257,13 +2257,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW4107.jpg"
+                    "mirroredX": false, "albedo": "textures/EW4107.jpg"
                   }
                 },
                 {
                   "code": "EW4103",
                   "displayName": "FONTAINEBLEAU",
-                  "ppi": 50,
+                  "ppi": 40,
                   "thumbnail": "thumbnails/EW4103.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-fontainebleau-oak-3072",
@@ -2284,13 +2284,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW4103.jpg"
+                    "mirroredX": false, "albedo": "textures/EW4103.jpg"
                   }
                 },
                 {
                   "code": "EW4104",
                   "displayName": "MONTRESOR",
-                  "ppi": 50,
+                  "ppi": 40,
                   "thumbnail": "thumbnails/EW4104.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-montresor-maple-3073",
@@ -2311,13 +2311,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/EW4104.jpg"
+                    "mirroredX": false, "albedo": "textures/EW4104.jpg"
                   }
                 },
                 {
                   "code": "E04007",
                   "displayName": "TANZANIA",
-                  "ppi": 50,
+                  "ppi": 40,
                   "thumbnail": "thumbnails/E04007.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/french-impressions-1/products/frenchimpressions-tanzania-maple-2143",
@@ -2338,7 +2338,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/E04007.jpg"
+                    "mirroredX": false, "albedo": "textures/E04007.jpg"
                   }
                 }
               ]
@@ -2858,7 +2858,7 @@
                 {
                   "code": "VT1007",
                   "displayName": "LA DOLCE VITA",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1007.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-ladolcevita-9761",
@@ -2879,14 +2879,13 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1007.jpg",
-                    "crop": {"left": "330px", "top": "0px", "bottom": "0px", "right": "1030px"}
+                    "albedo": "textures/VT1007.jpg"
                   }
                 },
                 {
                   "code": "VT1009",
                   "displayName": "SUNSET BOULEVARD",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1009.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-sunsetboulevard-9763",
@@ -2907,13 +2906,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VT1009.jpg"
+                    "mirroredX": false, "albedo": "textures/VT1009.jpg"
                   }
                 },
                 {
                   "code": "VT1004",
                   "displayName": "MILLIONAIRESS",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1004.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-millionairess-0354",
@@ -2934,13 +2933,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VT1004.jpg"
+                    "mirroredX": false, "albedo": "textures/VT1004.jpg"
                   }
                 },
                 {
                   "code": "VT1001",
                   "displayName": "BOCACCIO'70",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1001.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-bocaccio70-0351",
@@ -2961,13 +2960,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VT1001.jpg"
+                    "mirroredX": false, "albedo": "textures/VT1001.jpg"
                   }
                 },
                 {
                   "code": "VT1008",
                   "displayName": "CLEOPATRA",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1008.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-cleopatra-9762",
@@ -2989,14 +2988,13 @@
                   },
                   "metaData": {
                     "albedo": "textures/VT1008.jpg",
-                    "mirrored": true,
-                    "crop": {"left": "0px", "top": "220px", "bottom": "220px", "right": "0px"}
+                    "mirroredY": true
                   }
                 },
                 {
                   "code": "VT1006",
                   "displayName": "ARABESQUE",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1006.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-arabesque-moorish-tile",
@@ -3017,13 +3015,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": true, "albedo": "textures/VT1006.jpg"
+                    "mirroredX": false, "albedo": "textures/VT1006.jpg"
                   }
                 },
                 {
                   "code": "VT1002",
                   "displayName": "LADY LIBERTY",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1002.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-ladyliberty-0352",
@@ -3044,14 +3042,14 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1002.jpg",
-                    "crop": {"left": "0px", "top": "220px", "bottom": "22∂0px", "right": "0px"}
+                    "mirrored": false, "albedo": "textures/VT1002.jpg"
+                    
                   }
                 },
                 {
                   "code": "VT1003",
                   "displayName": "BRIEF ENCOUNTER",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1003.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-ladyliberty-0352",
@@ -3072,13 +3070,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1003.jpg"
+                    "mirrored": false, "albedo": "textures/VT1003.jpg"
                   }
                 },
                 {
                   "code": "VT1010",
                   "displayName": "DARK VICTORY",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1010.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-darkvictory-9764",
@@ -3099,13 +3097,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1010.jpg"
+                    "mirrored": false, "albedo": "textures/VT1010.jpg"
                   }
                 },
                 {
                   "code": "VT1005",
                   "displayName": "PRIDE & PASSION",
-                  "ppi": 50,
+                  "ppi": 25,
                   "thumbnail": "thumbnails/VT1005.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-darkvictory-9764",
@@ -3126,13 +3124,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1005.jpg"
+                    "mirrored": false, "albedo": "textures/VT1005.jpg"
                   }
                 },
                 {
                   "code": "VT1013",
                   "displayName": "HAVANA",
-                  "ppi": 50,
+                  "ppi": 16.7,
                   "thumbnail": "thumbnails/VT1013.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-havana-vein-cut-travertine",
@@ -3153,13 +3151,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1013.jpg"
+                    "mirrored": false, "albedo": "textures/VT1013.jpg"
                   }
                 },
                 {
                   "code": "VT1014",
                   "displayName": "SITTING PRETTY",
-                  "ppi": 50,
+                  "ppi": 16.7,
                   "thumbnail": "thumbnails/VT1014.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-sitting-pretty-marble",
@@ -3180,13 +3178,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1014.jpg"
+                    "mirrored": false, "albedo": "textures/VT1014.jpg"
                   }
                 },
                 {
                   "code": "VT1015",
                   "displayName": "SYLVIA SCARLETT",
-                  "ppi": 50,
+                  "ppi": 16.7,
                   "thumbnail": "thumbnails/VT1015.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-sylvia-scarlett-concrete",
@@ -3207,13 +3205,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1015.jpg"
+                    "mirrored": false, "albedo": "textures/VT1015.jpg"
                   }
                 },
                 {
                   "code": "VT1012",
                   "displayName": "CALAMITY JANE",
-                  "ppi": 50,
+                  "ppi": 16.7,
                   "thumbnail": "thumbnails/VT1012.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-calamity-jane-shale",
@@ -3234,13 +3232,13 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1012.jpg"
+                    "mirrored": false, "albedo": "textures/VT1012.jpg"
                   }
                 },
                 {
                   "code": "VT1011",
                   "displayName": "BOMBSHELL",
-                  "ppi": 50,
+                  "ppi": 16.7,
                   "thumbnail": "thumbnails/VT1011.jpg",
                   "details": {
                     "url": "https://divinefloor.com/collections/passage/products/passage-bombshell-black-marble",
@@ -3261,7 +3259,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": true, "albedo": "textures/VT1011.jpg"
+                    "mirrored": false, "albedo": "textures/VT1011.jpg"
                   }
                 }                                                                
               ]
