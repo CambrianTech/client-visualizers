@@ -2879,8 +2879,7 @@
                     ]
                   },
                   "metaData": {
-                    "albedo": "textures/VT1007.jpg",
-                    "crop": {"left": "330px", "top": "0px", "bottom": "0px", "right": "1030px"}
+                    "albedo": "textures/VT1007.jpg"
                   }
                 },
                 {
@@ -2989,8 +2988,7 @@
                   },
                   "metaData": {
                     "albedo": "textures/VT1008.jpg",
-                    "mirrored": false,
-                    "crop": {"left": "0px", "top": "220px", "bottom": "220px", "right": "0px"}
+                    "mirroredY": true
                   }
                 },
                 {
@@ -3044,8 +3042,8 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": false, "albedo": "textures/VT1002.jpg",
-                    "crop": {"left": "0px", "top": "220px", "bottom": "22∂0px", "right": "0px"}
+                    "mirrored": false, "albedo": "textures/VT1002.jpg"
+                    
                   }
                 },
                 {
