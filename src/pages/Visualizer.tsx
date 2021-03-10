@@ -205,6 +205,16 @@ export default function Visualizer(props: any) {
             type: "setSelectedRoom",
             selectedRoom: props.roomId
         });
+
+        // dispatch({
+        //     type: "setSelectedSampleRoom",
+        //     selectedSampleRoom: null
+        // });
+        //
+        // dispatch({
+        //     type: "setSelectedSampleRoomType",
+        //     selectedSampleRoomType: null
+        // });
     },[dispatch]);
 
     const onProgress = useCallback((uploadProgress: ServerProgress) => {
@@ -277,7 +287,8 @@ export default function Visualizer(props: any) {
             color.textures.forEach(tex=>{
                 const material:CBARMaterialProperties = {};
                 material.properties = {
-                    metalnessValue: -0.05
+                    roughnessValue: 0.5,
+                    metalnessValue: 0.13
                 };
                 material.textures = {};
                 material.ppi = color.ppi ? color.ppi : 20;
@@ -632,30 +643,40 @@ export default function Visualizer(props: any) {
         }
     }, [siteContext.state.selectedRoom]);
 
+    const [isLoading, setIsLoading] = useState(false);
     useEffect(()=>{
-        if (dataPath && context && rootItem) {
+        if (dataPath && context && rootItem && !isLoading && !currentScene) {
             const brand = rootItem as DataItem;
+            setIsLoading(true);
             context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
                 setCurrentScene(scene);
                 console.log("Static Scene Loaded!");
+                setIsLoading(false);
             }).catch(error=>{
-                console.log("Could not load scene!", error)
+                console.log("Could not load scene!", error);
+                setIsLoading(false);
             });
         }
-    }, [context, dataPath, rootItem]);
+    }, [context, dataPath, rootItem, isLoading]);
 
     useEffect(() => {
-        if (context && siteContext.state.sceneData && rootItem) {
+        if (context && siteContext.state.sceneData && rootItem && !isLoading) {
             const brand = rootItem as DataItem;
+            setIsLoading(true);
+            dispatch({
+                type: "setSceneData",
+                sceneData: undefined
+            });
             context.loadSceneData(siteContext.state.sceneData, brand.surfaceTypes).then((scene)=>{
                 console.log("Dynamic Scene Loaded!");
                 setCurrentScene(scene);
                 setDataPath(undefined);
+                setIsLoading(false);
             }).catch(error=>{
                 console.log("Could not load scene!", error)
-            })
+            });
         }
-    }, [context, rootItem, siteContext.state.sceneData]);
+    }, [context, rootItem, siteContext.state.sceneData, isLoading]);
 
     useEffect(()=>{
         if (currentScene) {
@@ -792,7 +813,7 @@ export default function Visualizer(props: any) {
     const setPanelTimer = useCallback(()=>{
         panelTimer.current = window.setTimeout(()=>{
             setActivePanel(Panel.None);
-        }, 1000);
+        }, 1500);
     }, [panelTimer]);
 
     const clearPanelTimer = useCallback(()=>{

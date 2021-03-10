@@ -239,15 +239,14 @@ export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
         searchObject.color = shawState.selectedColor
     }
 
-    if (shawState.selectedSampleRoom) {
-        searchObject.r = shawState.selectedSampleRoom
-    }
-
     if (shawState.selectedSampleRoomType) {
         searchObject.rt = shawState.selectedSampleRoomType
     }
-
-    if (shawState.selectedRoom) {
+    if (shawState.selectedSampleRoom) {
+        searchObject.r = shawState.selectedSampleRoom
+    }
+    else if (shawState.selectedRoom) {
+        CBContentManager.default.synchronize(searchObject);
         searchObject.room = shawState.selectedRoom
     }
 
@@ -258,8 +257,6 @@ export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
             searchObject.pw = shawState.previewWidth.toFixed(0);
             searchObject.ph = shawState.previewHeight.toFixed(0);
         }
-
-        CBContentManager.default.synchronize(searchObject);
     }
 
     if (shawState.showControls) {
