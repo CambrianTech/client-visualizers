@@ -10,8 +10,8 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
     "prestart": "npm run build",
-    "server": "NODE_ENV=development node .",
-    "start": "cd ..; npm run build; cd server; open http://localhost:3010 && npm run server",
+    "server": "set NODE_ENV=development node .",
+    "start": "cd ..; npm run build; cd server;set NODE_ENV=development && open http://localhost:3010 && npm run server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
