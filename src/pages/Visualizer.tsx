@@ -436,16 +436,12 @@ export default function Visualizer(props: any) {
         if (rootItem && gotoRoot) {
             setListingItems(rootItem.children);
         }
-        else if (activePanel === Panel.Products || activePanel === Panel.Scenes) {
-            setActivePanel(Panel.None);
-        } else {
-            if (currentScene) {
-                setActivePanel(Panel.Products);
-            } else {
-                setActivePanel(Panel.Scenes);
-            }
-        }
 
+        if (currentScene) {
+            setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
+        } else {
+            setActivePanel(Panel.Scenes);
+        }
     }, [activePanel, currentScene, rootItem]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
@@ -761,16 +757,13 @@ export default function Visualizer(props: any) {
         if (!_isMounted.current || !selectedAsset) return;
 
         selectedAsset.surfaceRotation = radians;
-        console.log(radians);
 
     }, [selectedAsset]);
 
     const rotateFinished = useCallback((commit: boolean, radians: number) => {
-        if (!_isMounted.current) return;
+        if (!_isMounted.current || !selectedAsset) return;
 
-        if (selectedAsset) {
-            selectedAsset.surfaceRotation = commit ? radians : initialRotation;
-        }
+        selectedAsset.surfaceRotation = commit ? radians : initialRotation;
 
         setToolMode(CBARToolMode.None);
     }, [initialRotation, selectedAsset]);
