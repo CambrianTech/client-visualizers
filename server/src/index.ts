@@ -7,7 +7,7 @@ import {getHeaderTags, RequestContext, SiteConfig} from "cambrian-base";
 const app = express();
 dotenv.config();
 
-const isDevelop = process.env.IS_DEVELOP ? parseInt(process.env.IS_DEVELOP)===1 : false;
+const isDevelop = process.env.NODE_ENV === "development";
 const port = isDevelop ? 3010 : 3000;
 const buildPath = path.join(__dirname, isDevelop ? '../../build' : '../build');
 const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1 : false;
