@@ -14,7 +14,17 @@
     },
     "sharing": {
       "subject": "Check out this floor from Divine Floor"
-    }
+    },
+    "features": [
+      {
+        "name": "scenes",
+        "image":{"src": "branding/Choose Scene.png"}
+      },
+      {
+        "name": "upload",
+        "image":{"src": "branding/Upload Photo.png"}
+      }
+    ]
   },
   "features":  [
     {"name":"scenes", "enabled":true},

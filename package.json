@@ -20,7 +20,7 @@
     "@types/react-transition-group": "^2.9.2",
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@types/styled-components": "^4.1.16",
-    "cambrian-base": "^1.0.86",
+    "cambrian-base": "^1.0.110",
     "css-vars-ponyfill": "^2.0.2",
     "object-fit-images": "^3.2.4",
     "react": "^17.0.1",

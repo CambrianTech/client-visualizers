@@ -54,6 +54,7 @@ import {BrowserType} from "react-client-info";
 import {Button, Fab, Icon} from "@material-ui/core";
 import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
+import {ChooseProjectSource} from "../components/ChooseProjectSource";
 
 enum Panel {
     None="",
@@ -827,9 +828,9 @@ export default function Visualizer(props: any) {
 
     const sourceChosen = useCallback((source:ApiCapabilityName)=>{
         if (source === 'upload') {
-
+            openImageDialog()
         } else if (source === 'scenes') {
-
+            setActivePanel(Panel.Scenes)
         }
     }, []);
 
@@ -872,22 +873,7 @@ export default function Visualizer(props: any) {
 
                 {isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
-                <div className={"choose-scene"} style={{visibility:showUploadButton ? "visible":"hidden"}}>
-                    <div className="content">
-                        {isFeatureEnabled("upload") && <Button variant="contained" color="secondary" onClick={()=>openImageDialog()}>
-                            <div className={"button-content"}>
-                                <Icon className={"button-icon"}>add_a_photo</Icon>
-                                <div className={"button-text"}>Upload Photo</div>
-                            </div>
-                        </Button>}
-                        {isFeatureEnabled("scenes") && <Button variant="contained" color="primary" onClick={()=>setActivePanel(Panel.Scenes)}>
-                            <div className={"button-content"}>
-                                <Icon className={"button-icon"}>insert_photo</Icon>
-                                <div className={"button-text"}>Choose Scene</div>
-                            </div>
-                        </Button>}
-                    </div>
-                </div>
+                <ChooseProjectSource hidden={!showUploadButton} siteData={siteContext.state.siteData} onSourceClicked={sourceChosen} />
 
                 <VisualizerTools
                     hidden={showUploadButton || !currentScene || isToolOverlayOpen}
