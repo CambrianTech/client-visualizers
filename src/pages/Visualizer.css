@@ -66,7 +66,7 @@
 .panel .close-button {
     position: absolute;
     top:calc(50vh - 25px);
-    z-index: 100000;
+    z-index: 1000;
 }
 
 .panel .close-button.panel-a {
@@ -291,7 +291,7 @@ panel.c {
 }
 
 .panel.c .product-details {
-    padding: 20px;
+    padding: 40px 20px 20px;
 }
 
 .share-project-container {
@@ -667,11 +667,22 @@ panel.c {
 }
 
 /* iPad Portrait Only */
-@media only screen and (min-device-width: 768px) and (orientation: portrait)  {
+@media (orientation: portrait)  {
+    .product-details .product-details-name {
+        align-items: baseline;
+        display: block;
+        width: 85%;
+        margin-top: 35px;
+        margin-bottom: 10px;
+    }
 
-}
+    .product-details .product-details-name div {
+        margin-right: 10px;
+        display: inline-block;
+        white-space: nowrap;
+    }
 
-/* Small screen or iPad Landscape */
-@media only screen and (min-width: 1024px) and (max-width: 1024px) and (orientation: landscape)  {
-
+    .product-details .preview {
+        margin-bottom: 10px;
+    }
 }
