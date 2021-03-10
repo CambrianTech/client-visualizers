@@ -205,6 +205,14 @@ function App() {
                     document.documentElement.style.setProperty("--mdc-theme-on-secondary", config.appearance.secondaryTextColor)
                 }
 
+                if (!document.documentElement.style.getPropertyValue("--mdc-theme-surface")) {
+                    document.documentElement.style.setProperty("--mdc-theme-surface", config.appearance.surfaceColor)
+                }
+
+                if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-surface")) {
+                    document.documentElement.style.setProperty("--mdc-theme-on-surface", config.appearance.surfaceTextColor)
+                }
+
                 if (!document.documentElement.style.getPropertyValue("--mdc-theme-inactive")) {
                     document.documentElement.style.setProperty("--mdc-theme-inactive", config.appearance.inactiveColor)
                 }

@@ -11,6 +11,8 @@
     --mdc-theme-on-primary:#ffffff;
     --mdc-theme-secondary:#ffffff;
     --mdc-theme-on-secondary:#000000;
+    --mdc-theme-surface:#dfdfdf;
+    --mdc-theme-on-surface:#505050;
     --mdc-theme-inactive:rgba(0,0,0,0.3);
     --triangle-thickness:8px;
 
@@ -101,7 +103,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #dfdfdf;
+    background-color: var(--mdc-theme-surface);
 }
 
 .choose-scene .content > * {

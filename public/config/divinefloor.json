@@ -8,6 +8,8 @@
     "primaryTextColor": "#fff",
     "secondaryColor": "#fff",
     "secondaryTextColor": "#000",
+    "surfaceColor": "#dfdfdf",
+    "surfaceTextColor": "#555",
     "inactiveColor": "rgba(255,255,255,0.2)",
     "header": {
       "title": "Divine Floor",

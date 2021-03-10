@@ -16,7 +16,6 @@ const isFeatureEnabled = (siteData:SiteConfig, name:ApiCapabilityName):boolean =
 const getFeatureAppearance = (siteData:SiteConfig, name:ApiCapabilityName, defaultAppearance:FeatureAppearanceConfig) => {
     let match:FeatureAppearanceConfig | undefined
     if (siteData.appearance.features) {
-        console.log("search for", name);
         match = siteData.appearance.features.find(f=>f.name === name);
     }
     return match ? match : defaultAppearance
@@ -33,7 +32,7 @@ const resolveSrc = (src:string|undefined) => {
             });
             return rewritten.join(", ");
         }
-        return `${SITE_PATH}/${src}`
+        return src.startsWith("http") ? src : `${SITE_PATH}/${src}`
     }
 };
 
