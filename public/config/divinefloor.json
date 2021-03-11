@@ -5,7 +5,11 @@
   "appearance": {
     "logo": {"src":"branding/logo-black.png", "alt":"Divine floor logo"},
     "primaryColor": "#000",
-    "buttonTextColor": "#fff",
+    "primaryTextColor": "#fff",
+    "secondaryColor": "#fff",
+    "secondaryTextColor": "#000",
+    "surfaceColor": "#dfdfdf",
+    "surfaceTextColor": "#555",
     "inactiveColor": "rgba(255,255,255,0.2)",
     "header": {
       "title": "Divine Floor",
@@ -14,7 +18,17 @@
     },
     "sharing": {
       "subject": "Check out this floor from Divine Floor"
-    }
+    },
+    "features": [
+      {
+        "name": "scenes",
+        "image":{"src": "branding/Choose Scene.png"}
+      },
+      {
+        "name": "upload",
+        "image":{"src": "branding/Upload Photo.png"}
+      }
+    ]
   },
   "features":  [
     {"name":"scenes", "enabled":true},
