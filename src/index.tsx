@@ -252,7 +252,8 @@ function App() {
     return (
         <Router>
             <Route
-                render={({ location }) => {
+                render={({ // @ts-ignore
+                             location }) => {
                     return (
                         <SiteContext.Provider value={{ state: siteState, dispatch: dispatchSiteState }}>
                             <WebClientInfo onClientStateChanged={setBrowserProperties} />

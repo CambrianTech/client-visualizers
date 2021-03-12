@@ -39,19 +39,21 @@ import {
     ImageUpload,
     openImageDialog,
     ProductBreadcrumb,
-    ProductDetails, RotateTool,
+    ProductDetails,
+    RotateTool,
     ServerProgress,
     SharePanel,
     ToolOperation,
-    ToolsMenuAction, TranslateTool,
-    VerticalListing, PickImageSource
+    ToolsMenuAction,
+    TranslateTool,
+    VerticalListing
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
 import {getScenePaths, getUploadedRoomPaths, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
-import {Button, Fab, Icon} from "@material-ui/core";
+import {Fab, Icon} from "@material-ui/core";
 import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseProjectSource} from "../components/ChooseProjectSource";
@@ -78,7 +80,7 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
 
 const InsideIframe = (window !== window.parent);
 
-export default function Visualizer(props: any) {
+export default function Visualizer() {
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
     const _isMounted = useRef(false);
@@ -280,7 +282,7 @@ export default function Visualizer(props: any) {
         if (!context || !selectedSurface) {
             console.log("Show material failed", selectedSurface);
             return;
-        };
+        }
 
         const materials:CBARMaterialProperties[] = [];
 
@@ -570,9 +572,8 @@ export default function Visualizer(props: any) {
     }, [listingItems, rootItem, sceneListingItems, siteContext.state.selectedCollection, siteContext.state.selectedColor, siteContext.state.selectedProduct]);
 
     const allFilters = useMemo<DataFilter[]>(()=>{
-        const allFilters:DataFilter[] = filters ? filters:[];
-
-        return allFilters
+        //const allFilters:DataFilter[] = filters ? filters:[];
+        return filters ? filters:[]
     }, [filters]);
 
     const isUploadedImage = useCallback(() => {
@@ -607,7 +608,7 @@ export default function Visualizer(props: any) {
             return isPortrait ? undefined : "Products";
         }
         return undefined
-    },[activePanel, currentScene, isPortrait, selectedProduct]);
+    },[activePanel, currentScene, isPortrait]);
 
     const rightPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
@@ -616,7 +617,7 @@ export default function Visualizer(props: any) {
         return undefined
     },[activePanel, currentScene, isPortrait]);
 
-    const getShareUrl = useCallback((socialNetwork:string) => {
+    const getShareUrl = useCallback(() => {
         return stateToUrl(siteContext.state, true)
     }, [siteContext.state]);
 
@@ -676,7 +677,7 @@ export default function Visualizer(props: any) {
                 console.log("Could not load scene!", error)
             });
         }
-    }, [context, rootItem, siteContext.state.sceneData, isLoading]);
+    }, [context, rootItem, siteContext.state.sceneData, isLoading, dispatch]);
 
     useEffect(()=>{
         if (currentScene) {
@@ -966,5 +967,5 @@ export default function Visualizer(props: any) {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, isFeatureEnabled, onImageChosen, onProgress, showUploadButton, isToolOverlayOpen, toolActions, selectedSurface, handleAction, editSurfaceFinished, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, hasSeenProducts, leftPanelButtonText, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, isFeatureEnabled, onImageChosen, onProgress, showUploadButton, sourceChosen, isToolOverlayOpen, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }
