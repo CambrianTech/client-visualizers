@@ -735,6 +735,10 @@ export default function Visualizer(props: any) {
             actions = actions.filter(item=>item.operation !== ToolOperation.Share);
         }
 
+        if (!selectedAsset) {
+            actions = actions.filter(item=>item.operation !== CBARToolMode.Rotate && item.operation !== CBARToolMode.Translate);
+        }
+
         actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePattern);
 
         const canEdit = siteContext.state.browserProperties.browser !== BrowserType.LegacyIE
@@ -746,7 +750,7 @@ export default function Visualizer(props: any) {
         }
 
         return actions
-    }, [isFeatureEnabled, isEditable, siteContext.state.browserProperties.browser]);
+    }, [isFeatureEnabled, isEditable, siteContext.state.browserProperties.browser, selectedAsset]);
 
     const editSurfaceFinished = useCallback(() => {
         if (!_isMounted.current) return;
@@ -762,9 +766,11 @@ export default function Visualizer(props: any) {
     }, [selectedAsset]);
 
     const rotateFinished = useCallback((commit: boolean, radians: number) => {
-        if (!_isMounted.current || !selectedAsset) return;
+        if (!_isMounted.current) return;
 
-        selectedAsset.surfaceRotation = commit ? radians : initialRotation;
+        if (selectedAsset) {
+            selectedAsset.surfaceRotation = commit ? radians : initialRotation;
+        }
 
         setToolMode(CBARToolMode.None);
     }, [initialRotation, selectedAsset]);
