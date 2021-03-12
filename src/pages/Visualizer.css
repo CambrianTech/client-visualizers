@@ -106,12 +106,8 @@
     background-color: var(--mdc-theme-surface);
 }
 
-.choose-scene .content > * {
+.choose-scene .content > .button {
     margin: 20px;
-}
-
-.choose-scene .button img {
-    max-width: 30vw;
 }
 
 .choose-scene .button-content {

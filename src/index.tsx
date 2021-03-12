@@ -58,6 +58,7 @@ function App() {
     const initialSiteState = createEmptyState();
     const [siteState, dispatchSiteState] = useReducer(siteStateReducer, initialSiteState);
     const [browserProperties, setBrowserProperties] = useState<BrowserProperties>({});
+    const [customStylesheet, setCustomStylesheet] = useState<string>()
     // Url load states
 
     //component mounted:
@@ -217,6 +218,10 @@ function App() {
                     document.documentElement.style.setProperty("--mdc-theme-inactive", config.appearance.inactiveColor)
                 }
 
+                if (config.appearance.customStylesheet) {
+                    setCustomStylesheet(`${SITE_PATH}/${config.appearance.customStylesheet}`)
+                }
+
             });
 
     }, [loadScene]);
@@ -251,6 +256,7 @@ function App() {
 
     return (
         <Router>
+            <link rel="stylesheet" href={customStylesheet} />
             <Route
                 render={({ // @ts-ignore
                              location }) => {
