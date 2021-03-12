@@ -11,6 +11,7 @@
     "surfaceColor": "#dfdfdf",
     "surfaceTextColor": "#555",
     "inactiveColor": "rgba(255,255,255,0.2)",
+    "customStylesheet": "branding/custom.css",
     "header": {
       "title": "Divine Floor",
       "description": "See Divine Floor's great flooring products.",
