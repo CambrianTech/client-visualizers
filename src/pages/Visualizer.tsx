@@ -286,8 +286,6 @@ export default function Visualizer() {
 
         const materials:CBARMaterialProperties[] = [];
 
-        console.log("color", color)
-
         if (color.textures && color.textures.length) {
             color.textures.forEach(tex=>{
                 const material:CBARMaterialProperties = {};
@@ -440,9 +438,8 @@ export default function Visualizer() {
     const productsClicked = useCallback((gotoRoot?:boolean)=>{
         if (rootItem && gotoRoot) {
             setListingItems(rootItem.children);
-        }
-
-        if (currentScene) {
+            setActivePanel(Panel.Products);
+        } else if (currentScene) {
             setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
         } else {
             setActivePanel(Panel.Scenes);
