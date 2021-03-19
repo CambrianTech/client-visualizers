@@ -3,7 +3,7 @@ import {Button, Icon} from "@material-ui/core";
 import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
 import {SITE_PATH} from "../index";
 
-type ChooseProjectSourceProps = {
+type ChooseSceneProps = {
     hidden?: boolean
     siteData:SiteConfig|undefined
     onSourceClicked:(name:ApiCapabilityName)=>void
@@ -76,7 +76,7 @@ export const SourceButton = React.memo<SourceButtonProps>(
     }
 );
 
-const ChooseProjectSourceCached = React.memo<ChooseProjectSourceProps>(
+const ChooseSceneCached = React.memo<ChooseSceneProps>(
     (props) => {
         if (props.siteData) {
 
@@ -97,9 +97,9 @@ const ChooseProjectSourceCached = React.memo<ChooseProjectSourceProps>(
     }
 );
 
-export function ChooseProjectSource(props: ChooseProjectSourceProps) {
+export function ChooseScene(props: ChooseSceneProps) {
 
     return (
-        <ChooseProjectSourceCached {...props} />
+        <ChooseSceneCached {...props} />
     )
 }

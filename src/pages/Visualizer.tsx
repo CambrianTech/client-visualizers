@@ -56,7 +56,7 @@ import {BrowserType} from "react-client-info";
 import {Fab, Icon} from "@material-ui/core";
 import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
-import {ChooseProjectSource} from "../components/ChooseProjectSource";
+import {ChooseScene} from "../components/ChooseScene";
 
 enum Panel {
     None="",
@@ -286,7 +286,9 @@ export default function Visualizer() {
 
         const materials:CBARMaterialProperties[] = [];
 
-        if (color.textures.length) {
+        console.log("color", color)
+
+        if (color.textures && color.textures.length) {
             color.textures.forEach(tex=>{
                 const material:CBARMaterialProperties = {};
                 material.properties = {
@@ -834,6 +836,10 @@ export default function Visualizer() {
         }
     }, []);
 
+    const showSceneSelector = useMemo(()=>{
+        return showUploadButton;
+    }, [showUploadButton])
+
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
@@ -869,11 +875,11 @@ export default function Visualizer() {
             {siteContext.state.siteData &&
             <div className={"panel b"}>
 
-                <CBARView className={"cbarview"} onContextCreated={setContext} toolMode={toolMode} />
+                <CBARView className={"cbarview" + (currentScene ? " has-scene":"")} onContextCreated={setContext} toolMode={toolMode} />
 
                 {isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
-                <ChooseProjectSource hidden={!showUploadButton} siteData={siteContext.state.siteData} onSourceClicked={sourceChosen} />
+                <ChooseScene hidden={!showSceneSelector} siteData={siteContext.state.siteData} onSourceClicked={sourceChosen} />
 
                 <VisualizerTools
                     hidden={showUploadButton || !currentScene || isToolOverlayOpen}
@@ -967,5 +973,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, isFeatureEnabled, onImageChosen, onProgress, showUploadButton, sourceChosen, isToolOverlayOpen, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }
