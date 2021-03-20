@@ -44,7 +44,7 @@
     "eject": "react-scripts eject",
     "server": "cd server; npm run start;",
     "postinstall": "cd server; node -e \"process.env.NODE_ENV != 'production' && process.exit(1)\" || npm install",
-    "sync": "rm -rf cambrianar-sites; mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/$npm_package_config_default_site cambrianar-sites/$npm_package_config_default_site --recursive"
+    "sync": "rm -rf cambrianar-sites; rm -f public/cambrianar-sites; mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/$npm_package_config_default_site cambrianar-sites/$npm_package_config_default_site --recursive"
   },
   "eslintConfig": {
     "extends": "react-app"
