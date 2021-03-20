@@ -30,7 +30,7 @@
     "react-client-info": "^0.0.22",
     "react-dom": "^17.0.1",
     "react-dropzone": "^11.3.1",
-    "react-home-ar": "^0.0.1943",
+    "react-home-ar": "^0.0.1948",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-transition-group": "^4.4.1",
@@ -64,6 +64,7 @@
   "devDependencies": {
     "aggregate-error": "^3.1.0",
     "concurrently": "^6.0.0",
+    "eslint": "^7.22.0",
     "source-map-loader": "^2.0.1",
     "typescript": "^4.2.3",
     "webpack-cli": "^4.5.0"
