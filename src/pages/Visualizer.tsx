@@ -278,6 +278,26 @@ export default function Visualizer() {
         }
     },[selectedAsset]);
 
+    const getBaseMaterialProps = (color:ProductItem) => {
+        const material:CBARMaterialProperties = {};
+        material.properties = {
+            roughnessValue: 0.5,
+            metalnessValue: 0.07
+        };
+
+        material.ppi = color.ppi ? color.ppi : 20;
+        material.crop = color.crop;
+        material.mirrored = color.mirrored;
+        material.mirroredX = color.mirroredX;
+        material.mirroredY = color.mirroredY;
+
+        if (color.color) {
+            material.properties.color = color.color;
+        }
+
+        return material;
+    }
+
     const showMaterial = useCallback((color:ProductItem) => {
         if (!context || !selectedSurface) {
             console.log("Show material failed", selectedSurface);
@@ -288,21 +308,10 @@ export default function Visualizer() {
 
         if (color.textures && color.textures.length) {
             color.textures.forEach(tex=>{
-                const material:CBARMaterialProperties = {};
-                material.properties = {
-                    roughnessValue: 0.5,
-                    metalnessValue: 0.13
-                };
+                const material = getBaseMaterialProps(color);
+                if (!material.properties) material.properties = {};
                 material.textures = {};
-                material.ppi = color.ppi ? color.ppi : 20;
-                material.crop = color.crop;
-                material.mirrored = color.mirrored;
-                material.mirroredX = color.mirroredX;
-                material.mirroredY = color.mirroredY;
 
-                if (color.color) {
-                    material.properties.color = color.color;
-                }
                 if (tex.albedoPath) {
                     material.textures.albedo = `${brandPath}/${tex.albedoPath}`;
                 }
@@ -319,13 +328,10 @@ export default function Visualizer() {
                 materials.push(material);
             });
         } else if (color.metaData) {
-            const material:CBARMaterialProperties = {};
-            material.properties = {
-                roughnessValue: 0.5,
-                metalnessValue: 0.13
-            };
+
+            const material = getBaseMaterialProps(color);
+            if (!material.properties) material.properties = {};
             material.textures = {};
-            material.ppi = color.ppi ? color.ppi : 20;
 
             //phase out this data approach:
             if (color.metaData.hasOwnProperty("albedo")) {
@@ -348,9 +354,6 @@ export default function Visualizer() {
             }
             if (color.metaData.hasOwnProperty("crop")) {
                 material.crop = color.metaData.crop;
-            }
-            if (color.color) {
-                material.properties.color = color.color;
             }
 
             materials.push(material);

@@ -473,7 +473,7 @@ panel.c {
     }
 
     .panels.products .cbarview, .panels.scenes .cbarview {
-        top:-70vh;
+        top:calc(-70vh + 80px);
     }
 
     .panel .close-button {
