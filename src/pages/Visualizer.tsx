@@ -358,9 +358,9 @@ export default function Visualizer() {
         let currentAsset = selectedSurface.last();
 
         if (!currentAsset) {
-            if (color.assetType === CBARAssetType.PaintSurface) {
+            if (color.assetTypes.indexOf(CBARAssetType.PaintSurface) >= 0) {
                 currentAsset = new CBARPaintAsset(context);
-            } else if (color.assetType === CBARAssetType.Rug) {
+            } else if (color.assetTypes.indexOf(CBARAssetType.Rug) >= 0) {
                 const rugAsset = currentAsset = new CBARRugAsset(context);
                 rugAsset.dimensions = new THREE.Vector2(2,1);
                 elevation = 0.005;
