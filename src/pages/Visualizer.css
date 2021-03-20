@@ -92,6 +92,11 @@
     pointer-events: none;
 
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.floating-logo .has-scene {
+    display: block;
 }
 
 .choose-scene {
@@ -114,6 +119,8 @@
 
 .choose-scene .content > .button {
     margin: 20px;
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .choose-scene .button-content {
@@ -128,6 +135,10 @@
 
 .choose-scene .button-content .button-text {
     font-size: 20px;
+}
+
+.choose-scene .button-content .button-image {
+
 }
 
 .MuiFab-primary {
@@ -661,7 +672,7 @@ panel.c {
 
     .choose-scene .button img {
         max-width: unset;
-        max-height: 30vh;
+        max-height: calc(var(--app-height) / 2);
     }
 
     .makeStyles-speedDial-1 {
