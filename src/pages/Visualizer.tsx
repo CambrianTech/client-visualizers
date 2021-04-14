@@ -3,7 +3,7 @@ import './Visualizer.css'
 
 import {
     CBARAssetType,
-    CBARContext,
+    CBARContext, CBAREvent,
     CBAREventType,
     CBARFilledTiledAsset,
     CBARIntersection,
@@ -369,7 +369,7 @@ export default function Visualizer() {
             } else {
                 currentAsset = new CBARFilledTiledAsset(context);
             }
-            console.log(`Created asset of type ${currentAsset.type}, ${color.assetType} at elevation ${currentAsset.surfaceElevation}m`);
+            console.log(`Created asset of type ${currentAsset.type}, at elevation ${currentAsset.surfaceElevation}m`);
             selectedSurface.add(currentAsset, elevation);
         }
 
@@ -383,7 +383,7 @@ export default function Visualizer() {
         }
     }, [brandPath, context, selectedSurface]);
 
-    const handleVisualizerEvent = useCallback((event:CBARMouseEvent) => {
+    const handleVisualizerEvent = useCallback((event:CBAREvent) => {
         if (!currentScene) return;
 
         if (event.type === CBAREventType.Rotate) {
@@ -392,9 +392,9 @@ export default function Visualizer() {
             setToolMode(CBARToolMode.Translate)
         }
         else if (event.type === CBAREventType.TouchDown) {
-
-            const assetIntersections = event.intersections.filter(x => x.object instanceof CBARSurfaceAsset);
-            const surfaceIntersection = event.intersections.find(x => x.object instanceof CBARSurface);
+            const intersections = (event as CBARMouseEvent).intersections
+            const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
+            const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
             const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
             const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
                 const assetA = a.object as CBARSurfaceAsset;

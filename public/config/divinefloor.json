@@ -40,7 +40,7 @@
       "code": "divine-floor",
       "displayName": "Divine Floor",
       "surfaceTypes": ["floor"],
-      "assetType": "tiled",
+      "assetTypes": ["tiled"],
       "sceneCollections": [
         {
           "code": "bathroom",
