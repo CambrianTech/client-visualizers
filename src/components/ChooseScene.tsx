@@ -1,25 +1,13 @@
 import React from "react";
 import {Button, Icon} from "@material-ui/core";
 import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
-import {SITE_PATH} from "../index";
+import {getFeatureAppearance, isFeatureEnabled, SITE_PATH} from "../index";
 
 type ChooseSceneProps = {
     hidden?: boolean
     siteData:SiteConfig|undefined
     onSourceClicked:(name:ApiCapabilityName)=>void
 }
-
-const isFeatureEnabled = (siteData:SiteConfig, name:ApiCapabilityName):boolean => {
-    return !!siteData.features.find(f=>f.name === name && f.enabled);
-};
-
-const getFeatureAppearance = (siteData:SiteConfig, name:ApiCapabilityName, defaultAppearance:FeatureAppearanceConfig) => {
-    let match:FeatureAppearanceConfig | undefined
-    if (siteData.appearance.features) {
-        match = siteData.appearance.features.find(f=>f.name === name);
-    }
-    return match ? match : defaultAppearance
-};
 
 //"assets/img/brands/shawfloors/landing-bg-img-1440.jpg, assets/img/brands/shawfloors/landing-bg-img-1440@2x.jpg 2x, assets/img/brands/shawfloors/landing-bg-img-1440@3x.jpg 3x"
 const resolveSrc = (src:string|undefined) => {

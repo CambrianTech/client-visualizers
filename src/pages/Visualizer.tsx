@@ -51,7 +51,7 @@ import {
 import {Progress} from "../components/Progress";
 import orientationImage from "../data/orientation6.jpg";
 
-import {getScenePaths, getUploadedRoomPaths, SITE_PATH} from "../index";
+import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
 import {Fab, Icon} from "@material-ui/core";
 import {VisualizerTools} from "../components/VisualizerTools";
@@ -141,12 +141,9 @@ export default function Visualizer() {
         }
     },[siteContext.state.siteData]);
 
-    const isFeatureEnabled = useCallback((name:ApiCapabilityName) => {
+    const _isFeatureEnabled = useCallback((name:ApiCapabilityName) => {
         if (siteContext.state.siteData) {
-            const feature = siteContext.state.siteData.features.find(f=>f.name === name);
-            if (feature) {
-                return feature.enabled;
-            }
+            return isFeatureEnabled(siteContext.state.siteData, name)
         }
         return false
     }, [siteContext.state.siteData]);
@@ -728,15 +725,15 @@ export default function Visualizer() {
     const toolActions = useMemo<ToolsMenuAction[]>(()=>{
         let actions = [...DefaultToolsMenuActions];
 
-        if (!isFeatureEnabled("upload")) {
+        if (!_isFeatureEnabled("upload")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChoosePhoto);
         }
 
-        if (!isFeatureEnabled("scenes")) {
+        if (!_isFeatureEnabled("scenes")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.ChooseScene);
         }
 
-        if (!isFeatureEnabled("share")) {
+        if (!_isFeatureEnabled("share")) {
             actions = actions.filter(item=>item.operation !== ToolOperation.Share);
         }
 
@@ -755,7 +752,7 @@ export default function Visualizer() {
         }
 
         return actions
-    }, [isFeatureEnabled, isEditable, siteContext.state.browserProperties.browser, selectedAsset]);
+    }, [_isFeatureEnabled, isEditable, siteContext.state.browserProperties.browser, selectedAsset]);
 
     const editSurfaceFinished = useCallback(() => {
         if (!_isMounted.current) return;
@@ -811,11 +808,11 @@ export default function Visualizer() {
     }, [selectedProduct]);
 
     const showUploadButton = useMemo(()=>{
-        if ((!isFeatureEnabled("scenes") && !isFeatureEnabled("upload"))) {
+        if ((!_isFeatureEnabled("scenes") && !_isFeatureEnabled("upload"))) {
             return false;
         }
         return !(currentScene || dataPath || siteContext.state.sceneData || progressVisible)
-    }, [currentScene, dataPath, siteContext.state.sceneData, progressVisible, isFeatureEnabled]);
+    }, [currentScene, dataPath, siteContext.state.sceneData, progressVisible, _isFeatureEnabled]);
 
     const panelTimer = useRef(0);
     const setPanelTimer = useCallback(()=>{
@@ -879,7 +876,7 @@ export default function Visualizer() {
 
                 <CBARView className={"cbarview" + (currentScene ? " has-scene":"")} onContextCreated={setContext} toolMode={toolMode} />
 
-                {isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
+                {_isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
                 <ChooseScene hidden={!showSceneSelector} siteData={siteContext.state.siteData} onSourceClicked={sourceChosen} />
 
@@ -975,5 +972,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }

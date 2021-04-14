@@ -13,7 +13,7 @@ import * as qs from "querystring";
 import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
-import {SiteConfig} from "cambrian-base";
+import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
 
 const objectFitImages = require('object-fit-images');
 
@@ -26,6 +26,19 @@ if (!siteName) {
 const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
 export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
 const CONFIG_PATH = `config/${siteName}.json`;
+
+export const isFeatureEnabled = (siteData:SiteConfig, name:ApiCapabilityName):boolean => {
+    const feature = siteData.features.find(f=>f.name === name);
+    return feature ? feature.enabled : false;
+};
+
+export const getFeatureAppearance = (siteData:SiteConfig, name:ApiCapabilityName, defaultAppearance:FeatureAppearanceConfig) => {
+    let match:FeatureAppearanceConfig | undefined
+    if (siteData.appearance.features) {
+        match = siteData.appearance.features.find(f=>f.name === name);
+    }
+    return match ? match : defaultAppearance
+};
 
 export type RoomPaths = {
     base:string,
