@@ -1,4 +1,5 @@
 import express from "express";
+import compression from "compression";
 import * as dotenv from "dotenv-flow";
 import * as path from "path";
 import * as fs from "fs";
@@ -53,6 +54,8 @@ function getConfig(subdomain:string) : SiteConfig | undefined {
 
     return undefined;
 }
+
+app.use(compression());
 
 app.get("*", (req, res) => {
 
