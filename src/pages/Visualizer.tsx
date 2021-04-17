@@ -72,7 +72,7 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
         projectHostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
         orientationImage:orientationImage,
-        opencvJsLocation:"assets/opencv.js"
+        opencvJsLocation:"https://docs.opencv.org/3.4.0/opencv.js"
     })
 } else {
     throw new Error('REACT_APP_CB_GET_UPLOAD_URLS_URL, REACT_APP_CB_UPLOADS_URL, and REACT_APP_CB_SEGMENT_URL must be defined')
