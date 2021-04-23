@@ -109,10 +109,6 @@
             {
               "code": "4-kitchen",
               "displayName": "Kitchen"
-            },
-            {
-              "code": "5-kitchen",
-              "displayName": "Kitchen"
             }
           ]
         },
@@ -122,10 +118,6 @@
           "scenes": [
             {
               "code": "1-compact-apartment",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "1-living-room",
               "displayName": "Living Room"
             },
             {
