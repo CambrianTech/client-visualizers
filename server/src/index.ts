@@ -3,7 +3,7 @@ import compression from "compression";
 import * as dotenv from "dotenv-flow";
 import * as path from "path";
 import * as fs from "fs";
-import {getHeaderTags, RequestContext, SiteConfig} from "cambrian-base";
+import {getHeader, getHeaderTags, RequestContext, SiteConfig} from "cambrian-base";
 
 const app = express();
 dotenv.config();
@@ -82,7 +82,7 @@ app.get("*", (req, res) => {
                     path: req.path,
                     query: req.query
                 };
-                const tags = getHeaderTags(request);
+                const tags = getHeaderTags(request, getHeader(config.appearance.header, req.path));
 
                 let content = "";
                 tags.forEach(tag=>content += tag.render() + "\n");

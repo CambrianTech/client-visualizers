@@ -199,9 +199,12 @@ function App() {
                     loadScene(searchObject.rt, searchObject.r);
                 }
 
-                if (!document.title && config.appearance.header.title) {
-                    document.title = config.appearance.header.title;
-                }
+                // if (!document.title && config.appearance.header) {
+                //     const header = getHeader(config.appearance.header, "/");
+                //     if (header) {
+                //         document.title = header.title;
+                //     }
+                // }
 
                 if (!document.documentElement.style.getPropertyValue("--mdc-theme-primary")) {
                     document.documentElement.style.setProperty("--mdc-theme-primary", config.appearance.primaryColor)

@@ -938,7 +938,7 @@ export default function Visualizer() {
                 {/*    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>*/}
                 {/*        <div className={"choose-text"}>Product Details</div>*/}
                 {/*    </div>*/}
-                {/*    {isFeatureEnabled("share") && siteContext.state.siteData && siteContext.state.siteData.appearance.sharing &&*/}
+                {/*    {siteContext.state.siteData && siteContext.state.siteData.appearance.sharing &&*/}
                 {/*    <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>*/}
                 {/*        <div className={"choose-text"}>Share</div>*/}
                 {/*    </div>}*/}
@@ -956,12 +956,12 @@ export default function Visualizer() {
 
                 {siteContext.state.siteData && currentScene && siteContext.state.siteData.appearance.sharing && (
                     <SharePanel className={"share"}
+                                {...siteContext.state.siteData.appearance.sharing}
                                 visible={activePanel === Panel.Share}
                                 needsUpload={needsUpload}
                                 product={selectedProduct}
                                 resolveThumbnailPath={resolveThumbnailPath}
                                 getShareUrl={getShareUrl}
-                                shareSubject={siteContext.state.siteData.appearance.sharing.subject}
                                 onClose={shareCompleted}
                                 isUploadedImage={isUploadedImage()}
                                 onImageUploadCompleted={shareUploadComplete} />
