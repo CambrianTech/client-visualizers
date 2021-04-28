@@ -25,7 +25,7 @@
     "object-fit-images": "^3.2.4",
     "react": "^17.0.1",
     "react-app-polyfill": "^2.0.0",
-    "react-cambrian-ui": "^0.0.1177",
+    "react-cambrian-ui": "^0.0.1178",
     "react-circular-progressbar": "^2.0.3",
     "react-client-info": "^0.0.22",
     "react-dom": "^17.0.1",
