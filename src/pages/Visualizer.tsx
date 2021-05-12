@@ -68,8 +68,8 @@ enum Panel {
 
 if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
     cbInitialize({
-        uploadUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
-        projectHostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
+        hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
+        signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
         orientationImage:orientationImage,
         opencvJsLocation:"assets/opencv.js",
