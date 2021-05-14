@@ -4,7 +4,7 @@
   "subdomain": "dunn-edwards",
   "appearance": {
     "logo": {"src":"branding/logo-black.png", "alt":"Dunn Edwards logo"},
-    "primaryColor": "#ce4712",
+    "primaryColor": "#ec7211",
     "primaryTextColor": "#fff",
     "secondaryColor": "#fff",
     "secondaryTextColor": "#000",
