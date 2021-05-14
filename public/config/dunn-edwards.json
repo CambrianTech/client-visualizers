@@ -4,14 +4,13 @@
   "subdomain": "dunn-edwards",
   "appearance": {
     "logo": {"src":"branding/logo-black.png", "alt":"Dunn Edwards logo"},
-    "primaryColor": "#000",
+    "primaryColor": "#ce4712",
     "primaryTextColor": "#fff",
     "secondaryColor": "#fff",
     "secondaryTextColor": "#000",
     "surfaceColor": "#dfdfdf",
     "surfaceTextColor": "#555",
     "inactiveColor": "rgba(255,255,255,0.2)",
-    "customStylesheet": "branding/custom.css",
     "header": {
       "title": "Dunn Edwards",
       "description": "See Dunn Edwards's great paint products.",
