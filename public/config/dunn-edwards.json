@@ -40,8 +40,8 @@
     {
       "code": "dunn-edwards",
       "displayName": "Dunn Edwards",
-      "surfaceTypes": ["floor"],
-      "assetTypes": ["tiled"],
+      "surfaceTypes": ["wall"],
+      "assetTypes": ["paint-surface"],
       "sceneCollections": [
         {
           "code": "bathroom",
