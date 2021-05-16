@@ -289,10 +289,6 @@ export default function Visualizer() {
         material.mirroredX = color.mirroredX;
         material.mirroredY = color.mirroredY;
 
-        if (color.color) {
-            material.properties.color = color.color;
-        }
-
         return material;
     }
 
@@ -325,33 +321,14 @@ export default function Visualizer() {
 
                 materials.push(material);
             });
-        } else if (color.metaData) {
+        } else if (color.color) {
 
             const material = getBaseMaterialProps(color);
             if (!material.properties) material.properties = {};
             material.textures = {};
 
-            //phase out this data approach:
-            if (color.metaData.hasOwnProperty("albedo")) {
-                material.textures.albedo = `${brandPath}/${color.metaData.albedo}`;
-            }
-            if (color.metaData.hasOwnProperty("normals")) {
-                material.textures.normals = `${brandPath}/${color.metaData.normals}`;
-            }
-            if (color.metaData.hasOwnProperty("specular")) {
-                material.textures.roughness = `${brandPath}/${color.metaData.specular}`;
-            }
-            if (color.metaData.hasOwnProperty("mirrored")) {
-                material.mirrored = color.metaData.mirrored;
-            }
-            if (color.metaData.hasOwnProperty("mirroredX")) {
-                material.mirroredX = color.metaData.mirroredX;
-            }
-            if (color.metaData.hasOwnProperty("mirroredY")) {
-                material.mirroredY = color.metaData.mirroredY;
-            }
-            if (color.metaData.hasOwnProperty("crop")) {
-                material.crop = color.metaData.crop;
+            if (color.color) {
+                material.properties.color = color.color;
             }
 
             materials.push(material);
@@ -905,7 +882,7 @@ export default function Visualizer() {
                 {!rightPanelOpen && selectedRow && selectedProduct && (
                     <div className={"floating-product-info"}>
                         <div className={"product-swatch"} style={{background:selectedProduct.color}}>
-                            {brandPath && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
+                            {brandPath && selectedProduct.thumbnail && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
                         </div>
                         <div className={"product-name"}>
                             {selectedRow.displayName} - {selectedProduct.displayName}
