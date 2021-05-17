@@ -62,6 +62,10 @@
           "displayName": "Bedroom",
           "scenes": [
             {
+              "code": "development",
+              "displayName": "Development"
+            },
+            {
               "code": "2-bedroom",
               "displayName": "Bedroom"
             },
