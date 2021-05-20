@@ -332,6 +332,34 @@ export default function Visualizer() {
             }
 
             materials.push(material);
+        } else if (color.metaData) {
+            const material = getBaseMaterialProps(color);
+            material.textures = {};
+
+            //phase out this data approach:
+            if (color.metaData.hasOwnProperty("albedo")) {
+                material.textures.albedo = `${brandPath}/${color.metaData.albedo}`;
+            }
+            if (color.metaData.hasOwnProperty("normals")) {
+                material.textures.normals = `${brandPath}/${color.metaData.normals}`;
+            }
+            if (color.metaData.hasOwnProperty("specular")) {
+                material.textures.roughness = `${brandPath}/${color.metaData.specular}`;
+            }
+            if (color.metaData.hasOwnProperty("mirrored")) {
+                material.mirrored = color.metaData.mirrored;
+            }
+            if (color.metaData.hasOwnProperty("mirroredX")) {
+                material.mirroredX = color.metaData.mirroredX;
+            }
+            if (color.metaData.hasOwnProperty("mirroredY")) {
+                material.mirroredY = color.metaData.mirroredY;
+            }
+            if (color.metaData.hasOwnProperty("crop")) {
+                material.crop = color.metaData.crop;
+            }
+
+            materials.push(material);
         }
 
         let elevation = 0.0;
