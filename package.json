@@ -2,9 +2,6 @@
   "name": "client-visualizers",
   "version": "0.3.00",
   "private": true,
-  "config": {
-    "default_site": "divinefloor"
-  },
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
@@ -30,7 +27,7 @@
     "react-client-info": "^0.0.22",
     "react-dom": "^17.0.2",
     "react-dropzone": "^11.3.2",
-    "react-home-ar": "^0.0.2013",
+    "react-home-ar": "^0.0.2019",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-transition-group": "^4.4.1",
@@ -44,7 +41,7 @@
     "eject": "react-scripts eject",
     "server": "cd server; npm run start;",
     "postinstall": "cd server; node -e \"process.env.NODE_ENV != 'production' && process.exit(1)\" || npm install",
-    "sync": "rm -rf cambrianar-sites; rm -f public/cambrianar-sites; mkdir -p cambrianar-sites; cd public; ln -sfn ../cambrianar-sites cambrianar-sites; aws s3 cp s3://cambrianar-sites/$npm_package_config_default_site cambrianar-sites/$npm_package_config_default_site --recursive"
+    "sync": "sh scripts/sync.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
