@@ -70,7 +70,6 @@ app.get("*", (req, res) => {
         console.log("Requested", req.path, subdomain);
 
         const config = getConfig(subdomain);
-        console.log(config);
         const indexPath = path.join(buildPath, "index.html");
         fs.readFile(indexPath, "utf8", (err, data) => {
             if (err) {
