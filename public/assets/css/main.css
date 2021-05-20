@@ -278,7 +278,6 @@ input[type=range]:focus::-ms-fill-upper {
     top: 10vh;
     left: 0;
     right: 0;
-    width: 50%;
     height: auto;
     z-index: 9999;
     visibility: hidden;

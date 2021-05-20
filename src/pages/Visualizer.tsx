@@ -445,7 +445,7 @@ export default function Visualizer() {
         } else if (currentScene) {
             setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
         } else {
-            setActivePanel(Panel.Scenes);
+            setActivePanel(activePanel === Panel.Scenes ? Panel.None : Panel.Scenes);
         }
     }, [activePanel, currentScene, rootItem]);
 
@@ -830,7 +830,7 @@ export default function Visualizer() {
 
     const sourceChosen = useCallback((source:ApiCapabilityName)=>{
         if (source === 'upload') {
-            openImageDialog()
+            openImageDialog();
         } else if (source === 'scenes') {
             setActivePanel(Panel.Scenes)
         }
