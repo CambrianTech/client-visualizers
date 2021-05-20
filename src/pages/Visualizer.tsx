@@ -289,10 +289,6 @@ export default function Visualizer() {
         material.mirroredX = color.mirroredX;
         material.mirroredY = color.mirroredY;
 
-        if (color.color) {
-            material.properties.color = color.color;
-        }
-
         return material;
     }
 
@@ -325,10 +321,19 @@ export default function Visualizer() {
 
                 materials.push(material);
             });
-        } else if (color.metaData) {
+        } else if (color.color) {
 
             const material = getBaseMaterialProps(color);
             if (!material.properties) material.properties = {};
+            material.textures = {};
+
+            if (color.color) {
+                material.properties.color = color.color;
+            }
+
+            materials.push(material);
+        } else if (color.metaData) {
+            const material = getBaseMaterialProps(color);
             material.textures = {};
 
             //phase out this data approach:
@@ -905,7 +910,7 @@ export default function Visualizer() {
                 {!rightPanelOpen && selectedRow && selectedProduct && (
                     <div className={"floating-product-info"}>
                         <div className={"product-swatch"} style={{background:selectedProduct.color}}>
-                            {brandPath && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
+                            {brandPath && selectedProduct.thumbnail && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
                         </div>
                         <div className={"product-name"}>
                             {selectedRow.displayName} - {selectedProduct.displayName}

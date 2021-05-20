@@ -1,0 +1,814 @@
+{
+  "code": "dunn-edwards",
+  "displayName": "Dunn Edwards",
+  "subdomain": "dunn-edwards",
+  "appearance": {
+    "logo": {"src":"branding/logo-black.png", "alt":"Dunn Edwards logo"},
+    "primaryColor": "#ec7211",
+    "primaryTextColor": "#fff",
+    "secondaryColor": "#fff",
+    "secondaryTextColor": "#000",
+    "surfaceColor": "#dfdfdf",
+    "surfaceTextColor": "#555",
+    "inactiveColor": "rgba(255,255,255,0.2)",
+    "header": {
+      "title": "Dunn Edwards",
+      "description": "See Dunn Edwards's great paint products.",
+      "favicon": "branding/logo-black.png"
+    },
+    "sharing": {
+      "subject": "Check out this paint project from Dunn Edwards"
+    },
+    "features": [
+      {
+        "name": "scenes",
+        "materialIcon": "photo",
+        "text":"scenes"
+      },
+      {
+        "name": "upload",
+        "materialIcon": "photo_camera",
+        "text": "photo"
+      }
+    ]
+  },
+  "features":  [
+    {"name":"scenes", "enabled":true},
+    {"name":"upload", "enabled":true}
+  ],
+  "brands": [
+    {
+      "code": "dunn-edwards",
+      "displayName": "Dunn Edwards",
+      "surfaceTypes": ["wall"],
+      "assetTypes": ["paint-surface"],
+      "sceneCollections": [
+        {
+          "code": "bathroom",
+          "displayName": "Bathroom",
+          "scenes": [
+            {
+              "code": "1-bathroom",
+              "displayName": "Bathroom"
+            },
+            {
+              "code": "2-bathroom",
+              "displayName": "Bathroom"
+            }
+          ]
+        },
+        {
+          "code": "bedroom",
+          "displayName": "Bedroom",
+          "scenes": [
+            {
+              "code": "development",
+              "displayName": "Development"
+            },
+            {
+              "code": "2-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "3-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "4-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "5-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "6-bedroom",
+              "displayName": "Bedroom"
+            }
+          ]
+        },
+        {
+          "code": "kitchen",
+          "displayName": "Kitchen",
+          "scenes": [
+            {
+              "code": "kitchen-1",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "1-dining",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "1-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "2-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "3-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "4-kitchen",
+              "displayName": "Kitchen"
+            }
+          ]
+        },
+        {
+          "code": "living-room",
+          "displayName": "Living Room",
+          "scenes": [
+            {
+              "code": "1-compact-apartment",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "4-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "6-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "7-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "8-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "9-living-room",
+              "displayName": "Living Room"
+            }
+          ]
+        },
+        {
+          "code": "office",
+          "displayName": "Office",
+          "scenes": [
+            {
+              "code": "1-business",
+              "displayName": "Office"
+            },
+            {
+              "code": "1-office",
+              "displayName": "Office"
+            },
+            {
+              "code": "2-lobby",
+              "displayName": "Office"
+            }
+          ]
+        }
+      ],
+      "collections": [
+        {
+          "name": "interior-paints",
+          "code": "interiors",
+          "displayName": "Interior Paint",
+          "thumbnail": "thumbnails/interior-space.jpg",
+          "products": [
+            {
+              "name": "color-trends-2021",
+              "code": "ct-2021",
+              "displayName": "Color Trends 2021",
+              "thumbnail": "branding/bright-colors.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/bright-colors.jpg",
+                "content": "Nourish the spirit with the comforting, sunbaked hues of the Color Trends 2021 palette, including Aegean Teal 2136-40.\n\nCelebrate the simple pleasures—think the faded rumple of linen sheets in the morning and perfectly ripened fruits on the windowsill. The twelve hues in the palette radiate warmth and wellbeing. These are colors that make your home feel even more like home. Settle in."
+              },
+              "colors": [
+                {
+                  "name": "atrium-white",
+                  "code": "OC-145",
+                  "displayName": "Atrium White",
+                  "color": "rgb(242,239,232)"
+                },
+                {
+                  "name": "foggy-morning",
+                  "code": "2106-70",
+                  "displayName": "Foggy Morning",
+                  "color": "rgb(236,227,220)"
+                },
+                {
+                  "name": "beacon-hill-damask",
+                  "code": "HC-2",
+                  "displayName": "Beacon Hill Damask",
+                  "color": "rgb(229,219,171)"
+                },
+                {
+                  "name": "chestertown-buff",
+                  "code": "HC-9",
+                  "displayName": "Chestertown Buff",
+                  "color": "rgb(221,191,134)"
+                },
+                {
+                  "name": "muslin",
+                  "code": "OC-12",
+                  "displayName": "Muslin",
+                  "color": "rgb(225,214,193)"
+                },
+                {
+                  "name": "rosy-peach",
+                  "code": "2089-20",
+                  "displayName": "Rosy Peach",
+                  "color": "rgb(181,94,79)"
+                },
+                {
+                  "name": "potters-clay",
+                  "code": "1221",
+                  "displayName": "Potters Clay",
+                  "color": "rgb(185, 135, 102)"
+                },
+                {
+                  "name": "amazon-soil",
+                  "code": "2115-30",
+                  "displayName": "Amazon Soil",
+                  "color": "rgb(111,91,92)"
+                }
+              ]
+            },
+            {
+              "name": "whites",
+              "code": "whites",
+              "displayName": "Best-Selling Whites",
+              "thumbnail": "branding/whites.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/whites.jpg",
+                "content": "Unerring style defines this classic, softly shaded white. Light and luminous, it is a favorite choice for moldings and trim.",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "chantilly-lace",
+                  "code": "OC-65",
+                  "displayName": "Chantilly Lace",
+                  "color": "rgb(244, 246, 241)"
+                },
+                {
+                  "name": "white-heron",
+                  "code": "OC-57",
+                  "displayName": "White Heron",
+                  "color": "rgb(241, 242, 235)"
+                },
+                {
+                  "name": "white-dove",
+                  "code": "OC-17",
+                  "displayName": "White Dove",
+                  "color": "rgb(239, 238, 229)"
+                },
+                {
+                  "name": "simply-white",
+                  "code": "OC-117",
+                  "displayName": "Simply White",
+                  "color": "rgb(246, 246, 237)"
+                },
+                {
+                  "name": "cloud-white",
+                  "code": "OC-130",
+                  "displayName": "Cloud White",
+                  "color": "rgb(242, 241, 230)"
+                },
+                {
+                  "name": "navajo-white",
+                  "code": "OC-95",
+                  "displayName": "Navajo White",
+                  "color": "rgb(238, 231, 213)"
+                }
+              ]
+            },
+            {
+              "name": "neutrals",
+              "code": "neutrals",
+              "displayName": "Best-Selling Neutrals",
+              "thumbnail": "branding/neutrals.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/neutrals.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "shaker-beige",
+                  "code": "HC-45",
+                  "displayName": "Shaker Beige",
+                  "color": "rgb(209, 194, 167)"
+                },
+                {
+                  "name": "manchester-tan",
+                  "code": "HC-81",
+                  "displayName": "Manchester Tan",
+                  "color": "rgb(219, 210, 188)"
+                },
+                {
+                  "name": "muslin",
+                  "code": "OC-12",
+                  "displayName": "Muslin",
+                  "color": "rgb(225,214,193)"
+                },
+                {
+                  "name": "classic-gray",
+                  "code": "OC-23",
+                  "displayName": "Classic Gray",
+                  "color": "rgb(227, 224, 215)"
+                },
+                {
+                  "name": "balboa-mist",
+                  "code": "OC-27",
+                  "displayName": "Balboa Mist",
+                  "color": "rgb(218, 214, 204)"
+                },
+                {
+                  "name": "collingwood",
+                  "code": "OC-28",
+                  "displayName": "Collingwood",
+                  "color": "rgb(211, 206, 196)"
+                }
+              ]
+            },
+            {
+              "name": "grays",
+              "code": "grays",
+              "displayName": "Best-Selling Grays",
+              "thumbnail": "branding/grays.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/grays.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "revere-pewter",
+                  "code": "HC-172",
+                  "displayName": "Revere Pewter",
+                  "color": "rgb(203, 198, 184)"
+                },
+                {
+                  "name": "edgecomb-gray",
+                  "code": "HC-173",
+                  "displayName": "Edgecomb Gray",
+                  "color": "rgb(217, 211, 196)"
+                },
+                {
+                  "name": "silver-satin",
+                  "code": "OC-26",
+                  "displayName": "Silver Satin",
+                  "color": "rgb(227, 226, 218)"
+                },
+                {
+                  "name": "gray-owl",
+                  "code": "OC-52",
+                  "displayName": "Gray Owl",
+                  "color": "rgb(211, 212, 204)"
+                },
+                {
+                  "name": "stonington-gray",
+                  "code": "HC-170",
+                  "displayName": "Stonington Gray",
+                  "color": "rgb(202, 203, 197)"
+                },
+                {
+                  "name": "metropolitan",
+                  "code": "AF-690",
+                  "displayName": "Metropolitan",
+                  "color": "rgb(186, 189, 184)"
+                }
+              ]
+            },
+            {
+              "name": "blacks",
+              "code": "blacks",
+              "displayName": "Best-Selling Blacks",
+              "thumbnail": "branding/blacks.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/blacks.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "gray",
+                  "code": "2121-10",
+                  "displayName": "Gray",
+                  "color": "rgb(88, 88, 88)"
+                },
+                {
+                  "name": "iron-mountain",
+                  "code": "2134-30",
+                  "displayName": "Iron Mountain",
+                  "color": "rgb(87, 85, 83)"
+                },
+                {
+                  "name": "raccoon-fur",
+                  "code": "2126-20",
+                  "displayName": "Raccoon Fur",
+                  "color": "rgb(70, 74, 77)"
+                },
+                {
+                  "name": "wrought-iron",
+                  "code": "2124-10",
+                  "displayName": "Wrought Iron",
+                  "color": "rgb(73, 74, 75)"
+                },
+                {
+                  "name": "jet-black",
+                  "code": "2120-10",
+                  "displayName": "Jet Black",
+                  "color": "rgb(51, 51, 52)"
+                },
+                {
+                  "name": "black",
+                  "code": "2132-10",
+                  "displayName": "Black",
+                  "color": "rgb(49, 49, 50)"
+                }
+              ]
+            },
+            {
+              "name": "reds",
+              "code": "reds",
+              "displayName": "Best-Selling Reds ",
+              "thumbnail": "branding/reds.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/reds.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "million-dollar-red",
+                  "code": "2003-10",
+                  "displayName": "Million Dollar Red",
+                  "color": "rgb(181, 51, 44)"
+                },
+                {
+                  "name": "Red",
+                  "code": "2000-10",
+                  "displayName": "Red",
+                  "color": "rgb(201, 46, 46)"
+                },
+                {
+                  "name": "exotic-red",
+                  "code": "2086-10",
+                  "displayName": "Exotic Red ",
+                  "color": "rgb(179, 39, 53)"
+                },
+                {
+                  "name": "caliente",
+                  "code": "AF-290",
+                  "displayName": "Caliente",
+                  "color": "rgb(138, 39, 40)"
+                },
+                {
+                  "name": "dinner-party",
+                  "code": "AF-300",
+                  "displayName": "Dinner Party",
+                  "color": "rgb(118, 54, 55)"
+                },
+                {
+                  "name": "boston-brick",
+                  "code": "2092-30",
+                  "displayName": "Boston Brick",
+                  "color": "rgb(134, 75, 64)"
+                }
+              ]
+            },
+            {
+              "name": "oranges",
+              "code": "oranges",
+              "displayName": "Best-Selling Oranges",
+              "thumbnail": "branding/oranges.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/oranges.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "peach-parfait",
+                  "code": "2175-70",
+                  "displayName": "Peach Parfait",
+                  "color": "rgb(249, 231, 218)"
+                },
+                {
+                  "name": "parchment",
+                  "code": "OC-78",
+                  "displayName": "Parchment",
+                  "color": "rgb(247, 231, 212)"
+                },
+                {
+                  "name": "pale-oats",
+                  "code": "2166-60",
+                  "displayName": "Pale Oats",
+                  "color": "rgb(249, 222, 195)"
+                },
+                {
+                  "name": "italianate",
+                  "code": "AF-215",
+                  "displayName": "Italianate",
+                  "color": "rgb(203, 153, 118)"
+                },
+                {
+                  "name": "firenze",
+                  "code": "AF-225",
+                  "displayName": "Firenze",
+                  "color": "rgb(184, 116, 80)"
+                },
+                {
+                  "name": "electric-orange",
+                  "code": "2015-10",
+                  "displayName": "Electric Orange",
+                  "color": "rgb(240, 112, 26)"
+                }
+              ]
+            },
+            {
+              "name": "yellows",
+              "code": "yellows",
+              "displayName": "Best-Selling Yellows",
+              "thumbnail": "branding/yellows.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/yellows.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "mannequin-cream",
+                  "code": "2152-60",
+                  "displayName": "Mannequin Cream",
+                  "color": "rgb(247, 236, 210"
+                },
+                {
+                  "name": "windham-cream",
+                  "code": "HC-6",
+                  "displayName": "Windham Cream",
+                  "color": "rgb(245, 233, 199)"
+                },
+                {
+                  "name": "rich-cream",
+                  "code": "2151-60",
+                  "displayName": "Rich Cream",
+                  "color": "rgb(242, 228, 197)"
+                },
+                {
+                  "name": "philadelphia-cream",
+                  "code": "HC-30",
+                  "displayName": "Philadelphia Cream",
+                  "color": "rgb(237, 221, 183)"
+                },
+                {
+                  "name": "hawthorne-yellow",
+                  "code": "HC-4",
+                  "displayName": "Hawthorne Yellow",
+                  "color": "rgb(245, 225, 164)"
+                },
+                {
+                  "name": "concord-ivory",
+                  "code": "HC-12",
+                  "displayName": "Concord-Ivory",
+                  "color": "rgb(231, 205, 141)"
+                }
+              ]
+            },
+            {
+              "name": "greens",
+              "code": "greens",
+              "displayName": "Best-Selling Greens",
+              "thumbnail": "branding/greens.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/greens.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "november-rain",
+                  "code": "2142-60",
+                  "displayName": "November Rain",
+                  "color": "rgb(224, 222, 208)"
+                },
+                {
+                  "name": "soft-fern",
+                  "code": "2144-40",
+                  "displayName": "Soft Fern",
+                  "color": "rgb(200, 202, 178)"
+                },
+                {
+                  "name": "guilford-green",
+                  "code": "HC-116",
+                  "displayName": "Guilford Green",
+                  "color": "rgb(203, 205, 174)"
+                },
+                {
+                  "name": "saybrook-sage",
+                  "code": "HC-114",
+                  "displayName": "Saybrook Sage",
+                  "color": "rgb(177, 183, 162)"
+                },
+                {
+                  "name": "gloucester-sage",
+                  "code": "HC-100",
+                  "displayName": "Gloucester Sage",
+                  "color": "rgb(123, 118, 101)"
+                },
+                {
+                  "name": "hunter-green",
+                  "code": "2041-10",
+                  "displayName": "Hunter Green",
+                  "color": "rgb(42, 69, 61)"
+                }
+              ]
+
+            },
+            {
+              "name": "blues",
+              "code": "blues",
+              "displayName": "Best-Selling Blues",
+              "thumbnail": "branding/blues.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/blues.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "palladian-blue",
+                  "code": "HC-144",
+                  "displayName": "Palladian Blue",
+                  "color": "rgb(193, 209, 201)"
+                },
+                {
+                  "name": "smoke",
+                  "code": "2122-40",
+                  "displayName": "Smoke",
+                  "color": "rgb(186, 200, 201)"
+                },
+                {
+                  "name": "beacon-gray",
+                  "code": "2128-60",
+                  "displayName": "Beacon Gray",
+                  "color": "rgb(205, 215, 222)"
+                },
+                {
+                  "name": "van-deusen-blue",
+                  "code": "HC-156",
+                  "displayName": "Van Deusen Blue",
+                  "color": "rgb(72, 91, 110)"
+                },
+                {
+                  "name": "gentlemans-gray",
+                  "code": "2062-20",
+                  "displayName": "Gentleman's Gray",
+                  "color": "rgb(48, 70, 86)"
+                },
+                {
+                  "name": "hale-navy",
+                  "code": "HC-154",
+                  "displayName": "Hale Navy",
+                  "color": "rgb(67, 75, 86)"
+                }
+              ]
+            },
+            {
+              "name": "purples",
+              "code": "purples",
+              "displayName": "Best-Selling Purples",
+              "thumbnail": "branding/purples.jpg",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/purples.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "name": "lily-lavender",
+                  "code": "2071-60",
+                  "displayName": "Lily Lavender",
+                  "color": "rgb(219, 206, 232)"
+                },
+                {
+                  "name": "lavender-mist",
+                  "code": "2070-60",
+                  "displayName": "Lavender Mist",
+                  "color": "rgb(207, 207, 224)"
+                },
+                {
+                  "name": "winter-gray",
+                  "code": "2117-60",
+                  "displayName": "Winter Grey",
+                  "color": "rgb(208, 205, 214)"
+                },
+                {
+                  "name": "mystical-grape",
+                  "code": "2071-30",
+                  "displayName": "Mystical Grape",
+                  "color": "rgb(102, 75, 134)"
+                },
+                {
+                  "name": "shadow",
+                  "code": "2117-30",
+                  "displayName": "Shadow",
+                  "color": "rgb(81, 74, 88)"
+                },
+                {
+                  "name": "vintage-wine",
+                  "code": "2116-20",
+                  "displayName": "Vintage Wine",
+                  "color": "rgb(84, 70, 73)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

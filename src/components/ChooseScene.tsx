@@ -71,7 +71,8 @@ const ChooseSceneCached = React.memo<ChooseSceneProps>(
             return (
                 <div className={"choose-scene"} style={{visibility:props.hidden ? "hidden":"visible"}}>
                     <div className="content">
-                        <SourceButton color={'primary'} appearance={getFeatureAppearance(props.siteData, UploadStyle.name, UploadStyle)}
+                        <SourceButton color={'primary'}
+                                      appearance={getFeatureAppearance(props.siteData, UploadStyle.name, UploadStyle)}
                                       siteData={props.siteData} onSourceClicked={props.onSourceClicked} />
 
                         <SourceButton color={'secondary'} appearance={getFeatureAppearance(props.siteData, SceneStyle.name, SceneStyle)}
