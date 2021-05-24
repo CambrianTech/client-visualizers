@@ -49,8 +49,6 @@ import {
     VerticalListing
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
-import orientationImage from "../data/orientation6.jpg";
-
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
 import {Fab, Icon} from "@material-ui/core";
@@ -71,8 +69,6 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
         hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
         signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
-        orientationImage:orientationImage,
-        opencvJsLocation:"assets/opencv.js",
         placeholderPath:"assets/img/blue-tile.png"
     })
 } else {
