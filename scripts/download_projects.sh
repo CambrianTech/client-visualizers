@@ -7,7 +7,9 @@ read BUCKET_NAME
 LOCAL_PATH="${ROOT_BUCKET}/${BUCKET_NAME}"
 REMOTE_PATH="s3://${ROOT_BUCKET}/${BUCKET_NAME}"
 
-echo $LOCAL_PATH, $REMOTE_PATH
-
 mkdir -p ${LOCAL_PATH}
 aws s3 cp ${REMOTE_PATH} ${LOCAL_PATH} --recursive
+
+echo
+echo Copied files to $LOCAL_PATH
+echo 
