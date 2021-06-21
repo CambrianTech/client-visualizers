@@ -41,7 +41,8 @@
     "eject": "react-scripts eject",
     "server": "cd server; npm run start;",
     "postinstall": "cd server; node -e \"process.env.NODE_ENV != 'production' && process.exit(1)\" || npm install",
-    "sync": "sh scripts/sync.sh"
+    "sync": "sh scripts/sync.sh",
+    "download": "sh scripts/download_projects.sh"
   },
   "eslintConfig": {
     "extends": "react-app"

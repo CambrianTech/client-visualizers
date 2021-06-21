@@ -38,3 +38,4 @@ output
 cambrianar-sites
 /server/dist
 /server/node_modules
+/cb-backend-data
