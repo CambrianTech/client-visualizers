@@ -49,8 +49,6 @@ import {
     VerticalListing
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
-import orientationImage from "../data/orientation6.jpg";
-
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
 import {Fab, Icon} from "@material-ui/core";
@@ -71,8 +69,6 @@ if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPL
         hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
         signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
-        orientationImage:orientationImage,
-        opencvJsLocation:"assets/opencv.js",
         placeholderPath:"assets/img/blue-tile.png"
     })
 } else {
@@ -332,6 +328,34 @@ export default function Visualizer() {
             }
 
             materials.push(material);
+        } else if (color.metaData) {
+            const material = getBaseMaterialProps(color);
+            material.textures = {};
+
+            //phase out this data approach:
+            if (color.metaData.hasOwnProperty("albedo")) {
+                material.textures.albedo = `${brandPath}/${color.metaData.albedo}`;
+            }
+            if (color.metaData.hasOwnProperty("normals")) {
+                material.textures.normals = `${brandPath}/${color.metaData.normals}`;
+            }
+            if (color.metaData.hasOwnProperty("specular")) {
+                material.textures.roughness = `${brandPath}/${color.metaData.specular}`;
+            }
+            if (color.metaData.hasOwnProperty("mirrored")) {
+                material.mirrored = color.metaData.mirrored;
+            }
+            if (color.metaData.hasOwnProperty("mirroredX")) {
+                material.mirroredX = color.metaData.mirroredX;
+            }
+            if (color.metaData.hasOwnProperty("mirroredY")) {
+                material.mirroredY = color.metaData.mirroredY;
+            }
+            if (color.metaData.hasOwnProperty("crop")) {
+                material.crop = color.metaData.crop;
+            }
+
+            materials.push(material);
         }
 
         let elevation = 0.0;
@@ -422,7 +446,7 @@ export default function Visualizer() {
         } else if (currentScene) {
             setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
         } else {
-            setActivePanel(Panel.Scenes);
+            setActivePanel(activePanel === Panel.Scenes ? Panel.None : Panel.Scenes);
         }
     }, [activePanel, currentScene, rootItem]);
 
@@ -807,7 +831,7 @@ export default function Visualizer() {
 
     const sourceChosen = useCallback((source:ApiCapabilityName)=>{
         if (source === 'upload') {
-            openImageDialog()
+            openImageDialog();
         } else if (source === 'scenes') {
             setActivePanel(Panel.Scenes)
         }

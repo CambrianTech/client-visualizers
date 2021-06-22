@@ -411,7 +411,6 @@ panel.c {
     border:1px solid var(--mdc-theme-primary, #555555);
 }
 
-
 .makeStyles-speedDial-1 {
     top: 30px !important;
     right: 30px !important;
@@ -683,9 +682,13 @@ panel.c {
     .MuiFab-sizeSmall {
         margin: 6px !important;
     }
+
+    .image-rotation-popup {
+        max-width:unset;
+    }
 }
 
-/* iPad Portrait Only */
+/* Portrait Only */
 @media (orientation: portrait)  {
     .product-details .product-details-name {
         align-items: baseline;
