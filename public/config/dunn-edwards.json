@@ -72,18 +72,6 @@
             {
               "code": "3-bedroom",
               "displayName": "Bedroom"
-            },
-            {
-              "code": "4-bedroom",
-              "displayName": "Bedroom"
-            },
-            {
-              "code": "5-bedroom",
-              "displayName": "Bedroom"
-            },
-            {
-              "code": "6-bedroom",
-              "displayName": "Bedroom"
             }
           ]
         },
@@ -122,46 +110,8 @@
           "displayName": "Living Room",
           "scenes": [
             {
-              "code": "1-compact-apartment",
+              "code": "1-living-room",
               "displayName": "Living Room"
-            },
-            {
-              "code": "4-living-room",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "6-living-room",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "7-living-room",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "8-living-room",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "9-living-room",
-              "displayName": "Living Room"
-            }
-          ]
-        },
-        {
-          "code": "office",
-          "displayName": "Office",
-          "scenes": [
-            {
-              "code": "1-business",
-              "displayName": "Office"
-            },
-            {
-              "code": "1-office",
-              "displayName": "Office"
-            },
-            {
-              "code": "2-lobby",
-              "displayName": "Office"
             }
           ]
         }
