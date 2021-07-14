@@ -68,10 +68,20 @@
             {
               "code": "2-bedroom",
               "displayName": "Bedroom"
+            }
+          ]
+        },
+        {
+          "code": "dining-room",
+          "displayName": "Dining Room",
+          "scenes": [
+            {
+              "code": "1-dining-room",
+              "displayName": "Dining Room"
             },
             {
-              "code": "3-bedroom",
-              "displayName": "Bedroom"
+              "code": "2-dining-room",
+              "displayName": "Dining Room"
             }
           ]
         },
@@ -80,27 +90,11 @@
           "displayName": "Kitchen",
           "scenes": [
             {
-              "code": "kitchen-1",
-              "displayName": "Kitchen"
-            },
-            {
-              "code": "1-dining",
-              "displayName": "Kitchen"
-            },
-            {
               "code": "1-kitchen",
               "displayName": "Kitchen"
             },
             {
               "code": "2-kitchen",
-              "displayName": "Kitchen"
-            },
-            {
-              "code": "3-kitchen",
-              "displayName": "Kitchen"
-            },
-            {
-              "code": "4-kitchen",
               "displayName": "Kitchen"
             }
           ]
@@ -112,6 +106,24 @@
             {
               "code": "1-living-room",
               "displayName": "Living Room"
+            },
+            {
+              "code": "2-living-room",
+              "displayName": "Living Room"
+            }
+          ]
+        },
+        {
+          "code": "entry",
+          "displayName": "Entry",
+          "scenes": [
+            {
+              "code": "1-entry",
+              "displayName": "Entry"
+            },
+            {
+              "code": "2-entry",
+              "displayName": "Entry"
             }
           ]
         }
