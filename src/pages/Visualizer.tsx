@@ -19,7 +19,7 @@ import {
     CBARView,
     cbInitialize,
     DataFilter,
-    DataItem,
+    DataItem, DebugLevel,
     Product,
     ProductBrand,
     ProductCollection,
@@ -66,6 +66,7 @@ enum Panel {
 
 if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
     cbInitialize({
+        logLevel:DebugLevel.Performance,
         hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
         signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
