@@ -66,7 +66,7 @@ enum Panel {
 
 if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
     cbInitialize({
-        logLevel:DebugLevel.Performance,
+        logLevel:DebugLevel.Warning,
         hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
         signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
         processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
