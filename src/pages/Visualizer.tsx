@@ -386,6 +386,17 @@ export default function Visualizer() {
         }
     }, [brandPath, context, selectedSurface]);
 
+    const productsClicked = useCallback((gotoRoot?:boolean)=>{
+        if (rootItem && gotoRoot) {
+            setListingItems(rootItem.children);
+            setActivePanel(Panel.Products);
+        } else if (currentScene) {
+            setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
+        } else {
+            setActivePanel(activePanel === Panel.Scenes ? Panel.None : Panel.Scenes);
+        }
+    }, [activePanel, currentScene, rootItem]);
+
     const handleVisualizerEvent = useCallback((event:CBAREvent) => {
         if (!currentScene) return;
 
@@ -414,13 +425,15 @@ export default function Visualizer() {
 
             if (asset) {
                 assetClicked(asset);
+            } else if (!selectedProduct) {
+                productsClicked();
             }
         } else if (selectedAsset && event.type === CBAREventType.TouchMove) {
             setCurrentRotation(selectedAsset.surfaceRotation);
             setCurrentXPos(selectedAsset.surfacePosition.x);
             setCurrentYPos(selectedAsset.surfacePosition.y);
         }
-    }, [assetClicked, currentScene, selectedAsset]);
+    }, [assetClicked, currentScene, productsClicked, selectedAsset, selectedProduct]);
 
     useEffect(() => {
         if (context) {
@@ -439,17 +452,6 @@ export default function Visualizer() {
             setHasSeenProducts(true);
         }
     }, [selectedProduct]);
-
-    const productsClicked = useCallback((gotoRoot?:boolean)=>{
-        if (rootItem && gotoRoot) {
-            setListingItems(rootItem.children);
-            setActivePanel(Panel.Products);
-        } else if (currentScene) {
-            setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
-        } else {
-            setActivePanel(activePanel === Panel.Scenes ? Panel.None : Panel.Scenes);
-        }
-    }, [activePanel, currentScene, rootItem]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem.parent && swatchItem.parent.hasColumns) {

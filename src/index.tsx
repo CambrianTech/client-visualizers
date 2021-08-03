@@ -20,7 +20,7 @@ const objectFitImages = require('object-fit-images');
 export let siteName = (window as any).siteName;
 
 if (!siteName) {
-    siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "default"
+    siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "divine-floor"
 }
 
 const isLocal = process.env.REACT_APP_IS_LOCAL==="1";

@@ -167,6 +167,7 @@
     background-color: #bebebe;
     opacity: 0.0;
     transition: opacity 500ms;
+    user-select: none;
 }
 
 .cbarview.has-scene {
