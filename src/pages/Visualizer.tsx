@@ -742,7 +742,7 @@ export default function Visualizer() {
             actions = actions.filter(item=>item.operation !== ToolOperation.Share);
         }
 
-        if (!selectedAsset) {
+        if (!selectedAsset || selectedAsset.type === CBARAssetType.PaintSurface) {
             actions = actions.filter(item=>item.operation !== CBARToolMode.Rotate && item.operation !== CBARToolMode.Translate);
         }
 
