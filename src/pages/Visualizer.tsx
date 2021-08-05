@@ -453,6 +453,12 @@ export default function Visualizer() {
         }
     }, [selectedProduct]);
 
+    useEffect(()=>{
+        if (selectedSurface) {
+            console.log(`Selected surface changed to ${selectedSurface.description}`)
+        }
+    }, [selectedSurface]);
+
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem.parent && swatchItem.parent.hasColumns) {
             setSelectedColumn(selectedColumn === swatchItem ? undefined : swatchItem);
