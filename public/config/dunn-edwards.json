@@ -140,7 +140,7 @@
               "name": "whites",
               "code": "whites",
               "displayName": "Whites & Creams",
-              "thumbnail": "branding/whites.jpg",
+              "thumbnail": "branding/whites.png",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
                 "preview": "branding/whites.jpg",
@@ -255,561 +255,10 @@
               ]
             },
             {
-              "name": "neutrals",
-              "code": "neutrals",
-              "displayName": "Warm Neutrals",
-              "thumbnail": "branding/neutrals.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/neutrals.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "colors": [
-                {
-                  "code": "DE6150",
-                  "displayName": "Gourmet Honey",
-                  "color": "#E3CBA8"
-                },
-                {
-                  
-                  "code": "DE6066",
-                  "displayName": "Desert Rock",
-                  "color": "#D5C6BD"
-                },
-                {
-                  
-                  "code": "DE6172",
-                  "displayName": "Bungalow Taupe",
-                  "color": "#CEBE9F"
-                },
-                {
-                
-                  "code": "DET646",
-                  "displayName": "Warm and Toasty",
-                  "color": "#CBB68F"
-                },
-                {
-                
-                  "code": "DEC743",
-                  "displayName": "High Noon",
-                  "color": "#CFB999"
-                },
-                {
-                 
-                  "code": "DEC726",
-                  "displayName": "Adobe",
-                  "color": "#D1B791"
-                },
-                {
-                  "code": "DET632",
-                  "displayName": "Flour Sack",
-                  "color": "#B9B297"
-                },
-                {
-                  "code": "DET633",
-                  "displayName": "Trail Blazer",
-                  "color": "#C0B28E"
-                },
-                {
-                  "code": "DEC760",
-                  "displayName": "Desert Gray",
-                  "color": "#B8A487"
-                },
-                {
-                  "code": "DE6117",
-                  "displayName": "Colorado Trail",
-                  "color": "#B49375"
-                },
-                {
-                  "code": "DEC718",
-                  "displayName": "Mesa Tan",
-                  "color": "#A78B71"
-                },
-                {
-                  "code": "DEC713",
-                  "displayName": "Roman Brick",
-                  "color": "#AB7F5B"
-                }
-              ]
-            },
-            {
-              "name": "grays",
-              "code": "grays",
-              "displayName": "Tans, Beiges, & Taupes",
-              "thumbnail": "branding/grays.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/grays.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "colors": [
-                {
-                  
-                  "code": "DEC765",
-                  "displayName": "Bone",
-                  "color": "#EADFCE"
-                },
-                {
-                  
-                  "code": "DE6205",
-                  "displayName": "Stucco Tan",
-                  "color": "#E8DECE"
-                },
-                {
-
-                  "code": "DEC740",
-                  "displayName": "Sandcastle",
-                  "color": "#E5D7C4"
-                },
-                {
-                
-                  "code": "DEC748",
-                  "displayName": "Oyster",
-                  "color": "#E3D3BF"
-                },
-                {
-                 
-                  "code": "DET670",
-                  "displayName": "Vintage Ephemera",
-                  "color": "#D8CEB9"
-                },
-                {
-                  "code": "DEC761",
-                  "displayName": "Cochise",
-                  "color": "#DDCDB3"
-                },
-                {
-                  "code": "DE6206",
-                  "displayName": "Desert Suede",
-                  "color": "#D5C7B3"
-                },
-                {
-                  "code": "DE6199",
-                  "displayName": "Pale Beach",
-                  "color": "#D6C5A9"
-                },
-                {
-                  "code": "DET623",
-                  "displayName": "En Plein Air",
-                  "color": "#D0C5BE"
-                },
-                {
-                  "code": "DE6122",
-                  "displayName": "Dry Creek",
-                  "color": "#D8C7B6"
-                },
-                {
-                  "code": "DEC747",
-                  "displayName": "Sahara",
-                  "color": "#D5C3AD"
-                },
-                {
-                  "code": "DE6129",
-                  "displayName": "Rustic Taupe",
-                  "color": "#CDB9A2"
-                },
-                {
-                  "code": "DE6059",
-                  "displayName": "Chocolate Milk",
-                  "color": "#C5B9B4"
-                },
-                {
-                  "code": "DEC716",
-                  "displayName": "Stonish Beige",
-                  "color": "#CCB49A"
-                },
-                {
-                  "code": "DET692",
-                  "displayName": "Kiln Dried",
-                  "color": "#A89887"
-                }
-              ]
-            },
-            {
-              "name": "blacks",
-              "code": "blacks",
-              "displayName": "Grays & Greiges",
-              "thumbnail": "branding/blacks.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/blacks.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "colors": [
-                {
-                 
-                  "code": "DE6358",
-                  "displayName": "Vapor",
-                  "color": "#EAEAEA"
-                },
-                {
-                  
-                  "code": "DEC793",
-                  "displayName": "Chalky",
-                  "color": "#E9E9E1"
-                },
-                {
-               
-                  "code": "DEC785",
-                  "displayName": "Whisper Gray",
-                  "color": "#E9E5DA"
-                },
-                {
-                  
-                  "code": "DEC791",
-                  "displayName": "Cloud",
-                  "color": "#D8D7D3"
-                },
-                {
-                 
-                  "code": "DET614",
-                  "displayName": "So Chic!",
-                  "color": "#CECDC5"
-                },
-                {
-                  "code": "DE6227",
-                  "displayName": "Muslin",
-                  "color": "#D4D0C5"
-                },
-                {
-                  "code": "DE6213",
-                  "displayName": "Fine Grain",
-                  "color": "#D8CFC1"
-                },
-                {
-                  "code": "DEC786",
-                  "displayName": "Miner's Dust",
-                  "color": "#D3CEC5"
-                },
-                {
-                  "code": "DE6220",
-                  "displayName": "Porous Stone",
-                  "color": "#D4CEBF"
-                },
-                {
-                  "code": "DET600",
-                  "displayName": "Dolphin Tales",
-                  "color": "#C7C7C2"
-                },
-                {
-                  "code": "DE6374",
-                  "displayName": "Silver Polish",
-                  "color": "#C6C6C6"
-                },
-                {
-                  "code": "DEC752",
-                  "displayName": "Birchwood",
-                  "color": "#CCBEAC"
-                },
-                {
-                  "code": "DEC795",
-                  "displayName": "Gray Pearl",
-                  "color": "#C3C0BB"
-                },
-                {
-                  "code": "DET625",
-                  "displayName": "Reclaimed Wood",
-                  "color": "#BAB6AB"
-                },
-                {
-                  "code": "DET627",
-                  "displayName": "Pewter Patter",
-                  "color": "#BAB4A6"
-                },
-                {
-                  "code": "DET603",
-                  "displayName": "Church Mouse",
-                  "color": "#B3B5AF"
-                },
-                {
-                  "code": "DEC751",
-                  "displayName": "Ash Gray",
-                  "color": "#C1B5A9"
-                },
-                {
-                  "code": "DE6214",
-                  "displayName": "Pigeon Gray",
-                  "color": "#C1B4A0"
-                },
-                {
-                  "code": "DET618",
-                  "displayName": "Industrial Age",
-                  "color": "#AEADAD"
-                },
-                {
-                  "code": "DET620",
-                  "displayName": "Barnwood Gray",
-                  "color": "#9E9589"
-                },
-                {
-                  "code": "DEC750",
-                  "displayName": "Bison Beige",
-                  "color": "#9F9180"
-                },
-                {
-                  "code": "DET612",
-                  "displayName": "Stieglitz Silver",
-                  "color": "#8D8F8E"
-                },
-                {
-                  "code": "DE6376",
-                  "displayName": "Looking Glass",
-                  "color": "#888786"
-                },
-                {
-                  "code": "DET626",
-                  "displayName": "Metal Fringe",
-                  "color": "#837E74"
-                },
-                {
-                  "code": "DET615",
-                  "displayName": "Stone Mason",
-                  "color": "#7A7B75"
-                },
-                {
-                  "code": "DET611",
-                  "displayName": "Iron-ic",
-                  "color": "#6A6B67"
-                }
-              ]
-            },
-            {
               "name": "reds",
               "code": "reds",
-              "displayName": "Dark Browns & Blacks",
-              "thumbnail": "branding/reds.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/reds.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "colors": [
-                {
-                
-                  "code": "DET631",
-                  "displayName": "Cocoa Powder",
-                  "color": "#766A5F"
-                },
-                {
-                  
-                  "code": "DET699",
-                  "displayName": "Bourbon Truffle",
-                  "color": "#6C5654"
-                },
-                {
-                 
-                  "code": "DE6077",
-                  "displayName": "Deep Brown",
-                  "color": "#6F5749"
-                },
-                {
-                 
-                  "code": "DEA161",
-                  "displayName": "Wild Mustang",
-                  "color": "#695649"
-                },
-                {
-                 
-                  "code": "DEC712",
-                  "displayName": "Briar",
-                  "color": "#745443"
-                },
-                {
-                  
-                  "code": "DEC756",
-                  "displayName": "Weathered Brown",
-                  "color": "#59504C"
-                },
-                { 
-                  "code": "DET619",
-                  "displayName": "Celluloid",
-                  "color": "#515153"
-                },
-                { 
-                  "code": "DE6371",
-                  "displayName": "Blackjack",
-                  "color": "#51504D"
-                },
-                { 
-                  "code": "DET680",
-                  "displayName": "Espresso Macchiato",
-                  "color": "#4F4744"
-                },
-                { 
-                  "code": "DEA158",
-                  "displayName": "Northern Territory",
-                  "color": "#5E463C"
-                },
-                { 
-                  "code": "DE6350",
-                  "displayName": "Dark Engine",
-                  "color": "#3E3F41"
-                },
-                { 
-                  "code": "DEA002",
-                  "displayName": "Black",
-                  "color": "#3B3A3A"
-                }
-              ]
-            },
-            {
-              "name": "oranges",
-              "code": "oranges",
-              "displayName": "Oranges & Yellows",
-              "thumbnail": "branding/oranges.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/oranges.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "colors": [
-                {
-              
-                  "code": "DE5302",
-                  "displayName": "Warm Light",
-                  "color": "#FFF9D8"
-                },
-                {
-                
-                  "code": "DET491",
-                  "displayName": "Lazy Daisy",
-                  "color": "#F3E7B4"
-                },
-                {
-                 
-                  "code": "DET654",
-                  "displayName": "Crème Fraiche",
-                  "color": "#EBDAB5"
-                },
-                {
-                 
-                  "code": "DET495",
-                  "displayName": "Sunnyside Up",
-                  "color": "#EED053"
-                },
-                {
-             
-                  "code": "AF-225",
-                  "displayName": "Firenze",
-                  "color": "rgb(184, 116, 80)"
-                },
-                {
-                  "code": "DET489",
-                  "displayName": "Prairie Land",
-                  "color": "#E2CC9C"
-                },
-                {
-                  "code": "DET472",
-                  "displayName": "Ochre Revival",
-                  "color": "#EEC987"
-                },
-                {
-                  "code": "DET473",
-                  "displayName": "Maize",
-                  "color": "#DAB77F"
-                },
-                {
-                  "code": "DE5354",
-                  "displayName": "Honey Glow",
-                  "color": "#E8B447"
-                },
-                {
-                  "code": "DET462",
-                  "displayName": "Bittersweet",
-                  "color": "#FEA051"
-                },
-                {
-                  "code": "DET478",
-                  "displayName": "Zucchini Flower",
-                  "color": "#E8A64E"
-                },
-                {
-                  "code": "DET486",
-                  "displayName": "Wildflower Honey",
-                  "color": "#C69C5D"
-                },
-                {
-                  "code": "DET464",
-                  "displayName": "Cognac",
-                  "color": "#D48C46"
-                },
-                {
-                  "code": "DE5173",
-                  "displayName": "Deep Coral",
-                  "color": "#DA7C55"
-                },
-                {
-                  "code": "DET484",
-                  "displayName": "Bungalow Gold",
-                  "color": "#AD8047"
-                },
-                {
-                  "code": "DET466",
-                  "displayName": "Monarch Migration",
-                  "color": "#BF764C"
-                },
-                {
-                  "code": "DET449",
-                  "displayName": "Citrus Notes",
-                  "color": "#D26643"
-                },
-                {
-                  "code": "DET454",
-                  "displayName": "Arizona Clay",
-                  "color": "#AD735A"
-                },
-                {
-                  "code": "DET467",
-                  "displayName": "Harrison Rust",
-                  "color": "#9A5F3F"
-                }
-              ]
-            },
-            {
-              "name": "yellows",
-              "code": "yellows",
               "displayName": "Reds, Pinks, & Corals",
-              "thumbnail": "branding/yellows.jpg",
+              "thumbnail": "branding/reds.png",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
                 "preview": "branding/yellows.jpg",
@@ -947,13 +396,13 @@
               ]
             },
             {
-              "name": "purples",
-              "code": "purples",
-              "displayName": "Purples",
-              "thumbnail": "branding/purples.jpg",
+              "name": "oranges",
+              "code": "oranges",
+              "displayName": "Oranges & Yellows",
+              "thumbnail": "branding/yellows.png",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/purples.jpg",
+                "preview": "branding/oranges.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -966,56 +415,115 @@
               },
               "colors": [
                 {
-                  "code": "DE6051",
-                  "displayName": "Pale Berries",
-                  "color": "#E2CCC7"
+              
+                  "code": "DE5302",
+                  "displayName": "Warm Light",
+                  "color": "#FFF9D8"
                 },
                 {
-                  "code": "DE5959",
-                  "displayName": "Lingering Lilac",
-                  "color": "#E6DEF0"
+                
+                  "code": "DET491",
+                  "displayName": "Lazy Daisy",
+                  "color": "#F3E7B4"
                 },
                 {
-                  "code": "DE5974",
-                  "displayName": "Soft Lilac",
-                  "color": "#E2D4DF"
+                 
+                  "code": "DET654",
+                  "displayName": "Crème Fraiche",
+                  "color": "#EBDAB5"
                 },
                 {
-                  "code": "DE5946",
-                  "displayName": "Violet Crush",
-                  "color": "#D8D3E6"
+                 
+                  "code": "DET495",
+                  "displayName": "Sunnyside Up",
+                  "color": "#EED053"
                 },
                 {
-                  "code": "DE6019",
-                  "displayName": "Bohemian Jazz",
-                  "color": "#9D777C"
+             
+                  "code": "AF-225",
+                  "displayName": "Firenze",
+                  "color": "rgb(184, 116, 80)"
                 },
                 {
-                  "code": "DET405",
-                  "displayName": "Purple Prose",
-                  "color": "#554348"
+                  "code": "DET489",
+                  "displayName": "Prairie Land",
+                  "color": "#E2CC9C"
                 },
                 {
-                  "code": "DEA143",
-                  "displayName": "Purple Odyssey",
-                  "color": "#643E65"
+                  "code": "DET472",
+                  "displayName": "Ochre Revival",
+                  "color": "#EEC987"
                 },
                 {
-                  "code": "DET407",
-                  "displayName": "Nightshade",
-                  "color": "#4F4352"
+                  "code": "DET473",
+                  "displayName": "Maize",
+                  "color": "#DAB77F"
+                },
+                {
+                  "code": "DE5354",
+                  "displayName": "Honey Glow",
+                  "color": "#E8B447"
+                },
+                {
+                  "code": "DET462",
+                  "displayName": "Bittersweet",
+                  "color": "#FEA051"
+                },
+                {
+                  "code": "DET478",
+                  "displayName": "Zucchini Flower",
+                  "color": "#E8A64E"
+                },
+                {
+                  "code": "DET486",
+                  "displayName": "Wildflower Honey",
+                  "color": "#C69C5D"
+                },
+                {
+                  "code": "DET464",
+                  "displayName": "Cognac",
+                  "color": "#D48C46"
+                },
+                {
+                  "code": "DE5173",
+                  "displayName": "Deep Coral",
+                  "color": "#DA7C55"
+                },
+                {
+                  "code": "DET484",
+                  "displayName": "Bungalow Gold",
+                  "color": "#AD8047"
+                },
+                {
+                  "code": "DET466",
+                  "displayName": "Monarch Migration",
+                  "color": "#BF764C"
+                },
+                {
+                  "code": "DET449",
+                  "displayName": "Citrus Notes",
+                  "color": "#D26643"
+                },
+                {
+                  "code": "DET454",
+                  "displayName": "Arizona Clay",
+                  "color": "#AD735A"
+                },
+                {
+                  "code": "DET467",
+                  "displayName": "Harrison Rust",
+                  "color": "#9A5F3F"
                 }
               ]
-
             },
             {
-              "name": "blues",
-              "code": "blues",
-              "displayName": "Blues & Blue Greens",
-              "thumbnail": "branding/blues.jpg",
+              "name": "neutrals",
+              "code": "neutrals",
+              "displayName": "Warm Neutrals",
+              "thumbnail": "branding/neutrals.png",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/blues.jpg",
+                "preview": "branding/neutrals.jpg",
                 "specifications": [
                   {"Plank Size": "9″ x 48″"},
                   {"Padding": "1.0mm EVA"},
@@ -1028,144 +536,69 @@
               },
               "colors": [
                 {
-                  "code": "DE5707",
-                  "displayName": "Mist of Green",
-                  "color": "#E3F1EB"
+                  "code": "DE6150",
+                  "displayName": "Gourmet Honey",
+                  "color": "#E3CBA8"
                 },
                 {
-                  "code": "DE6316",
-                  "displayName": "Cold Water",
-                  "color": "#D9DFE0"
+                  
+                  "code": "DE6066",
+                  "displayName": "Desert Rock",
+                  "color": "#D5C6BD"
                 },
                 {
-                  "code": "DE6303",
-                  "displayName": "Sky Glass",
-                  "color": "#D0DBD7"
+                  
+                  "code": "DE6172",
+                  "displayName": "Bungalow Taupe",
+                  "color": "#CEBE9F"
                 },
                 {
-                  "code": "DE5764",
-                  "displayName": "Blue Moon",
-                  "color": "#BBDEE5"
+                
+                  "code": "DET646",
+                  "displayName": "Warm and Toasty",
+                  "color": "#CBB68F"
                 },
                 {
-                  "code": "DE6310",
-                  "displayName": "Rainy Season",
-                  "color": "#D1D8D6"
+                
+                  "code": "DEC743",
+                  "displayName": "High Noon",
+                  "color": "#CFB999"
                 },
                 {
-                  "code": "DEC794",
-                  "displayName": "Salina Springs",
-                  "color": "#CAD2D4"
+                 
+                  "code": "DEC726",
+                  "displayName": "Adobe",
+                  "color": "#D1B791"
                 },
                 {
-                  "code": "DET565",
-                  "displayName": "Berry Mojito",
-                  "color": "#B6CACA"
+                  "code": "DET632",
+                  "displayName": "Flour Sack",
+                  "color": "#B9B297"
                 },
                 {
-                  "code": "DE5744",
-                  "displayName": "Seaport",
-                  "color": "#445A79"
+                  "code": "DET633",
+                  "displayName": "Trail Blazer",
+                  "color": "#C0B28E"
                 },
                 {
-                  "code": "DE5772",
-                  "displayName": "Blue Spruce",
-                  "color": "#ADC5C9"
+                  "code": "DEC760",
+                  "displayName": "Desert Gray",
+                  "color": "#B8A487"
                 },
                 {
-                  "code": "DET581",
-                  "displayName": "Country Air",
-                  "color": "#9FB6C6"
+                  "code": "DE6117",
+                  "displayName": "Colorado Trail",
+                  "color": "#B49375"
                 },
                 {
-                  "code": "DET599",
-                  "displayName": "Marine Layer",
-                  "color": "#A5B4B6"
+                  "code": "DEC718",
+                  "displayName": "Mesa Tan",
+                  "color": "#A78B71"
                 },
                 {
-                  "code": "DET543",
-                  "displayName": "Veranda",
-                  "color": "#61A9A5"
-                },
-                {
-                  "code": "DET552",
-                  "displayName": "Avalon",
-                  "color": "#799B96"
-                },
-                {
-                  "code": "DET567",
-                  "displayName": "Skipping Stones",
-                  "color": "#70939E"
-                },
-                {
-                  "code": "DET560",
-                  "displayName": "Weathered Blue",
-                  "color": "#7B9093"
-                },
-                {
-                  "code": "DET542",
-                  "displayName": "Tranquil Seashore",
-                  "color": "#629091"
-                },
-                {
-                  "code": "DE5788",
-                  "displayName": "Aegean Sea",
-                  "color": "#508FA2"
-                },
-                {
-                  "code": "DET569",
-                  "displayName": "San Miguel Blue",
-                  "color": "#527585"
-                },
-                {
-                  "code": "DE5768",
-                  "displayName": "Mysterious Blue",
-                  "color": "#3E7A85"
-                },
-                {
-                  "code": "DET577",
-                  "displayName": "Big Sur Blue Jade",
-                  "color": "#3F6E8E"
-                },
-                {
-                  "code": "DET571",
-                  "displayName": "Morro Bay",
-                  "color": "#546B78"
-                },
-                {
-                  "code": "DEA136",
-                  "displayName": "Beautiful Blue",
-                  "color": "#186DB6"
-                },
-                {
-                  "code": "DET593",
-                  "displayName": "Made of Steel",
-                  "color": "#5B686F"
-                },
-                {
-                  "code": "DET564",
-                  "displayName": "Eames for Blue",
-                  "color": "#466B82"
-                },
-                {
-                  "code": "DET559",
-                  "displayName": "Blue Velvet",
-                  "color": "#0D6183"
-                },
-                {
-                  "code": "DET582",
-                  "displayName": "Tried & True Blue",
-                  "color": "#494F62"
-                },
-                {
-                  "code": "DEA138",
-                  "displayName": "Indigo Night",
-                  "color": "#324680"
-                },
-                {
-                  "code": "DET572",
-                  "displayName": "Dark & Stormy",
-                  "color": "#353F51"
+                  "code": "DEC713",
+                  "displayName": "Roman Brick",
+                  "color": "#AB7F5B"
                 }
               ]
             },
@@ -1173,7 +606,7 @@
               "name": "greenblue",
               "code": "greenblue",
               "displayName": "Greens & Green Blues",
-              "thumbnail": "branding/greens.jpg",
+              "thumbnail": "branding/green_blue.png",
               "details": {
                 "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
                 "preview": "branding/purples.jpg",
@@ -1382,6 +815,573 @@
                   "code": "DEA181",
                   "displayName": "Refined Green",
                   "color": "#384543"
+                }
+              ]
+            },
+            {
+              "name": "grays",
+              "code": "grays",
+              "displayName": "Tans, Beiges, & Taupes",
+              "thumbnail": "branding/taupe_tan.png",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/grays.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  
+                  "code": "DEC765",
+                  "displayName": "Bone",
+                  "color": "#EADFCE"
+                },
+                {
+                  
+                  "code": "DE6205",
+                  "displayName": "Stucco Tan",
+                  "color": "#E8DECE"
+                },
+                {
+
+                  "code": "DEC740",
+                  "displayName": "Sandcastle",
+                  "color": "#E5D7C4"
+                },
+                {
+                
+                  "code": "DEC748",
+                  "displayName": "Oyster",
+                  "color": "#E3D3BF"
+                },
+                {
+                 
+                  "code": "DET670",
+                  "displayName": "Vintage Ephemera",
+                  "color": "#D8CEB9"
+                },
+                {
+                  "code": "DEC761",
+                  "displayName": "Cochise",
+                  "color": "#DDCDB3"
+                },
+                {
+                  "code": "DE6206",
+                  "displayName": "Desert Suede",
+                  "color": "#D5C7B3"
+                },
+                {
+                  "code": "DE6199",
+                  "displayName": "Pale Beach",
+                  "color": "#D6C5A9"
+                },
+                {
+                  "code": "DET623",
+                  "displayName": "En Plein Air",
+                  "color": "#D0C5BE"
+                },
+                {
+                  "code": "DE6122",
+                  "displayName": "Dry Creek",
+                  "color": "#D8C7B6"
+                },
+                {
+                  "code": "DEC747",
+                  "displayName": "Sahara",
+                  "color": "#D5C3AD"
+                },
+                {
+                  "code": "DE6129",
+                  "displayName": "Rustic Taupe",
+                  "color": "#CDB9A2"
+                },
+                {
+                  "code": "DE6059",
+                  "displayName": "Chocolate Milk",
+                  "color": "#C5B9B4"
+                },
+                {
+                  "code": "DEC716",
+                  "displayName": "Stonish Beige",
+                  "color": "#CCB49A"
+                },
+                {
+                  "code": "DET692",
+                  "displayName": "Kiln Dried",
+                  "color": "#A89887"
+                }
+              ]
+            },
+            {
+              "name": "blues",
+              "code": "blues",
+              "displayName": "Blues & Blue Greens",
+              "thumbnail": "branding/blues.png",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/blues.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "code": "DE5707",
+                  "displayName": "Mist of Green",
+                  "color": "#E3F1EB"
+                },
+                {
+                  "code": "DE6316",
+                  "displayName": "Cold Water",
+                  "color": "#D9DFE0"
+                },
+                {
+                  "code": "DE6303",
+                  "displayName": "Sky Glass",
+                  "color": "#D0DBD7"
+                },
+                {
+                  "code": "DE5764",
+                  "displayName": "Blue Moon",
+                  "color": "#BBDEE5"
+                },
+                {
+                  "code": "DE6310",
+                  "displayName": "Rainy Season",
+                  "color": "#D1D8D6"
+                },
+                {
+                  "code": "DEC794",
+                  "displayName": "Salina Springs",
+                  "color": "#CAD2D4"
+                },
+                {
+                  "code": "DET565",
+                  "displayName": "Berry Mojito",
+                  "color": "#B6CACA"
+                },
+                {
+                  "code": "DE5744",
+                  "displayName": "Seaport",
+                  "color": "#445A79"
+                },
+                {
+                  "code": "DE5772",
+                  "displayName": "Blue Spruce",
+                  "color": "#ADC5C9"
+                },
+                {
+                  "code": "DET581",
+                  "displayName": "Country Air",
+                  "color": "#9FB6C6"
+                },
+                {
+                  "code": "DET599",
+                  "displayName": "Marine Layer",
+                  "color": "#A5B4B6"
+                },
+                {
+                  "code": "DET543",
+                  "displayName": "Veranda",
+                  "color": "#61A9A5"
+                },
+                {
+                  "code": "DET552",
+                  "displayName": "Avalon",
+                  "color": "#799B96"
+                },
+                {
+                  "code": "DET567",
+                  "displayName": "Skipping Stones",
+                  "color": "#70939E"
+                },
+                {
+                  "code": "DET560",
+                  "displayName": "Weathered Blue",
+                  "color": "#7B9093"
+                },
+                {
+                  "code": "DET542",
+                  "displayName": "Tranquil Seashore",
+                  "color": "#629091"
+                },
+                {
+                  "code": "DE5788",
+                  "displayName": "Aegean Sea",
+                  "color": "#508FA2"
+                },
+                {
+                  "code": "DET569",
+                  "displayName": "San Miguel Blue",
+                  "color": "#527585"
+                },
+                {
+                  "code": "DE5768",
+                  "displayName": "Mysterious Blue",
+                  "color": "#3E7A85"
+                },
+                {
+                  "code": "DET577",
+                  "displayName": "Big Sur Blue Jade",
+                  "color": "#3F6E8E"
+                },
+                {
+                  "code": "DET571",
+                  "displayName": "Morro Bay",
+                  "color": "#546B78"
+                },
+                {
+                  "code": "DEA136",
+                  "displayName": "Beautiful Blue",
+                  "color": "#186DB6"
+                },
+                {
+                  "code": "DET593",
+                  "displayName": "Made of Steel",
+                  "color": "#5B686F"
+                },
+                {
+                  "code": "DET564",
+                  "displayName": "Eames for Blue",
+                  "color": "#466B82"
+                },
+                {
+                  "code": "DET559",
+                  "displayName": "Blue Velvet",
+                  "color": "#0D6183"
+                },
+                {
+                  "code": "DET582",
+                  "displayName": "Tried & True Blue",
+                  "color": "#494F62"
+                },
+                {
+                  "code": "DEA138",
+                  "displayName": "Indigo Night",
+                  "color": "#324680"
+                },
+                {
+                  "code": "DET572",
+                  "displayName": "Dark & Stormy",
+                  "color": "#353F51"
+                }
+              ]
+            },
+            {
+              "name": "grays",
+              "code": "grays",
+              "displayName": "Grays & Greiges",
+              "thumbnail": "branding/grays.png",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/blacks.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                 
+                  "code": "DE6358",
+                  "displayName": "Vapor",
+                  "color": "#EAEAEA"
+                },
+                {
+                  
+                  "code": "DEC793",
+                  "displayName": "Chalky",
+                  "color": "#E9E9E1"
+                },
+                {
+               
+                  "code": "DEC785",
+                  "displayName": "Whisper Gray",
+                  "color": "#E9E5DA"
+                },
+                {
+                  
+                  "code": "DEC791",
+                  "displayName": "Cloud",
+                  "color": "#D8D7D3"
+                },
+                {
+                 
+                  "code": "DET614",
+                  "displayName": "So Chic!",
+                  "color": "#CECDC5"
+                },
+                {
+                  "code": "DE6227",
+                  "displayName": "Muslin",
+                  "color": "#D4D0C5"
+                },
+                {
+                  "code": "DE6213",
+                  "displayName": "Fine Grain",
+                  "color": "#D8CFC1"
+                },
+                {
+                  "code": "DEC786",
+                  "displayName": "Miner's Dust",
+                  "color": "#D3CEC5"
+                },
+                {
+                  "code": "DE6220",
+                  "displayName": "Porous Stone",
+                  "color": "#D4CEBF"
+                },
+                {
+                  "code": "DET600",
+                  "displayName": "Dolphin Tales",
+                  "color": "#C7C7C2"
+                },
+                {
+                  "code": "DE6374",
+                  "displayName": "Silver Polish",
+                  "color": "#C6C6C6"
+                },
+                {
+                  "code": "DEC752",
+                  "displayName": "Birchwood",
+                  "color": "#CCBEAC"
+                },
+                {
+                  "code": "DEC795",
+                  "displayName": "Gray Pearl",
+                  "color": "#C3C0BB"
+                },
+                {
+                  "code": "DET625",
+                  "displayName": "Reclaimed Wood",
+                  "color": "#BAB6AB"
+                },
+                {
+                  "code": "DET627",
+                  "displayName": "Pewter Patter",
+                  "color": "#BAB4A6"
+                },
+                {
+                  "code": "DET603",
+                  "displayName": "Church Mouse",
+                  "color": "#B3B5AF"
+                },
+                {
+                  "code": "DEC751",
+                  "displayName": "Ash Gray",
+                  "color": "#C1B5A9"
+                },
+                {
+                  "code": "DE6214",
+                  "displayName": "Pigeon Gray",
+                  "color": "#C1B4A0"
+                },
+                {
+                  "code": "DET618",
+                  "displayName": "Industrial Age",
+                  "color": "#AEADAD"
+                },
+                {
+                  "code": "DET620",
+                  "displayName": "Barnwood Gray",
+                  "color": "#9E9589"
+                },
+                {
+                  "code": "DEC750",
+                  "displayName": "Bison Beige",
+                  "color": "#9F9180"
+                },
+                {
+                  "code": "DET612",
+                  "displayName": "Stieglitz Silver",
+                  "color": "#8D8F8E"
+                },
+                {
+                  "code": "DE6376",
+                  "displayName": "Looking Glass",
+                  "color": "#888786"
+                },
+                {
+                  "code": "DET626",
+                  "displayName": "Metal Fringe",
+                  "color": "#837E74"
+                },
+                {
+                  "code": "DET615",
+                  "displayName": "Stone Mason",
+                  "color": "#7A7B75"
+                },
+                {
+                  "code": "DET611",
+                  "displayName": "Iron-ic",
+                  "color": "#6A6B67"
+                }
+              ]
+            },
+            {
+              "name": "blacks",
+              "code": "blacks",
+              "displayName": "Dark Browns & Blacks",
+              "thumbnail": "branding/blacks.png",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/reds.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                
+                  "code": "DET631",
+                  "displayName": "Cocoa Powder",
+                  "color": "#766A5F"
+                },
+                {
+                  
+                  "code": "DET699",
+                  "displayName": "Bourbon Truffle",
+                  "color": "#6C5654"
+                },
+                {
+                 
+                  "code": "DE6077",
+                  "displayName": "Deep Brown",
+                  "color": "#6F5749"
+                },
+                {
+                 
+                  "code": "DEA161",
+                  "displayName": "Wild Mustang",
+                  "color": "#695649"
+                },
+                {
+                 
+                  "code": "DEC712",
+                  "displayName": "Briar",
+                  "color": "#745443"
+                },
+                {
+                  
+                  "code": "DEC756",
+                  "displayName": "Weathered Brown",
+                  "color": "#59504C"
+                },
+                { 
+                  "code": "DET619",
+                  "displayName": "Celluloid",
+                  "color": "#515153"
+                },
+                { 
+                  "code": "DE6371",
+                  "displayName": "Blackjack",
+                  "color": "#51504D"
+                },
+                { 
+                  "code": "DET680",
+                  "displayName": "Espresso Macchiato",
+                  "color": "#4F4744"
+                },
+                { 
+                  "code": "DEA158",
+                  "displayName": "Northern Territory",
+                  "color": "#5E463C"
+                },
+                { 
+                  "code": "DE6350",
+                  "displayName": "Dark Engine",
+                  "color": "#3E3F41"
+                },
+                { 
+                  "code": "DEA002",
+                  "displayName": "Black",
+                  "color": "#3B3A3A"
+                }
+              ]
+            },
+            
+            {
+              "name": "purples",
+              "code": "purples",
+              "displayName": "Purples",
+              "thumbnail": "branding/purples.png",
+              "details": {
+                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
+                "preview": "branding/purples.jpg",
+                "specifications": [
+                  {"Plank Size": "9″ x 48″"},
+                  {"Padding": "1.0mm EVA"},
+                  {"Overall Thickness": "4.2mm"},
+                  {"Wear Layer": "8 mil"},
+                  {"Locking Type": "Drop Lock"},
+                  {"Surface": "Antique Wood Embossing"},
+                  {"Edge": "Micro Bevel"}
+                ]
+              },
+              "colors": [
+                {
+                  "code": "DE6051",
+                  "displayName": "Pale Berries",
+                  "color": "#E2CCC7"
+                },
+                {
+                  "code": "DE5959",
+                  "displayName": "Lingering Lilac",
+                  "color": "#E6DEF0"
+                },
+                {
+                  "code": "DE5974",
+                  "displayName": "Soft Lilac",
+                  "color": "#E2D4DF"
+                },
+                {
+                  "code": "DE5946",
+                  "displayName": "Violet Crush",
+                  "color": "#D8D3E6"
+                },
+                {
+                  "code": "DE6019",
+                  "displayName": "Bohemian Jazz",
+                  "color": "#9D777C"
+                },
+                {
+                  "code": "DET405",
+                  "displayName": "Purple Prose",
+                  "color": "#554348"
+                },
+                {
+                  "code": "DEA143",
+                  "displayName": "Purple Odyssey",
+                  "color": "#643E65"
+                },
+                {
+                  "code": "DET407",
+                  "displayName": "Nightshade",
+                  "color": "#4F4352"
                 }
               ]
             }
