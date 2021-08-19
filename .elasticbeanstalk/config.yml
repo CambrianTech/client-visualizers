@@ -1,6 +1,8 @@
 branch-defaults:
   feature-sdk20:
     environment: client-visualizers-sdk2
+  feature/dunn-edwards:
+    environment: dunn-edwards
   master:
     environment: client-visualizers-dev
     group_suffix: null
