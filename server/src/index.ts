@@ -67,7 +67,7 @@ app.get("*", (req, res) => {
         const domain = getDomain(req.headers.host);
         const subdomain = req.headers.host.replace("." + domain, "");
 
-        console.log("Requested", req.path, subdomain);
+        console.log("Requested", {"path":req.path, subdomain});
 
         const config = getConfig(subdomain);
         const indexPath = path.join(buildPath, "index.html");
