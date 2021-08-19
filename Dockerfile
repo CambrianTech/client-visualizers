@@ -1,5 +1,5 @@
 # 1. Build with npm
-FROM node-14.7.0-alpine as build-stage
+FROM node-14.7.0-alpine
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install
@@ -9,14 +9,14 @@ RUN npm run build
 
 # 2. Copy built files into nginx container
 FROM nginx-1.17-alpine
-COPY --from=build-stage /app/build/config /opt/server/config
-COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
+COPY --from=node-14.7.0-alpine /app/build/config /opt/server/config
+COPY --from=node-14.7.0-alpine /app/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
 WORKDIR /opt/server
 
-COPY --from=build-stage /app/build/ /opt/server/build
+COPY --from=node-14.7.0-alpine /app/build/ /opt/server/build
 COPY server/ /opt/server
 
 RUN apk add --update nodejs npm
