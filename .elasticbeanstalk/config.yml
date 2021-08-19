@@ -10,11 +10,14 @@ environment-defaults:
   client-visualizers-dev:
     branch: null
     repository: null
+  dunn-edwards:
+    branch: null
+    repository: null
 global:
-  application_name: client-visualizers
+  application_name: client-demos
   branch: null
   default_ec2_keyname: cambrian-servers
-  default_platform: Docker running on 64bit Amazon Linux 2
+  default_platform: Docker running on 64bit Amazon Linux
   default_region: us-east-1
   include_git_submodules: true
   instance_profile: null
