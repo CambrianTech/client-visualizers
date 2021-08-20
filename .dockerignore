@@ -11,7 +11,12 @@ scripts
 /server/node_modules
 
 /sites/*
-/public/cambrianar-sites
+cambrianar-sites
+cb-backend-data
+build
+scripts
+server/dist
+node_modules
 
 
 **/*.log
