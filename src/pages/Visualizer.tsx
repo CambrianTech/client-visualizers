@@ -665,34 +665,39 @@ export default function Visualizer() {
             console.log("Loading static scene at path", dataPath)
             context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
                 setCurrentScene(scene);
-                setDataPath(undefined);
                 console.log("Static Scene Loaded!");
-                setIsLoading(false);
             }).catch(error=>{
                 console.log("Could not load scene!", error);
+            }).finally(()=>{
+                dispatch({
+                    type: "setSceneData",
+                    sceneData: undefined
+                });
                 setIsLoading(false);
+                setDataPath(undefined);
             });
         }
-    }, [context, dataPath, rootItem, isLoading]);
+    }, [context, dataPath, rootItem, isLoading, dispatch]);
 
     useEffect(() => {
         if (context && siteContext.state.sceneData && rootItem && !isLoading) {
             const brand = rootItem as DataItem;
             setIsLoading(true);
-            dispatch({
-                type: "setSceneData",
-                sceneData: undefined
-            });
             context.loadSceneData(siteContext.state.sceneData, brand.surfaceTypes).then((scene)=>{
                 console.log("Dynamic Scene Loaded!");
                 setCurrentScene(scene);
-                setDataPath(undefined);
-                setIsLoading(false);
             }).catch(error=>{
-                console.log("Could not load scene!", error)
+                console.log("Could not load scene!", error);
+            }).finally(()=>{
+                dispatch({
+                    type: "setSceneData",
+                    sceneData: undefined
+                });
+                setIsLoading(false);
+                setDataPath(undefined);
             });
         }
-    }, [context, rootItem, siteContext.state.sceneData, isLoading, dispatch]);
+    }, [context, rootItem, isLoading, dispatch, siteContext.state.sceneData]);
 
     useEffect(()=>{
         if (currentScene) {
