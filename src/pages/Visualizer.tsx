@@ -908,7 +908,7 @@ export default function Visualizer() {
             {siteContext.state.siteData &&
             <div className={"panel b"}>
 
-                <CBARView className={"cbarview" + (currentScene ? " has-scene":"")} onContextCreated={setContext} toolMode={toolMode} />
+                <CBARView onContextCreated={setContext} toolMode={toolMode} />
 
                 {_isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
