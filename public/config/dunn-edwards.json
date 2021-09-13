@@ -141,20 +141,7 @@
               "code": "whites",
               "displayName": "Whites & Creams",
               "thumbnail": "branding/whites.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/whites.jpg",
-                "content": "Unerring style defines this classic, softly shaded white. Light and luminous, it is a favorite choice for moldings and trim.",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              
               "colors": [
                 {
                   "code": "DEW340",
@@ -251,22 +238,8 @@
               "code": "reds",
               "displayName": "Reds, Pinks, & Corals",
               "thumbnail": "branding/reds.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/yellows.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
               "colors": [
                 {
-                  
                   "code": "DEW301",
                   "displayName": "Strawberry Dust",
                   "color": "#FFF0EA"
@@ -411,19 +384,6 @@
               "code": "oranges",
               "displayName": "Oranges & Yellows",
               "thumbnail": "branding/yellows.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/oranges.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
               "colors": [
                 {
               
@@ -537,19 +497,7 @@
               "code": "neutrals",
               "displayName": "Warm Neutrals",
               "thumbnail": "branding/neutrals.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/neutrals.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              
               "colors": [
                 {
                   "code": "DE6150",
@@ -619,19 +567,7 @@
               "code": "greenblue",
               "displayName": "Greens & Green Blues",
               "thumbnail": "branding/green_blue.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/purples.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              
               "colors": [
                 {
                   "code": "DE5491",
@@ -834,19 +770,7 @@
               "code": "grays",
               "displayName": "Tans, Beiges, & Taupes",
               "thumbnail": "branding/taupe_tan.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/grays.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              
               "colors": [
                 {
                   
@@ -956,19 +880,7 @@
               "code": "blues",
               "displayName": "Blues & Blue Greens",
               "thumbnail": "branding/blues.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/blues.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+             
               "colors": [
                 {
                   "code": "DE5707",
@@ -1123,19 +1035,7 @@
               "code": "grays",
               "displayName": "Grays & Greiges",
               "thumbnail": "branding/grays.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/blacks.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+             
               "colors": [
                 {
                  
@@ -1285,19 +1185,7 @@
               "code": "blacks",
               "displayName": "Dark Browns & Blacks",
               "thumbnail": "branding/blacks.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/reds.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+             
               "colors": [
                 {
                 
@@ -1373,19 +1261,7 @@
               "code": "purples",
               "displayName": "Purples",
               "thumbnail": "branding/purples.png",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/purples.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+           
               "colors": [
                 {
                   "code": "DE6051",
