@@ -3,7 +3,7 @@
   "displayName": "Dunn Edwards",
   "subdomain": "dunn-edwards",
   "appearance": {
-    "logo": {"src":"branding/logo-black.png", "alt":"Dunn Edwards logo"},
+    "logo": {"src":"branding/DE_Logo.svg", "alt":"Dunn Edwards logo"},
     "primaryColor": "#ec7211",
     "primaryTextColor": "#fff",
     "secondaryColor": "#fff",
@@ -40,7 +40,7 @@
     {
       "code": "dunn-edwards",
       "displayName": "Dunn Edwards",
-      "surfaceTypes": ["wall"],
+      "surfaceTypes": ["wall", "horizontal"],
       "assetTypes": ["paint-surface"],
       "sceneCollections": [
         {
