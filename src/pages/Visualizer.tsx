@@ -46,6 +46,7 @@ import {
     ToolOperation,
     ToolsMenuAction,
     TranslateTool,
+    ZoomControls,
     VerticalListing
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
@@ -914,10 +915,10 @@ export default function Visualizer() {
 
                 <ChooseScene hidden={!showSceneSelector} siteData={siteContext.state.siteData} onSourceClicked={sourceChosen} />
 
-                <VisualizerTools
-                    hidden={showUploadButton || !currentScene || isToolOverlayOpen}
-                    actions={toolActions}
-                    handleAction={handleAction} />
+                <div className={"visualizer-buttons-right"} style={{visibility:showUploadButton || !currentScene || isToolOverlayOpen ? "hidden" : "visible"}}>
+                    <ZoomControls context={context} />
+                    <VisualizerTools actions={toolActions} handleAction={handleAction} />
+                </div>
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}
@@ -1008,5 +1009,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }

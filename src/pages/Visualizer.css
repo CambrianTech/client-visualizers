@@ -423,6 +423,22 @@ panel.c {
     animation: bounce .5s infinite alternate;
 }
 
+.visualizer-buttons-right {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.visualizer-buttons-right > .MuiSpeedDial-root {
+    position: unset;
+}
+
+.visualizer-buttons-right .MuiButtonBase-root {
+    margin-right: 15px;
+}
+
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.1); }
 }
