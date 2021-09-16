@@ -621,7 +621,7 @@ export default function Visualizer() {
 
     const leftPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
-            return isPortrait ? undefined : "Products";
+            return isPortrait ? undefined : "Colors";
         }
         return undefined
     },[activePanel, currentScene, isPortrait]);
@@ -880,7 +880,7 @@ export default function Visualizer() {
             <div className={"panel a"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
                 <div className={"title"}>
                     {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>productsClicked(true)}>
-                        <div className={"choose-text"}>Choose a Product</div>
+                        <div className={"choose-text"}>Choose a Color</div>
                     </div>}
                     <div className={"choose scene" + (activePanel === Panel.Scenes ? " selected" : "")} onClick={()=>setActivePanel(Panel.Scenes)}>
                         <div className={"choose-text"}>Choose a Scene</div>
