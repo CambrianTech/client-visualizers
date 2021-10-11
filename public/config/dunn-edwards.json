@@ -3,7 +3,7 @@
   "displayName": "Dunn Edwards",
   "subdomain": "dunn-edwards",
   "appearance": {
-    "logo": {"src":"branding/logo-black.png", "alt":"Dunn Edwards logo"},
+    "logo": {"src":"branding/DE_Logo.svg", "alt":"Dunn Edwards logo"},
     "primaryColor": "#ec7211",
     "primaryTextColor": "#fff",
     "secondaryColor": "#fff",
@@ -14,7 +14,7 @@
     "header": {
       "title": "Dunn Edwards",
       "description": "See Dunn Edwards's great paint products.",
-      "favicon": "branding/logo-black.png"
+      "favicon": "branding/DE_Logo.svg"
     },
     "sharing": {
       "subject": "Check out this paint project from Dunn Edwards"
@@ -40,7 +40,7 @@
     {
       "code": "dunn-edwards",
       "displayName": "Dunn Edwards",
-      "surfaceTypes": ["wall"],
+      "surfaceTypes": ["wall", "horizontal"],
       "assetTypes": ["paint-surface"],
       "sceneCollections": [
         {
@@ -62,28 +62,26 @@
           "displayName": "Bedroom",
           "scenes": [
             {
-              "code": "development",
-              "displayName": "Development"
+              "code": "1-bedroom",
+              "displayName": "Bedroom"
             },
             {
               "code": "2-bedroom",
               "displayName": "Bedroom"
+            }
+          ]
+        },
+        {
+          "code": "dining-room",
+          "displayName": "Dining Room",
+          "scenes": [
+            {
+              "code": "1-dining-room",
+              "displayName": "Dining Room"
             },
             {
-              "code": "3-bedroom",
-              "displayName": "Bedroom"
-            },
-            {
-              "code": "4-bedroom",
-              "displayName": "Bedroom"
-            },
-            {
-              "code": "5-bedroom",
-              "displayName": "Bedroom"
-            },
-            {
-              "code": "6-bedroom",
-              "displayName": "Bedroom"
+              "code": "2-dining-room",
+              "displayName": "Dining Room"
             }
           ]
         },
@@ -92,27 +90,11 @@
           "displayName": "Kitchen",
           "scenes": [
             {
-              "code": "kitchen-1",
-              "displayName": "Kitchen"
-            },
-            {
-              "code": "1-dining",
-              "displayName": "Kitchen"
-            },
-            {
               "code": "1-kitchen",
               "displayName": "Kitchen"
             },
             {
               "code": "2-kitchen",
-              "displayName": "Kitchen"
-            },
-            {
-              "code": "3-kitchen",
-              "displayName": "Kitchen"
-            },
-            {
-              "code": "4-kitchen",
               "displayName": "Kitchen"
             }
           ]
@@ -122,46 +104,26 @@
           "displayName": "Living Room",
           "scenes": [
             {
-              "code": "1-compact-apartment",
+              "code": "1-living-room",
               "displayName": "Living Room"
             },
             {
-              "code": "4-living-room",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "6-living-room",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "7-living-room",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "8-living-room",
-              "displayName": "Living Room"
-            },
-            {
-              "code": "9-living-room",
+              "code": "2-living-room",
               "displayName": "Living Room"
             }
           ]
         },
         {
-          "code": "office",
-          "displayName": "Office",
+          "code": "entry",
+          "displayName": "Entry",
           "scenes": [
             {
-              "code": "1-business",
-              "displayName": "Office"
+              "code": "1-entry",
+              "displayName": "Entry"
             },
             {
-              "code": "1-office",
-              "displayName": "Office"
-            },
-            {
-              "code": "2-lobby",
-              "displayName": "Office"
+              "code": "2-entry",
+              "displayName": "Entry"
             }
           ]
         }
@@ -173,636 +135,1198 @@
           "displayName": "Interior Paint",
           "thumbnail": "thumbnails/interior-space.jpg",
           "products": [
-            {
-              "name": "color-trends-2021",
-              "code": "ct-2021",
-              "displayName": "Color Trends 2021",
-              "thumbnail": "branding/bright-colors.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/bright-colors.jpg",
-                "content": "Nourish the spirit with the comforting, sunbaked hues of the Color Trends 2021 palette, including Aegean Teal 2136-40.\n\nCelebrate the simple pleasures—think the faded rumple of linen sheets in the morning and perfectly ripened fruits on the windowsill. The twelve hues in the palette radiate warmth and wellbeing. These are colors that make your home feel even more like home. Settle in."
-              },
-              "colors": [
-                {
-                  "name": "atrium-white",
-                  "code": "OC-145",
-                  "displayName": "Atrium White",
-                  "color": "rgb(242,239,232)"
-                },
-                {
-                  "name": "foggy-morning",
-                  "code": "2106-70",
-                  "displayName": "Foggy Morning",
-                  "color": "rgb(236,227,220)"
-                },
-                {
-                  "name": "beacon-hill-damask",
-                  "code": "HC-2",
-                  "displayName": "Beacon Hill Damask",
-                  "color": "rgb(229,219,171)"
-                },
-                {
-                  "name": "chestertown-buff",
-                  "code": "HC-9",
-                  "displayName": "Chestertown Buff",
-                  "color": "rgb(221,191,134)"
-                },
-                {
-                  "name": "muslin",
-                  "code": "OC-12",
-                  "displayName": "Muslin",
-                  "color": "rgb(225,214,193)"
-                },
-                {
-                  "name": "rosy-peach",
-                  "code": "2089-20",
-                  "displayName": "Rosy Peach",
-                  "color": "rgb(181,94,79)"
-                },
-                {
-                  "name": "potters-clay",
-                  "code": "1221",
-                  "displayName": "Potters Clay",
-                  "color": "rgb(185, 135, 102)"
-                },
-                {
-                  "name": "amazon-soil",
-                  "code": "2115-30",
-                  "displayName": "Amazon Soil",
-                  "color": "rgb(111,91,92)"
-                }
-              ]
-            },
+
             {
               "name": "whites",
               "code": "whites",
-              "displayName": "Best-Selling Whites",
-              "thumbnail": "branding/whites.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/whites.jpg",
-                "content": "Unerring style defines this classic, softly shaded white. Light and luminous, it is a favorite choice for moldings and trim.",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              "displayName": "Whites & Creams",
+              "thumbnail": "branding/whites.png",
+              
               "colors": [
                 {
-                  "name": "chantilly-lace",
-                  "code": "OC-65",
-                  "displayName": "Chantilly Lace",
-                  "color": "rgb(244, 246, 241)"
+                  "code": "DEW340",
+                  "displayName": "Whisper",
+                  "color": "#FDFAF1"
                 },
                 {
-                  "name": "white-heron",
-                  "code": "OC-57",
-                  "displayName": "White Heron",
-                  "color": "rgb(241, 242, 235)"
+                  "code": "DET648",
+                  "displayName": "White Picket Fence",
+                  "color": "#F0EFEB"
                 },
                 {
-                  "name": "white-dove",
-                  "code": "OC-17",
-                  "displayName": "White Dove",
-                  "color": "rgb(239, 238, 229)"
+                  "code": "DEHW08",
+                  "displayName": "Classic White",
+                  "color": "#ECEEEC"
                 },
                 {
-                  "name": "simply-white",
-                  "code": "OC-117",
-                  "displayName": "Simply White",
-                  "color": "rgb(246, 246, 237)"
+                  "code": "DEHW07",
+                  "displayName": "Sugar Swizzle",
+                  "color": "#ECEEEA"
                 },
                 {
-                  "name": "cloud-white",
-                  "code": "OC-130",
-                  "displayName": "Cloud White",
-                  "color": "rgb(242, 241, 230)"
+                  "code": "DEHW10",
+                  "displayName": "Icy White",
+                  "color": "#EAEBE8"
                 },
                 {
-                  "name": "navajo-white",
-                  "code": "OC-95",
+                  "code": "DEHW01",
+                  "displayName": "Almond Milk",
+                  "color": "#ECEBE3"
+                },
+                {
+                  "code": "DEW341",
+                  "displayName": "Swiss Coffee",
+                  "color": "#F8F5E9"
+                },
+                {
+                  "code": "DET653",
+                  "displayName": "Historic White",
+                  "color": "#EBE6D7"
+                },
+                {
+                  "code": "DE6190",
+                  "displayName": "Ball of String",
+                  "color": "#F0E8D9"
+                },
+                {
+                  "code": "DEW311",
+                  "displayName": "French White",
+                  "color": "#F1E7DB"
+                },
+                {
+                  "code": "DE6127",
+                  "displayName": "Finest Silk",
+                  "color": "#F1E5D7"
+                },
+                {
+                  "code": "DE6212",
+                  "displayName": "Crisp Muslin",
+                  "color": "#E9E2D7"
+                },
+                {
+                  "code": "DEC772",
                   "displayName": "Navajo White",
-                  "color": "rgb(238, 231, 213)"
+                  "color": "#EBE1C9"
+                },
+                {
+                  "code": "DET673",
+                  "displayName": "Mission White",
+                  "color": "#E2D8C2"
+                },
+                {
+                  "code": "DEC753",
+                  "displayName": "Almond",
+                  "color": "#EDDCC8"
+                },
+                
+                {
+                  "code": "DET662",
+                  "displayName": "Buttercream Frosting",
+                  "color": "#E6D5BA"
+                },
+                
+                {
+                  "code": "DET671",
+                  "displayName": "Cameo Role",
+                  "color": "#DDCAAF"
                 }
-              ]
-            },
-            {
-              "name": "neutrals",
-              "code": "neutrals",
-              "displayName": "Best-Selling Neutrals",
-              "thumbnail": "branding/neutrals.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/neutrals.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "colors": [
-                {
-                  "name": "shaker-beige",
-                  "code": "HC-45",
-                  "displayName": "Shaker Beige",
-                  "color": "rgb(209, 194, 167)"
-                },
-                {
-                  "name": "manchester-tan",
-                  "code": "HC-81",
-                  "displayName": "Manchester Tan",
-                  "color": "rgb(219, 210, 188)"
-                },
-                {
-                  "name": "muslin",
-                  "code": "OC-12",
-                  "displayName": "Muslin",
-                  "color": "rgb(225,214,193)"
-                },
-                {
-                  "name": "classic-gray",
-                  "code": "OC-23",
-                  "displayName": "Classic Gray",
-                  "color": "rgb(227, 224, 215)"
-                },
-                {
-                  "name": "balboa-mist",
-                  "code": "OC-27",
-                  "displayName": "Balboa Mist",
-                  "color": "rgb(218, 214, 204)"
-                },
-                {
-                  "name": "collingwood",
-                  "code": "OC-28",
-                  "displayName": "Collingwood",
-                  "color": "rgb(211, 206, 196)"
-                }
-              ]
-            },
-            {
-              "name": "grays",
-              "code": "grays",
-              "displayName": "Best-Selling Grays",
-              "thumbnail": "branding/grays.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/grays.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "colors": [
-                {
-                  "name": "revere-pewter",
-                  "code": "HC-172",
-                  "displayName": "Revere Pewter",
-                  "color": "rgb(203, 198, 184)"
-                },
-                {
-                  "name": "edgecomb-gray",
-                  "code": "HC-173",
-                  "displayName": "Edgecomb Gray",
-                  "color": "rgb(217, 211, 196)"
-                },
-                {
-                  "name": "silver-satin",
-                  "code": "OC-26",
-                  "displayName": "Silver Satin",
-                  "color": "rgb(227, 226, 218)"
-                },
-                {
-                  "name": "gray-owl",
-                  "code": "OC-52",
-                  "displayName": "Gray Owl",
-                  "color": "rgb(211, 212, 204)"
-                },
-                {
-                  "name": "stonington-gray",
-                  "code": "HC-170",
-                  "displayName": "Stonington Gray",
-                  "color": "rgb(202, 203, 197)"
-                },
-                {
-                  "name": "metropolitan",
-                  "code": "AF-690",
-                  "displayName": "Metropolitan",
-                  "color": "rgb(186, 189, 184)"
-                }
-              ]
-            },
-            {
-              "name": "blacks",
-              "code": "blacks",
-              "displayName": "Best-Selling Blacks",
-              "thumbnail": "branding/blacks.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/blacks.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
-              "colors": [
-                {
-                  "name": "gray",
-                  "code": "2121-10",
-                  "displayName": "Gray",
-                  "color": "rgb(88, 88, 88)"
-                },
-                {
-                  "name": "iron-mountain",
-                  "code": "2134-30",
-                  "displayName": "Iron Mountain",
-                  "color": "rgb(87, 85, 83)"
-                },
-                {
-                  "name": "raccoon-fur",
-                  "code": "2126-20",
-                  "displayName": "Raccoon Fur",
-                  "color": "rgb(70, 74, 77)"
-                },
-                {
-                  "name": "wrought-iron",
-                  "code": "2124-10",
-                  "displayName": "Wrought Iron",
-                  "color": "rgb(73, 74, 75)"
-                },
-                {
-                  "name": "jet-black",
-                  "code": "2120-10",
-                  "displayName": "Jet Black",
-                  "color": "rgb(51, 51, 52)"
-                },
-                {
-                  "name": "black",
-                  "code": "2132-10",
-                  "displayName": "Black",
-                  "color": "rgb(49, 49, 50)"
-                }
+                
               ]
             },
             {
               "name": "reds",
               "code": "reds",
-              "displayName": "Best-Selling Reds ",
-              "thumbnail": "branding/reds.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/reds.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              "displayName": "Reds, Pinks, & Corals",
+              "thumbnail": "branding/reds.png",
               "colors": [
                 {
-                  "name": "million-dollar-red",
-                  "code": "2003-10",
-                  "displayName": "Million Dollar Red",
-                  "color": "rgb(181, 51, 44)"
+                  "code": "DEW301",
+                  "displayName": "Strawberry Dust",
+                  "color": "#FFF0EA"
                 },
                 {
-                  "name": "Red",
-                  "code": "2000-10",
-                  "displayName": "Red",
-                  "color": "rgb(201, 46, 46)"
+                  "code": "DE6081",
+                  "displayName": "Rose Bisque",
+                  "color": "#C6A499"
                 },
                 {
-                  "name": "exotic-red",
-                  "code": "2086-10",
-                  "displayName": "Exotic Red ",
-                  "color": "rgb(179, 39, 53)"
+                  "code": "DE6090",
+                  "displayName": "Western Red",
+                  "color": "#9B6959"
                 },
                 {
-                  "name": "caliente",
-                  "code": "AF-290",
-                  "displayName": "Caliente",
-                  "color": "rgb(138, 39, 40)"
+                  "code": "DET432",
+                  "displayName": "Rose de Mai",
+                  "color": "#CB8E81"
                 },
                 {
-                  "name": "dinner-party",
-                  "code": "AF-300",
-                  "displayName": "Dinner Party",
-                  "color": "rgb(118, 54, 55)"
+                  "code": "DET424",
+                  "displayName": "Barn Red",
+                  "color": "#8B4044"
                 },
                 {
-                  "name": "boston-brick",
-                  "code": "2092-30",
-                  "displayName": "Boston Brick",
-                  "color": "rgb(134, 75, 64)"
+                  "code": "DE5083",
+                  "displayName": "Deep Hibiscus",
+                  "color": "#CB5251"
+                },
+                {
+          
+                  "code": "DE5091",
+                  "displayName": "Just Pink Enough",
+                  "color": "#FFEBEE"
+                },
+                {
+                  
+                  "code": "DEC710",
+                  "displayName": "Peach",
+                  "color": "#FADFC7"
+                },
+                {
+                  
+                  "code": "DE5183",
+                  "displayName": "Light Carob",
+                  "color": "#F9DBCF"
+                },
+                {
+                  "code": "DE5148",
+                  "displayName": "Pale Jasper",
+                  "color": "#FED6CC"
+                },
+                {
+                  "code": "DE6093",
+                  "displayName": "Blushing Bride",
+                  "color": "#EEDAD1"
+                },
+                {
+                  "code": "DET434",
+                  "displayName": "City of Pink Angels",
+                  "color": "#E6B4A6"
+                },
+                {
+                  "code": "DET416",
+                  "displayName": "La Vie En Rose",
+                  "color": "#D2A5A3"
+                },
+                {
+                  "code": "DE5185",
+                  "displayName": "Cedarville",
+                  "color": "#DDA896"
+                },
+                {
+                  "code": "DET437",
+                  "displayName": "Pottery Clay",
+                  "color": "#E0816F"
+                },
+                {
+                  "code": "DET436",
+                  "displayName": "OK Coral",
+                  "color": "#D07360"
+                },
+                {
+                  "code": "DET421",
+                  "displayName": "Le Corbusier Crush",
+                  "color": "#BF4E46"
+                },
+                {
+                  "code": "DET419",
+                  "displayName": "Pink Dahlia",
+                  "color": "#B94C66"
+                },
+                {
+                  "code": "DE5027",
+                  "displayName": "Razzle Dazzle",
+                  "color": "#BA417B"
+                },
+                {
+                  "code": "DE6027",
+                  "displayName": "Antique Garnet",
+                  "color": "#8E5E5E"
+                },
+                {
+                  "code": "DE5034",
+                  "displayName": "Cherry Berry",
+                  "color": "#9F4D65"
+                },
+                {
+                  "code": "DE5055",
+                  "displayName": "Merlot",
+                  "color": "#A44A56"
+                },
+                {
+                  "code": "DEA106",
+                  "displayName": "Red Contrast",
+                  "color": "#B33234"
+                },
+                {
+                  "code": "DET443",
+                  "displayName": "Red Maple Leaf",
+                  "color": "#834C4B"
+                },
+                {
+                  "code": "DET423",
+                  "displayName": "Red Craft",
+                  "color": "#91433E"
+                },
+                {
+                  "code": "DEC705",
+                  "displayName": "Burnt Crimson",
+                  "color": "#784D4C"
+                },
+                {
+                  "code": "DET439",
+                  "displayName": "Spice of Life",
+                  "color": "#86493F"
                 }
               ]
             },
             {
               "name": "oranges",
               "code": "oranges",
-              "displayName": "Best-Selling Oranges",
-              "thumbnail": "branding/oranges.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/oranges.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              "displayName": "Oranges & Yellows",
+              "thumbnail": "branding/yellows.png",
               "colors": [
                 {
-                  "name": "peach-parfait",
-                  "code": "2175-70",
-                  "displayName": "Peach Parfait",
-                  "color": "rgb(249, 231, 218)"
+              
+                  "code": "DE5302",
+                  "displayName": "Warm Light",
+                  "color": "#FFF9D8"
                 },
                 {
-                  "name": "parchment",
-                  "code": "OC-78",
-                  "displayName": "Parchment",
-                  "color": "rgb(247, 231, 212)"
+                  "code": "DE5199",
+                  "displayName": "Market Melon",
+                  "color": "#FBB377"
                 },
                 {
-                  "name": "pale-oats",
-                  "code": "2166-60",
-                  "displayName": "Pale Oats",
-                  "color": "rgb(249, 222, 195)"
+                
+                  "code": "DET491",
+                  "displayName": "Lazy Daisy",
+                  "color": "#F3E7B4"
                 },
                 {
-                  "name": "italianate",
-                  "code": "AF-215",
-                  "displayName": "Italianate",
-                  "color": "rgb(203, 153, 118)"
+                 
+                  "code": "DET654",
+                  "displayName": "Crème Fraiche",
+                  "color": "#EBDAB5"
                 },
                 {
-                  "name": "firenze",
+                 
+                  "code": "DET495",
+                  "displayName": "Sunnyside Up",
+                  "color": "#EED053"
+                },
+                {
+             
                   "code": "AF-225",
                   "displayName": "Firenze",
                   "color": "rgb(184, 116, 80)"
                 },
                 {
-                  "name": "electric-orange",
-                  "code": "2015-10",
-                  "displayName": "Electric Orange",
-                  "color": "rgb(240, 112, 26)"
+                  "code": "DET489",
+                  "displayName": "Prairie Land",
+                  "color": "#E2CC9C"
+                },
+                {
+                  "code": "DET472",
+                  "displayName": "Ochre Revival",
+                  "color": "#EEC987"
+                },
+                {
+                  "code": "DET473",
+                  "displayName": "Maize",
+                  "color": "#DAB77F"
+                },
+                {
+                  "code": "DE5354",
+                  "displayName": "Honey Glow",
+                  "color": "#E8B447"
+                },
+                {
+                  "code": "DET462",
+                  "displayName": "Bittersweet",
+                  "color": "#FEA051"
+                },
+                {
+                  "code": "DET478",
+                  "displayName": "Zucchini Flower",
+                  "color": "#E8A64E"
+                },
+                {
+                  "code": "DET486",
+                  "displayName": "Wildflower Honey",
+                  "color": "#C69C5D"
+                },
+                {
+                  "code": "DET464",
+                  "displayName": "Cognac",
+                  "color": "#D48C46"
+                },
+                {
+                  "code": "DE5173",
+                  "displayName": "Deep Coral",
+                  "color": "#DA7C55"
+                },
+                {
+                  "code": "DET484",
+                  "displayName": "Bungalow Gold",
+                  "color": "#AD8047"
+                },
+                {
+                  "code": "DET466",
+                  "displayName": "Monarch Migration",
+                  "color": "#BF764C"
+                },
+                {
+                  "code": "DET449",
+                  "displayName": "Citrus Notes",
+                  "color": "#D26643"
+                },
+                {
+                  "code": "DET454",
+                  "displayName": "Arizona Clay",
+                  "color": "#AD735A"
+                },
+                {
+                  "code": "DET467",
+                  "displayName": "Harrison Rust",
+                  "color": "#9A5F3F"
                 }
               ]
             },
             {
-              "name": "yellows",
-              "code": "yellows",
-              "displayName": "Best-Selling Yellows",
-              "thumbnail": "branding/yellows.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/yellows.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              "name": "neutrals",
+              "code": "neutrals",
+              "displayName": "Warm Neutrals",
+              "thumbnail": "branding/neutrals.png",
+              
               "colors": [
                 {
-                  "name": "mannequin-cream",
-                  "code": "2152-60",
-                  "displayName": "Mannequin Cream",
-                  "color": "rgb(247, 236, 210"
+                  "code": "DE6150",
+                  "displayName": "Gourmet Honey",
+                  "color": "#E3CBA8"
                 },
                 {
-                  "name": "windham-cream",
-                  "code": "HC-6",
-                  "displayName": "Windham Cream",
-                  "color": "rgb(245, 233, 199)"
+                  
+                  "code": "DE6066",
+                  "displayName": "Desert Rock",
+                  "color": "#D5C6BD"
                 },
                 {
-                  "name": "rich-cream",
-                  "code": "2151-60",
-                  "displayName": "Rich Cream",
-                  "color": "rgb(242, 228, 197)"
+                  
+                  "code": "DE6172",
+                  "displayName": "Bungalow Taupe",
+                  "color": "#CEBE9F"
                 },
                 {
-                  "name": "philadelphia-cream",
-                  "code": "HC-30",
-                  "displayName": "Philadelphia Cream",
-                  "color": "rgb(237, 221, 183)"
+                
+                  "code": "DE6081",
+                  "displayName": "Rose Bisque",
+                  "color": "#C6A499"
                 },
                 {
-                  "name": "hawthorne-yellow",
-                  "code": "HC-4",
-                  "displayName": "Hawthorne Yellow",
-                  "color": "rgb(245, 225, 164)"
+                
+                  "code": "DEC743",
+                  "displayName": "High Noon",
+                  "color": "#CFB999"
                 },
                 {
-                  "name": "concord-ivory",
-                  "code": "HC-12",
-                  "displayName": "Concord-Ivory",
-                  "color": "rgb(231, 205, 141)"
+                 
+                  "code": "DEC726",
+                  "displayName": "Adobe",
+                  "color": "#D1B791"
+                },
+                
+                {
+                  "code": "DET633",
+                  "displayName": "Trail Blazer",
+                  "color": "#C0B28E"
+                },
+                {
+                  "code": "DEC760",
+                  "displayName": "Desert Gray",
+                  "color": "#B8A487"
+                },
+                {
+                  "code": "DE6117",
+                  "displayName": "Colorado Trail",
+                  "color": "#B49375"
+                },
+                {
+                  "code": "DEC718",
+                  "displayName": "Mesa Tan",
+                  "color": "#A78B71"
+                },
+                {
+                  "code": "DEC713",
+                  "displayName": "Roman Brick",
+                  "color": "#AB7F5B"
                 }
               ]
             },
             {
-              "name": "greens",
-              "code": "greens",
-              "displayName": "Best-Selling Greens",
-              "thumbnail": "branding/greens.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/greens.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              "name": "greenblue",
+              "code": "greenblue",
+              "displayName": "Greens & Green Blues",
+              "thumbnail": "branding/green_blue.png",
+              
               "colors": [
                 {
-                  "name": "november-rain",
-                  "code": "2142-60",
-                  "displayName": "November Rain",
-                  "color": "rgb(224, 222, 208)"
+                  "code": "DE5491",
+                  "displayName": "Glisten Green",
+                  "color": "#F2EFDC"
                 },
                 {
-                  "name": "soft-fern",
-                  "code": "2144-40",
-                  "displayName": "Soft Fern",
-                  "color": "rgb(200, 202, 178)"
+                  "code": "DE5855",
+                  "displayName": "Wild Blue Yonder",
+                  "color": "#B3D9F3"
                 },
                 {
-                  "name": "guilford-green",
-                  "code": "HC-116",
-                  "displayName": "Guilford Green",
-                  "color": "rgb(203, 205, 174)"
+                  "code": "DE5650",
+                  "displayName": "Green Bayou",
+                  "color": "#566E57"
                 },
                 {
-                  "name": "saybrook-sage",
-                  "code": "HC-114",
-                  "displayName": "Saybrook Sage",
-                  "color": "rgb(177, 183, 162)"
+                  "code": "DE5642",
+                  "displayName": "Forest Path",
+                  "color": "#708D6C"
                 },
                 {
-                  "name": "gloucester-sage",
-                  "code": "HC-100",
-                  "displayName": "Gloucester Sage",
-                  "color": "rgb(123, 118, 101)"
+                  "code": "DE5687",
+                  "displayName": "Minty Fresh",
+                  "color": "#D2F2E7"
+                },
+                
+                {
+                  "code": "DE5492",
+                  "displayName": "Silver Fern",
+                  "color": "#E1DDBF"
                 },
                 {
-                  "name": "hunter-green",
-                  "code": "2041-10",
-                  "displayName": "Hunter Green",
-                  "color": "rgb(42, 69, 61)"
-                }
-              ]
+                  "code": "DE6289",
+                  "displayName": "Silver Fox",
+                  "color": "#D5DBD5"
+                },
+                
+                {
+                  "code": "DE6296",
+                  "displayName": "Sculptural Silver",
+                  "color": "#D1DAD5"
+                },
+                {
+                  "code": "DE6233",
+                  "displayName": "Limestone",
+                  "color": "#DCD8C7"
+                },
+                
+                {
+                  "code": "DE5562",
+                  "displayName": "Olive Martini",
+                  "color": "#CED2AB"
+                },
+                {
+                  "code": "DEC783",
+                  "displayName": "Opaline",
+                  "color": "#C1D1C4"
+                },
+                {
+                  "code": "DE6290",
+                  "displayName": "Ashwood",
+                  "color": "#BCC4BD"
+                },
+                {
+                  "code": "DE5542",
+                  "displayName": "Early Harvest",
+                  "color": "#B9BE82"
+                },
+                {
+                  "code": "DET504",
+                  "displayName": "That's Atomic",
+                  "color": "#B0B08E"
+                },
+                {
+                  "code": "DEA125",
+                  "displayName": "In The Tropics",
+                  "color": "#A3BC3A"
+                },
+                {
+                  "code": "DE6277",
+                  "displayName": "Pebble Walk",
+                  "color": "#AFB2A7"
+                },
+                {
+                  "code": "DET523",
+                  "displayName": "Cloistered Garden",
+                  "color": "#81B39C"
+                },
+                {
+                  "code": "DET535",
+                  "displayName": "Mid-Century Gem",
+                  "color": "#99B090"
+                },
+                {
+                  "code": "DEC771",
+                  "displayName": "Shaggy Barked",
+                  "color": "#B3AB98"
+                },
+                {
+                  "code": "DE6298",
+                  "displayName": "Agate Green",
+                  "color": "#96A69F"
+                },
+                {
+                  "code": "DET517",
+                  "displayName": "Flagstone Quartzite",
+                  "color": "#9A9E88"
+                },
+                {
+                  "code": "DET606",
+                  "displayName": "Meek Moss Green",
+                  "color": "#9A9E88"
+                },
+                {
+                  "code": "DE6229",
+                  "displayName": "Calico Rock",
+                  "color": "#9C9584"
+                },
+                {
+                  "code": "DET505",
+                  "displayName": "Desert Sage",
+                  "color": "#90926F"
+                },
+                {
+                  "code": "DE6278",
+                  "displayName": "Stone Creek",
+                  "color": "#8F9183"
+                },
+                {
+                  "code": "DE5482",
+                  "displayName": "Gecko",
+                  "color": "#9D913C"
+                },
 
+                {
+                  "code": "DE5684",
+                  "displayName": "Rain Forest",
+                  "color": "#009A70"
+                },
+                {
+                  "code": "DE6292",
+                  "displayName": "Stone Craft",
+                  "color": "#7D867C"
+                },
+                {
+                  "code": "DE6251",
+                  "displayName": "Green Scene",
+                  "color": "#858365"
+                },
+                {
+                  "code": "DE6313",
+                  "displayName": "Enchanted Eve",
+                  "color": "#79837F"
+                },
+                {
+                  "code": "DET544",
+                  "displayName": "The Green Hour",
+                  "color": "#587D79"
+                },
+                {
+                  "code": "DE5719",
+                  "displayName": "Ecological",
+                  "color": "#677F70"
+                },
+                {
+                  "code": "DET547",
+                  "displayName": "Navajo Turquoise",
+                  "color": "#007C78"
+                },
+                {
+                  "code": "DET519",
+                  "displayName": "Shutters",
+                  "color": "#6C705E"
+                },
+                {
+                  "code": "DET537",
+                  "displayName": "Earhart Emerald ",
+                  "color": "#416659"
+                },
+                {
+                  "code": "DEA130",
+                  "displayName": "Lucky Clover",
+                  "color": "#006940"
+                },
+                {
+                  "code": "DEA182",
+                  "displayName": "Encore Teal",
+                  "color": "#30525B"
+                },
+                {
+                  "code": "DEA181",
+                  "displayName": "Refined Green",
+                  "color": "#384543"
+                }
+              ]
+            },
+            {
+              "name": "grays",
+              "code": "grays",
+              "displayName": "Tans, Beiges, & Taupes",
+              "thumbnail": "branding/taupe_tan.png",
+              
+              "colors": [
+                {
+                  
+                  "code": "DEC765",
+                  "displayName": "Bone",
+                  "color": "#EADFCE"
+                },
+                {
+                
+                  "code": "DET621",
+                  "displayName": "Palomino Pony",
+                  "color": "#837871"
+                },
+                {
+                  "code": "DET622",
+                  "displayName": "Portobello Mushroom",
+                  "color": "#9D928A"
+                },
+                {
+                  "code": "DE6370",
+                  "displayName": "Charcoal Smudge",
+                  "color": "#60605E"
+                },
+                {
+                  
+                  "code": "DE6205",
+                  "displayName": "Stucco Tan",
+                  "color": "#E8DECE"
+                },
+                {
+
+                  "code": "DEC740",
+                  "displayName": "Sandcastle",
+                  "color": "#E5D7C4"
+                },
+                {
+                  "code": "DE6061",
+                  "displayName": "River Rocks",
+                  "color": "#897870"
+                },
+                {
+                
+                  "code": "DEC748",
+                  "displayName": "Oyster",
+                  "color": "#E3D3BF"
+                },
+                {
+                 
+                  "code": "DET670",
+                  "displayName": "Vintage Ephemera",
+                  "color": "#D8CEB9"
+                },
+                {
+                  "code": "DEC761",
+                  "displayName": "Cochise",
+                  "color": "#DDCDB3"
+                },
+                {
+                  "code": "DE6206",
+                  "displayName": "Desert Suede",
+                  "color": "#D5C7B3"
+                },
+                {
+                  "code": "DE6199",
+                  "displayName": "Pale Beach",
+                  "color": "#D6C5A9"
+                },
+                {
+                  "code": "DET623",
+                  "displayName": "En Plein Air",
+                  "color": "#D0C5BE"
+                },
+                {
+                  "code": "DE6122",
+                  "displayName": "Dry Creek",
+                  "color": "#D8C7B6"
+                },
+                {
+                  "code": "DEC747",
+                  "displayName": "Sahara",
+                  "color": "#D5C3AD"
+                },
+                {
+                  "code": "DE6129",
+                  "displayName": "Rustic Taupe",
+                  "color": "#CDB9A2"
+                },
+                {
+                  "code": "DE6059",
+                  "displayName": "Chocolate Milk",
+                  "color": "#C5B9B4"
+                },
+                {
+                  "code": "DEC716",
+                  "displayName": "Stonish Beige",
+                  "color": "#CCB49A"
+                },
+                {
+                  "code": "DET692",
+                  "displayName": "Kiln Dried",
+                  "color": "#A89887"
+                }
+              ]
             },
             {
               "name": "blues",
               "code": "blues",
-              "displayName": "Best-Selling Blues",
-              "thumbnail": "branding/blues.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/blues.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              "displayName": "Blues & Blue Greens",
+              "thumbnail": "branding/blues.png",
+             
               "colors": [
                 {
-                  "name": "palladian-blue",
-                  "code": "HC-144",
-                  "displayName": "Palladian Blue",
-                  "color": "rgb(193, 209, 201)"
+                  "code": "DE5707",
+                  "displayName": "Mist of Green",
+                  "color": "#E3F1EB"
                 },
                 {
-                  "name": "smoke",
-                  "code": "2122-40",
-                  "displayName": "Smoke",
-                  "color": "rgb(186, 200, 201)"
+                  "code": "DE5864",
+                  "displayName": "Cornflower",
+                  "color": "#72A7E1"
                 },
                 {
-                  "name": "beacon-gray",
-                  "code": "2128-60",
-                  "displayName": "Beacon Gray",
-                  "color": "rgb(205, 215, 222)"
+                  "code": "DE6316",
+                  "displayName": "Cold Water",
+                  "color": "#D9DFE0"
                 },
                 {
-                  "name": "van-deusen-blue",
-                  "code": "HC-156",
-                  "displayName": "Van Deusen Blue",
-                  "color": "rgb(72, 91, 110)"
+                  "code": "DE5811",
+                  "displayName": "Summer Night",
+                  "color": "#36576A"
                 },
                 {
-                  "name": "gentlemans-gray",
-                  "code": "2062-20",
-                  "displayName": "Gentleman's Gray",
-                  "color": "rgb(48, 70, 86)"
+                  "code": "DE6303",
+                  "displayName": "Sky Glass",
+                  "color": "#D0DBD7"
                 },
                 {
-                  "name": "hale-navy",
-                  "code": "HC-154",
-                  "displayName": "Hale Navy",
-                  "color": "rgb(67, 75, 86)"
+                  "code": "DE5764",
+                  "displayName": "Blue Moon",
+                  "color": "#BBDEE5"
+                },
+                {
+                  "code": "DE6310",
+                  "displayName": "Rainy Season",
+                  "color": "#D1D8D6"
+                },
+                {
+                  "code": "DEC794",
+                  "displayName": "Salina Springs",
+                  "color": "#CAD2D4"
+                },
+                
+                {
+                  "code": "DE5744",
+                  "displayName": "Seaport",
+                  "color": "#445A79"
+                },
+                {
+                  "code": "DE5772",
+                  "displayName": "Blue Spruce",
+                  "color": "#ADC5C9"
+                },
+                {
+                  "code": "DET581",
+                  "displayName": "Country Air",
+                  "color": "#9FB6C6"
+                },
+                {
+                  "code": "DET599",
+                  "displayName": "Marine Layer",
+                  "color": "#A5B4B6"
+                },
+                {
+                  "code": "DET543",
+                  "displayName": "Veranda",
+                  "color": "#61A9A5"
+                },
+                {
+                  "code": "DET552",
+                  "displayName": "Avalon",
+                  "color": "#799B96"
+                },
+                {
+                  "code": "DET567",
+                  "displayName": "Skipping Stones",
+                  "color": "#70939E"
+                },
+                {
+                  "code": "DET560",
+                  "displayName": "Weathered Blue",
+                  "color": "#7B9093"
+                },
+                {
+                  "code": "DET542",
+                  "displayName": "Tranquil Seashore",
+                  "color": "#629091"
+                },
+                {
+                  "code": "DE5788",
+                  "displayName": "Aegean Sea",
+                  "color": "#508FA2"
+                },
+                {
+                  "code": "DET569",
+                  "displayName": "San Miguel Blue",
+                  "color": "#527585"
+                },
+                {
+                  "code": "DE5768",
+                  "displayName": "Mysterious Blue",
+                  "color": "#3E7A85"
+                },
+                {
+                  "code": "DET577",
+                  "displayName": "Big Sur Blue Jade",
+                  "color": "#3F6E8E"
+                },
+                {
+                  "code": "DET571",
+                  "displayName": "Morro Bay",
+                  "color": "#546B78"
+                },
+                {
+                  "code": "DEA136",
+                  "displayName": "Beautiful Blue",
+                  "color": "#186DB6"
+                },
+                {
+                  "code": "DET593",
+                  "displayName": "Made of Steel",
+                  "color": "#5B686F"
+                },
+                {
+                  "code": "DET564",
+                  "displayName": "Eames for Blue",
+                  "color": "#466B82"
+                },
+                {
+                  "code": "DET559",
+                  "displayName": "Blue Velvet",
+                  "color": "#0D6183"
+                },
+                {
+                  "code": "DET582",
+                  "displayName": "Tried & True Blue",
+                  "color": "#494F62"
+                },
+                {
+                  "code": "DEA138",
+                  "displayName": "Indigo Night",
+                  "color": "#324680"
+                },
+                {
+                  "code": "DET572",
+                  "displayName": "Dark & Stormy",
+                  "color": "#353F51"
                 }
               ]
             },
             {
-              "name": "purples",
-              "code": "purples",
-              "displayName": "Best-Selling Purples",
-              "thumbnail": "branding/purples.jpg",
-              "details": {
-                "url": "https://flooringonesource.com/products/master-designs-in-stock-collections/master-designs-rigid-core-flooring/#cambridge-hall",
-                "preview": "branding/purples.jpg",
-                "specifications": [
-                  {"Plank Size": "9″ x 48″"},
-                  {"Padding": "1.0mm EVA"},
-                  {"Overall Thickness": "4.2mm"},
-                  {"Wear Layer": "8 mil"},
-                  {"Locking Type": "Drop Lock"},
-                  {"Surface": "Antique Wood Embossing"},
-                  {"Edge": "Micro Bevel"}
-                ]
-              },
+              "name": "grays",
+              "code": "grays",
+              "displayName": "Grays & Greiges",
+              "thumbnail": "branding/grays.png",
+             
               "colors": [
                 {
-                  "name": "lily-lavender",
-                  "code": "2071-60",
-                  "displayName": "Lily Lavender",
-                  "color": "rgb(219, 206, 232)"
+                 
+                  "code": "DE6358",
+                  "displayName": "Vapor",
+                  "color": "#EAEAEA"
                 },
                 {
-                  "name": "lavender-mist",
-                  "code": "2070-60",
-                  "displayName": "Lavender Mist",
-                  "color": "rgb(207, 207, 224)"
+                  
+                  "code": "DEC793",
+                  "displayName": "Chalky",
+                  "color": "#E9E9E1"
                 },
                 {
-                  "name": "winter-gray",
-                  "code": "2117-60",
-                  "displayName": "Winter Grey",
-                  "color": "rgb(208, 205, 214)"
+                  
+                  "code": "DEC759",
+                  "displayName": "Hickory",
+                  "color": "#B7A28E"
                 },
                 {
-                  "name": "mystical-grape",
-                  "code": "2071-30",
-                  "displayName": "Mystical Grape",
-                  "color": "rgb(102, 75, 134)"
+               
+                  "code": "DEC785",
+                  "displayName": "Whisper Gray",
+                  "color": "#E9E5DA"
                 },
                 {
-                  "name": "shadow",
-                  "code": "2117-30",
-                  "displayName": "Shadow",
-                  "color": "rgb(81, 74, 88)"
+                  
+                  "code": "DEC791",
+                  "displayName": "Cloud",
+                  "color": "#D8D7D3"
                 },
                 {
-                  "name": "vintage-wine",
-                  "code": "2116-20",
-                  "displayName": "Vintage Wine",
-                  "color": "rgb(84, 70, 73)"
+                 
+                  "code": "DET614",
+                  "displayName": "So Chic!",
+                  "color": "#CECDC5"
+                },
+                {
+                  "code": "DE6227",
+                  "displayName": "Muslin",
+                  "color": "#D4D0C5"
+                },
+                {
+                  "code": "DE6213",
+                  "displayName": "Fine Grain",
+                  "color": "#D8CFC1"
+                },
+                {
+                  "code": "DEC786",
+                  "displayName": "Miner's Dust",
+                  "color": "#D3CEC5"
+                },
+                {
+                  "code": "DE6220",
+                  "displayName": "Porous Stone",
+                  "color": "#D4CEBF"
+                },
+                {
+                  "code": "DET600",
+                  "displayName": "Dolphin Tales",
+                  "color": "#C7C7C2"
+                },
+                {
+                  "code": "DE6374",
+                  "displayName": "Silver Polish",
+                  "color": "#C6C6C6"
+                },
+                {
+                  "code": "DEC752",
+                  "displayName": "Birchwood",
+                  "color": "#CCBEAC"
+                },
+                {
+                  "code": "DEC795",
+                  "displayName": "Gray Pearl",
+                  "color": "#C3C0BB"
+                },
+                {
+                  "code": "DET625",
+                  "displayName": "Reclaimed Wood",
+                  "color": "#BAB6AB"
+                },
+                {
+                  "code": "DET627",
+                  "displayName": "Pewter Patter",
+                  "color": "#BAB4A6"
+                },
+                {
+                  "code": "DET603",
+                  "displayName": "Church Mouse",
+                  "color": "#B3B5AF"
+                },
+                {
+                  "code": "DEC751",
+                  "displayName": "Ash Gray",
+                  "color": "#C1B5A9"
+                },
+                {
+                  "code": "DE6214",
+                  "displayName": "Pigeon Gray",
+                  "color": "#C1B4A0"
+                },
+                {
+                  "code": "DET618",
+                  "displayName": "Industrial Age",
+                  "color": "#AEADAD"
+                },
+                {
+                  "code": "DET620",
+                  "displayName": "Barnwood Gray",
+                  "color": "#9E9589"
+                },
+                {
+                  "code": "DEC750",
+                  "displayName": "Bison Beige",
+                  "color": "#9F9180"
+                },
+                {
+                  "code": "DET612",
+                  "displayName": "Stieglitz Silver",
+                  "color": "#8D8F8E"
+                },
+                {
+                  "code": "DE6376",
+                  "displayName": "Looking Glass",
+                  "color": "#888786"
+                },
+                {
+                  "code": "DET626",
+                  "displayName": "Metal Fringe",
+                  "color": "#837E74"
+                },
+                {
+                  "code": "DET615",
+                  "displayName": "Stone Mason",
+                  "color": "#7A7B75"
+                },
+                {
+                  "code": "DET611",
+                  "displayName": "Iron-ic",
+                  "color": "#6A6B67"
+                }
+              ]
+            },
+            {
+              "name": "blacks",
+              "code": "blacks",
+              "displayName": "Dark Browns & Blacks",
+              "thumbnail": "branding/blacks.png",
+             
+              "colors": [
+                {
+                
+                  "code": "DET631",
+                  "displayName": "Cocoa Powder",
+                  "color": "#766A5F"
+                },
+                {
+                  
+                  "code": "DET699",
+                  "displayName": "Bourbon Truffle",
+                  "color": "#6C5654"
+                },
+                {
+                 
+                  "code": "DE6077",
+                  "displayName": "Deep Brown",
+                  "color": "#6F5749"
+                },
+                {
+                 
+                  "code": "DEA161",
+                  "displayName": "Wild Mustang",
+                  "color": "#695649"
+                },
+                {
+                 
+                  "code": "DEC712",
+                  "displayName": "Briar",
+                  "color": "#745443"
+                },
+                {
+                  
+                  "code": "DEC756",
+                  "displayName": "Weathered Brown",
+                  "color": "#59504C"
+                },
+                { 
+                  "code": "DET619",
+                  "displayName": "Celluloid",
+                  "color": "#515153"
+                },
+                { 
+                  "code": "DE6371",
+                  "displayName": "Blackjack",
+                  "color": "#51504D"
+                },
+                { 
+                  "code": "DET680",
+                  "displayName": "Espresso Macchiato",
+                  "color": "#4F4744"
+                },
+                { 
+                  "code": "DEA158",
+                  "displayName": "Northern Territory",
+                  "color": "#5E463C"
+                },
+                { 
+                  "code": "DE6350",
+                  "displayName": "Dark Engine",
+                  "color": "#3E3F41"
+                },
+                { 
+                  "code": "DEA002",
+                  "displayName": "Black",
+                  "color": "#3B3A3A"
+                }
+              ]
+            },
+            
+            {
+              "name": "purples",
+              "code": "purples",
+              "displayName": "Purples",
+              "thumbnail": "branding/purples.png",
+           
+              "colors": [
+                {
+                  "code": "DE6051",
+                  "displayName": "Pale Berries",
+                  "color": "#E2CCC7"
+                },
+                {
+                  "code": "DET402",
+                  "displayName": "Mauve-a-Lish",
+                  "color": "#90686C"
+                },
+                {
+                  "code": "DE6013",
+                  "displayName": "Amazing Amethyst",
+                  "color": "#806568"
+                },
+                {
+                  "code": "DET404",
+                  "displayName": "California Dreamin’",
+                  "color": "#93807F"
+                },
+                {
+                  "code": "DE6045",
+                  "displayName": "Wispy Mauve",
+                  "color": "#C6AEAA"
+                },
+                {
+                  "code": "DE5959",
+                  "displayName": "Lingering Lilac",
+                  "color": "#E6DEF0"
+                },
+                {
+                  "code": "DET400",
+                  "displayName": "Wine Goblet",
+                  "color": "#643B46"
+                },
+                {
+                  "code": "DE5974",
+                  "displayName": "Soft Lilac",
+                  "color": "#E2D4DF"
+                },
+                {
+                  "code": "DE5946",
+                  "displayName": "Violet Crush",
+                  "color": "#D8D3E6"
+                },
+                {
+                  "code": "DE6019",
+                  "displayName": "Bohemian Jazz",
+                  "color": "#9D777C"
+                },
+                {
+                  "code": "DET405",
+                  "displayName": "Purple Prose",
+                  "color": "#554348"
+                },
+                {
+                  "code": "DEA143",
+                  "displayName": "Purple Odyssey",
+                  "color": "#643E65"
+                },
+                {
+                  "code": "DET407",
+                  "displayName": "Nightshade",
+                  "color": "#4F4352"
                 }
               ]
             }

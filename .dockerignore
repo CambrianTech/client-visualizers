@@ -4,14 +4,20 @@
 .elasticbeanstalk
 scripts
 /build
-/node_modules
 /assets/scenes
 /scripts
 /server/dist
-/server/node_modules
+node_modules
+dist
 
 /sites/*
-/public/cambrianar-sites
+cambrianar-sites
+public/cambrianar-sites
+cb-backend-data
+build
+scripts
+server/dist
+node_modules
 
 
 **/*.log

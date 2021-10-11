@@ -342,3 +342,7 @@ input[type=range]:focus::-ms-fill-upper {
     transform: scale(1);
     opacity: 1;
 }
+
+.MuiSpeedDialAction-staticTooltipLabel {
+    user-select: none;
+}

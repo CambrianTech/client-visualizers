@@ -92,7 +92,7 @@
     pointer-events: none;
 
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3);
-    display: none;
+    display: flex;
 }
 
 .floating-logo .has-scene {
@@ -167,6 +167,7 @@
     background-color: #bebebe;
     opacity: 0.0;
     transition: opacity 500ms;
+    user-select: none;
 }
 
 .cbarview.has-scene {
@@ -420,6 +421,22 @@ panel.c {
     -webkit-animation: bounce .5s infinite alternate;
     -moz-animation: bounce .5s infinite alternate;
     animation: bounce .5s infinite alternate;
+}
+
+.visualizer-buttons-right {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.visualizer-buttons-right > .MuiSpeedDial-root {
+    position: unset;
+}
+
+.visualizer-buttons-right .MuiButtonBase-root {
+    margin-right: 15px;
 }
 
 @-webkit-keyframes bounce {
