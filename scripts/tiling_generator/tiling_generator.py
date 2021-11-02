@@ -237,7 +237,7 @@ def find_tiles(img, max_size=1920):
     debug = img.copy()
     if debug is not None:
         for line in all_lines:
-            cv2.line(debug,(line[0][0],line[0][1]),(line[0][2],line[0][3]),(0,255,0),6)
+            cv2.line(debug,(int(line[0][0]),int(line[0][1])),(int(line[0][2]),int(line[0][3])),(0,255,0),6)
 
     return debug
 
