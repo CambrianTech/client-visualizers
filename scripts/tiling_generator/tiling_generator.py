@@ -11,6 +11,16 @@ import click
 import random
 import math
 
+def convert_color(color, conversion):
+    #return tuple(int(i) for i in cv2.cvtColor(img, conversion).flatten())
+    
+    #bug in opencv 4.5.4 incorrectly asserting on width or height parameter instead of channels
+    #return tuple(int(i) for i in cv2.cvtColor(img, conversion).flatten())
+    img = np.zeros([3,3,3],dtype=np.uint8)
+    img[0,0] = color
+    converted = cv2.cvtColor(img, conversion)[0,0]
+    return (int(converted[0]), int(converted[1]), int(converted[2]))
+
 def get_image_paths(input_dir, pattern):
     files = []
     if pattern:
@@ -21,21 +31,26 @@ def get_image_paths(input_dir, pattern):
             files.extend(Path(input_dir).glob('**/*' + ext))
     return files
 
-def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color=(55,55,55)):
-
-    print("Tiling %d boards" % len(boards), boards.shape)
+def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=None):
 
     (h, w) = boards.shape[1:3]
     if seam_size is None:
-        seam_size = max(int(w / 200), 2)
+        seam_size = max(w // 100, 1)
+
+    print("Tiling %d boards. Seam size is %d" % (len(boards), seam_size))
 
     half_seam_size = seam_size // 2
     total_seam_width = num_cols * seam_size
     total_seam_height = num_rows * seam_size
 
+    if seam_color_bgr is None:
+        average_color = boards[0].mean(axis=0).mean(axis=0)
+        average_color_hsv = convert_color(average_color, cv2.COLOR_BGR2HSV)
+        
+        seam_color_bgr = convert_color((average_color_hsv[0], average_color_hsv[1], average_color_hsv[2] * 2 // 3), cv2.COLOR_HSV2BGR)
     
     output = np.zeros((num_rows * h + total_seam_height, num_cols * w + total_seam_width, 3), dtype=np.uint8)
-    output[:] = seam_color
+    output[:] = seam_color_bgr
 
     for row in range(num_rows):
         for col in range(num_cols):
