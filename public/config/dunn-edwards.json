@@ -766,9 +766,9 @@
               ]
             },
             {
-              "name": "grays",
-              "code": "grays",
-              "displayName": "Tans, Beiges, & Taupes",
+              "name": "tans",
+              "code": "tans",
+              "displayName": "Tans, Beiges, & Taupes",
               "thumbnail": "branding/taupe_tan.png",
               
               "colors": [
