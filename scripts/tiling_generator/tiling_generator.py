@@ -21,12 +21,17 @@ def get_image_paths(input_dir, pattern):
             files.extend(Path(input_dir).glob('**/*' + ext))
     return files
 
-def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)):
+def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color=(55,55,55)):
+
+    (h, w) = boards.shape[1:3]
+    if seam_size is None:
+        seam_size = max(int(w / 80), 2)
+
     half_seam_size = seam_size // 2
     total_seam_width = num_cols * seam_size
     total_seam_height = num_rows * seam_size
 
-    (h, w) = boards.shape[1:3]
+    
     output = np.zeros((num_rows * h + total_seam_height, num_cols * w + total_seam_width, 3), dtype=np.uint8)
     output[:] = seam_color
 
@@ -69,7 +74,7 @@ def crop_center(img,cropx,cropy):
     starty = y//2 - cropy//2    
     return img[starty:starty+cropy, startx:startx+cropx, :]
 
-def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
+def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
     
     for row in data:
         image_width = row['width']
@@ -138,7 +143,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             # crop = img[y0:y0+height , x0:x0+width, :]
 
-def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
+def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
 
     def assemble_segments(path, segments):
         print("Assembling %s with %d images" % (path, len(segments)))
@@ -160,6 +165,8 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 
 
     files = get_image_paths(input_dir, pattern)
+
+    print("Processing %d images from %s" % (len(files), input_dir))
 
     last_out_dir = None
     images = []
@@ -292,7 +299,7 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
 @click.option("--size", default=2048, type=int)
 @click.option("--rows", default=2, type=int)
 @click.option("--columns", default=6, type=int)
-@click.option("--seam_size", default=2, type=int)
+@click.option("--seam_size", default=None, type=int)
 @click.option("--img_is_metric", default=True, type=bool)
 @click.option("--crop_is_metric", default=False, type=bool)
 @click.option("--quality", default=70, type=int)

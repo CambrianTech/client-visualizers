@@ -39,3 +39,4 @@ cambrianar-sites
 /server/dist
 /server/node_modules
 /cb-backend-data
+scripts/tiling_generator/input*
