@@ -23,9 +23,11 @@ def get_image_paths(input_dir, pattern):
 
 def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color=(55,55,55)):
 
+    print("Tiling %d boards" % len(boards), boards.shape)
+
     (h, w) = boards.shape[1:3]
     if seam_size is None:
-        seam_size = max(int(w / 80), 2)
+        seam_size = max(int(w / 200), 2)
 
     half_seam_size = seam_size // 2
     total_seam_width = num_cols * seam_size
@@ -148,11 +150,25 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
     def assemble_segments(path, segments):
         print("Assembling %s with %d images" % (path, len(segments)))
 
-            # make all vertical
+        # make all vertical
+        min_h = 100000
+        min_w = 100000
+
         for index in range(len(segments)):
             (h, w) = segments[index].shape[0:2]
             if w > h:
                 segments[index] = np.rot90(segments[index])
+
+            min_h = min(min_h, h)
+            min_w = min(min_w, w)
+
+        #make consistent size:
+        for index in range(len(segments)):
+            (h, w) = segments[index].shape[0:2]
+
+            if h != min_h or w != min_w:
+                segments[index] = crop_center(segments[index], min_w, min_h)
+            
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (index)), resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
         tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
