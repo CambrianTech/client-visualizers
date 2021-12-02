@@ -161,10 +161,22 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             # crop = img[y0:y0+height , x0:x0+width, :]
 
-def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
+def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, flatten_output=False):
 
-    def assemble_segments(path, segments):
-        print(colored("\nAssembling %s with %d images\n" % (path, len(segments)), attrs=["bold"]))
+    if flatten_output:
+        textures_path = os.path.join(output_dir, "textures")
+        if not os.path.exists(textures_path): os.makedirs(textures_path)
+
+        thumbnails_path = os.path.join(output_dir, "thumbnails")
+        if not os.path.exists(thumbnails_path): os.makedirs(thumbnails_path)
+
+        planks_path = os.path.join(output_dir, "planks")
+        if not os.path.exists(planks_path): os.makedirs(planks_path)
+    else:
+        tiled_path = thumbnail_path = plank_path = None
+
+    def assemble_segments(name, path, segments):
+        print(colored("\nAssembling %s with %d images\n" % (name, len(segments)), attrs=["bold"]))
 
         # make all vertical
         min_h = 100000
@@ -186,17 +198,19 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
                 segments[index] = crop_center(segments[index], min_w, min_h)
                 print("Resized to", segments[index].shape)
             
-            cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (index)), resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+            tile_path = os.path.join(path, "tile_%d.jpg" % (index)) if planks_path is None else os.path.join(planks_path, "%s-%d.jpg" % (name, index))
+            cv2.imwrite(tile_path, resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
 
         tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
         tiled = resize(tiled, maxsize)
         
-        cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+        tiled_path = os.path.join(path, "tiled.jpg") if textures_path is None else os.path.join(textures_path, "%s.jpg" % name)
+        cv2.imwrite(tiled_path, tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
         thumbnail = resize(crop_center(tiled, maxsize, maxsize), 512)
-        cv2.imwrite(os.path.join(path, "thumbnail.jpg"), thumbnail, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
-
+        thumbnail_path = os.path.join(path, "thumbnail.jpg") if thumbnails_path is None else os.path.join(thumbnails_path, "%s.jpg" % name)
+        cv2.imwrite(thumbnail_path, thumbnail, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
     files = get_image_paths(input_dir, pattern)
 
@@ -219,7 +233,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 
         if dir_name:
             out_dir = os.path.join(output_dir, dir_name)
-            if not os.path.exists(out_dir):
+            if not os.path.exists(out_dir) and not flatten_output:
                 os.makedirs(out_dir)
         else:
             out_dir = output_dir
@@ -236,7 +250,8 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
         if last_out_dir is None:
             last_out_dir = out_dir
         elif out_dir != last_out_dir:
-            assemble_segments(last_out_dir, images)
+            assemble_segments(name, last_out_dir, images)
+
             images = []
             last_out_dir = out_dir
 
@@ -245,7 +260,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
         output_path = os.path.join(out_dir, name)
         #print(image_path)
     if len(images):
-        assemble_segments(last_out_dir,images)
+        assemble_segments(name, last_out_dir,images)
 
 def find_tile_lines(gray, apertureSize=5, use_hough=False):
     diagonal = math.hypot(gray.shape[0], gray.shape[1])
@@ -334,20 +349,23 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
         Image.fromarray(t_img).crop((t_left, t_top, t_left+thumbnail_size, t_top+thumbnail_size)).save(os.path.join(thumbnails_output_dir, filename + ".jpg"))
 
 
+#for example, assemble planks, flattened into a single directory: python tiling_generator.py adore-floors -m assemble -f 1
+
 @click.command()
 @click.option('--mode', '-m', required=True, type=click.Choice(['assemble', 'cut', 'extract'], case_sensitive=False))
 @click.argument("input_dir", default='input', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.option('--pattern', '-p', type=click.STRING, default=None)
-@click.option("--size", default=2048, type=int)
-@click.option("--rows", default=2, type=int)
-@click.option("--columns", default=6, type=int)
+@click.option("--size", '-s', default=2048, type=int)
+@click.option("--rows", '-r', default=2, type=int)
+@click.option("--columns", '-c', default=6, type=int)
 @click.option("--seam_size", default=None, type=int)
 @click.option("--img_is_metric", default=True, type=bool)
 @click.option("--crop_is_metric", default=False, type=bool)
-@click.option("--quality", default=70, type=int)
-def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality):        
+@click.option("--quality", '-q', default=70, type=int)
+@click.option("--flat", '-f', default=False, type=bool)
+def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality, flat):        
 
     if not os.path.exists(input_dir):
         raise Exception('The directory {} does not exist '.format(input_dir)) 
@@ -362,7 +380,7 @@ def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, s
             data = json.load(f)
         crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality)
     elif mode == 'assemble':
-        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality)
+        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality, flatten_output=flat)
     
     print(colored("Done", attrs=['bold']))
 
