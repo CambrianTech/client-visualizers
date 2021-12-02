@@ -87,11 +87,23 @@ def resize(image, window_height):
     return image
 
 def crop_center(img, cropx, cropy):
-    y,x,c = img.shape
-    startx = max(x//2 - cropx//2, 0)
-    starty = max(y//2 - cropy//2, 0)
+    h, w, _ = img.shape
+    startx = w//2 - cropx//2
+    starty = h//2 - cropy//2
 
     return img[starty:starty+cropy, startx:startx+cropx, :]
+
+def make_thumbnail(img, size=512):
+    h, w = img.shape[:2]
+
+    scale = size / min(w, h)
+    
+    reduced = cv2.resize(img, (int(scale * w), int(scale * h)))
+
+    starty = (reduced.shape[0] - size) // 2
+    startx = (reduced.shape[1] - size) // 2
+
+    return reduced[starty:starty + size, startx:startx + size, :]
 
 def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
     
@@ -157,7 +169,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
         tiled = resize(tiled, maxsize) 
         cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        thumbnail = resize(crop_center(tiled, maxsize, maxsize), 512)
+        thumbnail = make_thumbnail(tiled)
         cv2.imwrite(os.path.join(path, "thumbnail.jpg"), thumbnail, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
             # crop = img[y0:y0+height , x0:x0+width, :]
@@ -212,7 +224,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
         tiled_path = os.path.join(path, "tiled.jpg") if textures_path is None else os.path.join(textures_path, "%s.jpg" % name)
         cv2.imwrite(tiled_path, tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        thumbnail = resize(crop_center(tiled, maxsize, maxsize), 512)
+        thumbnail = make_thumbnail(tiled)
         thumbnail_path = os.path.join(path, "thumbnail.jpg") if thumbnails_path is None else os.path.join(thumbnails_path, "%s.jpg" % name)
         cv2.imwrite(thumbnail_path, thumbnail, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
