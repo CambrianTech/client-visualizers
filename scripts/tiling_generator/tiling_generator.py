@@ -98,10 +98,12 @@ def make_thumbnail(img, size=512):
 
     scale = size / min(w, h)
     
-    reduced = cv2.resize(img, (int(scale * w), int(scale * h)))
+    reduced = cv2.resize(img, (math.ceil(scale * w), math.ceil(scale * h)))
 
-    starty = (reduced.shape[0] - size) // 2
-    startx = (reduced.shape[1] - size) // 2
+    starty = max(0, (reduced.shape[0] - size) // 2)
+    startx = max(0, (reduced.shape[1] - size) // 2)
+
+    #print(startx, starty, reduced.shape)
 
     return reduced[starty:starty + size, startx:startx + size, :]
 
