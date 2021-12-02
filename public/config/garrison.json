@@ -1,0 +1,524 @@
+{
+  "code": "garrison",
+  "displayName": "Garrison",
+  "subdomain": "garrison",
+  "appearance": {
+    "logo": {"src":"branding/logo-black.png", "alt":"Divine floor logo"},
+    "primaryColor": "#000",
+    "primaryTextColor": "#fff",
+    "secondaryColor": "#fff",
+    "secondaryTextColor": "#000",
+    "surfaceColor": "#dfdfdf",
+    "surfaceTextColor": "#555",
+    "inactiveColor": "rgba(255,255,255,0.2)",
+    "customStylesheet": "branding/custom.css",
+    "header": {
+      "title": "Divine Floor",
+      "description": "See Divine Floor's great flooring products.",
+      "favicon": "branding/logo-black.png"
+    },
+    "sharing": {
+      "subject": "Check out this floor from Divine Floor"
+    },
+    "features": [
+      {
+        "name": "scenes",
+        "image":{"src": "branding/Choose Scene.png"}
+      },
+      {
+        "name": "upload",
+        "image":{"src": "branding/Upload Photo.png"}
+      }
+    ]
+  },
+  "features":  [
+    {"name":"scenes", "enabled":true},
+    {"name":"upload", "enabled":true}
+  ],
+  "brands": [
+    {
+      "code": "garrison",
+      "displayName": "Garrison",
+      "surfaceTypes": ["floor"],
+      "assetTypes": ["tiled"],
+      "sceneCollections": [
+        {
+          "code": "bathroom",
+          "displayName": "Bathroom",
+          "scenes": [
+            {
+              "code": "1-bathroom",
+              "displayName": "Bathroom"
+            },
+            {
+              "code": "2-bathroom",
+              "displayName": "Bathroom"
+            }
+          ]
+        },
+        {
+          "code": "bedroom",
+          "displayName": "Bedroom",
+          "scenes": [
+            {
+              "code": "2-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "3-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "4-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "5-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "6-bedroom",
+              "displayName": "Bedroom"
+            }
+          ]
+        },
+        {
+          "code": "kitchen",
+          "displayName": "Kitchen",
+          "scenes": [
+            {
+              "code": "kitchen-1",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "1-dining",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "1-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "2-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "3-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "4-kitchen",
+              "displayName": "Kitchen"
+            }
+          ]
+        },
+        {
+          "code": "living-room",
+          "displayName": "Living Room",
+          "scenes": [
+            {
+              "code": "1-compact-apartment",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "4-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "6-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "7-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "8-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "9-living-room",
+              "displayName": "Living Room"
+            }
+          ]
+        },
+        {
+          "code": "office",
+          "displayName": "Office",
+          "scenes": [
+            {
+              "code": "1-business",
+              "displayName": "Office"
+            },
+            {
+              "code": "1-office",
+              "displayName": "Office"
+            },
+            {
+              "code": "2-lobby",
+              "displayName": "Office"
+            }
+          ]
+        }
+      ],
+      "collections": [
+        {
+          "code": "demo",
+          "displayName": "Demo",
+          "thumbnail": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Parquet-RS_1024x1024.jpg?v=1575660940",
+          "products": [
+            {
+              "code": "New",
+              "displayName": "New",
+              "thumbnail": "branding/Louis_XIV-840px2_240x.png",
+              "colors": [
+                {
+                  "code": "AquaBlue",
+                  "displayName": "AquaBlue",
+                  "ppi": 48.7,
+                  "thumbnail": "assets/New/AquaBlue/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/New/AquaBlue/tiled.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "GII Distressed",
+                  "displayName": "GII Distressed",
+                  "ppi": 68.25,
+                  "thumbnail": "assets/New/GII Distressed/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/New/GII Distressed/tiled.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "Newport",
+                  "displayName": "Newport",
+                  "ppi": 45.5,
+                  "thumbnail": "assets/New/Newport/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/New/Newport/tiled.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "Summit Sky",
+                  "displayName": "Summit Sky",
+                  "ppi": 68.2,
+                  "thumbnail": "assets/New/Summit Sky/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/New/Summit Sky/tiled.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "code": "Classics",
+              "displayName": "Classics",
+              "thumbnail": "branding/Louis_XIV-840px2_240x.png",
+              "colors": [
+                {
+                  "code": "Brass",
+                  "displayName": "Brass",
+                  "ppi": 50,
+                  "thumbnail": "assets/Brass/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/Brass/tiled_diffuse.jpg",
+                  "highlights": "assets/Brass/tiled_specular.jpg",
+                  "normals": "assets/Brass/tiled_normals.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "Chantal",
+                  "displayName": "Chantal",
+                  "ppi": 50,
+                  "thumbnail": "assets/Chantal/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/Chantal/tiled_diffuse.jpg",
+                  "highlights": "assets/Chantal/tiled_specular.jpg",
+                  "normals": "assets/Chantal/tiled_normals.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "Chateau",
+                  "displayName": "Chateau",
+                  "ppi": 50,
+                  "thumbnail": "assets/Chateau/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/Chateau/tiled_diffuse.jpg",
+                  "highlights": "assets/Chateau/tiled_specular.jpg",
+                  "normals": "assets/Chateau/tiled_normals.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "code": "Vinyl",
+              "displayName": "Vinyl Graphics",
+              "thumbnail": "branding/Louis_XIV-840px2_240x.png",
+              "colors": [
+                {
+                  "code": "Gramercy Park",
+                  "displayName": "Gramercy Park",
+                  "ppi": 50,
+                  "thumbnail": "assets/Vinyl Graphics/Gvmp702 Gramercy Park/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/Vinyl Graphics/Gvmp702 Gramercy Park/tiled_diffuse.jpg",
+                  "highlights": "assets/Vinyl Graphics/Gvmp702 Gramercy Park/tiled_specular.jpg",
+                  "normals": "assets/Vinyl Graphics/Gvmp702 Gramercy Park/tiled_normals.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "Havasu Oak",
+                  "displayName": "Havasu Oak",
+                  "ppi": 50,
+                  "thumbnail": "assets/Vinyl Graphics/Havasu Oak/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/Vinyl Graphics/Havasu Oak/tiled_diffuse.jpg",
+                  "highlights": "assets/Vinyl Graphics/Havasu Oak/tiled_specular.jpg",
+                  "normals": "assets/Vinyl Graphics/Havasu Oak/tiled_normals.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "Moscato Ash",
+                  "displayName": "Moscato Ash",
+                  "ppi": 50,
+                  "thumbnail": "assets/Vinyl Graphics/Moscato Ash/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/Vinyl Graphics/Moscato Ash/tiled_diffuse.jpg",
+                  "highlights": "assets/Vinyl Graphics/Moscato Ash/tiled_specular.jpg",
+                  "normals": "assets/Vinyl Graphics/Moscato Ash/tiled_normals.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "Niagara Oak",
+                  "displayName": "Niagara Oak",
+                  "ppi": 50,
+                  "thumbnail": "assets/Vinyl Graphics/Niagara Oak/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/Vinyl Graphics/Niagara Oak/tiled_diffuse.jpg",
+                  "highlights": "assets/Vinyl Graphics/Niagara Oak/tiled_specular.jpg",
+                  "normals": "assets/Vinyl Graphics/Niagara Oak/tiled_normals.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                },
+                {
+                  "code": "Yellowstone Oak",
+                  "displayName": "Yellowstone Oak",
+                  "ppi": 50,
+                  "thumbnail": "assets/Vinyl Graphics/Yellowstone Oak/thumbnail.jpg",
+                  "mirrored": false,
+                  "albedo": "assets/Vinyl Graphics/Yellowstone Oak/tiled_diffuse.jpg",
+                  "highlights": "assets/Vinyl Graphics/Yellowstone Oak/tiled_specular.jpg",
+                  "normals": "assets/Vinyl Graphics/Yellowstone Oak/tiled_normals.jpg",
+                  "details": {
+                    "url": "https://divinefloor.com/collections/louis-xiv-1/products/louisxiv-montpellier-frenchwhiteoak-0050",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Planks-RS_1024x1024.jpg?v=1575645454",
+                    "specifications": [
+                      {"Qty per Box": "15.540"},
+                      {"Product Category": "Hardwood"},
+                      {"Finish": "Olio"},
+                      {"Texture": "Brushed"},
+                      {"Width": "7 1/2\""},
+                      {"Thickness": "3/4\""},
+                      {"Length": "74 3/4\""},
+                      {"Species": "French White Oak"},
+                      {"Edge Detail": "4V"},
+                      {"Grade Levels": "On/Above/Below"},
+                      {"Installation Methods": "Nail/Glue"},
+                      {"Over Radiant Heat": "Yes"}
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6,29 +6,52 @@ import numpy as np
 import sys
 from pathlib import Path
 from PIL import Image, ImageEnhance
+from termcolor import colored
 
 import click
 import random
 import math
+
+def convert_color(color, conversion):
+    #return tuple(int(i) for i in cv2.cvtColor(img, conversion).flatten())
+    
+    #bug in opencv 4.5.4 incorrectly asserting on width or height parameter instead of channels
+    #return tuple(int(i) for i in cv2.cvtColor(img, conversion).flatten())
+    img = np.zeros([3,3,3],dtype=np.uint8)
+    img[0,0] = color
+    converted = cv2.cvtColor(img, conversion)[0,0]
+    return (int(converted[0]), int(converted[1]), int(converted[2]))
 
 def get_image_paths(input_dir, pattern):
     files = []
     if pattern:
         files.extend(Path(input_dir).glob('**/' + pattern))
     else: 
-        extensions = ('.png', '.jpg', '.jpeg')
+        extensions = ('.png', '.jpg', '.jpeg', '.tif')
         for ext in extensions:
             files.extend(Path(input_dir).glob('**/*' + ext))
     return files
 
-def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)):
+def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=None):
+
+    (h, w) = boards.shape[1:3]
+    if seam_size is None:
+        seam_size = max(w // 100, 1)
+
+    print("Tiling %d boards. Seam size is %d" % (len(boards), seam_size))
+
     half_seam_size = seam_size // 2
     total_seam_width = num_cols * seam_size
     total_seam_height = num_rows * seam_size
 
-    (h, w) = boards.shape[1:3]
+    if seam_color_bgr is None:
+        average_color = boards[0].mean(axis=0).mean(axis=0)
+        average_color_hsv = convert_color(average_color, cv2.COLOR_BGR2HSV)
+        
+        seam_color_bgr = convert_color((average_color_hsv[0], average_color_hsv[1], average_color_hsv[2] * 2 // 3), cv2.COLOR_HSV2BGR)
+    
     output = np.zeros((num_rows * h + total_seam_height, num_cols * w + total_seam_width, 3), dtype=np.uint8)
-    output[:] = seam_color
+    output[:] = seam_color_bgr
 
     for row in range(num_rows):
         for col in range(num_cols):
@@ -69,7 +92,7 @@ def crop_center(img,cropx,cropy):
     starty = y//2 - cropy//2    
     return img[starty:starty+cropy, startx:startx+cropx, :]
 
-def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
+def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
     
     for row in data:
         image_width = row['width']
@@ -138,17 +161,33 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             # crop = img[y0:y0+height , x0:x0+width, :]
 
-def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
+def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
 
     def assemble_segments(path, segments):
-        print("Assembling %s with %d images" % (path, len(segments)))
+        print(colored("\nAssembling %s with %d images\n" % (path, len(segments)), attrs=["bold"]))
 
-            # make all vertical
+        # make all vertical
+        min_h = 100000
+        min_w = 100000
+
         for index in range(len(segments)):
             (h, w) = segments[index].shape[0:2]
             if w > h:
                 segments[index] = np.rot90(segments[index])
+
+            min_h = min(min_h, h)
+            min_w = min(min_w, w)
+
+        #make consistent size:
+        for index in range(len(segments)):
+            (h, w) = segments[index].shape[0:2]
+
+            if h != min_h or w != min_w:
+                segments[index] = crop_center(segments[index], min_w, min_h)
+                print("Resized to", segments[index].shape)
+            
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (index)), resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+
 
         tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
         tiled = resize(tiled, maxsize)
@@ -160,6 +199,12 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 
 
     files = get_image_paths(input_dir, pattern)
+
+    if len(files) == 0:
+        print("No images to process at %s" % input_dir)
+        return
+
+    print(colored("\nProcessing %d images from %s\n" % (len(files), input_dir), attrs=['bold']))
 
     last_out_dir = None
     images = []
@@ -181,6 +226,12 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 
         img = Image.open(path).convert('RGB')
         img = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
+
+        #may need to rotate:
+        if img.shape[0] < img.shape[1]:
+            img = np.rot90(img, k=1, axes=(0, 1))
+
+        print("Grabbing image %s" % path, img.shape)
 
         if last_out_dir is None:
             last_out_dir = out_dir
@@ -237,7 +288,7 @@ def find_tiles(img, max_size=1920):
     debug = img.copy()
     if debug is not None:
         for line in all_lines:
-            cv2.line(debug,(line[0][0],line[0][1]),(line[0][2],line[0][3]),(0,255,0),6)
+            cv2.line(debug,(int(line[0][0]),int(line[0][1])),(int(line[0][2]),int(line[0][3])),(0,255,0),6)
 
     return debug
 
@@ -292,7 +343,7 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
 @click.option("--size", default=2048, type=int)
 @click.option("--rows", default=2, type=int)
 @click.option("--columns", default=6, type=int)
-@click.option("--seam_size", default=2, type=int)
+@click.option("--seam_size", default=None, type=int)
 @click.option("--img_is_metric", default=True, type=bool)
 @click.option("--crop_is_metric", default=False, type=bool)
 @click.option("--quality", default=70, type=int)
@@ -313,7 +364,7 @@ def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, s
     elif mode == 'assemble':
         assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality)
     
-    print("Done")
+    print(colored("Done", attrs=['bold']))
 
 if __name__ == "__main__":
     main()
