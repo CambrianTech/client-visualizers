@@ -41,3 +41,4 @@ cambrianar-sites
 /cb-backend-data
 scripts/tiling_generator/input*
 /scripts/tiling_generator/garrison
+/scripts/tiling_generator/adore-floors
