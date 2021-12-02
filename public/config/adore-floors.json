@@ -11,7 +11,6 @@
     "surfaceColor": "#dfdfdf",
     "surfaceTextColor": "#555",
     "inactiveColor": "rgba(255,255,255,0.2)",
-//    "customStylesheet": "branding/custom.css",
     "header": {
       "title": "Adore Floors",
       "description": "See Adore Floors' great flooring products.",
@@ -37,7 +36,7 @@
   ],
   "brands": [
     {
-      "code": "adore-floors",  //why the dash?
+      "code": "adore-floors",
       "displayName": "Adore Floors",
       "surfaceTypes": ["floor"],
       "assetTypes": ["tiled"],
@@ -304,7 +303,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": false, "albedo": "textures/NAT-2037.jpg",
+                    "mirroredX": false, "albedo": "textures/NAT-2037.jpg"
                   }
                 },
                 {
@@ -345,7 +344,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirrored": false, "albedo": "textures/NAT-2044.jpg",
+                    "mirrored": false, "albedo": "textures/NAT-2044.jpg"
                   }
                 },
                 {
