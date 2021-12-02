@@ -177,6 +177,7 @@
                   "thumbnail": "thumbnails/NAT-1310.jpg",
                   "mirrored": false,
                   "albedo": "textures/NAT-1310.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-1310",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/283/a4kqh2dg.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -195,6 +196,7 @@
                   "displayName": "ACHIEVE",
                   "thumbnail": "thumbnails/NAT-1741.jpg",
                   "albedo": "textures/NAT-1741.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-1741",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/284/bvwi3nue.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -212,6 +214,7 @@
                   "code": "NAT-2031",
                   "displayName": "ADVANCE",
                   "thumbnail": "thumbnails/NAT-2031.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2031",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/284/bvwi3nue.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -232,6 +235,7 @@
                   "code": "NAT-2032",
                   "displayName": "ADMIRE",
                   "thumbnail": "thumbnails/NAT-2032.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2032",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/286/okjks3qm.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -250,6 +254,7 @@
                   "code": "NAT-2033",
                   "displayName": "ADVISE",
                   "thumbnail": "thumbnails/NAT-2033.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2033",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/287/tccg3gm1.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -270,6 +275,7 @@
                   "code": "NAT-2036",
                   "displayName": "ADDRESS",
                   "thumbnail": "thumbnails/NAT-2036.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2036",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/288/jzl1vepk.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -290,6 +296,7 @@
                   "code": "NAT-2037",
                   "displayName": "ADAPT",
                   "thumbnail": "thumbnails/NAT-2037.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2037",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/289/xlauh443.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -310,6 +317,7 @@
                   "code": "NAT-2042",
                   "displayName": "ADMIT",
                   "thumbnail": "thumbnails/NAT-2042.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2042",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/290/v2naxgyn.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -331,6 +339,7 @@
                   "code": "NAT-2044",
                   "displayName": "ACCRUE",
                   "thumbnail": "thumbnails/NAT-2044.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2044",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/291/yf1jfcm3.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -351,6 +360,7 @@
                   "code": "NAT-2051",
                   "displayName": "ADORN",
                   "thumbnail": "thumbnails/NAT-2051.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2051",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/292/1ujuj0io.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -371,6 +381,7 @@
                   "code": "NAT-3151",
                   "displayName": "APPEAL",
                   "thumbnail": "thumbnails/NAT-3151.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-3151",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/293/b21q2rym.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -391,6 +402,7 @@
                   "code": "NAT-3301",
                   "displayName": "ASPIRE",
                   "thumbnail": "thumbnails/NAT-3301.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-3301",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/294/kmflddtu.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -411,6 +423,7 @@
                   "code": "NAT-3302",
                   "displayName": "AGREE",
                   "thumbnail": "thumbnails/NAT-3302.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-3302",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/295/ogpf5mqe.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -431,6 +444,7 @@
                   "code": "NAT-3303",
                   "displayName": "ACCEPT",
                   "thumbnail": "thumbnails/NAT-3303.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-3303",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/296/txk13rtc.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -453,6 +467,7 @@
                   "code": "NAT-4100",
                   "displayName": "APPOINT",
                   "thumbnail": "thumbnails/NAT-4100.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-4100",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/297/4u2sgrda.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -473,6 +488,7 @@
                   "code": "NAT-4101",
                   "displayName": "APPLAUD",
                   "thumbnail": "thumbnails/NAT-4101.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-4101",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/298/5mbve15o.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -495,6 +511,7 @@
                   "code": "NAT-4302",
                   "displayName": "ATTRACT",
                   "thumbnail": "thumbnails/NAT-4302.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-4302",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/299/wzvjr33c.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -515,6 +532,7 @@
                   "code": "NAT-4500",
                   "displayName": "ADRIFT",
                   "thumbnail": "thumbnails/NAT-4500.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-4500",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/300/t3agimsx.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -535,6 +553,7 @@
                   "code": "NAT-603",
                   "displayName": "ASTOUND",
                   "thumbnail": "thumbnails/NAT-603.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-603",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/315/bvylyxp5.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -555,6 +574,7 @@
                   "code": "NAT-604",
                   "displayName": "ATTAIN",
                   "thumbnail": "thumbnails/NAT-604.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-604",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/316/admkzu5w.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -575,6 +595,7 @@
                   "code": "NAT-631",
                   "displayName": "ALLY",
                   "thumbnail": "thumbnails/NAT-631.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-631",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/308/i40gmu4c.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -595,6 +616,7 @@
                   "code": "NAT-632",
                   "displayName": "ALLOW",
                   "thumbnail": "thumbnails/NAT-632.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-632",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/309/3hihdjv2.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -615,6 +637,7 @@
                   "code": "NAT-634",
                   "displayName": "ALLURE",
                   "thumbnail": "thumbnails/NAT-634.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-634",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/310/o3bzhuck.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -635,6 +658,7 @@
                   "code": "NAT-651",
                   "displayName": "AFFORD",
                   "thumbnail": "thumbnails/NAT-651.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-651",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/317/yjwmrphx.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -655,6 +679,7 @@
                   "code": "NAT-652",
                   "displayName": "ASSURE",
                   "thumbnail": "thumbnails/NAT-652.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-652",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/318/wlcqgsit.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -675,6 +700,7 @@
                   "code": "NAT-661",
                   "displayName": "AFFIRM",
                   "thumbnail": "thumbnails/NAT-661.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-661",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/311/vv1vj15u.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -695,6 +721,7 @@
                   "code": "NAT-665",
                   "displayName": "AMPLIFY",
                   "thumbnail": "thumbnails/NAT-665.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-665",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/312/bypzlykx.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -716,6 +743,7 @@
                   "code": "NAT-701",
                   "displayName": "ACCENT",
                   "thumbnail": "thumbnails/NAT-701.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-701",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/305/irljjkav.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -736,6 +764,7 @@
                   "code": "NAT-703",
                   "displayName": "ADOPT",
                   "thumbnail": "thumbnails/NAT-703.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-703",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/306/bpv5ybzf.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -756,6 +785,7 @@
                   "code": "NAT-731",
                   "displayName": "ACCESS",
                   "thumbnail": "thumbnails/NAT-731.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-731",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/301/fpfmguxl.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -776,6 +806,7 @@
                   "code": "NAT-741",
                   "displayName": "ASCEND",
                   "thumbnail": "thumbnails/NAT-741.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-741",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/302/esidjh13.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -796,6 +827,7 @@
                   "code": "NAT-742",
                   "displayName": "ABOUND",
                   "thumbnail": "thumbnails/NAT-742.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-742",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/303/g103dnoh.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -816,6 +848,7 @@
                   "code": "NAT-743",
                   "displayName": "ADVENT",
                   "thumbnail": "thumbnails/NAT-743.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-743",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/304/tzhxkdgd.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -836,6 +869,7 @@
                   "code": "NAT-903",
                   "displayName": "ACQUIRE",
                   "thumbnail": "thumbnails/NAT-903.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-903",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/307/xaf3y3za.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -856,6 +890,7 @@
                   "code": "NAT-904",
                   "displayName": "ANNEX",
                   "thumbnail": "thumbnails/NAT-904.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-904",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/313/fyssheqi.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -876,6 +911,7 @@
                   "code": "NAT-906",
                   "displayName": "ANCHOR",
                   "thumbnail": "thumbnails/NAT-906.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-906",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/314/yr45gkvt.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -903,6 +939,7 @@
                   "code": "PF-433",
                   "displayName": "MADISON STONE",
                   "thumbnail": "thumbnails/PF-433.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-433",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/195/apc4uhvr.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -923,6 +960,7 @@
                   "code": "PF-612",
                   "displayName": "RECTOR GRANITE",
                   "thumbnail": "thumbnails/PF-612.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-612",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/196/x1zd0omq.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -943,6 +981,7 @@
                   "code": "PF-1035",
                   "displayName": "IDLEHOUR OAK",
                   "thumbnail": "thumbnails/PF-1035.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1035",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/179/iki5npiw.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -963,6 +1002,7 @@
                   "code": "PF-1051",
                   "displayName": "SAGAMORE SIENNA",
                   "thumbnail": "thumbnails/PF-1051.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1051",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/180/3eydygh4.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -983,6 +1023,7 @@
                   "code": "PF-1403",
                   "displayName": "SHELBURN CHERRY",
                   "thumbnail": "thumbnails/PF-1403.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1403",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/191/4hhdhy1x.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1003,6 +1044,7 @@
                   "code": "PF-1566",
                   "displayName": "CLAYTON SMOKE",
                   "thumbnail": "thumbnails/PF-1566.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1566",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/192/rgvwud5i.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1023,6 +1065,7 @@
                   "code": "PF-1571",
                   "displayName": "VINTAGE BAUPORT",
                   "thumbnail": "thumbnails/PF-1571.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1571",
                     "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Cosmopolitan-Rome-RS_1024x1024.jpg?v=1570808109",
@@ -1043,6 +1086,7 @@
                   "code": "PF-1713",
                   "displayName": "DEEP ASTORIA",
                   "thumbnail": "thumbnails/PF-1713.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1713",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/194/4imcbi4x.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1063,6 +1107,7 @@
                   "code": "PF-8128",
                   "displayName": "CHRYSLER GRAY",
                   "thumbnail": "thumbnails/PF-8128.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-8128",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/197/opuieupt.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1083,6 +1128,7 @@
                   "code": "PF-9003",
                   "displayName": "ARDEN CHERRY",
                   "thumbnail": "thumbnails/PF-9003.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-9003",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/198/nmdqpm1u.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1110,6 +1156,7 @@
                   "code": "PF12-E33",
                   "displayName": "MADISON STONE",
                   "thumbnail": "thumbnails/PF-433.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E33",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/186/u1nckx3q.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1130,6 +1177,7 @@
                   "code": "PF12-E12",
                   "displayName": "RECTOR GRANITE",
                   "thumbnail": "thumbnails/PF-612.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E12",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/184/fdojo55g.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1150,6 +1198,7 @@
                   "code": "PF12-E035",
                   "displayName": "IDLEHOUR OAK",
                   "thumbnail": "thumbnails/PF-1035.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E035",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/182/1ifavdsd.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1170,6 +1219,7 @@
                   "code": "PF12-E051",
                   "displayName": "SAGAMORE SIENNA",
                   "thumbnail": "thumbnails/PF-1051.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E051",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/183/ppsjyqhn.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1190,6 +1240,7 @@
                   "code": "PF12-E403",
                   "displayName": "SHELBURN CHERRY",
                   "thumbnail": "thumbnails/PF-1403.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E403",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/187/i2inh2zo.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1210,6 +1261,7 @@
                   "code": "PF12-E566",
                   "displayName": "CLAYTON SMOKE",
                   "thumbnail": "thumbnails/PF-1566.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E566",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/188/34nelhio.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1230,6 +1282,7 @@
                   "code": "PF12-E571",
                   "displayName": "VINTAGE BAUPORT",
                   "thumbnail": "thumbnails/PF-1571.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E571",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/189/ywrdcf4n.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1250,6 +1303,7 @@
                   "code": "PF12-E713",
                   "displayName": "DEEP ASTORIA",
                   "thumbnail": "thumbnails/PF-1713.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E713",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/190/cjlyayy1.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1270,6 +1324,7 @@
                   "code": "PF12-E128",
                   "displayName": "CHRYSLER GRAY",
                   "thumbnail": "thumbnails/PF-8128.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E128",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/185/knuhwcgf.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1290,6 +1345,7 @@
                   "code": "PF12-E003",
                   "displayName": "ARDEN CHERRY",
                   "thumbnail": "thumbnails/PF-9003.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E003",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/181/fu3p25kh.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1317,6 +1373,7 @@
                   "code": "MON-X602",
                   "displayName": "SMOKED CYPRESS",
                   "thumbnail": "thumbnails/MON-X602.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X602",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/264/owogvlnk.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1337,6 +1394,7 @@
                   "code": "MON-X604",
                   "displayName": "WHEATON GOLD",
                   "thumbnail": "thumbnails/MON-X604.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X604",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/265/fotsm2ij.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1357,6 +1415,7 @@
                   "code": "MON-X606",
                   "displayName": "RIVERBANK GRAY",
                   "thumbnail": "thumbnails/MON-X606.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X606",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/266/qwyt5rib.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1377,6 +1436,7 @@
                   "code": "MON-X607",
                   "displayName": "KNOTTED HEARTWOOD",
                   "thumbnail": "thumbnails/MON-X607.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X607",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/267/nhobsrnu.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1397,6 +1457,7 @@
                   "code": "MON-X608",
                   "displayName": "SALTED OAK",
                   "thumbnail": "thumbnails/MON-X60.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X608",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/269/mcwzdaaf.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1417,6 +1478,7 @@
                   "code": "MON-X620",
                   "displayName": "NORSE COUNTRY BARK",
                   "thumbnail": "thumbnails/MON-X620.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X620",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/270/03wfdxdi.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1437,6 +1499,7 @@
                   "code": "MON-X622",
                   "displayName": "SEASIDE MYRTLE",
                   "thumbnail": "thumbnails/MON-X622.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X622",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/271/vszalle2.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1457,6 +1520,7 @@
                   "code": "MON-X626",
                   "displayName": "FAIRBRIGHT OAK",
                   "thumbnail": "thumbnails/MON-X626.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X626",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/272/xhtdly5i.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1477,6 +1541,7 @@
                   "code": "MON-X628",
                   "displayName": "SUMMER STORM",
                   "thumbnail": "thumbnails/MON-X628.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X628",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/274/txguy5cs.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1497,6 +1562,7 @@
                   "code": "MON-X629",
                   "displayName": "CINDERED COBALT",
                   "thumbnail": "thumbnails/MON-X629.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X629",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/275/g0rbaiqv.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1517,6 +1583,7 @@
                   "code": "MON-X631",
                   "displayName": "RUFFLED DOVE",
                   "thumbnail": "thumbnails/MON-X631.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X631",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/260/by1d5ywq.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1537,6 +1604,7 @@
                   "code": "MON-X632",
                   "displayName": "SEASONED KHAKI",
                   "thumbnail": "thumbnails/MON-X632.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X632",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/261/1nnm5q00.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1557,6 +1625,7 @@
                   "code": "MON-X633",
                   "displayName": "LUMINOUS IVORY",
                   "thumbnail": "thumbnails/MON-X633.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X633",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/262/0l11dy4w.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1577,6 +1646,7 @@
                   "code": "MON-X634",
                   "displayName": "DIAMOND STEEL",
                   "thumbnail": "thumbnails/MON-X634.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X634",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/263/kyizwgjb.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1597,6 +1667,7 @@
                   "code": "MON-X641",
                   "displayName": "TIMBERFOX SMOKE",
                   "thumbnail": "thumbnails/MON-X641.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X641",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/335/od5r0ubl.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1617,6 +1688,7 @@
                   "code": "MON-X642",
                   "displayName": "SHERWOOD FARMHOUSE",
                   "thumbnail": "thumbnails/MON-X642.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X642",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/336/tw0nri0o.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1644,6 +1716,7 @@
                   "code": "SOV-X602",
                   "displayName": "SMOKED CYPRESS",
                   "thumbnail": "thumbnails/MON-X602.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X602",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/264/owogvlnk.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1664,6 +1737,7 @@
                   "code": "SOV-X604",
                   "displayName": "WHEATON GOLD",
                   "thumbnail": "thumbnails/MON-X604.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X604",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/265/fotsm2ij.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1684,6 +1758,7 @@
                   "code": "SOV-X606",
                   "displayName": "RIVERBANK GRAY",
                   "thumbnail": "thumbnails/MON-X606.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X606",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/266/qwyt5rib.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1704,6 +1779,7 @@
                   "code": "SOV-X607",
                   "displayName": "KNOTTED HEARTWOOD",
                   "thumbnail": "thumbnails/MON-X607.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X607",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/267/nhobsrnu.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1724,6 +1800,7 @@
                   "code": "SOV-X608",
                   "displayName": "SALTED OAK",
                   "thumbnail": "thumbnails/MON-X60.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X608",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/269/mcwzdaaf.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1744,6 +1821,7 @@
                   "code": "SOV-X620",
                   "displayName": "NORSE COUNTRY BARK",
                   "thumbnail": "thumbnails/MON-X620.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X620",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/270/03wfdxdi.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1764,6 +1842,7 @@
                   "code": "SOV-X622",
                   "displayName": "SEASIDE MYRTLE",
                   "thumbnail": "thumbnails/MON-X622.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X622",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/271/vszalle2.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1784,6 +1863,7 @@
                   "code": "SOV-X626",
                   "displayName": "FAIRBRIGHT OAK",
                   "thumbnail": "thumbnails/MON-X626.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X626",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/272/xhtdly5i.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1804,6 +1884,7 @@
                   "code": "SOV-X628",
                   "displayName": "SUMMER STORM",
                   "thumbnail": "thumbnails/MON-X628.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X628",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/274/txguy5cs.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1824,6 +1905,7 @@
                   "code": "SOV-X629",
                   "displayName": "CINDERED COBALT",
                   "thumbnail": "thumbnails/MON-X629.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X629",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/275/g0rbaiqv.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1844,6 +1926,7 @@
                   "code": "SOV-X631",
                   "displayName": "RUFFLED DOVE",
                   "thumbnail": "thumbnails/MON-X631.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X631",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/260/by1d5ywq.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1864,6 +1947,7 @@
                   "code": "SOV-X632",
                   "displayName": "SEASONED KHAKI",
                   "thumbnail": "thumbnails/MON-X632.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X632",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/261/1nnm5q00.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1884,6 +1968,7 @@
                   "code": "SOV-X633",
                   "displayName": "LUMINOUS IVORY",
                   "thumbnail": "thumbnails/MON-X633.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X633",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/262/0l11dy4w.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1904,6 +1989,7 @@
                   "code": "SOV-X634",
                   "displayName": "DIAMOND STEEL",
                   "thumbnail": "thumbnails/MON-X634.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X634",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/263/kyizwgjb.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1924,6 +2010,7 @@
                   "code": "SOV-X641",
                   "displayName": "TIMBERFOX SMOKE",
                   "thumbnail": "thumbnails/MON-X641.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X641",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/335/od5r0ubl.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1944,6 +2031,7 @@
                   "code": "SOV-X642",
                   "displayName": "SHERWOOD FARMHOUSE",
                   "thumbnail": "thumbnails/MON-X642.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X642",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/336/tw0nri0o.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1971,6 +2059,7 @@
                   "code": "ADC-8101",
                   "displayName": "RELATIVE",
                   "thumbnail": "thumbnails/ADC-8101.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8101",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/319/lyq0p4oe.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -1991,6 +2080,7 @@
                   "code": "ADC-8102",
                   "displayName": "RELENTLESS",
                   "thumbnail": "thumbnails/ADC-8102.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8102",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/320/ufsjewhq.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2011,6 +2101,7 @@
                   "code": "ADC-8103",
                   "displayName": "RESTORE",
                   "thumbnail": "thumbnails/ADC-8103.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8103",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/321/tzay2umi.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2031,6 +2122,7 @@
                   "code": "ADC-8104",
                   "displayName": "RESPECTIVE",
                   "thumbnail": "thumbnails/ADC-8104.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8104",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/322/inekehj2.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2051,6 +2143,7 @@
                   "code": "ADC-8105",
                   "displayName": "RESOLUTE",
                   "thumbnail": "thumbnails/ADC-8105.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8105",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/323/0dovqwuy.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2071,6 +2164,7 @@
                   "code": "ADC-8106",
                   "displayName": "REMARKABLE",
                   "thumbnail": "thumbnails/ADC-8106.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8106",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/324/rm2yxb3t.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2091,6 +2185,7 @@
                   "code": "ADC-8107",
                   "displayName": "RESPONSIVE",
                   "thumbnail": "thumbnails/ADC-8107.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8107",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/325/lkxs2vml.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2111,6 +2206,7 @@
                   "code": "ADC-8108",
                   "displayName": "REDEMPTION",
                   "thumbnail": "thumbnails/ADC-8108.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8108",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/326/ljryc5v5.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2131,6 +2227,7 @@
                   "code": "ADC-8109",
                   "displayName": "REFINED",
                   "thumbnail": "thumbnails/ADC-8109.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8109",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/327/s5jhbnsy.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2151,6 +2248,7 @@
                   "code": "ADC-8110",
                   "displayName": "REVELATION",
                   "thumbnail": "thumbnails/ADC-8110.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8110",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/328/idwfdaq1.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2171,6 +2269,7 @@
                   "code": "ADC-8121",
                   "displayName": "RESURGENCE",
                   "thumbnail": "thumbnails/ADC-8121.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8121",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/329/feefobsx.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2191,6 +2290,7 @@
                   "code": "ADC-8122",
                   "displayName": "REVITALIZE",
                   "thumbnail": "thumbnails/ADC-8122.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8122",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/330/1oz2ngin.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2211,6 +2311,7 @@
                   "code": "ADC-8123",
                   "displayName": "RETROSPECT",
                   "thumbnail": "thumbnails/ADC-8123.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8123",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/331/aybmqjpk.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2231,6 +2332,7 @@
                   "code": "ADC-8124",
                   "displayName": "REJUVENATE",
                   "thumbnail": "thumbnails/ADC-8124.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8124",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/332/rasnax0j.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2258,6 +2360,7 @@
                   "code": "CN-T113",
                   "displayName": "CHURCHILL",
                   "thumbnail": "thumbnails/CN-T113.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T113",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/50/jyvbwzas.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2278,6 +2381,7 @@
                   "code": "CN-T153",
                   "displayName": "CORNEILLE",
                   "thumbnail": "thumbnails/CN-T153.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T153",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/54/x24hd51y.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2298,6 +2402,7 @@
                   "code": "CN-T156",
                   "displayName": "FAULKNER",
                   "thumbnail": "thumbnails/CN-T156.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T156",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/277/xubjocoa.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2318,6 +2423,7 @@
                   "code": "CN-T183",
                   "displayName": "BARCA",
                   "thumbnail": "thumbnails/CN-T183.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T183",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/57/od5onxbq.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2338,6 +2444,7 @@
                   "code": "CN-T188",
                   "displayName": "HAWTHORNE",
                   "thumbnail": "thumbnails/CN-T188.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T188",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/278/3xwrjyjp.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2358,6 +2465,8 @@
                   "code": "CN-T193",
                   "displayName": "PETRESCU",
                   "thumbnail": "thumbnails/CN-T193.jpg",
+                  "ppi": 48,
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T193",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/58/b5kblchs.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2378,6 +2487,7 @@
                   "code": "CN-T462",
                   "displayName": "HEMINGWAY",
                   "thumbnail": "thumbnails/CN-T462.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T462",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/279/cow3xb5g.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2398,6 +2508,7 @@
                   "code": "CN-T469",
                   "displayName": "STEINBECK",
                   "thumbnail": "thumbnails/CN-T469.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T469",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/281/1hocfaim.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2418,6 +2529,7 @@
                   "code": "CN-T533",
                   "displayName": "HARPER",
                   "thumbnail": "thumbnails/CN-T533.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T533",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/282/fdlbdqbd.jpg?width=1920&height=1080&quality=90&mode=max",
@@ -2438,6 +2550,7 @@
                   "code": "CN-T758",
                   "displayName": "MORRISON",
                   "thumbnail": "thumbnails/CN-T758.jpg",
+                  "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T758",
                     "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/280/jlifrzxs.jpg?width=1920&height=1080&quality=90&mode=max",
