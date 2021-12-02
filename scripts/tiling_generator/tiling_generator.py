@@ -6,6 +6,7 @@ import numpy as np
 import sys
 from pathlib import Path
 from PIL import Image, ImageEnhance
+from termcolor import colored
 
 import click
 import random
@@ -26,7 +27,7 @@ def get_image_paths(input_dir, pattern):
     if pattern:
         files.extend(Path(input_dir).glob('**/' + pattern))
     else: 
-        extensions = ('.png', '.jpg', '.jpeg')
+        extensions = ('.png', '.jpg', '.jpeg', '.tif')
         for ext in extensions:
             files.extend(Path(input_dir).glob('**/*' + ext))
     return files
@@ -163,7 +164,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
 
     def assemble_segments(path, segments):
-        print("Assembling %s with %d images" % (path, len(segments)))
+        print(colored("\nAssembling %s with %d images\n" % (path, len(segments)), attrs=["bold"]))
 
         # make all vertical
         min_h = 100000
@@ -183,8 +184,10 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 
             if h != min_h or w != min_w:
                 segments[index] = crop_center(segments[index], min_w, min_h)
+                print("Resized to", segments[index].shape)
             
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (index)), resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+
 
         tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
         tiled = resize(tiled, maxsize)
@@ -197,7 +200,11 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 
     files = get_image_paths(input_dir, pattern)
 
-    print("Processing %d images from %s" % (len(files), input_dir))
+    if len(files) == 0:
+        print("No images to process at %s" % input_dir)
+        return
+
+    print(colored("\nProcessing %d images from %s\n" % (len(files), input_dir), attrs=['bold']))
 
     last_out_dir = None
     images = []
@@ -219,6 +226,12 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 
         img = Image.open(path).convert('RGB')
         img = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
+
+        #may need to rotate:
+        if img.shape[0] < img.shape[1]:
+            img = np.rot90(img, k=1, axes=(0, 1))
+
+        print("Grabbing image %s" % path, img.shape)
 
         if last_out_dir is None:
             last_out_dir = out_dir
@@ -351,7 +364,7 @@ def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, s
     elif mode == 'assemble':
         assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality)
     
-    print("Done")
+    print(colored("Done", attrs=['bold']))
 
 if __name__ == "__main__":
     main()
