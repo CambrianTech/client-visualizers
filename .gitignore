@@ -40,3 +40,4 @@ cambrianar-sites
 /server/node_modules
 /cb-backend-data
 scripts/tiling_generator/input*
+/scripts/tiling_generator/garrison
