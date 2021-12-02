@@ -246,7 +246,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
         name = os.path.splitext(os.path.basename(image_path))[0]
 
         if image_path.startswith(input_dir):
-            dir_name = image_path[1+len(input_dir):]
+            dir_name = image_path[len(input_dir):]
             dir_name = os.path.dirname(dir_name)
 
         if dir_name:
