@@ -86,10 +86,11 @@ def resize(image, window_height):
     image = cv2.resize(image, (int(window_height),int(window_width)), cv2.INTER_AREA)
     return image
 
-def crop_center(img,cropx,cropy):
+def crop_center(img, cropx, cropy):
     y,x,c = img.shape
-    startx = x//2 - cropx//2
-    starty = y//2 - cropy//2    
+    startx = max(x//2 - cropx//2, 0)
+    starty = max(y//2 - cropy//2, 0)
+
     return img[starty:starty+cropy, startx:startx+cropx, :]
 
 def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
@@ -175,7 +176,9 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
     else:
         tiled_path = thumbnail_path = plank_path = None
 
-    def assemble_segments(name, path, segments):
+    def assemble_segments(path, segments):
+        name = os.path.basename(path)
+
         print(colored("\nAssembling %s with %d images\n" % (name, len(segments)), attrs=["bold"]))
 
         # make all vertical
@@ -186,6 +189,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
             (h, w) = segments[index].shape[0:2]
             if w > h:
                 segments[index] = np.rot90(segments[index])
+                (w, h) = (h, w)
 
             min_h = min(min_h, h)
             min_w = min(min_w, w)
@@ -250,7 +254,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
         if last_out_dir is None:
             last_out_dir = out_dir
         elif out_dir != last_out_dir:
-            assemble_segments(name, last_out_dir, images)
+            assemble_segments(last_out_dir, images)
 
             images = []
             last_out_dir = out_dir
@@ -260,7 +264,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
         output_path = os.path.join(out_dir, name)
         #print(image_path)
     if len(images):
-        assemble_segments(name, last_out_dir,images)
+        assemble_segments(last_out_dir,images)
 
 def find_tile_lines(gray, apertureSize=5, use_hough=False):
     diagonal = math.hypot(gray.shape[0], gray.shape[1])
