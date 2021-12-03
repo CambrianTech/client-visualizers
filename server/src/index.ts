@@ -13,7 +13,6 @@ const port = isDevelop ? 3010 : 3000;
 const buildPath = path.join(__dirname, isDevelop ? '../../build' : '../build');
 const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1 : false;
 const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "divinefloor";
-// const defaultSite = "adorefloors";
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
 const domain = process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
@@ -68,7 +67,7 @@ app.get("*", (req, res) => {
         const domain = getDomain(req.headers.host);
         const subdomain = req.headers.host.replace("." + domain, "");
 
-        console.log("Requested", req.path, subdomain);
+        console.error("Requested", req.path, subdomain);
 
         const config = getConfig(subdomain);
         const indexPath = path.join(buildPath, "index.html");
