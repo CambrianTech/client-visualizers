@@ -15,7 +15,7 @@ const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1
 const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "divinefloor";
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
-const baseDomain = "cambrianar.com"; // process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
+const baseDomain = process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
 const CONFIG_STORE = "config";
 const baseDataPath = process.env.CB_SITE_DATA_URL ? process.env.CB_SITE_DATA_URL.trim() : "";
 
@@ -63,8 +63,8 @@ app.get("*", (req, res) => {
         res.sendFile(filePath);
     }
     else {
-        // const domain = getDomain(req.headers.host);
-        const subdomain = req.headers.host.replace("." + baseDomain, "");
+        const domain = getDomain(req.headers.host);
+        const subdomain = req.headers.host.replace("." + domain, "");
 
         console.error("Requested", req.path, subdomain);
 
