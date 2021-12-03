@@ -36,7 +36,7 @@
   ],
   "brands": [
     {
-      "code": "adore-floors",
+      "code": "adorefloors",
       "displayName": "Adore Floors",
       "surfaceTypes": ["floor"],
       "assetTypes": ["tiled"],
