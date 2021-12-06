@@ -22,11 +22,13 @@
     "features": [
       {
         "name": "scenes",
-        "image":{"src": "branding/Choose Scene.png"}
+        "materialIcon": "photo",
+        "text":"scenes"
       },
       {
         "name": "upload",
-        "image":{"src": "branding/Upload Photo.png"}
+        "materialIcon": "photo_camera",
+        "text": "photo"
       }
     ]
   },
@@ -169,7 +171,7 @@
             {
               "code": "naturelle-plus",
               "displayName": "Naturelle+ Plus",
-              "thumbnail": "branding/Louis_XIV-840px2_240x.png",
+              "thumbnail": "thumbnails/NAT-1310.jpg",
               "colors": [
                 {
                   "code": "NAT-1310",
@@ -933,7 +935,7 @@
             {
               "code": "projectflor",
               "displayName": "ProjectFlor",
-              "thumbnail": "branding/Cosmo-840px_240x.png",
+              "thumbnail": "thumbnails/PF-433.jpg",
               "colors": [
                 {
                   "code": "PF-433",
@@ -1150,7 +1152,7 @@
             {
               "code": "projectflorelite",
               "displayName": "ProjectFlor Elite",
-              "thumbnail": "branding/Amarosa-840px_240x.png",
+              "thumbnail": "thumbnails/PF-612.jpg",
               "colors": [
                 {
                   "code": "PF12-E33",
@@ -1367,7 +1369,7 @@
             {
               "code": "regentmonarchx",
               "displayName": "Regent Monarch X",
-              "thumbnail": "branding/Naturhaus-840px_240x.png",
+              "thumbnail": "thumbnails/MON-X602.jpg",
               "colors": [
                 {
                   "code": "MON-X602",
@@ -1710,7 +1712,7 @@
             {
               "code": "regentsovereign",
               "displayName": "Regent Sovereign",
-              "thumbnail": "branding/French-840px_240x.png",
+              "thumbnail": "thumbnails/MON-X604.jpg",
               "colors": [
                 {
                   "code": "SOV-X602",
@@ -2053,7 +2055,7 @@
             {
               "code": "decoriacontack",
               "displayName": "Decoria Contack",
-              "thumbnail": "branding/TKO-840px_240x.png",
+              "thumbnail": "thumbnails/ADC-8101.jpg",
               "colors": [
                 {
                   "code": "ADC-8101",
@@ -2354,7 +2356,7 @@
             {
               "code": "alettecontract",
               "displayName": "Alette Contract",
-              "thumbnail": "branding/Coastline-840px2_240x.png",
+              "thumbnail": "thumbnails/CN-T113.jpg",
               "colors": [
                 {
                   "code": "CN-T113",
