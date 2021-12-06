@@ -46,6 +46,7 @@
         {
           "code": "bathroom",
           "displayName": "Bathroom",
+          "thumbnail": "branding/006-bathtub.png",
           "scenes": [
             {
               "code": "1-bathroom",
@@ -60,6 +61,7 @@
         {
           "code": "bedroom",
           "displayName": "Bedroom",
+          "thumbnail": "branding/001-bedroom.png",          
           "scenes": [
             {
               "code": "1-bedroom",
@@ -74,6 +76,7 @@
         {
           "code": "dining-room",
           "displayName": "Dining Room",
+          "thumbnail": "branding/004-dinner-table.png",          
           "scenes": [
             {
               "code": "1-dining-room",
@@ -88,6 +91,7 @@
         {
           "code": "kitchen",
           "displayName": "Kitchen",
+          "thumbnail": "branding/002-kitchen.png",          
           "scenes": [
             {
               "code": "1-kitchen",
@@ -102,6 +106,7 @@
         {
           "code": "living-room",
           "displayName": "Living Room",
+          "thumbnail": "branding/005-living-room.png",          
           "scenes": [
             {
               "code": "1-living-room",
@@ -116,6 +121,7 @@
         {
           "code": "entry",
           "displayName": "Entry",
+          "thumbnail": "branding/003-entrance.png",          
           "scenes": [
             {
               "code": "1-entry",
