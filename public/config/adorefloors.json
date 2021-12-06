@@ -1458,7 +1458,7 @@
                 {
                   "code": "MON-X608",
                   "displayName": "SALTED OAK",
-                  "thumbnail": "thumbnails/MON-X60.jpg",
+                  "thumbnail": "thumbnails/MON-X608.jpg",
                   "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X608",
@@ -1473,7 +1473,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": false, "albedo": "textures/MON-X60.jpg"
+                    "mirroredX": false, "albedo": "textures/MON-X608.jpg"
                   }
                 },
                 {
@@ -1801,7 +1801,7 @@
                 {
                   "code": "SOV-X608",
                   "displayName": "SALTED OAK",
-                  "thumbnail": "thumbnails/MON-X60.jpg",
+                  "thumbnail": "thumbnails/MON-X608.jpg",
                   "ppi": 48,
                   "details": {
                     "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X608",
@@ -1816,7 +1816,7 @@
                     ]
                   },
                   "metaData": {
-                    "mirroredX": false, "albedo": "textures/MON-X60.jpg"
+                    "mirroredX": false, "albedo": "textures/MON-X608.jpg"
                   }
                 },
                 {
