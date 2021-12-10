@@ -32,11 +32,11 @@ def get_image_paths(input_dir, pattern):
             files.extend(Path(input_dir).glob('**/*' + ext))
     return files
 
-def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=None):
+def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=None, scatter=False):
 
     (h, w) = boards.shape[1:3]
     if seam_size is None:
-        seam_size = max(w // 100, 1)
+        seam_size = max(w // 100, 2)
 
     print("Tiling %d boards. Seam size is %d" % (len(boards), seam_size))
 
@@ -74,9 +74,9 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=Non
     for col in range(num_cols):
 
         if col % 2 == 0:
-            roll = np.random.randint(-h // 5, h // 5)
+            roll = np.random.randint(-h // 5, h // 5) if scatter else 0
         else:
-            roll = np.random.randint(h // 3, 2 * h // 3)
+            roll = np.random.randint(h // 3, 2 * h // 3) if scatter else h // 2
 
         x = col * w + (col + 1) * seam_size - half_seam_size
         x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
@@ -112,7 +112,7 @@ def make_thumbnail(img, size=512):
 
     return reduced[starty:starty + size, startx:startx + size, :]
 
-def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
+def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, scatter=False):
     
     for row in data:
         image_width = row['width']
@@ -172,7 +172,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (i)), resize(crop, maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
+        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size, scatter=scatter)
         tiled = resize(tiled, maxsize) 
         cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
@@ -181,7 +181,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             # crop = img[y0:y0+height , x0:x0+width, :]
 
-def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, flatten_output=False):
+def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, flatten_output=False, scatter=False):
 
     if flatten_output:
         textures_path = os.path.join(output_dir, "textures")
@@ -225,7 +225,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
             cv2.imwrite(tile_path, resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
 
-        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
+        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size, scatter=scatter)
         tiled = resize(tiled, maxsize)
         
         tiled_path = os.path.join(path, "tiled.jpg") if textures_path is None else os.path.join(textures_path, "%s.jpg" % name)
@@ -388,7 +388,8 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
 @click.option("--crop_is_metric", default=False, type=bool)
 @click.option("--quality", '-q', default=70, type=int)
 @click.option("--flat", '-f', default=False, type=bool)
-def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality, flat):        
+@click.option("--scatter", '-s', default=True, type=bool)
+def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality, flat, scatter):        
 
     if not os.path.exists(input_dir):
         raise Exception('The directory {} does not exist '.format(input_dir)) 
@@ -401,9 +402,9 @@ def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, s
     elif mode == 'cut':
         with open(data_file) as f:
             data = json.load(f)
-        crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality)
+        crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality, scatter=scatter)
     elif mode == 'assemble':
-        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality, flatten_output=flat)
+        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality, flatten_output=flat, scatter=scatter)
     
     print(colored("Done", attrs=['bold']))
 
