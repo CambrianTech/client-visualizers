@@ -72,11 +72,16 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=Non
             output[y:y_max, x:x_max] = board
 
     for col in range(num_cols):
+
         if col % 2 == 0:
-            x = col * w + (col + 1) * seam_size - half_seam_size
-            x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
-            
-            output[:, x:x_max] = np.roll(output[:, x:x_max], h // 2, axis=0)
+            roll = np.random.randint(-h // 5, h // 5)
+        else:
+            roll = np.random.randint(h // 3, 2 * h // 3)
+
+        x = col * w + (col + 1) * seam_size - half_seam_size
+        x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
+        
+        output[:, x:x_max] = np.roll(output[:, x:x_max], roll, axis=0)
 
     return output
 
