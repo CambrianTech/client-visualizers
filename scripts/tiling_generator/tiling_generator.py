@@ -410,7 +410,7 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.option('--pattern', '-p', type=click.STRING, default=None)
 @click.option("--size", '-s', default=2048, type=int)
-@click.option("--rows", '-r', default=2, type=int)
+@click.option("--rows", '-r', default=3, type=int)
 @click.option("--columns", '-c', default=6, type=int)
 @click.option("--seam_size", default=None, type=int)
 @click.option("--img_is_metric", default=True, type=bool)
