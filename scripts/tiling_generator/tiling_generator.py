@@ -32,11 +32,40 @@ def get_image_paths(input_dir, pattern):
             files.extend(Path(input_dir).glob('**/*' + ext))
     return files
 
-def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=None):
+def overlay_image_alpha(img, img_overlay, x, y, alpha_mask=None):
+    """Overlay `img_overlay` onto `img` at (x, y) and blend using optional `alpha_mask`.
+
+    `alpha_mask` must have same HxW as `img_overlay` and values in range [0, 1].
+    """
+    # Image ranges
+
+    if y < 0 or y + img_overlay.shape[0] > img.shape[0] or x < 0 or x + img_overlay.shape[1] > img.shape[1]:
+        y_origin = 0 if y > 0 else -y
+        y_end = img_overlay.shape[0] if y < 0 else min(img.shape[0] - y, img_overlay.shape[0])
+
+        x_origin = 0 if x > 0 else -x
+        x_end = img_overlay.shape[1] if x < 0 else min(img.shape[1] - x, img_overlay.shape[1])
+
+        img_overlay_crop = img_overlay[y_origin:y_end, x_origin:x_end]
+        alpha = alpha_mask[y_origin:y_end, x_origin:x_end] if alpha_mask is not None else None
+    else:
+        img_overlay_crop = img_overlay
+        alpha = alpha_mask
+
+    y1 = max(y, 0)
+    y2 = min(img.shape[0], y1 + img_overlay_crop.shape[0])
+
+    x1 = max(x, 0)
+    x2 = min(img.shape[1], x1 + img_overlay_crop.shape[1])
+
+    img_crop = img[y1:y2, x1:x2]
+    img_crop[:] = alpha * img_overlay_crop + (1.0 - alpha) * img_crop if alpha is not None else img_overlay_crop
+
+def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=None, scatter=False):
 
     (h, w) = boards.shape[1:3]
     if seam_size is None:
-        seam_size = max(w // 100, 1)
+        seam_size = max(w // 80, 2)
 
     print("Tiling %d boards. Seam size is %d" % (len(boards), seam_size))
 
@@ -63,6 +92,9 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=Non
             if np.random.rand() > 0.5:
                 board = np.flip(board, axis=1)
 
+            # Rotate
+            board = np.rot90(board, k=np.random.randint(0,4)if h == w else np.random.randint(0,1)*2)
+
             x = col * w + (col + 1) * seam_size - half_seam_size
             x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
 
@@ -72,11 +104,16 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=Non
             output[y:y_max, x:x_max] = board
 
     for col in range(num_cols):
+
         if col % 2 == 0:
-            x = col * w + (col + 1) * seam_size - half_seam_size
-            x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
-            
-            output[:, x:x_max] = np.roll(output[:, x:x_max], h // 2, axis=0)
+            roll = np.random.randint(-h // 5, h // 5) if scatter else 0
+        else:
+            roll = np.random.randint(h // 3, 2 * h // 3) if scatter else h // 2
+
+        x = col * w + (col + 1) * seam_size - half_seam_size
+        x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
+        
+        output[:, x:x_max] = np.roll(output[:, x:x_max], roll, axis=0)
 
     return output
 
@@ -107,7 +144,7 @@ def make_thumbnail(img, size=512):
 
     return reduced[starty:starty + size, startx:startx + size, :]
 
-def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90):
+def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, scatter=False):
     
     for row in data:
         image_width = row['width']
@@ -167,7 +204,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (i)), resize(crop, maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
+        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size, scatter=scatter)
         tiled = resize(tiled, maxsize) 
         cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
@@ -176,7 +213,7 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             # crop = img[y0:y0+height , x0:x0+width, :]
 
-def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, flatten_output=False):
+def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, flatten_output=False, scatter=False):
 
     if flatten_output:
         textures_path = os.path.join(output_dir, "textures")
@@ -220,7 +257,7 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
             cv2.imwrite(tile_path, resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
 
-        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
+        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size, scatter=scatter)
         tiled = resize(tiled, maxsize)
         
         tiled_path = os.path.join(path, "tiled.jpg") if textures_path is None else os.path.join(textures_path, "%s.jpg" % name)
@@ -376,14 +413,15 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.option('--pattern', '-p', type=click.STRING, default=None)
 @click.option("--size", '-s', default=2048, type=int)
-@click.option("--rows", '-r', default=2, type=int)
+@click.option("--rows", '-r', default=4, type=int)
 @click.option("--columns", '-c', default=6, type=int)
 @click.option("--seam_size", default=None, type=int)
 @click.option("--img_is_metric", default=True, type=bool)
 @click.option("--crop_is_metric", default=False, type=bool)
 @click.option("--quality", '-q', default=70, type=int)
 @click.option("--flat", '-f', default=False, type=bool)
-def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality, flat):        
+@click.option("--scatter", '-s', default=True, type=bool)
+def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality, flat, scatter):        
 
     if not os.path.exists(input_dir):
         raise Exception('The directory {} does not exist '.format(input_dir)) 
@@ -396,9 +434,9 @@ def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, s
     elif mode == 'cut':
         with open(data_file) as f:
             data = json.load(f)
-        crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality)
+        crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality, scatter=scatter)
     elif mode == 'assemble':
-        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality, flatten_output=flat)
+        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality, flatten_output=flat, scatter=scatter)
     
     print(colored("Done", attrs=['bold']))
 
