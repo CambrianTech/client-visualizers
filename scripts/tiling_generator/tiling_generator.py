@@ -65,7 +65,7 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=Non
 
     (h, w) = boards.shape[1:3]
     if seam_size is None:
-        seam_size = max(w // 60, 2)
+        seam_size = max(w // 80, 2)
 
     print("Tiling %d boards. Seam size is %d" % (len(boards), seam_size))
 
