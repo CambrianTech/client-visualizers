@@ -65,7 +65,7 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=Non
 
     (h, w) = boards.shape[1:3]
     if seam_size is None:
-        seam_size = max(w // 100, 2)
+        seam_size = max(w // 60, 2)
 
     print("Tiling %d boards. Seam size is %d" % (len(boards), seam_size))
 
@@ -91,6 +91,9 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=Non
                 board = np.flip(board, axis=0)
             if np.random.rand() > 0.5:
                 board = np.flip(board, axis=1)
+
+            # Rotate
+            board = np.rot90(board, k=np.random.randint(0,4)if h == w else np.random.randint(0,1)*2)
 
             x = col * w + (col + 1) * seam_size - half_seam_size
             x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
@@ -410,7 +413,7 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.option('--pattern', '-p', type=click.STRING, default=None)
 @click.option("--size", '-s', default=2048, type=int)
-@click.option("--rows", '-r', default=3, type=int)
+@click.option("--rows", '-r', default=4, type=int)
 @click.option("--columns", '-c', default=6, type=int)
 @click.option("--seam_size", default=None, type=int)
 @click.option("--img_is_metric", default=True, type=bool)
