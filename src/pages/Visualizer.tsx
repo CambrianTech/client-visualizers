@@ -894,7 +894,8 @@ export default function Visualizer() {
 
                 {activePanel === Panel.Products && <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />}
 
-                <VerticalListing visible={activePanel === Panel.Products}
+                <VerticalListing className={"products"}
+                                 visible={activePanel === Panel.Products}
                                  onClick={swatchSelected}
                                  swatches={listingItems}
                                  filters={allFilters}
@@ -902,7 +903,8 @@ export default function Visualizer() {
                                  selectedSubSwatch={selectedColumn}
                                  resolveThumbnailPath={resolveThumbnailPath}/>
 
-                <VerticalListing visible={activePanel === Panel.Scenes}
+                <VerticalListing className={"scenes"}
+                                 visible={activePanel === Panel.Scenes}
                                  onClick={sceneSelected}
                                  swatches={sceneListingItems}
                                  selectedSwatch={selectedSceneRow}

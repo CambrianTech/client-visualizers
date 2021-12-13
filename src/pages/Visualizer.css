@@ -373,9 +373,10 @@ panel.c {
     visibility: hidden;
 }
 
-.vertical-swatch-listing-image {
+.scenes .vertical-swatch-listing-image {
     border: none;
     object-fit: contain;
+    height: 80px;
 }
 
 .horizontal-swatch-listing-content {
