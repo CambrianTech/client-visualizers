@@ -3,7 +3,8 @@ import './Visualizer.css'
 
 import {
     CBARAssetType,
-    CBARContext, CBAREvent,
+    CBARContext,
+    CBAREvent,
     CBAREventType,
     CBARFilledTiledAsset,
     CBARIntersection,
@@ -19,7 +20,8 @@ import {
     CBARView,
     cbInitialize,
     DataFilter,
-    DataItem, DebugLevel,
+    DataItem,
+    DebugLevel,
     Product,
     ProductBrand,
     ProductCollection,
@@ -46,8 +48,8 @@ import {
     ToolOperation,
     ToolsMenuAction,
     TranslateTool,
-    ZoomControls,
-    VerticalListing
+    VerticalListing,
+    ZoomControls
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
