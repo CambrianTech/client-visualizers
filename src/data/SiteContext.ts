@@ -28,7 +28,8 @@ export type SharableVisualizerState = {
     selectedColor: string | null
     selectedSampleRoom: string | null
     selectedSampleRoomType: string | null
-    selectedRoom:string|null
+    selectedRoom: string | undefined | null
+    selectedSubroom: string | undefined | null
 }
 
 export type DerivedVisualizerState = {
@@ -62,6 +63,7 @@ export function createEmptyState(): SiteState {
         selectedSampleRoom: null,
         selectedSampleRoomType: null,
         selectedRoom:null,
+        selectedSubroom:null,
 
         // Visualizer derived
         sceneData: undefined,
@@ -125,7 +127,12 @@ export type SiteActionSetSelectedSampleRoomType = {
 
 export type SiteActionSetSelectedRoom = {
     type: "setSelectedRoom"
-    selectedRoom: string | null
+    room: string | null | undefined
+}
+
+export type SiteActionSetSelectedSubroom = {
+    type: "setSelectedSubroom"
+    subroom: string | null | undefined
 }
 
 export type SiteActionClearRoomData = {
@@ -160,7 +167,7 @@ export type ShawActionSetFloorTranslation = {
 
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
-    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionClearRoomData
+    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionSetSelectedSubroom | SiteActionClearRoomData
     | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor | SiteActionSetSiteData;
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
@@ -192,7 +199,10 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
             newState.selectedSampleRoomType = action.selectedSampleRoomType;
             break;
         case "setSelectedRoom":
-            newState.selectedRoom = action.selectedRoom;
+            newState.selectedRoom = action.room;
+            break;
+        case "setSelectedSubroom":
+            newState.selectedSubroom = action.subroom;
             break;
         case "clearRoomData":
             newState.selectedSampleRoomType = null;

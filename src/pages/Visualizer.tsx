@@ -16,8 +16,8 @@ import {
     CBARSurface,
     CBARSurfaceAsset,
     CBARSurfaceType,
-    CBARToolMode,
-    CBARView,
+    CBARToolMode, CBARUploadNames,
+    CBARView, CBContentManager,
     cbInitialize,
     DataFilter,
     DataItem,
@@ -35,7 +35,8 @@ import {
 
 import {SiteContext, stateToUrl} from '../data/SiteContext';
 import {
-    DefaultToolsMenuActions,
+    addSwatchBranding,
+    DefaultToolsMenuActions, drawBeforeAfter,
     EditSurfaceTool,
     ImageProperties,
     ImageUpload,
@@ -47,7 +48,7 @@ import {
     ToolOperation,
     ToolsMenuAction,
     TranslateTool,
-    VerticalListing,
+    VerticalListing, whenFileAvailable,
     ZoomControls
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
@@ -66,6 +67,8 @@ enum Panel {
     ProductInfo="product-info",
     Share="share"
 }
+
+const PINTEREST_UPLOAD_TIMEOUT = 20000;
 
 if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
     cbInitialize({
@@ -112,13 +115,18 @@ export default function Visualizer() {
     const [currentScene, setCurrentScene] = useState<CBARScene>();
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
     const [hasSeenProducts, setHasSeenProducts] = useState(false);
-    const [needsUpload, setNeedsUpload] = useState(false);
 
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
 
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
+
+    const [shareUrl, setShareUrl] = useState<string>();
+    const [shareImageUrl, setShareImageUrl] = useState<string>();
+    const [pinterestImageUrl, setPinterestImageUrl] = useState<string>();
+    const [needsUpload, setNeedsUpload] = useState(true);
+    const [performUpload, setPerformUpload] = useState(true);
 
     const [initialRotation, setInitialRotation] = useState<number>(0);
     const [currentRotation, setCurrentRotation] = useState<number>(0);
@@ -204,7 +212,12 @@ export default function Visualizer() {
 
         dispatch({
             type: "setSelectedRoom",
-            selectedRoom: props.roomId
+            room: props.roomId
+        });
+
+        dispatch({
+            type: "setSelectedSubroom",
+            subroom: null
         });
 
         // dispatch({
@@ -539,7 +552,12 @@ export default function Visualizer() {
 
             dispatch({
                 type: "setSelectedRoom",
-                selectedRoom: null
+                room: null
+            });
+
+            dispatch({
+                type: "setSelectedSubroom",
+                subroom: null
             });
 
             setActivePanel(Panel.None);
@@ -644,7 +662,7 @@ export default function Visualizer() {
         // }
         // return undefined
         return "Share"
-    },[activePanel, currentScene, isPortrait]);
+    },[]);
 
     const getShareUrl = useCallback(() => {
         return stateToUrl(siteContext.state, true)
@@ -886,6 +904,104 @@ export default function Visualizer() {
     const showSceneSelector = useMemo(()=>{
         return showUploadButton;
     }, [showUploadButton]);
+
+    const updateUrl = useCallback(() => {
+        const url = stateToUrl(siteContext.state);
+        window.history.replaceState({}, "", url);
+        return url
+    }, [siteContext]);
+
+    const primaryColor = useMemo(()=>{
+        return selectedColumn as ProductColor
+    }, [selectedColumn]);
+
+    const uploadProjectData = useCallback((scene:CBARScene, renderedImage:CanvasImageSource, color:ProductColor) => {
+
+        (async () => {
+
+            if (!_isMounted.current || !scene.backgroundImage) return;
+
+            console.log("Uploading to server, subroom is invalid.")
+
+            setPerformUpload(false);
+            setPinterestImageUrl(undefined);
+
+            if (progressVisible) {
+                setProgressPercentage(0.1);
+                setProgressText("Uploading Share Data")
+            }
+
+            const images:{[name: string]: CanvasImageSource} = {};
+
+            const renderContext = CBContentManager.imageToCanvasContext(renderedImage);
+
+            if (!renderContext) {
+                return;
+            }
+
+            const brandImage = await addSwatchBranding(renderContext, color, undefined);
+            const beforeAfter = isEditable() ? drawBeforeAfter(scene.backgroundImage.image, renderedImage) : undefined;
+
+            const progressStart = 0.2;
+            setProgressPercentage(progressStart);
+            setProgressText("Generated images")
+
+            images[CBARUploadNames.Brand] = brandImage.canvas;
+            setShareImageUrl(brandImage.canvas.toDataURL("image/jpeg", 80));
+            setShareUrl(updateUrl());
+
+            if (beforeAfter) {
+                const final = await addSwatchBranding(beforeAfter, color, undefined);
+                images[CBARUploadNames.Pinterest] = final.canvas;
+            } else {
+                images[CBARUploadNames.Pinterest] = brandImage.canvas;
+            }
+
+            CBContentManager.default.uploadScene(scene, images, (subProgress, result)=>{
+
+                if (result && result.name === CBARUploadNames.Pinterest) {
+                    whenFileAvailable(result.url, PINTEREST_UPLOAD_TIMEOUT).then(()=>{
+                        setPinterestImageUrl(result.url)
+                    });
+                    console.log(`Pinterest URL`, result.url);
+                }
+
+                const partRange = 1.0 - progressStart;
+                const progress = progressStart + partRange * subProgress;
+                setProgressPercentage(progress);
+
+            }).then(()=>{
+                console.log("Completed");
+
+                dispatch({
+                    type: "setSelectedRoom",
+                    room: CBContentManager.default.roomId
+                });
+
+                dispatch({
+                    type: "setSelectedSubroom",
+                    subroom: CBContentManager.default.subroomId
+                });
+
+                setShareUrl(updateUrl());
+
+                setProgressPercentage(1.0);
+            });
+        })()
+    }, [dispatch, isEditable, progressVisible, updateUrl]);
+
+    useEffect(() => {
+        if (performUpload && context && currentScene && primaryColor) {
+            context.captureScreenshot().then(screenshot=>{
+                CBContentManager.dataUrlToCanvasContext(screenshot).then(renderedImage=>{
+                    uploadProjectData(currentScene, renderedImage.canvas, primaryColor);
+                });
+                updateUrl();
+            }).catch((error)=>{
+                console.error(error);
+            });
+        }
+    }, [currentScene, performUpload, shareImageUrl, primaryColor, uploadProjectData, context, updateUrl]);
 
     return useMemo(() => (
         <div className={"panels " + activePanel}>
