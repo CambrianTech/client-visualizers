@@ -373,6 +373,11 @@ panel.c {
     visibility: hidden;
 }
 
+.vertical-swatch-listing-image {
+    border: none;
+    object-fit: contain;
+}
+
 .horizontal-swatch-listing-content {
 
 }
