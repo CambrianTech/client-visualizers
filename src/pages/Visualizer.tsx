@@ -608,20 +608,20 @@ export default function Visualizer() {
         return !dataPath;
     }, [dataPath]);
 
-    const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
-        //console.log(`${basePath}/textures/${url}`)
-        if (!url && selectedProduct) {
-            if (name === "preview") {
-                return `${brandPath}/${selectedProduct.thumbnail}`
-            } else if (name==="share") {
-                return `${brandPath}/${selectedProduct.thumbnail}`
-            }
-        }
-        if (url) {
-            return url.startsWith("http") ? url : `${brandPath}/${url}`
-        }
-        return "";
-    }, [brandPath, selectedProduct]);
+    // const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
+    //     //console.log(`${basePath}/textures/${url}`)
+    //     if (!url && selectedProduct) {
+    //         if (name === "preview") {
+    //             return `${brandPath}/${selectedProduct.thumbnail}`
+    //         } else if (name==="share") {
+    //             return `${brandPath}/${selectedProduct.thumbnail}`
+    //         }
+    //     }
+    //     if (url) {
+    //         return url.startsWith("http") ? url : `${brandPath}/${url}`
+    //     }
+    //     return "";
+    // }, [brandPath, selectedProduct]);
 
     const leftPanelOpen = useMemo(()=>{
         return activePanel === Panel.Scenes || activePanel === Panel.Products
@@ -644,7 +644,7 @@ export default function Visualizer() {
         // }
         // return undefined
         return "Share"
-    },[activePanel, currentScene, isPortrait]);
+    },[]);
 
     const getShareUrl = useCallback(() => {
         return stateToUrl(siteContext.state, true)
@@ -844,16 +844,16 @@ export default function Visualizer() {
         setToolMode(CBARToolMode.None);
     }, [initialXPos, initialYPos, selectedAsset]);
 
-    const productDetails = useMemo(()=>{
-        let product:ProductItem|undefined = selectedProduct;
-        while (product) {
-            if (product.details) {
-                return product.details
-            }
-            product = product.parent as ProductItem
-        }
-        return undefined
-    }, [selectedProduct]);
+    // const productDetails = useMemo(()=>{
+    //     let product:ProductItem|undefined = selectedProduct;
+    //     while (product) {
+    //         if (product.details) {
+    //             return product.details
+    //         }
+    //         product = product.parent as ProductItem
+    //     }
+    //     return undefined
+    // }, [selectedProduct]);
 
     const showUploadButton = useMemo(()=>{
         if ((!_isFeatureEnabled("scenes") && !_isFeatureEnabled("upload"))) {
@@ -1025,5 +1025,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
 }
