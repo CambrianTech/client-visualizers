@@ -631,12 +631,13 @@ export default function Visualizer() {
         return undefined
     },[activePanel, currentScene, isPortrait]);
 
-    // const rightPanelButtonText = useMemo(()=>{
-    //     if (activePanel === Panel.None && currentScene) {
-    //         return isPortrait ? "Details" : "Product Details";
-    //     }
-    //     return undefined
-    // },[activePanel, currentScene, isPortrait]);
+    const rightPanelButtonText = useMemo(()=>{
+        // if (activePanel === Panel.None && currentScene) {
+        //     return isPortrait ? "Details" : "Product Details";
+        // }
+        // return undefined
+        return "Share"
+    },[activePanel, currentScene, isPortrait]);
 
     const getShareUrl = useCallback(() => {
         return stateToUrl(siteContext.state, true)
@@ -967,12 +968,12 @@ export default function Visualizer() {
                     {leftPanelButtonText}
                 </Fab>}
 
-                {/*{currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-c"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)}>*/}
-                {/*    <Icon>*/}
-                {/*        {rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")}*/}
-                {/*    </Icon>*/}
-                {/*    {rightPanelButtonText}*/}
-                {/*</Fab>}*/}
+                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-c"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.Share :  Panel.None)}>
+                    <Icon>
+                        {rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")}
+                    </Icon>
+                    {rightPanelButtonText}
+                </Fab>}
 
             </div>}
 
@@ -988,15 +989,15 @@ export default function Visualizer() {
                 {/*    </div>}*/}
                 {/*</div>}*/}
 
-                {selectedProduct && selectedProduct.parent && (
-                    <ProductDetails className={"info"}
-                                 visible={activePanel === Panel.ProductInfo}
-                                 title={selectedProduct.parent.displayName}
-                                 subTitle={selectedProduct.displayName}
-                                 code={selectedProduct.code}
-                                 resolveUrl={resolveDetailsUrl}
-                                 details={productDetails}
-                    />)}
+                {/*{selectedProduct && selectedProduct.parent && (*/}
+                {/*    <ProductDetails className={"info"}*/}
+                {/*                 visible={activePanel === Panel.ProductInfo}*/}
+                {/*                 title={selectedProduct.parent.displayName}*/}
+                {/*                 subTitle={selectedProduct.displayName}*/}
+                {/*                 code={selectedProduct.code}*/}
+                {/*                 resolveUrl={resolveDetailsUrl}*/}
+                {/*                 details={productDetails}*/}
+                {/*    />)}*/}
 
                 {siteContext.state.siteData && currentScene && siteContext.state.siteData.appearance.sharing && (
                     <SharePanel className={"share"}
