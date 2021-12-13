@@ -500,6 +500,9 @@ export default function Visualizer() {
     }, [dispatch, selectedColumn, showMaterial]);
 
     const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
+        if (swatchItem.thumbnail) {
+            return resolveThumbnailPath(swatchItem)
+        }
         if (swatchItem instanceof SceneCollection) {
             const col = swatchItem as SceneCollection;
             if (col.scenes.length) {
@@ -511,7 +514,7 @@ export default function Visualizer() {
         }
 
         return
-    }, []);
+    }, [resolveThumbnailPath]);
 
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem instanceof SceneInfo) {
