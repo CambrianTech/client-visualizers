@@ -857,7 +857,7 @@ export default function Visualizer() {
     const panelTimer = useRef(0);
     const setPanelTimer = useCallback(()=>{
         panelTimer.current = window.setTimeout(()=>{
-            setActivePanel(Panel.None);
+            //setActivePanel(Panel.None);
         }, 1500);
     }, [panelTimer]);
 
