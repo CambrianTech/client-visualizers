@@ -1,0 +1,2578 @@
+{
+  "code": "adorefloors",
+  "displayName": "Adore Floors",
+  "subdomain": "adorefloors",
+  "appearance": {
+    "logo": {"src":"branding/adore-Logo.png", "alt":"Adore floors logo"},
+    "primaryColor": "#ED8B00",
+    "primaryTextColor": "#fff",
+    "secondaryColor": "#0045E6",
+    "secondaryTextColor": "#000",
+    "surfaceColor": "#dfdfdf",
+    "surfaceTextColor": "#555",
+    "inactiveColor": "rgba(255,255,255,0.2)",
+    "header": {
+      "title": "Adore Floors",
+      "description": "See Adore Floors' great flooring products.",
+      "favicon": "branding/adore-Logo.png"
+    },
+    "sharing": {
+      "subject": "Check out this floor from Adore Floors"
+    },
+    "features": [
+      {
+        "name": "scenes",
+        "materialIcon": "photo",
+        "text":"scenes"
+      },
+      {
+        "name": "upload",
+        "materialIcon": "photo_camera",
+        "text": "photo"
+      }
+    ]
+  },
+  "features":  [
+    {"name":"scenes", "enabled":true},
+    {"name":"upload", "enabled":true}
+  ],
+  "brands": [
+    {
+      "code": "adorefloors",
+      "displayName": "Adore Floors",
+      "surfaceTypes": ["floor"],
+      "assetTypes": ["tiled"],
+      "sceneCollections": [
+        {
+          "code": "bathroom",
+          "displayName": "Bathroom",
+          "scenes": [
+            {
+              "code": "1-bathroom",
+              "displayName": "Bathroom"
+            },
+            {
+              "code": "2-bathroom",
+              "displayName": "Bathroom"
+            }
+          ]
+        },
+        {
+          "code": "bedroom",
+          "displayName": "Bedroom",
+          "scenes": [
+            {
+              "code": "2-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "3-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "4-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "5-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "6-bedroom",
+              "displayName": "Bedroom"
+            }
+          ]
+        },
+        {
+          "code": "kitchen",
+          "displayName": "Kitchen",
+          "scenes": [
+            {
+              "code": "kitchen-1",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "1-dining",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "1-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "2-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "3-kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "4-kitchen",
+              "displayName": "Kitchen"
+            }
+          ]
+        },
+        {
+          "code": "living-room",
+          "displayName": "Living Room",
+          "scenes": [
+            {
+              "code": "1-compact-apartment",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "4-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "6-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "7-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "8-living-room",
+              "displayName": "Living Room"
+            },
+            {
+              "code": "9-living-room",
+              "displayName": "Living Room"
+            }
+          ]
+        },
+        {
+          "code": "office",
+          "displayName": "Office",
+          "scenes": [
+            {
+              "code": "1-business",
+              "displayName": "Office"
+            },
+            {
+              "code": "1-office",
+              "displayName": "Office"
+            },
+            {
+              "code": "2-lobby",
+              "displayName": "Office"
+            }
+          ]
+        }
+      ],
+      "collections": [
+        {
+          "code": "luxury-vinyl",
+          "displayName": "Luxury Vinyl",
+          "thumbnail": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Parquet-RS_1024x1024.jpg?v=1575660940",
+          "products": [
+            {
+              "code": "naturelle-plus",
+              "displayName": "Naturelle+ Plus",
+              "thumbnail": "thumbnails/NAT-1310.jpg",
+              "colors": [
+                {
+                  "code": "NAT-1310",
+                  "displayName": "ACCLAIM",
+                  "thumbnail": "thumbnails/NAT-1310.jpg",
+                  "mirrored": false,
+                  "albedo": "textures/NAT-1310.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-1310",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/283/a4kqh2dg.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  }
+                },
+                {
+                  "code": "NAT-1741",
+                  "displayName": "ACHIEVE",
+                  "thumbnail": "thumbnails/NAT-1741.jpg",
+                  "albedo": "textures/NAT-1741.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-1741",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/284/bvwi3nue.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "37.4\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  }
+                },
+                {
+                  "code": "NAT-2031",
+                  "displayName": "ADVANCE",
+                  "thumbnail": "thumbnails/NAT-2031.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2031",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/284/bvwi3nue.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-2031.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-2032",
+                  "displayName": "ADMIRE",
+                  "thumbnail": "thumbnails/NAT-2032.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2032",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/286/okjks3qm.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {"albedo": "textures/NAT-2032.jpg"}
+                },
+                {
+                  "code": "NAT-2033",
+                  "displayName": "ADVISE",
+                  "thumbnail": "thumbnails/NAT-2033.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2033",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/287/tccg3gm1.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-2033.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-2036",
+                  "displayName": "ADDRESS",
+                  "thumbnail": "thumbnails/NAT-2036.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2036",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/288/jzl1vepk.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/NAT-2036.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-2037",
+                  "displayName": "ADAPT",
+                  "thumbnail": "thumbnails/NAT-2037.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2037",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/289/xlauh443.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-2037.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-2042",
+                  "displayName": "ADMIT",
+                  "thumbnail": "thumbnails/NAT-2042.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2042",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/290/v2naxgyn.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false,
+                    "albedo": "textures/NAT-2042.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-2044",
+                  "displayName": "ACCRUE",
+                  "thumbnail": "thumbnails/NAT-2044.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2044",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/291/yf1jfcm3.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-2044.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-2051",
+                  "displayName": "ADORN",
+                  "thumbnail": "thumbnails/NAT-2051.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-2051",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/292/1ujuj0io.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/NAT-2051.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-3151",
+                  "displayName": "APPEAL",
+                  "thumbnail": "thumbnails/NAT-3151.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-3151",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/293/b21q2rym.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-3151.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-3301",
+                  "displayName": "ASPIRE",
+                  "thumbnail": "thumbnails/NAT-3301.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-3301",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/294/kmflddtu.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/NAT-3301.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-3302",
+                  "displayName": "AGREE",
+                  "thumbnail": "thumbnails/NAT-3302.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-3302",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/295/ogpf5mqe.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-3302.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-3303",
+                  "displayName": "ACCEPT",
+                  "thumbnail": "thumbnails/NAT-3303.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-3303",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/296/txk13rtc.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/NAT-3303.jpg",
+                    "mirrored": false
+                    
+                  }
+                },
+                {
+                  "code": "NAT-4100",
+                  "displayName": "APPOINT",
+                  "thumbnail": "thumbnails/NAT-4100.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-4100",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/297/4u2sgrda.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-4100.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-4101",
+                  "displayName": "APPLAUD",
+                  "thumbnail": "thumbnails/NAT-4101.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-4101",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/298/5mbve15o.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/NAT-4101.jpg",
+                    "mirrored": false
+                   
+                  }
+                },
+                {
+                  "code": "NAT-4302",
+                  "displayName": "ATTRACT",
+                  "thumbnail": "thumbnails/NAT-4302.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-4302",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/299/wzvjr33c.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-4302.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-4500",
+                  "displayName": "ADRIFT",
+                  "thumbnail": "thumbnails/NAT-4500.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-4500",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/300/t3agimsx.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-4500.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-603",
+                  "displayName": "ASTOUND",
+                  "thumbnail": "thumbnails/NAT-603.jpg",
+                  "ppi": 14,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-603",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/315/bvylyxp5.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "24\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-603.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-604",
+                  "displayName": "ATTAIN",
+                  "thumbnail": "thumbnails/NAT-604.jpg",
+                  "ppi": 14,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-604",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/316/admkzu5w.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "24\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-604.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-631",
+                  "displayName": "ALLY",
+                  "thumbnail": "thumbnails/NAT-631.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-631",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/308/i40gmu4c.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-631.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-632",
+                  "displayName": "ALLOW",
+                  "thumbnail": "thumbnails/NAT-632.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-632",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/309/3hihdjv2.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-632.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-634",
+                  "displayName": "ALLURE",
+                  "thumbnail": "thumbnails/NAT-634.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-634",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/310/o3bzhuck.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-634.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-651",
+                  "displayName": "AFFORD",
+                  "thumbnail": "thumbnails/NAT-651.jpg",
+                  "ppi": 14,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-651",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/317/yjwmrphx.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "24\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-651.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-652",
+                  "displayName": "ASSURE",
+                  "thumbnail": "thumbnails/NAT-652.jpg",
+                  "ppi": 14,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-652",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/318/wlcqgsit.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "24\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-652.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-661",
+                  "displayName": "AFFIRM",
+                  "thumbnail": "thumbnails/NAT-661.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-661",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/311/vv1vj15u.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "12\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-661.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-665",
+                  "displayName": "AMPLIFY",
+                  "thumbnail": "thumbnails/NAT-665.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-665",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/312/bypzlykx.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "12\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "albedo": "textures/NAT-665.jpg",
+                    "mirrored": false
+                  }
+                },
+                {
+                  "code": "NAT-701",
+                  "displayName": "ACCENT",
+                  "thumbnail": "thumbnails/NAT-701.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-701",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/305/irljjkav.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-701.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-703",
+                  "displayName": "ADOPT",
+                  "thumbnail": "thumbnails/NAT-703.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-703",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/306/bpv5ybzf.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/NAT-703.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-731",
+                  "displayName": "ACCESS",
+                  "thumbnail": "thumbnails/NAT-731.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-731",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/301/fpfmguxl.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-731.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-741",
+                  "displayName": "ASCEND",
+                  "thumbnail": "thumbnails/NAT-741.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-741",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/302/esidjh13.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-741.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-742",
+                  "displayName": "ABOUND",
+                  "thumbnail": "thumbnails/NAT-742.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-742",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/303/g103dnoh.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-742.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-743",
+                  "displayName": "ADVENT",
+                  "thumbnail": "thumbnails/NAT-743.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-743",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/304/tzhxkdgd.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-743.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-903",
+                  "displayName": "ACQUIRE",
+                  "thumbnail": "thumbnails/NAT-903.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-903",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/307/xaf3y3za.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "7\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-903.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-904",
+                  "displayName": "ANNEX",
+                  "thumbnail": "thumbnails/NAT-904.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-904",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/313/fyssheqi.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "12\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-904.jpg"
+                  }
+                },
+                {
+                  "code": "NAT-906",
+                  "displayName": "ANCHOR",
+                  "thumbnail": "thumbnails/NAT-906.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Naturelle-Plus/NAT-906",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/314/yr45gkvt.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Micro-Ceramic Technology/Antimicrobial"},
+                      {"Width": "12\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Installation Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/NAT-906.jpg"
+                  }
+                }                                                                                                                
+              ]
+            },
+            {
+              "code": "projectflor",
+              "displayName": "ProjectFlor",
+              "thumbnail": "thumbnails/PF-433.jpg",
+              "colors": [
+                {
+                  "code": "PF-433",
+                  "displayName": "MADISON STONE",
+                  "thumbnail": "thumbnails/PF-433.jpg",
+                  "ppi": 18,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-433",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/195/apc4uhvr.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "18.5\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "18.5\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-433.jpg"
+                  }
+                },
+                {
+                  "code": "PF-612",
+                  "displayName": "RECTOR GRANITE",
+                  "thumbnail": "thumbnails/PF-612.jpg",
+                  "ppi": 18,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-612",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/196/x1zd0omq.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "18.5\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "18.5\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/PF-612.jpg"
+                  }
+                },
+                {
+                  "code": "PF-1035",
+                  "displayName": "IDLEHOUR OAK",
+                  "thumbnail": "thumbnails/PF-1035.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1035",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/179/iki5npiw.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "7\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/PF-1035.jpg"
+                  }
+                },
+                {
+                  "code": "PF-1051",
+                  "displayName": "SAGAMORE SIENNA",
+                  "thumbnail": "thumbnails/PF-1051.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1051",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/180/3eydygh4.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "7\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1051.jpg"
+                  }
+                },
+                {
+                  "code": "PF-1403",
+                  "displayName": "SHELBURN CHERRY",
+                  "thumbnail": "thumbnails/PF-1403.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1403",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/191/4hhdhy1x.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "37.3\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1403.jpg"
+                  }
+                },
+                {
+                  "code": "PF-1566",
+                  "displayName": "CLAYTON SMOKE",
+                  "thumbnail": "thumbnails/PF-1566.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1566",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/192/rgvwud5i.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "7\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1566.jpg"
+                  }
+                },
+                {
+                  "code": "PF-1571",
+                  "displayName": "VINTAGE BAUPORT",
+                  "thumbnail": "thumbnails/PF-1571.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1571",
+                    "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Cosmopolitan-Rome-RS_1024x1024.jpg?v=1570808109",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "7\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1571.jpg"
+                  }
+                },
+                {
+                  "code": "PF-1713",
+                  "displayName": "DEEP ASTORIA",
+                  "thumbnail": "thumbnails/PF-1713.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1713",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/194/4imcbi4x.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "37.3\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1713.jpg"
+                  }
+                },
+                {
+                  "code": "PF-8128",
+                  "displayName": "CHRYSLER GRAY",
+                  "thumbnail": "thumbnails/PF-8128.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-8128",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/197/opuieupt.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "37.3\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-8128.jpg"
+                  }
+                },
+                {
+                  "code": "PF-9003",
+                  "displayName": "ARDEN CHERRY",
+                  "thumbnail": "thumbnails/PF-9003.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-9003",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/198/nmdqpm1u.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "7 mil/Micro-Ceramic Technology"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "37.3\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-9003.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "code": "projectflorelite",
+              "displayName": "ProjectFlor Elite",
+              "thumbnail": "thumbnails/PF-612.jpg",
+              "colors": [
+                {
+                  "code": "PF12-E33",
+                  "displayName": "MADISON STONE",
+                  "thumbnail": "thumbnails/PF-433.jpg",
+                  "ppi": 18,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E33",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/186/u1nckx3q.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "18.5\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "18.5\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-433.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E12",
+                  "displayName": "RECTOR GRANITE",
+                  "thumbnail": "thumbnails/PF-612.jpg",
+                  "ppi": 18,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E12",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/184/fdojo55g.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "18.5\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "18.5\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/PF-612.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E035",
+                  "displayName": "IDLEHOUR OAK",
+                  "thumbnail": "thumbnails/PF-1035.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E035",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/182/1ifavdsd.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "7\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirrored": false, "albedo": "textures/PF-1035.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E051",
+                  "displayName": "SAGAMORE SIENNA",
+                  "thumbnail": "thumbnails/PF-1051.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E051",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/183/ppsjyqhn.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "7\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1051.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E403",
+                  "displayName": "SHELBURN CHERRY",
+                  "thumbnail": "thumbnails/PF-1403.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E403",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/187/i2inh2zo.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "37.3\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1403.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E566",
+                  "displayName": "CLAYTON SMOKE",
+                  "thumbnail": "thumbnails/PF-1566.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E566",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/188/34nelhio.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "7\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1566.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E571",
+                  "displayName": "VINTAGE BAUPORT",
+                  "thumbnail": "thumbnails/PF-1571.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E571",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/189/ywrdcf4n.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "7\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1751.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E713",
+                  "displayName": "DEEP ASTORIA",
+                  "thumbnail": "thumbnails/PF-1713.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E713",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/190/cjlyayy1.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "37.3\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-1713.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E128",
+                  "displayName": "CHRYSLER GRAY",
+                  "thumbnail": "thumbnails/PF-8128.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E128",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/185/knuhwcgf.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "37.3\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-8128.jpg"
+                  }
+                },
+                {
+                  "code": "PF12-E003",
+                  "displayName": "ARDEN CHERRY",
+                  "thumbnail": "thumbnails/PF-9003.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E003",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/181/fu3p25kh.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/Micro-Ceramic Technology"},
+                      {"Width": "7.2\""},
+                      {"Thickness": "2 mm"},
+                      {"Length": "37.3\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Glue Down"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/PF-9003.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "code": "regentmonarchx",
+              "displayName": "Regent Monarch X",
+              "thumbnail": "thumbnails/MON-X602.jpg",
+              "colors": [
+                {
+                  "code": "MON-X602",
+                  "displayName": "SMOKED CYPRESS",
+                  "thumbnail": "thumbnails/MON-X602.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X602",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/264/owogvlnk.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X602.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X604",
+                  "displayName": "WHEATON GOLD",
+                  "thumbnail": "thumbnails/MON-X604.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X604",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/265/fotsm2ij.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X604.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X606",
+                  "displayName": "RIVERBANK GRAY",
+                  "thumbnail": "thumbnails/MON-X606.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X606",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/266/qwyt5rib.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X606.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X607",
+                  "displayName": "KNOTTED HEARTWOOD",
+                  "thumbnail": "thumbnails/MON-X607.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X607",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/267/nhobsrnu.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X607.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X608",
+                  "displayName": "SALTED OAK",
+                  "thumbnail": "thumbnails/MON-X608.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X608",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/269/mcwzdaaf.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X608.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X620",
+                  "displayName": "NORSE COUNTRY BARK",
+                  "thumbnail": "thumbnails/MON-X620.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X620",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/270/03wfdxdi.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X620.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X622",
+                  "displayName": "SEASIDE MYRTLE",
+                  "thumbnail": "thumbnails/MON-X622.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X622",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/271/vszalle2.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X622.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X626",
+                  "displayName": "FAIRBRIGHT OAK",
+                  "thumbnail": "thumbnails/MON-X626.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X626",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/272/xhtdly5i.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X626.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X628",
+                  "displayName": "SUMMER STORM",
+                  "thumbnail": "thumbnails/MON-X628.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X628",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/274/txguy5cs.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X628.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X629",
+                  "displayName": "CINDERED COBALT",
+                  "thumbnail": "thumbnails/MON-X629.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X629",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/275/g0rbaiqv.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X629.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X631",
+                  "displayName": "RUFFLED DOVE",
+                  "thumbnail": "thumbnails/MON-X631.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X631",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/260/by1d5ywq.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "12\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X631.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X632",
+                  "displayName": "SEASONED KHAKI",
+                  "thumbnail": "thumbnails/MON-X632.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X632",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/261/1nnm5q00.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "12\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X632.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X633",
+                  "displayName": "LUMINOUS IVORY",
+                  "thumbnail": "thumbnails/MON-X633.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X633",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/262/0l11dy4w.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "12\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X633.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X634",
+                  "displayName": "DIAMOND STEEL",
+                  "thumbnail": "thumbnails/MON-X634.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X634",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/263/kyizwgjb.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "12\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X634.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X641",
+                  "displayName": "TIMBERFOX SMOKE",
+                  "thumbnail": "thumbnails/MON-X641.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X641",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/335/od5r0ubl.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X641.jpg"
+                  }
+                },
+                {
+                  "code": "MON-X642",
+                  "displayName": "SHERWOOD FARMHOUSE",
+                  "thumbnail": "thumbnails/MON-X642.jpg",
+                  "ppi": 56,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X642",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/336/tw0nri0o.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "12 mil/True Rigid Core/Floating Installation"},
+                      {"Width": "6\""},
+                      {"Thickness": "4.8 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X642.jpg"
+                  }
+                }                                                                                                                                                                                                                
+              ]
+            },
+            {
+              "code": "regentsovereign",
+              "displayName": "Regent Sovereign",
+              "thumbnail": "thumbnails/MON-X604.jpg",
+              "colors": [
+                {
+                  "code": "SOV-X602",
+                  "displayName": "SMOKED CYPRESS",
+                  "thumbnail": "thumbnails/MON-X602.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X602",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/264/owogvlnk.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X602.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X604",
+                  "displayName": "WHEATON GOLD",
+                  "thumbnail": "thumbnails/MON-X604.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X604",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/265/fotsm2ij.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X604.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X606",
+                  "displayName": "RIVERBANK GRAY",
+                  "thumbnail": "thumbnails/MON-X606.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X606",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/266/qwyt5rib.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X606.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X607",
+                  "displayName": "KNOTTED HEARTWOOD",
+                  "thumbnail": "thumbnails/MON-X607.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X607",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/267/nhobsrnu.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X607.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X608",
+                  "displayName": "SALTED OAK",
+                  "thumbnail": "thumbnails/MON-X608.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X608",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/269/mcwzdaaf.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X608.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X620",
+                  "displayName": "NORSE COUNTRY BARK",
+                  "thumbnail": "thumbnails/MON-X620.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X620",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/270/03wfdxdi.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X620.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X622",
+                  "displayName": "SEASIDE MYRTLE",
+                  "thumbnail": "thumbnails/MON-X622.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X622",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/271/vszalle2.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X622.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X626",
+                  "displayName": "FAIRBRIGHT OAK",
+                  "thumbnail": "thumbnails/MON-X626.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X626",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/272/xhtdly5i.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X626.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X628",
+                  "displayName": "SUMMER STORM",
+                  "thumbnail": "thumbnails/MON-X628.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X628",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/274/txguy5cs.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X628.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X629",
+                  "displayName": "CINDERED COBALT",
+                  "thumbnail": "thumbnails/MON-X629.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X629",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/275/g0rbaiqv.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X629.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X631",
+                  "displayName": "RUFFLED DOVE",
+                  "thumbnail": "thumbnails/MON-X631.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X631",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/260/by1d5ywq.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "12\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X631.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X632",
+                  "displayName": "SEASONED KHAKI",
+                  "thumbnail": "thumbnails/MON-X632.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X632",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/261/1nnm5q00.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "12\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X632.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X633",
+                  "displayName": "LUMINOUS IVORY",
+                  "thumbnail": "thumbnails/MON-X633.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X633",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/262/0l11dy4w.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "12\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X633.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X634",
+                  "displayName": "DIAMOND STEEL",
+                  "thumbnail": "thumbnails/MON-X634.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X634",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/263/kyizwgjb.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "12\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X634.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X641",
+                  "displayName": "TIMBERFOX SMOKE",
+                  "thumbnail": "thumbnails/MON-X641.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X641",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/335/od5r0ubl.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X641.jpg"
+                  }
+                },
+                {
+                  "code": "SOV-X642",
+                  "displayName": "SHERWOOD FARMHOUSE",
+                  "thumbnail": "thumbnails/MON-X642.jpg",
+                  "ppi": 48,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X642",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/336/tw0nri0o.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"},
+                      {"Width": "7\""},
+                      {"Thickness": "6.0 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Micro-Bevel"},
+                      {"Locking Type": "I4F Drop Lock"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/MON-X642.jpg"
+                  }
+                }
+              ]
+            },
+            {
+              "code": "decoriacontack",
+              "displayName": "Decoria Contack",
+              "thumbnail": "thumbnails/ADC-8101.jpg",
+              "colors": [
+                {
+                  "code": "ADC-8101",
+                  "displayName": "RELATIVE",
+                  "thumbnail": "thumbnails/ADC-8101.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8101",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/319/lyq0p4oe.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8101.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8102",
+                  "displayName": "RELENTLESS",
+                  "thumbnail": "thumbnails/ADC-8102.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8102",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/320/ufsjewhq.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8102.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8103",
+                  "displayName": "RESTORE",
+                  "thumbnail": "thumbnails/ADC-8103.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8103",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/321/tzay2umi.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8103.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8104",
+                  "displayName": "RESPECTIVE",
+                  "thumbnail": "thumbnails/ADC-8104.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8104",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/322/inekehj2.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8104.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8105",
+                  "displayName": "RESOLUTE",
+                  "thumbnail": "thumbnails/ADC-8105.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8105",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/323/0dovqwuy.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8105.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8106",
+                  "displayName": "REMARKABLE",
+                  "thumbnail": "thumbnails/ADC-8106.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8106",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/324/rm2yxb3t.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8106.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8107",
+                  "displayName": "RESPONSIVE",
+                  "thumbnail": "thumbnails/ADC-8107.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8107",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/325/lkxs2vml.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8107.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8108",
+                  "displayName": "REDEMPTION",
+                  "thumbnail": "thumbnails/ADC-8108.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8108",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/326/ljryc5v5.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8108.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8109",
+                  "displayName": "REFINED",
+                  "thumbnail": "thumbnails/ADC-8109.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8109",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/327/s5jhbnsy.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8109.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8110",
+                  "displayName": "REVELATION",
+                  "thumbnail": "thumbnails/ADC-8110.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8110",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/328/idwfdaq1.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8110.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8121",
+                  "displayName": "RESURGENCE",
+                  "thumbnail": "thumbnails/ADC-8121.jpg",
+                  "ppi": 18,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8121",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/329/feefobsx.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "18\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "18\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8121.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8122",
+                  "displayName": "REVITALIZE",
+                  "thumbnail": "thumbnails/ADC-8122.jpg",
+                  "ppi": 18,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8122",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/330/1oz2ngin.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "18\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "18\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8122.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8123",
+                  "displayName": "RETROSPECT",
+                  "thumbnail": "thumbnails/ADC-8123.jpg",
+                  "ppi": 18,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8123",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/331/aybmqjpk.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "18\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "18\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8123.jpg"
+                  }
+                },
+                {
+                  "code": "ADC-8124",
+                  "displayName": "REJUVENATE",
+                  "thumbnail": "thumbnails/ADC-8124.jpg",
+                  "ppi": 18,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Adore/Decoria-Contack/ADC-8124",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/332/rasnax0j.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Heavy Self-Adhered/Commercial & Residential LVT"},
+                      {"Width": "18\""},
+                      {"Thickness": "4 mm"},
+                      {"Length": "18\""},
+                      {"Edge": "Square Edge"},
+                      {"Installation Type": "Self-Adhered"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/ADC-8124.jpg"
+                  }                                                                                                                                                                                                                
+                }
+              ]
+            },
+            {
+              "code": "alettecontract",
+              "displayName": "Alette Contract",
+              "thumbnail": "thumbnails/CN-T113.jpg",
+              "colors": [
+                {
+                  "code": "CN-T113",
+                  "displayName": "CHURCHILL",
+                  "thumbnail": "thumbnails/CN-T113.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T113",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/50/jyvbwzas.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T113.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T153",
+                  "displayName": "CORNEILLE",
+                  "thumbnail": "thumbnails/CN-T153.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T153",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/54/x24hd51y.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T153.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T156",
+                  "displayName": "FAULKNER",
+                  "thumbnail": "thumbnails/CN-T156.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T156",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/277/xubjocoa.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T156.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T183",
+                  "displayName": "BARCA",
+                  "thumbnail": "thumbnails/CN-T183.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T183",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/57/od5onxbq.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T183.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T188",
+                  "displayName": "HAWTHORNE",
+                  "thumbnail": "thumbnails/CN-T188.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T188",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/278/3xwrjyjp.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T188.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T193",
+                  "displayName": "PETRESCU",
+                  "thumbnail": "thumbnails/CN-T193.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T193",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/58/b5kblchs.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T193.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T462",
+                  "displayName": "HEMINGWAY",
+                  "thumbnail": "thumbnails/CN-T462.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T462",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/279/cow3xb5g.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T462.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T469",
+                  "displayName": "STEINBECK",
+                  "thumbnail": "thumbnails/CN-T469.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T469",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/281/1hocfaim.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "12\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T469.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T533",
+                  "displayName": "HARPER",
+                  "thumbnail": "thumbnails/CN-T533.jpg",
+                  "ppi": 28,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T533",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/282/fdlbdqbd.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "12\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "24\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T533.jpg"
+                  }
+                },
+                {
+                  "code": "CN-T758",
+                  "displayName": "MORRISON",
+                  "thumbnail": "thumbnails/CN-T758.jpg",
+                  "ppi": 47,
+                  "details": {
+                    "url": "https://www.adorefloors.com/Products/Alette/Alette-Contract/CN-T758",
+                    "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/280/jlifrzxs.jpg?width=1920&height=1080&quality=90&mode=max",
+                    "specifications": [
+                      {"Wear Layer": "22 mil/Unique Designs/Commercial & Residential Flooring"},
+                      {"Width": "7.25\""},
+                      {"Thickness": "3 mm"},
+                      {"Length": "48\""},
+                      {"Edge": "Square"},
+                      {"Locking Type": "Dry Back"}
+                    ]
+                  },
+                  "metaData": {
+                    "mirroredX": false, "albedo": "textures/CN-T758.jpg"
+                  }                                                                                                                                               
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

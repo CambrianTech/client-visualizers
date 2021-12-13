@@ -15,7 +15,7 @@ const isDebug = process.env.IS_DEBUG ? parseInt(process.env.IS_DEBUG.trim())===1
 const defaultSite = process.env.DEFAULT_SITE ? process.env.DEFAULT_SITE : "divinefloor";
 const cacheRoot = path.join(__dirname, 'cache');
 const debugRoot = path.join(__dirname, 'debug');
-const domain = process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
+const baseDomain = process.env.BASE_DOMAIN ? process.env.BASE_DOMAIN.trim() : "";
 const CONFIG_STORE = "config";
 const baseDataPath = process.env.CB_SITE_DATA_URL ? process.env.CB_SITE_DATA_URL.trim() : "";
 
@@ -36,7 +36,7 @@ if (isDebug) {
 }
 
 function getDomain(host:string) {
-    return (host.indexOf("staging.") >= 0) ? "staging." + domain : domain;
+    return (host.indexOf("staging.") >= 0) ? "staging." + baseDomain : baseDomain;
 }
 
 function getConfig(subdomain:string) : SiteConfig | undefined {
@@ -46,8 +46,7 @@ function getConfig(subdomain:string) : SiteConfig | undefined {
         const filepath = path.join(configPath, `${subdomain}.json`);
         const defaultPath = path.join(configPath, `${defaultSite}.json`);
         const exists = fs.existsSync(filepath);
-        const json = JSON.parse(fs.readFileSync(exists ? filepath : defaultPath, 'utf-8'));
-        return json
+        return JSON.parse(fs.readFileSync(exists ? filepath : defaultPath, 'utf-8'));
     } catch (err) {
         console.error(`Could not find config at ${configPath}`);
     }
@@ -67,7 +66,7 @@ app.get("*", (req, res) => {
         const domain = getDomain(req.headers.host);
         const subdomain = req.headers.host.replace("." + domain, "");
 
-        console.log("Requested", {"path":req.path, subdomain});
+        console.error("Requested", req.path, subdomain);
 
         const config = getConfig(subdomain);
         const indexPath = path.join(buildPath, "index.html");

@@ -6,29 +6,81 @@ import numpy as np
 import sys
 from pathlib import Path
 from PIL import Image, ImageEnhance
+from termcolor import colored
 
 import click
 import random
 import math
+
+def convert_color(color, conversion):
+    #return tuple(int(i) for i in cv2.cvtColor(img, conversion).flatten())
+    
+    #bug in opencv 4.5.4 incorrectly asserting on width or height parameter instead of channels
+    #return tuple(int(i) for i in cv2.cvtColor(img, conversion).flatten())
+    img = np.zeros([3,3,3],dtype=np.uint8)
+    img[0,0] = color
+    converted = cv2.cvtColor(img, conversion)[0,0]
+    return (int(converted[0]), int(converted[1]), int(converted[2]))
 
 def get_image_paths(input_dir, pattern):
     files = []
     if pattern:
         files.extend(Path(input_dir).glob('**/' + pattern))
     else: 
-        extensions = ('.png', '.jpg', '.jpeg')
+        extensions = ('.png', '.jpg', '.jpeg', '.tif')
         for ext in extensions:
             files.extend(Path(input_dir).glob('**/*' + ext))
     return files
 
-def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)):
+def overlay_image_alpha(img, img_overlay, x, y, alpha_mask=None):
+    """Overlay `img_overlay` onto `img` at (x, y) and blend using optional `alpha_mask`.
+
+    `alpha_mask` must have same HxW as `img_overlay` and values in range [0, 1].
+    """
+    # Image ranges
+
+    if y < 0 or y + img_overlay.shape[0] > img.shape[0] or x < 0 or x + img_overlay.shape[1] > img.shape[1]:
+        y_origin = 0 if y > 0 else -y
+        y_end = img_overlay.shape[0] if y < 0 else min(img.shape[0] - y, img_overlay.shape[0])
+
+        x_origin = 0 if x > 0 else -x
+        x_end = img_overlay.shape[1] if x < 0 else min(img.shape[1] - x, img_overlay.shape[1])
+
+        img_overlay_crop = img_overlay[y_origin:y_end, x_origin:x_end]
+        alpha = alpha_mask[y_origin:y_end, x_origin:x_end] if alpha_mask is not None else None
+    else:
+        img_overlay_crop = img_overlay
+        alpha = alpha_mask
+
+    y1 = max(y, 0)
+    y2 = min(img.shape[0], y1 + img_overlay_crop.shape[0])
+
+    x1 = max(x, 0)
+    x2 = min(img.shape[1], x1 + img_overlay_crop.shape[1])
+
+    img_crop = img[y1:y2, x1:x2]
+    img_crop[:] = alpha * img_overlay_crop + (1.0 - alpha) * img_crop if alpha is not None else img_overlay_crop
+
+def tile_seamless(boards, num_rows, num_cols, seam_size=None, seam_color_bgr=None, scatter=False):
+
+    (h, w) = boards.shape[1:3]
+    if seam_size is None:
+        seam_size = max(w // 80, 2)
+
+    print("Tiling %d boards. Seam size is %d" % (len(boards), seam_size))
+
     half_seam_size = seam_size // 2
     total_seam_width = num_cols * seam_size
     total_seam_height = num_rows * seam_size
 
-    (h, w) = boards.shape[1:3]
+    if seam_color_bgr is None:
+        average_color = boards[0].mean(axis=0).mean(axis=0)
+        average_color_hsv = convert_color(average_color, cv2.COLOR_BGR2HSV)
+        
+        seam_color_bgr = convert_color((average_color_hsv[0], average_color_hsv[1], average_color_hsv[2] * 2 // 3), cv2.COLOR_HSV2BGR)
+    
     output = np.zeros((num_rows * h + total_seam_height, num_cols * w + total_seam_width, 3), dtype=np.uint8)
-    output[:] = seam_color
+    output[:] = seam_color_bgr
 
     for row in range(num_rows):
         for col in range(num_cols):
@@ -40,6 +92,9 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)
             if np.random.rand() > 0.5:
                 board = np.flip(board, axis=1)
 
+            # Rotate
+            board = np.rot90(board, k=np.random.randint(0,4)if h == w else np.random.randint(0,1)*2)
+
             x = col * w + (col + 1) * seam_size - half_seam_size
             x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
 
@@ -49,11 +104,16 @@ def tile_seamless(boards, num_rows, num_cols, seam_size=2, seam_color=(55,55,55)
             output[y:y_max, x:x_max] = board
 
     for col in range(num_cols):
+
         if col % 2 == 0:
-            x = col * w + (col + 1) * seam_size - half_seam_size
-            x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
-            
-            output[:, x:x_max] = np.roll(output[:, x:x_max], h // 2, axis=0)
+            roll = np.random.randint(-h // 5, h // 5) if scatter else 0
+        else:
+            roll = np.random.randint(h // 3, 2 * h // 3) if scatter else h // 2
+
+        x = col * w + (col + 1) * seam_size - half_seam_size
+        x_max = (col+1) * w + (col + 1) * seam_size - half_seam_size
+        
+        output[:, x:x_max] = np.roll(output[:, x:x_max], roll, axis=0)
 
     return output
 
@@ -63,13 +123,28 @@ def resize(image, window_height):
     image = cv2.resize(image, (int(window_height),int(window_width)), cv2.INTER_AREA)
     return image
 
-def crop_center(img,cropx,cropy):
-    y,x,c = img.shape
-    startx = x//2 - cropx//2
-    starty = y//2 - cropy//2    
+def crop_center(img, cropx, cropy):
+    h, w, _ = img.shape
+    startx = w//2 - cropx//2
+    starty = h//2 - cropy//2
+
     return img[starty:starty+cropy, startx:startx+cropx, :]
 
-def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
+def make_thumbnail(img, size=512):
+    h, w = img.shape[:2]
+
+    scale = size / min(w, h)
+    
+    reduced = cv2.resize(img, (math.ceil(scale * w), math.ceil(scale * h)))
+
+    starty = max(0, (reduced.shape[0] - size) // 2)
+    startx = max(0, (reduced.shape[1] - size) // 2)
+
+    #print(startx, starty, reduced.shape)
+
+    return reduced[starty:starty + size, startx:startx + size, :]
+
+def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, scatter=False):
     
     for row in data:
         image_width = row['width']
@@ -129,37 +204,76 @@ def crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, maxsi
 
             cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (i)), resize(crop, maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
+        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size, scatter=scatter)
         tiled = resize(tiled, maxsize) 
         cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        thumbnail = resize(crop_center(tiled, maxsize, maxsize), 512)
+        thumbnail = make_thumbnail(tiled)
         cv2.imwrite(os.path.join(path, "thumbnail.jpg"), thumbnail, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
             # crop = img[y0:y0+height , x0:x0+width, :]
 
-def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=2, jpeg_quality=90):
+def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2, num_columns=6, seam_size=None, jpeg_quality=90, flatten_output=False, scatter=False):
+
+    if flatten_output:
+        textures_path = os.path.join(output_dir, "textures")
+        if not os.path.exists(textures_path): os.makedirs(textures_path)
+
+        thumbnails_path = os.path.join(output_dir, "thumbnails")
+        if not os.path.exists(thumbnails_path): os.makedirs(thumbnails_path)
+
+        planks_path = os.path.join(output_dir, "planks")
+        if not os.path.exists(planks_path): os.makedirs(planks_path)
+    else:
+        tiled_path = thumbnail_path = plank_path = None
 
     def assemble_segments(path, segments):
-        print("Assembling %s with %d images" % (path, len(segments)))
+        name = os.path.basename(path)
 
-            # make all vertical
+        print(colored("\nAssembling %s with %d images\n" % (name, len(segments)), attrs=["bold"]))
+
+        # make all vertical
+        min_h = 100000
+        min_w = 100000
+
         for index in range(len(segments)):
             (h, w) = segments[index].shape[0:2]
             if w > h:
                 segments[index] = np.rot90(segments[index])
-            cv2.imwrite(os.path.join(path, "tile_%d.jpg" % (index)), resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+                (w, h) = (h, w)
 
-        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size)
+            min_h = min(min_h, h)
+            min_w = min(min_w, w)
+
+        #make consistent size:
+        for index in range(len(segments)):
+            (h, w) = segments[index].shape[0:2]
+
+            if h != min_h or w != min_w:
+                segments[index] = crop_center(segments[index], min_w, min_h)
+                print("Resized to", segments[index].shape)
+            
+            tile_path = os.path.join(path, "tile_%d.jpg" % (index)) if planks_path is None else os.path.join(planks_path, "%s-%d.jpg" % (name, index))
+            cv2.imwrite(tile_path, resize(segments[index], maxsize), [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+
+
+        tiled = tile_seamless(np.array(segments), num_rows, num_columns, seam_size, scatter=scatter)
         tiled = resize(tiled, maxsize)
         
-        cv2.imwrite(os.path.join(path, "tiled.jpg"), tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
+        tiled_path = os.path.join(path, "tiled.jpg") if textures_path is None else os.path.join(textures_path, "%s.jpg" % name)
+        cv2.imwrite(tiled_path, tiled, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
-        thumbnail = resize(crop_center(tiled, maxsize, maxsize), 512)
-        cv2.imwrite(os.path.join(path, "thumbnail.jpg"), thumbnail, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
-
+        thumbnail = make_thumbnail(tiled)
+        thumbnail_path = os.path.join(path, "thumbnail.jpg") if thumbnails_path is None else os.path.join(thumbnails_path, "%s.jpg" % name)
+        cv2.imwrite(thumbnail_path, thumbnail, [int(cv2.IMWRITE_JPEG_QUALITY), jpeg_quality])
 
     files = get_image_paths(input_dir, pattern)
+
+    if len(files) == 0:
+        print("No images to process at %s" % input_dir)
+        return
+
+    print(colored("\nProcessing %d images from %s\n" % (len(files), input_dir), attrs=['bold']))
 
     last_out_dir = None
     images = []
@@ -169,12 +283,12 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
         name = os.path.splitext(os.path.basename(image_path))[0]
 
         if image_path.startswith(input_dir):
-            dir_name = image_path[1+len(input_dir):]
+            dir_name = image_path[len(input_dir):]
             dir_name = os.path.dirname(dir_name)
 
         if dir_name:
             out_dir = os.path.join(output_dir, dir_name)
-            if not os.path.exists(out_dir):
+            if not os.path.exists(out_dir) and not flatten_output:
                 os.makedirs(out_dir)
         else:
             out_dir = output_dir
@@ -182,10 +296,17 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
         img = Image.open(path).convert('RGB')
         img = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
 
+        #may need to rotate:
+        if img.shape[0] < img.shape[1]:
+            img = np.rot90(img, k=1, axes=(0, 1))
+
+        print("Grabbing image %s" % path, img.shape)
+
         if last_out_dir is None:
             last_out_dir = out_dir
         elif out_dir != last_out_dir:
             assemble_segments(last_out_dir, images)
+
             images = []
             last_out_dir = out_dir
 
@@ -237,7 +358,7 @@ def find_tiles(img, max_size=1920):
     debug = img.copy()
     if debug is not None:
         for line in all_lines:
-            cv2.line(debug,(line[0][0],line[0][1]),(line[0][2],line[0][3]),(0,255,0),6)
+            cv2.line(debug,(int(line[0][0]),int(line[0][1])),(int(line[0][2]),int(line[0][3])),(0,255,0),6)
 
     return debug
 
@@ -283,20 +404,24 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
         Image.fromarray(t_img).crop((t_left, t_top, t_left+thumbnail_size, t_top+thumbnail_size)).save(os.path.join(thumbnails_output_dir, filename + ".jpg"))
 
 
+#for example, assemble planks, flattened into a single directory: python tiling_generator.py adore-floors -m assemble -f 1
+
 @click.command()
 @click.option('--mode', '-m', required=True, type=click.Choice(['assemble', 'cut', 'extract'], case_sensitive=False))
 @click.argument("input_dir", default='input', type=click.Path(exists=True, file_okay=False, dir_okay=True))
 @click.argument("output_dir", default='output', type=click.Path(exists=False, file_okay=False, dir_okay=True))
 @click.argument("data_file", default='data.json', type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.option('--pattern', '-p', type=click.STRING, default=None)
-@click.option("--size", default=2048, type=int)
-@click.option("--rows", default=2, type=int)
-@click.option("--columns", default=6, type=int)
-@click.option("--seam_size", default=2, type=int)
+@click.option("--size", '-s', default=2048, type=int)
+@click.option("--rows", '-r', default=4, type=int)
+@click.option("--columns", '-c', default=6, type=int)
+@click.option("--seam_size", default=None, type=int)
 @click.option("--img_is_metric", default=True, type=bool)
 @click.option("--crop_is_metric", default=False, type=bool)
-@click.option("--quality", default=70, type=int)
-def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality):        
+@click.option("--quality", '-q', default=70, type=int)
+@click.option("--flat", '-f', default=False, type=bool)
+@click.option("--scatter", '-s', default=True, type=bool)
+def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality, flat, scatter):        
 
     if not os.path.exists(input_dir):
         raise Exception('The directory {} does not exist '.format(input_dir)) 
@@ -309,11 +434,11 @@ def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, s
     elif mode == 'cut':
         with open(data_file) as f:
             data = json.load(f)
-        crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality)
+        crop_tiles(data, input_dir, output_dir, img_is_metric, crop_is_metric, size, rows, columns, seam_size, quality, scatter=scatter)
     elif mode == 'assemble':
-        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality)
+        assemble_tiles(input_dir, output_dir, pattern, size, rows, columns, seam_size, quality, flatten_output=flat, scatter=scatter)
     
-    print("Done")
+    print(colored("Done", attrs=['bold']))
 
 if __name__ == "__main__":
     main()
