@@ -5,7 +5,7 @@ SITE_NAME="${REACT_APP_SITE_NAME}"
 LOCAL_PATH="cambrianar-sites/${SITE_NAME}"
 REMOTE_PATH="s3://cambrianar-sites/${SITE_NAME}"
 
-echo "Perform sync on ${SITE_NAME} specified by .env.development/REACT_APP_SITE_NAME? Yes/No"
+echo "Perform sync on \"${SITE_NAME}\" (specified by .env.development/REACT_APP_SITE_NAME)? Yes/No"
 
 read answer
 
