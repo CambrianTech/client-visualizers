@@ -379,9 +379,13 @@ panel.c {
     height: 80px;
 }
 
+.products .vertical-swatch-listing-child.selected {
+    height: 150px;
+}
+
 /* width */
 .horizontal-swatch-listing::-webkit-scrollbar {
-    height: 8px;
+    height: 10px;
 }
 
 /* Track */
@@ -402,6 +406,18 @@ panel.c {
 .horizontal-swatch-listing-image {
     height: 95px;
     border: 1px solid #aeaeae;
+}
+
+.horizontal-swatch-listing .swatch-info {
+    position: relative;
+    margin-top: -20px;
+    padding-left: 5px;
+    font-size: 0.8em;
+}
+
+.horizontal-swatch-listing .swatch-info .code {
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .tiled-grid-selector {

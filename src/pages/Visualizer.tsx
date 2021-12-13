@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
+import React, {ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
 import './Visualizer.css'
 
 import {
@@ -41,7 +41,6 @@ import {
     ImageUpload,
     openImageDialog,
     ProductBreadcrumb,
-    ProductDetails,
     RotateTool,
     ServerProgress,
     SharePanel,
@@ -58,6 +57,7 @@ import {Fab, Icon} from "@material-ui/core";
 import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
+import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
 
 enum Panel {
     None="",
@@ -256,6 +256,13 @@ export default function Visualizer() {
         return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("http") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
 
     }, [brandPath]);
+
+    const getColorSwatch = useCallback((params: SwatchInfoParams) : ReactNode => {
+        return <div className={"swatch-info"}>
+            <div className={"code"}>{(params.swatch as any).code}</div>
+            <div className={"name"}>{params.swatch.displayName}</div>
+        </div>
+    }, []);
 
     const assetClicked = useCallback((asset:CBARSurfaceAsset) => {
         setSelectedAsset(asset);
@@ -902,6 +909,7 @@ export default function Visualizer() {
                                  filters={allFilters}
                                  selectedSwatch={selectedRow}
                                  selectedSubSwatch={selectedColumn}
+                                 getSubSwatchInfo={getColorSwatch}
                                  resolveThumbnailPath={resolveThumbnailPath}/>
 
                 <VerticalListing className={"scenes"}
