@@ -52,6 +52,10 @@
             {
               "code": "2-bathroom",
               "displayName": "Bathroom"
+            },
+            {
+              "code": "3-bathroom",
+              "displayName": "Bathroom"
             }
           ]
         },
@@ -60,23 +64,15 @@
           "displayName": "Bedroom",
           "scenes": [
             {
+              "code": "1-bedroom",
+              "displayName": "Bedroom"
+            },
+            {
               "code": "2-bedroom",
               "displayName": "Bedroom"
             },
             {
               "code": "3-bedroom",
-              "displayName": "Bedroom"
-            },
-            {
-              "code": "4-bedroom",
-              "displayName": "Bedroom"
-            },
-            {
-              "code": "5-bedroom",
-              "displayName": "Bedroom"
-            },
-            {
-              "code": "6-bedroom",
               "displayName": "Bedroom"
             }
           ]
