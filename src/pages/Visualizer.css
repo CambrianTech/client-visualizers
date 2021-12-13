@@ -420,6 +420,10 @@ panel.c {
     margin-bottom: 5px;
 }
 
+.horizontal-swatch-listing .swatch-info .code.light {
+    color:#fff;
+}
+
 .tiled-grid-selector {
     right:100px;
     background: white;
