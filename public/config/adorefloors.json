@@ -4,9 +4,9 @@
   "subdomain": "adorefloors",
   "appearance": {
     "logo": {"src":"branding/adore-Logo.png", "alt":"Adore floors logo"},
-    "primaryColor": "#ED8B00",
+    "primaryColor": "#000",
     "primaryTextColor": "#fff",
-    "secondaryColor": "#0045E6",
+    "secondaryColor": "#fff",
     "secondaryTextColor": "#000",
     "surfaceColor": "#dfdfdf",
     "surfaceTextColor": "#555",
