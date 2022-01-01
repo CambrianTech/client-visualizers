@@ -44,6 +44,93 @@
       "assetTypes": ["paint-surface"],
       "sceneCollections": [
         {
+          "code": "testing",
+          "displayName": "Test Scenes",
+          "thumbnail": "branding/002-kitchen.png",
+          "scenes": [
+            {
+              "code": "1524514638493",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "bedroom",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "apple-missing-accel",
+              "displayName": "Living Area"
+            },
+            {
+              "code": "bedroom-difficult",
+              "displayName": "Bedroom"
+            },
+            {
+              "code": "bedroom-dim",
+              "displayName": "Bedroom Dim"
+            },
+            {
+              "code": "bedroom-one-window",
+              "displayName": "Bedroom one Window"
+            },
+            {
+              "code": "bedroom-white",
+              "displayName": "Bedroom White"
+            },
+            {
+              "code": "condo-kitchen",
+              "displayName": "Condo Kitchen"
+            },
+            {
+              "code": "corridor-2",
+              "displayName": "Corridor 2"
+            },
+            {
+              "code": "dining-windows",
+              "displayName": "Dining Windows"
+            },
+            {
+              "code": "elevator-entrance",
+              "displayName": "Elevator Entrance"
+            },
+            {
+              "code": "entryway-1",
+              "displayName": "Entryway"
+            },
+            {
+              "code": "kitchen",
+              "displayName": "Kitchen"
+            },
+            {
+              "code": "kitchen-low-q",
+              "displayName": "Kitchen low quality"
+            },
+            {
+              "code": "kitchen-pale",
+              "displayName": "Kitchen Pale"
+            },
+            {
+              "code": "kitchen-straight-on",
+              "displayName": "Kitchen Straight On"
+            },
+            {
+              "code": "simple-dining",
+              "displayName": "Simple Dining"
+            },
+            {
+              "code": "Staged_Joplin-23",
+              "displayName": "Staged Joplin"
+            },
+            {
+              "code": "typical-walls",
+              "displayName": "Typical Walls"
+            },
+            {
+              "code": "vertical",
+              "displayName": "Vertical Walls"
+            }
+          ]
+        },
+        {
           "code": "bathroom",
           "displayName": "Bathroom",
           "thumbnail": "branding/006-bathtub.png",
