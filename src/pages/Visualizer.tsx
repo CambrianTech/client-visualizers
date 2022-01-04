@@ -136,6 +136,19 @@ export default function Visualizer() {
 
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
 
+    const primarySurfaceType = useMemo(()=>{
+        if (siteContext && siteContext.state.siteData?.brands.length) {
+            const firstBrand = siteContext.state.siteData.brands[0]
+            return firstBrand.surfaceTypes ? firstBrand.surfaceTypes[0] : CBARSurfaceType.Floor;
+        }
+    }, [siteContext])
+
+    const primarySurface = useMemo(()=>{
+        if (currentScene && primarySurfaceType) {
+            return currentScene.geometry.surfaces.find(surface=>surface.type === primarySurfaceType);
+        }
+    }, [currentScene, primarySurfaceType])
+
     const [initialRotation, setInitialRotation] = useState<number>(0);
     const [currentRotation, setCurrentRotation] = useState<number>(0);
     useEffect(()=>{setCurrentRotation(initialRotation);}, [initialRotation]);
@@ -494,7 +507,7 @@ export default function Visualizer() {
 
     useEffect(()=>{
         if (selectedSurface) {
-            console.log(`Selected surface changed to ${selectedSurface.description}`)
+            console.log(`Selected surface changed to "${selectedSurface.description}"`)
         }
     }, [selectedSurface]);
 
@@ -739,14 +752,11 @@ export default function Visualizer() {
     }, [context, rootItem, isLoading, dispatch, siteContext.state.sceneData]);
 
     useEffect(()=>{
-        if (currentScene) {
-            const floor = currentScene.geometry.surfaces.find(surface=>surface.type === CBARSurfaceType.Floor);
-            if (floor) {
-                setSelectedSurface(floor);
-                console.log("Set selected surface to first floor.")
-            }
+        if (currentScene && primarySurface) {
+            setSelectedSurface(primarySurface);
+            console.log(`Set initial selected surface to ${primarySurface.description}.`);
         }
-    }, [currentScene]);
+    }, [currentScene, primarySurface]);
 
     const handleAction = useCallback((action:ToolsMenuAction) => {
 
