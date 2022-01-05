@@ -83,18 +83,6 @@ const hexToRgb = (hex:string) => {
     } : null;
 }
 
-if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
-    cbInitialize({
-        logLevel:DebugLevel.Warning,
-        hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
-        signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
-        processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
-        placeholderPath:"assets/img/blue-tile.png"
-    })
-} else {
-    throw new Error('REACT_APP_CB_GET_UPLOAD_URLS_URL, REACT_APP_CB_UPLOADS_URL, and REACT_APP_CB_SEGMENT_URL must be defined')
-}
-
 const InsideIframe = (window !== window.parent);
 
 export default function Visualizer() {
@@ -142,6 +130,23 @@ export default function Visualizer() {
             return firstBrand.surfaceTypes ? firstBrand.surfaceTypes[0] : CBARSurfaceType.Floor;
         }
     }, [siteContext])
+
+    useEffect(()=>{
+        if (primarySurfaceType) {
+            if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
+                cbInitialize({
+                    logLevel:DebugLevel.Warning,
+                    hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
+                    signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
+                    processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
+                    placeholderPath:primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined
+                })
+            }
+            else {
+                throw new Error('REACT_APP_CB_GET_UPLOAD_URLS_URL, REACT_APP_CB_UPLOADS_URL, and REACT_APP_CB_SEGMENT_URL must be defined')
+            }
+        }
+    }, [primarySurfaceType])
 
     const primarySurface = useMemo(()=>{
         if (currentScene && primarySurfaceType) {
