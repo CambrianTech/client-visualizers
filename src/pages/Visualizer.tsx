@@ -139,7 +139,7 @@ export default function Visualizer() {
                     hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
                     signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
                     processingUrl: process.env.REACT_APP_CB_SEGMENT_URL,
-                    placeholderPath:primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined
+                    placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined
                 })
             }
             else {
