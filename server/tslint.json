@@ -10,7 +10,8 @@
     "no-console": false,
     "no-shadowed-variable": false,
     "no-empty": false,
-    "max-classes-per-file": 100
+    "max-classes-per-file": 100,
+    "no-unused-vars": false
   },
   "rulesDirectory": []
 }

@@ -116,7 +116,7 @@ export default function Visualizer() {
     const [currentScene, setCurrentScene] = useState<CBARScene>();
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
     const [hasSeenProducts, setHasSeenProducts] = useState(false);
-    const [needsUpload, setNeedsUpload] = useState(false);
+    const [, setNeedsUpload] = useState(false);
 
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
@@ -993,7 +993,11 @@ export default function Visualizer() {
             {siteContext.state.siteData &&
             <div className={"panel b"}>
 
-                <CBARView onContextCreated={setContext} toolMode={toolMode} />
+                <CBARView onContextCreated={setContext} toolMode={toolMode}>
+                    <AssetOptions assets={currentScene?.assets.all()}
+                                  selectedAsset={selectedAsset}
+                                  handleAction={handleAction} />
+                </CBARView>
 
                 {_isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
 
@@ -1003,10 +1007,6 @@ export default function Visualizer() {
                     <ZoomControls context={context} />
                     <VisualizerTools actions={toolActions} handleAction={handleAction} />
                 </div>
-
-                <AssetOptions assets={currentScene?.assets.all()}
-                              selectedAsset={selectedAsset}
-                              handleAction={handleAction} />
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}
@@ -1081,19 +1081,6 @@ export default function Visualizer() {
                                  resolveUrl={resolveDetailsUrl}
                                  details={productDetails}
                     />)}
-
-                {/*{siteContext.state.siteData && currentScene && siteContext.state.siteData.appearance.sharing && (*/}
-                {/*    <SharePanel className={"share"}*/}
-                {/*                {...siteContext.state.siteData.appearance.sharing}*/}
-                {/*                visible={activePanel === Panel.Share}*/}
-                {/*                needsUpload={needsUpload}*/}
-                {/*                product={selectedProduct}*/}
-                {/*                resolveThumbnailPath={resolveThumbnailPath}*/}
-                {/*                getShareUrl={getShareUrl}*/}
-                {/*                onClose={shareCompleted}*/}
-                {/*                isUploadedImage={isUploadedImage()}*/}
-                {/*                onImageUploadCompleted={shareUploadComplete} />*/}
-                {/*)}*/}
             </div>
 
             {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} onClick={()=>setActivePanel(Panel.None)}><Icon>close</Icon></Fab>}
