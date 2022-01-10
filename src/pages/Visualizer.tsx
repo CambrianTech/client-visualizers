@@ -43,7 +43,6 @@ import {
     ProductBreadcrumb,
     RotateTool,
     ServerProgress,
-    SharePanel,
     ToolOperation,
     ToolsMenuAction,
     TranslateTool,
@@ -59,6 +58,7 @@ import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
+import {AssetOptions} from "../components/AssetOptions";
 
 enum Panel {
     None="",
@@ -1004,6 +1004,10 @@ export default function Visualizer() {
                     <VisualizerTools actions={toolActions} handleAction={handleAction} />
                 </div>
 
+                <AssetOptions assets={currentScene?.assets.all()}
+                              selectedAsset={selectedAsset}
+                              handleAction={handleAction} />
+
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}
                                  toolMode={toolMode}
@@ -1078,23 +1082,23 @@ export default function Visualizer() {
                                  details={productDetails}
                     />)}
 
-                {siteContext.state.siteData && currentScene && siteContext.state.siteData.appearance.sharing && (
-                    <SharePanel className={"share"}
-                                {...siteContext.state.siteData.appearance.sharing}
-                                visible={activePanel === Panel.Share}
-                                needsUpload={needsUpload}
-                                product={selectedProduct}
-                                resolveThumbnailPath={resolveThumbnailPath}
-                                getShareUrl={getShareUrl}
-                                onClose={shareCompleted}
-                                isUploadedImage={isUploadedImage()}
-                                onImageUploadCompleted={shareUploadComplete} />
-                )}
+                {/*{siteContext.state.siteData && currentScene && siteContext.state.siteData.appearance.sharing && (*/}
+                {/*    <SharePanel className={"share"}*/}
+                {/*                {...siteContext.state.siteData.appearance.sharing}*/}
+                {/*                visible={activePanel === Panel.Share}*/}
+                {/*                needsUpload={needsUpload}*/}
+                {/*                product={selectedProduct}*/}
+                {/*                resolveThumbnailPath={resolveThumbnailPath}*/}
+                {/*                getShareUrl={getShareUrl}*/}
+                {/*                onClose={shareCompleted}*/}
+                {/*                isUploadedImage={isUploadedImage()}*/}
+                {/*                onImageUploadCompleted={shareUploadComplete} />*/}
+                {/*)}*/}
             </div>
 
             {isMobile && activePanel === Panel.ProductInfo && <Fab className={"mobile-close"} onClick={()=>setActivePanel(Panel.None)}><Icon>close</Icon></Fab>}
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, selectedAsset, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
