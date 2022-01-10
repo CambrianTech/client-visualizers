@@ -885,15 +885,33 @@ export default function Visualizer() {
     }, [initialXPos, initialYPos, selectedAsset]);
 
     const productDetails = useMemo(()=>{
-        let product:ProductItem|undefined = selectedProduct;
-        while (product) {
-            if (product.details) {
-                return product.details
-            }
-            product = product.parent as ProductItem
-        }
-        return undefined
+        return selectedProduct?.details
     }, [selectedProduct]);
+
+    const hasDetailsPanel = useMemo<boolean>(()=>{
+        return !!(selectedProduct?.parent && productDetails && (productDetails.preview || productDetails.content || productDetails.specifications?.length));
+    }, [productDetails, selectedProduct])
+
+    const productDetailsClicked = useCallback(()=>{
+        if (hasDetailsPanel) {
+            console.log("panel", selectedProduct)
+            setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)
+        } else if (productDetails?.url && selectedProduct) {
+            let url = productDetails.url;
+            if (selectedProduct instanceof ProductColor) {
+                url = url.replace("{color}", `${selectedProduct.code}`)
+            }
+            if (selectedProduct.collection) {
+                url = url.replace("{collection}", `${selectedProduct.collection.code}`)
+            }
+            if (selectedProduct.brand) {
+                url = url.replace("{brand}", `${selectedProduct.brand.code}`)
+            }
+            if (url) {
+                window.open(url);
+            }
+        }
+    }, [activePanel, hasDetailsPanel, productDetails, selectedProduct])
 
     const showUploadButton = useMemo(()=>{
         if ((!_isFeatureEnabled("scenes") && !_isFeatureEnabled("upload"))) {
@@ -926,6 +944,16 @@ export default function Visualizer() {
     const showSceneSelector = useMemo(()=>{
         return showUploadButton;
     }, [showUploadButton]);
+
+    const rightButtonIcon = useMemo(()=>{
+        if (!hasDetailsPanel) {
+            return <Icon>launch</Icon>
+        } else if (rightPanelOpen) {
+            return <Icon>{isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right"}</Icon>
+        } else {
+            return <Icon>{isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left"}</Icon>
+        }
+    }, [hasDetailsPanel, isPortrait, rightPanelOpen]);
 
     return useMemo(() => (
         <div className={"panels " + activePanel}>
@@ -1005,9 +1033,11 @@ export default function Visualizer() {
                     </div>
                 )}
 
+                {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
                     <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}
 
+                {/*left panel open button*/}
                 {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
                                                                       onClick={()=>productsClicked()}>
                     <Icon>
@@ -1016,10 +1046,11 @@ export default function Visualizer() {
                     {leftPanelButtonText}
                 </Fab>}
 
-                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-c"} onClick={()=>setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)}>
-                    <Icon>
-                        {rightPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_right") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_left")}
-                    </Icon>
+                {/*right panel open button or open product url*/}
+                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "round"}
+                                                         className={`MuiFab-primary close-button panel-c ${hasDetailsPanel ? "" : "call-to-action"}`}
+                                                         onClick={()=>productDetailsClicked()}>
+                    {rightButtonIcon}
                     {rightPanelButtonText}
                 </Fab>}
 
@@ -1028,7 +1059,7 @@ export default function Visualizer() {
             <div className={"panel c"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
 
                 {!isPortrait && <div className={"title"}>
-                    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.ProductInfo)}>
+                    <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>
                         <div className={"choose-text"}>Product Details</div>
                     </div>
                     {siteContext.state.siteData && siteContext.state.siteData.appearance.sharing &&
@@ -1037,7 +1068,7 @@ export default function Visualizer() {
                     </div>}
                 </div>}
 
-                {selectedProduct && selectedProduct.parent && (
+                {hasDetailsPanel && selectedProduct?.parent && (
                     <ProductDetails className={"info"}
                                  visible={activePanel === Panel.ProductInfo}
                                  title={selectedProduct.parent.displayName}
@@ -1065,5 +1096,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, needsUpload, getShareUrl, shareCompleted, isUploadedImage, shareUploadComplete, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }

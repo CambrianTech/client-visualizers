@@ -227,6 +227,7 @@
           "code": "interiors",
           "displayName": "Interior Paint",
           "thumbnail": "thumbnails/interior-space.jpg",
+          "details": {"url": "https://www.dunnedwards.com/colors/browser/{color}"},
           "products": [
 
             {

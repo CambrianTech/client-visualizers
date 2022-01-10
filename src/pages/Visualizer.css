@@ -69,6 +69,15 @@
     z-index: 1000;
 }
 
+.panel .close-button.call-to-action {
+    top:unset;
+    bottom: 80px;
+}
+
+.panel .close-button.call-to-action .MuiFab-label {
+    flex-direction: row-reverse;
+}
+
 .panel .close-button.panel-a {
     left:30px;
 }
