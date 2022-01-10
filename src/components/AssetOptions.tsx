@@ -3,9 +3,9 @@ import 'react-circular-progressbar/dist/styles.css'
 
 import './AssetOptions.css'
 import {SpeedDial, SpeedDialAction, SpeedDialIcon} from "@material-ui/lab";
-import {makeStyles} from "@material-ui/core";
-import {DefaultAssetMenuActions, ToolsMenuAction} from "react-cambrian-ui";
-import {CBARAsset, CBARPaintAsset, CBARSurfaceAsset} from "react-home-ar";
+import {Icon, makeStyles} from "@material-ui/core";
+import {DefaultAssetMenuActions, ToolOperation, ToolsMenuAction} from "react-cambrian-ui";
+import {CBARAsset, CBARAssetType, CBARPaintAsset, CBARSurfaceAsset, CBARToolMode} from "react-home-ar";
 
 type AssetAction = ToolsMenuAction & {
     asset:CBARAsset
@@ -29,19 +29,21 @@ export const AssetOptionMenu = React.memo<AssetOptionMenuProps>(
             return undefined
         }
 
+        const surfaceAsset = props.asset instanceof CBARSurfaceAsset ? props.asset as CBARSurfaceAsset : undefined;
+
         const position = useMemo(()=>{
-            if (props.asset instanceof CBARSurfaceAsset && props.asset.menuPoint) {
-                const bounds = props.asset.menuPoint;
+            if (surfaceAsset && surfaceAsset.menuPoint) {
+                const bounds = surfaceAsset.menuPoint;
                 return {
-                    top:`${100 * bounds.y}%`,
-                    left:`${100 * bounds.x}%`
+                    top:`${100 * Math.max(bounds.y, 0.1)}%`,
+                    left:`${100 * Math.min(bounds.x, 0.9)}%`
                 }
             }
             return {
                 top: 'unset',
                 left:'unset'
             }
-        }, [props.asset])
+        }, [surfaceAsset])
 
         const menuStyles = makeStyles((theme) => ({
             speedDial: {
@@ -64,8 +66,14 @@ export const AssetOptionMenu = React.memo<AssetOptionMenuProps>(
             if (props.hidden) {
                 return []
             }
-            return props.actions(props.asset)
-        }, [props])
+            let actions = props.actions(props.asset)
+            if (!actions) return actions
+
+            if (surfaceAsset && surfaceAsset.type === CBARAssetType.PaintSurface) {
+                actions = actions.filter(item=>item.operation !== CBARToolMode.Rotate && item.operation !== CBARToolMode.Translate && item.operation !== ToolOperation.ChoosePattern);
+            }
+            return actions
+        }, [props, surfaceAsset])
 
         return (
             <SpeedDial
@@ -108,7 +116,9 @@ export function AssetOptions(props: AssetOptionsProperties) {
     const [menuOpen, setMenuOpen] = React.useState(false);
 
     useEffect(()=>{
-        setMenuOpen(true)
+        window.setTimeout(()=>{
+            setMenuOpen(true)
+        }, 500);
     }, [props.selectedAsset])
 
     return (

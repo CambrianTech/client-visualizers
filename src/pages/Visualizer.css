@@ -481,6 +481,7 @@ panel.c {
     display: flex;
     flex-direction: row;
     z-index: 1000;
+    pointer-events: none;
 }
 
 .visualizer-buttons-right > .MuiSpeedDial-root {
