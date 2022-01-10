@@ -713,12 +713,12 @@ export default function Visualizer() {
         }
     }, [siteContext.state.selectedRoom]);
 
-    const [isLoading, setIsLoading] = useState(false);
+    const isLoading = useRef(false);
 
     useEffect(()=>{
-        if (dataPath && context && rootItem && !isLoading) {
+        if (dataPath && context && rootItem && !isLoading.current) {
             const brand = rootItem as DataItem;
-            setIsLoading(true);
+            isLoading.current = true;
             console.log("Loading static scene at path", dataPath)
             context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
                 setCurrentScene(scene);
@@ -730,16 +730,16 @@ export default function Visualizer() {
                     type: "setSceneData",
                     sceneData: undefined
                 });
-                setIsLoading(false);
+                isLoading.current = false;
                 setDataPath(undefined);
             });
         }
     }, [context, dataPath, rootItem, isLoading, dispatch]);
 
     useEffect(() => {
-        if (context && siteContext.state.sceneData && rootItem && !isLoading) {
+        if (context && siteContext.state.sceneData && rootItem && !isLoading.current) {
             const brand = rootItem as DataItem;
-            setIsLoading(true);
+            isLoading.current = true;
             context.loadSceneData(siteContext.state.sceneData, brand.surfaceTypes).then((scene)=>{
                 console.log("Dynamic Scene Loaded!");
                 setCurrentScene(scene);
@@ -750,7 +750,7 @@ export default function Visualizer() {
                     type: "setSceneData",
                     sceneData: undefined
                 });
-                setIsLoading(false);
+                isLoading.current = false;
                 setDataPath(undefined);
             });
         }
