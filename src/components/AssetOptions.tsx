@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo} from 'react'
+import React, {useCallback, useEffect, useMemo} from 'react'
 import 'react-circular-progressbar/dist/styles.css'
 
 import './AssetOptions.css'
@@ -75,6 +75,11 @@ export const AssetOptionMenu = React.memo<AssetOptionMenuProps>(
             return actions
         }, [props, surfaceAsset])
 
+        const onMenuClick = useCallback((action:ToolsMenuAction)=>{
+            props.handleAction({asset: props.asset, ...action})
+            props.setMenuOpen(false);
+        }, [props])
+
         return (
             <SpeedDial
                 direction={'down'}
@@ -92,7 +97,7 @@ export const AssetOptionMenu = React.memo<AssetOptionMenuProps>(
                         icon={action.icon}
                         tooltipTitle={!isMobile && action.longName ? action.longName : action.name}
                         tooltipOpen
-                        onClick={()=>props.handleAction({asset: props.asset, ...action})}
+                        onClick={()=>onMenuClick(action)}
                     />
                 ))}
             </SpeedDial>
@@ -126,7 +131,8 @@ export function AssetOptions(props: AssetOptionsProperties) {
             {props.assets && props.assets.map((asset) => (
                 <AssetOptionMenu key={asset.id}
                                  {...props}
-                                 menuOpen={menuOpen} setMenuOpen={setMenuOpen}
+                                 menuOpen={menuOpen}
+                                 setMenuOpen={setMenuOpen}
                                  actions={actions}
                                  asset={asset}
                                  hidden={props.selectedAsset !== asset} />
