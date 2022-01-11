@@ -766,6 +766,9 @@ export default function Visualizer() {
     const handleAction = useCallback((action:ToolsMenuAction) => {
 
         switch (action.operation) {
+            case ToolOperation.ChooseColor:
+                setActivePanel(Panel.Products)
+                break;
             case ToolOperation.Remove:
                 removeAsset();
                 break;
