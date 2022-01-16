@@ -157,12 +157,6 @@ export function SceneOptions(props: AssetOptionsProperties) {
 
     const [objKey, setObjKey] = useState<string>()
 
-    useEffect(()=>{
-        if (objKey) {
-            console.log("Changed", objKey);
-        }
-    }, [objKey])
-
     const objects = useMemo(()=>{
         if (objKey) {
             return getObjects()
