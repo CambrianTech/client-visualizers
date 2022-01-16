@@ -194,6 +194,7 @@ export default function Visualizer() {
     const removeAsset = useCallback(()=>{
         if (selectedAsset) {
             selectedAsset.removeFromScene();
+            setSelectedAsset(undefined);
         }
     }, [selectedAsset]);
 
@@ -998,7 +999,7 @@ export default function Visualizer() {
 
                 <CBARView onContextCreated={setContext} toolMode={toolMode}>
                     <SceneOptions scene={currentScene}
-                                  selectedAsset={selectedAsset}
+                                  selected={selectedAsset || selectedSurface}
                                   handleOption={handleAction} />
                 </CBARView>
 

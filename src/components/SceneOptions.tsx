@@ -25,6 +25,7 @@ export type OptionMenuAction = ToolsMenuAction & {
 type OptionMenuProps = {
     hidden:boolean
     object:OptionTypes
+    scene?:CBARScene,
     actions:OptionMenuHandler
     handleOption:(event:OptionMenuAction)=>void
     menuOpen:boolean
@@ -37,24 +38,32 @@ const OptionMenu = React.memo<OptionMenuProps>(
             if (props.object instanceof CBARPaintAsset && props.object.product?.color) {
                 return `${props.object.product?.color} !important`
             }
-            return undefined
+            return "#fff"
         }
 
+        const menuPoint = useMemo(()=>{
+            if (props.object instanceof CBARSurface || props.object instanceof CBARSurfaceAsset) {
+                return props.object.menuPoint
+            }
+        }, [props.object]);
+
         const surfaceAsset = props.object instanceof CBARSurfaceAsset ? props.object as CBARSurfaceAsset : undefined;
+        const surface = props.object instanceof CBARSurface ? props.object as CBARSurface : surfaceAsset ? surfaceAsset.surface : undefined;
 
         const position = useMemo(()=>{
-            if (surfaceAsset && surfaceAsset.menuPoint) {
-                const bounds = surfaceAsset.menuPoint;
+            if (menuPoint) {
                 return {
-                    top:`${100 * Math.max(bounds.y, 0.1)}%`,
-                    left:`${100 * Math.min(bounds.x, 0.9)}%`
+                    top:`${100 * Math.max(menuPoint.y, 0.1)}%`,
+                    left:`${100 * Math.min(menuPoint.x, 0.9)}%`
                 }
+            } else {
+                console.log("skip");
             }
             return {
                 top: 'unset',
                 left:'unset'
             }
-        }, [surfaceAsset])
+        }, [menuPoint])
 
         const menuStyles = makeStyles((theme) => ({
             speedDial: {
@@ -80,9 +89,10 @@ const OptionMenu = React.memo<OptionMenuProps>(
             let actions = props.actions(props.object)
             if (!actions) return actions
 
-            if (surfaceAsset && surfaceAsset.type === CBARAssetType.PaintSurface) {
+            if (!surfaceAsset || surfaceAsset?.type === CBARAssetType.PaintSurface) {
                 actions = actions.filter(item=>item.operation !== CBARToolMode.Rotate && item.operation !== CBARToolMode.Translate && item.operation !== ToolOperation.ChoosePattern);
             }
+
             return actions
         }, [props, surfaceAsset])
 
@@ -120,12 +130,12 @@ type AssetOptionsProperties = {
     scene?:CBARScene,
     actions?:OptionMenuHandler
     handleOption:(event:OptionMenuAction)=>void
-    selectedAsset:CBARAsset|undefined
+    selected:CBARAsset|CBARSurface|undefined
 }
 
 export function SceneOptions(props: AssetOptionsProperties) {
 
-    const {scene, selectedAsset} = {...props};
+    const {scene, selected} = {...props};
 
     const actions = useMemo(()=>{
         return props.actions ? props.actions : ()=>{return [...DefaultAssetMenuActions]}
@@ -134,13 +144,13 @@ export function SceneOptions(props: AssetOptionsProperties) {
     const [menuOpen, setMenuOpen] = React.useState(false);
 
     useEffect(()=>{
-        if (selectedAsset) {
+        if (selected) {
             window.setTimeout(()=>{
                 setMenuOpen(true)
             }, 500);
         }
 
-    }, [selectedAsset])
+    }, [selected])
 
     const getObjects = useCallback(()=>{
         if (!scene) return
@@ -186,7 +196,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
     }, [objectMonitor, objectCallback])
 
     return (
-        <div className="asset-options">
+        <div className="scene-options">
             {objects?.map((object) => (
                 <OptionMenu key={object.id}
                                  {...props}
@@ -194,7 +204,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
                                  setMenuOpen={setMenuOpen}
                                  actions={actions}
                                  object={object}
-                                 hidden={selectedAsset !== object} />
+                                 hidden={selected !== object} />
             ))}
         </div>
     )
