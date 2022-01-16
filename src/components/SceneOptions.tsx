@@ -1,35 +1,46 @@
-import React, {useCallback, useEffect, useMemo} from 'react'
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import 'react-circular-progressbar/dist/styles.css'
 
-import './AssetOptions.css'
+import './SceneOptions.css'
 import {SpeedDial, SpeedDialAction, SpeedDialIcon} from "@material-ui/lab";
-import {Icon, makeStyles} from "@material-ui/core";
+import {makeStyles} from "@material-ui/core";
 import {DefaultAssetMenuActions, ToolOperation, ToolsMenuAction} from "react-cambrian-ui";
-import {CBARAsset, CBARAssetType, CBARPaintAsset, CBARSurfaceAsset, CBARToolMode} from "react-home-ar";
+import {
+    CBARAsset,
+    CBARAssetType,
+    CBARPaintAsset,
+    CBARScene,
+    CBARSurface,
+    CBARSurfaceAsset,
+    CBARToolMode
+} from "react-home-ar";
 
-type AssetAction = ToolsMenuAction & {
-    asset:CBARAsset
+type OptionTypes = CBARAsset|CBARSurface
+type OptionMenuHandler = (object:OptionTypes)=>ToolsMenuAction[]
+
+export type OptionMenuAction = ToolsMenuAction & {
+    object:OptionTypes
 }
 
-type AssetOptionMenuProps = {
+type OptionMenuProps = {
     hidden:boolean
-    asset:CBARAsset
-    actions:(asset:CBARAsset)=>ToolsMenuAction[]
-    handleAction:(event:AssetAction)=>void
+    object:OptionTypes
+    actions:OptionMenuHandler
+    handleOption:(event:OptionMenuAction)=>void
     menuOpen:boolean
     setMenuOpen:(open:boolean)=>void
 }
 
-export const AssetOptionMenu = React.memo<AssetOptionMenuProps>(
+const OptionMenu = React.memo<OptionMenuProps>(
     (props) => {
         const getColor = ()=>{
-            if (props.asset instanceof CBARPaintAsset && props.asset.product?.color) {
-                return `${props.asset.product?.color} !important`
+            if (props.object instanceof CBARPaintAsset && props.object.product?.color) {
+                return `${props.object.product?.color} !important`
             }
             return undefined
         }
 
-        const surfaceAsset = props.asset instanceof CBARSurfaceAsset ? props.asset as CBARSurfaceAsset : undefined;
+        const surfaceAsset = props.object instanceof CBARSurfaceAsset ? props.object as CBARSurfaceAsset : undefined;
 
         const position = useMemo(()=>{
             if (surfaceAsset && surfaceAsset.menuPoint) {
@@ -66,7 +77,7 @@ export const AssetOptionMenu = React.memo<AssetOptionMenuProps>(
             if (props.hidden) {
                 return []
             }
-            let actions = props.actions(props.asset)
+            let actions = props.actions(props.object)
             if (!actions) return actions
 
             if (surfaceAsset && surfaceAsset.type === CBARAssetType.PaintSurface) {
@@ -76,7 +87,7 @@ export const AssetOptionMenu = React.memo<AssetOptionMenuProps>(
         }, [props, surfaceAsset])
 
         const onMenuClick = useCallback((action:ToolsMenuAction)=>{
-            props.handleAction({asset: props.asset, ...action})
+            props.handleOption({object: props.object, ...action})
             props.setMenuOpen(false);
         }, [props])
 
@@ -106,13 +117,15 @@ export const AssetOptionMenu = React.memo<AssetOptionMenuProps>(
 );
 
 type AssetOptionsProperties = {
-    assets?:CBARAsset[],
-    actions?:(asset:CBARAsset)=>ToolsMenuAction[]
-    handleAction:(event:AssetAction)=>void
+    scene?:CBARScene,
+    actions?:OptionMenuHandler
+    handleOption:(event:OptionMenuAction)=>void
     selectedAsset:CBARAsset|undefined
 }
 
-export function AssetOptions(props: AssetOptionsProperties) {
+export function SceneOptions(props: AssetOptionsProperties) {
+
+    const {scene, selectedAsset} = {...props};
 
     const actions = useMemo(()=>{
         return props.actions ? props.actions : ()=>{return [...DefaultAssetMenuActions]}
@@ -121,21 +134,73 @@ export function AssetOptions(props: AssetOptionsProperties) {
     const [menuOpen, setMenuOpen] = React.useState(false);
 
     useEffect(()=>{
-        window.setTimeout(()=>{
-            setMenuOpen(true)
-        }, 500);
-    }, [props.selectedAsset])
+        if (selectedAsset) {
+            window.setTimeout(()=>{
+                setMenuOpen(true)
+            }, 500);
+        }
+
+    }, [selectedAsset])
+
+    const getObjects = useCallback(()=>{
+        if (!scene) return
+        let objects:OptionTypes[] = []
+        scene.geometry.surfaces.forEach(surface=>{
+            if (surface.length()) {
+                objects = objects.concat(surface.all())
+            } else {
+                objects.push(surface)
+            }
+        })
+        return objects
+    },[scene])
+
+    const [objKey, setObjKey] = useState<string>()
+
+    useEffect(()=>{
+        if (objKey) {
+            console.log("Changed", objKey);
+        }
+    }, [objKey])
+
+    const objects = useMemo(()=>{
+        if (objKey) {
+            return getObjects()
+        }
+    }, [getObjects, objKey])
+
+    const objectCallback = useCallback(()=>{
+        const objects = getObjects();
+        if (objects) {
+            let key = "";
+            objects.forEach(obj=> key += obj.id)
+            setObjKey(key)
+        }
+    }, [getObjects])
+
+    const objectMonitor = useRef(0)
+
+    useEffect(()=>{
+
+        objectMonitor.current = window.setInterval(objectCallback, 200)
+
+        return () => {
+            if (objectMonitor.current) {
+                window.clearInterval(objectMonitor.current)
+            }
+        }
+    }, [objectMonitor, objectCallback])
 
     return (
         <div className="asset-options">
-            {props.assets && props.assets.map((asset) => (
-                <AssetOptionMenu key={asset.id}
+            {objects?.map((object) => (
+                <OptionMenu key={object.id}
                                  {...props}
                                  menuOpen={menuOpen}
                                  setMenuOpen={setMenuOpen}
                                  actions={actions}
-                                 asset={asset}
-                                 hidden={props.selectedAsset !== asset} />
+                                 object={object}
+                                 hidden={selectedAsset !== object} />
             ))}
         </div>
     )

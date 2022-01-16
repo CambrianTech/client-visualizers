@@ -58,7 +58,7 @@ import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
-import {AssetOptions} from "../components/AssetOptions";
+import {SceneOptions} from "../components/SceneOptions";
 
 enum Panel {
     None="",
@@ -997,9 +997,9 @@ export default function Visualizer() {
             <div className={"panel b"}>
 
                 <CBARView onContextCreated={setContext} toolMode={toolMode}>
-                    <AssetOptions assets={currentScene?.assets.all()}
+                    <SceneOptions scene={currentScene}
                                   selectedAsset={selectedAsset}
-                                  handleAction={handleAction} />
+                                  handleOption={handleAction} />
                 </CBARView>
 
                 {_isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
