@@ -495,7 +495,12 @@ export default function Visualizer() {
 
     useEffect(() => {
         if (context) {
-            context.setHandler(handleVisualizerEvent)
+            context.addHandler(handleVisualizerEvent)
+        }
+        return ()=>{
+            if (context) {
+                context.removeHandler(handleVisualizerEvent)
+            }
         }
     }, [context, handleVisualizerEvent]);
 

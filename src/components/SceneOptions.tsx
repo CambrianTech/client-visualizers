@@ -6,8 +6,7 @@ import {SpeedDial, SpeedDialAction, SpeedDialIcon} from "@material-ui/lab";
 import {makeStyles} from "@material-ui/core";
 import {DefaultAssetMenuActions, ToolOperation, ToolsMenuAction} from "react-cambrian-ui";
 import {
-    CBARAsset,
-    CBARAssetType,
+    CBARAsset, CBAREvent, CBAREventType,
     CBARPaintAsset,
     CBARScene,
     CBARSurface,
@@ -48,7 +47,7 @@ const OptionMenu = React.memo<OptionMenuProps>(
         }, [props.object]);
 
         const surfaceAsset = props.object instanceof CBARSurfaceAsset ? props.object as CBARSurfaceAsset : undefined;
-        const surface = props.object instanceof CBARSurface ? props.object as CBARSurface : surfaceAsset ? surfaceAsset.surface : undefined;
+        //const surface = props.object instanceof CBARSurface ? props.object as CBARSurface : surfaceAsset ? surfaceAsset.surface : undefined;
 
         const position = useMemo(()=>{
             if (menuPoint) {
@@ -130,7 +129,7 @@ type AssetOptionsProperties = {
     scene?:CBARScene,
     actions?:OptionMenuHandler
     handleOption:(event:OptionMenuAction)=>void
-    selected:CBARAsset|CBARSurface|undefined
+    selected:OptionTypes|undefined
 }
 
 export function SceneOptions(props: AssetOptionsProperties) {
@@ -151,6 +150,23 @@ export function SceneOptions(props: AssetOptionsProperties) {
         }
 
     }, [selected])
+
+    const eventHandler = useCallback((event:CBAREvent)=>{
+        if (event.type === CBAREventType.TouchDown) {
+            console.log("eventHandler Clicked");
+        }
+    }, [])
+
+    useEffect(()=>{
+        if (scene) {
+            scene.context.addHandler(eventHandler)
+        }
+        return ()=>{
+            if (scene) {
+                scene.context.removeHandler(eventHandler)
+            }
+        }
+    }, [scene, eventHandler])
 
     const getObjects = useCallback(()=>{
         if (!scene) return
