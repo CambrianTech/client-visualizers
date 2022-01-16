@@ -89,7 +89,7 @@ const OptionMenu = React.memo<OptionMenuProps>(
             let actions = props.actions(props.object)
             if (!actions) return actions
 
-            if (!surfaceAsset || surfaceAsset?.type === CBARAssetType.PaintSurface) {
+            if (!surfaceAsset || !surfaceAsset.canMove) {
                 actions = actions.filter(item=>item.operation !== CBARToolMode.Rotate && item.operation !== CBARToolMode.Translate && item.operation !== ToolOperation.ChoosePattern);
             }
 
