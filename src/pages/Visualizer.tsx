@@ -58,7 +58,7 @@ import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
-import {SceneOptions} from "../components/SceneOptions";
+import {OptionMenuAction, SceneOptions} from "../components/SceneOptions";
 
 enum Panel {
     None="",
@@ -461,28 +461,28 @@ export default function Visualizer() {
             setToolMode(CBARToolMode.Translate)
         }
         else if (event.type === CBAREventType.TouchDown) {
-            const intersections = (event as CBARMouseEvent).intersections
-            const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
-            const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
-            const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
-            const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
-                const assetA = a.object as CBARSurfaceAsset;
-                const assetB = b.object as CBARSurfaceAsset;
-                if (assetA.type === assetB.type) return 0;
-                return assetA.type === CBARAssetType.Rug ? -1 : 1;
-            })[0].object as CBARSurfaceAsset : undefined;
-
-            if (surface) {
-                setSelectedSurface(surface);
-            }
-
-            //console.log("click", event.intersections);
-
-            if (asset) {
-                assetClicked(asset);
-            } else if (!selectedProduct) {
-                productsClicked();
-            }
+            // const intersections = (event as CBARMouseEvent).intersections
+            // const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
+            // const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
+            // const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
+            // const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
+            //     const assetA = a.object as CBARSurfaceAsset;
+            //     const assetB = b.object as CBARSurfaceAsset;
+            //     if (assetA.type === assetB.type) return 0;
+            //     return assetA.type === CBARAssetType.Rug ? -1 : 1;
+            // })[0].object as CBARSurfaceAsset : undefined;
+            //
+            // if (surface) {
+            //     setSelectedSurface(surface);
+            // }
+            //
+            // //console.log("click", event.intersections);
+            //
+            // if (asset) {
+            //     assetClicked(asset);
+            // } else if (!selectedProduct) {
+            //     productsClicked();
+            // }
         } else if (event.type === CBAREventType.TouchMove && selectedAsset) {
             if (toolMode === CBARToolMode.Rotate) {
                 setCurrentRotation(selectedAsset.surfaceRotation);
@@ -1004,7 +1004,8 @@ export default function Visualizer() {
 
                 <CBARView onContextCreated={setContext} toolMode={toolMode}>
                     <SceneOptions scene={currentScene}
-                                  selected={selectedAsset || selectedSurface}
+                                  surfaceClicked={(event)=>setSelectedSurface(event.surface)}
+                                  assetClicked={(event)=>setSelectedAsset(event.asset as CBARSurfaceAsset)}
                                   handleOption={handleAction} />
                 </CBARView>
 

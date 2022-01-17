@@ -6,7 +6,7 @@ import {SpeedDial, SpeedDialAction, SpeedDialIcon} from "@material-ui/lab";
 import {makeStyles} from "@material-ui/core";
 import {DefaultAssetMenuActions, ToolOperation, ToolsMenuAction} from "react-cambrian-ui";
 import {
-    CBARAsset, CBAREvent, CBAREventType,
+    CBARAsset, CBARAssetType, CBAREvent, CBAREventType, CBARIntersection, CBARMouseEvent,
     CBARPaintAsset,
     CBARScene,
     CBARSurface,
@@ -14,21 +14,29 @@ import {
     CBARToolMode
 } from "react-home-ar";
 
-type OptionTypes = CBARAsset|CBARSurface
-type OptionMenuHandler = (object:OptionTypes)=>ToolsMenuAction[]
+type ObjectTypes = CBARAsset|CBARSurface
+type OptionMenuHandler = (object:ObjectTypes)=>ToolsMenuAction[]
 
 export type OptionMenuAction = ToolsMenuAction & {
-    object:OptionTypes
+    object:ObjectTypes
+}
+
+export type SurfaceClickedAction = CBARMouseEvent & {
+    surface:CBARSurface
+}
+
+export type AssetClickedAction = CBARMouseEvent & {
+    asset:CBARAsset
 }
 
 type OptionMenuProps = {
-    hidden:boolean
-    object:OptionTypes
+    hidden?:boolean
+    object:ObjectTypes
     scene?:CBARScene,
     actions:OptionMenuHandler
     handleOption:(event:OptionMenuAction)=>void
     menuOpen:boolean
-    setMenuOpen:(open:boolean)=>void
+    menuClicked:()=>void
 }
 
 const OptionMenu = React.memo<OptionMenuProps>(
@@ -97,7 +105,6 @@ const OptionMenu = React.memo<OptionMenuProps>(
 
         const onMenuClick = useCallback((action:ToolsMenuAction)=>{
             props.handleOption({object: props.object, ...action})
-            props.setMenuOpen(false);
         }, [props])
 
         return (
@@ -109,7 +116,7 @@ const OptionMenu = React.memo<OptionMenuProps>(
                 icon={<SpeedDialIcon />}
                 open={props.menuOpen}
                 FabProps={{ className:menuClasses.fab, size: "small"}}
-                onClick={()=>props.setMenuOpen(!props.menuOpen)}>
+                onClick={props.menuClicked}>
                 {actions.map((action) => (
                     <SpeedDialAction
                         classes={{ staticTooltip: menuClasses.staticTooltip }}
@@ -125,37 +132,55 @@ const OptionMenu = React.memo<OptionMenuProps>(
     }
 );
 
-type AssetOptionsProperties = {
+export type AssetOptionsProperties = {
     scene?:CBARScene,
     actions?:OptionMenuHandler
-    handleOption:(event:OptionMenuAction)=>void
-    selected:OptionTypes|undefined
+
+    surfaceClicked:(action:SurfaceClickedAction)=>void
+    assetClicked:(action:AssetClickedAction)=>void
+    handleOption:(action:OptionMenuAction)=>void
 }
 
 export function SceneOptions(props: AssetOptionsProperties) {
 
-    const {scene, selected} = {...props};
+    const {scene, surfaceClicked, assetClicked} = {...props};
 
     const actions = useMemo(()=>{
         return props.actions ? props.actions : ()=>{return [...DefaultAssetMenuActions]}
     }, [props.actions])
 
-    const [menuOpen, setMenuOpen] = React.useState(false);
-
-    useEffect(()=>{
-        if (selected) {
-            window.setTimeout(()=>{
-                setMenuOpen(true)
-            }, 500);
-        }
-
-    }, [selected])
+    const [openMenuObject, setOpenMenuObject] = React.useState<ObjectTypes>();
+    const [selectedObject, setSelectedObject] = useState<ObjectTypes>();
 
     const eventHandler = useCallback((event:CBAREvent)=>{
         if (event.type === CBAREventType.TouchDown) {
-            console.log("eventHandler Clicked");
+            const mouseEvent = event as CBARMouseEvent;
+            const intersections = mouseEvent.intersections;
+            const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
+            const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
+            const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
+            const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
+                const assetA = a.object as CBARSurfaceAsset;
+                const assetB = b.object as CBARSurfaceAsset;
+                if (assetA.type === assetB.type) return 0;
+                return assetA.type === CBARAssetType.Rug ? -1 : 1;
+            })[0].object as CBARSurfaceAsset : undefined;
+
+            if (asset) {
+                assetClicked({asset, ...mouseEvent})
+                setSelectedObject(asset === selectedObject ? undefined : asset)
+                setOpenMenuObject(asset)
+            }
+            else if (surface) {
+                surfaceClicked({surface, ...mouseEvent})
+                setSelectedObject(surface === selectedObject ? undefined : surface)
+                setOpenMenuObject(surface)
+            } else {
+                setOpenMenuObject(undefined)
+                setSelectedObject(undefined)
+            }
         }
-    }, [])
+    }, [assetClicked, selectedObject, surfaceClicked])
 
     useEffect(()=>{
         if (scene) {
@@ -170,7 +195,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
 
     const getObjects = useCallback(()=>{
         if (!scene) return
-        let objects:OptionTypes[] = []
+        let objects:ObjectTypes[] = []
         scene.geometry.surfaces.forEach(surface=>{
             if (surface.length()) {
                 objects = objects.concat(surface.all())
@@ -215,12 +240,11 @@ export function SceneOptions(props: AssetOptionsProperties) {
         <div className="scene-options">
             {objects?.map((object) => (
                 <OptionMenu key={object.id}
-                                 {...props}
-                                 menuOpen={menuOpen}
-                                 setMenuOpen={setMenuOpen}
-                                 actions={actions}
-                                 object={object}
-                                 hidden={selected !== object} />
+                            {...props}
+                            menuOpen={openMenuObject === object}
+                            actions={actions}
+                            object={object}
+                            menuClicked={()=>setOpenMenuObject(object === openMenuObject ? undefined : object)}/>
             ))}
         </div>
     )
