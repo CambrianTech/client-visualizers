@@ -54,7 +54,7 @@ import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
-import {SceneOptions} from "../components/SceneOptions";
+import {ObjectSelection, SceneOptions} from "../components/SceneOptions";
 
 enum Panel {
     None="",
@@ -303,10 +303,6 @@ export default function Visualizer() {
             <div className={isDarkColor(params.swatch.color) ? "code light" : "code"}>{(params.swatch as any).code}</div>
             <div className={"name"}>{params.swatch.displayName}</div>
         </div>
-    }, []);
-
-    const assetClicked = useCallback((asset:CBARSurfaceAsset) => {
-        setSelectedAsset(asset);
     }, []);
 
     useEffect(()=>{
@@ -927,9 +923,9 @@ export default function Visualizer() {
         }
     }, [hasDetailsPanel, isPortrait, rightPanelOpen]);
 
-    const onObjectClick = useCallback((event:CBARMouseEvent)=>{
-        setSelectedSurface(event.surface);
-        setSelectedAsset(event.asset);
+    const selectionChanged = useCallback((object:ObjectSelection)=>{
+        setSelectedSurface(object.surface);
+        setSelectedAsset(object.asset);
     }, []);
 
     return useMemo(() => (
@@ -976,7 +972,7 @@ export default function Visualizer() {
                           onTranslate={onVisTranslate}
                           onRotate={onVisRotate}>
                     <SceneOptions scene={currentScene}
-                                  onClick={onObjectClick}
+                                  selectionChanged={selectionChanged}
                                   handleOption={handleAction} />
                 </CBARView>
 
@@ -1068,5 +1064,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, onObjectClick, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
