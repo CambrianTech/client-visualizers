@@ -6,7 +6,12 @@ import {SpeedDial, SpeedDialAction, SpeedDialIcon} from "@material-ui/lab";
 import {makeStyles} from "@material-ui/core";
 import {DefaultAssetMenuActions, ToolOperation, ToolsMenuAction} from "react-cambrian-ui";
 import {
-    CBARAsset, CBARAssetType, CBAREvent, CBAREventType, CBARIntersection, CBARMouseEvent,
+    CBARAsset,
+    CBARAssetType,
+    CBAREventHandler,
+    CBAREventType,
+    CBARIntersection,
+    CBARMouseEvent,
     CBARPaintAsset,
     CBARScene,
     CBARSurface,
@@ -152,46 +157,46 @@ export function SceneOptions(props: AssetOptionsProperties) {
     const [openMenuObject, setOpenMenuObject] = React.useState<ObjectTypes>();
     const [selectedObject, setSelectedObject] = useState<ObjectTypes>();
 
-    const eventHandler = useCallback((event:CBAREvent)=>{
-        if (event.type === CBAREventType.TouchDown) {
-            const mouseEvent = event as CBARMouseEvent;
-            const intersections = mouseEvent.intersections;
-            const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
-            const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
-            const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
-            const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
-                const assetA = a.object as CBARSurfaceAsset;
-                const assetB = b.object as CBARSurfaceAsset;
-                if (assetA.type === assetB.type) return 0;
-                return assetA.type === CBARAssetType.Rug ? -1 : 1;
-            })[0].object as CBARSurfaceAsset : undefined;
+    const onVisTouchDown = useCallback((event:CBARMouseEvent)=>{
 
-            if (asset) {
-                assetClicked({asset, ...mouseEvent})
-                setSelectedObject(asset === selectedObject ? undefined : asset)
-                setOpenMenuObject(asset)
-            }
-            else if (surface) {
-                surfaceClicked({surface, ...mouseEvent})
-                setSelectedObject(surface === selectedObject ? undefined : surface)
-                setOpenMenuObject(surface)
-            } else {
-                setOpenMenuObject(undefined)
-                setSelectedObject(undefined)
-            }
+        const mouseEvent = event as CBARMouseEvent;
+        const intersections = mouseEvent.intersections;
+        const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
+        const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
+        const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
+        const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
+            const assetA = a.object as CBARSurfaceAsset;
+            const assetB = b.object as CBARSurfaceAsset;
+            if (assetA.type === assetB.type) return 0;
+            return assetA.type === CBARAssetType.Rug ? -1 : 1;
+        })[0].object as CBARSurfaceAsset : undefined;
+
+        if (asset) {
+            assetClicked({asset, ...mouseEvent})
+            setSelectedObject(asset === selectedObject ? undefined : asset)
+            setOpenMenuObject(asset)
         }
+        else if (surface) {
+            surfaceClicked({surface, ...mouseEvent})
+            setSelectedObject(surface === selectedObject ? undefined : surface)
+            setOpenMenuObject(surface)
+        } else {
+            setOpenMenuObject(undefined)
+            setSelectedObject(undefined)
+        }
+
     }, [assetClicked, selectedObject, surfaceClicked])
 
     useEffect(()=>{
         if (scene) {
-            scene.context.addHandler(eventHandler)
+            scene.context.addHandler(CBAREventType.TouchDown, onVisTouchDown as CBAREventHandler)
         }
         return ()=>{
             if (scene) {
-                scene.context.removeHandler(eventHandler)
+                scene.context.removeHandler(CBAREventType.TouchDown, onVisTouchDown as CBAREventHandler)
             }
         }
-    }, [scene, eventHandler])
+    }, [scene, onVisTouchDown])
 
     const getObjects = useCallback(()=>{
         if (!scene) return

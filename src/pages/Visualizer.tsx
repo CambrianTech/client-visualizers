@@ -4,12 +4,8 @@ import './Visualizer.css'
 import {
     CBARAssetType,
     CBARContext,
-    CBAREvent,
-    CBAREventType,
     CBARFilledTiledAsset,
-    CBARIntersection,
-    CBARMaterialProperties,
-    CBARMouseEvent,
+    CBARMaterialProperties, CBARMouseEvent,
     CBARPaintAsset,
     CBARRugAsset,
     CBARScene,
@@ -41,14 +37,14 @@ import {
     ImageUpload,
     openImageDialog,
     ProductBreadcrumb,
+    ProductDetails,
     RotateTool,
     ServerProgress,
     ToolOperation,
     ToolsMenuAction,
     TranslateTool,
     VerticalListing,
-    ZoomControls,
-    ProductDetails
+    ZoomControls
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
@@ -58,7 +54,7 @@ import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
-import {OptionMenuAction, SceneOptions} from "../components/SceneOptions";
+import {SceneOptions} from "../components/SceneOptions";
 
 enum Panel {
     None="",
@@ -452,57 +448,24 @@ export default function Visualizer() {
         }
     }, [activePanel, currentScene, rootItem]);
 
-    const handleVisualizerEvent = useCallback((event:CBAREvent) => {
-        if (!currentScene) return;
+    const onVisTouchMove = useCallback((event:CBARMouseEvent)=>{
+        if (!selectedAsset) return
 
-        if (event.type === CBAREventType.Rotate) {
-            setToolMode(CBARToolMode.Rotate);
-        } else if (event.type === CBAREventType.Translate) {
-            setToolMode(CBARToolMode.Translate)
+        if (toolMode === CBARToolMode.Rotate) {
+            setCurrentRotation(selectedAsset.surfaceRotation);
+        } else if (toolMode === CBARToolMode.Translate) {
+            setCurrentXPos(selectedAsset.surfacePosition.x);
+            setCurrentYPos(selectedAsset.surfacePosition.y);
         }
-        else if (event.type === CBAREventType.TouchDown) {
-            // const intersections = (event as CBARMouseEvent).intersections
-            // const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
-            // const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
-            // const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
-            // const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
-            //     const assetA = a.object as CBARSurfaceAsset;
-            //     const assetB = b.object as CBARSurfaceAsset;
-            //     if (assetA.type === assetB.type) return 0;
-            //     return assetA.type === CBARAssetType.Rug ? -1 : 1;
-            // })[0].object as CBARSurfaceAsset : undefined;
-            //
-            // if (surface) {
-            //     setSelectedSurface(surface);
-            // }
-            //
-            // //console.log("click", event.intersections);
-            //
-            // if (asset) {
-            //     assetClicked(asset);
-            // } else if (!selectedProduct) {
-            //     productsClicked();
-            // }
-        } else if (event.type === CBAREventType.TouchMove && selectedAsset) {
-            if (toolMode === CBARToolMode.Rotate) {
-                setCurrentRotation(selectedAsset.surfaceRotation);
-            } else if (toolMode === CBARToolMode.Translate) {
-                setCurrentXPos(selectedAsset.surfacePosition.x);
-                setCurrentYPos(selectedAsset.surfacePosition.y);
-            }
-        }
-    }, [assetClicked, currentScene, productsClicked, selectedAsset, selectedProduct, toolMode]);
+    }, [selectedAsset, toolMode]);
 
-    useEffect(() => {
-        if (context) {
-            context.addHandler(handleVisualizerEvent)
-        }
-        return ()=>{
-            if (context) {
-                context.removeHandler(handleVisualizerEvent)
-            }
-        }
-    }, [context, handleVisualizerEvent]);
+    const onVisRotate = useCallback(()=>{
+        setToolMode(CBARToolMode.Rotate);
+    }, []);
+
+    const onVisTranslate = useCallback(()=>{
+        setToolMode(CBARToolMode.Translate);
+    }, []);
 
     useEffect(()=>{
         if (selectedColumn && selectedSurface && !selectedSurface.length()) {
@@ -1002,7 +965,11 @@ export default function Visualizer() {
             {siteContext.state.siteData &&
             <div className={"panel b"}>
 
-                <CBARView onContextCreated={setContext} toolMode={toolMode}>
+                <CBARView onContextCreated={setContext}
+                          toolMode={toolMode}
+                          onTouchMove={onVisTouchMove}
+                          onTranslate={onVisTranslate}
+                          onRotate={onVisRotate}>
                     <SceneOptions scene={currentScene}
                                   surfaceClicked={(event)=>setSelectedSurface(event.surface)}
                                   assetClicked={(event)=>setSelectedAsset(event.asset as CBARSurfaceAsset)}
@@ -1097,5 +1064,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, selectedAsset, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
