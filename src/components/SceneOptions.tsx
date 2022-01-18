@@ -7,10 +7,8 @@ import {makeStyles} from "@material-ui/core";
 import {DefaultAssetMenuActions, ToolOperation, ToolsMenuAction} from "react-cambrian-ui";
 import {
     CBARAsset,
-    CBARAssetType,
     CBAREventHandler,
     CBAREventType,
-    CBARIntersection,
     CBARMouseEvent,
     CBARPaintAsset,
     CBARScene,
@@ -24,14 +22,6 @@ type OptionMenuHandler = (object:ObjectTypes)=>ToolsMenuAction[]
 
 export type OptionMenuAction = ToolsMenuAction & {
     object:ObjectTypes
-}
-
-export type SurfaceClickedAction = CBARMouseEvent & {
-    surface:CBARSurface
-}
-
-export type AssetClickedAction = CBARMouseEvent & {
-    asset:CBARAsset
 }
 
 type OptionMenuProps = {
@@ -141,14 +131,13 @@ export type AssetOptionsProperties = {
     scene?:CBARScene,
     actions?:OptionMenuHandler
 
-    surfaceClicked:(action:SurfaceClickedAction)=>void
-    assetClicked:(action:AssetClickedAction)=>void
+    onClick:(action:CBARMouseEvent)=>void
     handleOption:(action:OptionMenuAction)=>void
 }
 
 export function SceneOptions(props: AssetOptionsProperties) {
 
-    const {scene, surfaceClicked, assetClicked} = {...props};
+    const {scene, onClick} = {...props};
 
     const actions = useMemo(()=>{
         return props.actions ? props.actions : ()=>{return [...DefaultAssetMenuActions]}
@@ -156,47 +145,47 @@ export function SceneOptions(props: AssetOptionsProperties) {
 
     const [openMenuObject, setOpenMenuObject] = React.useState<ObjectTypes>();
     const [selectedObject, setSelectedObject] = useState<ObjectTypes>();
+    const [overObject, setOverObject] = useState<ObjectTypes>();
 
     const onVisTouchDown = useCallback((event:CBARMouseEvent)=>{
 
-        const mouseEvent = event as CBARMouseEvent;
-        const intersections = mouseEvent.intersections;
-        const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
-        const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
-        const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
-        const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
-            const assetA = a.object as CBARSurfaceAsset;
-            const assetB = b.object as CBARSurfaceAsset;
-            if (assetA.type === assetB.type) return 0;
-            return assetA.type === CBARAssetType.Rug ? -1 : 1;
-        })[0].object as CBARSurfaceAsset : undefined;
-
-        if (asset) {
-            assetClicked({asset, ...mouseEvent})
-            setSelectedObject(asset === selectedObject ? undefined : asset)
-            setOpenMenuObject(asset)
+        if (event.asset) {
+            setSelectedObject(event.asset === selectedObject ? undefined : event.asset);
+            setOpenMenuObject(event.asset);
         }
-        else if (surface) {
-            surfaceClicked({surface, ...mouseEvent})
-            setSelectedObject(surface === selectedObject ? undefined : surface)
-            setOpenMenuObject(surface)
+        else if (event.surface) {
+            setSelectedObject(event.surface === selectedObject ? undefined : event.surface);
+            setOpenMenuObject(event.surface);
         } else {
             setOpenMenuObject(undefined)
             setSelectedObject(undefined)
         }
 
-    }, [assetClicked, selectedObject, surfaceClicked])
+        onClick(event);
+
+    }, [onClick, selectedObject])
+
+    const onVisMouseOver = useCallback((event:CBARMouseEvent)=>{
+        const object = event.asset ? event.asset : event.surface
+        if (object) {
+            setOverObject(object)
+        }
+    }, [])
+
+    const onVisMouseOut = useCallback(()=>{
+        //setOverObject(undefined)
+    }, [])
+
+    const [addedHandlers, setAddedHandlers] = useState(false)
 
     useEffect(()=>{
-        if (scene) {
-            scene.context.addHandler(CBAREventType.TouchDown, onVisTouchDown as CBAREventHandler)
+        if (scene && !addedHandlers) {
+            setAddedHandlers(true);
+            scene.context.addHandler(CBAREventType.TouchDown, onVisTouchDown as CBAREventHandler);
+            scene.context.addHandler(CBAREventType.MouseOver, onVisMouseOver as CBAREventHandler);
+            scene.context.addHandler(CBAREventType.MouseOut, onVisMouseOut as CBAREventHandler);
         }
-        return ()=>{
-            if (scene) {
-                scene.context.removeHandler(CBAREventType.TouchDown, onVisTouchDown as CBAREventHandler)
-            }
-        }
-    }, [scene, onVisTouchDown])
+    }, [addedHandlers, onVisMouseOut, onVisMouseOver, onVisTouchDown, scene])
 
     const getObjects = useCallback(()=>{
         if (!scene) return
@@ -241,15 +230,28 @@ export function SceneOptions(props: AssetOptionsProperties) {
         }
     }, [objectMonitor, objectCallback])
 
+    const isVisible = useCallback((object:ObjectTypes)=>{
+        return overObject === object || openMenuObject === object
+    }, [overObject, openMenuObject])
+
+    const menuClicked = useCallback((object:ObjectTypes)=>{
+        const openObject = object === openMenuObject ? undefined : object
+        setOpenMenuObject(openObject)
+        if (openObject) {
+            setSelectedObject(object)
+        }
+    }, [openMenuObject])
+
     return (
         <div className="scene-options">
             {objects?.map((object) => (
                 <OptionMenu key={object.id}
                             {...props}
+                            object={object}
+                            hidden = {!isVisible(object)}
                             menuOpen={openMenuObject === object}
                             actions={actions}
-                            object={object}
-                            menuClicked={()=>setOpenMenuObject(object === openMenuObject ? undefined : object)}/>
+                            menuClicked={()=>menuClicked(object)}/>
             ))}
         </div>
     )
