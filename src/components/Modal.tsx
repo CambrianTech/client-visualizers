@@ -5,9 +5,6 @@ import styled from 'styled-components';
 type Props = PropsWithChildren<{
     onClose(): void;
     isOpen?: boolean;
-    maxWidth?: string;
-    // the modal’s accessible label
-    label?: string;
 }>;
 
 const CloseButton = styled.button`
@@ -32,11 +29,9 @@ const CloseButton = styled.button`
   }
 `;
 
-export function Modal({ onClose, isOpen = true, children, label }: Props) {
+export function Modal({ onClose, isOpen = true, children}: Props) {
     return (
         <ReactModal
-            // we want to disable this warning behavior in unit tests to keep the console clean
-            ariaHideApp={process.env.NODE_ENV !== 'test'}
             isOpen={isOpen}
             onRequestClose={onClose}
             style={{
