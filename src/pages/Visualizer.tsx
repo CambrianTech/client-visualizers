@@ -55,6 +55,7 @@ import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
 import {ObjectSelection, SceneOptions} from "../components/SceneOptions";
+import {Modal} from "../components/Modal";
 
 enum Panel {
     None="",
@@ -928,6 +929,8 @@ export default function Visualizer() {
         setSelectedAsset(object.asset);
     }, []);
 
+    const [isShareModalOpen, setShareModal] = useState(false);
+
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
@@ -983,7 +986,10 @@ export default function Visualizer() {
                 <div className={"visualizer-buttons-right"} style={{visibility:showUploadButton || !currentScene || isToolOverlayOpen ? "hidden" : "visible"}}>
                     <ZoomControls context={context} />
                     <VisualizerTools actions={toolActions} handleAction={handleAction} />
+                    <button onClick={() => setShareModal(true)}>&#8617;</button>
                 </div>
+
+                {isShareModalOpen && <Modal onClose={() => setShareModal(false)}/>}
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}
