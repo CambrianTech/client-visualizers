@@ -35,6 +35,7 @@ type OptionMenuProps = {
     handleOption:(event:OptionMenuAction)=>void
     menuOpen:boolean
     origin:Point|undefined
+    color?:string
     invalidRegions:Rectangle[]
     menuClicked:()=>void
 }
@@ -92,10 +93,6 @@ const OptionMenu = React.memo<OptionMenuProps>(
         }, [props.invalidRegions, props.origin])
 
         const menuStyles = useMemo(()=>{
-            let color = "#fff"
-            if (props.object instanceof CBARPaintAsset && props.object.product?.color) {
-                color = `${props.object.product?.color} !important`
-            }
 
             return makeStyles(() => ({
                 speedDial: {
@@ -107,10 +104,10 @@ const OptionMenu = React.memo<OptionMenuProps>(
                     whiteSpace:"nowrap"
                 },
                 fab: {
-                    backgroundColor: color
+                    backgroundColor: props.color ? `${props.color} !important` : undefined
                 }
             }))
-        }, [position.left, position.top, props.object])
+        }, [position.left, position.top, props.color])
 
         const menuClasses = menuStyles();
 
@@ -276,7 +273,12 @@ export function SceneOptions(props: AssetOptionsProperties) {
         const objects = getObjects();
         if (objects) {
             let key = "";
-            objects.forEach(obj=> key += obj.id)
+            objects.forEach(obj=>{
+                key += obj.id;
+                if (obj instanceof CBARSurfaceAsset && obj.product) {
+                    key += obj.product.color
+                }
+            })
             setObjKey(key)
         }
     }, [getObjects])
@@ -318,6 +320,10 @@ export function SceneOptions(props: AssetOptionsProperties) {
         }
     }, [openMenuObject])
 
+    const getMenuColor = useCallback((object:ObjectTypes)=>{
+        return object instanceof CBARPaintAsset ? object.product?.color : undefined
+    }, [])
+
     return (
         <div className="scene-options">
             {objects?.map((object) => (
@@ -327,6 +333,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
                             hidden = {!isVisible(object)}
                             menuOpen={openMenuObject === object}
                             origin={getOrigin(object)}
+                            color={getMenuColor(object)}
                             actions={actions}
                             invalidRegions={CORNERS}
                             menuClicked={()=>menuClicked(object)}/>
