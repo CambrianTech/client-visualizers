@@ -1,8 +1,67 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Getting Started
 
-Just a test
+### `Prerequisites`
+
+This project requires the AWS CLI to sync local files with S3. You'll need to set up an AWS account if you don't already have one and obtain an access key and a secret key.
+
+#### Sign up for AWS
+
+If you don't have an AWS account, go [here](https://portal.aws.amazon.com/billing/signup#/start) and follow instructions. You shouldn't need to sign up for any paid services.
+
+#### Gather Your Access Key and Secret Key
+
+Once you have an account, log in and follow [these instructions](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) to obtain your access key and secret key.
+
+
+
+
+### `Install and configure AWS CLI`
+
+ To install, run
+ ```
+ curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+ $ sudo installer -pkg AWSCLIV2.pkg -target /
+ ```
+ 
+ verify it's working by running `which aws` or `aws --version`
+ 
+ you'll then need to configure aws cli
+ 
+ run `aws configure`
+ 
+ when prompted for your Access and Secret keys, provide the ones you obtained in the step above.
+ 
+ default region name and default output format are up to you. `us-west-1` and `json` seem to work fine.
+ 
+  ### `Install Node Modules`
+  
+  run `npm install`
+  
+  ### `Run the server`
+  
+  run `npm start` from the server directory. This will transpile the typescript for you. You can kill it once it runs successfully.
+ 
+ ### `Sync Sites`
+ 
+ run `sh scripts/sync.sh` from project root.
+ 
+ This should create a directory called `cambrianar-sites` in your project root and give you a `sites` subdirectory with at least one site.
+ 
+ If it doesn't, you can cd to `cambrianar-sites` and run  `aws s3 sync s3://cambrianar-sites/<site_name> sites/<site_name>`, replacing <site_name> with the name of the site, eg dunn-edwards.
+ 
+ It should also create a symlink in `public/cambrian-sites` that points to `cambrianar-sites/sites`.
+ 
+ NOTE: You may have to run `ln -s ../cambrianar-sites/sites cambrianar-sites` if symlinks are not working properly (you'll get a bunch of missing images)
+ 
+ ### `Start Everything`
+ 
+ run `npm start` from root and everything should be working!
+ 
+ 
+
+## Available Scripts
 
 ### sync data
 within project directory/sites for a given website:
