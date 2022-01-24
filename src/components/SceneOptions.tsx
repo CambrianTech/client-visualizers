@@ -1,4 +1,4 @@
-import React, {createRef, useCallback, useEffect, useMemo, useRef, useState} from 'react'
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import 'react-circular-progressbar/dist/styles.css'
 
 import './SceneOptions.css'
@@ -13,7 +13,7 @@ import {
     CBARPaintAsset,
     CBARScene,
     CBARSurface,
-    CBARSurfaceAsset,
+    CBARSurfaceAsset, CBARTiledAsset,
     CBARToolMode, Point2D, Rectangle, usleep
 } from "react-home-ar";
 
@@ -28,7 +28,7 @@ type OptionMenuProps = {
     hidden?:boolean
     object:ObjectTypes
     scene?:CBARScene,
-    actions:OptionMenuHandler
+    actions:ToolsMenuAction[]
     handleOption:(event:OptionMenuAction)=>void
     menuOpen:boolean
     menuPoint:Point2D|undefined
@@ -37,20 +37,20 @@ type OptionMenuProps = {
     menuClicked:()=>void
 }
 
-const rectangleIntersection = (point:Point2D, rectangles:Rectangle[]) => {
-    for (let i = 0; i < rectangles.length; i++) {
-        let xStart = rectangles[i].x,
-            yStart = rectangles[i].y,
-            xEnd = xStart + rectangles[i].width,
-            yEnd = yStart + rectangles[i].height;
-
-        if ((point.x >= xStart && point.x <= xEnd) &&
-            (point.y >= yStart && point.y <= yEnd)) {
-            return rectangles[i];
-        }
-    }
-    return null;
-};
+// const rectangleIntersection = (point:Point2D, rectangles:Rectangle[]) => {
+//     for (let i = 0; i < rectangles.length; i++) {
+//         let xStart = rectangles[i].x,
+//             yStart = rectangles[i].y,
+//             xEnd = xStart + rectangles[i].width,
+//             yEnd = yStart + rectangles[i].height;
+//
+//         if ((point.x >= xStart && point.x <= xEnd) &&
+//             (point.y >= yStart && point.y <= yEnd)) {
+//             return rectangles[i];
+//         }
+//     }
+//     return null;
+// };
 
 const REGION_SIZE:Point2D = {x:0.2, y:0.15}
 
@@ -63,8 +63,6 @@ const CORNERS = [TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT, TOP_LEFT]
 
 const OptionMenu = React.memo<OptionMenuProps>(
     (props) => {
-
-        const surfaceAsset = props.object instanceof CBARSurfaceAsset ? props.object as CBARSurfaceAsset : undefined;
 
         const menuStyles = useMemo(()=>{
             return makeStyles(() => ({
@@ -85,19 +83,7 @@ const OptionMenu = React.memo<OptionMenuProps>(
         const menuClasses = menuStyles();
 
         const isMobile = window.outerWidth < 400;
-        const actions = useMemo(()=>{
-            if (props.hidden) {
-                return []
-            }
-            let actions = props.actions(props.object)
-            if (!actions) return actions
 
-            if (!surfaceAsset || !surfaceAsset.canMove) {
-                actions = actions.filter(item=>item.operation !== CBARToolMode.Rotate && item.operation !== CBARToolMode.Translate && item.operation !== ToolOperation.ChoosePattern);
-            }
-
-            return actions
-        }, [props, surfaceAsset])
 
         const onMenuClick = useCallback((action:ToolsMenuAction)=>{
             props.handleOption({object: props.object, ...action})
@@ -113,7 +99,7 @@ const OptionMenu = React.memo<OptionMenuProps>(
                 open={props.menuOpen}
                 FabProps={{ className:menuClasses.fab, size: "small"}}
                 onClick={props.menuClicked}>
-                {actions.map((action, index) => (
+                {props.actions.map((action) => (
                     <SpeedDialAction
                         classes={{ staticTooltip: menuClasses.staticTooltip }}
                         key={action.name}
@@ -144,10 +130,6 @@ export type AssetOptionsProperties = {
 export function SceneOptions(props: AssetOptionsProperties) {
 
     const {scene, selectionChanged} = {...props};
-
-    const actions = useMemo(()=>{
-        return props.actions ? props.actions : ()=>{return [...DefaultAssetMenuActions]}
-    }, [props.actions])
 
     const [openMenuObject, setOpenMenuObject] = React.useState<ObjectTypes>();
     const [selectedObject, setSelectedObject] = useState<ObjectTypes>();
@@ -317,6 +299,27 @@ export function SceneOptions(props: AssetOptionsProperties) {
         return object instanceof CBARPaintAsset ? object.product?.color : undefined
     }, [])
 
+    const getActions = useCallback((object:ObjectTypes)=>{
+        let actions = props.actions ? props.actions(object) : [...DefaultAssetMenuActions]
+
+        const surfaceAsset = object instanceof CBARSurfaceAsset ? object as CBARSurfaceAsset : undefined;
+        const surface = object instanceof CBARSurface ? object as CBARSurface : surfaceAsset?.surface;
+
+        //filter out actions dependent on a surface or asset if there is none
+        actions = actions.filter(action=>!((action.requiresAsset && !surfaceAsset) || (action.requiresSurface && !surface)));
+
+        if (surfaceAsset) {
+            if (!surfaceAsset.canMove) {
+                actions = actions.filter(action=>action.operation !== CBARToolMode.Rotate && action.operation !== CBARToolMode.Translate);
+            }
+            if (!(surfaceAsset instanceof CBARTiledAsset)) {
+                actions = actions.filter(action=>action.operation !== ToolOperation.ChoosePattern);
+            }
+        }
+
+        return actions
+    }, [props])
+
     return (
         <div className={"scene-options"}>
             {objects?.map((object) => (
@@ -327,7 +330,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
                             menuOpen={openMenuObject === object}
                             menuPoint={getMenuPosition(object)}
                             color={getMenuColor(object)}
-                            actions={actions}
+                            actions={getActions(object)}
                             invalidRegions={CORNERS}
                             menuClicked={()=>menuClicked(object)}/>
             ))}

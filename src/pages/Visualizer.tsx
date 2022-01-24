@@ -5,7 +5,8 @@ import {
     CBARAssetType,
     CBARContext,
     CBARFilledTiledAsset,
-    CBARMaterialProperties, CBARMouseEvent,
+    CBARMaterialProperties,
+    CBARMouseEvent,
     CBARPaintAsset,
     CBARRugAsset,
     CBARScene,
@@ -26,7 +27,8 @@ import {
     SceneCollection,
     SceneInfo,
     SwatchItem,
-    THREE
+    THREE,
+    ZoomState
 } from "react-home-ar";
 
 import {SiteContext, stateToUrl} from '../data/SiteContext';
@@ -131,6 +133,7 @@ export default function Visualizer() {
         if (primarySurfaceType) {
             if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
                 cbInitialize({
+                    initialZoom:ZoomState.ZoomedOut,
                     logLevel:DebugLevel.Warning,
                     hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
                     signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
