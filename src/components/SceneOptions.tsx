@@ -14,7 +14,7 @@ import {
     CBARScene,
     CBARSurface,
     CBARSurfaceAsset,
-    CBARToolMode, Point2D, Rectangle
+    CBARToolMode, Point2D, Rectangle, usleep
 } from "react-home-ar";
 
 export type ObjectTypes = CBARAsset|CBARSurface
@@ -189,15 +189,29 @@ export function SceneOptions(props: AssetOptionsProperties) {
 
         if (!obj) return
 
-        if (!openMenuObject) {
-            clickOrigins[obj.id] = clickEvent.screenPoint
-            setClickOrigins(clickOrigins);
-        }
+        clickOrigins[obj.id] = clickEvent.screenPoint
+        setClickOrigins(clickOrigins);
 
         setSelectedObject(obj);
-        setOpenMenuObject(obj);
+
+        usleep(100).then(()=>setOpenMenuObject(obj))
 
     }, [clickEvent, clickOrigins, openMenuObject])
+
+    useEffect(()=>{
+        if (openMenuObject instanceof CBARSurface) {
+            const asset = openMenuObject.first();
+            if (asset) {
+                setOpenMenuObject(asset);
+                setSelectedObject(asset);
+
+                if (!clickOrigins[asset.id]) {
+                    clickOrigins[asset.id] = clickOrigins[openMenuObject.id]
+                    setClickOrigins(clickOrigins);
+                }
+            }
+        }
+    }, [clickOrigins, openMenuObject])
 
     const onVisMouseOver = useCallback((event:CBARMouseEvent)=>{
         const object = event.asset ? event.asset : event.surface
@@ -275,8 +289,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
     const getOrigin = useCallback((object:ObjectTypes)=>{
         if (clickOrigins[object.id]) {
             return clickOrigins[object.id]
-        }
-        else if ((object instanceof CBARSurface || object instanceof CBARSurfaceAsset) && object.menuPoint) {
+        } else if ((object instanceof CBARSurface || object instanceof CBARSurfaceAsset) && object.menuPoint) {
             return {...object.menuPoint};
         }
         return undefined
