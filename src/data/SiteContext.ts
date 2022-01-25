@@ -246,7 +246,7 @@ export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
         searchObject.r = shawState.selectedSampleRoom
     }
     else if (shawState.selectedRoom) {
-        CBContentManager.default.synchronize(searchObject);
+        CBContentManager.default?.synchronize(searchObject);
         searchObject.room = shawState.selectedRoom
     }
 
