@@ -17,9 +17,9 @@ import {copyTextToClipboard, download} from "../utilities/Methods";
 type Props = PropsWithChildren<{
     onClose(): void;
     isOpen: boolean;
-    selectedProduct?: ProductItem
+    products?: ProductItem[]
     imageCollection?: CBARImageCollection
-    shareImageUrl?:string
+    shareImageUrl:string
 }>;
 
 const ColorWrapper = styled.div`
@@ -90,9 +90,8 @@ const ShareItem = styled.div`
     margin-left: 8px;
 `;
 
-export function Modal({ onClose, isOpen, children, selectedProduct}: Props) {
+export function Modal({ onClose, isOpen, children, products, shareImageUrl}: Props) {
     // fake image until we can figure out how to import image dynamically.
-    const url = "http://localhost:3000/cambrianar-sites/dunn-edwards/scenes/bedroom/1-bedroom/background.png";
 
     return (
         <Dialog
@@ -110,20 +109,24 @@ export function Modal({ onClose, isOpen, children, selectedProduct}: Props) {
             </TopRightCloseButton>
             <StyledDialogContent>
                 <div>
-                    <FullWidthImage src={url} />
+                    <FullWidthImage src={shareImageUrl} />
                 </div>
                 {
-                    selectedProduct
+                    products
                     && (
                         <ColorWrapper>
-                            <ColorBox color={selectedProduct.color} />
-                            {`${selectedProduct.displayName} ${selectedProduct.code}`}
+                            {products.map((product) => (
+                                <div key={product.key}>
+                                    <ColorBox color={product.color} />
+                                    {`${product.displayName} ${product.code}`}
+                                </div>
+                            ))}
                         </ColorWrapper>
                     )
                 }
 
                 <ShareWrapper>
-                    <input readOnly id="hidden-copy-input" style={{ height: 0, width: 0, opacity: 0 }} type="text" value={url} />
+                    <input readOnly id="hidden-copy-input" style={{ height: 0, width: 0, opacity: 0 }} type="text" value={shareImageUrl} />
                     <ShareItem>
                         {/** Doesn't work for localhost, but works for proper websites **/}
                         <FacebookShareButton url={window.location.href}>
@@ -139,7 +142,7 @@ export function Modal({ onClose, isOpen, children, selectedProduct}: Props) {
 
                     <ShareItem>
                         {/** Doesn't work for localhost, but works for proper websites and images **/}
-                        <PinterestShareButton url={window.location.href} media={url}>
+                        <PinterestShareButton url={window.location.href} media={shareImageUrl}>
                             <PinterestIcon round />
                         </PinterestShareButton>
                     </ShareItem>
@@ -164,7 +167,7 @@ export function Modal({ onClose, isOpen, children, selectedProduct}: Props) {
                     </ShareItem>
 
                     <ShareItem>
-                        <DownloadShareButton disableRipple onClick={() => download(url, 'my-visualization.jpg')}>
+                        <DownloadShareButton disableRipple onClick={() => download(shareImageUrl, 'my-visualization.jpg')}>
                             <CopyShareIcon>download</CopyShareIcon>
                         </DownloadShareButton>
                     </ShareItem>
