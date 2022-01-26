@@ -130,6 +130,8 @@ export default function Visualizer() {
         }
     }, [siteContext])
 
+    const [shareImageUrl, setShareImageUrl] = useState<string>()
+
     useEffect(()=>{
         if (primarySurfaceType) {
             if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
@@ -1006,6 +1008,7 @@ export default function Visualizer() {
                   isOpen={isShareModalOpen}
                   selectedProduct={selectedProduct}
                   imageCollection={currentScene && currentScene.images}
+                  shareImageUrl={shareImageUrl}
                 />
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}

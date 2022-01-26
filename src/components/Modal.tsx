@@ -19,6 +19,7 @@ type Props = PropsWithChildren<{
     isOpen: boolean;
     selectedProduct?: ProductItem
     imageCollection?: CBARImageCollection
+    shareImageUrl?:string
 }>;
 
 const ColorWrapper = styled.div`
