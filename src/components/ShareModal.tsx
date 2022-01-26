@@ -90,7 +90,7 @@ const ShareItem = styled.div`
     margin-left: 8px;
 `;
 
-export function Modal({ onClose, isOpen, children, products, shareImageUrl}: Props) {
+export function ShareModal({ onClose, isOpen, children, products, shareImageUrl}: Props) {
     // fake image until we can figure out how to import image dynamically.
 
     return (
