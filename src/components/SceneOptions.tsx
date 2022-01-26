@@ -13,8 +13,8 @@ import {
     CBARPaintAsset,
     CBARScene,
     CBARSurface,
-    CBARSurfaceAsset,
-    CBARToolMode
+    CBARSurfaceAsset, CBARTiledAsset,
+    CBARToolMode, Point2D, Rectangle, usleep
 } from "react-home-ar";
 
 export type ObjectTypes = CBARAsset|CBARSurface
@@ -24,38 +24,35 @@ export type OptionMenuAction = ToolsMenuAction & {
     object:ObjectTypes
 }
 
-type Point = {x:number, y:number}
-type Rectangle = {x:number, y:number, width:number, height:number}
-
 type OptionMenuProps = {
     hidden?:boolean
     object:ObjectTypes
     scene?:CBARScene,
-    actions:OptionMenuHandler
+    actions:ToolsMenuAction[]
     handleOption:(event:OptionMenuAction)=>void
     menuOpen:boolean
-    origin:Point|undefined
+    menuPoint:Point2D|undefined
     color?:string
     invalidRegions:Rectangle[]
     menuClicked:()=>void
 }
 
-const rectangleIntersection = (point:Point, rectangles:Rectangle[]) => {
-    for (let i = 0; i < rectangles.length; i++) {
-        let xStart = rectangles[i].x,
-            yStart = rectangles[i].y,
-            xEnd = xStart + rectangles[i].width,
-            yEnd = yStart + rectangles[i].height;
+// const rectangleIntersection = (point:Point2D, rectangles:Rectangle[]) => {
+//     for (let i = 0; i < rectangles.length; i++) {
+//         let xStart = rectangles[i].x,
+//             yStart = rectangles[i].y,
+//             xEnd = xStart + rectangles[i].width,
+//             yEnd = yStart + rectangles[i].height;
+//
+//         if ((point.x >= xStart && point.x <= xEnd) &&
+//             (point.y >= yStart && point.y <= yEnd)) {
+//             return rectangles[i];
+//         }
+//     }
+//     return null;
+// };
 
-        if ((point.x >= xStart && point.x <= xEnd) &&
-            (point.y >= yStart && point.y <= yEnd)) {
-            return rectangles[i];
-        }
-    }
-    return null;
-};
-
-const REGION_SIZE:Point = {x:0.2, y:0.15}
+const REGION_SIZE:Point2D = {x:0.2, y:0.15}
 
 const TOP_RIGHT = {x:1 - REGION_SIZE.x, y:0, width:REGION_SIZE.x, height:REGION_SIZE.y}
 const BOTTOM_RIGHT = {x:1 - REGION_SIZE.x, y:1 - REGION_SIZE.y, width:REGION_SIZE.x, height:REGION_SIZE.y}
@@ -67,38 +64,12 @@ const CORNERS = [TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT, TOP_LEFT]
 const OptionMenu = React.memo<OptionMenuProps>(
     (props) => {
 
-        const surfaceAsset = props.object instanceof CBARSurfaceAsset ? props.object as CBARSurfaceAsset : undefined;
-
-        const position = useMemo(()=>{
-            if (props.origin) {
-                let point = props.origin
-                if (props.invalidRegions) {
-                    const intersection = rectangleIntersection(point, props.invalidRegions);
-                    if (intersection) {
-                        point.x = intersection.x > 0.5 ? Math.min(intersection.x, point.x) : Math.max(intersection.x + intersection.width, point.x)
-                        point.y = intersection.y > 0.5 ? Math.min(intersection.y, point.y) : Math.max(intersection.y + intersection.height, point.y)
-                    }
-                }
-                return {
-                    top:`${100 * point.y}%`,
-                    left:`${100 * point.x}%`
-                }
-            } else {
-                console.log("skip");
-            }
-            return {
-                top: 'unset',
-                left:'unset'
-            }
-        }, [props.invalidRegions, props.origin])
-
         const menuStyles = useMemo(()=>{
-
             return makeStyles(() => ({
                 speedDial: {
                     position: 'absolute',
-                    top: `calc(${position.top} - 20px)`,
-                    left: `calc(${position.left} - 20px)`
+                    left: `${props.menuPoint ? (props.menuPoint.x).toFixed(1) : 0}px`,
+                    top: `${props.menuPoint ? (props.menuPoint.y).toFixed(1) : 0}px`,
                 },
                 staticTooltip: {
                     whiteSpace:"nowrap"
@@ -107,24 +78,12 @@ const OptionMenu = React.memo<OptionMenuProps>(
                     backgroundColor: props.color ? `${props.color} !important` : undefined
                 }
             }))
-        }, [position.left, position.top, props.color])
+        }, [props.color, props.menuPoint])
 
         const menuClasses = menuStyles();
 
         const isMobile = window.outerWidth < 400;
-        const actions = useMemo(()=>{
-            if (props.hidden) {
-                return []
-            }
-            let actions = props.actions(props.object)
-            if (!actions) return actions
 
-            if (!surfaceAsset || !surfaceAsset.canMove) {
-                actions = actions.filter(item=>item.operation !== CBARToolMode.Rotate && item.operation !== CBARToolMode.Translate && item.operation !== ToolOperation.ChoosePattern);
-            }
-
-            return actions
-        }, [props, surfaceAsset])
 
         const onMenuClick = useCallback((action:ToolsMenuAction)=>{
             props.handleOption({object: props.object, ...action})
@@ -140,7 +99,7 @@ const OptionMenu = React.memo<OptionMenuProps>(
                 open={props.menuOpen}
                 FabProps={{ className:menuClasses.fab, size: "small"}}
                 onClick={props.menuClicked}>
-                {actions.map((action) => (
+                {props.actions.map((action) => (
                     <SpeedDialAction
                         classes={{ staticTooltip: menuClasses.staticTooltip }}
                         key={action.name}
@@ -172,15 +131,11 @@ export function SceneOptions(props: AssetOptionsProperties) {
 
     const {scene, selectionChanged} = {...props};
 
-    const actions = useMemo(()=>{
-        return props.actions ? props.actions : ()=>{return [...DefaultAssetMenuActions]}
-    }, [props.actions])
-
     const [openMenuObject, setOpenMenuObject] = React.useState<ObjectTypes>();
     const [selectedObject, setSelectedObject] = useState<ObjectTypes>();
     const [overObject, setOverObject] = useState<ObjectTypes>();
 
-    const [clickOrigins, setClickOrigins] = useState<{[key: string]: Point}>({})
+    const [clickOrigins, setClickOrigins] = useState<{[key: string]: Point2D}>({})
 
     useEffect(()=>{
         let selection:ObjectSelection = {}
@@ -216,15 +171,29 @@ export function SceneOptions(props: AssetOptionsProperties) {
 
         if (!obj) return
 
-        if (!openMenuObject) {
-            clickOrigins[obj.id] = clickEvent.point
-            setClickOrigins(clickOrigins);
-        }
+        clickOrigins[obj.id] = clickEvent.screenPoint
+        setClickOrigins(clickOrigins);
 
         setSelectedObject(obj);
-        setOpenMenuObject(obj);
+
+        usleep(100).then(()=>setOpenMenuObject(obj))
 
     }, [clickEvent, clickOrigins, openMenuObject])
+
+    useEffect(()=>{
+        if (openMenuObject instanceof CBARSurface) {
+            const asset = openMenuObject.first();
+            if (asset) {
+                setOpenMenuObject(asset);
+                setSelectedObject(asset);
+
+                if (!clickOrigins[asset.id]) {
+                    clickOrigins[asset.id] = clickOrigins[openMenuObject.id]
+                    setClickOrigins(clickOrigins);
+                }
+            }
+        }
+    }, [clickOrigins, openMenuObject])
 
     const onVisMouseOver = useCallback((event:CBARMouseEvent)=>{
         const object = event.asset ? event.asset : event.surface
@@ -286,7 +255,6 @@ export function SceneOptions(props: AssetOptionsProperties) {
     const objectMonitor = useRef(0)
 
     useEffect(()=>{
-
         objectMonitor.current = window.setInterval(objectCallback, 200)
 
         return () => {
@@ -303,12 +271,19 @@ export function SceneOptions(props: AssetOptionsProperties) {
     const getOrigin = useCallback((object:ObjectTypes)=>{
         if (clickOrigins[object.id]) {
             return clickOrigins[object.id]
-        }
-        else if ((object instanceof CBARSurface || object instanceof CBARSurfaceAsset) && object.menuPoint) {
+        } else if ((object instanceof CBARSurface || object instanceof CBARSurfaceAsset) && object.menuPoint) {
             return {...object.menuPoint};
         }
         return undefined
     }, [clickOrigins])
+
+    const getMenuPosition = useCallback((object:ObjectTypes)=>{
+        const origin = getOrigin(object)
+        if (origin) {
+            return {x:origin.x - 30, y:origin.y - 20}
+        }
+        return undefined
+    }, [getOrigin])
 
     const menuClicked = useCallback((object:ObjectTypes)=>{
         const openObject = object === openMenuObject ? undefined : object
@@ -324,17 +299,38 @@ export function SceneOptions(props: AssetOptionsProperties) {
         return object instanceof CBARPaintAsset ? object.product?.color : undefined
     }, [])
 
+    const getActions = useCallback((object:ObjectTypes)=>{
+        let actions = props.actions ? props.actions(object) : [...DefaultAssetMenuActions]
+
+        const surfaceAsset = object instanceof CBARSurfaceAsset ? object as CBARSurfaceAsset : undefined;
+        const surface = object instanceof CBARSurface ? object as CBARSurface : surfaceAsset?.surface;
+
+        //filter out actions dependent on a surface or asset if there is none
+        actions = actions.filter(action=>!((action.requiresAsset && !surfaceAsset) || (action.requiresSurface && !surface)));
+
+        if (surfaceAsset) {
+            if (!surfaceAsset.canMove) {
+                actions = actions.filter(action=>action.operation !== CBARToolMode.Rotate && action.operation !== CBARToolMode.Translate);
+            }
+            if (!(surfaceAsset instanceof CBARTiledAsset)) {
+                actions = actions.filter(action=>action.operation !== ToolOperation.ChoosePattern);
+            }
+        }
+
+        return actions
+    }, [props])
+
     return (
-        <div className="scene-options">
+        <div className={"scene-options"}>
             {objects?.map((object) => (
                 <OptionMenu key={object.id}
                             {...props}
                             object={object}
                             hidden = {!isVisible(object)}
                             menuOpen={openMenuObject === object}
-                            origin={getOrigin(object)}
+                            menuPoint={getMenuPosition(object)}
                             color={getMenuColor(object)}
-                            actions={actions}
+                            actions={getActions(object)}
                             invalidRegions={CORNERS}
                             menuClicked={()=>menuClicked(object)}/>
             ))}

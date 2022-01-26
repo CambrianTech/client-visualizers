@@ -62,14 +62,6 @@ function fallbackCopyTextToClipboard(text: string) {
     textArea.focus();
     textArea.select();
 
-    try {
-        const successful = document.execCommand('copy');
-        const msg = successful ? 'successful' : 'unsuccessful';
-    } catch (err) {
-        //Do we have an error handler?
-        console.error('Fallback: Oops, unable to copy', err);
-    }
-
     document.body.removeChild(textArea);
 }
 
