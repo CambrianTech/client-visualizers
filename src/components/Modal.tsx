@@ -135,7 +135,7 @@ export function Modal({ onClose, isOpen, children, products, shareImageUrl}: Pro
                 }
 
                 <ShareWrapper>
-                    <input readOnly id="hidden-copy-input" style={{ height: 0, width: 0, opacity: 0 }} type="text" value={shareImageUrl} />
+
                     <ShareItem>
                         {/** Doesn't work for localhost, but works for proper websites **/}
                         <FacebookShareButton url={window.location.href}>
