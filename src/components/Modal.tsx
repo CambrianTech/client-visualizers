@@ -5,10 +5,12 @@ import {Dialog, IconButton, Icon, DialogContent} from "@material-ui/core";
 import {CBARImageCollection, ProductItem} from "react-home-ar";
 import {
     EmailIcon,
-    EmailShareButton, FacebookIcon,
-    FacebookShareButton, LinkedinIcon,
-    LinkedinShareButton, PinterestIcon,
-    PinterestShareButton, TumblrIcon,
+    EmailShareButton,
+    FacebookIcon,
+    FacebookShareButton,
+    LinkedinIcon,
+    LinkedinShareButton,
+    TumblrIcon,
     TumblrShareButton, TwitterIcon,
     TwitterShareButton,
 } from "react-share";
@@ -145,13 +147,6 @@ export function Modal({ onClose, isOpen, children, products, shareImageUrl}: Pro
                         <LinkedinShareButton url={window.location.href}>
                             <LinkedinIcon round />
                         </LinkedinShareButton>
-                    </ShareItem>
-
-                    <ShareItem>
-                        {/** Doesn't work for localhost, but works for proper websites and images **/}
-                        <PinterestShareButton url={window.location.href} media={shareImageUrl}>
-                            <PinterestIcon round />
-                        </PinterestShareButton>
                     </ShareItem>
 
                     <ShareItem>
