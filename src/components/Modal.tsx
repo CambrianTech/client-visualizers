@@ -90,8 +90,13 @@ const ShareItem = styled.div`
     margin-left: 8px;
 `;
 
+const ColorItem = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
 export function Modal({ onClose, isOpen, children, products, shareImageUrl}: Props) {
-    // fake image until we can figure out how to import image dynamically.
 
     return (
         <Dialog
@@ -114,14 +119,16 @@ export function Modal({ onClose, isOpen, children, products, shareImageUrl}: Pro
                 {
                     products
                     && (
-                        <ColorWrapper>
+                        <div>
                             {products.map((product) => (
-                                <div key={product.key}>
-                                    <ColorBox color={product.color} />
-                                    {`${product.displayName} ${product.code}`}
-                                </div>
+                                <ColorWrapper key={product.key}>
+                                    <ColorItem>
+                                        <ColorBox color={product.color} />
+                                        {`${product.displayName} ${product.code}`}
+                                    </ColorItem>
+                                </ColorWrapper>
                             ))}
-                        </ColorWrapper>
+                        </div>
                     )
                 }
 
