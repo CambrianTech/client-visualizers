@@ -438,7 +438,7 @@ export default function Visualizer() {
             setListingItems(rootItem.children);
             setActivePanel(Panel.Products);
         } else if (currentScene) {
-            setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
+            setActivePanel((activePanel === Panel.Products || activePanel === Panel.Scenes) ? Panel.None : Panel.Products)
         } else {
             setActivePanel(activePanel === Panel.Scenes ? Panel.None : Panel.Scenes);
         }
