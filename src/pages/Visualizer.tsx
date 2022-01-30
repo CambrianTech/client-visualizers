@@ -56,7 +56,7 @@ import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
 import {ObjectSelection, SceneOptions} from "../components/SceneOptions";
-import {Modal} from "../components/Modal";
+import {ShareModal} from "../components/ShareModal";
 
 enum Panel {
     None="",
@@ -1003,11 +1003,10 @@ export default function Visualizer() {
                     </div>
                 </div>
 
-                {shareImageUrl && <Modal
+                {shareImageUrl && <ShareModal
                   onClose={() => setShareModal(false)}
                   isOpen={isShareModalOpen}
                   products={products}
-                  imageCollection={currentScene && currentScene.images}
                   shareImageUrl={shareImageUrl}
                 />}
 
