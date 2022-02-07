@@ -441,7 +441,7 @@ export default function Visualizer() {
             setListingItems(rootItem.children);
             setActivePanel(Panel.Products);
         } else if (currentScene) {
-            setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
+            setActivePanel((activePanel === Panel.Products || activePanel === Panel.Scenes) ? Panel.None : Panel.Products)
         } else {
             setActivePanel(activePanel === Panel.Scenes ? Panel.None : Panel.Scenes);
         }
@@ -934,7 +934,7 @@ export default function Visualizer() {
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
-            <div className={"panel a"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
+            <div className="panel a">
                 <div className={"title"}>
                     {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>productsClicked(true)}>
                         <div className={"choose-text"}>Choose a Color</div>
