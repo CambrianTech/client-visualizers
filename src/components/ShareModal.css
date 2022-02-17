@@ -1,0 +1,6 @@
+@media(max-width: 480px) {
+    .share-dialog .MuiDialog-paperWidthXl {
+        min-width: 100vw;
+        overflow: hidden;
+    }
+}

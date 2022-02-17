@@ -4,12 +4,8 @@ import './Visualizer.css'
 import {
     CBARAssetType,
     CBARContext,
-    CBAREvent,
-    CBAREventType,
     CBARFilledTiledAsset,
-    CBARIntersection,
     CBARMaterialProperties,
-    CBARMouseEvent,
     CBARPaintAsset,
     CBARRugAsset,
     CBARScene,
@@ -30,10 +26,11 @@ import {
     SceneCollection,
     SceneInfo,
     SwatchItem,
-    THREE
+    THREE,
+    ZoomState
 } from "react-home-ar";
 
-import {SiteContext, stateToUrl} from '../data/SiteContext';
+import {SiteContext} from '../data/SiteContext';
 import {
     DefaultToolsMenuActions,
     EditSurfaceTool,
@@ -41,14 +38,14 @@ import {
     ImageUpload,
     openImageDialog,
     ProductBreadcrumb,
+    ProductDetails,
     RotateTool,
     ServerProgress,
     ToolOperation,
     ToolsMenuAction,
     TranslateTool,
     VerticalListing,
-    ZoomControls,
-    ProductDetails
+    ZoomControls
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
@@ -58,7 +55,8 @@ import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
-import {AssetOptions} from "../components/AssetOptions";
+import {ObjectSelection, SceneOptions} from "../components/SceneOptions";
+import {ShareModal} from "../components/ShareModal";
 
 enum Panel {
     None="",
@@ -116,7 +114,7 @@ export default function Visualizer() {
     const [currentScene, setCurrentScene] = useState<CBARScene>();
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
     const [hasSeenProducts, setHasSeenProducts] = useState(false);
-    const [, setNeedsUpload] = useState(false);
+    const [needsScreenshot, setNeedsScreenshot] = useState(true);
 
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
@@ -131,10 +129,13 @@ export default function Visualizer() {
         }
     }, [siteContext])
 
+    const [shareImageUrl, setShareImageUrl] = useState<string>()
+
     useEffect(()=>{
         if (primarySurfaceType) {
             if (process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL && process.env.REACT_APP_CB_UPLOADS_URL && process.env.REACT_APP_CB_SEGMENT_URL) {
                 cbInitialize({
+                    initialZoom:ZoomState.ZoomedOut,
                     logLevel:DebugLevel.Warning,
                     hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
                     signingUrl: process.env.REACT_APP_CB_GET_UPLOAD_URLS_URL,
@@ -194,6 +195,7 @@ export default function Visualizer() {
     const removeAsset = useCallback(()=>{
         if (selectedAsset) {
             selectedAsset.removeFromScene();
+            setSelectedAsset(undefined);
         }
     }, [selectedAsset]);
 
@@ -308,10 +310,6 @@ export default function Visualizer() {
         </div>
     }, []);
 
-    const assetClicked = useCallback((asset:CBARSurfaceAsset) => {
-        setSelectedAsset(asset);
-    }, []);
-
     useEffect(()=>{
         if (selectedAsset && selectedAsset.product) {
             setSelectedRow(selectedAsset.product.parent);
@@ -348,7 +346,6 @@ export default function Visualizer() {
             console.log("Show material failed", selectedSurface);
             return;
         }
-
         const materials:CBARMaterialProperties[] = [];
 
         if (color.textures && color.textures.length) {
@@ -433,7 +430,7 @@ export default function Visualizer() {
         if (materials.length) {
             setSelectedAsset(currentAsset);
             currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:materials[0]} : { materials:materials}).then(()=>{
-                setNeedsUpload(true);
+                setNeedsScreenshot(true);
             }).catch((error:any) => {
                 console.error(error)
             })
@@ -445,58 +442,39 @@ export default function Visualizer() {
             setListingItems(rootItem.children);
             setActivePanel(Panel.Products);
         } else if (currentScene) {
-            setActivePanel(activePanel === Panel.Products ? Panel.None : Panel.Products)
+            setActivePanel((activePanel === Panel.Products || activePanel === Panel.Scenes) ? Panel.None : Panel.Products)
         } else {
             setActivePanel(activePanel === Panel.Scenes ? Panel.None : Panel.Scenes);
         }
     }, [activePanel, currentScene, rootItem]);
 
-    const handleVisualizerEvent = useCallback((event:CBAREvent) => {
-        if (!currentScene) return;
-
-        if (event.type === CBAREventType.Rotate) {
-            setToolMode(CBARToolMode.Rotate);
-        } else if (event.type === CBAREventType.Translate) {
-            setToolMode(CBARToolMode.Translate)
+    useEffect(()=>{
+        if (needsScreenshot && context) {
+            context.captureScreenshot().then(image=>{
+                setNeedsScreenshot(false)
+                setShareImageUrl(image);
+            })
         }
-        else if (event.type === CBAREventType.TouchDown) {
-            const intersections = (event as CBARMouseEvent).intersections
-            const assetIntersections = intersections.filter(x => x.object instanceof CBARSurfaceAsset);
-            const surfaceIntersection = intersections.find(x => x.object instanceof CBARSurface);
-            const surface = surfaceIntersection ? surfaceIntersection.object as CBARSurface : undefined;
-            const asset = assetIntersections.length > 0 ? assetIntersections.sort((a:CBARIntersection,b:CBARIntersection)=>{
-                const assetA = a.object as CBARSurfaceAsset;
-                const assetB = b.object as CBARSurfaceAsset;
-                if (assetA.type === assetB.type) return 0;
-                return assetA.type === CBARAssetType.Rug ? -1 : 1;
-            })[0].object as CBARSurfaceAsset : undefined;
+    }, [context, needsScreenshot])
 
-            if (surface) {
-                setSelectedSurface(surface);
-            }
+    const onVisTouchMove = useCallback(()=>{
+        if (!selectedAsset) return
 
-            //console.log("click", event.intersections);
-
-            if (asset) {
-                assetClicked(asset);
-            } else if (!selectedProduct) {
-                productsClicked();
-            }
-        } else if (event.type === CBAREventType.TouchMove && selectedAsset) {
-            if (toolMode === CBARToolMode.Rotate) {
-                setCurrentRotation(selectedAsset.surfaceRotation);
-            } else if (toolMode === CBARToolMode.Translate) {
-                setCurrentXPos(selectedAsset.surfacePosition.x);
-                setCurrentYPos(selectedAsset.surfacePosition.y);
-            }
+        if (toolMode === CBARToolMode.Rotate) {
+            setCurrentRotation(selectedAsset.surfaceRotation);
+        } else if (toolMode === CBARToolMode.Translate) {
+            setCurrentXPos(selectedAsset.surfacePosition.x);
+            setCurrentYPos(selectedAsset.surfacePosition.y);
         }
-    }, [assetClicked, currentScene, productsClicked, selectedAsset, selectedProduct, toolMode]);
+    }, [selectedAsset, toolMode]);
 
-    useEffect(() => {
-        if (context) {
-            context.setHandler(handleVisualizerEvent)
-        }
-    }, [context, handleVisualizerEvent]);
+    const onVisRotate = useCallback(()=>{
+        setToolMode(CBARToolMode.Rotate);
+    }, []);
+
+    const onVisTranslate = useCallback(()=>{
+        setToolMode(CBARToolMode.Translate);
+    }, []);
 
     useEffect(()=>{
         if (selectedColumn && selectedSurface && !selectedSurface.length()) {
@@ -648,10 +626,6 @@ export default function Visualizer() {
         return filters ? filters:[]
     }, [filters]);
 
-    const isUploadedImage = useCallback(() => {
-        return !dataPath;
-    }, [dataPath]);
-
     const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
         //console.log(`${basePath}/textures/${url}`)
         if (!url && selectedProduct) {
@@ -688,18 +662,6 @@ export default function Visualizer() {
         }
         return undefined
     },[activePanel, currentScene, isPortrait]);
-
-    const getShareUrl = useCallback(() => {
-        return stateToUrl(siteContext.state, true)
-    }, [siteContext.state]);
-
-    const shareCompleted = useCallback(() => {
-        setActivePanel(Panel.None);
-    }, []);
-
-    const shareUploadComplete = useCallback(()=>{
-        setNeedsUpload(false);
-    }, []);
 
     useEffect(()=>{
         if (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom) {
@@ -958,10 +920,26 @@ export default function Visualizer() {
         }
     }, [hasDetailsPanel, isPortrait, rightPanelOpen]);
 
+    const selectionChanged = useCallback((object:ObjectSelection)=>{
+        setSelectedSurface(object.surface);
+        setSelectedAsset(object.asset);
+    }, []);
+
+    const [isShareModalOpen, setShareModal] = useState(false);
+
+    //working on typed interfaces, but until then:
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const products:ProductItem[] = []
+    currentScene?.assets.all().forEach(asset=>{
+        if (asset.product && products.indexOf(asset.product) < 0) {
+            products.push(asset.product)
+        }
+    })
+
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
-            <div className={"panel a"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
+            <div className="panel a">
                 <div className={"title"}>
                     {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>productsClicked(true)}>
                         <div className={"choose-text"}>Choose a Color</div>
@@ -996,10 +974,14 @@ export default function Visualizer() {
             {siteContext.state.siteData &&
             <div className={"panel b"}>
 
-                <CBARView onContextCreated={setContext} toolMode={toolMode}>
-                    <AssetOptions assets={currentScene?.assets.all()}
-                                  selectedAsset={selectedAsset}
-                                  handleAction={handleAction} />
+                <CBARView onContextCreated={setContext}
+                          toolMode={toolMode}
+                          onTouchMove={onVisTouchMove}
+                          onTranslate={onVisTranslate}
+                          onRotate={onVisRotate}>
+                    <SceneOptions scene={currentScene}
+                                  selectionChanged={selectionChanged}
+                                  handleOption={handleAction} />
                 </CBARView>
 
                 {_isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
@@ -1009,7 +991,24 @@ export default function Visualizer() {
                 <div className={"visualizer-buttons-right"} style={{visibility:showUploadButton || !currentScene || isToolOverlayOpen ? "hidden" : "visible"}}>
                     <ZoomControls context={context} />
                     <VisualizerTools actions={toolActions} handleAction={handleAction} />
+                    <div style={{ zIndex: 1051, pointerEvents: 'auto' }}>
+                        <Fab
+                          onClick={() => setShareModal(true)}
+                          className="MuiFab-primary"
+                        >
+                          <Icon>
+                              share
+                          </Icon>
+                        </Fab>
+                    </div>
                 </div>
+
+                {shareImageUrl && <ShareModal
+                  onClose={() => setShareModal(false)}
+                  isOpen={isShareModalOpen}
+                  products={products}
+                  shareImageUrl={shareImageUrl}
+                />}
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}
@@ -1090,5 +1089,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, handleAction, selectedAsset, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
