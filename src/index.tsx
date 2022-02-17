@@ -61,7 +61,7 @@ export const getUploadedRoomPaths = (roomID?:string):RoomPaths=>{
     const basePath = `${process.env.REACT_APP_CB_UPLOADS_URL}/${roomID}`;
     return {
         base:basePath,
-        data:`${basePath}/data_v3.json`,
+        data:`${basePath}/data.json`,
         thumbnail:`${basePath}/thumbnail.jpg`,
         preview:`${basePath}/preview.jpg`
     }
