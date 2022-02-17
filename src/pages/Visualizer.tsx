@@ -6,7 +6,6 @@ import {
     CBARContext,
     CBARFilledTiledAsset,
     CBARMaterialProperties,
-    CBARMouseEvent,
     CBARPaintAsset,
     CBARRugAsset,
     CBARScene,
@@ -31,7 +30,7 @@ import {
     ZoomState
 } from "react-home-ar";
 
-import {SiteContext, stateToUrl} from '../data/SiteContext';
+import {SiteContext} from '../data/SiteContext';
 import {
     DefaultToolsMenuActions,
     EditSurfaceTool,
@@ -57,6 +56,7 @@ import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
 import {ObjectSelection, SceneOptions} from "../components/SceneOptions";
+import {ShareModal} from "../components/ShareModal";
 
 enum Panel {
     None="",
@@ -114,7 +114,7 @@ export default function Visualizer() {
     const [currentScene, setCurrentScene] = useState<CBARScene>();
     const [selectedSurface, setSelectedSurface] = useState<CBARSurface>();
     const [hasSeenProducts, setHasSeenProducts] = useState(false);
-    const [, setNeedsUpload] = useState(false);
+    const [needsScreenshot, setNeedsScreenshot] = useState(true);
 
     const selectedProduct = useMemo(()=>{
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
@@ -128,6 +128,8 @@ export default function Visualizer() {
             return firstBrand.surfaceTypes ? firstBrand.surfaceTypes[0] : CBARSurfaceType.Floor;
         }
     }, [siteContext])
+
+    const [shareImageUrl, setShareImageUrl] = useState<string>()
 
     useEffect(()=>{
         if (primarySurfaceType) {
@@ -344,7 +346,6 @@ export default function Visualizer() {
             console.log("Show material failed", selectedSurface);
             return;
         }
-
         const materials:CBARMaterialProperties[] = [];
 
         if (color.textures && color.textures.length) {
@@ -429,7 +430,7 @@ export default function Visualizer() {
         if (materials.length) {
             setSelectedAsset(currentAsset);
             currentAsset.loadProduct(color, currentAsset.type === CBARAssetType.PaintSurface ? { material:materials[0]} : { materials:materials}).then(()=>{
-                setNeedsUpload(true);
+                setNeedsScreenshot(true);
             }).catch((error:any) => {
                 console.error(error)
             })
@@ -447,7 +448,16 @@ export default function Visualizer() {
         }
     }, [activePanel, currentScene, rootItem]);
 
-    const onVisTouchMove = useCallback((event:CBARMouseEvent)=>{
+    useEffect(()=>{
+        if (needsScreenshot && context) {
+            context.captureScreenshot().then(image=>{
+                setNeedsScreenshot(false)
+                setShareImageUrl(image);
+            })
+        }
+    }, [context, needsScreenshot])
+
+    const onVisTouchMove = useCallback(()=>{
         if (!selectedAsset) return
 
         if (toolMode === CBARToolMode.Rotate) {
@@ -616,10 +626,6 @@ export default function Visualizer() {
         return filters ? filters:[]
     }, [filters]);
 
-    const isUploadedImage = useCallback(() => {
-        return !dataPath;
-    }, [dataPath]);
-
     const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
         //console.log(`${basePath}/textures/${url}`)
         if (!url && selectedProduct) {
@@ -656,18 +662,6 @@ export default function Visualizer() {
         }
         return undefined
     },[activePanel, currentScene, isPortrait]);
-
-    const getShareUrl = useCallback(() => {
-        return stateToUrl(siteContext.state, true)
-    }, [siteContext.state]);
-
-    const shareCompleted = useCallback(() => {
-        setActivePanel(Panel.None);
-    }, []);
-
-    const shareUploadComplete = useCallback(()=>{
-        setNeedsUpload(false);
-    }, []);
 
     useEffect(()=>{
         if (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom) {
@@ -931,6 +925,17 @@ export default function Visualizer() {
         setSelectedAsset(object.asset);
     }, []);
 
+    const [isShareModalOpen, setShareModal] = useState(false);
+
+    //working on typed interfaces, but until then:
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const products:ProductItem[] = []
+    currentScene?.assets.all().forEach(asset=>{
+        if (asset.product && products.indexOf(asset.product) < 0) {
+            products.push(asset.product)
+        }
+    })
+
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
@@ -986,7 +991,24 @@ export default function Visualizer() {
                 <div className={"visualizer-buttons-right"} style={{visibility:showUploadButton || !currentScene || isToolOverlayOpen ? "hidden" : "visible"}}>
                     <ZoomControls context={context} />
                     <VisualizerTools actions={toolActions} handleAction={handleAction} />
+                    <div style={{ zIndex: 1051, pointerEvents: 'auto' }}>
+                        <Fab
+                          onClick={() => setShareModal(true)}
+                          className="MuiFab-primary"
+                        >
+                          <Icon>
+                              share
+                          </Icon>
+                        </Fab>
+                    </div>
                 </div>
+
+                {shareImageUrl && <ShareModal
+                  onClose={() => setShareModal(false)}
+                  isOpen={isShareModalOpen}
+                  products={products}
+                  shareImageUrl={shareImageUrl}
+                />}
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}
@@ -1067,5 +1089,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
