@@ -444,7 +444,7 @@ export default function Visualizer() {
             } else {
                 currentAsset = new CBARFilledTiledAsset(context);
             }
-            console.log(`Created asset of type ${currentAsset.type}, at elevation ${currentAsset.surfaceElevation}m`);
+            //console.log(`Created asset of type ${currentAsset.type}, at elevation ${currentAsset.surfaceElevation}m`);
             selectedSurface.add(currentAsset, elevation);
         }
 
@@ -508,12 +508,6 @@ export default function Visualizer() {
             setHasSeenProducts(true);
         }
     }, [selectedProduct]);
-
-    useEffect(()=>{
-        if (selectedSurface) {
-            console.log(`Selected surface changed to "${selectedSurface.description}"`)
-        }
-    }, [selectedSurface]);
 
     const swatchSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem.parent && swatchItem.parent.hasColumns) {
@@ -742,7 +736,7 @@ export default function Visualizer() {
     useEffect(()=>{
         if (currentScene && primarySurface) {
             setSelectedSurface(primarySurface);
-            console.log(`Set initial selected surface to ${primarySurface.description}.`);
+            //console.log(`Set initial selected surface to ${primarySurface.description}.`);
         }
     }, [currentScene, primarySurface]);
 
@@ -875,12 +869,14 @@ export default function Visualizer() {
     }, [selectedProduct]);
 
     const hasDetailsPanel = useMemo<boolean>(()=>{
-        return !!(selectedProduct?.parent && productDetails && (productDetails.preview || productDetails.content || productDetails.specifications?.length));
+        if (!selectedProduct?.parent || !productDetails) {
+            return false;
+        }
+        return !!(productDetails.preview || productDetails.content || productDetails.specifications?.length);
     }, [productDetails, selectedProduct])
 
     const productDetailsClicked = useCallback(()=>{
         if (hasDetailsPanel) {
-            console.log("panel", selectedProduct)
             setActivePanel(activePanel === Panel.None ? Panel.ProductInfo :  Panel.None)
         } else if (productDetails?.url && selectedProduct) {
             let url = productDetails.url;
@@ -1011,17 +1007,10 @@ export default function Visualizer() {
 
                 <div className={"visualizer-buttons-right"} style={{visibility:showUploadButton || !currentScene || isToolOverlayOpen ? "hidden" : "visible"}}>
                     <ZoomControls context={context} />
+                    <Fab onClick={() => setShareModal(true)} className="MuiFab-primary">
+                        <Icon>share</Icon>
+                    </Fab>
                     <VisualizerTools actions={toolActions} handleAction={handleAction} />
-                    <div style={{ zIndex: 1051, pointerEvents: 'auto' }}>
-                        <Fab
-                          onClick={() => setShareModal(true)}
-                          className="MuiFab-primary"
-                        >
-                          <Icon>
-                              share
-                          </Icon>
-                        </Fab>
-                    </div>
                 </div>
 
                 {shareImageUrl && <ShareModal
@@ -1094,7 +1083,7 @@ export default function Visualizer() {
 
             </div>}
 
-            <div className={"panel c"} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
+            <div className={"panel c"} style={{visibility:hasDetailsPanel ? "visible" : "hidden"}} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
 
                 {!isPortrait && <div className={"title"}>
                     <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>
