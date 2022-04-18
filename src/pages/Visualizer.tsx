@@ -52,6 +52,7 @@ import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "
 import {BrowserType} from "react-client-info";
 import {Fab, Icon} from "@material-ui/core";
 import {VisualizerTools} from "../components/VisualizerTools";
+import {ColorLegend} from "../components/ColorLegend";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
@@ -92,6 +93,24 @@ if (!process.env.REACT_APP_CB_UPLOADS_URL) {
 }
 
 export default function Visualizer() {
+    const [activeSwatch, setActiveSwatch] = useState(1);
+    const [swatches, setSwatches ] = useState([
+        {
+        color: "#00FF00",
+        displayName: "Test Color 1",
+        brand: "Test Brand 1",
+        },
+        {
+        color: "#0000FF",
+        displayName: "Test Color 2",
+        brand: "Test Brand 2",
+        },
+        {
+            color: "#808080",
+            displayName: "Test Color 3",
+            brand: "Test Brand 3",
+        }
+    ]);
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
     const _isMounted = useRef(false);
@@ -1031,14 +1050,25 @@ export default function Visualizer() {
                                onTranslationFinished={translationFinished} />
 
                 {!rightPanelOpen && selectedRow && selectedProduct && (
-                    <div className={"floating-product-info"}>
-                        <div className={"product-swatch"} style={{background:selectedProduct.color}}>
-                            {brandPath && selectedProduct.thumbnail && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
-                        </div>
-                        <div className={"product-name"}>
-                            {selectedRow.displayName} - {selectedProduct.displayName}
-                        </div>
+                                    //     <div className={"floating-product-info"}>
+                                    //     <div className={"product-swatch"} style={{background:selectedProduct.color}}>
+                                    //         {brandPath && selectedProduct.thumbnail && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
+                                    //     </div>
+                                    //     <div className={"product-name"}>
+                                    //         {selectedRow.displayName} - {selectedProduct.displayName}
+                                    //     </div>
+                                    // </div>
+                    <>
+                    <div style={{width: "50px"}}>
+                        <label>input active color index</label>
+                        <input type="number"
+                        step="1"
+                        onChange={(event) => {
+                            if(Number(event.target.value) === 1 || Number(event.target.value) === 3 || Number(event.target.value) === 2 ) setActiveSwatch(Number(event.target.value));
+                            }} value={activeSwatch} />
                     </div>
+                    <ColorLegend swatches={swatches} activeSwatch={activeSwatch}  />
+                    </>
                 )}
 
                 {/*logo button*/}
