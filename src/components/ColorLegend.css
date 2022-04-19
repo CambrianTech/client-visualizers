@@ -4,25 +4,80 @@
   z-index: 1;
   bottom: 20px;
   right: 20px;
-
+  
+}
+.column-or-row {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+}
+.grow-enter {
+  height: 20px;
+  /* transform: translateX(50px); */
+}
+
+.grow-enter.grow-enter-active {
+  height: 40px;
+  background-color: var(--my-css-var);
+  transition: all 400ms;
+}
+.grow-enter-done {
+  height: 40px;
+  background-color: var(--my-css-var);
+
+}
+
+.grow-exit {
+  height: 40px;
+  opacity: 1;
+}
+.grow-exit-active {
+  height: 20px;
+  opacity: 0;
+  background-color: var(--my-css-var);
+  /* transform: translateX(100px); */
+  transition: all 400ms ease-out;  
+}
+
+
+.squash-enter {
+  height: 20px;
+  background-color: var(--my-css-var);
+
+}
+/* 
+.squash-enter.squash-enter-active {
+  background-color: var(--my-css-var);
+  transition: all 600ms;
+} */
+.squash-enter-done {
+  background-color: var(--my-css-var);
+  height: 20px;
+}
+
+.squash-exit {
+  background-color: var(--my-css-var);
+  height: inherit;
+  opacity: 1;
 }
 
 .product-swatch {
   width: 40px;
-  height: 40px;
+  min-height: 20px;
+  bottom: 0;
+  margin-left: 10px;
+  margin-right: 0px;
+  border: 1px solid #ffffff;
+  box-shadow: 0px 3px 10px 1px;
+}
+
+
+.product-swatch-full {
+  width: 40px;
+  min-height: 20px;
+  bottom: 0;
   margin-left: 10px;
   border: 1px solid #ffffff;
   box-shadow: 0px 3px 10px 1px;
-  transition: all .3s ease;
-}
-
-.product-swatch :hover {
-  transition: all .3s ease;
-  transform: translateY(10px);
-  height: 20px;
-
 }
 
 .product-swatch img {
@@ -33,24 +88,51 @@
 
 .product-name {
   font-size: 2.0vh;
+  align-self: flex-end;
   color: #fff;
   pointer-events: none;
   text-shadow: 1px 1px rgba(0,0,0,0.5);
   text-transform: uppercase;
   user-select: none;
 }
+.product-name-mobile {
+  display: none;
+
+}
+
+@media(max-device-width: 480px) { 
+  .floating-product-info {
+    justify-content: center;
+    align-items: center;
+    bottom: 100px;
+    margin: 0px;
+    flex-direction: column;
+  }
+  .product-name {
+    display: none
+  }
+  .column-or-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+  .product-name-mobile {
+    margin-top: 10px;;
+    display: block;
+    font-size: 2.0vh;
+    align-self: center;
+    color: #fff;
+    pointer-events: none;
+    text-shadow: 1px 1px rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    user-select: none;
+  }
+
+}
 @media (orientation: portrait) {
 
 
-  .floating-product-info {
-      bottom: 8px;
-      right: unset;
-      left: 10px;
-  }
 
-  .floating-product-info .product-name {
-      margin-top: 15px;
-  }
 
 
   .panels.product-info .floating-product-info,

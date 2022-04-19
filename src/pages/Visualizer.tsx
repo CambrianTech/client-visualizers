@@ -1037,8 +1037,18 @@ export default function Visualizer() {
                                onTranslationStarted={translationStarted}
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
-
-                {!rightPanelOpen && selectedRow && selectedProduct && (
+                   <>
+                    <div style={{position: "absolute", bottom: "300px", right: "150px", width: "50px"}}>
+                        <label>input active color index</label>
+                        <input type="number"
+                        step="1"
+                        onChange={(event) => {
+                            if(Number(event.target.value) === 1 || Number(event.target.value) === 3 || Number(event.target.value) === 2 ) setActiveSwatch(Number(event.target.value));
+                            }} value={activeSwatch} />
+                    </div>
+                    <ColorLegend swatches={swatches} activeSwatch={activeSwatch}  />
+                    </>
+                {/* {!rightPanelOpen && selectedRow && selectedProduct && (
                                     //     <div className={"floating-product-info"}>
                                     //     <div className={"product-swatch"} style={{background:selectedProduct.color}}>
                                     //         {brandPath && selectedProduct.thumbnail && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
@@ -1058,7 +1068,7 @@ export default function Visualizer() {
                     </div>
                     <ColorLegend swatches={swatches} activeSwatch={activeSwatch}  />
                     </>
-                )}
+                )} */}
 
                 {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
