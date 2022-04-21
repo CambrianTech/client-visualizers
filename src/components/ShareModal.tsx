@@ -36,12 +36,8 @@ const ColorWrapper = styled.div`
     padding-left: 20px;
     padding-right: 20px;
     @media(max-device-width: ${MOBILE_CUTOFF}px) {
-        padding-bottom: 4px;
-    }
-    
-    @media(max-device-width: ${MED_SCREEN_CUTOFF}px) {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-bottom: 0;
+        padding-right: 0;
     }
 `;
 
@@ -49,7 +45,7 @@ const ColorBox = styled.div`
     width: 40px;
     height: 40px; 
     background-color: ${props => props.color};
-    margin-right: 10px;
+    margin-left: 10px;
     border: 2px solid white;
     @media(max-device-width: ${MED_SCREEN_CUTOFF}px) {
         width: 20px;
@@ -63,14 +59,16 @@ const ColorItem = styled.div`
     flex-direction: row;
     align-items: center;
     color: white;
+    text-align: right;
+    margin-top: 8px;
 `;
 
 const ColorsWrapper = styled.div`
     display: flex;
-    flex-direction: row;
-    @media(max-device-width: ${MOBILE_CUTOFF}px) {
-        flex-direction: column;
-    }
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+    padding-bottom: 8px;
 `;
 
 const TopRightCloseButton = styled(IconButton)`
@@ -139,13 +137,10 @@ const ShareWrapper = styled.div`
     display: flex;
     width: 100%;
     justify-content: center;
-    position: absolute;
     bottom: 0;
-    padding-bottom: 10px;
     max-width: 100%;
     overflow-y: auto;
-    left: 0;
-    right: 0;
+    padding-top: 12px;
 `;
 
 const ShareItem = styled.div`
@@ -156,23 +151,17 @@ const ShareItem = styled.div`
         margin-right: 4px;
         margin-left: 4px;
     }
+    position: relative;
 `;
 
-const TopScrim = styled.div`
-    position: absolute;
-    width: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0,0,0,0.3) 70%,  rgba(0, 0, 0, 0));
-    height: 160px;
-    padding-right: 60px;
-    padding-left: 10px;
-    padding-top: 20px;
-    top: 0;
-    pointer-events: none;
-    overflow-x: hidden;
+const DisplayName = styled.div`
     @media(max-device-width: ${MOBILE_CUTOFF}px) {
-        height: 110px;
-        padding-left: 0;
-        padding-top: 8px;
+        font-size: 12px;
+    }
+`;
+const ProductCode = styled.div`
+    @media(max-device-width: ${MOBILE_CUTOFF}px) {
+        font-size: 12px;
     }
 `;
 
@@ -181,12 +170,14 @@ const BottomScrim = styled.div`
     width: 100%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0,0,0,0.3) 70%,  rgba(0, 0, 0, 0));
     height: 160px;
-    padding-right: 60px;
-    padding-left: 10px;
-    bottom: 0;
+    padding-right: 12px;
+    bottom: 62px;
     pointer-events: none;
+    display: flex;
+    flex-direction: row-reverse;
     @media(max-device-width: ${MOBILE_CUTOFF}px) {
-        height: 80px;
+        height: 140px;
+        bottom: 48px;
     }
 `;
 
@@ -234,84 +225,83 @@ export function ShareModal({ onClose, isOpen, products, shareImageUrl}: Props) {
             </TopRightCloseButton>
 
             <StyledDialogContent>
-
                 <FullWidthImage src={shareImageUrl} style={{ pointerEvents: 'none' }} />
-                <TopScrim>
-                    {
-                        products
-                        && (
-                            <ColorsWrapper>
-                                {products.map((product) => (
-                                    <ColorWrapper key={product.key}>
-                                        <ColorItem>
-                                            <ColorBox color={product.color} />
-                                            {`${product.displayName} ${product.code}`}
-                                        </ColorItem>
-                                    </ColorWrapper>
-                                ))}
-                            </ColorsWrapper>
-                        )
-                    }
-                </TopScrim>
-
             </StyledDialogContent>
             <BottomScrim>
-                <ShareWrapper>
-                    <ShareItem>
-                        {/** Doesn't work for localhost, but works for proper websites **/}
-                        <FacebookShareButton url={window.location.href}>
-                            <FacebookIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />
-                        </FacebookShareButton>
-                    </ShareItem>
-                    <ShareItem>
-                        {/** Doesn't work for localhost, but works for proper websites **/}
-                        <LinkedinShareButton url={window.location.href}>
-                            <LinkedinIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />
-                        </LinkedinShareButton>
-                    </ShareItem>
-
-                    <ShareItem>
-                        {/** Doesn't work for localhost, but works for proper websites and images **/}
-                        <TumblrShareButton url={window.location.href}>
-                            <TumblrIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />
-                        </TumblrShareButton>
-                    </ShareItem>
-
-                    {/* Doesn't work without a public URL */}
-                    {/*<ShareItem>*/}
-                    {/*    /!** Doesn't work for localhost, but works for proper websites and images **!/*/}
-                    {/*    <PinterestShareButton url={window.location.href} media={shareImageUrl}>*/}
-                    {/*        <PinterestIcon size={socialIconSize} round />*/}
-                    {/*    </PinterestShareButton>*/}
-                    {/*</ShareItem>*/}
-
-                    <ShareItem>
-                        <TwitterShareButton url={window.location.href}>
-                            <TwitterIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />
-                        </TwitterShareButton>
-                    </ShareItem>
-
-                    <ShareItem>
-                        <EmailShareButton url={window.location.href}>
-                            <EmailIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />
-                        </EmailShareButton>
-                    </ShareItem>
-
-                    <ShareItem>
-                        <DownloadShareButton disableRipple onClick={() => download(shareImageUrl, 'my-visualization.jpg')}>
-                            <BlackCircle size={socialIconSize} />
-                            <ShareIcon>download</ShareIcon>
-                        </DownloadShareButton>
-                    </ShareItem>
-
-                    <ShareItem>
-                        <CopyShareButton disableRipple onClick={() => copyTextToClipboard(window.location.href)}>
-                            <BlackCircle size={socialIconSize} />
-                            <ShareIcon>link</ShareIcon>
-                        </CopyShareButton>
-                    </ShareItem>
-                </ShareWrapper>
+                {
+                    products
+                    && (
+                        <ColorsWrapper>
+                            {products.map((product) => (
+                                <ColorWrapper key={product.key}>
+                                    <ColorItem>
+                                        <div>
+                                            <DisplayName>{product.displayName}</DisplayName>
+                                            <ProductCode>{product.code}</ProductCode>
+                                        </div>
+                                        <ColorBox color={product.color} />
+                                    </ColorItem>
+                                </ColorWrapper>
+                            ))}
+                        </ColorsWrapper>
+                    )
+                }
             </BottomScrim>
+            <ShareWrapper>
+                <ShareItem>
+                    {/** Doesn't work for localhost, but works for proper websites **/}
+                    <FacebookShareButton url={window.location.href}>
+                        <FacebookIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />
+                    </FacebookShareButton>
+                </ShareItem>
+                {/*<ShareItem>*/}
+                {/*    /!** Doesn't work for localhost, but works for proper websites **!/*/}
+                {/*    <LinkedinShareButton url={window.location.href}>*/}
+                {/*        <LinkedinIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />*/}
+                {/*    </LinkedinShareButton>*/}
+                {/*</ShareItem>*/}
+
+                {/*<ShareItem>*/}
+                {/*    /!** Doesn't work for localhost, but works for proper websites and images **!/*/}
+                {/*    <TumblrShareButton url={window.location.href}>*/}
+                {/*        <TumblrIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />*/}
+                {/*    </TumblrShareButton>*/}
+                {/*</ShareItem>*/}
+
+                {/* Doesn't work without a public URL */}
+                {/*<ShareItem>*/}
+                {/*    /!** Doesn't work for localhost, but works for proper websites and images **!/*/}
+                {/*    <PinterestShareButton url={window.location.href} media={shareImageUrl}>*/}
+                {/*        <PinterestIcon size={socialIconSize} round />*/}
+                {/*    </PinterestShareButton>*/}
+                {/*</ShareItem>*/}
+
+                <ShareItem>
+                    <TwitterShareButton url={window.location.href}>
+                        <TwitterIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />
+                    </TwitterShareButton>
+                </ShareItem>
+
+                <ShareItem>
+                    <EmailShareButton url={window.location.href}>
+                        <EmailIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />
+                    </EmailShareButton>
+                </ShareItem>
+
+                <ShareItem>
+                    <DownloadShareButton disableRipple onClick={() => download(shareImageUrl, 'my-visualization.jpg')}>
+                        <BlackCircle size={socialIconSize} />
+                        <ShareIcon>download</ShareIcon>
+                    </DownloadShareButton>
+                </ShareItem>
+
+                <ShareItem>
+                    <CopyShareButton disableRipple onClick={() => copyTextToClipboard(window.location.href)}>
+                        <BlackCircle size={socialIconSize} />
+                        <ShareIcon>link</ShareIcon>
+                    </CopyShareButton>
+                </ShareItem>
+            </ShareWrapper>
         </Dialog>
     );
 }

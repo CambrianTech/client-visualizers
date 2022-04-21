@@ -4,3 +4,9 @@
         overflow: hidden;
     }
 }
+
+.share-dialog .MuiPaper-root {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
