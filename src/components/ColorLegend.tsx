@@ -10,6 +10,7 @@ type Swatches = {
 type ColorLegendProps = {
   swatches: Swatches[];
   activeSwatch: number;
+  tempActive?: number;
 };
 
 export function ColorLegend(props: ColorLegendProps) {
@@ -18,7 +19,7 @@ export function ColorLegend(props: ColorLegendProps) {
   useEffect(() => {
     setInProp(false);
     console.log("set inprop to true");
-  }, [props.activeSwatch]);
+  }, [props.activeSwatch, props.tempActive]);
   return (
     <>
     
@@ -26,8 +27,8 @@ export function ColorLegend(props: ColorLegendProps) {
       <div className="column-or-row">
         <>
           <div className={"product-name"}>
-            {props.swatches[props.activeSwatch - 1].brand} -{" "}
-            {props.swatches[props.activeSwatch - 1].displayName}
+            {props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].brand} -{" "}
+            {props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].displayName}
           </div>
           <CSSTransition
             unmountOnExit
@@ -42,16 +43,16 @@ export function ColorLegend(props: ColorLegendProps) {
               key={props.activeSwatch}
               className={`product-swatch-full`}
               style={
-                ({ "--my-css-var": props.swatches[props.activeSwatch - 1].color } as React.CSSProperties)
+                ({ "--my-css-var": props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].color } as React.CSSProperties)
             }
             />
           </CSSTransition>
         </>
 
           {props.swatches?.map((swatch, i) => {
-            console.log("active swatch", props.activeSwatch - 1);
+            console.log("active swatch", props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1));
             console.log("index", i);
-            if (i !== props.activeSwatch - 1) {
+            if (i !== (props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1))) {
               var style = { "--my-css-var": swatch.color } as React.CSSProperties;
               return (
                 
@@ -76,8 +77,8 @@ export function ColorLegend(props: ColorLegendProps) {
 
       </div>
       <div className={"product-name-mobile"}>
-            {props.swatches[props.activeSwatch - 1].brand} -{" "}
-            {props.swatches[props.activeSwatch - 1].displayName}
+            {props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].brand} -{" "}
+            {props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].displayName}
           </div>
       </div>
 

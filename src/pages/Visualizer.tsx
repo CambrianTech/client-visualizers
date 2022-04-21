@@ -50,7 +50,7 @@ import {
 import {Progress} from "../components/Progress";
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
-import {Fab, Icon} from "@material-ui/core";
+import {Checkbox, Fab, Icon} from "@material-ui/core";
 import {VisualizerTools} from "../components/VisualizerTools";
 import {ColorLegend} from "../components/ColorLegend";
 import {ApiCapabilityName} from "cambrian-base";
@@ -94,6 +94,9 @@ if (!process.env.REACT_APP_CB_UPLOADS_URL) {
 
 export default function Visualizer() {
     const [activeSwatch, setActiveSwatch] = useState(1);
+    const [tempActiveSwatch, setTempActiveSwatch] = useState(1);
+    const [allowTemp, setAllowTemp] = useState(false);
+
     const [swatches, setSwatches ] = useState([
         {
         color: "#00FF00",
@@ -109,6 +112,11 @@ export default function Visualizer() {
             color: "#808080",
             displayName: "Test Color 3",
             brand: "Test Brand 3",
+        },
+        {
+            color: "#808080",
+            displayName: "Test Color 4",
+            brand: "Test Brand 4",
         }
     ]);
     const siteContext = useContext(SiteContext)!;
@@ -1038,15 +1046,24 @@ export default function Visualizer() {
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
                    <>
+                   <div style={{position: "absolute", bottom: "200px", right: "150px", width: "50px"}}>
+                   <input type="checkbox" id="tempactive" name="tempactive" onChange={(event) => {setAllowTemp(event.target.checked)}} checked={allowTemp} />
+                        <label>input temp active</label>
+                        <input type="number"
+                        step="1"
+                        onChange={(event) => {
+                            if(Number(event.target.value) === 1 || Number(event.target.value) === 3 || Number(event.target.value) === 2 || Number(event.target.value) === 4 ) setTempActiveSwatch(Number(event.target.value));
+                            }} value={tempActiveSwatch} />
+                    </div>
                     <div style={{position: "absolute", bottom: "300px", right: "150px", width: "50px"}}>
                         <label>input active color index</label>
                         <input type="number"
                         step="1"
                         onChange={(event) => {
-                            if(Number(event.target.value) === 1 || Number(event.target.value) === 3 || Number(event.target.value) === 2 ) setActiveSwatch(Number(event.target.value));
+                            if(Number(event.target.value) === 1 || Number(event.target.value) === 3 || Number(event.target.value) === 2 || Number(event.target.value) === 4 ) setActiveSwatch(Number(event.target.value));
                             }} value={activeSwatch} />
                     </div>
-                    <ColorLegend swatches={swatches} activeSwatch={activeSwatch}  />
+                    <ColorLegend swatches={swatches} tempActive={allowTemp? tempActiveSwatch : undefined} activeSwatch={activeSwatch}  />
                     </>
                 {/* {!rightPanelOpen && selectedRow && selectedProduct && (
                                     //     <div className={"floating-product-info"}>
