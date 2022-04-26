@@ -137,6 +137,9 @@ export default function Visualizer() {
         }
     }, [siteContext])
 
+    const [shareCanvas, setShareCanvas] = useState<string>()
+
+
     const [shareImageUrl, setShareImageUrl] = useState<string>()
 
     useEffect(()=>{
@@ -452,10 +455,12 @@ export default function Visualizer() {
 
     useEffect(()=>{
         if (needsScreenshot && context) {
+            //is this where i write to the canvas?
             context.captureScreenshot().then(image=>{
-                setNeedsScreenshot(false)
+                setNeedsScreenshot(false);
                 setShareImageUrl(image);
             })
+
         }
     }, [context, needsScreenshot])
 
@@ -994,10 +999,11 @@ export default function Visualizer() {
                     <VisualizerTools actions={toolActions} handleAction={handleAction} />
                 </div>
 
-                {shareImageUrl && <ShareModal
+                {(shareImageUrl && isShareModalOpen) && <ShareModal
                   onClose={() => setShareModal(false)}
                   isOpen={isShareModalOpen}
                   products={products}
+                  context={context}
                   shareImageUrl={shareImageUrl}
                 />}
 
