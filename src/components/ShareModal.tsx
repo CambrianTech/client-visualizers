@@ -1,9 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useRef,
-  createRef,
-  ReactNode,
+import React, { useState
 } from "react";
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
@@ -45,46 +40,7 @@ type Props = PropsWithChildren<{
   shareImageUrl: string;
 }>;
 
-const ColorWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  @media (max-device-width: ${MOBILE_CUTOFF}px) {
-    padding-bottom: 0;
-    padding-right: 0;
-  }
-`;
 
-const ColorBox = styled.div`
-  width: 40px;
-  height: 40px;
-  background-color: ${(props) => props.color};
-  margin-left: 10px;
-  border: 2px solid white;
-  @media (max-device-width: ${MED_SCREEN_CUTOFF}px) {
-    width: 20px;
-    min-width: 20px;
-    height: 20px;
-  }
-`;
-
-const ColorItem = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: white;
-  text-align: right;
-  margin-top: 8px;
-`;
-
-const ColorsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: end;
-  padding-bottom: 8px;
-`;
 
 const TopRightCloseButton = styled(IconButton)`
   position: absolute;
@@ -169,37 +125,6 @@ const ShareItem = styled.div`
   position: relative;
 `;
 
-const DisplayName = styled.div`
-  @media (max-device-width: ${MOBILE_CUTOFF}px) {
-    font-size: 12px;
-  }
-`;
-const ProductCode = styled.div`
-  @media (max-device-width: ${MOBILE_CUTOFF}px) {
-    font-size: 12px;
-  }
-`;
-
-const BottomScrim = styled.div`
-  position: absolute;
-  width: 100%;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.3) 70%,
-    rgba(0, 0, 0, 0)
-  );
-  height: 160px;
-  padding-right: 12px;
-  bottom: 62px;
-  pointer-events: none;
-  display: flex;
-  flex-direction: row-reverse;
-  @media (max-device-width: ${MOBILE_CUTOFF}px) {
-    height: 140px;
-    bottom: 48px;
-  }
-`;
 
 const CloseIcon = styled(Icon)`
   color: white;
@@ -230,61 +155,6 @@ function BlackCircle({ size }: { size: number }) {
   );
 }
 
-function drawCanvas(ref: React.MutableRefObject<HTMLCanvasElement | null>, imgUrl: string ) {
-  console.log("ref", ref)
-  const ctx = ref?.current?.getContext("2d");
-
-  const img = new Image();
-  img.crossOrigin = "";
-  img.src = imgUrl;
-
-  img.onload = () => {
-    console.log("HI 2");
-
-    if(ctx) {
-    //set height / width of canvas
-    ctx.canvas.style.width = "100%";
-    ctx.canvas.style.height = "100%";
-    ctx.canvas.style.overflow = "none";
-
-    //set hegiht / width of canvas
-    ctx.canvas.width = Math.min(img.width, img.height);
-    ctx.canvas.height = Math.min(img.width, img.height);
-
-    //Draw Image
-    const size = Math.min(ctx.canvas.width, ctx.canvas.height);
-    const xPos = (ctx.canvas.width - size) * 0.5;
-    ctx.drawImage(img, xPos, 0, size, size);
-  }
-  }
-
-        // //Draw rectangle
-      // const bottom = size;
-      // const farRight = ctx.canvas.width - (ctx.canvas.width - size) * 0.5;
-
-      // ctx.beginPath();
-      // ctx.lineWidth = 5;
-      // ctx.fillStyle = "blue";
-
-      // ctx.strokeStyle = "white";
-      // ctx.fillRect(farRight -  100, bottom - 100, 80, 80);
-      // ctx.stroke();
-
-    //   products?.map((product, i) => {
-    //     console.log("i", i);
-    //   ctx.beginPath();
-    //   ctx.lineWidth = 5;
-    //   ctx.fillStyle = "blue";
-
-    //   ctx.strokeStyle = "white";
-    //   ctx.fillRect(farRight - (i + 1) * 100, bottom - (i + 1) * 100, 80, 80);
-    //   ctx.stroke();
-    // });
-      // Start a new path
-
-
-}
-
 
 export function ShareModal({
   onClose,
@@ -299,43 +169,7 @@ export function ShareModal({
   const socialIconSize = isMobile
     ? SMALL_SOCIAL_ICON_SIZE
     : BIG_SOCIAL_ICON_SIZE;
-    let newCanvas: HTMLCanvasElement | OffscreenCanvas;
-    const canvasRef = React.useRef<HTMLCanvasElement>(null);
-    const [canvasCtxRef, setCanvasCtxRef] = React.useState<CanvasRenderingContext2D | null>(null);
-
-  
-    
-  // useEffect(() => {
-  //   // Initialize
-  //   if(context ) {
-  //     newCanvas = context?.gl.renderer.getContext().canvas;
-  //   }
-  //   // console.log("canvas ref", canvasRef)
-  //   // if (canvasRef.current) {
-  //   //   canvasCtxRef!.current = canvasRef.current.getContext('2d');
-  //   //   let ctx = context?.gl.renderer.getContext().canvas;
-
-  //   //   console.log("canvas ctx ref", canvasCtxRef)
-  //   //   const img = new Image();
-  //   //   img.crossOrigin = "";
-  //   //   img.src = shareImageUrl;
-  //   //   ctx!.canvas.style.width = "100%";
-  //   //   ctx!.canvas.style.height = "100%";
-  //   //   ctx!.canvas.style.overflow = "none";
-
-  //   //   ctx!.canvas.width = Math.min(img.width, img.height);
-  //   //   ctx!.canvas.height = Math.min(img.width, img.height);
-  //   //   // ctx!.canvas.width = 500;
-  //   //   // ctx!.canvas.height = 500;
-  
-  //   //   //Draw Image
-  //   //   const size = Math.min(ctx!.canvas.width, ctx!.canvas.height);
-  //   //   const xPos = (ctx!.canvas.width - size) * 0.5;
-  //   //   ctx!.drawImage(img, xPos, 0, size, size);
-
-
-  //   //}
-  // }, [context]);
+  const [canvasDownloadLink, setCanvasDownloadLink] = useState(shareImageUrl);
 
   return (
     <Dialog
@@ -352,26 +186,9 @@ export function ShareModal({
       </TopRightCloseButton>
 
       <StyledDialogContent >
-        <ShareCanvas url={shareImageUrl} />
-        {/* <FullWidthImage src={shareImageUrl} style={{ pointerEvents: 'none' }} />  */}
+        <ShareCanvas  url={shareImageUrl} products={products}/>
       </StyledDialogContent>
-      <BottomScrim>
-        {products && (
-          <ColorsWrapper>
-            {products.map((product) => (
-              <ColorWrapper key={product.key}>
-                <ColorItem>
-                  <div>
-                    <DisplayName>{product.displayName}</DisplayName>
-                    <ProductCode>{product.code}</ProductCode>
-                  </div>
-                  <ColorBox color={product.color} />
-                </ColorItem>
-              </ColorWrapper>
-            ))}
-          </ColorsWrapper>
-        )}
-      </BottomScrim>
+ 
       <ShareWrapper>
         <ShareItem>
           {/** Doesn't work for localhost, but works for proper websites **/}
