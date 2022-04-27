@@ -3,7 +3,7 @@ import { ProductItem } from "react-home-ar";
 import { download } from '../utilities/Methods';
 
 
-const ShareCanvas: React.FC<{url: string, products?: ProductItem[] }> = (props) => {
+const ShareCanvas: React.FC<{downloadUrl: string, onChange: (arg: string) => void, url: string, products?: ProductItem[] }> = (props) => {
   let canvasRef = useRef<HTMLCanvasElement | null>(null);
   let canvasCtxRef = React.useRef<CanvasRenderingContext2D | null>(null);
 
@@ -73,6 +73,7 @@ const ShareCanvas: React.FC<{url: string, products?: ProductItem[] }> = (props) 
         ctx!.strokeText(product.code? product.code.toUpperCase() : "", ctx!.canvas.width - 75 - codeWidth, (ctx!.canvas.height - (i + 1) * 60) + 35 );
 
       })
+      props.onChange(canvasRef.current.toDataURL('image/jpeg', 1.0));
     }
   }
   });

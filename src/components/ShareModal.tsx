@@ -170,6 +170,8 @@ export function ShareModal({
     ? SMALL_SOCIAL_ICON_SIZE
     : BIG_SOCIAL_ICON_SIZE;
   const [canvasDownloadLink, setCanvasDownloadLink] = useState(shareImageUrl);
+  console.log("canvas downlod link", canvasDownloadLink);
+  console.log("window", window.location.href);
 
   return (
     <Dialog
@@ -186,7 +188,7 @@ export function ShareModal({
       </TopRightCloseButton>
 
       <StyledDialogContent >
-        <ShareCanvas  url={shareImageUrl} products={products}/>
+        <ShareCanvas  downloadUrl={canvasDownloadLink} onChange={(val: string) => {setCanvasDownloadLink(val)}} url={shareImageUrl} products={products}/>
       </StyledDialogContent>
  
       <ShareWrapper>
