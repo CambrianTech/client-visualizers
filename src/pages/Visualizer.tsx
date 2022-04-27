@@ -1001,6 +1001,7 @@ export default function Visualizer() {
 
                 {(shareImageUrl && isShareModalOpen) && <ShareModal
                   onClose={() => setShareModal(false)}
+                  logoSrc={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`}
                   isOpen={isShareModalOpen}
                   products={products}
                   context={context}

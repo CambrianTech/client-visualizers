@@ -36,6 +36,7 @@ type Props = PropsWithChildren<{
   onClose(): void;
   isOpen: boolean;
   products?: ProductItem[];
+  logoSrc: string;
   context?: CBARContext;
   shareImageUrl: string;
 }>;
@@ -160,6 +161,7 @@ export function ShareModal({
   onClose,
   isOpen,
   products,
+  logoSrc,
   context,
   shareImageUrl,
   
@@ -188,7 +190,7 @@ export function ShareModal({
       </TopRightCloseButton>
 
       <StyledDialogContent >
-        <ShareCanvas  downloadUrl={canvasDownloadLink} onChange={(val: string) => {setCanvasDownloadLink(val)}} url={shareImageUrl} products={products}/>
+        <ShareCanvas  logoSrc={logoSrc} downloadUrl={canvasDownloadLink} onChange={(val: string) => {setCanvasDownloadLink(val)}} url={shareImageUrl} products={products}/>
       </StyledDialogContent>
  
       <ShareWrapper>
@@ -247,7 +249,7 @@ export function ShareModal({
         <ShareItem>
           <DownloadShareButton
             disableRipple
-            onClick={() => download(shareImageUrl, "my-visualization.jpg")}
+            onClick={() => download(canvasDownloadLink, "my-visualization.jpg")}
           >
             <BlackCircle size={socialIconSize} />
             <ShareIcon>download</ShareIcon>
@@ -257,7 +259,7 @@ export function ShareModal({
         <ShareItem>
           <CopyShareButton
             disableRipple
-            onClick={() => copyTextToClipboard(window.location.href)}
+            onClick={() => copyTextToClipboard(canvasDownloadLink)}
           >
             <BlackCircle size={socialIconSize} />
             <ShareIcon>link</ShareIcon>
