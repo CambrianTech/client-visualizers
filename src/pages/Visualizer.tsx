@@ -1045,47 +1045,10 @@ export default function Visualizer() {
                                onTranslationStarted={translationStarted}
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
-                   <>
-                   <div style={{position: "absolute", bottom: "200px", right: "150px", width: "50px"}}>
-                   <input type="checkbox" id="tempactive" name="tempactive" onChange={(event) => {setAllowTemp(event.target.checked)}} checked={allowTemp} />
-                        <label>input temp active</label>
-                        <input type="number"
-                        step="1"
-                        onChange={(event) => {
-                            if(Number(event.target.value) === 1 || Number(event.target.value) === 3 || Number(event.target.value) === 2 || Number(event.target.value) === 4 ) setTempActiveSwatch(Number(event.target.value));
-                            }} value={tempActiveSwatch} />
-                    </div>
-                    <div style={{position: "absolute", bottom: "300px", right: "150px", width: "50px"}}>
-                        <label>input active color index</label>
-                        <input type="number"
-                        step="1"
-                        onChange={(event) => {
-                            if(Number(event.target.value) === 1 || Number(event.target.value) === 3 || Number(event.target.value) === 2 || Number(event.target.value) === 4 ) setActiveSwatch(Number(event.target.value));
-                            }} value={activeSwatch} />
-                    </div>
-                    <ColorLegend swatches={swatches} tempActive={allowTemp? tempActiveSwatch : undefined} activeSwatch={activeSwatch}  />
-                    </>
-                {/* {!rightPanelOpen && selectedRow && selectedProduct && (
-                                    //     <div className={"floating-product-info"}>
-                                    //     <div className={"product-swatch"} style={{background:selectedProduct.color}}>
-                                    //         {brandPath && selectedProduct.thumbnail && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
-                                    //     </div>
-                                    //     <div className={"product-name"}>
-                                    //         {selectedRow.displayName} - {selectedProduct.displayName}
-                                    //     </div>
-                                    // </div>
-                    <>
-                    <div style={{width: "50px"}}>
-                        <label>input active color index</label>
-                        <input type="number"
-                        step="1"
-                        onChange={(event) => {
-                            if(Number(event.target.value) === 1 || Number(event.target.value) === 3 || Number(event.target.value) === 2 ) setActiveSwatch(Number(event.target.value));
-                            }} value={activeSwatch} />
-                    </div>
-                    <ColorLegend swatches={swatches} activeSwatch={activeSwatch}  />
-                    </>
-                )} */}
+                   
+                    {(products && selectedProduct ) && <ColorLegend swatches={products? products : undefined} tempActive={undefined} activeSwatch={selectedProduct? selectedProduct : undefined}  />}
+            
+  
 
                 {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&

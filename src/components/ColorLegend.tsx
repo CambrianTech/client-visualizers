@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ColorLegend.css";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { ProductItem } from "react-home-ar";
 
 type Swatches = {
   displayName: string;
@@ -8,54 +9,71 @@ type Swatches = {
   color: string;
 };
 type ColorLegendProps = {
-  swatches: Swatches[];
-  activeSwatch: number;
-  tempActive?: number;
+  swatches?: ProductItem[];
+  activeSwatch?: ProductItem;
+  tempActive?: ProductItem;
 };
 
 export function ColorLegend(props: ColorLegendProps) {
   const [inProp, setInProp] = useState(true);
 
+
   useEffect(() => {
     setInProp(false);
-    console.log("set inprop to true");
   }, [props.activeSwatch, props.tempActive]);
+
   return (
     <>
-    
       <div className={"floating-product-info"}>
-      <div className="column-or-row">
-        <>
-          <div className={"product-name"}>
-            {props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].brand} -{" "}
-            {props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].displayName}
-          </div>
-          <CSSTransition
-            unmountOnExit
-            in={inProp}
-            timeout={500}
-            classNames="grow"
-            onExited={() => {
-              setInProp(true);
-            }}
-          >
-            <div
-              key={props.activeSwatch}
-              className={`product-swatch-full`}
-              style={
-                ({ "--my-css-var": props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].color } as React.CSSProperties)
-            }
-            />
-          </CSSTransition>
-        </>
+        <div className="column-or-row">
+          
+          <>
+            <div className={"product-name"}>
+              {props.tempActive
+                ? props.tempActive.parent?.displayName + " - "
+                : props.activeSwatch?.parent?.displayName + " - "}
+              {props.tempActive
+                ? props.tempActive.displayName
+                : props.activeSwatch?.displayName}
+            </div>
+            <CSSTransition
+              unmountOnExit
+              in={inProp}
+              timeout={500}
+              classNames="grow"
+              onExited={() => {
+                setInProp(true);
+              }}
+            >
+              <div
+                key={
+                  props.tempActive
+                    ? props.tempActive.code
+                    : props.activeSwatch?.code
+                }
+                className={`product-swatch-full`}
+                style={
+                  {
+                    "--my-css-var": props.tempActive
+                      ? props.tempActive.color
+                      : props.activeSwatch?.color,
+                  } as React.CSSProperties
+                }
+              />
+            </CSSTransition>
+          
+          </>
 
           {props.swatches?.map((swatch, i) => {
-            console.log("active swatch", props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1));
-            console.log("index", i);
-            if (i !== (props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1))) {
-              var style = { "--my-css-var": swatch.color } as React.CSSProperties;
+            if (
+              (props.tempActive
+                ? props.tempActive.code
+                : props.activeSwatch?.code) !== swatch.code
+            ) {
+              var style = {
+                "--my-css-var": swatch.color,
+              } as React.CSSProperties;
               return (
-                
                 <CSSTransition
                   unmountOnExit
                   in={inProp}
@@ -66,7 +84,7 @@ export function ColorLegend(props: ColorLegendProps) {
                   }}
                 >
                   <div
-                    key={swatch.displayName}
+                    key={swatch.code}
                     className={"product-swatch"}
                     style={style}
                   />
@@ -74,15 +92,14 @@ export function ColorLegend(props: ColorLegendProps) {
               );
             }
           })}
-
+        </div>
+        <div className={"product-name-mobile"}>
+          {props.tempActive ? props.tempActive.parent?.displayName + " - " : props.activeSwatch?.parent?.displayName + " - "}
+          {props.tempActive
+            ? props.tempActive.displayName
+            : props.activeSwatch?.displayName}
+        </div>
       </div>
-      <div className={"product-name-mobile"}>
-            {props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].brand} -{" "}
-            {props.swatches[props.tempActive? (props.tempActive -1) : (props.activeSwatch - 1)].displayName}
-          </div>
-      </div>
-
     </>
-
   );
 }
