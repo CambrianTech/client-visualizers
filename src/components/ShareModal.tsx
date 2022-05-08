@@ -9,26 +9,22 @@ import {
   DialogContent,
   Backdrop,
 } from "@material-ui/core";
-import { ProductItem, CBARContext } from "react-home-ar";
+import {ProductItem, CBARContext, CBContentManager} from "react-home-ar";
 import {
   EmailIcon,
   EmailShareButton,
   FacebookIcon,
   FacebookShareButton,
-  LinkedinIcon,
-  LinkedinShareButton,
-  TumblrIcon,
-  TumblrShareButton,
+  PinterestIcon,
+  PinterestShareButton,
   TwitterIcon,
   TwitterShareButton,
 } from "react-share";
 import { copyTextToClipboard, download } from "../utilities/Methods";
 import "./ShareModal.css";
-import { ContactsOutlined } from "@material-ui/icons";
 import ShareCanvas from "./ShareCanvas";
 
 const MOBILE_CUTOFF = 480;
-const MED_SCREEN_CUTOFF = 720;
 const SMALL_SOCIAL_ICON_SIZE = 32;
 const BIG_SOCIAL_ICON_SIZE = 46;
 
@@ -37,7 +33,6 @@ type Props = PropsWithChildren<{
   isOpen: boolean;
   products?: ProductItem[];
   logoSrc: string;
-  context?: CBARContext;
   shareImageUrl: string;
 }>;
 
@@ -103,6 +98,7 @@ const StyledDialogContent = styled(DialogContent)`
   background-color: black;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 `;
 
 const ShareWrapper = styled.div`
@@ -111,7 +107,6 @@ const ShareWrapper = styled.div`
   justify-content: center;
   bottom: 0;
   max-width: 100%;
-  overflow-y: auto;
   padding-top: 12px;
 `;
 
@@ -156,15 +151,19 @@ function BlackCircle({ size }: { size: number }) {
   );
 }
 
+function getShareUrl() {
+  const url = window.location.href;
+  return url.replace('localhost:3000', 'dunn-edwards.cambrianar.com');
+}
+
 
 export function ShareModal({
   onClose,
   isOpen,
   products,
   logoSrc,
-  context,
   shareImageUrl,
-  
+
 }: Props) {
   const mobileMediaQuery = window.matchMedia(`(max-width: ${MOBILE_CUTOFF}px)`);
   const isMobile = mobileMediaQuery.matches;
@@ -172,8 +171,14 @@ export function ShareModal({
     ? SMALL_SOCIAL_ICON_SIZE
     : BIG_SOCIAL_ICON_SIZE;
   const [canvasDownloadLink, setCanvasDownloadLink] = useState(shareImageUrl);
-  console.log("canvas downlod link", canvasDownloadLink);
-  console.log("window", window.location.href);
+
+  const pinterestBeforeOnClick = async () => {
+    if(canvasDownloadLink) {
+      const img = await CBContentManager.dataUrlToImage(canvasDownloadLink);
+      CBContentManager.default!.registerImage('my-visualization.jpg');
+      const url = await CBContentManager.default!.uploadFile(img, 'my-visualization.jpg');
+    }
+  };
 
   return (
     <Dialog
@@ -190,13 +195,13 @@ export function ShareModal({
       </TopRightCloseButton>
 
       <StyledDialogContent >
-        <ShareCanvas  logoSrc={logoSrc} downloadUrl={canvasDownloadLink} onChange={(val: string) => {setCanvasDownloadLink(val)}} url={shareImageUrl} products={products}/>
+        <ShareCanvas  logoSrc={logoSrc} onChange={(val: string) => {setCanvasDownloadLink(val)}} url={shareImageUrl} products={products}/>
       </StyledDialogContent>
- 
+
       <ShareWrapper>
         <ShareItem>
           {/** Doesn't work for localhost, but works for proper websites **/}
-          <FacebookShareButton url={window.location.href}>
+          <FacebookShareButton url={getShareUrl()}>
             <FacebookIcon
               bgStyle={{ fill: "black", stroke: "white", strokeWidth: 2 }}
               size={socialIconSize}
@@ -204,30 +209,20 @@ export function ShareModal({
             />
           </FacebookShareButton>
         </ShareItem>
-        {/*<ShareItem>*/}
-        {/*    /!** Doesn't work for localhost, but works for proper websites **!/*/}
-        {/*    <LinkedinShareButton url={window.location.href}>*/}
-        {/*        <LinkedinIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />*/}
-        {/*    </LinkedinShareButton>*/}
-        {/*</ShareItem>*/}
-
-        {/*<ShareItem>*/}
-        {/*    /!** Doesn't work for localhost, but works for proper websites and images **!/*/}
-        {/*    <TumblrShareButton url={window.location.href}>*/}
-        {/*        <TumblrIcon bgStyle={{ fill: 'black', stroke: 'white', strokeWidth: 2 }} size={socialIconSize} round />*/}
-        {/*    </TumblrShareButton>*/}
-        {/*</ShareItem>*/}
-
-        {/* Doesn't work without a public URL */}
-        {/*<ShareItem>*/}
-        {/*    /!** Doesn't work for localhost, but works for proper websites and images **!/*/}
-        {/*    <PinterestShareButton url={window.location.href} media={shareImageUrl}>*/}
-        {/*        <PinterestIcon size={socialIconSize} round />*/}
-        {/*    </PinterestShareButton>*/}
-        {/*</ShareItem>*/}
 
         <ShareItem>
-          <TwitterShareButton url={window.location.href}>
+            {/** Doesn't work for localhost, but works for proper websites and images **/}
+            <PinterestShareButton beforeOnClick={pinterestBeforeOnClick} url={getShareUrl()} media={shareImageUrl}>
+              <PinterestIcon
+                bgStyle={{ fill: "black", stroke: "white", strokeWidth: 2 }}
+                size={socialIconSize}
+                round
+              />
+            </PinterestShareButton>
+        </ShareItem>
+
+        <ShareItem>
+          <TwitterShareButton url={getShareUrl()}>
             <TwitterIcon
               bgStyle={{ fill: "black", stroke: "white", strokeWidth: 2 }}
               size={socialIconSize}
@@ -237,7 +232,7 @@ export function ShareModal({
         </ShareItem>
 
         <ShareItem>
-          <EmailShareButton url={window.location.href}>
+          <EmailShareButton url={getShareUrl()}>
             <EmailIcon
               bgStyle={{ fill: "black", stroke: "white", strokeWidth: 2 }}
               size={socialIconSize}

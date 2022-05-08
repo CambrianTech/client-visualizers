@@ -1004,7 +1004,6 @@ export default function Visualizer() {
                   logoSrc={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`}
                   isOpen={isShareModalOpen}
                   products={products}
-                  context={context}
                   shareImageUrl={shareImageUrl}
                 />}
 
