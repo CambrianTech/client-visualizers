@@ -154,6 +154,10 @@
     background-color: var(--mdc-theme-primary) !important;
 }
 
+.MuiFab-primary * {
+    color: var(--mdc-theme-on-primary) !important;
+}
+
 .MuiButton-containedPrimary {
     background-color: var(--mdc-theme-primary) !important;
     color: var(--mdc-theme-on-primary) !important;

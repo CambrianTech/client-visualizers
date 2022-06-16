@@ -3,10 +3,8 @@
   "version": "0.3.00",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.58",
     "@mui/material": "^5.8.4",
+    "@mui/styles": "^5.8.4",
     "@types/jsonp": "^0.2.0",
     "@types/randomstring": "^1.1.6",
     "@types/react": "^17.0.5",

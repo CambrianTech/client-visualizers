@@ -50,7 +50,7 @@ import {
 import {Progress} from "../components/Progress";
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
-import {Fab, Icon} from "@material-ui/core";
+import {Fab, Icon} from "@mui/material";
 import {VisualizerTools} from "../components/VisualizerTools";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
@@ -1040,7 +1040,7 @@ export default function Visualizer() {
                     <Icon>
                         {leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")}
                     </Icon>
-                    {leftPanelButtonText}
+                    <span>{leftPanelButtonText}</span>
                 </Fab>}
 
                 {/*right panel open button or open product url*/}
@@ -1048,7 +1048,7 @@ export default function Visualizer() {
                                                          className={`MuiFab-primary close-button panel-c ${hasDetailsPanel ? "" : "call-to-action"}`}
                                                          onClick={()=>productDetailsClicked()}>
                     {rightButtonIcon}
-                    {rightPanelButtonText}
+                    <span>{rightPanelButtonText}</span>
                 </Fab>}
 
             </div>}

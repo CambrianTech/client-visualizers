@@ -2,7 +2,7 @@ import React from "react"
 import './DrawingTools.css'
 import {CBARToolMode} from "react-home-ar";
 import {MediaPaths} from "../utilities/Constants";
-import {Fab, Icon} from "@material-ui/core";
+import {Fab, Icon} from "@mui/material";
 
 type DrawingToolsProps = {
     visible: boolean

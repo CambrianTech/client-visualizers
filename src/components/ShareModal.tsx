@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import {Dialog, IconButton, Icon, DialogContent, Backdrop} from "@material-ui/core";
+import {Dialog, IconButton, Icon, DialogContent, Backdrop} from "@mui/material";
 import {ProductItem} from "react-home-ar";
 import {
     EmailIcon,
@@ -200,13 +200,14 @@ const StyledBackdrop = styled(Backdrop)`
     background-color: rgba(0,0,0,0.7);
 `;
 
-function BlackCircle({size}: {size: number}) {
-    const StyledSvg = styled.svg`
+const StyledSvg = styled.svg`
         position: absolute;
-        min-width: ${size}px;
+        min-width: ${props => props.fontSize}px;
     `;
+
+function BlackCircle({size}: {size: number}) {
     return (
-        <StyledSvg viewBox="0 0 64 64" width={size} height={size}>
+        <StyledSvg fontSize={size} viewBox="0 0 64 64" width={size} height={size}>
             <circle cx="32" cy="32" r="31" fill="#000" stroke="#fff" strokeWidth={2} />
         </StyledSvg>
     )
