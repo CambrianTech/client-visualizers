@@ -1035,7 +1035,7 @@ export default function Visualizer() {
                     <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}
 
                 {/*left panel open button*/}
-                {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
+                {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "circular"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
                                                                       onClick={()=>productsClicked()}>
                     <Icon>
                         {leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")}
@@ -1044,7 +1044,7 @@ export default function Visualizer() {
                 </Fab>}
 
                 {/*right panel open button or open product url*/}
-                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "round"}
+                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "circular"}
                                                          className={`MuiFab-primary close-button panel-c ${hasDetailsPanel ? "" : "call-to-action"}`}
                                                          onClick={()=>productDetailsClicked()}>
                     {rightButtonIcon}
