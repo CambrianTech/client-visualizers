@@ -50,8 +50,10 @@ import {
 import {Progress} from "../components/Progress";
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
+
 import {Fab, Icon} from "@mui/material";
 import {VisualizerTools} from "../components/VisualizerTools";
+import {ColorLegend} from "../components/ColorLegend";
 import {ApiCapabilityName} from "cambrian-base";
 import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
@@ -92,6 +94,32 @@ if (!process.env.REACT_APP_CB_UPLOADS_URL) {
 }
 
 export default function Visualizer() {
+    const [activeSwatch, setActiveSwatch] = useState(1);
+    const [tempActiveSwatch, setTempActiveSwatch] = useState(1);
+    const [allowTemp, setAllowTemp] = useState(false);
+
+    const [swatches, setSwatches ] = useState([
+        {
+        color: "#00FF00",
+        displayName: "Test Color 1",
+        brand: "Test Brand 1",
+        },
+        {
+        color: "#0000FF",
+        displayName: "Test Color 2",
+        brand: "Test Brand 2",
+        },
+        {
+            color: "#808080",
+            displayName: "Test Color 3",
+            brand: "Test Brand 3",
+        },
+        {
+            color: "#808080",
+            displayName: "Test Color 4",
+            brand: "Test Brand 4",
+        }
+    ]);
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
     const _isMounted = useRef(false);
@@ -1018,17 +1046,10 @@ export default function Visualizer() {
                                onTranslationStarted={translationStarted}
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
-
-                {!rightPanelOpen && selectedRow && selectedProduct && (
-                    <div className={"floating-product-info"}>
-                        <div className={"product-swatch"} style={{background:selectedProduct.color}}>
-                            {brandPath && selectedProduct.thumbnail && <img alt={selectedProduct.displayName} src={`${brandPath}/${selectedProduct.thumbnail}`} />}
-                        </div>
-                        <div className={"product-name"}>
-                            {selectedRow.displayName} - {selectedProduct.displayName}
-                        </div>
-                    </div>
-                )}
+                   
+                    {(products && selectedProduct ) && <ColorLegend swatches={products? products : undefined} tempActive={undefined} activeSwatch={selectedProduct? selectedProduct : undefined}  />}
+            
+  
 
                 {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
@@ -1080,5 +1101,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
