@@ -50,7 +50,8 @@ import {
 import {Progress} from "../components/Progress";
 import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
 import {BrowserType} from "react-client-info";
-import {Checkbox, Fab, Icon} from "@material-ui/core";
+
+import {Fab, Icon} from "@mui/material";
 import {VisualizerTools} from "../components/VisualizerTools";
 import {ColorLegend} from "../components/ColorLegend";
 import {ApiCapabilityName} from "cambrian-base";
@@ -1055,20 +1056,20 @@ export default function Visualizer() {
                     <img className={"floating-logo"} src={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`} alt={"logo"} />}
 
                 {/*left panel open button*/}
-                {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "round"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
+                {(currentScene || activePanel !== Panel.None) && <Fab variant={leftPanelButtonText ? "extended" : "circular"} className={"MuiFab-primary close-button panel-a" + (hasSeenProducts ? "" : " bounce")}
                                                                       onClick={()=>productsClicked()}>
                     <Icon>
                         {leftPanelOpen ? (isPortrait ? "keyboard_arrow_down" : "keyboard_arrow_left") : (isPortrait ? "keyboard_arrow_up" : "keyboard_arrow_right")}
                     </Icon>
-                    {leftPanelButtonText}
+                    <span>{leftPanelButtonText}</span>
                 </Fab>}
 
                 {/*right panel open button or open product url*/}
-                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "round"}
+                {currentScene && selectedProduct && <Fab variant={rightPanelButtonText ? "extended" : "circular"}
                                                          className={`MuiFab-primary close-button panel-c ${hasDetailsPanel ? "" : "call-to-action"}`}
                                                          onClick={()=>productDetailsClicked()}>
                     {rightButtonIcon}
-                    {rightPanelButtonText}
+                    <span>{rightPanelButtonText}</span>
                 </Fab>}
 
             </div>}
@@ -1100,5 +1101,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, rightPanelOpen, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }

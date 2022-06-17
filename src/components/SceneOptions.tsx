@@ -2,8 +2,8 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react'
 import 'react-circular-progressbar/dist/styles.css'
 
 import './SceneOptions.css'
-import {SpeedDial, SpeedDialAction, SpeedDialIcon} from "@material-ui/lab";
-import {makeStyles} from "@material-ui/core";
+import {SpeedDial, SpeedDialAction, SpeedDialIcon} from "@mui/material";
+import {makeStyles} from "@mui/styles";
 import {DefaultAssetMenuActions, ToolOperation, ToolsMenuAction} from "react-cambrian-ui";
 import {
     CBARAsset, CBAREvent,

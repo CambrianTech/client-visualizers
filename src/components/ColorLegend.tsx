@@ -70,11 +70,12 @@ export function ColorLegend(props: ColorLegendProps) {
                 ? props.tempActive.code
                 : props.activeSwatch?.code) !== swatch.code
             ) {
-              var style = {
+              const style = {
                 "--my-css-var": swatch.color,
               } as React.CSSProperties;
               return (
                 <CSSTransition
+                    key={swatch.code}
                   unmountOnExit
                   in={inProp}
                   timeout={500}

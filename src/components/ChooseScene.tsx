@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Icon} from "@material-ui/core";
+import {Button, Icon} from "@mui/material";
 import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
 import {getFeatureAppearance, isFeatureEnabled, SITE_PATH} from "../index";
 
