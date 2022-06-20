@@ -2,7 +2,7 @@
 FROM public.ecr.aws/j7v0i7y2/client-resources:node-14.7.0-alpine as build-stage
 WORKDIR /app
 COPY package*.json /app/
-RUN npm install
+RUN npm install --legacy-peer-deps
 COPY . /app/
 RUN rm -rf /app/public/assets/cambrianar-sites
 RUN npm run build
@@ -20,7 +20,7 @@ COPY --from=build-stage /app/build/ /opt/server/build
 COPY server/ /opt/server
 
 RUN apk add --update nodejs npm
-RUN npm install
+RUN npm install --legacy-peer-deps
 RUN npm run build
 
 # To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
