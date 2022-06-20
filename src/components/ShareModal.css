@@ -4,3 +4,17 @@
         overflow: hidden;
     }
 }
+
+.share-dialog .MuiPaper-root {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+@media(max-height: 400px) {
+    .share-dialog .MuiPaper-root {
+        margin-bottom: 0;
+        margin-top: 0;
+        max-height: calc(100% - 8px);
+    }
+}
