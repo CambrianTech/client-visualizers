@@ -8,7 +8,7 @@ import {
   Icon,
   DialogContent,
   Backdrop,
-} from "@material-ui/core";
+} from "@mui/material";
 import {ProductItem, CBARContext, CBContentManager} from "react-home-ar";
 import {
   EmailIcon,
