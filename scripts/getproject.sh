@@ -22,6 +22,13 @@ REMOTE_PATH="s3://${BUCKET}/${PROJECT_ID}"
 
 echo "\nDownloading from ${REMOTE_PATH} into ${LOCAL_PATH}\n\n"
 
+exists=$(aws s3 ls $REMOTE_PATH)
+if [ -z "$exists" ]; then
+  echo "Project does not exist"
+else
+  echo "Project exists, downloading recursively"
+fi
+
 mkdir -p projects
 cd projects
 aws s3 cp ${REMOTE_PATH} ${LOCAL_PATH} --recursive
