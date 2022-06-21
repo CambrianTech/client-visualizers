@@ -1,0 +1,193 @@
+{
+    "formatVersion": 3,
+    "name": "Room 00ATsr16XO",
+    "id": "room-00ATsr16XO",
+    "floorRotation": -2.86188209717044,
+    "images": {
+        "lighting": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/lighting.png",
+        "superpixels": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/superpixels.png",
+        "semantic": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/mask.png",
+        "planes_alpha_mask": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/planes_alpha_mask.png"
+    },
+    "compressed": {
+        "planes_index_mask": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/planes_index_mask.zz"
+    },
+    "camera": {
+        "fov": 66.42577609950987,
+        "position": [
+            0,
+            0,
+            0
+        ],
+        "rotation": [
+            0,
+            0,
+            0
+        ]
+    },
+    "geometry": {
+        "surfaces": [
+            {
+                "id": "plane-0",
+                "type": "wall",
+                "name": "Plane 0",
+                "normal": [
+                    -0.008949224837124348,
+                    0.3064690828323364,
+                    0.951838493347168
+                ],
+                "offset": 2.881152391433716,
+                "rotation": 0.0,
+                "rawParams": [
+                    -0.0257840808480978,
+                    0.8829841017723083,
+                    2.74239182472229
+                ],
+                "imageExtents": {
+                    "minY": 0.0,
+                    "minX": 0.0,
+                    "maxY": 0.0,
+                    "maxX": 0.0
+                },
+                "images": {
+                    "mask": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/plane_masks/mask_0.png"
+                },
+                "contours": [
+                    [
+                        [
+                            [
+                                0,
+                                0
+                            ]
+                        ]
+                    ]
+                ]
+            },
+            {
+                "id": "plane-1",
+                "type": "wall",
+                "name": "Plane 1",
+                "normal": [
+                    0.5672741532325745,
+                    0.8011314272880554,
+                    0.1907576620578766
+                ],
+                "offset": 3.095106840133667,
+                "rotation": 0.0,
+                "rawParams": [
+                    1.7557740211486816,
+                    2.4795873165130615,
+                    0.590415358543396
+                ],
+                "imageExtents": {
+                    "minY": 0.0,
+                    "minX": 0.0,
+                    "maxY": 0.0,
+                    "maxX": 0.0
+                },
+                "images": {
+                    "mask": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/plane_masks/mask_1.png"
+                },
+                "contours": [
+                    [
+                        [
+                            [
+                                0,
+                                0
+                            ]
+                        ]
+                    ]
+                ]
+            },
+            {
+                "id": "plane-2",
+                "type": "floor",
+                "name": "Plane 2",
+                "normal": [
+                    -0.011345906183123589,
+                    0.032104115933179855,
+                    -0.999420166015625
+                ],
+                "offset": 1.416331171989441,
+                "rotation": 0.0,
+                "rawParams": [
+                    -0.01606956124305725,
+                    0.04547005891799927,
+                    -1.4155099391937256
+                ],
+                "imageExtents": {
+                    "minY": 0.0,
+                    "minX": 0.0,
+                    "maxY": 0.0,
+                    "maxX": 0.0
+                },
+                "images": {
+                    "mask": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/plane_masks/mask_2.png"
+                },
+                "contours": [
+                    [
+                        [
+                            [
+                                0,
+                                0
+                            ]
+                        ]
+                    ],
+                    [
+                        [
+                            [
+                                0,
+                                0
+                            ]
+                        ]
+                    ]
+                ]
+            },
+            {
+                "id": "plane-3",
+                "type": "horizontal",
+                "name": "Plane 3",
+                "normal": [
+                    0.1256801187992096,
+                    0.11313765496015549,
+                    0.9855985045433044
+                ],
+                "offset": 1.6554450988769531,
+                "rotation": 0.0,
+                "rawParams": [
+                    0.2080565243959427,
+                    0.1872931718826294,
+                    1.6316041946411133
+                ],
+                "imageExtents": {
+                    "minY": 0.0,
+                    "minX": 0.0,
+                    "maxY": 0.0,
+                    "maxX": 0.0
+                },
+                "images": {
+                    "mask": "https://s3.amazonaws.com/cb-backend-data/00ATsr16XO/plane_masks/mask_3.png"
+                },
+                "contours": [
+                    [
+                        [
+                            [
+                                0,
+                                0
+                            ]
+                        ]
+                    ],
+                    [
+                        [
+                            [
+                                0,
+                                0
+                            ]
+                        ]
+                    ]
+                ]
+            }
+        ]
+    },
+    "assets": []
+}
