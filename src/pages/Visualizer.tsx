@@ -94,32 +94,6 @@ if (!process.env.REACT_APP_CB_UPLOADS_URL) {
 }
 
 export default function Visualizer() {
-    const [activeSwatch, setActiveSwatch] = useState(1);
-    const [tempActiveSwatch, setTempActiveSwatch] = useState(1);
-    const [allowTemp, setAllowTemp] = useState(false);
-
-    const [swatches, setSwatches ] = useState([
-        {
-        color: "#00FF00",
-        displayName: "Test Color 1",
-        brand: "Test Brand 1",
-        },
-        {
-        color: "#0000FF",
-        displayName: "Test Color 2",
-        brand: "Test Brand 2",
-        },
-        {
-            color: "#808080",
-            displayName: "Test Color 3",
-            brand: "Test Brand 3",
-        },
-        {
-            color: "#808080",
-            displayName: "Test Color 4",
-            brand: "Test Brand 4",
-        }
-    ]);
     const siteContext = useContext(SiteContext)!;
     const dispatch = siteContext.dispatch;
     const _isMounted = useRef(false);
@@ -164,9 +138,6 @@ export default function Visualizer() {
             return firstBrand.surfaceTypes ? firstBrand.surfaceTypes[0] : CBARSurfaceType.Floor;
         }
     }, [siteContext])
-
-    const [shareCanvas, setShareCanvas] = useState<string>()
-
 
     const [shareImageUrl, setShareImageUrl] = useState<string>()
 

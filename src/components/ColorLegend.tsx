@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./ColorLegend.css";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { CSSTransition} from "react-transition-group";
 import { ProductItem } from "react-home-ar";
 
-type Swatches = {
-  displayName: string;
-  brand: string;
-  color: string;
-};
 type ColorLegendProps = {
   swatches?: ProductItem[];
   activeSwatch?: ProductItem;
@@ -64,7 +59,7 @@ export function ColorLegend(props: ColorLegendProps) {
           
           </>
 
-          {props.swatches?.map((swatch, i) => {
+          {props.swatches?.forEach((swatch) => {
             if (
               (props.tempActive
                 ? props.tempActive.code

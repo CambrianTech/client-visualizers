@@ -9,7 +9,7 @@ import {
   DialogContent,
   Backdrop,
 } from "@mui/material";
-import {ProductItem, CBARContext, CBContentManager} from "react-home-ar";
+import {ProductItem, CBContentManager} from "react-home-ar";
 import {
   EmailIcon,
   EmailShareButton,
@@ -47,12 +47,6 @@ const TopRightCloseButton = styled(IconButton)`
   @media (max-device-width: ${MOBILE_CUTOFF}px) {
     padding-top: 10px;
   }
-`;
-
-const FullWidthImage = styled.img`
-  max-width: 100%;
-  display: block;
-  object-fit: cover;
 `;
 
 const CopyShareButton = styled(IconButton)`
@@ -121,7 +115,6 @@ const ShareItem = styled.div`
   position: relative;
 `;
 
-
 const CloseIcon = styled(Icon)`
   color: white;
   opacity: 1;
@@ -132,11 +125,13 @@ const StyledBackdrop = styled(Backdrop)`
   background-color: rgba(0, 0, 0, 0.7);
 `;
 
-function BlackCircle({ size }: { size: number }) {
-  const StyledSvg = styled.svg`
-    position: absolute;
-    min-width: ${size}px;
-  `;
+const StyledSvg = styled.svg`
+  position: absolute;
+  min-width: ${props => props.width}px;
+`;
+
+const BlackCircle = ({ size }: { size: number }) => {
+
   return (
     <StyledSvg viewBox="0 0 64 64" width={size} height={size}>
       <circle
@@ -177,6 +172,7 @@ export function ShareModal({
       const img = await CBContentManager.dataUrlToImage(canvasDownloadLink);
       CBContentManager.default!.registerImage('my-visualization.jpg');
       const url = await CBContentManager.default!.uploadFile(img, 'my-visualization.jpg');
+      console.log(url);
     }
   };
 

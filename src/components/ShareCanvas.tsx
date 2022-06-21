@@ -92,8 +92,7 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
 
       const textBlockVerticalOffset = fontSize - 1;
 
-
-      props.products?.map((product, i) => {
+      props.products?.forEach((product, i) => {
         //Draw Colored Rectangle Swatch
         ctx!.beginPath();
         ctx!.fillStyle = product.color ? product.color : "white";
@@ -146,6 +145,7 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
       props.onChange(canvasRef.toDataURL('image/jpeg', 1.0));
 
       setCanvasRef(canvasRef)
+
     }
   }
   });
