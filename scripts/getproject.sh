@@ -1,0 +1,27 @@
+
+source .env.development
+
+BUCKET="cb-backend-data"
+
+if [ $# -eq 1 ] ;then
+  PROJECT_ID=$1
+else
+  echo "Specify project ID to download from \"${BUCKET}\" (ENTER to cancel)"
+  read PROJECT_ID
+fi
+
+n=${#PROJECT_ID}
+
+if [ $n -eq 0 ]; then
+  echo "\nNo project ID specified, operation canceled.\n"
+  exit 0
+fi
+
+LOCAL_PATH="projects/${PROJECT_ID}"
+REMOTE_PATH="s3://${BUCKET}/${PROJECT_ID}"
+
+echo "\nDownloading from ${REMOTE_PATH} into ${LOCAL_PATH}\n\n"
+
+mkdir -p projects
+cd projects
+aws s3 cp ${REMOTE_PATH} ${LOCAL_PATH} --recursive
