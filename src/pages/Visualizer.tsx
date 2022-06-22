@@ -937,10 +937,17 @@ export default function Visualizer() {
         }
     })
 
+    const swatchClicked = useCallback((swatch:ProductItem)=>{
+        const asset = currentScene?.assets.all().find(asset=>asset.product === swatch) as CBARSurfaceAsset;
+        if (asset) {
+            selectionChanged({surface:asset.surface, asset:asset})
+        }
+    }, [currentScene?.assets, selectionChanged])
+
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
-            <div className="panel a">
+            <div className="panel a" onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
                 <div className={"title"}>
                     {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>productsClicked(true)}>
                         <div className={"choose-text"}>Choose a Color</div>
@@ -1023,7 +1030,7 @@ export default function Visualizer() {
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
                    
-                <ColorLegend swatches={products} tempActive={selectedProduct} activeSwatch={selectedProduct? selectedProduct : undefined}  />
+                <ColorLegend swatches={products} activeSwatch={selectedProduct ? selectedProduct : undefined} swatchClicked={swatchClicked}  />
 
                 {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
@@ -1075,5 +1082,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, brandPath, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, productsClicked, productDetailsClicked, setPanelTimer, clearPanelTimer])
 }

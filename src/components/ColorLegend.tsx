@@ -1,35 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import "./ColorLegend.css";
 import { CSSTransition} from "react-transition-group";
-import { ProductItem } from "react-home-ar";
+import {DataItem, ProductItem} from "react-home-ar";
 
 type ColorLegendProps = {
   swatches?: ProductItem[];
   activeSwatch?: ProductItem;
   tempActive?: ProductItem;
+  swatchClicked:(swatch:ProductItem)=>void
 };
 
 export function ColorLegend(props: ColorLegendProps) {
   const [inProp, setInProp] = useState(true);
 
+  const category = useMemo<DataItem|undefined>(()=>{
+    return props.tempActive
+        ? props.tempActive.parent
+        : props.activeSwatch?.parent
+  }, [props.activeSwatch?.parent, props.tempActive])
+
+  const currentProduct = useMemo(()=>{
+    return props.tempActive
+        ? props.tempActive
+        : props.activeSwatch
+
+  }, [props.activeSwatch, props.tempActive])
+
+  const productName = useMemo(()=>{
+    if (!category || !currentProduct) return null
+    return `${category.displayName} - ${currentProduct.displayName}`
+  }, [category, currentProduct])
 
   useEffect(() => {
     setInProp(false);
-  }, [props.activeSwatch, props.tempActive]);
+  }, [currentProduct]);
 
   return (
     <>
       <div className={"floating-product-info"}>
         <div className="column-or-row">
-          
           <>
             <div className={"product-name"}>
-              {props.tempActive
-                ? props.tempActive.parent?.displayName + " - "
-                : props.activeSwatch?.parent?.displayName + " - "}
-              {props.tempActive
-                ? props.tempActive.displayName
-                : props.activeSwatch?.displayName}
+              {productName}
             </div>
             <CSSTransition
               unmountOnExit
@@ -41,27 +53,22 @@ export function ColorLegend(props: ColorLegendProps) {
               }}
             >
               <div
-                key={
-                  props.tempActive
-                    ? props.tempActive.code
-                    : props.activeSwatch?.code
-                }
+                key={currentProduct?.code}
                 className={`product-swatch-full`}
                 style={
                   {
-                    "--my-css-var": props.tempActive
-                      ? props.tempActive.color
-                      : props.activeSwatch?.color,
+                    backgroundColor: currentProduct?.color,
                   } as React.CSSProperties
                 }
+                onClick={()=>props.swatchClicked(currentProduct!)}
               />
             </CSSTransition>
-          
           </>
 
           {props.swatches?.filter(s=>props.activeSwatch?.code !== s.code).map((swatch) => {
               const style = {
-                "--my-css-var": swatch.color,
+                backgroundColor: swatch.color,
+                cursor:"pointer"
               } as React.CSSProperties;
               return (
                 <CSSTransition
@@ -78,16 +85,14 @@ export function ColorLegend(props: ColorLegendProps) {
                     key={swatch.code}
                     className={"product-swatch"}
                     style={style}
+                    onClick={()=>props.swatchClicked(swatch)}
                   />
                 </CSSTransition>
               )
           })}
         </div>
         <div className={"product-name-mobile"}>
-          {props.tempActive ? props.tempActive.parent?.displayName + " - " : props.activeSwatch?.parent?.displayName + " - "}
-          {props.tempActive
-            ? props.tempActive.displayName
-            : props.activeSwatch?.displayName}
+          {productName}
         </div>
       </div>
     </>
