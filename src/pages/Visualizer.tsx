@@ -929,7 +929,6 @@ export default function Visualizer() {
 
     const [isShareModalOpen, setShareModal] = useState(false);
 
-    //working on typed interfaces, but until then:
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const products:ProductItem[] = []
     currentScene?.assets.all().forEach(asset=>{
@@ -1024,9 +1023,7 @@ export default function Visualizer() {
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
                    
-                    {(products && selectedProduct ) && <ColorLegend swatches={products? products : undefined} tempActive={undefined} activeSwatch={selectedProduct? selectedProduct : undefined}  />}
-            
-  
+                <ColorLegend swatches={products} tempActive={selectedProduct} activeSwatch={selectedProduct? selectedProduct : undefined}  />
 
                 {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&

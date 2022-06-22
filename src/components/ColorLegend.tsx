@@ -59,12 +59,7 @@ export function ColorLegend(props: ColorLegendProps) {
           
           </>
 
-          {props.swatches?.forEach((swatch) => {
-            if (
-              (props.tempActive
-                ? props.tempActive.code
-                : props.activeSwatch?.code) !== swatch.code
-            ) {
+          {props.swatches?.filter(s=>props.activeSwatch?.code !== s.code).map((swatch) => {
               const style = {
                 "--my-css-var": swatch.color,
               } as React.CSSProperties;
@@ -85,8 +80,7 @@ export function ColorLegend(props: ColorLegendProps) {
                     style={style}
                   />
                 </CSSTransition>
-              );
-            }
+              )
           })}
         </div>
         <div className={"product-name-mobile"}>
