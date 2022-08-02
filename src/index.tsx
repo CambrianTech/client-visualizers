@@ -141,6 +141,45 @@ function App() {
         if (searchObject.rt && searchObject.r) {
             loadScene(searchObject.rt, searchObject.r);
         }
+
+        // if (!document.title && config.appearance.header) {
+        //     const header = getHeader(config.appearance.header, "/");
+        //     if (header) {
+        //         document.title = header.title;
+        //     }
+        // }
+
+        if (!document.documentElement.style.getPropertyValue("--mdc-theme-primary")) {
+            document.documentElement.style.setProperty("--mdc-theme-primary", config.appearance.primaryColor)
+        }
+
+        if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-primary")) {
+            document.documentElement.style.setProperty("--mdc-theme-on-primary", config.appearance.primaryTextColor)
+        }
+
+        if (!document.documentElement.style.getPropertyValue("--mdc-theme-secondary")) {
+            document.documentElement.style.setProperty("--mdc-theme-secondary", config.appearance.secondaryColor)
+        }
+
+        if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-secondary")) {
+            document.documentElement.style.setProperty("--mdc-theme-on-secondary", config.appearance.secondaryTextColor)
+        }
+
+        if (!document.documentElement.style.getPropertyValue("--mdc-theme-surface")) {
+            document.documentElement.style.setProperty("--mdc-theme-surface", config.appearance.surfaceColor)
+        }
+
+        if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-surface")) {
+            document.documentElement.style.setProperty("--mdc-theme-on-surface", config.appearance.surfaceTextColor)
+        }
+
+        if (!document.documentElement.style.getPropertyValue("--mdc-theme-inactive")) {
+            document.documentElement.style.setProperty("--mdc-theme-inactive", config.appearance.inactiveColor)
+        }
+
+        if (config.appearance.customStylesheet) {
+            setCustomStylesheet(`${SITE_PATH}/${config.appearance.customStylesheet}`)
+        }
     }, [loadScene])
 
     const updateFromLocation = useCallback((location:any) => {
@@ -209,59 +248,20 @@ function App() {
         //load defaults
         fetch(CONFIG_PATH).then(res => res.json())
             .then(json => {
-                const config = json as SiteConfig;
+                let config = json as SiteConfig;
 
-                if (process.env.REACT_APP_LOCAL_JSON_PATH && config.brands.length) {
-                    fetch(process.env.REACT_APP_LOCAL_JSON_PATH)
+                if (process.env.REACT_APP_SCENES_JSON_URL && config.brands.length) {
+                    return fetch(process.env.REACT_APP_SCENES_JSON_URL)
                         .then(res => res.json())
-                        .then(sceneJson=>{
-                            let modifiedConfig = config;
-                            modifiedConfig.brands[0].sceneCollections?.splice(0,0, sceneJson)
-                            finishLoading(modifiedConfig, searchObject);
+                        .then(sceneJson => {
+                            config.brands[0].sceneCollections?.splice(0, 0, sceneJson)
+                            return config
                         })
-                } else {
-                    finishLoading(config, searchObject);
                 }
-
-                // if (!document.title && config.appearance.header) {
-                //     const header = getHeader(config.appearance.header, "/");
-                //     if (header) {
-                //         document.title = header.title;
-                //     }
-                // }
-
-                if (!document.documentElement.style.getPropertyValue("--mdc-theme-primary")) {
-                    document.documentElement.style.setProperty("--mdc-theme-primary", config.appearance.primaryColor)
-                }
-
-                if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-primary")) {
-                    document.documentElement.style.setProperty("--mdc-theme-on-primary", config.appearance.primaryTextColor)
-                }
-
-                if (!document.documentElement.style.getPropertyValue("--mdc-theme-secondary")) {
-                    document.documentElement.style.setProperty("--mdc-theme-secondary", config.appearance.secondaryColor)
-                }
-
-                if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-secondary")) {
-                    document.documentElement.style.setProperty("--mdc-theme-on-secondary", config.appearance.secondaryTextColor)
-                }
-
-                if (!document.documentElement.style.getPropertyValue("--mdc-theme-surface")) {
-                    document.documentElement.style.setProperty("--mdc-theme-surface", config.appearance.surfaceColor)
-                }
-
-                if (!document.documentElement.style.getPropertyValue("--mdc-theme-on-surface")) {
-                    document.documentElement.style.setProperty("--mdc-theme-on-surface", config.appearance.surfaceTextColor)
-                }
-
-                if (!document.documentElement.style.getPropertyValue("--mdc-theme-inactive")) {
-                    document.documentElement.style.setProperty("--mdc-theme-inactive", config.appearance.inactiveColor)
-                }
-
-                if (config.appearance.customStylesheet) {
-                    setCustomStylesheet(`${SITE_PATH}/${config.appearance.customStylesheet}`)
-                }
-
+                return config
+            })
+            .then((config)=>{
+                finishLoading(config, searchObject);
             });
 
     }, [finishLoading]);
