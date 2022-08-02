@@ -29,6 +29,7 @@ export type SharableVisualizerState = {
     selectedSampleRoom: string | null
     selectedSampleRoomType: string | null
     selectedRoom:string|null
+    dataPath: string | null
 }
 
 export type DerivedVisualizerState = {
@@ -62,6 +63,7 @@ export function createEmptyState(): SiteState {
         selectedSampleRoom: null,
         selectedSampleRoomType: null,
         selectedRoom:null,
+        dataPath:null,
 
         // Visualizer derived
         sceneData: undefined,
@@ -123,6 +125,11 @@ export type SiteActionSetSelectedSampleRoomType = {
     selectedSampleRoomType: string | null
 }
 
+export type SiteActionSetDataPath = {
+    type: "setDataPath"
+    dataPath: string | null
+}
+
 export type SiteActionSetSelectedRoom = {
     type: "setSelectedRoom"
     selectedRoom: string | null
@@ -160,7 +167,7 @@ export type ShawActionSetFloorTranslation = {
 
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
-    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionClearRoomData
+    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionSetDataPath | SiteActionClearRoomData
     | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor | SiteActionSetSiteData;
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
@@ -190,6 +197,9 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
             break;
         case "setSelectedSampleRoomType":
             newState.selectedSampleRoomType = action.selectedSampleRoomType;
+            break;
+        case "setDataPath":
+            newState.dataPath = action.dataPath;
             break;
         case "setSelectedRoom":
             newState.selectedRoom = action.selectedRoom;
@@ -248,6 +258,10 @@ export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
     else if (shawState.selectedRoom) {
         CBContentManager.default?.synchronize(searchObject);
         searchObject.room = shawState.selectedRoom
+    }
+
+    if (shawState.dataPath) {
+        searchObject.path = shawState.dataPath
     }
 
     if (includeSceneParams) {

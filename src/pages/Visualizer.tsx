@@ -539,7 +539,7 @@ export default function Visualizer() {
             }
         } else if (swatchItem instanceof SceneInfo) {
             const scene = swatchItem as SceneInfo;
-            return getScenePaths(scene.collection.code, scene.code).preview
+            return getScenePaths(scene.collection.code, scene.code, scene.json.path).preview
         }
 
         return
@@ -547,17 +547,25 @@ export default function Visualizer() {
 
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem instanceof SceneInfo) {
-            setSelectedSceneColumn(swatchItem);
+            const sceneData = swatchItem as SceneInfo
+            setSelectedSceneColumn(sceneData);
 
             dispatch({
                 type: "setSelectedSampleRoomType",
-                selectedSampleRoomType: swatchItem.collection.code as string
+                selectedSampleRoomType: sceneData.collection.code as string
             });
 
             dispatch({
                 type: "setSelectedSampleRoom",
-                selectedSampleRoom: swatchItem.code as string,
+                selectedSampleRoom: sceneData.code as string,
             });
+
+            if (sceneData.json.hasOwnProperty("path")) {
+                dispatch({
+                    type: "setDataPath",
+                    dataPath: sceneData.json.path,
+                });
+            }
 
             dispatch({
                 type: "setSelectedRoom",
@@ -616,7 +624,16 @@ export default function Visualizer() {
 
             if (!sceneListingItems) {
                 const brand = (rootItem as DataItem).brand;
-                setSceneListingItems(brand.sceneCollections)
+                if (process.env.REACT_APP_LOCAL_JSON_PATH) {
+                    fetch(process.env.REACT_APP_LOCAL_JSON_PATH).then(res => res.json())
+                        .then(json => {
+                            // console.log("Got local scene json", json);
+                            // brand.sceneCollections.push(json);
+                            setSceneListingItems(brand.sceneCollections)
+                        })
+                } else {
+                    setSceneListingItems(brand.sceneCollections)
+                }
             }
         }
     }, [listingItems, rootItem, sceneListingItems, siteContext.state.selectedCollection, siteContext.state.selectedColor, siteContext.state.selectedProduct]);
@@ -665,9 +682,13 @@ export default function Visualizer() {
 
     useEffect(()=>{
         if (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom) {
-            setDataPath(getScenePaths(siteContext.state.selectedSampleRoomType, siteContext.state.selectedSampleRoom).data);
+            setDataPath(getScenePaths(
+                siteContext.state.selectedSampleRoomType,
+                siteContext.state.selectedSampleRoom,
+                siteContext.state.dataPath
+            ).data);
         }
-    }, [siteContext.state.selectedSampleRoom, siteContext.state.selectedSampleRoomType]);
+    }, [siteContext.state.selectedSampleRoom, siteContext.state.dataPath, siteContext.state.selectedSampleRoomType]);
 
     useEffect(()=>{
         if (siteContext.state.selectedRoom) {

@@ -25,6 +25,7 @@ if (!siteName) {
 
 const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
 export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
+
 const CONFIG_PATH = `config/${siteName}.json`;
 
 export const isFeatureEnabled = (siteData:SiteConfig, name:ApiCapabilityName):boolean => {
@@ -47,8 +48,10 @@ export type RoomPaths = {
     preview:string
 }
 
-export const getScenePaths = (collectionName?:string, sceneName?:string):RoomPaths =>{
-    const basePath = `${SITE_PATH}/scenes/${collectionName}/${sceneName}`;
+export const getScenePaths = (collectionName?:string, sceneName?:string, basePath?:string|null):RoomPaths =>{
+    if (!basePath) {
+        basePath = `${SITE_PATH}/scenes/${collectionName}/${sceneName}`;
+    }
     return {
         base:basePath,
         data:`${basePath}/data.json`,
@@ -185,6 +188,13 @@ function App() {
             });
         }
 
+        if (searchObject.path) {
+            dispatchSiteState({
+                type: "setDataPath",
+                dataPath: searchObject.path,
+            });
+        }
+
         //load defaults
         fetch(CONFIG_PATH).then(res => res.json())
             .then(json => {
@@ -194,6 +204,8 @@ function App() {
                     type: "setSiteData",
                     siteData:json
                 });
+
+                console.log("Got json", json)
 
                 if (searchObject.rt && searchObject.r) {
                     loadScene(searchObject.rt, searchObject.r);
