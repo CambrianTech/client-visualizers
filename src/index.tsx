@@ -132,6 +132,17 @@ function App() {
 
     }, []);
 
+    const finishLoading = useCallback((config:SiteConfig, searchObject) => {
+        dispatchSiteState({
+            type: "setSiteData",
+            siteData:config
+        });
+
+        if (searchObject.rt && searchObject.r) {
+            loadScene(searchObject.rt, searchObject.r);
+        }
+    }, [loadScene])
+
     const updateFromLocation = useCallback((location:any) => {
 
         // Parse URL search string without the first character (typically question mark).
@@ -200,15 +211,16 @@ function App() {
             .then(json => {
                 const config = json as SiteConfig;
 
-                dispatchSiteState({
-                    type: "setSiteData",
-                    siteData:json
-                });
-
-                console.log("Got json", json)
-
-                if (searchObject.rt && searchObject.r) {
-                    loadScene(searchObject.rt, searchObject.r);
+                if (process.env.REACT_APP_LOCAL_JSON_PATH && config.brands.length) {
+                    fetch(process.env.REACT_APP_LOCAL_JSON_PATH)
+                        .then(res => res.json())
+                        .then(sceneJson=>{
+                            let modifiedConfig = config;
+                            modifiedConfig.brands[0].sceneCollections?.splice(0,0, sceneJson)
+                            finishLoading(modifiedConfig, searchObject);
+                        })
+                } else {
+                    finishLoading(config, searchObject);
                 }
 
                 // if (!document.title && config.appearance.header) {
@@ -252,7 +264,7 @@ function App() {
 
             });
 
-    }, [loadScene]);
+    }, [finishLoading]);
 
     const initialize = useCallback(() => {
         setCssVars();
