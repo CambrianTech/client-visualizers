@@ -33,7 +33,7 @@ elif [ ! -d "${LOCAL_OUTPUT_PATH}" ]; then
   abort_changes
 fi
 
-ln -sf "${LOCAL_OUTPUT_PATH}" "${LINK_PATH}"
+ln -sfn "${LOCAL_OUTPUT_PATH}" "${LINK_PATH}"
 
 scenes_json=""
 for dir in ${LINK_PATH}/*/; do
