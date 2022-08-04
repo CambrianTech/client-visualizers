@@ -40,7 +40,7 @@
     {
       "code": "dunn-edwards",
       "displayName": "Dunn Edwards",
-      "surfaceTypes": ["Wall", "Floor"],
+      "surfaceTypes": ["Wall"],
       "assetTypes": ["paint-surface"],
       "sceneCollections": [
         {
