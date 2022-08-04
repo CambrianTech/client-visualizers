@@ -55,5 +55,5 @@ echo $json > ${JSON_PATH}
 
 echo "Project json generated at ${JSON_PATH}"
 
-echo ${CONFIG_VAR}="${JSON_URL}" >> ${CONFIG_PATH}
+printf "\n${CONFIG_VAR}=\"${JSON_URL}\"" >> ${CONFIG_PATH}
 

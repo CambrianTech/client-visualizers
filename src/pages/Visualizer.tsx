@@ -148,7 +148,8 @@ export default function Visualizer() {
                 logLevel:DebugLevel.Warning,
                 processingUrl: process.env.REACT_APP_CB_API_URL,
                 hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
-                placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined
+                placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined,
+                useLighting:!!process.env.REACT_APP_USE_LIGHTING && parseInt(process.env.REACT_APP_USE_LIGHTING) === 1
             })
         }
     }, [primarySurfaceType])
