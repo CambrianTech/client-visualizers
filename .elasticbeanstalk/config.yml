@@ -1,4 +1,6 @@
 branch-defaults:
+  feature/amazon-linux-2:
+    environment: dunn-apiv4
   v4:
     environment: dunn-apiv4
     group_suffix: null
