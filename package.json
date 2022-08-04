@@ -38,7 +38,7 @@
   },
   "scripts": {
     "start": "sh scripts/dev-only.sh; concurrently \"cd server; npm run server\" \"react-scripts start\"",
-    "build": "react-scripts build",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "cd server; npm run start;",
