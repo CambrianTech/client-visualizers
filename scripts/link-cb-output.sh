@@ -6,8 +6,9 @@ JSON_PATH="${LINK_PATH}/${JSON_NAME}"
 CONFIG_PATH=.env.development.local
 CONFIG_VAR="REACT_APP_SCENES_JSON_URL"
 
-if [! [test -f "$CONFIG_PATH" ]]; then
-    exit 0
+if [ ! -f ${CONFIG_PATH} ]
+then
+	touch ${CONFIG_PATH}
 fi
 
 source ${CONFIG_PATH}
