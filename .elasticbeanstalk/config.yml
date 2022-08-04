@@ -1,31 +1,18 @@
 branch-defaults:
-  develop:
-    environment: dunn-edwards
-  feature-sdk20:
-    environment: client-visualizers-sdk2
-  feature/dunn-edwards:
-    environment: dunn-edwards
-  master:
-    environment: client-visualizers-dev
+  v4:
+    environment: dunn-apiv4
     group_suffix: null
-environment-defaults:
-  client-visualizers-dev:
-    branch: null
-    repository: null
-  dunn-edwards:
-    branch: null
-    repository: null
 global:
-  application_name: client-demos
+  application_name: apiv4
   branch: null
   default_ec2_keyname: cambrian-servers
-  default_platform: Docker running on 64bit Amazon Linux
+  default_platform: Docker running on 64bit Amazon Linux 2
   default_region: us-east-1
   include_git_submodules: true
   instance_profile: null
   platform_name: null
   platform_version: null
-  profile: eb-cli
+  profile: null
   repository: null
   sc: git
   workspace_type: Application

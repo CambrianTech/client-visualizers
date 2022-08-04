@@ -13,6 +13,7 @@ dist
 /sites/*
 cambrianar-sites
 public/cambrianar-sites
+public/cb-projects
 cb-backend-data
 build
 scripts

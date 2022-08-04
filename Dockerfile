@@ -5,6 +5,8 @@ COPY package*.json /app/
 RUN npm install --legacy-peer-deps
 COPY . /app/
 RUN rm -rf /app/public/assets/cambrianar-sites
+ENV NODE_OPTIONS=--max_old_space_size=4096
+
 RUN npm run build
 
 # 2. Copy built files into nginx container
