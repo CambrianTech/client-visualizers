@@ -5,7 +5,10 @@ COPY package*.json /app/
 RUN npm install --legacy-peer-deps
 COPY . /app/
 RUN rm -rf /app/public/assets/cambrianar-sites
-ENV NODE_OPTIONS=--max_old_space_size=4096
+
+#RUN npm run build is taking up too much memory
+ARG MAX_OLD_SPACE_SIZE=8192
+ENV NODE_OPTIONS=--max_old_space_size=$MAX_OLD_SPACE_SIZE
 
 RUN npm run build
 
