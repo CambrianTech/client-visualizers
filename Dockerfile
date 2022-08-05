@@ -1,5 +1,7 @@
 # 1. Build with npm
-FROM public.ecr.aws/j7v0i7y2/client-resources:node-14.7.0-alpine as build-stage
+#FROM public.ecr.aws/j7v0i7y2/client-resources:node-14.7.0-alpine as build-stage
+FROM public.ecr.aws/docker/library/node:18.7.0-alpine as build-stage
+
 WORKDIR /app
 COPY package*.json /app/
 RUN npm install --legacy-peer-deps
@@ -13,7 +15,10 @@ ENV NODE_OPTIONS=--max_old_space_size=$MAX_OLD_SPACE_SIZE
 RUN npm run build
 
 # 2. Copy built files into nginx container
-FROM public.ecr.aws/j7v0i7y2/client-resources:nginx-1.17-alpine
+#FROM public.ecr.aws/j7v0i7y2/client-resources:nginx-1.17-alpine
+
+FROM public.ecr.aws/nginx/nginx:1.23-alpine
+
 COPY --from=build-stage /app/build/config /opt/server/config
 COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf
 
