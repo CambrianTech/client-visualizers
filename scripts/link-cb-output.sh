@@ -6,10 +6,7 @@ JSON_PATH="${LINK_PATH}/${JSON_NAME}"
 CONFIG_PATH=.env.development.local
 CONFIG_VAR="REACT_APP_SCENES_JSON_URL"
 
-if [ ! -f ${CONFIG_PATH} ]
-then
-	touch ${CONFIG_PATH}
-fi
+touch ${CONFIG_PATH}
 
 source ${CONFIG_PATH}
 
@@ -57,4 +54,4 @@ echo $json > ${JSON_PATH}
 echo "Project json generated at ${JSON_PATH}"
 
 printf "\n${CONFIG_VAR}=\"${JSON_URL}\"" >> ${CONFIG_PATH}
-
+sed -i '' '/^$/d' ${CONFIG_PATH}
