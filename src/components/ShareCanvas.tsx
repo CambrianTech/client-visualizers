@@ -126,7 +126,7 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
       });
       const brandImg = new Image();
       brandImg.crossOrigin = "";
-      brandImg.src = 'cambrianar-sites/dunn-edwards/branding/DE_Logo.svg';
+      brandImg.src = 'assets/img/DE_Logo.svg';
 
       brandImg.onload = function () {
         const brandWidth = linearlyInterpolate({
