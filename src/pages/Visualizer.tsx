@@ -12,12 +12,12 @@ import {
     CBARSurface,
     CBARSurfaceAsset,
     CBARSurfaceType,
-    CBARToolMode,
-    CBARView,
+    CBARToolMode, CBARUploadNames,
+    CBARView, CBContentManager,
     cbInitialize,
     DataFilter,
     DataItem,
-    DebugLevel,
+    DebugLevel, ImageSource,
     Product,
     ProductBrand,
     ProductCollection,
@@ -965,6 +965,23 @@ export default function Visualizer() {
             selectionChanged({surface:asset.surface, asset:asset})
         }
     }, [currentScene?.assets, selectionChanged])
+
+    const uploadChanges = React.useCallback(async (render:ImageSource, original:ImageSource) => {
+        await CBContentManager.default?.uploadFile(render, CBARUploadNames.Preview)
+        //drawBeforeAfter(currentScene.backgroundImage.image, render)
+        return CBContentManager.default?.uploadFile(render, CBARUploadNames.Pinterest)
+    }, [])
+
+    useEffect(()=>{
+        const original = currentScene?.backgroundImage?.image;
+        if (shareImageUrl && original) {
+            CBContentManager.dataUrlToImage(shareImageUrl)
+                .then(image=>uploadChanges(image, original))
+                .then(()=>{
+                    console.log("Changes uploaded")
+                })
+        }
+    }, [currentScene, shareImageUrl, uploadChanges])
 
     return useMemo(() => (
         <div className={"panels " + activePanel}>
