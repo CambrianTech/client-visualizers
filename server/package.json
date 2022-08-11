@@ -17,7 +17,7 @@
   "dependencies": {
     "@types/compression": "^1.7.0",
     "@types/dotenv-flow": "^3.1.0",
-    "cambrian-base": "^1.0.159",
+    "cambrian-base": "^1.0.160",
     "compression": "^1.7.4",
     "dotenv-flow": "^3.2.0",
     "express": "^4.17.1"
