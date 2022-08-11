@@ -71,16 +71,17 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
 
   useEffect(()=>{
     if (!logoSrc) return
-
     const brandImg = new Image();
-    brandImg.crossOrigin = "anonymous";
+    brandImg.crossOrigin = "";
     brandImg.onload = () => {
       setBrandImage(brandImg)
     }
     brandImg.onerror = (error) =>{
-      console.log("Error getting image", error);
+      console.log("Error getting image, rand int supplied", brandImg.src, error);
+      setBrandImage(new Image()) //move on without
     }
-    brandImg.src = logoSrc;
+    //Somewhere else in code this might have been cached without cors: https://www.hacksoft.io/blog/handle-images-cors-error-in-chrome
+    brandImg.src = logoSrc + "?random=" + Math.random().toString();
 
   }, [logoSrc])
 
@@ -138,17 +139,19 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
 
           });
 
-          const brandWidth = linearlyInterpolate({
-            canvasWidth: ctx!.canvas.width,
-            minValue: brandImage.width / 3,
-            maxValue: brandImage.width / 2
-          });
-          const brandHeight = linearlyInterpolate({
-            canvasWidth: ctx!.canvas.width,
-            minValue: brandImage.height / 3,
-            maxValue: brandImage.height / 2
-          });
-          ctx!.drawImage(brandImage, 20, 20, brandWidth, brandHeight);
+          if (brandImage.width > 0) {
+            const brandWidth = linearlyInterpolate({
+              canvasWidth: ctx!.canvas.width,
+              minValue: brandImage.width / 3,
+              maxValue: brandImage.width / 2
+            });
+            const brandHeight = linearlyInterpolate({
+              canvasWidth: ctx!.canvas.width,
+              minValue: brandImage.height / 3,
+              maxValue: brandImage.height / 2
+            });
+            ctx!.drawImage(brandImage, 20, 20, brandWidth, brandHeight);
+          }
 
           return canvasRef.toDataURL('image/jpeg', 1.0)
     })
