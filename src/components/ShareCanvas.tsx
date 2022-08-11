@@ -73,11 +73,15 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
     if (!logoSrc) return
 
     const brandImg = new Image();
-    brandImg.crossOrigin = "";
-    brandImg.src = logoSrc;
+    brandImg.crossOrigin = "anonymous";
     brandImg.onload = () => {
       setBrandImage(brandImg)
     }
+    brandImg.onerror = (error) =>{
+      console.log("Error getting image", error);
+    }
+    brandImg.src = logoSrc;
+
   }, [logoSrc])
 
   const renderedImageTask = useMemo(()=>{
@@ -156,7 +160,7 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
     })
   }, [onChange, renderedImageTask]);
 
-  return <canvas  ref={(newRef) => setCanvasRef(newRef)} />;
+  return <canvas ref={(newRef) => setCanvasRef(newRef)} />;
 };
 
 export default ShareCanvas;

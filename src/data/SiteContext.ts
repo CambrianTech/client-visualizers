@@ -29,6 +29,7 @@ export type SharableVisualizerState = {
     selectedSampleRoom: string | null
     selectedSampleRoomType: string | null
     selectedRoom:string|null
+    selectedSubRoom:string|null
     dataPath: string | null
 }
 
@@ -63,6 +64,7 @@ export function createEmptyState(): SiteState {
         selectedSampleRoom: null,
         selectedSampleRoomType: null,
         selectedRoom:null,
+        selectedSubRoom:null,
         dataPath:null,
 
         // Visualizer derived
@@ -135,6 +137,12 @@ export type SiteActionSetSelectedRoom = {
     selectedRoom: string | null
 }
 
+export type SiteActionSetSelectedSubRoom = {
+    type: "setSelectedSubRoom"
+    selectedSubRoom: string | null
+}
+
+
 export type SiteActionClearRoomData = {
     type: "clearRoomData"
 }
@@ -167,7 +175,8 @@ export type ShawActionSetFloorTranslation = {
 
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
-    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionSetDataPath | SiteActionClearRoomData
+    | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionSetSelectedSubRoom
+    | SiteActionSetDataPath | SiteActionClearRoomData
     | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor | SiteActionSetSiteData;
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
@@ -204,10 +213,14 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
         case "setSelectedRoom":
             newState.selectedRoom = action.selectedRoom;
             break;
+        case "setSelectedSubRoom":
+            newState.selectedSubRoom = action.selectedSubRoom;
+            break;
         case "clearRoomData":
             newState.selectedSampleRoomType = null;
             newState.selectedSampleRoom = null;
             newState.selectedRoom = null;
+            newState.selectedSubRoom = null;
             break;
 
         case "setCollection":
@@ -258,6 +271,9 @@ export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
     else if (shawState.selectedRoom) {
         CBContentManager.default?.synchronize(searchObject);
         searchObject.room = shawState.selectedRoom
+        if (shawState.selectedSubRoom) {
+            searchObject.subroom = shawState.selectedSubRoom
+        }
     }
 
     if (shawState.dataPath) {
