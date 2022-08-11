@@ -1,4 +1,5 @@
-import React, { useState
+import React, {
+  useEffect, useMemo, useState
 } from "react";
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
@@ -9,7 +10,14 @@ import {
   DialogContent,
   Backdrop,
 } from "@mui/material";
-import {ProductItem, CBContentManager} from "react-home-ar";
+import {
+  ProductItem,
+  CBContentManager,
+  ImageSource,
+  CBARScene,
+  drawBeforeAfter,
+  UrlDict
+} from "react-home-ar";
 import {
   EmailIcon,
   EmailShareButton,
@@ -34,9 +42,8 @@ type Props = PropsWithChildren<{
   products?: ProductItem[];
   logoSrc: string;
   shareImageUrl: string;
+  scene:CBARScene|undefined
 }>;
-
-
 
 const TopRightCloseButton = styled(IconButton)`
   position: absolute;
@@ -151,13 +158,13 @@ function getShareUrl() {
   return url.replace('localhost:3000', 'dunn-edwards.cambrianar.com');
 }
 
-
 export function ShareModal({
   onClose,
   isOpen,
   products,
   logoSrc,
   shareImageUrl,
+    scene,
 
 }: Props) {
   const mobileMediaQuery = window.matchMedia(`(max-width: ${MOBILE_CUTOFF}px)`);
@@ -165,16 +172,39 @@ export function ShareModal({
   const socialIconSize = isMobile
     ? SMALL_SOCIAL_ICON_SIZE
     : BIG_SOCIAL_ICON_SIZE;
-  const [canvasDownloadLink, setCanvasDownloadLink] = useState(shareImageUrl);
+  const [canvasDownloadLink, setCanvasDownloadLink] = useState<string>();
 
-  const pinterestBeforeOnClick = async () => {
-    if(canvasDownloadLink) {
-      const img = await CBContentManager.dataUrlToImage(canvasDownloadLink);
-      CBContentManager.default!.registerImage('my-visualization.jpg');
-      const url = await CBContentManager.default!.uploadFile(img, 'my-visualization.jpg');
-      console.log(url);
+  const uploadChanges = React.useCallback(async (scene:CBARScene, render:ImageSource, original:ImageSource) => {
+
+    const before = CBContentManager.imageToCanvasContext(original)!.canvas
+    const after = CBContentManager.imageToCanvasContext(render)!.canvas
+    const beforeAfter = drawBeforeAfter(before, after)!.canvas
+
+    const images: { [name: string]: ImageSource; } = {
+      "share": render, "pinterest": beforeAfter
+    };
+
+    return CBContentManager.default!.uploadFiles(images)
+  }, [])
+
+  const [uploadNames, setUploadNames] = useState<UrlDict>()
+
+  useEffect(()=>{
+    const original = scene?.backgroundImage?.image;
+    if (scene && canvasDownloadLink && original) {
+      //console.log("Perform upload")
+      CBContentManager.dataUrlToImage(canvasDownloadLink)
+          .then(render=>uploadChanges(scene, render, original))
+          .then((results)=>{
+            //console.log("Changes Uploaded", results)
+            setUploadNames(results);
+          })
     }
-  };
+  }, [canvasDownloadLink, scene, shareImageUrl, uploadChanges])
+
+  const pinterestImage = useMemo(()=>{
+    return uploadNames ? uploadNames["pinterest"] : shareImageUrl;
+  }, [shareImageUrl, uploadNames])
 
   return (
     <Dialog
@@ -208,7 +238,7 @@ export function ShareModal({
 
         <ShareItem>
             {/** Doesn't work for localhost, but works for proper websites and images **/}
-            <PinterestShareButton beforeOnClick={pinterestBeforeOnClick} url={getShareUrl()} media={shareImageUrl}>
+            <PinterestShareButton url={getShareUrl()} media={pinterestImage}>
               <PinterestIcon
                 bgStyle={{ fill: "black", stroke: "white", strokeWidth: 2 }}
                 size={socialIconSize}
@@ -240,7 +270,7 @@ export function ShareModal({
         <ShareItem>
           <DownloadShareButton
             disableRipple
-            onClick={() => download(canvasDownloadLink, "my-visualization.jpg")}
+            onClick={() => canvasDownloadLink && download(canvasDownloadLink, "my-visualization.jpg")}
           >
             <BlackCircle size={socialIconSize} />
             <ShareIcon>download</ShareIcon>
@@ -250,7 +280,7 @@ export function ShareModal({
         <ShareItem>
           <CopyShareButton
             disableRipple
-            onClick={() => copyTextToClipboard(canvasDownloadLink)}
+            onClick={() => canvasDownloadLink && copyTextToClipboard(canvasDownloadLink)}
           >
             <BlackCircle size={socialIconSize} />
             <ShareIcon>link</ShareIcon>

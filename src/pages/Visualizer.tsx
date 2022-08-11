@@ -12,12 +12,12 @@ import {
     CBARSurface,
     CBARSurfaceAsset,
     CBARSurfaceType,
-    CBARToolMode, CBARUploadNames,
-    CBARView, CBContentManager,
+    CBARToolMode,
+    CBARView,
     cbInitialize,
     DataFilter,
     DataItem,
-    DebugLevel, ImageSource,
+    DebugLevel,
     Product,
     ProductBrand,
     ProductCollection,
@@ -966,22 +966,14 @@ export default function Visualizer() {
         }
     }, [currentScene?.assets, selectionChanged])
 
-    const uploadChanges = React.useCallback(async (render:ImageSource, original:ImageSource) => {
-        await CBContentManager.default?.uploadFile(render, CBARUploadNames.Preview)
-        //drawBeforeAfter(currentScene.backgroundImage.image, render)
-        return CBContentManager.default?.uploadFile(render, CBARUploadNames.Pinterest)
-    }, [])
+    const logoSrc = siteContext.state.siteData?.appearance.logo.src;
 
-    useEffect(()=>{
-        const original = currentScene?.backgroundImage?.image;
-        if (shareImageUrl && original) {
-            CBContentManager.dataUrlToImage(shareImageUrl)
-                .then(image=>uploadChanges(image, original))
-                .then(()=>{
-                    console.log("Changes uploaded")
-                })
+    const brandLogo = useMemo(()=>{
+        if (logoSrc) {
+            return `${brandPath}/${logoSrc}`
         }
-    }, [currentScene, shareImageUrl, uploadChanges])
+        return 'assets/img/DE_Logo.svg'
+    }, [brandPath, logoSrc])
 
     return useMemo(() => (
         <div className={"panels " + activePanel}>
@@ -1045,10 +1037,11 @@ export default function Visualizer() {
 
                 {(shareImageUrl && isShareModalOpen) && <ShareModal
                   onClose={() => setShareModal(false)}
-                  logoSrc={`${brandPath}/${siteContext.state.siteData.appearance.logo.src}`}
+                  logoSrc={brandLogo}
                   isOpen={isShareModalOpen}
                   products={products}
                   shareImageUrl={shareImageUrl}
+                  scene={currentScene}
                 />}
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
@@ -1121,5 +1114,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, brandPath, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, productsClicked, productDetailsClicked, setPanelTimer, clearPanelTimer])
+    ), [activePanel, currentScene, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, shareImageUrl, isShareModalOpen, brandLogo, products, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
