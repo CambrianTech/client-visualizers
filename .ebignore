@@ -17,10 +17,12 @@ public/cb-projects
 cb-backend-data
 build
 scripts
+projects
 
 node_modules
 server/dist
 server/node_modules
+
 
 
 **/*.log
