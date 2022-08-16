@@ -247,15 +247,15 @@ export function ShareModal({
             </PinterestShareButton>
         </ShareItem>
 
-        <ShareItem>
-          <TwitterShareButton url={getShareUrl()}>
-            <TwitterIcon
-              bgStyle={{ fill: "black", stroke: "white", strokeWidth: 2 }}
-              size={socialIconSize}
-              round
-            />
-          </TwitterShareButton>
-        </ShareItem>
+        {/*<ShareItem>*/}
+        {/*  <TwitterShareButton url={getShareUrl()}>*/}
+        {/*    <TwitterIcon*/}
+        {/*      bgStyle={{ fill: "black", stroke: "white", strokeWidth: 2 }}*/}
+        {/*      size={socialIconSize}*/}
+        {/*      round*/}
+        {/*    />*/}
+        {/*  </TwitterShareButton>*/}
+        {/*</ShareItem>*/}
 
         <ShareItem>
           <EmailShareButton url={getShareUrl()}>
