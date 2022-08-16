@@ -201,6 +201,7 @@ export default function Visualizer() {
         if (selectedAsset) {
             selectedAsset.removeFromScene();
             setSelectedAsset(undefined);
+            setNeedsScreenshot(true);
         }
     }, [selectedAsset]);
 
@@ -440,6 +441,7 @@ export default function Visualizer() {
                 console.error(error)
             })
         }
+
     }, [brandPath, context, selectedSurface]);
 
     const productsClicked = useCallback((gotoRoot?:boolean)=>{
@@ -1035,14 +1037,14 @@ export default function Visualizer() {
                     <VisualizerTools actions={toolActions} handleAction={handleAction} />
                 </div>
 
-                {(shareImageUrl && isShareModalOpen) && <ShareModal
+                <ShareModal
                   onClose={() => setShareModal(false)}
                   logoSrc={brandLogo}
                   isOpen={isShareModalOpen}
                   products={products}
                   shareImageUrl={shareImageUrl}
                   scene={currentScene}
-                />}
+                />
 
                 <EditSurfaceTool onEditFinished={editSurfaceFinished}
                                  surface={selectedSurface}

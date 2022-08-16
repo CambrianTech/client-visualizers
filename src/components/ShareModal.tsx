@@ -39,7 +39,7 @@ type Props = PropsWithChildren<{
   isOpen: boolean;
   products?: ProductItem[];
   logoSrc: string;
-  shareImageUrl: string;
+  shareImageUrl: string|undefined;
   scene:CBARScene|undefined
 }>;
 
@@ -201,7 +201,7 @@ export function ShareModal({
   }, [canvasDownloadLink, scene, shareImageUrl, uploadChanges])
 
   const pinterestImage = useMemo(()=>{
-    return uploadNames ? uploadNames["pinterest"] : shareImageUrl;
+    return uploadNames ? uploadNames["pinterest"] : `${shareImageUrl}`;
   }, [shareImageUrl, uploadNames])
 
   return (

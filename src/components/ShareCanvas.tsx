@@ -59,7 +59,7 @@ function resizeCanvasLandscape(ctx: CanvasRenderingContext2D, img: ImageSource, 
   drawImage(ctx, img, newHeight);
 }
 
-const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, url: string, products?: ProductItem[] }> = (props) => {
+const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, url: string|undefined, products?: ProductItem[] }> = (props) => {
   const [canvasRef, setCanvasRef] = useState<any>(null);
   const [screenWidth, screenHeight] = useWindowSize();
 
@@ -152,6 +152,8 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
             });
             ctx!.drawImage(brandImage, 20, 20, brandWidth, brandHeight);
           }
+
+          setCanvasRef(canvasRef)
 
           return canvasRef.toDataURL('image/jpeg', 1.0)
     })
