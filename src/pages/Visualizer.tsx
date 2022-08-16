@@ -201,6 +201,7 @@ export default function Visualizer() {
         if (selectedAsset) {
             selectedAsset.removeFromScene();
             setSelectedAsset(undefined);
+            setSelectedColumn(undefined);
             setNeedsScreenshot(true);
         }
     }, [selectedAsset]);
