@@ -11,6 +11,10 @@
     box-shadow: none;
 }
 
+.share-dialog canvas {
+    overflow: inherit;
+}
+
 @media(max-height: 400px) {
     .share-dialog .MuiPaper-root {
         margin-bottom: 0;
