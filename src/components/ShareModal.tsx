@@ -25,8 +25,6 @@ import {
   FacebookShareButton,
   PinterestIcon,
   PinterestShareButton,
-  TwitterIcon,
-  TwitterShareButton,
 } from "react-share";
 import { copyTextToClipboard, download } from "../utilities/Methods";
 import "./ShareModal.css";
