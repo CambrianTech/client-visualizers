@@ -598,6 +598,10 @@ panel.c {
         padding: 10px;
     }
 
+    .panel .close-button.call-to-action {
+        bottom: 30px;
+    }
+
     .panels.product-info .MuiSpeedDial-root,
     .panels.products .MuiSpeedDial-root,
     .panels.scenes .MuiSpeedDial-root,
@@ -682,6 +686,7 @@ panel.c {
     .panel.a {
         height: var(--panel-height);
         bottom: calc(-1 * var(--panel-height));
+        z-index: 200;
     }
 
     .panel.c {
@@ -736,10 +741,6 @@ panel.c {
         --share-buttons-button-height:35px;
         --horizontal-margin:10px;
         --vertical-margin:0;
-    }
-
-    .choose-scene {
-        z-index: 0;
     }
 
     .choose-scene .content {

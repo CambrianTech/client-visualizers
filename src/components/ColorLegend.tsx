@@ -54,7 +54,7 @@ export function ColorLegend(props: ColorLegendProps) {
             >
               <div
                 key={currentProduct?.code}
-                className={`product-swatch-full`}
+                className={`product-swatch-full ${!props.swatches?.length && 'empty'}`}
                 style={
                   {
                     backgroundColor: currentProduct?.color,
