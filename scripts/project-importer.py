@@ -89,9 +89,9 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size):
             continue
 
         if index_mask is not None:
-            color = surface["index"]
+            maskIndex = surface["maskIndex"]
             mask = np.zeros(index_mask.shape[:2], dtype=np.uint8)
-            mask[index_mask == color] = 1
+            mask[index_mask == maskIndex] = 1
         elif "images" in surface:
             input_name = surface["images"]["mask"]
             input_path = os.path.join(src_dir, input_name)
@@ -122,8 +122,8 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size):
 
     num_surfaces = len(masks)
     for index, surface in enumerate(filtered_surfaces):
-        color = (1 + index) * 255 / (1 + num_surfaces) #evenly spaced
-        surface["index"] = color
+        maskIndex = int((1 + index) * 255 / (1 + num_surfaces)) #evenly spaced
+        surface["maskIndex"] = maskIndex
         mask = masks[index]
         if mask.shape[0] != mask_shape[0]:
             mask = cv2.resize(mask, (mask_shape[1], mask_shape[0]), interpolation=cv2.INTER_NEAREST)
@@ -135,7 +135,8 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size):
             mask[mask > 0] = 255
             imsave(os.path.join(dest_dir, mask_path), mask)
         else:
-            index_mask[mask > 0] = color
+            surface.pop('images', None)
+            index_mask[mask > 0] = maskIndex
 
     data["geometry"]["surfaces"] = filtered_surfaces
 

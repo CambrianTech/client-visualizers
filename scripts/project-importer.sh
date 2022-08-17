@@ -3,7 +3,7 @@ BASEDIR=$(dirname $0)
 source .env.development
 
 DEFAULT_INPUT="cambrianar-sites/${REACT_APP_SITE_NAME}/scenes"
-DEFAULT_OUTPUT="exported-scenes"
+DEFAULT_OUTPUT=${DEFAULT_INPUT}
 python_options=()
 
 if [ $# -eq 2 ] ;then
@@ -39,8 +39,8 @@ for file in $(find ${INPUT} -name "data.json" -type f -print ); do
     continue
   fi
 
-  project_id=$(basename ${src_dir})
-  dest_dir=${OUTPUT}/${project_id}
+  rel_path=$(dirname ${file/#$INPUT\/})
+  dest_dir=${OUTPUT}/${rel_path}
 
   mkdir -p ${dest_dir}
 
