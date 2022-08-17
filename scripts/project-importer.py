@@ -114,9 +114,9 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size):
     else:
         index_mask = np.zeros(mask_shape, dtype=np.uint8)
 
-
+    num_surfaces = len(masks)
     for index, surface in enumerate(filtered_surfaces):
-        color = index + 1
+        color = (1 + index) * 255 / (1 + num_surfaces) #evenly spaced
         surface["index"] = color
         mask = masks[index]
         if mask.shape[0] != mask_shape[0]:
