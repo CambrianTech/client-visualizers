@@ -1,4 +1,5 @@
 
+BASEDIR=$(dirname $0)
 source .env.development
 
 DEFAULT_INPUT="cambrianar-sites/${REACT_APP_SITE_NAME}/scenes"
@@ -30,6 +31,6 @@ for file in $(find ${INPUT} -name "data.json" -type f -print ); do
   dest_dir=${OUTPUT}/${project_id}
 
   mkdir -p ${dest_dir}
-  cp $data_path "${dest_dir}/data.json"
 
+  python "${BASEDIR}/project-importer.py" $data_path "${dest_dir}/data.json"
 done
