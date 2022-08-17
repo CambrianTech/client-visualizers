@@ -3,6 +3,7 @@ BASEDIR=$(dirname $0)
 source .env.development
 
 DEFAULT_INPUT="cambrianar-sites/${REACT_APP_SITE_NAME}/scenes"
+DEFAULT_OUTPUT="exported-scenes"
 
 python_options=()
 
@@ -13,8 +14,8 @@ else
   read -e -p "Enter input directory [${DEFAULT_INPUT}]: " value
   INPUT=${value:-"${DEFAULT_INPUT}"}
 
-  read -e -p "Enter output directory [${INPUT}]: " value
-  OUTPUT=${value:-"${INPUT}"}
+  read -e -p "Enter output directory [${DEFAULT_OUTPUT}]: " value
+  OUTPUT=${value:-"${DEFAULT_OUTPUT}"}
 fi
 
 read -p "Generate single mask for all surfaces (experimental)? yes/no [no]: " answer
