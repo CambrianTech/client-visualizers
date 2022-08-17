@@ -4,6 +4,7 @@ source .env.development
 
 DEFAULT_INPUT="cambrianar-sites/${REACT_APP_SITE_NAME}/scenes"
 DEFAULT_OUTPUT="exported-scenes"
+python_options=()
 
 if [ $# -eq 2 ] ;then
   INPUT=$1
@@ -14,10 +15,21 @@ else
 
   read -p "Enter output directory [${DEFAULT_OUTPUT}]: " value
   OUTPUT=${value:-"${DEFAULT_OUTPUT}"}
-
 fi
 
-mkdir -p ${OUTPUT}
+read -p "Reverse yes/no [no]: " answer
+
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+  python_options=(-r)
+fi
+
+if [[ ! $INPUT -ef $OUTPUT ]]; then
+  if [ -d ${OUTPUT} ]; then
+    rm -rf ${OUTPUT}
+  else
+    mkdir -p ${OUTPUT}
+  fi
+fi
 
 for file in $(find ${INPUT} -name "data.json" -type f -print ); do
   src_dir=$(dirname $file)
@@ -32,5 +44,6 @@ for file in $(find ${INPUT} -name "data.json" -type f -print ); do
 
   mkdir -p ${dest_dir}
 
-  python "${BASEDIR}/project-importer.py" $data_path "${dest_dir}/data.json"
+  python "${BASEDIR}/project-importer.py" $data_path "${dest_dir}/data.json" "${python_options[@]}"
+
 done
