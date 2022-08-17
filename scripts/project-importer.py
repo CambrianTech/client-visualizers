@@ -13,6 +13,8 @@ except ImportError:
 
 import click
 
+IMAGE_WHITELIST = {"main":"background.jpg"}
+
 def resize(image, window_height, interpolation=cv2.INTER_AREA):
     aspect_ratio = float(image.shape[1])/float(image.shape[0])
     window_width = window_height/aspect_ratio
@@ -33,21 +35,30 @@ def main(input_file, output_file, quality, max_image_size, max_mask_size):
 
     data = json.load(open(input_file, 'r'))
 
-    images = data["images"]
-
     src_dir = os.path.dirname(input_file)
     dest_dir = os.path.dirname(output_file)
 
     print("Processing", input_file)
 
-    if "main" in images:
-        input_path = os.path.join(src_dir, images["main"])
-        output_path = os.path.join(dest_dir, images["main"])
+    data["images"] = {k: v for k, v in data["images"].items() if k in IMAGE_WHITELIST.keys()}
+
+    for name in data["images"]:
+        input_name = data["images"][name]
+        input_path = os.path.join(src_dir, input_name)
+
+        output_name = IMAGE_WHITELIST[name]
+        output_path = os.path.join(dest_dir, output_name)
+
+        data["images"][name] = output_name
 
         background = imread(input_path)
         background = resize(background, max_image_size)
 
         imsave(output_path, background)
+
+
+    with open(output_file, "w") as outfile:
+        json.dump(data, outfile, indent=5)
 
 if __name__ == "__main__":
     main()
