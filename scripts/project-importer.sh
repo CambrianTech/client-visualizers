@@ -3,24 +3,24 @@ BASEDIR=$(dirname $0)
 source .env.development
 
 DEFAULT_INPUT="cambrianar-sites/${REACT_APP_SITE_NAME}/scenes"
-DEFAULT_OUTPUT=${DEFAULT_INPUT}
+
 python_options=()
 
 if [ $# -eq 2 ] ;then
   INPUT=$1
   OUTPUT=$2
 else
-  read -p "Enter input directory [${DEFAULT_INPUT}]: " value
+  read -e -p "Enter input directory [${DEFAULT_INPUT}]: " value
   INPUT=${value:-"${DEFAULT_INPUT}"}
 
-  read -p "Enter output directory [${DEFAULT_OUTPUT}]: " value
-  OUTPUT=${value:-"${DEFAULT_OUTPUT}"}
+  read -e -p "Enter output directory [${INPUT}]: " value
+  OUTPUT=${value:-"${INPUT}"}
 fi
 
-read -p "Generate individual masks per surface? yes/no [no]: " answer
+read -p "Generate single mask for all surfaces (experimental)? yes/no [no]: " answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-  python_options=(-r)
+  python_options=(-s)
 fi
 
 if [[ ! $INPUT -ef $OUTPUT ]]; then

@@ -4,13 +4,6 @@ import json
 import cv2
 import numpy as np
 import sys
-
-try:
-    # Try using the v2 API directly to avoid a warning from imageio >= 2.16.2
-    from imageio.v2 import imread, imsave
-except ImportError:
-    from imageio import imread, imsave
-
 import click
 
 IMAGE_WHITELIST = {
@@ -34,12 +27,12 @@ def resize(image, window_height, interpolation=cv2.INTER_AREA):
 @click.command()
 @click.argument("input_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("output_file", type=click.Path(exists=False, file_okay=True, dir_okay=False))
-@click.option('--reverse', '-r', is_flag=True, help="Specify to generate individual masks (useful for editing masks individually and re-importing without flag)")
+@click.option('--single_mask_output', '-s', is_flag=True, help="Specify to generate individual masks (useful for editing masks individually and re-importing without flag)")
 @click.option('--max_image_size', type=int, default=1280)
 @click.option('--max_mask_size', type=int, default=1280)
 @click.option('--version', type=str, default="4.0.2.1000")
 
-def main(input_file, output_file, reverse, max_image_size, max_mask_size, version):
+def main(input_file, output_file, single_mask_output, max_image_size, max_mask_size, version):
 
     if not os.path.exists(input_file):
         raise Exception('The json file does not exist at path {}'.format(json_path))
@@ -66,7 +59,7 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size, versio
 
         data["images"][name] = output_name
 
-        image = imread(input_path)
+        image = cv2.imread(input_path)
 
         if name == "lighting" and len(image.shape) == 3:
             image = image[:,:,0] #monochrome
@@ -77,7 +70,7 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size, versio
 
         images[name] = image
 
-        imsave(output_path, image)
+        cv2.imwrite(output_path, image)
 
     vertical_axis = "z"
     if "verticalAxis" in data["geometry"]:
@@ -85,16 +78,25 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size, versio
 
     surfaces = data["geometry"]["surfaces"]
 
-    index_mask = images["index_mask"] if "index_mask" in images else None
     background = images["main"]
 
+    index_mask = images["index_mask"] if "index_mask" in images else None
+    alpha_mask = None
+
+    if index_mask is not None and len(index_mask.shape) == 3:
+        if index_mask.shape[2] == 4:
+            alpha_mask = index_mask[:,:,3]
+        index_mask = index_mask[:,:,0]
+
     max_width = 0
+
+    is_multimask_source = index_mask is None
 
     filtered_surfaces = []
     masks = []
 
     for index, surface in enumerate(surfaces):
-        if surface["type"] not in SURFACE_TYPE_WHITELIST:
+        if surface["type"].lower() not in SURFACE_TYPE_WHITELIST:
             print("Skipping surface %s of type %s" % (surface["name"], surface["type"]))
             continue
 
@@ -105,7 +107,7 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size, versio
         elif "images" in surface:
             input_name = surface["images"]["mask"]
             input_path = os.path.join(src_dir, input_name)
-            mask = imread(input_path)
+            mask = cv2.imread(input_path)
             if len(mask.shape) != 2:
                 mask = mask[:,:,0]
         else:
@@ -127,15 +129,16 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size, versio
     mask_height = int(mask_width * background.shape[0] / background.shape[1])
     mask_shape = (mask_height, mask_width)
 
-    print("bg size", background.shape, "mask size", mask_shape)
+    print("image shape", background.shape, "mask shape", mask_shape)
 
-    if reverse:
+    if not single_mask_output:
         index_mask = None
         output_path = os.path.join(dest_dir, "plane_masks")
         if not os.path.exists(output_path):
             os.mkdir(output_path)
     else:
         index_mask = np.zeros(mask_shape, dtype=np.uint8)
+        alpha_mask = np.ones(mask_shape, dtype=np.uint8) * 255
 
     num_surfaces = len(masks)
     for index, surface in enumerate(filtered_surfaces):
@@ -143,15 +146,23 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size, versio
 
         surface["maskIndex"] = maskIndex
         mask = masks[index]
-        if mask.shape[0] != mask_shape[0]:
+        if mask.shape != mask_shape:
             mask = cv2.resize(mask, (mask_shape[1], mask_shape[0]), interpolation=cv2.INTER_NEAREST)
 
-        if reverse:
+        if not is_multimask_source:
+            mask[mask > 0] = 255
+            mask = cv2.GaussianBlur(mask,(7, 7), cv2.BORDER_DEFAULT)
+            print("blurring mask")
+
+        if single_mask_output:
+            where = np.where(np.logical_and(mask > 0, mask < 255))
+            alpha_mask[where] = mask[where]
+
+        if not single_mask_output:
             mask_path = surface["images"]["mask"] if "images" in surface else "plane_masks/%s-%d.png" % (surface["type"], index)
             surface["images"] = {"mask": mask_path}
             print("Saving mask", mask_path)
-            mask[mask > 0] = 255
-            imsave(os.path.join(dest_dir, mask_path), mask)
+            cv2.imwrite(os.path.join(dest_dir, mask_path), mask)
         else:
             surface.pop('images', None)
             index_mask[mask > 0] = maskIndex
@@ -160,13 +171,16 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size, versio
     data["geometry"]["verticalAxis"] = "y"
     data["version"] = version
 
-    if reverse:
+    if not single_mask_output:
         data["images"].pop('index_mask', None)
     else:
+        index_mask = cv2.cvtColor(index_mask, cv2.COLOR_GRAY2RGBA)
+        index_mask[:,:,3] = alpha_mask
+
         output_path = os.path.join(dest_dir, IMAGE_WHITELIST["index_mask"])
         print("Saving regenerated index mask", output_path)
         data["images"]["index_mask"] = IMAGE_WHITELIST["index_mask"]
-        imsave(output_path, index_mask)
+        cv2.imwrite(output_path, index_mask)
 
     with open(output_file, "w") as outfile:
         json.dump(data, outfile, indent=5)
