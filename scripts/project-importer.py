@@ -15,7 +15,7 @@ import click
 
 IMAGE_WHITELIST = {
         "main": "background.jpg",
-        "lighting": "lighting.png",
+        "lighting": "lighting.jpg",
         "index_mask": "index_mask.png"
 }
 
@@ -61,6 +61,12 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size):
         data["images"][name] = output_name
 
         image = imread(input_path)
+
+        if name == "lighting" and len(image.shape) == 3:
+            image = image[:,:,0] #monochrome
+        elif len(image.shape) == 3 and image.shape[2] == 4:
+            image = image[:,:,:3]
+
         image = resize(image, max_image_size)
 
         images[name] = image
@@ -123,7 +129,7 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size):
             mask = cv2.resize(mask, (mask_shape[1], mask_shape[0]), interpolation=cv2.INTER_NEAREST)
 
         if reverse:
-            mask_path = surface["images"]["mask"] if "images" in surface else "plane_masks/%s-%d.png" % (surface["type"], color)
+            mask_path = surface["images"]["mask"] if "images" in surface else "plane_masks/%s-%d.png" % (surface["type"], index)
             surface["images"] = {"mask": mask_path}
             print("Saving mask", mask_path)
             mask[mask > 0] = 255
@@ -138,7 +144,7 @@ def main(input_file, output_file, reverse, max_image_size, max_mask_size):
     else:
         output_path = os.path.join(dest_dir, IMAGE_WHITELIST["index_mask"])
         print("Saving regenerated index mask", output_path)
-        data["images"]["index_mask"] = output_path
+        data["images"]["index_mask"] = IMAGE_WHITELIST["index_mask"]
         imsave(output_path, index_mask)
 
     with open(output_file, "w") as outfile:

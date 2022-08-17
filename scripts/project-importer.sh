@@ -17,7 +17,7 @@ else
   OUTPUT=${value:-"${DEFAULT_OUTPUT}"}
 fi
 
-read -p "Reverse yes/no [no]: " answer
+read -p "Generate individual masks per surface? yes/no [no]: " answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
   python_options=(-r)
