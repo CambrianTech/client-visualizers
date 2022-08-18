@@ -176,10 +176,10 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
     data["version"] = version
 
     cv2.imwrite(os.path.join(dest_dir, IMAGE_WHITELIST["preview"]), resize(background, preview_size), [int(cv2.IMWRITE_JPEG_QUALITY), 80])
-    data["images"]["preview"] = IMAGE_WHITELIST["preview"]
+    data["images"].pop('preview', None)
 
     cv2.imwrite(os.path.join(dest_dir, IMAGE_WHITELIST["thumbnail"]), resize(background, thumbnail_size), [int(cv2.IMWRITE_JPEG_QUALITY), 50])
-    data["images"]["thumbnail"] = IMAGE_WHITELIST["thumbnail"]
+    data["images"].pop('thumbnail', None)
 
     if not single_mask_output:
         data["images"].pop('index_mask', None)
