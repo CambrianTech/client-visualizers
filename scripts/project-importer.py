@@ -7,9 +7,11 @@ import sys
 import click
 
 IMAGE_WHITELIST = {
-        "main": "background.jpg",
-        "lighting": "lighting.jpg",
-        "index_mask": "index_mask.png"
+    "main": "background.jpg",
+    "lighting": "lighting.jpg",
+    "index_mask": "index_mask.png",
+    "preview": "preview.jpg",
+    "thumbnail": "thumbnail.jpg",
 }
 
 #lower case only
@@ -30,9 +32,11 @@ def resize(image, window_height, interpolation=cv2.INTER_AREA):
 @click.option('--single_mask_output', '-s', is_flag=True, help="Specify to generate individual masks (useful for editing masks individually and re-importing without flag)")
 @click.option('--max_image_size', type=int, default=1280)
 @click.option('--max_mask_size', type=int, default=1280)
+@click.option('--preview_size', type=int, default=1024)
+@click.option('--thumbnail_size', type=int, default=640)
 @click.option('--version', type=str, default="4.0.2.1000")
 
-def main(input_file, output_file, single_mask_output, max_image_size, max_mask_size, version):
+def main(input_file, output_file, single_mask_output, max_image_size, max_mask_size, preview_size, thumbnail_size, version):
 
     if not os.path.exists(input_file):
         raise Exception('The json file does not exist at path {}'.format(json_path))
@@ -70,7 +74,7 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
 
         images[name] = image
 
-        cv2.imwrite(output_path, image)
+        cv2.imwrite(output_path, image, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
 
     vertical_axis = "z"
     if "verticalAxis" in data["geometry"]:
@@ -149,27 +153,33 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
         if mask.shape != mask_shape:
             mask = cv2.resize(mask, (mask_shape[1], mask_shape[0]), interpolation=cv2.INTER_NEAREST)
 
-        if not is_multimask_source:
+        if is_multimask_source:
             mask[mask > 0] = 255
-            mask = cv2.GaussianBlur(mask,(7, 7), cv2.BORDER_DEFAULT)
-            print("blurring mask")
+
+        # mask = cv2.dilate(mask, cv2.getStructuringElement(cv2.MORPH_RECT,(2,2)))
+        # mask = cv2.GaussianBlur(mask,(3, 3), cv2.BORDER_DEFAULT)
 
         if single_mask_output:
             where = np.where(np.logical_and(mask > 0, mask < 255))
             alpha_mask[where] = mask[where]
-
-        if not single_mask_output:
+            surface.pop('images', None)
+            index_mask[mask > 0] = maskIndex
+        else:
             mask_path = surface["images"]["mask"] if "images" in surface else "plane_masks/%s-%d.png" % (surface["type"], index)
             surface["images"] = {"mask": mask_path}
             print("Saving mask", mask_path)
             cv2.imwrite(os.path.join(dest_dir, mask_path), mask)
-        else:
-            surface.pop('images', None)
-            index_mask[mask > 0] = maskIndex
+            
 
     data["geometry"]["surfaces"] = filtered_surfaces
     data["geometry"]["verticalAxis"] = "y"
     data["version"] = version
+
+    cv2.imwrite(os.path.join(dest_dir, IMAGE_WHITELIST["preview"]), resize(background, preview_size), [int(cv2.IMWRITE_JPEG_QUALITY), 80])
+    data["images"]["preview"] = IMAGE_WHITELIST["preview"]
+
+    cv2.imwrite(os.path.join(dest_dir, IMAGE_WHITELIST["thumbnail"]), resize(background, thumbnail_size), [int(cv2.IMWRITE_JPEG_QUALITY), 50])
+    data["images"]["thumbnail"] = IMAGE_WHITELIST["thumbnail"]
 
     if not single_mask_output:
         data["images"].pop('index_mask', None)
