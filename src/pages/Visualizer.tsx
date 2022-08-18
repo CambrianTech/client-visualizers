@@ -891,7 +891,8 @@ export default function Visualizer() {
         } else if (productDetails?.url && selectedProduct) {
             let url = productDetails.url;
             if (selectedProduct instanceof ProductColor) {
-                url = url.replace("{color}", `${selectedProduct.code}`)
+                url = url.replace("{color}", `${selectedProduct.code}`);
+                url = url.replace("{colorName}", `${selectedProduct.displayName?.toLowerCase().replace(/\s+/gi,"-")}`);
             }
             if (selectedProduct.collection) {
                 url = url.replace("{collection}", `${selectedProduct.collection.code}`)
