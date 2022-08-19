@@ -31,7 +31,7 @@ def resize(image, window_height):
 @click.argument("output_file", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.option('--single_mask_output', '-s', is_flag=True, help="Specify to generate individual masks (useful for editing masks individually and re-importing without flag)")
 @click.option('--max_image_size', type=int, default=1536)
-@click.option('--max_mask_size', type=int, default=1536)
+@click.option('--max_mask_size', type=int, default=1280)
 @click.option('--preview_size', type=int, default=1024)
 @click.option('--thumbnail_size', type=int, default=640)
 @click.option('--version', type=str, default="4.0.2.1000")
@@ -149,8 +149,9 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
 
         surface["maskIndex"] = maskIndex
         mask = masks[index]
-        # if mask.shape != mask_shape:
-        #     mask = cv2.resize(mask, (mask_shape[1], mask_shape[0]))
+
+        if mask.shape != mask_shape:
+            mask = cv2.resize(mask, (mask_shape[1], mask_shape[0]))
 
         # mask = cv2.dilate(mask, cv2.getStructuringElement(cv2.MORPH_RECT,(2,2)))
         # mask = cv2.GaussianBlur(mask,(3, 3), cv2.BORDER_DEFAULT)
