@@ -83,6 +83,7 @@ const hexToRgb = (hex:string) => {
     } : null;
 }
 
+const PANEL_TIMEOUT=0;
 const InsideIframe = (window !== window.parent);
 
 if (!process.env.REACT_APP_CB_API_URL) {
@@ -915,9 +916,11 @@ export default function Visualizer() {
 
     const panelTimer = useRef(0);
     const setPanelTimer = useCallback(()=>{
-        panelTimer.current = window.setTimeout(()=>{
-            setActivePanel(Panel.None);
-        }, 1500);
+        if (PANEL_TIMEOUT) {
+            panelTimer.current = window.setTimeout(()=>{
+                setActivePanel(Panel.None);
+            }, 1500);
+        }
     }, [panelTimer]);
 
     const clearPanelTimer = useCallback(()=>{
