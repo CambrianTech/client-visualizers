@@ -20,18 +20,18 @@ SCENE_WHITELIST = ["version", "name", "id", "floorRotation", "images", "camera",
 SURFACE_WHITELIST = ["id", "type", "name", "maskIndex", "normal", "offset", "axisRotation", "backgroundMean", "backgroundStdDev", "lightingMean", "lightingStdDev"]
 SURFACE_TYPE_WHITELIST = ["floor", "ceiling", "wall"]
 
-def resize(image, window_height, interpolation=cv2.INTER_AREA):
+def resize(image, window_height):
     aspect_ratio = float(image.shape[1])/float(image.shape[0])
     window_width = window_height/aspect_ratio
-    image = cv2.resize(image, (int(window_height),int(window_width)), interpolation)
+    image = cv2.resize(image, (int(window_height),int(window_width)))
     return image
 
 @click.command()
 @click.argument("input_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("output_file", type=click.Path(exists=False, file_okay=True, dir_okay=False))
 @click.option('--single_mask_output', '-s', is_flag=True, help="Specify to generate individual masks (useful for editing masks individually and re-importing without flag)")
-@click.option('--max_image_size', type=int, default=1280)
-@click.option('--max_mask_size', type=int, default=1280)
+@click.option('--max_image_size', type=int, default=1536)
+@click.option('--max_mask_size', type=int, default=1536)
 @click.option('--preview_size', type=int, default=1024)
 @click.option('--thumbnail_size', type=int, default=640)
 @click.option('--version', type=str, default="4.0.2.1000")
@@ -85,6 +85,7 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
     background = images["main"]
 
     index_mask = images["index_mask"] if "index_mask" in images else None
+    is_multimask_source = index_mask is None
     alpha_mask = None
 
     if index_mask is not None and len(index_mask.shape) == 3:
@@ -93,8 +94,6 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
         index_mask = index_mask[:,:,0]
 
     max_width = 0
-
-    is_multimask_source = index_mask is None
 
     filtered_surfaces = []
     masks = []
@@ -133,7 +132,7 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
     mask_height = int(mask_width * background.shape[0] / background.shape[1])
     mask_shape = (mask_height, mask_width)
 
-    print("image shape", background.shape, "mask shape", mask_shape)
+    print("image shape", background.shape, "mask output shape", mask_shape)
 
     if not single_mask_output:
         index_mask = None
@@ -150,11 +149,8 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
 
         surface["maskIndex"] = maskIndex
         mask = masks[index]
-        if mask.shape != mask_shape:
-            mask = cv2.resize(mask, (mask_shape[1], mask_shape[0]), interpolation=cv2.INTER_NEAREST)
-
-        if is_multimask_source:
-            mask[mask > 0] = 255
+        # if mask.shape != mask_shape:
+        #     mask = cv2.resize(mask, (mask_shape[1], mask_shape[0]))
 
         # mask = cv2.dilate(mask, cv2.getStructuringElement(cv2.MORPH_RECT,(2,2)))
         # mask = cv2.GaussianBlur(mask,(3, 3), cv2.BORDER_DEFAULT)
