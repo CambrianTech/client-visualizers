@@ -143,6 +143,1007 @@
           "details": {"url": "https://www.dunnedwardsdura.myshopify.com/collections/curated-colors/products/{colorName}-{color}"},
           "products": [
             {
+              "name": "whites",
+              "code": "whites",
+              "displayName": "Whites & Creams",
+              "thumbnail": "branding/whites.png",
+              "colors": [
+                {
+                  "code": "DEC753",
+                  "displayName": "Almond",
+                  "color": "#EDDCC8"
+                },
+                {
+                  "code": "DEHW01",
+                  "displayName": "Almond Milk",
+                  "color": "#ECEBE3"
+                },
+                {
+                  "code": "DE6190",
+                  "displayName": "Ball of String",
+                  "color": "#F0E8D9"
+                },
+                {
+                  "code": "DEC765",
+                  "displayName": "Bone",
+                  "color": "#EADFCE"
+                },
+                {
+                  "code": "DET662",
+                  "displayName": "Buttercream Frosting",
+                  "color": "#E6D5BA"
+                },
+                {
+                  "code": "DET671",
+                  "displayName": "Cameo Role",
+                  "color": "#DDCAAF"
+                },
+                {
+                  "code": "DEHW08",
+                  "displayName": "Classic White",
+                  "color": "#ECEEEC"
+                },
+                {
+                  "code": "DEC761",
+                  "displayName": "Cochise",
+                  "color": "#DDCDB3"
+                },
+                {
+                  "code": "DE6212",
+                  "displayName": "Crisp Muslin",
+                  "color": "#E9E2D7"
+                },
+                {
+                  "code": "DE6127",
+                  "displayName": "Finest Silk",
+                  "color": "#F1E5D7"
+                },
+                {
+                  "code": "DEW311",
+                  "displayName": "French White",
+                  "color": "#F1E7DB"
+                },
+                {
+                  "code": "DET653",
+                  "displayName": "Historic White",
+                  "color": "#EBE6D7"
+                },
+                {
+                  "code": "DEHW10",
+                  "displayName": "Icy White",
+                  "color": "#EAEBE8"
+                },
+                {
+                  "code": "DET673",
+                  "displayName": "Mission White",
+                  "color": "#E2D8C2"
+                },
+                {
+                  "code": "DEC772",
+                  "displayName": "Navajo White",
+                  "color": "#EBE1C9"
+                },
+                {
+                  "code": "DEC748",
+                  "displayName": "Oyster",
+                  "color": "#E3D3BF"
+                },
+                {
+                  "code": "DEC740",
+                  "displayName": "Sandcastle",
+                  "color": "#E5D7C4"
+                },
+                {
+                  "code": "DEW301",
+                  "displayName": "Strawberry Dust",
+                  "color": "#FFF0EA"
+                },
+                {
+                  "code": "DE6205",
+                  "displayName": "Stucco Tan",
+                  "color": "#E8DECE"
+                },
+                {
+                  "code": "DEHW07",
+                  "displayName": "Sugar Swizzle",
+                  "color": "#ECEEEA"
+                },
+                {
+                  "code": "DEW341",
+                  "displayName": "Swiss Coffee",
+                  "color": "#F8F5E9"
+                },
+                {
+                  "code": "DET670",
+                  "displayName": "Vintage Ephemera",
+                  "color": "#D8CEB9"
+                },
+                {
+                  "code": "DEW340",
+                  "displayName": "Whisper",
+                  "color": "#FDFAF1"
+                },
+                {
+                  "code": "DET648",
+                  "displayName": "White Picket Fence",
+                  "color": "#F0EFEB"
+                }
+              ]
+            },
+            {
+              "name": "neutrals",
+              "code": "neutrals",
+              "displayName": "Warm Neutrals",
+              "thumbnail": "branding/neutrals.png",
+              "colors": [
+                {
+                  "code": "DEC726",
+                  "displayName": "Adobe",
+                  "color": "#D1B791"
+                },
+                {
+                  "code": "DEC751",
+                  "displayName": "Ash Gray",
+                  "color": "#C1B5A9"
+                },
+                {
+                  "code": "DEC752",
+                  "displayName": "Birchwood",
+                  "color": "#CCBEAC"
+                },
+                {
+                  "code": "DEC750",
+                  "displayName": "Bison Beige",
+                  "color": "#9F9180"
+                },
+                {
+                  "code": "DE6172",
+                  "displayName": "Bungalow Taupe",
+                  "color": "#CEBE9F"
+                },
+                {
+                  "code": "DE6059",
+                  "displayName": "Chocolate Milk",
+                  "color": "#C5B9B4"
+                },
+                {
+                  "code": "DE6117",
+                  "displayName": "Colorado Trail",
+                  "color": "#B49375"
+                },
+                {
+                  "code": "DEC760",
+                  "displayName": "Desert Gray",
+                  "color": "#B8A487"
+                },
+                { 
+                  "code": "DE6066",
+                  "displayName": "Desert Rock",
+                  "color": "#D5C6BD"
+                },
+                {
+                  "code": "DE6206",
+                  "displayName": "Desert Suede",
+                  "color": "#D5C7B3"
+                },
+                {
+                  "code": "DE6122",
+                  "displayName": "Dry Creek",
+                  "color": "#D8C7B6"
+                },
+                {
+                  "code": "DET623",
+                  "displayName": "En Plein Air",
+                  "color": "#D0C5BE"
+                },
+                {
+                  "code": "DE6213",
+                  "displayName": "Fine Grain",
+                  "color": "#D8CFC1"
+                },
+                {
+                  "code": "DE6150",
+                  "displayName": "Gourmet Honey",
+                  "color": "#E3CBA8"
+                },
+                {
+                  "code": "DEC743",
+                  "displayName": "High Noon",
+                  "color": "#CFB999"
+                },
+                {
+                  "code": "DET692",
+                  "displayName": "Kiln Dried",
+                  "color": "#A89887"
+                },
+                {
+                  "code": "DEC718",
+                  "displayName": "Mesa Tan",
+                  "color": "#A78B71"
+                },
+                {
+                  "code": "DE6199",
+                  "displayName": "Pale Beach",
+                  "color": "#D6C5A9"
+                },
+                {
+                  "code": "DE6214",
+                  "displayName": "Pigeon Gray",
+                  "color": "#C1B4A0"
+                },
+                {
+                  "code": "DEC713",
+                  "displayName": "Roman Brick",
+                  "color": "#AB7F5B"
+                },
+                {
+                  "code": "DE6129",
+                  "displayName": "Rustic Taupe",
+                  "color": "#CDB9A2"
+                },
+                {
+                  "code": "DEC747",
+                  "displayName": "Sahara",
+                  "color": "#D5C3AD"
+                },
+                {
+                  "code": "DEC716",
+                  "displayName": "Stonish Beige",
+                  "color": "#CCB49A"
+                },
+                {
+                  "code": "DET633",
+                  "displayName": "Trail Blazer",
+                  "color": "#C0B28E"
+                }
+              ]
+            },
+            {
+              "name": "tans",
+              "code": "tans",
+              "displayName": "Tans, Beiges, & Taupes",
+              "thumbnail": "branding/taupe_tan.png",
+              "colors": [
+                {  
+                  "code": "DEC765",
+                  "displayName": "Bone",
+                  "color": "#EADFCE"
+                },
+                {
+                  "code": "DE6059",
+                  "displayName": "Chocolate Milk",
+                  "color": "#C5B9B4"
+                },
+                {
+                  "code": "DEC761",
+                  "displayName": "Cochise",
+                  "color": "#DDCDB3"
+                },
+                {
+                  "code": "DEC760",
+                  "displayName": "Desert Gray",
+                  "color": "#B8A487"
+                },
+                {
+                  "code": "DE6206",
+                  "displayName": "Desert Suede",
+                  "color": "#D5C7B3"
+                },
+                {
+                  "code": "DE6122",
+                  "displayName": "Dry Creek",
+                  "color": "#D8C7B6"
+                },
+                {
+                  "code": "DET623",
+                  "displayName": "En Plein Air",
+                  "color": "#D0C5BE"
+                },
+                {
+                  "code": "DET692",
+                  "displayName": "Kiln Dried",
+                  "color": "#A89887"
+                },
+                {
+                  "code": "DEC748",
+                  "displayName": "Oyster",
+                  "color": "#E3D3BF"
+                },
+                {
+                  "code": "DE6199",
+                  "displayName": "Pale Beach",
+                  "color": "#D6C5A9"
+                },
+                {
+                  "code": "DE6129",
+                  "displayName": "Rustic Taupe",
+                  "color": "#CDB9A2"
+                },
+                {
+                  "code": "DEC747",
+                  "displayName": "Sahara",
+                  "color": "#D5C3AD"
+                },
+                {
+                  "code": "DEC740",
+                  "displayName": "Sandcastle",
+                  "color": "#E5D7C4"
+                },
+                {
+                  "code": "DEC716",
+                  "displayName": "Stonish Beige",
+                  "color": "#CCB49A"
+                },
+                { 
+                  "code": "DE6205",
+                  "displayName": "Stucco Tan",
+                  "color": "#E8DECE"
+                },
+                {
+                  "code": "DET670",
+                  "displayName": "Vintage Ephemera",
+                  "color": "#D8CEB9"
+                },
+                {
+                  "code": "DE6061",
+                  "displayName": "River Rocks",
+                  "color": "#897870"
+                },
+                {
+                  "code": "DET622",
+                  "displayName": "Portobello Mushroom",
+                  "color": "#9D928A"
+                }
+              ]
+            },
+            {
+              "name": "grays",
+              "code": "grays",
+              "displayName": "Grays & Greiges",
+              "thumbnail": "branding/grays.png",
+              "colors": [
+                {
+                  "code": "DEC751",
+                  "displayName": "Ash Gray",
+                  "color": "#C1B5A9"
+                },
+                {
+                  "code": "DET620",
+                  "displayName": "Barnwood Gray",
+                  "color": "#9E9589"
+                },
+                {
+                  "code": "DEC752",
+                  "displayName": "Birchwood",
+                  "color": "#CCBEAC"
+                },
+                {
+                  "code": "DEC750",
+                  "displayName": "Bison Beige",
+                  "color": "#9F9180"
+                },
+                { 
+                  "code": "DEC791",
+                  "displayName": "Cloud",
+                  "color": "#D8D7D3"
+                },
+                {
+                  "code": "DE6212",
+                  "displayName": "Crisp Muslin",
+                  "color": "#E9E2D7"
+                },
+                {
+                  "code": "DET600",
+                  "displayName": "Dolphin Tales",
+                  "color": "#C7C7C2"
+                },
+                {
+                  "code": "DE6213",
+                  "displayName": "Fine Grain",
+                  "color": "#D8CFC1"
+                },
+                {
+                  "code": "DEC795",
+                  "displayName": "Gray Pearl",
+                  "color": "#C3C0BB"
+                },
+                {
+                  "code": "DET618",
+                  "displayName": "Industrial Age",
+                  "color": "#AEADAD"
+                },
+                {
+                  "code": "DET611",
+                  "displayName": "Iron-ic",
+                  "color": "#6A6B67"
+                },
+                {
+                  "code": "DE6376",
+                  "displayName": "Looking Glass",
+                  "color": "#888786"
+                },
+                {
+                  "code": "DET626",
+                  "displayName": "Metal Fringe",
+                  "color": "#837E74"
+                },
+                {
+                  "code": "DEC786",
+                  "displayName": "Miner's Dust",
+                  "color": "#D3CEC5"
+                },
+                {
+                  "code": "DE6227",
+                  "displayName": "Muslin",
+                  "color": "#D4D0C5"
+                },
+                {
+                  "code": "DET627",
+                  "displayName": "Pewter Patter",
+                  "color": "#BAB4A6"
+                },
+                {
+                  "code": "DE6214",
+                  "displayName": "Pigeon Gray",
+                  "color": "#C1B4A0"
+                },
+                {
+                  "code": "DE6220",
+                  "displayName": "Porous Stone",
+                  "color": "#D4CEBF"
+                },
+                {
+                  "code": "DET625",
+                  "displayName": "Reclaimed Wood",
+                  "color": "#BAB6AB"
+                },
+                {
+                  "code": "DE6374",
+                  "displayName": "Silver Polish",
+                  "color": "#C6C6C6"
+                },
+                { 
+                  "code": "DET614",
+                  "displayName": "So Chic!",
+                  "color": "#CECDC5"
+                },
+                {
+                  "code": "DET612",
+                  "displayName": "Stieglitz Silver",
+                  "color": "#8D8F8E"
+                },
+                {
+                  "code": "DE6358",
+                  "displayName": "Vapor",
+                  "color": "#EAEAEA"
+                },
+                {
+                  "code": "DE6370",
+                  "displayName": "Charcoal Smudge",
+                  "color": "#60605E"
+                },
+                {
+                  "code": "DEC785",
+                  "displayName": "Whisper Gray",
+                  "color": "#E9E5DA"
+                },
+                { 
+                  "code": "DET621",
+                  "displayName": "Palomino Pony",
+                  "color": "#837871"
+                },
+                { 
+                  "code": "DEC759",
+                  "displayName": "Hickory",
+                  "color": "#B7A28E"
+                }
+              ]
+            },
+            {
+              "name": "blacks",
+              "code": "blacks",
+              "displayName": "Dark Browns & Blacks",
+              "thumbnail": "branding/blacks.png",
+              "colors": [
+                { 
+                  "code": "DEA002",
+                  "displayName": "Black",
+                  "color": "#3B3A3A"
+                },
+                { 
+                  "code": "DE6371",
+                  "displayName": "Black Jack",
+                  "color": "#51504D"
+                },
+                {
+                  "code": "DET699",
+                  "displayName": "Bourbon Truffle",
+                  "color": "#6C5654"
+                },
+                {
+                  "code": "DEC712",
+                  "displayName": "Briar",
+                  "color": "#745443"
+                },
+                { 
+                  "code": "DET619",
+                  "displayName": "Celluloid",
+                  "color": "#515153"
+                },
+                {
+                  "code": "DET631",
+                  "displayName": "Cocoa Powder",
+                  "color": "#766A5F"
+                },
+                { 
+                  "code": "DE6350",
+                  "displayName": "Dark Engine",
+                  "color": "#3E3F41"
+                },
+                {
+                  "code": "DE6077",
+                  "displayName": "Deep Brown",
+                  "color": "#6F5749"
+                },
+                { 
+                  "code": "DET680",
+                  "displayName": "Espresso Macchiato",
+                  "color": "#4F4744"
+                },
+                { 
+                  "code": "DEA158",
+                  "displayName": "Northern Territory",
+                  "color": "#5E463C"
+                },
+                { 
+                  "code": "DEC756",
+                  "displayName": "Weathered Brown",
+                  "color": "#59504C"
+                },
+                {
+                  "code": "DEA161",
+                  "displayName": "Wild Mustang",
+                  "color": "#695649"
+                }
+              ]
+            },
+            {
+              "name": "coolneutrals",
+              "code": "coolneutrals",
+              "displayName": "Cool Neutrals",
+              "thumbnail": "branding/cool_neutrals.png",
+              "colors": [
+                {
+                  "code": "DET620",
+                  "displayName": "Barnwood Gray",
+                  "color": "#9E9589"
+                },
+                {
+                  "code": "DEC793",
+                  "displayName": "Chalky",
+                  "color": "#E9E9E1"
+                },
+                {
+                  "code": "DET603",
+                  "displayName": "Church Mouse",
+                  "color": "#B3B5AF"
+                },
+                { 
+                  "code": "DEC791",
+                  "displayName": "Cloud",
+                  "color": "#D8D7D3"
+                }, 
+                {
+                  "code": "DET600",
+                  "displayName": "Dolphin Tales",
+                  "color": "#C7C7C2"
+                },
+                {
+                  "code": "DEC795",
+                  "displayName": "Gray Pearl",
+                  "color": "#C3C0BB"
+                },
+                {
+                  "code": "DET618",
+                  "displayName": "Industrial Age",
+                  "color": "#AEADAD"
+                },
+                {
+                  "code": "DET611",
+                  "displayName": "Iron-ic",
+                  "color": "#6A6B67"
+                },
+                {
+                  "code": "DE6233",
+                  "displayName": "Limestone",
+                  "color": "#DCD8C7"
+                },
+                {
+                  "code": "DE6376",
+                  "displayName": "Looking Glass",
+                  "color": "#888786"
+                },
+                {
+                  "code": "DET626",
+                  "displayName": "Metal Fringe",
+                  "color": "#837E74"
+                },
+                {
+                  "code": "DEC786",
+                  "displayName": "Miner's Dust",
+                  "color": "#D3CEC5"
+                },
+                {
+                  "code": "DE6227",
+                  "displayName": "Muslin",
+                  "color": "#D4D0C5"
+                },
+                {
+                  "code": "DET627",
+                  "displayName": "Pewter Patter",
+                  "color": "#BAB4A6"
+                },
+                {
+                  "code": "DE6220",
+                  "displayName": "Porous Stone",
+                  "color": "#D4CEBF"
+                },
+                {
+                  "code": "DET625",
+                  "displayName": "Reclaimed Wood",
+                  "color": "#BAB6AB"
+                },
+                {
+                  "code": "DE6289",
+                  "displayName": "Silver Fox",
+                  "color": "#D5DBD5"
+                },
+                {
+                  "code": "DE6374",
+                  "displayName": "Silver Polish",
+                  "color": "#C6C6C6"
+                },
+                { 
+                  "code": "DET614",
+                  "displayName": "So Chic!",
+                  "color": "#CECDC5"
+                },
+                {
+                  "code": "DET612",
+                  "displayName": "Stieglitz Silver",
+                  "color": "#8D8F8E"
+                },
+                {
+                  "code": "DE6292",
+                  "displayName": "Stone Craft",
+                  "color": "#7D867C"
+                },
+                {
+                  "code": "DET615",
+                  "displayName": "Stone Mason",
+                  "color": "#7A7B75"
+                },
+                {
+                  "code": "DE6358",
+                  "displayName": "Vapor",
+                  "color": "#EAEAEA"
+                },
+                {
+                  "code": "DEC785",
+                  "displayName": "Whisper Gray",
+                  "color": "#E9E5DA"
+                }
+              ]
+            },
+            {
+              "name": "oranges",
+              "code": "oranges",
+              "displayName": "Oranges & Yellows",
+              "thumbnail": "branding/yellows.png",
+              "colors": [
+                {
+                  "code": "DET454",
+                  "displayName": "Arizona Clay",
+                  "color": "#AD735A"
+                },
+                {
+                  "code": "DET484",
+                  "displayName": "Bungalow Gold",
+                  "color": "#AD8047"
+                },
+                {
+                  "code": "DET449",
+                  "displayName": "Citrus Notes",
+                  "color": "#D26643"
+                },
+                {
+                  "code": "DET464",
+                  "displayName": "Cognac",
+                  "color": "#D48C46"
+                },
+                {
+                  "code": "DET654",
+                  "displayName": "Crème Fraiche",
+                  "color": "#EBDAB5"
+                },
+                {
+                  "code": "DE5173",
+                  "displayName": "Deep Coral",
+                  "color": "#DA7C55"
+                },
+                {
+                  "code": "DET467",
+                  "displayName": "Harrison Rust",
+                  "color": "#9A5F3F"
+                },
+                {
+                  "code": "DE5354",
+                  "displayName": "Honey Glow",
+                  "color": "#E8B447"
+                },
+                {
+                  "code": "DET491",
+                  "displayName": "Lazy Daisy",
+                  "color": "#F3E7B4"
+                },
+                {
+                  "code": "DET473",
+                  "displayName": "Maize",
+                  "color": "#DAB77F"
+                },
+                {
+                  "code": "DET466",
+                  "displayName": "Monarch Migration",
+                  "color": "#BF764C"
+                },
+                {
+                  "code": "DET472",
+                  "displayName": "Ochre Revival",
+                  "color": "#EEC987"
+                },
+                {
+                  "code": "DET489",
+                  "displayName": "Prairie Land",
+                  "color": "#E2CC9C"
+                },
+                {
+                  "code": "DET495",
+                  "displayName": "Sunnyside Up",
+                  "color": "#EED053"
+                },
+                {
+                  "code": "DE5302",
+                  "displayName": "Warm Light",
+                  "color": "#FFF9D8"
+                },
+                {
+                  "code": "DET486",
+                  "displayName": "Wildflower Honey",
+                  "color": "#C69C5D"
+                },
+                {
+                  "code": "DET478",
+                  "displayName": "Zucchini Flower",
+                  "color": "#E8A64E"
+                },
+                {
+                  "code": "DE5199",
+                  "displayName": "Market Melon",
+                  "color": "#FBB377"
+                }
+              ]
+            },
+            {
+              "name": "reds",
+              "code": "reds",
+              "displayName": "Reds, Pinks, & Corals",
+              "thumbnail": "branding/reds.png",
+              "colors": [
+                {
+                  "code": "DE6027",
+                  "displayName": "Antique Garnet",
+                  "color": "#8E5E5E"
+                },
+                {
+                  "code": "DE6093",
+                  "displayName": "Blushing Bride",
+                  "color": "#EEDAD1"
+                },
+                {
+                  "code": "DEC705",
+                  "displayName": "Burnt Crimson",
+                  "color": "#784D4C"
+                },
+                {
+                  "code": "DE5185",
+                  "displayName": "Cedarville",
+                  "color": "#DDA896"
+                },
+                {
+                  "code": "DE5034",
+                  "displayName": "Cherry Berry",
+                  "color": "#9F4D65"
+                },
+                {
+                  "code": "DET434",
+                  "displayName": "City of Pink Angels",
+                  "color": "#E6B4A6"
+                },
+                {
+                  "code": "DE5091",
+                  "displayName": "Just Pink Enough",
+                  "color": "#FFEBEE"
+                },
+                {
+                  "code": "DET416",
+                  "displayName": "La Vie En Rose",
+                  "color": "#D2A5A3"
+                },
+                {
+                  "code": "DET421",
+                  "displayName": "Le Corbusier Crush",
+                  "color": "#BF4E46"
+                },{ 
+                  "code": "DE5183",
+                  "displayName": "Light Carob",
+                  "color": "#F9DBCF"
+                },
+                {
+                  "code": "DE5055",
+                  "displayName": "Merlot",
+                  "color": "#A44A56"
+                },
+                {
+                  "code": "DET436",
+                  "displayName": "OK Coral",
+                  "color": "#D07360"
+                },
+                {
+                  "code": "DE5148",
+                  "displayName": "Pale Jasper",
+                  "color": "#FED6CC"
+                },
+                {
+                  "code": "DEC710",
+                  "displayName": "Peach",
+                  "color": "#FADFC7"
+                },
+                {
+                  "code": "DET419",
+                  "displayName": "Pink Dahlia",
+                  "color": "#B94C66"
+                },
+                {
+                  "code": "DET437",
+                  "displayName": "Pottery Clay",
+                  "color": "#E0816F"
+                },
+                {
+                  "code": "DE5027",
+                  "displayName": "Razzle Dazzle",
+                  "color": "#BA417B"
+                },
+                {
+                  "code": "DEA106",
+                  "displayName": "Red Contrast",
+                  "color": "#B33234"
+                },
+                {
+                  "code": "DET423",
+                  "displayName": "Red Craft",
+                  "color": "#91433E"
+                },
+                {
+                  "code": "DET443",
+                  "displayName": "Red Maple Leaf",
+                  "color": "#834C4B"
+                },
+                {
+                  "code": "DET439",
+                  "displayName": "Spice of Life",
+                  "color": "#86493F"
+                },
+                {
+                  "code": "DET432",
+                  "displayName": "Rose de Mai",
+                  "color": "#CB8E81"
+                },
+                {
+                  "code": "DE6081",
+                  "displayName": "Rose Bisque",
+                  "color": "#C6A499"
+                },
+                {
+                  "code": "DE6090",
+                  "displayName": "Western Red",
+                  "color": "#9B6959"
+                },
+                {
+                  "code": "DET424",
+                  "displayName": "Barn Red",
+                  "color": "#8B4044"
+                },
+                {
+                  "code": "DE5083",
+                  "displayName": "Deep Hibiscus",
+                  "color": "#CB5251"
+                }
+              ]
+            },
+            {
+              "name": "purples",
+              "code": "purples",
+              "displayName": "Purples",
+              "thumbnail": "branding/purples.png",
+              "colors": [
+                {
+                  "code": "DE6019",
+                  "displayName": "Bohemian Jazz",
+                  "color": "#9D777C"
+                },
+                {
+                  "code": "DE5959",
+                  "displayName": "Lingering Lilac",
+                  "color": "#E6DEF0"
+                },
+                {
+                  "code": "DET407",
+                  "displayName": "Nightshade",
+                  "color": "#4F4352"
+                },
+                {
+                  "code": "DE6051",
+                  "displayName": "Pale Berries",
+                  "color": "#E2CCC7"
+                },
+                {
+                  "code": "DEA143",
+                  "displayName": "Purple Odyssey",
+                  "color": "#643E65"
+                },
+                {
+                  "code": "DET405",
+                  "displayName": "Purple Prose",
+                  "color": "#554348"
+                },
+                {
+                  "code": "DE5974",
+                  "displayName": "Soft Lilac",
+                  "color": "#E2D4DF"
+                },
+                {
+                  "code": "DE5946",
+                  "displayName": "Violet Crush",
+                  "color": "#D8D3E6"
+                },
+                {
+                  "code": "DE6013",
+                  "displayName": "Amazing Amethyst",
+                  "color": "#806568"
+                },
+                {
+                  "code": "DET404",
+                  "displayName": "California Dreamin’",
+                  "color": "#93807F"
+                },
+                {
+                  "code": "DET402",
+                  "displayName": "Mauve-a-Lish",
+                  "color": "#90686C"
+                },
+                {
+                  "code": "DE6045",
+                  "displayName": "Wispy Mauve",
+                  "color": "#C6AEAA"
+                },
+                {
+                  "code": "DET400",
+                  "displayName": "Wine Goblet",
+                  "color": "#643B46"
+                }
+              ]
+            },                                                                                                            
+            {
               "name": "blues",
               "code": "blues",
               "displayName": "Blues & Blue Greens",
@@ -331,345 +1332,6 @@
                   "code": "DE5811",
                   "displayName": "Summer Night",
                   "color": "#36576A"
-                }
-              ]
-            },
-            {
-              "name": "coolneutrals",
-              "code": "coolneutrals",
-              "displayName": "Cool Neutrals",
-              "thumbnail": "branding/cool_neutrals.png",
-              "colors": [
-                {
-                  "code": "DET620",
-                  "displayName": "Barnwood Gray",
-                  "color": "#9E9589"
-                },
-                {
-                  "code": "DEC793",
-                  "displayName": "Chalky",
-                  "color": "#E9E9E1"
-                },
-                {
-                  "code": "DET603",
-                  "displayName": "Church Mouse",
-                  "color": "#B3B5AF"
-                },
-                { 
-                  "code": "DEC791",
-                  "displayName": "Cloud",
-                  "color": "#D8D7D3"
-                }, 
-                {
-                  "code": "DET600",
-                  "displayName": "Dolphin Tales",
-                  "color": "#C7C7C2"
-                },
-                {
-                  "code": "DEC795",
-                  "displayName": "Gray Pearl",
-                  "color": "#C3C0BB"
-                },
-                {
-                  "code": "DET618",
-                  "displayName": "Industrial Age",
-                  "color": "#AEADAD"
-                },
-                {
-                  "code": "DET611",
-                  "displayName": "Iron-ic",
-                  "color": "#6A6B67"
-                },
-                {
-                  "code": "DE6233",
-                  "displayName": "Limestone",
-                  "color": "#DCD8C7"
-                },
-                {
-                  "code": "DE6376",
-                  "displayName": "Looking Glass",
-                  "color": "#888786"
-                },
-                {
-                  "code": "DET626",
-                  "displayName": "Metal Fringe",
-                  "color": "#837E74"
-                },
-                {
-                  "code": "DEC786",
-                  "displayName": "Miner's Dust",
-                  "color": "#D3CEC5"
-                },
-                {
-                  "code": "DE6227",
-                  "displayName": "Muslin",
-                  "color": "#D4D0C5"
-                },
-                {
-                  "code": "DET627",
-                  "displayName": "Pewter Patter",
-                  "color": "#BAB4A6"
-                },
-                {
-                  "code": "DE6220",
-                  "displayName": "Porous Stone",
-                  "color": "#D4CEBF"
-                },
-                {
-                  "code": "DET625",
-                  "displayName": "Reclaimed Wood",
-                  "color": "#BAB6AB"
-                },
-                {
-                  "code": "DE6289",
-                  "displayName": "Silver Fox",
-                  "color": "#D5DBD5"
-                },
-                {
-                  "code": "DE6374",
-                  "displayName": "Silver Polish",
-                  "color": "#C6C6C6"
-                },
-                { 
-                  "code": "DET614",
-                  "displayName": "So Chic!",
-                  "color": "#CECDC5"
-                },
-                {
-                  "code": "DET612",
-                  "displayName": "Stieglitz Silver",
-                  "color": "#8D8F8E"
-                },
-                {
-                  "code": "DE6292",
-                  "displayName": "Stone Craft",
-                  "color": "#7D867C"
-                },
-                {
-                  "code": "DET615",
-                  "displayName": "Stone Mason",
-                  "color": "#7A7B75"
-                },
-                {
-                  "code": "DE6358",
-                  "displayName": "Vapor",
-                  "color": "#EAEAEA"
-                },
-                {
-                  "code": "DEC785",
-                  "displayName": "Whisper Gray",
-                  "color": "#E9E5DA"
-                }
-              ]
-            },
-            {
-              "name": "blacks",
-              "code": "blacks",
-              "displayName": "Dark Browns & Blacks",
-              "thumbnail": "branding/blacks.png",
-              "colors": [
-                { 
-                  "code": "DEA002",
-                  "displayName": "Black",
-                  "color": "#3B3A3A"
-                },
-                { 
-                  "code": "DE6371",
-                  "displayName": "Black Jack",
-                  "color": "#51504D"
-                },
-                {
-                  "code": "DET699",
-                  "displayName": "Bourbon Truffle",
-                  "color": "#6C5654"
-                },
-                {
-                  "code": "DEC712",
-                  "displayName": "Briar",
-                  "color": "#745443"
-                },
-                { 
-                  "code": "DET619",
-                  "displayName": "Celluloid",
-                  "color": "#515153"
-                },
-                {
-                  "code": "DET631",
-                  "displayName": "Cocoa Powder",
-                  "color": "#766A5F"
-                },
-                { 
-                  "code": "DE6350",
-                  "displayName": "Dark Engine",
-                  "color": "#3E3F41"
-                },
-                {
-                  "code": "DE6077",
-                  "displayName": "Deep Brown",
-                  "color": "#6F5749"
-                },
-                { 
-                  "code": "DET680",
-                  "displayName": "Espresso Macchiato",
-                  "color": "#4F4744"
-                },
-                { 
-                  "code": "DEA158",
-                  "displayName": "Northern Territory",
-                  "color": "#5E463C"
-                },
-                { 
-                  "code": "DEC756",
-                  "displayName": "Weathered Brown",
-                  "color": "#59504C"
-                },
-                {
-                  "code": "DEA161",
-                  "displayName": "Wild Mustang",
-                  "color": "#695649"
-                }
-              ]
-            },
-            {
-              "name": "grays",
-              "code": "grays",
-              "displayName": "Grays & Greiges",
-              "thumbnail": "branding/grays.png",
-              "colors": [
-                {
-                  "code": "DEC751",
-                  "displayName": "Ash Gray",
-                  "color": "#C1B5A9"
-                },
-                {
-                  "code": "DET620",
-                  "displayName": "Barnwood Gray",
-                  "color": "#9E9589"
-                },
-                {
-                  "code": "DEC752",
-                  "displayName": "Birchwood",
-                  "color": "#CCBEAC"
-                },
-                {
-                  "code": "DEC750",
-                  "displayName": "Bison Beige",
-                  "color": "#9F9180"
-                },
-                { 
-                  "code": "DEC791",
-                  "displayName": "Cloud",
-                  "color": "#D8D7D3"
-                },
-                {
-                  "code": "DE6212",
-                  "displayName": "Crisp Muslin",
-                  "color": "#E9E2D7"
-                },
-                {
-                  "code": "DET600",
-                  "displayName": "Dolphin Tales",
-                  "color": "#C7C7C2"
-                },
-                {
-                  "code": "DE6213",
-                  "displayName": "Fine Grain",
-                  "color": "#D8CFC1"
-                },
-                {
-                  "code": "DEC795",
-                  "displayName": "Gray Pearl",
-                  "color": "#C3C0BB"
-                },
-                {
-                  "code": "DET618",
-                  "displayName": "Industrial Age",
-                  "color": "#AEADAD"
-                },
-                {
-                  "code": "DET611",
-                  "displayName": "Iron-ic",
-                  "color": "#6A6B67"
-                },
-                {
-                  "code": "DE6376",
-                  "displayName": "Looking Glass",
-                  "color": "#888786"
-                },
-                {
-                  "code": "DET626",
-                  "displayName": "Metal Fringe",
-                  "color": "#837E74"
-                },
-                {
-                  "code": "DEC786",
-                  "displayName": "Miner's Dust",
-                  "color": "#D3CEC5"
-                },
-                {
-                  "code": "DE6227",
-                  "displayName": "Muslin",
-                  "color": "#D4D0C5"
-                },
-                {
-                  "code": "DET627",
-                  "displayName": "Pewter Patter",
-                  "color": "#BAB4A6"
-                },
-                {
-                  "code": "DE6214",
-                  "displayName": "Pigeon Gray",
-                  "color": "#C1B4A0"
-                },
-                {
-                  "code": "DE6220",
-                  "displayName": "Porous Stone",
-                  "color": "#D4CEBF"
-                },
-                {
-                  "code": "DET625",
-                  "displayName": "Reclaimed Wood",
-                  "color": "#BAB6AB"
-                },
-                {
-                  "code": "DE6374",
-                  "displayName": "Silver Polish",
-                  "color": "#C6C6C6"
-                },
-                { 
-                  "code": "DET614",
-                  "displayName": "So Chic!",
-                  "color": "#CECDC5"
-                },
-                {
-                  "code": "DET612",
-                  "displayName": "Stieglitz Silver",
-                  "color": "#8D8F8E"
-                },
-                {
-                  "code": "DE6358",
-                  "displayName": "Vapor",
-                  "color": "#EAEAEA"
-                },
-                {
-                  "code": "DE6370",
-                  "displayName": "Charcoal Smudge",
-                  "color": "#60605E"
-                },
-                {
-                  "code": "DEC785",
-                  "displayName": "Whisper Gray",
-                  "color": "#E9E5DA"
-                },
-                { 
-                  "code": "DET621",
-                  "displayName": "Palomino Pony",
-                  "color": "#837871"
-                },
-                { 
-                  "code": "DEC759",
-                  "displayName": "Hickory",
-                  "color": "#B7A28E"
                 }
               ]
             },
@@ -883,668 +1545,6 @@
                   "code": "DE5642",
                   "displayName": "Forest Path",
                   "color": "#708D6C"
-                }
-              ]
-            },
-            {
-              "name": "oranges",
-              "code": "oranges",
-              "displayName": "Oranges & Yellows",
-              "thumbnail": "branding/yellows.png",
-              "colors": [
-                {
-                  "code": "DET454",
-                  "displayName": "Arizona Clay",
-                  "color": "#AD735A"
-                },
-                {
-                  "code": "DET484",
-                  "displayName": "Bungalow Gold",
-                  "color": "#AD8047"
-                },
-                {
-                  "code": "DET449",
-                  "displayName": "Citrus Notes",
-                  "color": "#D26643"
-                },
-                {
-                  "code": "DET464",
-                  "displayName": "Cognac",
-                  "color": "#D48C46"
-                },
-                {
-                  "code": "DET654",
-                  "displayName": "Crème Fraiche",
-                  "color": "#EBDAB5"
-                },
-                {
-                  "code": "DE5173",
-                  "displayName": "Deep Coral",
-                  "color": "#DA7C55"
-                },
-                {
-                  "code": "DET467",
-                  "displayName": "Harrison Rust",
-                  "color": "#9A5F3F"
-                },
-                {
-                  "code": "DE5354",
-                  "displayName": "Honey Glow",
-                  "color": "#E8B447"
-                },
-                {
-                  "code": "DET491",
-                  "displayName": "Lazy Daisy",
-                  "color": "#F3E7B4"
-                },
-                {
-                  "code": "DET473",
-                  "displayName": "Maize",
-                  "color": "#DAB77F"
-                },
-                {
-                  "code": "DET466",
-                  "displayName": "Monarch Migration",
-                  "color": "#BF764C"
-                },
-                {
-                  "code": "DET472",
-                  "displayName": "Ochre Revival",
-                  "color": "#EEC987"
-                },
-                {
-                  "code": "DET489",
-                  "displayName": "Prairie Land",
-                  "color": "#E2CC9C"
-                },
-                {
-                  "code": "DET495",
-                  "displayName": "Sunnyside Up",
-                  "color": "#EED053"
-                },
-                {
-                  "code": "DE5302",
-                  "displayName": "Warm Light",
-                  "color": "#FFF9D8"
-                },
-                {
-                  "code": "DET486",
-                  "displayName": "Wildflower Honey",
-                  "color": "#C69C5D"
-                },
-                {
-                  "code": "DET478",
-                  "displayName": "Zucchini Flower",
-                  "color": "#E8A64E"
-                },
-                {
-                  "code": "DE5199",
-                  "displayName": "Market Melon",
-                  "color": "#FBB377"
-                }
-              ]
-            },
-            {
-              "name": "purples",
-              "code": "purples",
-              "displayName": "Purples",
-              "thumbnail": "branding/purples.png",
-              "colors": [
-                {
-                  "code": "DE6019",
-                  "displayName": "Bohemian Jazz",
-                  "color": "#9D777C"
-                },
-                {
-                  "code": "DE5959",
-                  "displayName": "Lingering Lilac",
-                  "color": "#E6DEF0"
-                },
-                {
-                  "code": "DET407",
-                  "displayName": "Nightshade",
-                  "color": "#4F4352"
-                },
-                {
-                  "code": "DE6051",
-                  "displayName": "Pale Berries",
-                  "color": "#E2CCC7"
-                },
-                {
-                  "code": "DEA143",
-                  "displayName": "Purple Odyssey",
-                  "color": "#643E65"
-                },
-                {
-                  "code": "DET405",
-                  "displayName": "Purple Prose",
-                  "color": "#554348"
-                },
-                {
-                  "code": "DE5974",
-                  "displayName": "Soft Lilac",
-                  "color": "#E2D4DF"
-                },
-                {
-                  "code": "DE5946",
-                  "displayName": "Violet Crush",
-                  "color": "#D8D3E6"
-                },
-                {
-                  "code": "DE6013",
-                  "displayName": "Amazing Amethyst",
-                  "color": "#806568"
-                },
-                {
-                  "code": "DET404",
-                  "displayName": "California Dreamin’",
-                  "color": "#93807F"
-                },
-                {
-                  "code": "DET402",
-                  "displayName": "Mauve-a-Lish",
-                  "color": "#90686C"
-                },
-                {
-                  "code": "DE6045",
-                  "displayName": "Wispy Mauve",
-                  "color": "#C6AEAA"
-                },
-                {
-                  "code": "DET400",
-                  "displayName": "Wine Goblet",
-                  "color": "#643B46"
-                }
-              ]
-            },
-            {
-              "name": "reds",
-              "code": "reds",
-              "displayName": "Reds, Pinks, & Corals",
-              "thumbnail": "branding/reds.png",
-              "colors": [
-                {
-                  "code": "DE6027",
-                  "displayName": "Antique Garnet",
-                  "color": "#8E5E5E"
-                },
-                {
-                  "code": "DE6093",
-                  "displayName": "Blushing Bride",
-                  "color": "#EEDAD1"
-                },
-                {
-                  "code": "DEC705",
-                  "displayName": "Burnt Crimson",
-                  "color": "#784D4C"
-                },
-                {
-                  "code": "DE5185",
-                  "displayName": "Cedarville",
-                  "color": "#DDA896"
-                },
-                {
-                  "code": "DE5034",
-                  "displayName": "Cherry Berry",
-                  "color": "#9F4D65"
-                },
-                {
-                  "code": "DET434",
-                  "displayName": "City of Pink Angels",
-                  "color": "#E6B4A6"
-                },
-                {
-                  "code": "DE5091",
-                  "displayName": "Just Pink Enough",
-                  "color": "#FFEBEE"
-                },
-                {
-                  "code": "DET416",
-                  "displayName": "La Vie En Rose",
-                  "color": "#D2A5A3"
-                },
-                {
-                  "code": "DET421",
-                  "displayName": "Le Corbusier Crush",
-                  "color": "#BF4E46"
-                },{ 
-                  "code": "DE5183",
-                  "displayName": "Light Carob",
-                  "color": "#F9DBCF"
-                },
-                {
-                  "code": "DE5055",
-                  "displayName": "Merlot",
-                  "color": "#A44A56"
-                },
-                {
-                  "code": "DET436",
-                  "displayName": "OK Coral",
-                  "color": "#D07360"
-                },
-                {
-                  "code": "DE5148",
-                  "displayName": "Pale Jasper",
-                  "color": "#FED6CC"
-                },
-                {
-                  "code": "DEC710",
-                  "displayName": "Peach",
-                  "color": "#FADFC7"
-                },
-                {
-                  "code": "DET419",
-                  "displayName": "Pink Dahlia",
-                  "color": "#B94C66"
-                },
-                {
-                  "code": "DET437",
-                  "displayName": "Pottery Clay",
-                  "color": "#E0816F"
-                },
-                {
-                  "code": "DE5027",
-                  "displayName": "Razzle Dazzle",
-                  "color": "#BA417B"
-                },
-                {
-                  "code": "DEA106",
-                  "displayName": "Red Contrast",
-                  "color": "#B33234"
-                },
-                {
-                  "code": "DET423",
-                  "displayName": "Red Craft",
-                  "color": "#91433E"
-                },
-                {
-                  "code": "DET443",
-                  "displayName": "Red Maple Leaf",
-                  "color": "#834C4B"
-                },
-                {
-                  "code": "DET439",
-                  "displayName": "Spice of Life",
-                  "color": "#86493F"
-                },
-                {
-                  "code": "DET432",
-                  "displayName": "Rose de Mai",
-                  "color": "#CB8E81"
-                },
-                {
-                  "code": "DE6081",
-                  "displayName": "Rose Bisque",
-                  "color": "#C6A499"
-                },
-                {
-                  "code": "DE6090",
-                  "displayName": "Western Red",
-                  "color": "#9B6959"
-                },
-                {
-                  "code": "DET424",
-                  "displayName": "Barn Red",
-                  "color": "#8B4044"
-                },
-                {
-                  "code": "DE5083",
-                  "displayName": "Deep Hibiscus",
-                  "color": "#CB5251"
-                }
-              ]
-            },
-            {
-              "name": "tans",
-              "code": "tans",
-              "displayName": "Tans, Beiges, & Taupes",
-              "thumbnail": "branding/taupe_tan.png",
-              "colors": [
-                {  
-                  "code": "DEC765",
-                  "displayName": "Bone",
-                  "color": "#EADFCE"
-                },
-                {
-                  "code": "DE6059",
-                  "displayName": "Chocolate Milk",
-                  "color": "#C5B9B4"
-                },
-                {
-                  "code": "DEC761",
-                  "displayName": "Cochise",
-                  "color": "#DDCDB3"
-                },
-                {
-                  "code": "DEC760",
-                  "displayName": "Desert Gray",
-                  "color": "#B8A487"
-                },
-                {
-                  "code": "DE6206",
-                  "displayName": "Desert Suede",
-                  "color": "#D5C7B3"
-                },
-                {
-                  "code": "DE6122",
-                  "displayName": "Dry Creek",
-                  "color": "#D8C7B6"
-                },
-                {
-                  "code": "DET623",
-                  "displayName": "En Plein Air",
-                  "color": "#D0C5BE"
-                },
-                {
-                  "code": "DET692",
-                  "displayName": "Kiln Dried",
-                  "color": "#A89887"
-                },
-                {
-                  "code": "DEC748",
-                  "displayName": "Oyster",
-                  "color": "#E3D3BF"
-                },
-                {
-                  "code": "DE6199",
-                  "displayName": "Pale Beach",
-                  "color": "#D6C5A9"
-                },
-                {
-                  "code": "DE6129",
-                  "displayName": "Rustic Taupe",
-                  "color": "#CDB9A2"
-                },
-                {
-                  "code": "DEC747",
-                  "displayName": "Sahara",
-                  "color": "#D5C3AD"
-                },
-                {
-                  "code": "DEC740",
-                  "displayName": "Sandcastle",
-                  "color": "#E5D7C4"
-                },
-                {
-                  "code": "DEC716",
-                  "displayName": "Stonish Beige",
-                  "color": "#CCB49A"
-                },
-                { 
-                  "code": "DE6205",
-                  "displayName": "Stucco Tan",
-                  "color": "#E8DECE"
-                },
-                {
-                  "code": "DET670",
-                  "displayName": "Vintage Ephemera",
-                  "color": "#D8CEB9"
-                },
-                {
-                  "code": "DE6061",
-                  "displayName": "River Rocks",
-                  "color": "#897870"
-                },
-                {
-                  "code": "DET622",
-                  "displayName": "Portobello Mushroom",
-                  "color": "#9D928A"
-                }
-              ]
-            },
-            {
-              "name": "neutrals",
-              "code": "neutrals",
-              "displayName": "Warm Neutrals",
-              "thumbnail": "branding/neutrals.png",
-              "colors": [
-                {
-                  "code": "DEC726",
-                  "displayName": "Adobe",
-                  "color": "#D1B791"
-                },
-                {
-                  "code": "DEC751",
-                  "displayName": "Ash Gray",
-                  "color": "#C1B5A9"
-                },
-                {
-                  "code": "DEC752",
-                  "displayName": "Birchwood",
-                  "color": "#CCBEAC"
-                },
-                {
-                  "code": "DEC750",
-                  "displayName": "Bison Beige",
-                  "color": "#9F9180"
-                },
-                {
-                  "code": "DE6172",
-                  "displayName": "Bungalow Taupe",
-                  "color": "#CEBE9F"
-                },
-                {
-                  "code": "DE6059",
-                  "displayName": "Chocolate Milk",
-                  "color": "#C5B9B4"
-                },
-                {
-                  "code": "DE6117",
-                  "displayName": "Colorado Trail",
-                  "color": "#B49375"
-                },
-                {
-                  "code": "DEC760",
-                  "displayName": "Desert Gray",
-                  "color": "#B8A487"
-                },
-                { 
-                  "code": "DE6066",
-                  "displayName": "Desert Rock",
-                  "color": "#D5C6BD"
-                },
-                {
-                  "code": "DE6206",
-                  "displayName": "Desert Suede",
-                  "color": "#D5C7B3"
-                },
-                {
-                  "code": "DE6122",
-                  "displayName": "Dry Creek",
-                  "color": "#D8C7B6"
-                },
-                {
-                  "code": "DET623",
-                  "displayName": "En Plein Air",
-                  "color": "#D0C5BE"
-                },
-                {
-                  "code": "DE6213",
-                  "displayName": "Fine Grain",
-                  "color": "#D8CFC1"
-                },
-                {
-                  "code": "DE6150",
-                  "displayName": "Gourmet Honey",
-                  "color": "#E3CBA8"
-                },
-                {
-                  "code": "DEC743",
-                  "displayName": "High Noon",
-                  "color": "#CFB999"
-                },
-                {
-                  "code": "DET692",
-                  "displayName": "Kiln Dried",
-                  "color": "#A89887"
-                },
-                {
-                  "code": "DEC718",
-                  "displayName": "Mesa Tan",
-                  "color": "#A78B71"
-                },
-                {
-                  "code": "DE6199",
-                  "displayName": "Pale Beach",
-                  "color": "#D6C5A9"
-                },
-                {
-                  "code": "DE6214",
-                  "displayName": "Pigeon Gray",
-                  "color": "#C1B4A0"
-                },
-                {
-                  "code": "DEC713",
-                  "displayName": "Roman Brick",
-                  "color": "#AB7F5B"
-                },
-                {
-                  "code": "DE6129",
-                  "displayName": "Rustic Taupe",
-                  "color": "#CDB9A2"
-                },
-                {
-                  "code": "DEC747",
-                  "displayName": "Sahara",
-                  "color": "#D5C3AD"
-                },
-                {
-                  "code": "DEC716",
-                  "displayName": "Stonish Beige",
-                  "color": "#CCB49A"
-                },
-                {
-                  "code": "DET633",
-                  "displayName": "Trail Blazer",
-                  "color": "#C0B28E"
-                }
-              ]
-            },
-            {
-              "name": "whites",
-              "code": "whites",
-              "displayName": "Whites & Creams",
-              "thumbnail": "branding/whites.png",
-              "colors": [
-                {
-                  "code": "DEC753",
-                  "displayName": "Almond",
-                  "color": "#EDDCC8"
-                },
-                {
-                  "code": "DEHW01",
-                  "displayName": "Almond Milk",
-                  "color": "#ECEBE3"
-                },
-                {
-                  "code": "DE6190",
-                  "displayName": "Ball of String",
-                  "color": "#F0E8D9"
-                },
-                {
-                  "code": "DEC765",
-                  "displayName": "Bone",
-                  "color": "#EADFCE"
-                },
-                {
-                  "code": "DET662",
-                  "displayName": "Buttercream Frosting",
-                  "color": "#E6D5BA"
-                },
-                {
-                  "code": "DET671",
-                  "displayName": "Cameo Role",
-                  "color": "#DDCAAF"
-                },
-                {
-                  "code": "DEHW08",
-                  "displayName": "Classic White",
-                  "color": "#ECEEEC"
-                },
-                {
-                  "code": "DEC761",
-                  "displayName": "Cochise",
-                  "color": "#DDCDB3"
-                },
-                {
-                  "code": "DE6212",
-                  "displayName": "Crisp Muslin",
-                  "color": "#E9E2D7"
-                },
-                {
-                  "code": "DE6127",
-                  "displayName": "Finest Silk",
-                  "color": "#F1E5D7"
-                },
-                {
-                  "code": "DEW311",
-                  "displayName": "French White",
-                  "color": "#F1E7DB"
-                },
-                {
-                  "code": "DET653",
-                  "displayName": "Historic White",
-                  "color": "#EBE6D7"
-                },
-                {
-                  "code": "DEHW10",
-                  "displayName": "Icy White",
-                  "color": "#EAEBE8"
-                },
-                {
-                  "code": "DET673",
-                  "displayName": "Mission White",
-                  "color": "#E2D8C2"
-                },
-                {
-                  "code": "DEC772",
-                  "displayName": "Navajo White",
-                  "color": "#EBE1C9"
-                },
-                {
-                  "code": "DEC748",
-                  "displayName": "Oyster",
-                  "color": "#E3D3BF"
-                },
-                {
-                  "code": "DEC740",
-                  "displayName": "Sandcastle",
-                  "color": "#E5D7C4"
-                },
-                {
-                  "code": "DEW301",
-                  "displayName": "Strawberry Dust",
-                  "color": "#FFF0EA"
-                },
-                {
-                  "code": "DE6205",
-                  "displayName": "Stucco Tan",
-                  "color": "#E8DECE"
-                },
-                {
-                  "code": "DEHW07",
-                  "displayName": "Sugar Swizzle",
-                  "color": "#ECEEEA"
-                },
-                {
-                  "code": "DEW341",
-                  "displayName": "Swiss Coffee",
-                  "color": "#F8F5E9"
-                },
-                {
-                  "code": "DET670",
-                  "displayName": "Vintage Ephemera",
-                  "color": "#D8CEB9"
-                },
-                {
-                  "code": "DEW340",
-                  "displayName": "Whisper",
-                  "color": "#FDFAF1"
-                },
-                {
-                  "code": "DET648",
-                  "displayName": "White Picket Fence",
-                  "color": "#F0EFEB"
                 }
               ]
             }
