@@ -40,7 +40,7 @@
     {
       "code": "adorefloors",
       "displayName": "Adore Floors",
-      "surfaceTypes": ["floor"],
+      "surfaceTypes": ["Floor"],
       "assetTypes": ["tiled"],
       "sceneCollections": [
         {
@@ -160,7 +160,122 @@
               "displayName": "Office"
             }
           ]
-        }
+        },
+
+        {
+          "code": "education",
+          "displayName": "Education",
+          "scenes": [
+            {
+              "code": "education-1",
+              "displayName": "Education"
+            },
+            {
+              "code": "education-2",
+              "displayName": "Education"
+            },
+            {
+              "code": "education-3",
+              "displayName": "Education"
+            }
+          ]
+        },
+        {
+          "code": "healthcare",
+          "displayName": "Healthcare",
+          "scenes": [
+            {
+              "code": "healthcare-1",
+              "displayName": "Healthcare"
+            },
+            {
+              "code": "healthcare-2",
+              "displayName": "Healthcare"
+            }
+          ]
+        },
+        {
+          "code": "hotel",
+          "displayName": "Hotel",
+          "scenes": [
+            {
+              "code": "hotel-1",
+              "displayName": "Hotel"
+            }
+          ]
+        },
+        {
+          "code": "mainstreet",
+          "displayName": "Mainstreet",
+          "scenes": [
+            {
+              "code": "mainstreet-1",
+              "displayName": "Mainstreet"
+            },
+            {
+              "code": "mainstreet-2",
+              "displayName": "Mainstreet"
+            },
+            {
+              "code": "mainstreet-3",
+              "displayName": "Mainstreet"
+            }
+          ]
+        },
+        {
+          "code": "multifamily",
+          "displayName": "Multifamily",
+          "scenes": [
+            {
+              "code": "multifamily-1",
+              "displayName": "Multifamily"
+            },
+            {
+              "code": "multifamily-2",
+              "displayName": "Multifamily"
+            },
+            {
+              "code": "multifamily-3",
+              "displayName": "Multifamily"
+            }
+          ]
+        },
+        {
+          "code": "retail",
+          "displayName": "Retail",
+          "scenes": [
+            {
+              "code": "retail-1",
+              "displayName": "Retail"
+            },
+            {
+              "code": "retail-2",
+              "displayName": "Retail"
+            },
+            {
+              "code": "retail-3",
+              "displayName": "Retail"
+            },
+            {
+              "code": "retail-4",
+              "displayName": "Retail"
+            },
+            {
+              "code": "retail-5",
+              "displayName": "Retail"
+            },
+            {
+              "code": "retail-6",
+              "displayName": "Retail"
+            },
+            {
+              "code": "retail-7",
+              "displayName": "Retail"
+            }
+          ]
+        }                                
+
+
       ],
       "collections": [
         {
