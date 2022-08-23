@@ -845,6 +845,7 @@ export default function Visualizer() {
 
         if (selectedAsset) {
             selectedAsset.surfaceRotation = commit ? radians : initialRotation;
+            console.log("rotation difference from json value", selectedAsset.surfaceRotation);
         }
 
         setToolMode(CBARToolMode.None);
