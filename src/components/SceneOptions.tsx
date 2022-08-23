@@ -6,15 +6,20 @@ import {SpeedDial, SpeedDialAction, SpeedDialIcon} from "@mui/material";
 import {makeStyles} from "@mui/styles";
 import {DefaultAssetMenuActions, ToolOperation, ToolsMenuAction} from "react-cambrian-ui";
 import {
-    CBARAsset, CBAREvent,
+    CBARAsset,
+    CBAREvent,
     CBAREventHandler,
     CBAREventType,
     CBARMouseEvent,
     CBARPaintAsset,
     CBARScene,
     CBARSurface,
-    CBARSurfaceAsset, CBARTiledAsset,
-    CBARToolMode, Point2D, Rectangle, usleep
+    CBARSurfaceAsset,
+    CBARTiledAsset,
+    CBARToolMode,
+    Point2D,
+    Rectangle,
+    usleep
 } from "react-home-ar";
 
 export type ObjectTypes = CBARAsset|CBARSurface
@@ -152,8 +157,10 @@ export function SceneOptions(props: AssetOptionsProperties) {
     const [clickEvent, setClickEvent] = useState<CBARMouseEvent>()
 
     const onClick = useCallback((event:CBAREvent)=>{
-        setClickEvent(event as CBARMouseEvent);
-    }, [])
+        if (scene?.context.toolMode === CBARToolMode.None) {
+            setClickEvent(event as CBARMouseEvent);
+        }
+    }, [scene?.context.toolMode])
 
     useEffect(()=>{
         if (!clickEvent) return
@@ -211,7 +218,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
     useEffect(()=>{
         if (scene && !addedHandlers) {
             setAddedHandlers(true);
-            scene.context.addHandler(CBAREventType.TouchDown, onClick);
+            scene.context.addHandler(CBAREventType.TouchUp, onClick);
             scene.context.addHandler(CBAREventType.MouseOver, onVisMouseOver as CBAREventHandler);
             scene.context.addHandler(CBAREventType.MouseOut, onVisMouseOut as CBAREventHandler);
         }
