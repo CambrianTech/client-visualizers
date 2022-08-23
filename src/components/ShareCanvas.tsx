@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {CBContentManager, ImageSource, ProductItem, SwatchItem} from "react-home-ar";
 import { useWindowSize } from '@react-hook/window-size';
 
@@ -95,16 +95,13 @@ const ShareCanvas: React.FC<{logoSrc: string, resolveThumbnailPath(swatchItem:Sw
       const img = new Image();
       img.crossOrigin = "";
       img.src = path;
-      img.onload = () => {
-        console.log("got image")
-      }
       img.onerror = (error) =>{
         console.log("Error getting image", img.src, error);
       }
       images.push(img);
     });
     setProductImages(images);
-  }, [products])
+  }, [products, props])
 
   const renderedImageTask = useMemo(()=>{
     if (!url || !canvasRef || !brandImage) return null
@@ -180,7 +177,7 @@ const ShareCanvas: React.FC<{logoSrc: string, resolveThumbnailPath(swatchItem:Sw
 
           return canvasRef.toDataURL('image/jpeg', 1.0)
     })
-  }, [brandImage, canvasRef, isLandscape, products, screenHeight, url])
+  }, [brandImage, canvasRef, isLandscape, productImages, products, screenHeight, url])
 
   useEffect(() => {
     renderedImageTask?.then(image=>{
