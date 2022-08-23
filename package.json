@@ -43,7 +43,8 @@
     "eject": "react-scripts eject",
     "server": "cd server; npm run start;",
     "sync": "sh scripts/sync.sh",
-    "getproject": "sh scripts/getproject.sh"
+    "getproject": "sh scripts/getproject.sh",
+    "import": "sh scripts/project-importer.sh"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,6 +1,9 @@
+ROOT=$(dirname $0)/..
+source "${ROOT}/.env.development"
 
-BASEDIR=$(dirname $0)
-source .env.development
+if [ -f "${ROOT}/.env.development.local" ]; then
+    source "${ROOT}/.env.development.local"
+fi
 
 DEFAULT_INPUT="cambrianar-sites/${REACT_APP_SITE_NAME}/scenes"
 #DEFAULT_OUTPUT="exported-scenes"
@@ -45,6 +48,6 @@ for file in $(find ${INPUT} -name "data.json" -type f -print ); do
 
   mkdir -p ${dest_dir}
 
-  python "${BASEDIR}/project-importer.py" $data_path "${dest_dir}/data.json" "${python_options[@]}"
+  python "${ROOT}/scripts/project-importer.py" $data_path "${dest_dir}/data.json" "${python_options[@]}"
 
 done

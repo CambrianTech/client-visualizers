@@ -1,5 +1,10 @@
 
-source .env.development
+ROOT=$(dirname $0)/..
+source "${ROOT}/.env.development"
+
+if [ -f "${ROOT}/.env.development.local" ]; then
+    source "${ROOT}/.env.development.local"
+fi
 
 SITE_NAME="${REACT_APP_SITE_NAME}"
 LOCAL_PATH="cambrianar-sites/${SITE_NAME}"
