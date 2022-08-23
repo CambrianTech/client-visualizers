@@ -1,5 +1,5 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {CBContentManager, ImageSource, ProductItem} from "react-home-ar";
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import {CBContentManager, ImageSource, ProductItem, SwatchItem} from "react-home-ar";
 import { useWindowSize } from '@react-hook/window-size';
 
 
@@ -59,7 +59,7 @@ function resizeCanvasLandscape(ctx: CanvasRenderingContext2D, img: ImageSource, 
   drawImage(ctx, img, newHeight);
 }
 
-const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, url: string|undefined, products?: ProductItem[] }> = (props) => {
+const ShareCanvas: React.FC<{logoSrc: string, resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined, onChange: (arg: string) => void, url: string|undefined, products?: ProductItem[] }> = (props) => {
   const [canvasRef, setCanvasRef] = useState<any>(null);
   const [screenWidth, screenHeight] = useWindowSize();
 
@@ -68,6 +68,7 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
   const {url, products, onChange, logoSrc} = props
 
   const [brandImage, setBrandImage] = useState<HTMLImageElement>()
+  const [productImages, setProductImages] = useState<HTMLImageElement[]>()
 
   useEffect(()=>{
     if (!logoSrc) return
@@ -84,6 +85,26 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
     brandImg.src = logoSrc + "?random=" + Math.random().toString();
 
   }, [logoSrc])
+
+  useEffect(()=>{
+    const images:HTMLImageElement[] = [];
+    products?.forEach(p=>{
+      const path = props.resolveThumbnailPath(p);
+      if (!path) return;
+
+      const img = new Image();
+      img.crossOrigin = "";
+      img.src = path;
+      img.onload = () => {
+        console.log("got image")
+      }
+      img.onerror = (error) =>{
+        console.log("Error getting image", img.src, error);
+      }
+      images.push(img);
+    });
+    setProductImages(images);
+  }, [products])
 
   const renderedImageTask = useMemo(()=>{
     if (!url || !canvasRef || !brandImage) return null
@@ -108,10 +129,16 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
 
           products?.forEach((product, i) => {
             //Draw Colored Rectangle Swatch
-            ctx!.beginPath();
-            ctx!.fillStyle = product.color ? product.color : "white";
-            ctx!.fillRect(ctx!.canvas.width - horizontalSwatchOffset, ctx!.canvas.height - (i + 1) * verticalOffset, swatchSize, swatchSize);
-            ctx!.stroke();
+            const x = ctx!.canvas.width - horizontalSwatchOffset;
+            const y = ctx!.canvas.height - (i + 1) * verticalOffset;
+            if (product.color) {
+              ctx!.beginPath();
+              ctx!.fillStyle = product.color;
+              ctx!.fillRect(x, y, swatchSize, swatchSize);
+              ctx!.stroke();
+            } else if (productImages && productImages[i]) {
+              ctx!.drawImage(productImages[i], x, y, swatchSize, swatchSize);
+            }
 
             //Draw Swatch Outline
             ctx!.beginPath();
@@ -142,14 +169,10 @@ const ShareCanvas: React.FC<{logoSrc: string, onChange: (arg: string) => void, u
           if (brandImage.width > 0) {
             const brandWidth = linearlyInterpolate({
               canvasWidth: ctx!.canvas.width,
-              minValue: brandImage.width / 3,
-              maxValue: brandImage.width / 2
+              minValue: Math.min(ctx!.canvas.width / 5, brandImage.width / 3),
+              maxValue: Math.min(ctx!.canvas.width / 5, brandImage.width / 2.0)
             });
-            const brandHeight = linearlyInterpolate({
-              canvasWidth: ctx!.canvas.width,
-              minValue: brandImage.height / 3,
-              maxValue: brandImage.height / 2
-            });
+            const brandHeight = brandWidth * brandImage.height / brandImage.width;
             ctx!.drawImage(brandImage, 20, 20, brandWidth, brandHeight);
           }
 

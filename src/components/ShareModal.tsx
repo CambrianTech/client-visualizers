@@ -16,7 +16,7 @@ import {
   ImageSource,
   CBARScene,
   drawBeforeAfter,
-  UrlDict
+  UrlDict, SwatchItem
 } from "react-home-ar";
 import {
   EmailIcon,
@@ -39,6 +39,7 @@ type Props = PropsWithChildren<{
   isOpen: boolean;
   products?: ProductItem[];
   logoSrc: string;
+  resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined;
   shareImageUrl: string|undefined;
   scene:CBARScene|undefined
 }>;
@@ -161,6 +162,7 @@ export function ShareModal({
   isOpen,
   products,
   logoSrc,
+  resolveThumbnailPath,
   shareImageUrl,
     scene,
 
@@ -219,7 +221,7 @@ export function ShareModal({
       </TopRightCloseButton>
 
       <StyledDialogContent >
-        <ShareCanvas  logoSrc={logoSrc} onChange={(val: string) => {setCanvasDownloadLink(val)}} url={shareImageUrl} products={products}/>
+        <ShareCanvas logoSrc={logoSrc} resolveThumbnailPath={resolveThumbnailPath} onChange={(val: string) => {setCanvasDownloadLink(val)}} url={shareImageUrl} products={products}/>
       </StyledDialogContent>
 
       <ShareWrapper>

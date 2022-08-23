@@ -1,12 +1,13 @@
 import React, {useEffect, useMemo, useState} from "react";
 import "./ColorLegend.css";
 import { CSSTransition} from "react-transition-group";
-import {DataItem, ProductItem} from "react-home-ar";
+import {DataItem, ProductItem, SwatchItem} from "react-home-ar";
 
 type ColorLegendProps = {
   swatches?: ProductItem[];
   activeSwatch?: ProductItem;
   tempActive?: ProductItem;
+  resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined;
   swatchClicked:(swatch:ProductItem)=>void
 };
 
@@ -58,6 +59,7 @@ export function ColorLegend(props: ColorLegendProps) {
                 style={
                   {
                     backgroundColor: currentProduct?.color,
+                    backgroundImage: currentProduct ? `url("${props.resolveThumbnailPath(currentProduct)}")` : ""
                   } as React.CSSProperties
                 }
                 onClick={()=>props.swatchClicked(currentProduct!)}
@@ -68,6 +70,7 @@ export function ColorLegend(props: ColorLegendProps) {
           {props.swatches?.filter(s=>props.activeSwatch?.code !== s.code).map((swatch) => {
               const style = {
                 backgroundColor: swatch.color,
+                backgroundImage: `url("${props.resolveThumbnailPath(swatch)}")`,
                 cursor:"pointer"
               } as React.CSSProperties;
               return (

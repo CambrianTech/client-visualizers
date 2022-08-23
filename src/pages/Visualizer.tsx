@@ -1048,6 +1048,7 @@ export default function Visualizer() {
                 <ShareModal
                   onClose={() => setShareModal(false)}
                   logoSrc={brandLogo}
+                  resolveThumbnailPath={resolveThumbnailPath}
                   isOpen={isShareModalOpen}
                   products={products}
                   shareImageUrl={shareImageUrl}
@@ -1072,7 +1073,7 @@ export default function Visualizer() {
                                onTranslationChanged={translationChanged}
                                onTranslationFinished={translationFinished} />
                    
-                <ColorLegend swatches={products} activeSwatch={selectedProduct ? selectedProduct : undefined} swatchClicked={swatchClicked}  />
+                <ColorLegend swatches={products} activeSwatch={selectedProduct ? selectedProduct : undefined} resolveThumbnailPath={resolveThumbnailPath} swatchClicked={swatchClicked}  />
 
                 {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
