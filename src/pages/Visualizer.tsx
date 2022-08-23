@@ -707,6 +707,7 @@ export default function Visualizer() {
         if (dataPath && context && rootItem && !isLoading.current) {
             const brand = rootItem as DataItem;
             isLoading.current = true;
+
             console.log("Loading static scene at path", dataPath)
             context.loadSceneAtPath(dataPath, brand.surfaceTypes).then((scene)=>{
                 setCurrentScene(scene);
@@ -728,6 +729,7 @@ export default function Visualizer() {
         if (context && siteContext.state.sceneData && rootItem && !isLoading.current) {
             const brand = rootItem as DataItem;
             isLoading.current = true;
+
             context.loadSceneData(siteContext.state.sceneData, brand.surfaceTypes).then((scene)=>{
                 console.log("Dynamic Scene Loaded!");
                 setCurrentScene(scene);

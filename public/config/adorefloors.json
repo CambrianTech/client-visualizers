@@ -41,7 +41,7 @@
       "code": "adorefloors",
       "displayName": "Adore Floors",
       "surfaceTypes": ["floor"],
-      "assetTypes": ["tiled"],
+      "assetTypes": ["tiled-surface"],
       "sceneCollections": [
         {
           "code": "bathroom",
