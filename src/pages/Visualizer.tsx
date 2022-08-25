@@ -132,7 +132,7 @@ export default function Visualizer() {
     }, [selectedColumn]);
 
     const materialName = useMemo(()=>{
-        return selectedProduct?.thumbnail ? "Material" : "Color"
+        return selectedProduct?.thumbnail ? "Product" : "Color"
     }, [selectedProduct?.thumbnail])
 
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
