@@ -69,26 +69,57 @@ const CORNERS = [TOP_RIGHT, BOTTOM_RIGHT, BOTTOM_LEFT, TOP_LEFT]
 const OptionMenu = React.memo<OptionMenuProps>(
     (props) => {
 
+        const speedDialRef = useRef<HTMLDivElement>()
+        const [direction, setDirection] = useState<'down'|'up'>("down");
+        const [tooltipPlacement, setTooltipPlacement] = useState<'right'|'left'>("left");
+
         const menuStyles = useMemo(()=>{
+            let leftCss = "unset";
+            let topCss = "unset";
+            let bottomCss = "unset";
+            let rightCss = "unset";
+
+            const size = speedDialRef.current?.getBoundingClientRect();
+
+            if (props.menuPoint && size) {
+
+                const menuWidth = size.width;
+                const menuHeight = size.height;
+                const availWidth = window.innerWidth - menuWidth;
+                const availHeight = window.innerHeight - menuHeight;
+
+                if (props.menuPoint.y < availHeight) {
+                    topCss = `${(props.menuPoint.y).toFixed(1)}px`
+                    setDirection("down");
+                } else {
+                    bottomCss = `${(Math.max(window.innerHeight - props.menuPoint.y, 20) - 45).toFixed(1)}px`;
+                    setDirection("up");
+                }
+
+                if (props.menuPoint.x < availWidth) {
+                    leftCss = `${(Math.max(props.menuPoint.x, menuWidth) + 5).toFixed(1)}px`
+                } else {
+                    rightCss = `${(Math.max(window.innerWidth - props.menuPoint.x, 20)).toFixed(1)}px`
+                }
+
+                setTooltipPlacement(props.menuPoint.x < 200 ? "right" : "left");
+            }
             return makeStyles(() => ({
                 speedDial: {
                     position: 'absolute',
-                    left: `${props.menuPoint ? (props.menuPoint.x).toFixed(1) : 0}px`,
-                    top: `${props.menuPoint ? (props.menuPoint.y).toFixed(1) : 0}px`,
-                },
-                staticTooltip: {
-                    whiteSpace:"nowrap"
+                    top: topCss,
+                    right: rightCss,
+                    bottom: bottomCss,
+                    left:leftCss,
                 },
                 fab: {
-                    backgroundColor: props.color ? `${props.color} !important` : undefined
+                    backgroundColor: props.color ? `${props.color} !important` : undefined,
                 }
             }))
-        }, [props.color, props.menuPoint])
+        }, [props.color, props.menuPoint, speedDialRef])
 
         const menuClasses = menuStyles();
-
         const isMobile = window.outerWidth < 400;
-
 
         const onMenuClick = useCallback((action:ToolsMenuAction)=>{
             props.handleOption({object: props.object, ...action})
@@ -96,7 +127,8 @@ const OptionMenu = React.memo<OptionMenuProps>(
 
         return (
             <SpeedDial
-                direction={'down'}
+                ref={speedDialRef}
+                direction={direction}
                 ariaLabel="Tools"
                 className={menuClasses.speedDial}
                 hidden={props.hidden}
@@ -106,9 +138,9 @@ const OptionMenu = React.memo<OptionMenuProps>(
                 onClick={props.menuClicked}>
                 {props.actions.map((action) => (
                     <SpeedDialAction
-                        classes={{ staticTooltip: menuClasses.staticTooltip }}
                         key={action.name}
                         icon={action.icon}
+                        tooltipPlacement={tooltipPlacement}
                         tooltipTitle={!isMobile && action.longName ? action.longName : action.name}
                         tooltipOpen
                         onClick={()=>onMenuClick(action)}
@@ -183,7 +215,14 @@ export function SceneOptions(props: AssetOptionsProperties) {
 
         setSelectedObject(obj);
 
-        usleep(100).then(()=>setOpenMenuObject(obj))
+        if (openMenuObject === obj) {
+            setOpenMenuObject(undefined);
+            usleep(500).then(()=>{
+                setOpenMenuObject(obj);
+            })
+        } else {
+            setOpenMenuObject(obj);
+        }
 
     }, [clickEvent, clickOrigins, openMenuObject])
 
@@ -300,6 +339,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
         } else {
             setOpenMenuObject(undefined)
         }
+
     }, [openMenuObject])
 
     const getMenuColor = useCallback((object:ObjectTypes)=>{
@@ -334,7 +374,7 @@ export function SceneOptions(props: AssetOptionsProperties) {
                             {...props}
                             object={object}
                             hidden = {!isVisible(object)}
-                            menuOpen={openMenuObject === object}
+                            menuOpen={openMenuObject===object}
                             menuPoint={getMenuPosition(object)}
                             color={getMenuColor(object)}
                             actions={getActions(object)}
