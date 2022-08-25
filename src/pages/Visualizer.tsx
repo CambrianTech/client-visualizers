@@ -131,6 +131,10 @@ export default function Visualizer() {
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
 
+    const materialName = useMemo(()=>{
+        return selectedProduct?.thumbnail ? "Material" : "Color"
+    }, [selectedProduct?.thumbnail])
+
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
 
     const primarySurfaceType = useMemo(()=>{
@@ -673,17 +677,17 @@ export default function Visualizer() {
 
     const leftPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
-            return isPortrait ? undefined : "Colors";
+            return isPortrait ? undefined : materialName;
         }
         return undefined
-    },[activePanel, currentScene, isPortrait]);
+    },[activePanel, currentScene, isPortrait, materialName]);
 
     const rightPanelButtonText = useMemo(()=>{
         if (activePanel === Panel.None && currentScene) {
-            return isPortrait ? "Details" : "Product Details";
+            return isPortrait ? "Details" : `${materialName} Details`;
         }
         return undefined
-    },[activePanel, currentScene, isPortrait]);
+    },[activePanel, currentScene, isPortrait, materialName]);
 
     useEffect(()=>{
         if (siteContext.state.selectedSampleRoomType && siteContext.state.selectedSampleRoom) {
@@ -817,8 +821,13 @@ export default function Visualizer() {
             actions = actions.filter(item=>item.operation !== CBARToolMode.DrawSurface && item.operation !== CBARToolMode.EraseSurface);
         }
 
+        actions = actions.map(item=>{
+            item.name = item.name.replace("Color", materialName);
+            return item;
+        })
+
         return actions
-    }, [_isFeatureEnabled, isEditable, siteContext.state.browserProperties.browser, selectedAsset]);
+    }, [_isFeatureEnabled, selectedAsset, siteContext.state.browserProperties.browser, isEditable, materialName]);
 
     const editSurfaceFinished = useCallback(() => {
         if (!_isMounted.current) return;
@@ -991,7 +1000,7 @@ export default function Visualizer() {
             <div className="panel a" onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
                 <div className={"title"}>
                     {currentScene && <div className={"choose product" + (activePanel === Panel.Products ? " selected" : "")} onClick={()=>productsClicked(true)}>
-                        <div className={"choose-text"}>Choose a Color</div>
+                        <div className={"choose-text"}>Choose a {materialName} </div>
                     </div>}
                     <div className={"choose scene" + (activePanel === Panel.Scenes ? " selected" : "")} onClick={()=>setActivePanel(Panel.Scenes)}>
                         <div className={"choose-text"}>Choose a Scene</div>
