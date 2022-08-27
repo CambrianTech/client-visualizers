@@ -9,5 +9,5 @@ cd ${ROOT}/server;
 npm install;
 npm run build;
 
-cd ${ROOT}
+cd ..
 sh scripts/link-cb-output.sh
