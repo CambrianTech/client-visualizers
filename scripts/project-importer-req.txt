@@ -2,3 +2,5 @@ Click
 opencv-contrib-python
 opencv-python
 numpy
+termcolor
+tqdm
