@@ -29,6 +29,7 @@ def resize(image, window_height):
 @click.command()
 @click.argument("input_file", type=click.Path(exists=True, file_okay=True, dir_okay=False))
 @click.argument("output_file", type=click.Path(exists=False, file_okay=True, dir_okay=False))
+@click.option('--generate_lighting', '-l', is_flag=True, help="Specify to generate lighting")
 @click.option('--single_mask_output', '-s', is_flag=True, help="Specify to generate individual masks (useful for editing masks individually and re-importing without flag)")
 @click.option('--max_image_size', type=int, default=1536)
 @click.option('--max_mask_size', type=int, default=1280)
@@ -36,7 +37,7 @@ def resize(image, window_height):
 @click.option('--thumbnail_size', type=int, default=640)
 @click.option('--version', type=str, default="4.0.2.1000")
 
-def main(input_file, output_file, single_mask_output, max_image_size, max_mask_size, preview_size, thumbnail_size, version):
+def main(input_file, output_file, generate_lighting, single_mask_output, max_image_size, max_mask_size, preview_size, thumbnail_size, version):
 
     if not os.path.exists(input_file):
         raise Exception('The json file does not exist at path {}'.format(json_path))
@@ -65,9 +66,7 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
 
         image = cv2.imread(input_path)
 
-        if name == "lighting" and len(image.shape) == 3:
-            image = image[:,:,0] #monochrome
-        elif len(image.shape) == 3 and image.shape[2] == 4:
+        if len(image.shape) == 3 and image.shape[2] == 4:
             image = image[:,:,:3]
 
         image = resize(image, max_image_size)
@@ -75,6 +74,7 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
         images[name] = image
 
         cv2.imwrite(output_path, image, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
+
 
     vertical_axis = "z"
     if "verticalAxis" in data["geometry"]:
@@ -144,6 +144,7 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
         alpha_mask = np.ones(mask_shape, dtype=np.uint8) * 255
 
     num_surfaces = len(masks)
+    floor_mask = None
     for index, surface in enumerate(filtered_surfaces):
         maskIndex = int((1 + index) * 255 / (1 + num_surfaces)) #evenly spaced
 
@@ -156,6 +157,9 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
         # mask = cv2.dilate(mask, cv2.getStructuringElement(cv2.MORPH_RECT,(2,2)))
         # mask = cv2.GaussianBlur(mask,(3, 3), cv2.BORDER_DEFAULT)
 
+        if surface["type"] == "Floor" and floor_mask is None:
+            floor_mask = mask
+
         if single_mask_output:
             where = np.where(np.logical_and(mask > 0, mask < 255))
             alpha_mask[where] = mask[where]
@@ -167,6 +171,57 @@ def main(input_file, output_file, single_mask_output, max_image_size, max_mask_s
             print("Saving mask", mask_path)
             cv2.imwrite(os.path.join(dest_dir, mask_path), mask)
             
+
+    def scale_lighting(img, scale=1.0, center=127.0, gamma=10.0):
+        img = (img.astype(float) - center) * scale + center + gamma
+
+        img[img > 255.0] = 255.0
+        img[img < 0.0] = 0.0
+        return img.astype(np.uint8)
+
+    if generate_lighting:
+        print("Generating lighting")
+
+        lighting_width = 1024
+        lighting_height = int(lighting_width * background.shape[0] / background.shape[1])
+        lighting_shape = (lighting_height, lighting_width)
+
+        if lighting_width < background.shape[1]:
+            base = cv2.resize(background, (lighting_shape[1], lighting_shape[0]))
+        else:
+            base = background.copy()
+
+        base = cv2.blur(base,(5,5))
+
+        base = cv2.pyrMeanShiftFiltering(base, 50, 50, maxLevel=3)
+        base = cv2.cvtColor(base, cv2.COLOR_RGB2GRAY)
+
+        base = cv2.blur(base,(5,5))
+
+        gamma = 20
+
+        if floor_mask is not None:
+            floor_mask = cv2.resize(floor_mask, (lighting_shape[1], lighting_shape[0]))
+            floor_mask = (floor_mask / 255.0).astype(np.uint8)
+
+            mean, std = cv2.meanStdDev(base, mask=floor_mask)
+            gamma = max(200 - mean[0], 0)
+
+            floor_lighting = scale_lighting(base, scale=1.3, gamma=gamma)
+            floor_lighting = cv2.blur(floor_lighting,(13,13))
+
+            floor_mask_blurred = cv2.blur(floor_mask.astype(float), (5, 5), 0)
+            
+            lighting = floor_lighting * floor_mask_blurred + base * (1.0 - floor_mask_blurred)
+
+        else:
+            lighting = base
+
+        lighting = cv2.blur(lighting,(5,5))
+
+        output_name = IMAGE_WHITELIST["lighting"]
+        output_path = os.path.join(dest_dir, output_name)
+        cv2.imwrite(output_path, lighting, [int(cv2.IMWRITE_JPEG_QUALITY), 50])
 
     data["geometry"]["surfaces"] = filtered_surfaces
     data["geometry"]["verticalAxis"] = "y"

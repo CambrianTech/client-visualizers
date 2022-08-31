@@ -7,8 +7,23 @@ fi
 
 DEFAULT_INPUT="cambrianar-sites/${REACT_APP_SITE_NAME}/scenes"
 DEFAULT_OUTPUT="exported-scenes"
+DEFAULT_DEPENDENCIES="yes"
+DEFAULT_LIGHTING="yes"
 
 python_options=()
+
+#check for python import issues
+python "${ROOT}/scripts/project-importer.py" &>/dev/null
+status=$?
+
+if [ $status -eq 1 ]; then
+  read -e -p "Missing some python dependencies, is it ok to generate? [${DEFAULT_DEPENDENCIES}]: " value
+  GEN_LIGHTING=${value:-"${DEFAULT_LIGHTING}"}
+
+  if [[ $GEN_LIGHTING =~ [yY](es)* ]] ;then
+    pip install -r "${ROOT}/scripts/project-importer-req.txt"
+  fi
+fi
 
 if [ $# -eq 2 ] ;then
   INPUT=$1
@@ -21,10 +36,17 @@ else
   OUTPUT=${value:-"${DEFAULT_OUTPUT}"}
 fi
 
+read -e -p "Generate lighting? [${DEFAULT_LIGHTING}]: " value
+GEN_LIGHTING=${value:-"${DEFAULT_LIGHTING}"}
+
+if [[ $GEN_LIGHTING =~ [yY](es)* ]] ;then
+  python_options+=("-l")
+fi
+
 read -p "Generate single mask for all surfaces (experimental)? yes/no [no]: " answer
 
 if [ "$answer" != "${answer#[Yy]}" ] ;then
-  python_options=(-s)
+  python_options+=(-s)
 fi
 
 if [[ ! $INPUT -ef $OUTPUT ]]; then
