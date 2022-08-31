@@ -45,4 +45,4 @@ scripts/tiling_generator/input*
 /scripts/tiling_generator/adorefloors
 projects
 /public/cb-projects
-/exported-scenes
+/exported-*

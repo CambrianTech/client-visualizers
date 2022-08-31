@@ -1,9 +1,9 @@
 ROOT=$(dirname $0)/..
-source "${ROOT}/.env.development"
+source "${ROOT}/scripts/utils.sh"
+get_site_info
 
-if [ -f "${ROOT}/.env.development.local" ]; then
-    source "${ROOT}/.env.development.local"
-fi
+SCRIPT_PATH="${ROOT}/scripts/project-importer.py"
+REQ_PATH="${ROOT}/scripts/project-importer-req.txt"
 
 DEFAULT_INPUT="cambrianar-sites/${REACT_APP_SITE_NAME}/scenes"
 DEFAULT_OUTPUT="exported-scenes"
@@ -13,17 +13,7 @@ DEFAULT_LIGHTING="yes"
 python_options=()
 
 #check for python import issues
-python "${ROOT}/scripts/project-importer.py" &>/dev/null
-status=$?
-
-if [ $status -eq 1 ]; then
-  read -e -p "Missing some python dependencies, is it ok to generate? [${DEFAULT_DEPENDENCIES}]: " value
-  GEN_LIGHTING=${value:-"${DEFAULT_LIGHTING}"}
-
-  if [[ $GEN_LIGHTING =~ [yY](es)* ]] ;then
-    pip install -r "${ROOT}/scripts/project-importer-req.txt"
-  fi
-fi
+check_python_dependencies ${SCRIPT_PATH} ${REQ_PATH} ${DEFAULT_DEPENDENCIES}
 
 if [ $# -eq 2 ] ;then
   INPUT=$1
@@ -70,6 +60,6 @@ for file in $(find ${INPUT} -name "data.json" -type f -print ); do
 
   mkdir -p ${dest_dir}
 
-  python "${ROOT}/scripts/project-importer.py" $data_path "${dest_dir}/data.json" "${python_options[@]}"
+  python ${SCRIPT_PATH} $data_path "${dest_dir}/data.json" "${python_options[@]}"
 
 done
