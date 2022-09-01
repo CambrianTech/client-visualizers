@@ -223,21 +223,31 @@ export function ShareModal({
     const promises:Promise<HTMLImageElement>[] = []
 
     products.forEach(p=>{
-      const path = resolveThumbnailPath(p);
-      if (!path) return;
-      promises.push(loadImage(path))
+      if (p.thumbnail) {
+        const path = resolveThumbnailPath(p);
+        if (!path) return;
+        promises.push(loadImage(path))
+      }
     });
 
-    Promise.all(promises).then(images=>{
+    if (promises.length) {
+      Promise.all(promises).then(images=>{
+        const data = []
+        for (let i=0; i<images.length; i++) {
+          data.push({product:products[i], swatch:images[i]});
+        }
+        setProductData(data);
+      }).catch(()=>{
+        console.log("cross origin error")
+      })
+    }
+    else {
       const data = []
-      for (let i=0; i<images.length; i++) {
-        data.push({product:products[i], image:images[i]});
+      for (let i=0; i<products.length; i++) {
+        data.push({product:products[i]});
       }
       setProductData(data);
-    }).catch(()=>{
-      console.log("cross origin error")
-    })
-
+    }
   }, [products, resolveThumbnailPath])
 
   const [brandImage, setBrandImage] = useState<HTMLImageElement>()

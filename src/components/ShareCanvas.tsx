@@ -61,7 +61,7 @@ function resizeCanvasLandscape(ctx: CanvasRenderingContext2D, img: ImageSource, 
 
 export type ProductData = {
   product:ProductItem
-  image:HTMLImageElement
+  swatch?:HTMLImageElement
 }
 
 const ShareCanvas: React.FC<{resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined, onChange: (arg: string) => void, url: string|undefined, brandImage:HTMLImageElement|undefined, productData: ProductData[]|undefined }> = (props) => {
@@ -98,15 +98,15 @@ const ShareCanvas: React.FC<{resolveThumbnailPath(swatchItem:SwatchItem) : strin
             const x = ctx!.canvas.width - horizontalSwatchOffset;
             const y = ctx!.canvas.height - (i + 1) * verticalOffset;
             const product = data.product
-            const productImage = data.image
 
-            if (product.color) {
+            if (data.swatch) {
+              ctx!.drawImage(data.swatch, x, y, swatchSize, swatchSize);
+            }
+            else {
               ctx!.beginPath();
               ctx!.fillStyle = product.color;
               ctx!.fillRect(x, y, swatchSize, swatchSize);
               ctx!.stroke();
-            } else if (productImage) {
-              ctx!.drawImage(productImage, x, y, swatchSize, swatchSize);
             }
 
             //Draw Swatch Outline
