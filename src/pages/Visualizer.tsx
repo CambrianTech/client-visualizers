@@ -302,11 +302,10 @@ export default function Visualizer() {
         const path = swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
 
         if (path?.startsWith("https")) {
-            const rand = Math.floor(Math.random() * 10000)
             if (path?.indexOf("?") >= 0) {
-                return `${path}&r=${rand}`
+                return `${path}&r=${Math.random().toString()}`
             } else {
-                return `${path}?r=${rand}`
+                return `${path}?r=${Math.random().toString()}`
             }
         }
 
