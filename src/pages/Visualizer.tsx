@@ -64,8 +64,7 @@ enum Panel {
     None="",
     Products="products",
     Scenes="scenes",
-    ProductInfo="product-info",
-    Share="share"
+    ProductInfo="product-info"
 }
 
 const hexToRgb = (hex:string) => {
@@ -300,7 +299,19 @@ export default function Visualizer() {
             return resolveThumbnailPath(swatchItem.children[0])
         }
 
-        return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("http") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
+        const path = swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
+
+        if (path?.startsWith("https")) {
+            const rand = Math.floor(Math.random() * 10000)
+            if (path?.indexOf("?") >= 0) {
+                return `${path}&r=${rand}`
+            } else {
+                return `${path}?r=${rand}`
+            }
+        }
+
+        return path
+        //return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
 
     }, [brandPath]);
 
@@ -662,7 +673,7 @@ export default function Visualizer() {
     },[activePanel]);
 
     const rightPanelOpen = useMemo(()=>{
-        return activePanel === Panel.ProductInfo || activePanel === Panel.Share
+        return activePanel === Panel.ProductInfo
     },[activePanel]);
 
     const leftPanelButtonText = useMemo(()=>{
@@ -761,9 +772,6 @@ export default function Visualizer() {
                 break;
             case ToolOperation.ChooseScene:
                 setActivePanel(Panel.Scenes);
-                break;
-            case ToolOperation.Share:
-                setActivePanel(Panel.Share);
                 break;
         }
 
@@ -1103,10 +1111,6 @@ export default function Visualizer() {
                     <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>
                         <div className={"choose-text"}>Product Details</div>
                     </div>
-                    {siteContext.state.siteData && siteContext.state.siteData.appearance.sharing &&
-                    <div className={"choose share" + (activePanel === Panel.Share ? " selected" : "")} onClick={()=>setActivePanel(Panel.Share)}>
-                        <div className={"choose-text"}>Share</div>
-                    </div>}
                 </div>}
 
                 {hasDetailsPanel && selectedProduct?.parent && (

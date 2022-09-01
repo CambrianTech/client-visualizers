@@ -59,49 +59,18 @@ function resizeCanvasLandscape(ctx: CanvasRenderingContext2D, img: ImageSource, 
   drawImage(ctx, img, newHeight);
 }
 
-const ShareCanvas: React.FC<{logoSrc: string, resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined, onChange: (arg: string) => void, url: string|undefined, products?: ProductItem[] }> = (props) => {
+export type ProductData = {
+  product:ProductItem
+  image:HTMLImageElement
+}
+
+const ShareCanvas: React.FC<{resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined, onChange: (arg: string) => void, url: string|undefined, brandImage:HTMLImageElement|undefined, productData: ProductData[]|undefined }> = (props) => {
   const [canvasRef, setCanvasRef] = useState<any>(null);
   const [screenWidth, screenHeight] = useWindowSize();
 
   const isMobile = screenWidth <= MOBILE_CUT_OFF_SCREEN_SIZE || screenHeight <= MOBILE_CUT_OFF_SCREEN_SIZE;
   const isLandscape = isMobile && screenWidth > screenHeight;
-  const {url, products, onChange, logoSrc} = props
-
-  const [brandImage, setBrandImage] = useState<HTMLImageElement>()
-  const [productImages, setProductImages] = useState<HTMLImageElement[]>()
-
-  useEffect(()=>{
-    if (!logoSrc) return
-    const brandImg = new Image();
-    brandImg.crossOrigin = "";
-    brandImg.onload = () => {
-      setBrandImage(brandImg)
-    }
-    brandImg.onerror = (error) =>{
-      console.log("Error getting image, rand int supplied", brandImg.src, error);
-      setBrandImage(new Image()) //move on without
-    }
-    //Somewhere else in code this might have been cached without cors: https://www.hacksoft.io/blog/handle-images-cors-error-in-chrome
-    brandImg.src = logoSrc + "?random=" + Math.random().toString();
-
-  }, [logoSrc])
-
-  useEffect(()=>{
-    const images:HTMLImageElement[] = [];
-    products?.forEach(p=>{
-      const path = props.resolveThumbnailPath(p);
-      if (!path) return;
-
-      const img = new Image();
-      img.crossOrigin = "";
-      img.src = path;
-      img.onerror = (error) =>{
-        console.log("Error getting image", img.src, error);
-      }
-      images.push(img);
-    });
-    setProductImages(images);
-  }, [products, props])
+  const {url, brandImage, productData, onChange} = props
 
   const renderedImageTask = useMemo(()=>{
     if (!url || !canvasRef || !brandImage) return null
@@ -124,17 +93,20 @@ const ShareCanvas: React.FC<{logoSrc: string, resolveThumbnailPath(swatchItem:Sw
 
           const textBlockVerticalOffset = fontSize - 1;
 
-          products?.forEach((product, i) => {
+          productData?.forEach((data, i) => {
             //Draw Colored Rectangle Swatch
             const x = ctx!.canvas.width - horizontalSwatchOffset;
             const y = ctx!.canvas.height - (i + 1) * verticalOffset;
+            const product = data.product
+            const productImage = data.image
+
             if (product.color) {
               ctx!.beginPath();
               ctx!.fillStyle = product.color;
               ctx!.fillRect(x, y, swatchSize, swatchSize);
               ctx!.stroke();
-            } else if (productImages && productImages[i]) {
-              ctx!.drawImage(productImages[i], x, y, swatchSize, swatchSize);
+            } else if (productImage) {
+              ctx!.drawImage(productImage, x, y, swatchSize, swatchSize);
             }
 
             //Draw Swatch Outline
@@ -177,7 +149,7 @@ const ShareCanvas: React.FC<{logoSrc: string, resolveThumbnailPath(swatchItem:Sw
 
           return canvasRef.toDataURL('image/jpeg', 1.0)
     })
-  }, [brandImage, canvasRef, isLandscape, productImages, products, screenHeight, url])
+  }, [brandImage, canvasRef, isLandscape, productData, screenHeight, url])
 
   useEffect(() => {
     renderedImageTask?.then(image=>{

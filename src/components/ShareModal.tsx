@@ -28,7 +28,7 @@ import {
 } from "react-share";
 import { copyTextToClipboard, download } from "../utilities/Methods";
 import "./ShareModal.css";
-import ShareCanvas from "./ShareCanvas";
+import ShareCanvas, {ProductData} from "./ShareCanvas";
 
 const MOBILE_CUTOFF = 480;
 const SMALL_SOCIAL_ICON_SIZE = 32;
@@ -43,6 +43,14 @@ type Props = PropsWithChildren<{
   shareImageUrl: string|undefined;
   scene:CBARScene|undefined
 }>;
+
+const loadImage = (url:string) => new Promise<HTMLImageElement>((resolve, reject) => {
+  const img = new Image();
+  img.crossOrigin=""
+  img.addEventListener('load', () => resolve(img));
+  img.addEventListener('error', (err) => reject(err));
+  img.src = url;
+});
 
 const TopRightCloseButton = styled(IconButton)`
   position: absolute;
@@ -206,6 +214,50 @@ export function ShareModal({
     return uploadNames ? uploadNames["pinterest"] : `${shareImageUrl}`;
   }, [shareImageUrl, uploadNames])
 
+  const [productData, setProductData] = useState<ProductData[]>()
+
+  useEffect(()=>{
+
+    if (!products) return
+
+    const promises:Promise<HTMLImageElement>[] = []
+
+    products.forEach(p=>{
+      const path = resolveThumbnailPath(p);
+      if (!path) return;
+      promises.push(loadImage(path))
+    });
+
+    Promise.all(promises).then(images=>{
+      const data = []
+      for (let i=0; i<images.length; i++) {
+        data.push({product:products[i], image:images[i]});
+      }
+      setProductData(data);
+    }).catch(()=>{
+      console.log("cross origin error")
+    })
+
+  }, [products, resolveThumbnailPath])
+
+  const [brandImage, setBrandImage] = useState<HTMLImageElement>()
+
+  useEffect(()=>{
+    if (!logoSrc) return
+    const brandImg = new Image();
+    brandImg.crossOrigin = "";
+    brandImg.onload = () => {
+      setBrandImage(brandImg)
+    }
+    brandImg.onerror = (error) =>{
+      console.log("Error getting image, rand int supplied", brandImg.src, error);
+      setBrandImage(new Image()) //move on without
+    }
+    //Somewhere else in code this might have been cached without cors: https://www.hacksoft.io/blog/handle-images-cors-error-in-chrome
+    brandImg.src = logoSrc + "?random=" + Math.random().toString();
+
+  }, [logoSrc])
+
   return (
     <Dialog
       open={isOpen}
@@ -221,7 +273,12 @@ export function ShareModal({
       </TopRightCloseButton>
 
       <StyledDialogContent >
-        <ShareCanvas logoSrc={logoSrc} resolveThumbnailPath={resolveThumbnailPath} onChange={(val: string) => {setCanvasDownloadLink(val)}} url={shareImageUrl} products={products}/>
+        <ShareCanvas resolveThumbnailPath={resolveThumbnailPath}
+                     onChange={(val: string) => {setCanvasDownloadLink(val)}}
+                     url={shareImageUrl}
+                     brandImage={brandImage}
+                     productData={productData}
+        />
       </StyledDialogContent>
 
       <ShareWrapper>
