@@ -130,10 +130,6 @@ export default function Visualizer() {
         return selectedColumn instanceof ProductItem ? selectedColumn as ProductItem : undefined;
     }, [selectedColumn]);
 
-    const materialName = useMemo(()=>{
-        return selectedProduct?.thumbnail ? "Product" : "Color"
-    }, [selectedProduct?.thumbnail])
-
     const [selectedAsset, setSelectedAsset] = useState<CBARSurfaceAsset>();
 
     const primarySurfaceType = useMemo(()=>{
@@ -142,6 +138,17 @@ export default function Visualizer() {
             return firstBrand.surfaceTypes ? firstBrand.surfaceTypes[0] : CBARSurfaceType.Floor;
         }
     }, [siteContext])
+
+    const primaryAssetType = useMemo(()=>{
+        if (siteContext && siteContext.state.siteData?.brands.length) {
+            const firstBrand = siteContext.state.siteData.brands[0]
+            return firstBrand.assetTypes ? firstBrand.assetTypes[0] : CBARAssetType.TiledSurface;
+        }
+    }, [siteContext])
+
+    const materialName = useMemo(()=>{
+        return primaryAssetType === CBARAssetType.PaintSurface ? "Color" : "Product"
+    }, [primaryAssetType])
 
     const [shareImageUrl, setShareImageUrl] = useState<string>()
 
@@ -1034,9 +1041,11 @@ export default function Visualizer() {
                           onTouchMove={onVisTouchMove}
                           onTranslate={onVisTranslate}
                           onRotate={onVisRotate}>
-                    <SceneOptions scene={currentScene}
+
+                    {primarySurfaceType !== CBARSurfaceType.Floor && <SceneOptions scene={currentScene}
                                   selectionChanged={selectionChanged}
-                                  handleOption={handleAction} />
+                                  handleOption={handleAction} />}
+
                 </CBARView>
 
                 {_isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
@@ -1127,5 +1136,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, materialName, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, materialName, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
