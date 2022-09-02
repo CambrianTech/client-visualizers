@@ -196,6 +196,15 @@ export function ShareModal({
   }, [])
 
   const [uploadNames, setUploadNames] = useState<UrlDict>()
+  const [screenshot, setScreenshot] = useState<HTMLImageElement>()
+
+  useEffect(()=>{
+    if (isOpen && !screenshot && shareImageUrl) {
+      CBContentManager.dataUrlToImage(shareImageUrl).then((image)=>{
+        setScreenshot(image as HTMLImageElement);
+      })
+    }
+  }, [isOpen, screenshot, shareImageUrl])
 
   useEffect(()=>{
     const original = scene?.backgroundImage?.image;
@@ -208,7 +217,9 @@ export function ShareModal({
             setUploadNames(results);
           })
     }
-  }, [canvasDownloadLink, scene, shareImageUrl, uploadChanges])
+  }, [canvasDownloadLink, scene, uploadChanges])
+
+
 
   const pinterestImage = useMemo(()=>{
     return uploadNames ? uploadNames["pinterest"] : `${shareImageUrl}`;
@@ -285,7 +296,7 @@ export function ShareModal({
       <StyledDialogContent >
         <ShareCanvas resolveThumbnailPath={resolveThumbnailPath}
                      onChange={(val: string) => {setCanvasDownloadLink(val)}}
-                     url={shareImageUrl}
+                     screenshot={screenshot}
                      brandImage={brandImage}
                      productData={productData}
         />

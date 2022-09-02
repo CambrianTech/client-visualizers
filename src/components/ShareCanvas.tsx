@@ -64,98 +64,138 @@ export type ProductData = {
   swatch?:HTMLImageElement
 }
 
-const ShareCanvas: React.FC<{resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined, onChange: (arg: string) => void, url: string|undefined, brandImage:HTMLImageElement|undefined, productData: ProductData[]|undefined }> = (props) => {
-  const [canvasRef, setCanvasRef] = useState<any>(null);
+const ShareCanvas: React.FC<{
+  resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined,
+  onChange: (arg: string) => void,
+  screenshot: HTMLImageElement|undefined,
+  brandImage:HTMLImageElement|undefined,
+  productData: ProductData[]|undefined
+}> = (props) => {
+  const [canvasRef, setCanvasRef] = useState<HTMLCanvasElement|null>(null);
   const [screenWidth, screenHeight] = useWindowSize();
 
   const isMobile = screenWidth <= MOBILE_CUT_OFF_SCREEN_SIZE || screenHeight <= MOBILE_CUT_OFF_SCREEN_SIZE;
   const isLandscape = isMobile && screenWidth > screenHeight;
-  const {url, brandImage, productData, onChange} = props
+  const {screenshot, brandImage, productData, onChange} = props
 
-  const renderedImageTask = useMemo(()=>{
-    if (!url || !canvasRef || !brandImage) return null
+  useEffect(()=>{
+    if (!screenshot || !brandImage || !canvasRef) return
 
     const ctx = canvasRef.getContext('2d');
 
-    return CBContentManager.dataUrlToImage(url)
-        .then((image)=>{
-          if (isLandscape) {
-            resizeCanvasLandscape(ctx, image, screenHeight);
-          } else {
-            resizeCanvas(ctx, image);
-          }
+    if (!ctx) return;
 
-          const verticalOffset = linearlyInterpolate({canvasWidth: ctx!.canvas.width, minValue: 50, maxValue: 60});
-          const horizontalSwatchOffset = linearlyInterpolate({canvasWidth: ctx!.canvas.width, minValue: 45, maxValue: 55});
-          const horizontalTextOffset = horizontalSwatchOffset + 20;
-          const swatchSize = linearlyInterpolate({canvasWidth: ctx!.canvas.width, minValue: 30, maxValue: 40});
-          const fontSize = linearlyInterpolate({canvasWidth: ctx!.canvas.width, minValue: 11, maxValue: 14});
+    canvasRef.width = screenshot.width;
+    canvasRef.height = screenshot.height;
 
-          const textBlockVerticalOffset = fontSize - 1;
+    ctx.drawImage(screenshot, 0, 0, canvasRef.width, canvasRef.height);
 
-          productData?.forEach((data, i) => {
-            //Draw Colored Rectangle Swatch
-            const x = ctx!.canvas.width - horizontalSwatchOffset;
-            const y = ctx!.canvas.height - (i + 1) * verticalOffset;
-            const product = data.product
+    //draw brand image
+    if (brandImage.width > 0) {
+      const brandWidth = linearlyInterpolate({
+        canvasWidth: ctx!.canvas.width,
+        minValue: Math.min(ctx!.canvas.width / 5, brandImage.width / 3),
+        maxValue: Math.min(ctx!.canvas.width / 5, brandImage.width / 2.0)
+      });
+      const brandHeight = brandWidth * brandImage.height / brandImage.width;
+      ctx.drawImage(brandImage, 20, 20, brandWidth, brandHeight);
+    }
 
-            if (data.swatch) {
-              ctx!.drawImage(data.swatch, x, y, swatchSize, swatchSize);
-            }
-            else {
-              ctx!.beginPath();
-              ctx!.fillStyle = product.color;
-              ctx!.fillRect(x, y, swatchSize, swatchSize);
-              ctx!.stroke();
-            }
+    //Draw swatches
+    const swatchSize = screenshot.width / 20;
+    const horizontalPadding = swatchSize / 3;
+    const verticalPadding = swatchSize / 3;
+    const swatchBorderWidth = Math.floor(Math.max(swatchSize * 0.05, 2.0));
 
-            //Draw Swatch Outline
-            ctx!.beginPath();
-            ctx!.lineWidth = 2;
-            ctx!.strokeStyle = "white";
-            ctx!.rect(ctx!.canvas.width - horizontalSwatchOffset, ctx!.canvas.height - (i + 1) * verticalOffset, swatchSize, swatchSize);
-            ctx!.stroke();
+    productData?.forEach((data, i) => {
+      //Draw Colored Rectangle Swatch
+      const x = screenshot.width - swatchSize - horizontalPadding;
+      const y = screenshot.height - (i + 1) * swatchSize - verticalPadding;
 
-            //Add Text
+      if (data.swatch) {
+        ctx.drawImage(data.swatch, 0, 0, data.swatch.width, data.swatch.height, x, y, swatchSize, swatchSize);
+      }
+      else if (data.product.color) {
+        ctx.beginPath();
+        ctx.fillStyle = data.product.color;
+        ctx.fillRect(x, y, swatchSize, swatchSize);
+        ctx.stroke();
+      }
 
-            const fontFamily = "Lato,Avenir Next,Roboto,Verdana,serif";
-            ctx!.font = `200 ${fontSize}px ${fontFamily}`;
-            ctx!.canvas.style.letterSpacing = ".5px";
-            ctx!.shadowColor = "black";
-            ctx!.shadowBlur = 2;
-            ctx!.lineWidth = 1;
-            const textWidth = ctx!.measureText(product.displayName ? product.displayName.toUpperCase() : "").width;
-            const codeWidth = ctx!.measureText(product.code ? product.code.toUpperCase() : "").width;
-            ctx!.strokeText(product.displayName ? product.displayName.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - textWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset);
-            ctx!.strokeText(product.code ? product.code.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - codeWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset + 20);
-            ctx!.fillStyle = "white";
-            ctx!.shadowBlur = 0;
-            ctx!.fillText(product.displayName ? product.displayName.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - textWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset);
-            ctx!.strokeText(product.code ? product.code.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - codeWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset + 20);
+      //Draw Swatch Outline
+      ctx.beginPath();
+      ctx.lineWidth = swatchBorderWidth;
+      ctx.strokeStyle = "white";
+      ctx.rect(x, y, swatchSize, swatchSize);
+      ctx.stroke();
+    });
 
-          });
+    onChange(canvasRef.toDataURL('image/jpeg', 0.9))
 
-          if (brandImage.width > 0) {
-            const brandWidth = linearlyInterpolate({
-              canvasWidth: ctx!.canvas.width,
-              minValue: Math.min(ctx!.canvas.width / 5, brandImage.width / 3),
-              maxValue: Math.min(ctx!.canvas.width / 5, brandImage.width / 2.0)
-            });
-            const brandHeight = brandWidth * brandImage.height / brandImage.width;
-            ctx!.drawImage(brandImage, 20, 20, brandWidth, brandHeight);
-          }
+    //
+    // const ctx = canvasRef.getContext('2d');
+    //
+    // if (isLandscape) {
+    //   resizeCanvasLandscape(ctx, screenshot, screenHeight);
+    // } else {
+    //   resizeCanvas(ctx, screenshot);
+    // }
+    //
 
-          setCanvasRef(canvasRef)
+    //
+    // const textBlockVerticalOffset = fontSize - 1;
+    //
+    // productData?.forEach((data, i) => {
+    //   //Draw Colored Rectangle Swatch
+    //   const x = ctx!.canvas.width - horizontalSwatchOffset;
+    //   const y = ctx!.canvas.height - (i + 1) * verticalOffset;
+    //   const product = data.product
+    //
+    //   if (data.swatch) {
+    //     ctx!.drawImage(data.swatch, x, y, swatchSize, swatchSize);
+    //   }
+    //   else {
+    //     ctx!.beginPath();
+    //     ctx!.fillStyle = product.color;
+    //     ctx!.fillRect(x, y, swatchSize, swatchSize);
+    //     ctx!.stroke();
+    //   }
+    //
+    //   //Draw Swatch Outline
+    //   ctx!.beginPath();
+    //   ctx!.lineWidth = 2;
+    //   ctx!.strokeStyle = "white";
+    //   ctx!.rect(ctx!.canvas.width - horizontalSwatchOffset, ctx!.canvas.height - (i + 1) * verticalOffset, swatchSize, swatchSize);
+    //   ctx!.stroke();
+    //
+    //   //Add Text
+    //
+    //   const fontFamily = "Lato,Avenir Next,Roboto,Verdana,serif";
+    //   ctx!.font = `200 ${fontSize}px ${fontFamily}`;
+    //   ctx!.canvas.style.letterSpacing = ".5px";
+    //   ctx!.shadowColor = "black";
+    //   ctx!.shadowBlur = 2;
+    //   ctx!.lineWidth = 1;
+    //   const textWidth = ctx!.measureText(product.displayName ? product.displayName.toUpperCase() : "").width;
+    //   const codeWidth = ctx!.measureText(product.code ? product.code.toUpperCase() : "").width;
+    //   ctx!.strokeText(product.displayName ? product.displayName.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - textWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset);
+    //   ctx!.strokeText(product.code ? product.code.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - codeWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset + 20);
+    //   ctx!.fillStyle = "white";
+    //   ctx!.shadowBlur = 0;
+    //   ctx!.fillText(product.displayName ? product.displayName.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - textWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset);
+    //   ctx!.strokeText(product.code ? product.code.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - codeWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset + 20);
+    //
+    // });
+    //
 
-          return canvasRef.toDataURL('image/jpeg', 1.0)
-    })
-  }, [brandImage, canvasRef, isLandscape, productData, screenHeight, url])
+    //
+    // setCanvasRef(canvasRef)
 
-  useEffect(() => {
-    renderedImageTask?.then(image=>{
-      onChange(image)
-    })
-  }, [onChange, renderedImageTask]);
+    //const result = canvasRef.toDataURL('image/jpeg', 0.9) as string
+
+    //onChange(result)
+
+  }, [brandImage, canvasRef, isLandscape, onChange, productData, screenHeight, screenshot])
 
   return <canvas ref={(newRef) => setCanvasRef(newRef)} />;
 };
