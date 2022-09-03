@@ -1,11 +1,9 @@
-import React, {useEffect, useMemo, useState} from 'react';
-import {CBContentManager, ImageSource, ProductItem, SwatchItem} from "react-home-ar";
+import React, {useEffect, useState} from 'react';
+import { ImageSource, ProductItem, SwatchItem} from "react-home-ar";
 import { useWindowSize } from '@react-hook/window-size';
-
 
 const MOBILE_CUT_OFF_SCREEN_SIZE = 768;
 const MIN_SCREEN_SIZE = 320;
-const ICONS_ROW_HEIGHT = 62;
 
 type InterpolateValues = {
   canvasWidth: number,
@@ -34,31 +32,6 @@ function drawImage(ctx: CanvasRenderingContext2D, img: ImageSource, height: numb
   ctx!.fillRect(0, 0, ctx!.canvas.width, height);
 }
 
-function resizeCanvas(ctx: CanvasRenderingContext2D, img: ImageSource){
-  ctx!.canvas.style.width = "100%";
-  ctx!.canvas.style.height = "100%";
-  ctx!.canvas.style.overflow = "none";
-  ctx!.canvas.width = ctx!.canvas.offsetWidth;
-  let ratio = ctx!.canvas.width / img.width;
-  const newHeight = img.height * ratio;
-  ctx!.canvas.height = newHeight;
-  drawImage(ctx, img, newHeight);
-}
-
-function resizeCanvasLandscape(ctx: CanvasRenderingContext2D, img: ImageSource, screenHeight: number) {
-  //if in landscape mode, resize the height to maximum
-  const newHeight = screenHeight - ICONS_ROW_HEIGHT;
-  ctx!.canvas.height = newHeight;
-
-  // and the width to the appropriate aspect ratio
-  const newCanvasToImageRatio = newHeight / img.height;
-  ctx!.canvas.width = newCanvasToImageRatio * img.width;
-  ctx!.canvas.style.width = "auto";
-  ctx!.canvas.style.height = "auto";
-
-  drawImage(ctx, img, newHeight);
-}
-
 export type ProductData = {
   product:ProductItem
   swatch?:HTMLImageElement
@@ -78,124 +51,108 @@ const ShareCanvas: React.FC<{
   const isLandscape = isMobile && screenWidth > screenHeight;
   const {screenshot, brandImage, productData, onChange} = props
 
-  useEffect(()=>{
-    if (!screenshot || !brandImage || !canvasRef) return
+  useEffect(() => {
+        if (!screenshot || !brandImage || !canvasRef) return
 
-    const ctx = canvasRef.getContext('2d');
+        const ctx = canvasRef.getContext('2d');
 
-    if (!ctx) return;
+        if (!ctx) return;
 
-    canvasRef.width = screenshot.width;
-    canvasRef.height = screenshot.height;
+        canvasRef.width = screenshot.width;
+        canvasRef.height = screenshot.height;
 
-    ctx.drawImage(screenshot, 0, 0, canvasRef.width, canvasRef.height);
+        ctx.drawImage(screenshot, 0, 0, canvasRef.width, canvasRef.height);
 
-    //draw brand image
-    if (brandImage.width > 0) {
-      const brandWidth = linearlyInterpolate({
-        canvasWidth: ctx!.canvas.width,
-        minValue: Math.min(ctx!.canvas.width / 5, brandImage.width / 3),
-        maxValue: Math.min(ctx!.canvas.width / 5, brandImage.width / 2.0)
-      });
-      const brandHeight = brandWidth * brandImage.height / brandImage.width;
-      ctx.drawImage(brandImage, 20, 20, brandWidth, brandHeight);
-    }
+        //draw brand image
+        if (brandImage.width > 0) {
+          const brandWidth = linearlyInterpolate({
+            canvasWidth: ctx!.canvas.width,
+            minValue: Math.min(ctx.canvas.width / 5, brandImage.width / 3),
+            maxValue: Math.min(ctx.canvas.width / 5, brandImage.width / 2.0)
+          });
+          const brandHeight = brandWidth * brandImage.height / brandImage.width;
+          ctx.drawImage(brandImage, ctx.canvas.width / 50, ctx.canvas.width / 50, brandWidth, brandHeight);
+        }
 
-    //Draw swatches
-    const swatchSize = screenshot.width / 20;
-    const horizontalPadding = swatchSize / 3;
-    const verticalPadding = swatchSize / 3;
-    const swatchBorderWidth = Math.floor(Math.max(swatchSize * 0.05, 2.0));
+        //Draw swatches
+        const swatchSize = Math.floor(screenshot.width / 20);
+        const horizontalPadding = Math.floor(swatchSize / 2);
+        const verticalPadding = Math.floor(swatchSize / 2);
+        const swatchBorderWidth = Math.floor(Math.max(swatchSize * 0.04, 2.0));
 
-    productData?.forEach((data, i) => {
-      //Draw Colored Rectangle Swatch
-      const x = screenshot.width - swatchSize - horizontalPadding;
-      const y = screenshot.height - (i + 1) * swatchSize - verticalPadding;
+        productData?.forEach((data, i) => {
+          //Draw Colored Rectangle Swatch
+          const x = screenshot.width - swatchSize - horizontalPadding;
+          const y = screenshot.height - (i + 1) * swatchSize - verticalPadding;
 
-      if (data.swatch) {
-        ctx.drawImage(data.swatch, 0, 0, data.swatch.width, data.swatch.height, x, y, swatchSize, swatchSize);
-      }
-      else if (data.product.color) {
-        ctx.beginPath();
-        ctx.fillStyle = data.product.color;
-        ctx.fillRect(x, y, swatchSize, swatchSize);
-        ctx.stroke();
-      }
+          ctx.beginPath();
+          ctx.shadowColor = "rgba(0, 0, 0, .5)";
+          ctx.shadowBlur = Math.floor(swatchSize / 10);
+          ctx.shadowOffsetX = Math.floor(swatchSize / 20);
+          ctx.shadowOffsetY = Math.floor(swatchSize / 20);
 
-      //Draw Swatch Outline
-      ctx.beginPath();
-      ctx.lineWidth = swatchBorderWidth;
-      ctx.strokeStyle = "white";
-      ctx.rect(x, y, swatchSize, swatchSize);
-      ctx.stroke();
-    });
+          ctx.beginPath();
+          ctx.fillStyle = "black";
+          ctx.fillRect(x, y, swatchSize, swatchSize);
+          ctx.stroke();
 
-    onChange(canvasRef.toDataURL('image/jpeg', 0.9))
+          if (data.swatch) {
+            ctx.drawImage(data.swatch, 0, 0, data.swatch.width, data.swatch.height, x, y, swatchSize, swatchSize);
+          } else if (data.product.color) {
+            ctx.beginPath();
+            ctx.fillStyle = data.product.color;
+            ctx.fillRect(x, y, swatchSize, swatchSize);
+            ctx.stroke();
+          }
 
-    //
-    // const ctx = canvasRef.getContext('2d');
-    //
-    // if (isLandscape) {
-    //   resizeCanvasLandscape(ctx, screenshot, screenHeight);
-    // } else {
-    //   resizeCanvas(ctx, screenshot);
-    // }
-    //
+          //draw text
+          ctx.beginPath();
 
-    //
-    // const textBlockVerticalOffset = fontSize - 1;
-    //
-    // productData?.forEach((data, i) => {
-    //   //Draw Colored Rectangle Swatch
-    //   const x = ctx!.canvas.width - horizontalSwatchOffset;
-    //   const y = ctx!.canvas.height - (i + 1) * verticalOffset;
-    //   const product = data.product
-    //
-    //   if (data.swatch) {
-    //     ctx!.drawImage(data.swatch, x, y, swatchSize, swatchSize);
-    //   }
-    //   else {
-    //     ctx!.beginPath();
-    //     ctx!.fillStyle = product.color;
-    //     ctx!.fillRect(x, y, swatchSize, swatchSize);
-    //     ctx!.stroke();
-    //   }
-    //
-    //   //Draw Swatch Outline
-    //   ctx!.beginPath();
-    //   ctx!.lineWidth = 2;
-    //   ctx!.strokeStyle = "white";
-    //   ctx!.rect(ctx!.canvas.width - horizontalSwatchOffset, ctx!.canvas.height - (i + 1) * verticalOffset, swatchSize, swatchSize);
-    //   ctx!.stroke();
-    //
-    //   //Add Text
-    //
-    //   const fontFamily = "Lato,Avenir Next,Roboto,Verdana,serif";
-    //   ctx!.font = `200 ${fontSize}px ${fontFamily}`;
-    //   ctx!.canvas.style.letterSpacing = ".5px";
-    //   ctx!.shadowColor = "black";
-    //   ctx!.shadowBlur = 2;
-    //   ctx!.lineWidth = 1;
-    //   const textWidth = ctx!.measureText(product.displayName ? product.displayName.toUpperCase() : "").width;
-    //   const codeWidth = ctx!.measureText(product.code ? product.code.toUpperCase() : "").width;
-    //   ctx!.strokeText(product.displayName ? product.displayName.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - textWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset);
-    //   ctx!.strokeText(product.code ? product.code.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - codeWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset + 20);
-    //   ctx!.fillStyle = "white";
-    //   ctx!.shadowBlur = 0;
-    //   ctx!.fillText(product.displayName ? product.displayName.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - textWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset);
-    //   ctx!.strokeText(product.code ? product.code.toUpperCase() : "", ctx!.canvas.width - horizontalTextOffset - codeWidth, (ctx!.canvas.height - (i + 1) * verticalOffset) + textBlockVerticalOffset + 20);
-    //
-    // });
-    //
+          const fontSize = Math.floor(0.333 * swatchSize);
+          const fontFamily = "Lato,Avenir Next,Roboto,Verdana,serif";
+          ctx.font = `200 ${fontSize}px ${fontFamily}`;
+          ctx.canvas.style.letterSpacing = `${Math.ceil(fontSize / 15)}px`;
+          ctx.shadowColor = "rgba(0, 0, 0, 0.8)";
+          ctx.shadowBlur = Math.floor(fontSize / 5);
+          ctx.shadowOffsetX = Math.floor(fontSize / 10);
+          ctx.shadowOffsetY = Math.floor(fontSize / 10);
 
-    //
-    // setCanvasRef(canvasRef)
+          const thickness = Math.floor(Math.max(swatchSize * 0.04, 2.0));
+          ctx.lineWidth = thickness;
+          ctx.strokeStyle = "white";
+          const textSize = ctx.measureText(data.product.displayName ? data.product.displayName.toUpperCase() : "");
+          const textWidth = textSize.width;
+          const textHeight = textSize.actualBoundingBoxAscent;
+          const codeWidth = ctx.measureText(data.product.code ? data.product.code.toUpperCase() : "").width;
 
-    //const result = canvasRef.toDataURL('image/jpeg', 0.9) as string
+          let yPos = y + 1.5 * textHeight;
 
-    //onChange(result)
+          const productName = data.product.displayName?.toUpperCase();
+          if (productName) {
+            const xPos = x - textWidth - swatchSize / 3;
+            ctx.strokeText(productName, xPos, yPos);
+            yPos += 2 * textHeight
+          }
 
-  }, [brandImage, canvasRef, isLandscape, onChange, productData, screenHeight, screenshot])
+          const productCode = data.product.code?.toUpperCase();
+          if (productCode) {
+            const xPos = x - codeWidth - swatchSize / 3;
+            ctx.strokeText(productCode, xPos, yPos);
+          }
+
+          //Draw Swatch Outline
+          ctx.beginPath();
+          ctx.shadowColor = "rgba(0, 0, 0, 0)";
+          ctx.lineWidth = swatchBorderWidth;
+          ctx.strokeStyle = "white";
+          ctx.rect(x, y, swatchSize, swatchSize);
+          ctx.stroke();
+
+        });
+
+        onChange(canvasRef.toDataURL('image/jpeg', 0.9))
+      },
+      [brandImage, canvasRef, isLandscape, onChange, productData, screenHeight, screenshot])
 
   return <canvas ref={(newRef) => setCanvasRef(newRef)} />;
 };
