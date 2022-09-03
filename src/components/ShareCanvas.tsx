@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { ImageSource, ProductItem, SwatchItem} from "react-home-ar";
+import { ProductItem, SwatchItem} from "react-home-ar";
 import { useWindowSize } from '@react-hook/window-size';
 
 const MOBILE_CUT_OFF_SCREEN_SIZE = 768;
@@ -19,17 +19,6 @@ function linearlyInterpolate({canvasWidth, minValue, maxValue} : InterpolateValu
 
   const roughInterpolatedValue = (rangeDelta / screenRangeDelta) * pixelsAboveMinimumScreen + minValue;
   return Math.round(Math.min(Math.max(roughInterpolatedValue, minValue), maxValue));
-}
-
-function drawImage(ctx: CanvasRenderingContext2D, img: ImageSource, height: number){
-  ctx!.drawImage(img, 0, 0, ctx!.canvas.width, height);
-  // ctx!.drawImage(brandImg, 40, 40,100, 100);
-  let gradient = ctx!.createLinearGradient(0, 0, 0, height );
-  gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
-  gradient.addColorStop(.7, "rgba(0, 0, 0, 0.3)");
-  gradient.addColorStop(1, "rgba(0, 0, 0, .4)");
-  ctx!.fillStyle = gradient;
-  ctx!.fillRect(0, 0, ctx!.canvas.width, height);
 }
 
 export type ProductData = {
@@ -117,8 +106,7 @@ const ShareCanvas: React.FC<{
           ctx.shadowOffsetX = Math.floor(fontSize / 10);
           ctx.shadowOffsetY = Math.floor(fontSize / 10);
 
-          const thickness = Math.floor(Math.max(swatchSize * 0.04, 2.0));
-          ctx.lineWidth = thickness;
+          ctx.lineWidth = Math.floor(Math.max(swatchSize * 0.04, 2.0));;
           ctx.strokeStyle = "white";
           const textSize = ctx.measureText(data.product.displayName ? data.product.displayName.toUpperCase() : "");
           const textWidth = textSize.width;

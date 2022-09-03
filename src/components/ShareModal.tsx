@@ -199,12 +199,12 @@ export function ShareModal({
   const [screenshot, setScreenshot] = useState<HTMLImageElement>()
 
   useEffect(()=>{
-    if (isOpen && !screenshot && shareImageUrl) {
+    if (shareImageUrl) {
       CBContentManager.dataUrlToImage(shareImageUrl).then((image)=>{
         setScreenshot(image as HTMLImageElement);
       })
     }
-  }, [isOpen, screenshot, shareImageUrl])
+  }, [shareImageUrl])
 
   useEffect(()=>{
     const original = scene?.backgroundImage?.image;
