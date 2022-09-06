@@ -1,10 +1,6 @@
-
 ROOT=$(dirname $0)/..
-source "${ROOT}/.env.development"
-
-if [ -f "${ROOT}/.env.development.local" ]; then
-    source "${ROOT}/.env.development.local"
-fi
+source "${ROOT}/scripts/utils.sh"
+get_site_info
 
 BUCKET="cb-backend-data"
 
@@ -35,5 +31,5 @@ else
 fi
 
 mkdir -p projects
-cd projects
+
 aws s3 cp ${REMOTE_PATH} ${LOCAL_PATH} --recursive
