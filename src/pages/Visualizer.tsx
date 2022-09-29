@@ -665,7 +665,7 @@ export default function Visualizer() {
 
     const resolveDetailsUrl = useCallback((name:string, url:string|undefined)=>{
         //console.log(`${basePath}/textures/${url}`)
-        if (!url && selectedProduct) {
+        if (!url && selectedProduct && selectedProduct.thumbnail) {
             if (name === "preview") {
                 return `${brandPath}/${selectedProduct.thumbnail}`
             } else if (name==="share") {

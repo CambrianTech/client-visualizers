@@ -16,7 +16,6 @@ function linearlyInterpolate({canvasWidth, minValue, maxValue} : InterpolateValu
   const screenRangeDelta = MOBILE_CUT_OFF_SCREEN_SIZE - MIN_SCREEN_SIZE;
 
   const pixelsAboveMinimumScreen = canvasWidth - MIN_SCREEN_SIZE;
-
   const roughInterpolatedValue = (rangeDelta / screenRangeDelta) * pixelsAboveMinimumScreen + minValue;
   return Math.round(Math.min(Math.max(roughInterpolatedValue, minValue), maxValue));
 }
@@ -54,10 +53,11 @@ const ShareCanvas: React.FC<{
 
         //draw brand image
         if (brandImage.width > 0) {
+
           const brandWidth = linearlyInterpolate({
             canvasWidth: ctx!.canvas.width,
-            minValue: Math.min(ctx.canvas.width / 5, brandImage.width / 3),
-            maxValue: Math.min(ctx.canvas.width / 5, brandImage.width / 2.0)
+            minValue: Math.min(ctx.canvas.width / 5, brandImage.width),
+            maxValue: Math.min(ctx.canvas.width / 5, brandImage.width)
           });
           const brandHeight = brandWidth * brandImage.height / brandImage.width;
           ctx.drawImage(brandImage, ctx.canvas.width / 50, ctx.canvas.width / 50, brandWidth, brandHeight);
