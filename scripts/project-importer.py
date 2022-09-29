@@ -196,28 +196,17 @@ def main(input_file, output_file, generate_lighting, single_mask_output, max_ima
         base = cv2.pyrMeanShiftFiltering(base, 50, 50, maxLevel=3)
         base = cv2.cvtColor(base, cv2.COLOR_RGB2GRAY)
 
-        base = cv2.blur(base,(5,5))
-
-        gamma = 20
+        lighting = base
 
         if floor_mask is not None:
             floor_mask = cv2.resize(floor_mask, (lighting_shape[1], lighting_shape[0]))
-            floor_mask = (floor_mask / 255.0).astype(np.uint8)
-
-            mean, std = cv2.meanStdDev(base, mask=floor_mask)
+            floor_mask = floor_mask / 255.0
+            mean, std = cv2.meanStdDev(base, mask=floor_mask.astype(np.uint8))
             gamma = max(200 - mean[0], 0)
+            floor_lighting = scale_lighting(lighting, scale=1.3, gamma=gamma)
+            lighting = floor_lighting * floor_mask + lighting * (1.0 - floor_mask)
 
-            floor_lighting = scale_lighting(base, scale=1.3, gamma=gamma)
-            floor_lighting = cv2.blur(floor_lighting,(13,13))
-
-            floor_mask_blurred = cv2.blur(floor_mask.astype(float), (5, 5), 0)
-            
-            lighting = floor_lighting * floor_mask_blurred + base * (1.0 - floor_mask_blurred)
-
-        else:
-            lighting = base
-
-        lighting = cv2.blur(lighting,(5,5))
+        lighting = cv2.blur(lighting,(3,3))
 
         output_name = IMAGE_WHITELIST["lighting"]
         output_path = os.path.join(dest_dir, output_name)
