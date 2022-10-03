@@ -312,13 +312,13 @@ export default function Visualizer() {
             return undefined;
         }
 
-        if (path?.startsWith("https")) {
-            if (path?.indexOf("?") >= 0) {
-                return `${path}&r=${Math.random().toString()}`
-            } else {
-                return `${path}?r=${Math.random().toString()}`
-            }
-        }
+        // if (path?.startsWith("https")) {
+        //     if (path?.indexOf("?") >= 0) {
+        //         return `${path}&r=${Math.random().toString()}`
+        //     } else {
+        //         return `${path}?r=${Math.random().toString()}`
+        //     }
+        // }
 
         return path
         //return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
