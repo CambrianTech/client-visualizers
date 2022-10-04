@@ -392,10 +392,6 @@ panel.c {
     height: 80px;
 }
 
-.products .vertical-swatch-listing-child.selected {
-    height: 170px;
-}
-
 /* width */
 .horizontal-swatch-listing::-webkit-scrollbar {
     height: 10px;
@@ -422,10 +418,10 @@ panel.c {
 }
 
 .horizontal-swatch-listing .swatch-info {
-    position: relative;
-    margin-top: -20px;
+    position: absolute;
     padding-left: 5px;
     font-size: 0.8em;
+    top: 5px;
 }
 
 .horizontal-swatch-listing .swatch-info .code {
