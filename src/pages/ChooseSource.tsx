@@ -52,7 +52,7 @@ export default function ChooseSource(props: any) {
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} buttonText={"Share"} />
             <div className="fullscreen-grid">
                 <ImageUpload className="fullscreen-column upload" onImageChosen={onImageChosen} onProgress={onProgress}>
-                    <Icon>launch</Icon>
+                    <Icon>add_a_photo</Icon>
                 </ImageUpload>
                 <div className="fullscreen-column samples" onClick={proceedToSamples}>
                     Samples here
