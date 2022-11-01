@@ -14,6 +14,7 @@ import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
 import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
+import ChooseSource from "./pages/ChooseSource";
 
 const objectFitImages = require('object-fit-images');
 
@@ -304,7 +305,8 @@ function App() {
                         <SiteContext.Provider value={{ state: siteState, dispatch: dispatchSiteState }}>
                             <WebClientInfo onClientStateChanged={setBrowserProperties} />
                             <Switch location={location}>
-                                <Route exact path="/" component={Visualizer} />
+                                <Route exact path="/Visualizer" component={Visualizer} />
+                                <Route exact path="/" component={ChooseSource} />
                                 <Route>
                                     <Redirect to="/"/>
                                 </Route>
