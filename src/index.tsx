@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 import cssVars from 'css-vars-ponyfill'
 
-import React, {useReducer, useEffect, useCallback, useState, useRef, useContext} from "react"
+import React, {useReducer, useEffect, useCallback, useState, useRef} from "react"
 import * as ReactDOM from "react-dom"
 
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
@@ -13,9 +13,9 @@ import * as qs from "querystring";
 import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
-import {ApiCapabilityName, Brand, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
+import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
 import ChooseSource from "./pages/ChooseSource";
-import {Product, ProductBrand, SwatchItem} from "react-home-ar";
+import {DataItem, ProductBrand, SceneCollection, SceneInfo, SwatchItem} from "react-home-ar";
 
 const objectFitImages = require('object-fit-images');
 
@@ -70,6 +70,40 @@ export const getUploadedRoomPaths = (roomID?:string):RoomPaths=>{
         thumbnail:`${basePath}/thumbnail.jpg`,
         preview:`${basePath}/preview.jpg`
     }
+};
+
+export const resolveThumbnailPath = (swatchItem:SwatchItem) : string | undefined => {
+
+    if (!(swatchItem instanceof DataItem)) return;
+
+    if (!swatchItem.thumbnail && swatchItem.children.length) {
+        return resolveThumbnailPath(swatchItem.children[0])
+    }
+
+    const path = swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${SITE_PATH}/${swatchItem.thumbnail}`;
+
+    if (path.indexOf("undefined") >= 0) {
+        return undefined;
+    }
+
+    return path
+    //return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
+};
+
+export const resolveSceneThumbnailPath = (swatchItem:SwatchItem) : string | undefined => {
+    if (swatchItem.thumbnail) {
+        return resolveThumbnailPath(swatchItem)
+    }
+    if (swatchItem instanceof SceneCollection) {
+        const col = swatchItem as SceneCollection;
+        if (col.scenes.length) {
+            return resolveSceneThumbnailPath(col.scenes[0])
+        }
+    } else if (swatchItem instanceof SceneInfo) {
+        const scene = swatchItem as SceneInfo;
+        return getScenePaths(scene.collection.code, scene.code, scene.json.path).preview
+    }
+    return
 };
 
 function App() {
