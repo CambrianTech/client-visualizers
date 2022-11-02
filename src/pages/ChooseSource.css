@@ -57,7 +57,7 @@
 .scenes {
     overflow-y: scroll;
     position: relative;
-    height: 90vh;
+    height: 85vh;
 }
 
 .scene-picker {
