@@ -55,7 +55,7 @@ export default function ChooseSource(props: any) {
                     <Icon>add_a_photo</Icon>
                 </ImageUpload>
                 <div className="fullscreen-column samples" onClick={proceedToSamples}>
-                    Samples here
+                    Samples here for {siteContext.state.brandRoot?.displayName}
                 </div>
             </div>
         </div>

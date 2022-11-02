@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 import cssVars from 'css-vars-ponyfill'
 
-import React, {useReducer, useEffect, useCallback, useState, useRef} from "react"
+import React, {useReducer, useEffect, useCallback, useState, useRef, useContext} from "react"
 import * as ReactDOM from "react-dom"
 
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
@@ -13,8 +13,9 @@ import * as qs from "querystring";
 import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
-import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
+import {ApiCapabilityName, Brand, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
 import ChooseSource from "./pages/ChooseSource";
+import {Product, ProductBrand, SwatchItem} from "react-home-ar";
 
 const objectFitImages = require('object-fit-images');
 
@@ -294,6 +295,29 @@ function App() {
             window.history.replaceState({}, "", url)
         }
     }, [siteState]);
+
+    useEffect(()=>{
+        if (siteState.siteData) {
+            const brands:ProductBrand[] = [];
+            for (const brandJson of siteState.siteData.brands) {
+                const brand = new ProductBrand();
+                brand.load(brandJson);
+                brands.push(brand)
+            }
+
+            let rootItem:ProductBrand = brands[0];
+            while (rootItem.children.length === 1) {
+                if (rootItem.children[0] instanceof ProductBrand) {
+                    rootItem = rootItem.children[0]
+                } else {
+                    break;
+                }
+            }
+
+            dispatchSiteState({ type: "setBrandRoot", brand: rootItem});
+        }
+
+    }, [siteState.siteData]);
 
     return (
         <Router>

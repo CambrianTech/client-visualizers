@@ -1,9 +1,9 @@
 import {createContext, Dispatch} from "react"
-import {CBARSceneProperties, CBContentManager, CBMaterialProperties} from "react-home-ar";
+import {CBARSceneProperties, CBContentManager, CBMaterialProperties, ProductBrand} from "react-home-ar";
 import { polyfill } from "smoothscroll-polyfill"
 import {BrowserProperties} from "react-client-info";
 import * as qs from "querystring";
-import {SiteConfig} from "cambrian-base";
+import {Brand, SiteConfig} from "cambrian-base";
 
 polyfill();
 
@@ -20,6 +20,7 @@ export type DerivedSiteState = {
     browserProperties: BrowserProperties,
     error: Error | null
     siteData: SiteConfig | undefined
+    brandRoot: ProductBrand | undefined
 }
 
 export type SharableVisualizerState = {
@@ -59,6 +60,7 @@ export function createEmptyState(): SiteState {
         browserProperties: {},
         error: null,
         siteData:undefined,
+        brandRoot:undefined,
 
         // Visualizer shared
         selectedSampleRoom: null,
@@ -90,6 +92,11 @@ export type SiteActionSetBrowserProperties = {
 export type SiteActionSetError = {
     type: "setError"
     error: Error | null
+}
+
+export type SiteActionSetBrandRoot = {
+    type: "setBrandRoot"
+    brand: ProductBrand | undefined
 }
 
 export type SiteActionSetCollection = {
@@ -176,7 +183,7 @@ export type ShawActionSetFloorTranslation = {
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
     SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
     | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionSetSelectedSubRoom
-    | SiteActionSetDataPath | SiteActionClearRoomData
+    | SiteActionSetDataPath | SiteActionClearRoomData | SiteActionSetBrandRoot
     | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor | SiteActionSetSiteData;
 
 export function siteStateReducer(state: SiteState, action: SiteAction): SiteState {
@@ -196,6 +203,9 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
         // Visualizer derived
         case "setSceneData":
             newState.sceneData = action.sceneData;
+            break;
+        case "setBrandRoot":
+            newState.brandRoot = action.brand;
             break;
         case "setShowControls":
             newState.showControls = action.showControls;

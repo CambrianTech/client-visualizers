@@ -89,7 +89,9 @@ export default function Visualizer() {
     const [progressPercentage, setProgressPercentage] = useState(0);
     const [progressVisible, setProgressVisible] = useState(false);
 
-    const [rootItem, setRootItem] = useState<SwatchItem>();
+    const rootItem = useMemo<ProductBrand|undefined>(()=>{
+        return siteContext.state.brandRoot;
+    }, [siteContext.state.brandRoot]);
     const [navigationItem, setNavigationItem] = useState<SwatchItem>();
     const [dataPath, setDataPath] = useState<string>();
 
@@ -200,28 +202,6 @@ export default function Visualizer() {
             setNeedsScreenshot(true);
         }
     }, [selectedAsset]);
-
-    useEffect(()=>{
-        if (siteContext.state.siteData) {
-            const brands:ProductBrand[] = [];
-            for (const brandJson of siteContext.state.siteData.brands) {
-                const brand = new ProductBrand();
-                brand.load(brandJson);
-                brands.push(brand)
-            }
-
-            let rootItem:SwatchItem = brands[0];
-            while (rootItem.children.length === 1) {
-                if (!(rootItem.children[0] instanceof Product)) {
-                    rootItem = rootItem.children[0]
-                } else {
-                    break;
-                }
-            }
-            setRootItem(rootItem)
-        }
-
-    }, [siteContext.state.siteData]);
 
     useEffect(() => {
         _isMounted.current = true;
