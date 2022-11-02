@@ -17,16 +17,16 @@ const SceneListing = React.memo<SceneListingProps>(
 
         return (
             <div className={"scene-picker"}>
-                <div>
+                <div className={"scene-picker-title"}>
                     {props.sceneCollection.displayName}
                 </div>
                 <div className={"scene-listing"}>
                     <div className={"scene-listing-content"}>
                         {props.sceneCollection.scenes.map((scene) => {
                             return (
-                                <div key={scene.code}>
-                                    <img src={resolveSceneThumbnailPath(scene)} alt={scene.displayName}/>
-                                    {scene.displayName}
+                                <div key={scene.code} className={"scene-listing-item"}>
+                                    <img className={"scene-listing-image"} src={resolveSceneThumbnailPath(scene)} alt={scene.displayName}/>
+                                    <div className={"scene-listing-title"}>{scene.displayName}</div>
                                 </div>
                             )
                         })}
@@ -47,6 +47,10 @@ export default function ChooseSource(props: any) {
     const rootItem = useMemo<ProductBrand|undefined>(()=>{
         return siteContext.state.brandRoot;
     }, [siteContext.state.brandRoot]);
+
+    const siteName = useMemo<string|undefined>(()=>{
+        return siteContext.state.siteData?.displayName;
+    }, [siteContext.state.siteData?.displayName]);
 
     function proceedToSamples(e: React.MouseEvent<HTMLInputElement>) {
 
@@ -86,13 +90,23 @@ export default function ChooseSource(props: any) {
 
     return (
         <div className="choose-source">
-            <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} buttonText={"Share"} />
+            <div className={"choose-source-title"}>
+                Welcome to the {siteName} Visualizer
+            </div>
             <div className="fullscreen-grid">
-                <ImageUpload className="fullscreen-column upload" onImageChosen={onImageChosen} onProgress={onProgress}>
-                    <Icon>add_a_photo</Icon>
-                </ImageUpload>
+                <div className="fullscreen-column upload">
+                    <div className={"photo-instructions"}>
+                        Upload a photo and design till your hearts content - Your floor, your way!
+                    </div>
+                    <div className={"photo-upload"}>
+                        <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}>
+                            <Icon>add_a_photo</Icon>
+                        </ImageUpload>
+                    </div>
+
+                </div>
                 <div className="fullscreen-column samples" onClick={proceedToSamples}>
-                    <div>
+                    <div className={"scenes-instructions"}>
                         Choose from one of the pre-set scenes
                     </div>
                     <div className={"scenes"}>
@@ -106,6 +120,7 @@ export default function ChooseSource(props: any) {
                     </div>
                 </div>
             </div>
+            <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} buttonText={"Share"} />
         </div>
     )
 }
