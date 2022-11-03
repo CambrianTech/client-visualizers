@@ -54,11 +54,15 @@ export default function ChooseSource(props: any) {
     }, [siteContext.state.siteData?.displayName]);
 
     const onImageChosen = useCallback((imageProperties: ImageProperties) => {
+        console.log("onImageChosen")
+
         dispatch({
             type: "setSceneData",
             sceneData: imageProperties
         });
-    }, [dispatch])
+
+        redirectKeepSearch(props, "/Visualizer")
+    }, [dispatch, props])
 
     const onProgress = useCallback((uploadProgress: ServerProgress) => {
         if (uploadProgress.message) {

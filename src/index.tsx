@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 import cssVars from 'css-vars-ponyfill'
 
-import React, {useReducer, useEffect, useCallback, useState, useRef} from "react"
+import React, {useReducer, useEffect, useCallback, useState, useRef, useMemo} from "react"
 import * as ReactDOM from "react-dom"
 
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
@@ -15,7 +15,17 @@ import {objectToLowerCase, selectScene} from "./utilities/Methods";
 import Visualizer from "./pages/Visualizer"
 import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
 import ChooseSource from "./pages/ChooseSource";
-import {DataItem, ProductBrand, SceneCollection, SceneInfo, SwatchItem} from "react-home-ar";
+import {
+    CBARSurfaceType,
+    cbInitialize,
+    DataItem,
+    DebugLevel,
+    ProductBrand,
+    SceneCollection,
+    SceneInfo,
+    SwatchItem,
+    ZoomState
+} from "react-home-ar";
 
 const objectFitImages = require('object-fit-images');
 
@@ -111,7 +121,25 @@ function App() {
     const [siteState, dispatchSiteState] = useReducer(siteStateReducer, initialSiteState);
     const [browserProperties, setBrowserProperties] = useState<BrowserProperties>({});
     const [customStylesheet, setCustomStylesheet] = useState<string>()
-    // Url load states
+
+    const primarySurfaceType = useMemo(()=>{
+        if (siteState.siteData?.brands.length) {
+            const firstBrand = siteState.siteData.brands[0]
+            return firstBrand.surfaceTypes ? firstBrand.surfaceTypes[0] : CBARSurfaceType.Floor;
+        }
+    }, [siteState])
+
+    useEffect(()=>{
+        if (primarySurfaceType && process.env.REACT_APP_CB_API_URL && process.env.REACT_APP_CB_UPLOADS_URL) {
+            cbInitialize({
+                initialZoom:ZoomState.ZoomedOut,
+                logLevel:DebugLevel.Warning,
+                processingUrl: process.env.REACT_APP_CB_API_URL,
+                hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
+                placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined,
+            })
+        }
+    }, [primarySurfaceType])
 
     //component mounted:
     useEffect(() => {

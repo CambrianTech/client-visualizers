@@ -14,10 +14,8 @@ import {
     CBARSurfaceType,
     CBARToolMode,
     CBARView,
-    cbInitialize,
     DataFilter,
     DataItem,
-    DebugLevel,
     Product,
     ProductBrand,
     ProductCollection,
@@ -27,7 +25,6 @@ import {
     SceneInfo,
     SwatchItem,
     THREE,
-    ZoomState
 } from "react-home-ar";
 
 import {SiteContext} from '../data/SiteContext';
@@ -145,18 +142,6 @@ export default function Visualizer() {
     }, [primaryAssetType])
 
     const [shareImageUrl, setShareImageUrl] = useState<string>()
-
-    useEffect(()=>{
-        if (primarySurfaceType && process.env.REACT_APP_CB_API_URL && process.env.REACT_APP_CB_UPLOADS_URL) {
-            cbInitialize({
-                initialZoom:ZoomState.ZoomedOut,
-                logLevel:DebugLevel.Warning,
-                processingUrl: process.env.REACT_APP_CB_API_URL,
-                hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
-                placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined,
-            })
-        }
-    }, [primarySurfaceType])
 
     const primarySurface = useMemo(()=>{
         if (currentScene && primarySurfaceType) {
