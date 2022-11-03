@@ -3,13 +3,14 @@ import './ChooseSource.css'
 
 import {ImageProperties, ImageUpload, ServerProgress} from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
-import {SiteContext} from "../data/SiteContext";
+import {redirectKeepSearch, SiteContext} from "../data/SiteContext";
 import {Icon} from "@mui/material";
-import {ProductBrand, SceneCollection} from "react-home-ar";
+import {ProductBrand, SceneCollection, SceneInfo} from "react-home-ar";
 import {resolveSceneThumbnailPath} from "../index";
 
 type SceneListingProps = {
     sceneCollection:SceneCollection
+    sceneClicked:(scene:SceneInfo)=>void
 }
 
 const SceneListing = React.memo<SceneListingProps>(
@@ -24,7 +25,7 @@ const SceneListing = React.memo<SceneListingProps>(
                     <div className={"scene-listing-content"}>
                         {props.sceneCollection.scenes.map((scene) => {
                             return (
-                                <div key={scene.code} className={"scene-listing-item"}>
+                                <div key={scene.code} className={"scene-listing-item"} onClick={()=>props.sceneClicked(scene)} >
                                     <img className={"scene-listing-image"} src={resolveSceneThumbnailPath(scene)} alt={scene.displayName}/>
                                     <div className={"scene-listing-title"}>{scene.displayName}</div>
                                 </div>
@@ -52,13 +53,12 @@ export default function ChooseSource(props: any) {
         return siteContext.state.siteData?.displayName;
     }, [siteContext.state.siteData?.displayName]);
 
-    function proceedToSamples(e: React.MouseEvent<HTMLInputElement>) {
-
-    }
-
-    function onImageChosen(imageProperties: ImageProperties) {
-
-    }
+    const onImageChosen = useCallback((imageProperties: ImageProperties) => {
+        dispatch({
+            type: "setSceneData",
+            sceneData: imageProperties
+        });
+    }, [dispatch])
 
     const onProgress = useCallback((uploadProgress: ServerProgress) => {
         if (uploadProgress.message) {
@@ -74,19 +74,32 @@ export default function ChooseSource(props: any) {
                 case Promise: {
                     const promise = uploadProgress.error as Promise<any>;
                     promise.catch((error: any) => {
-                        siteContext.dispatch({ type: "setError", error: error })
+                        dispatch({ type: "setError", error: error })
                     });
                     break;
                 }
                 default: {
-                    siteContext.dispatch({ type: "setError", error: uploadProgress.error })
+                    dispatch({ type: "setError", error: uploadProgress.error })
                 }
             }
         }
 
-    }, [siteContext]);
+    }, [dispatch]);
 
+    const sceneClicked = useCallback((scene:SceneInfo)=>{
 
+        dispatch({
+            type: "setSelectedSampleRoomType",
+            selectedSampleRoomType: scene.collection.code as string
+        });
+
+        dispatch({
+            type: "setSelectedSampleRoom",
+            selectedSampleRoom: scene.code as string,
+        });
+
+        redirectKeepSearch(props, "/Visualizer")
+    }, [dispatch, props])
 
     return (
         <div className="choose-source">
@@ -106,7 +119,7 @@ export default function ChooseSource(props: any) {
                     </div>
 
                 </div>
-                <div className="fullscreen-column samples" onClick={proceedToSamples}>
+                <div className="fullscreen-column samples">
                     <div className={"scenes-instructions"}>
                         Choose from one of the pre-set scenes
                     </div>
@@ -114,7 +127,7 @@ export default function ChooseSource(props: any) {
                         {rootItem?.sceneCollections.map((sceneCollection) => {
                             return (
                                 <div key={sceneCollection.code}>
-                                    <SceneListing sceneCollection={sceneCollection}/>
+                                    <SceneListing sceneClicked={sceneClicked} sceneCollection={sceneCollection}/>
                                 </div>
                             )
                         })}
