@@ -27,9 +27,12 @@ html {
 }
 
 /**
- * RESET
- * Reference: http://meyerweb.com/eric/tools/css/reset/
+ * Hide facebook error that is causing problems for everyone:
+ * https://github.com/facebook/create-react-app/issues/11771#issuecomment-1017125835
  */
+body > iframe[style*="2147483647"]:not([id="webpack-dev-server-client-overlay"]) {
+    display: none;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

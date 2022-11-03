@@ -14,10 +14,8 @@ import {
     CBARSurfaceType,
     CBARToolMode,
     CBARView,
-    cbInitialize,
     DataFilter,
     DataItem,
-    DebugLevel,
     Product,
     ProductBrand,
     ProductCollection,
@@ -27,7 +25,6 @@ import {
     SceneInfo,
     SwatchItem,
     THREE,
-    ZoomState
 } from "react-home-ar";
 
 import {SiteContext} from '../data/SiteContext';
@@ -48,7 +45,14 @@ import {
     ZoomControls
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
-import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
+import {
+    getScenePaths,
+    getUploadedRoomPaths,
+    isFeatureEnabled,
+    resolveSceneThumbnailPath,
+    resolveThumbnailPath,
+    SITE_PATH
+} from "../index";
 import {BrowserType} from "react-client-info";
 
 import {Fab, Icon} from "@mui/material";
@@ -89,7 +93,9 @@ export default function Visualizer() {
     const [progressPercentage, setProgressPercentage] = useState(0);
     const [progressVisible, setProgressVisible] = useState(false);
 
-    const [rootItem, setRootItem] = useState<SwatchItem>();
+    const rootItem = useMemo<ProductBrand|undefined>(()=>{
+        return siteContext.state.brandRoot;
+    }, [siteContext.state.brandRoot]);
     const [navigationItem, setNavigationItem] = useState<SwatchItem>();
     const [dataPath, setDataPath] = useState<string>();
 
@@ -136,18 +142,6 @@ export default function Visualizer() {
     }, [primaryAssetType])
 
     const [shareImageUrl, setShareImageUrl] = useState<string>()
-
-    useEffect(()=>{
-        if (primarySurfaceType && process.env.REACT_APP_CB_API_URL && process.env.REACT_APP_CB_UPLOADS_URL) {
-            cbInitialize({
-                initialZoom:ZoomState.ZoomedOut,
-                logLevel:DebugLevel.Warning,
-                processingUrl: process.env.REACT_APP_CB_API_URL,
-                hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
-                placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined,
-            })
-        }
-    }, [primarySurfaceType])
 
     const primarySurface = useMemo(()=>{
         if (currentScene && primarySurfaceType) {
@@ -200,28 +194,6 @@ export default function Visualizer() {
             setNeedsScreenshot(true);
         }
     }, [selectedAsset]);
-
-    useEffect(()=>{
-        if (siteContext.state.siteData) {
-            const brands:ProductBrand[] = [];
-            for (const brandJson of siteContext.state.siteData.brands) {
-                const brand = new ProductBrand();
-                brand.load(brandJson);
-                brands.push(brand)
-            }
-
-            let rootItem:SwatchItem = brands[0];
-            while (rootItem.children.length === 1) {
-                if (!(rootItem.children[0] instanceof Product)) {
-                    rootItem = rootItem.children[0]
-                } else {
-                    break;
-                }
-            }
-            setRootItem(rootItem)
-        }
-
-    }, [siteContext.state.siteData]);
 
     useEffect(() => {
         _isMounted.current = true;
@@ -282,33 +254,6 @@ export default function Visualizer() {
         }
 
     }, [dispatch]);
-
-    const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
-
-        if (!(swatchItem instanceof DataItem)) return;
-
-        if (!swatchItem.thumbnail && swatchItem.children.length) {
-            return resolveThumbnailPath(swatchItem.children[0])
-        }
-
-        const path = swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
-
-        if (path.indexOf("undefined") >= 0) {
-            return undefined;
-        }
-
-        // if (path?.startsWith("https")) {
-        //     if (path?.indexOf("?") >= 0) {
-        //         return `${path}&r=${Math.random().toString()}`
-        //     } else {
-        //         return `${path}?r=${Math.random().toString()}`
-        //     }
-        // }
-
-        return path
-        //return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
-
-    }, [brandPath]);
 
     const getColorSwatch = useCallback((params: SwatchInfoParams) : ReactNode => {
         return <div className={"swatch-info"}>
@@ -532,23 +477,6 @@ export default function Visualizer() {
 
     }, [dispatch, selectedColumn, showMaterial]);
 
-    const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
-        if (swatchItem.thumbnail) {
-            return resolveThumbnailPath(swatchItem)
-        }
-        if (swatchItem instanceof SceneCollection) {
-            const col = swatchItem as SceneCollection;
-            if (col.scenes.length) {
-                return resolveSceneThumbnailPath(col.scenes[0])
-            }
-        } else if (swatchItem instanceof SceneInfo) {
-            const scene = swatchItem as SceneInfo;
-            return getScenePaths(scene.collection.code, scene.code, scene.json.path).preview
-        }
-
-        return
-    }, [resolveThumbnailPath]);
-
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem instanceof SceneInfo) {
             const sceneData = swatchItem as SceneInfo
@@ -590,10 +518,14 @@ export default function Visualizer() {
 
     useEffect(() => {
         if (rootItem) {
+
             if (!listingItems) {
                 let items = rootItem.children as DataItem[];
 
                 const collection = siteContext.state.selectedCollection ? items.find(item=>item instanceof ProductCollection && item.code === siteContext.state.selectedCollection) as ProductCollection : undefined;
+                if (collection) {
+                    items = collection.children
+                }
                 const product = siteContext.state.selectedProduct ? (collection ? collection.products : items).find(item=>item instanceof Product && item.code === siteContext.state.selectedProduct) as Product : undefined;
                 const color = siteContext.state.selectedColor ? (product ? product.colors : items).find(item=>item instanceof ProductColor && item.code === siteContext.state.selectedColor) as ProductColor : undefined;
 
@@ -1115,5 +1047,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, materialName, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, materialName, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }

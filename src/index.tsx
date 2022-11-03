@@ -2,7 +2,7 @@ import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 import cssVars from 'css-vars-ponyfill'
 
-import React, {useReducer, useEffect, useCallback, useState, useRef} from "react"
+import React, {useReducer, useEffect, useCallback, useState, useRef, useMemo} from "react"
 import * as ReactDOM from "react-dom"
 
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
@@ -14,6 +14,18 @@ import {objectToLowerCase, selectScene} from "./utilities/Methods";
 
 import Visualizer from "./pages/Visualizer"
 import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
+import ChooseSource from "./pages/ChooseSource";
+import {
+    CBARSurfaceType,
+    cbInitialize,
+    DataItem,
+    DebugLevel,
+    ProductBrand,
+    SceneCollection,
+    SceneInfo,
+    SwatchItem,
+    ZoomState
+} from "react-home-ar";
 
 const objectFitImages = require('object-fit-images');
 
@@ -70,12 +82,64 @@ export const getUploadedRoomPaths = (roomID?:string):RoomPaths=>{
     }
 };
 
+export const resolveThumbnailPath = (swatchItem:SwatchItem) : string | undefined => {
+
+    if (!(swatchItem instanceof DataItem)) return;
+
+    if (!swatchItem.thumbnail && swatchItem.children.length) {
+        return resolveThumbnailPath(swatchItem.children[0])
+    }
+
+    const path = swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${SITE_PATH}/${swatchItem.thumbnail}`;
+
+    if (path.indexOf("undefined") >= 0) {
+        return undefined;
+    }
+
+    return path
+    //return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
+};
+
+export const resolveSceneThumbnailPath = (swatchItem:SwatchItem) : string | undefined => {
+    if (swatchItem.thumbnail) {
+        return resolveThumbnailPath(swatchItem)
+    }
+    if (swatchItem instanceof SceneCollection) {
+        const col = swatchItem as SceneCollection;
+        if (col.scenes.length) {
+            return resolveSceneThumbnailPath(col.scenes[0])
+        }
+    } else if (swatchItem instanceof SceneInfo) {
+        const scene = swatchItem as SceneInfo;
+        return getScenePaths(scene.collection.code, scene.code, scene.json.path).preview
+    }
+    return
+};
+
 function App() {
     const initialSiteState = createEmptyState();
     const [siteState, dispatchSiteState] = useReducer(siteStateReducer, initialSiteState);
     const [browserProperties, setBrowserProperties] = useState<BrowserProperties>({});
     const [customStylesheet, setCustomStylesheet] = useState<string>()
-    // Url load states
+
+    const primarySurfaceType = useMemo(()=>{
+        if (siteState.siteData?.brands.length) {
+            const firstBrand = siteState.siteData.brands[0]
+            return firstBrand.surfaceTypes ? firstBrand.surfaceTypes[0] : CBARSurfaceType.Floor;
+        }
+    }, [siteState])
+
+    useEffect(()=>{
+        if (primarySurfaceType && process.env.REACT_APP_CB_API_URL && process.env.REACT_APP_CB_UPLOADS_URL) {
+            cbInitialize({
+                initialZoom:ZoomState.ZoomedOut,
+                logLevel:DebugLevel.Warning,
+                processingUrl: process.env.REACT_APP_CB_API_URL,
+                hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
+                placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined,
+            })
+        }
+    }, [primarySurfaceType])
 
     //component mounted:
     useEffect(() => {
@@ -294,6 +358,33 @@ function App() {
         }
     }, [siteState]);
 
+    useEffect(()=>{
+        if (siteState.siteData) {
+            const brands:ProductBrand[] = [];
+            for (const brandJson of siteState.siteData.brands) {
+                const brand = new ProductBrand();
+                brand.load(brandJson);
+                brands.push(brand)
+            }
+
+            let rootItem:ProductBrand = brands[0];
+            while (rootItem.children.length === 1) {
+                if (rootItem.children[0] instanceof ProductBrand) {
+                    rootItem = rootItem.children[0]
+                } else {
+                    break;
+                }
+            }
+
+            dispatchSiteState({ type: "setBrandRoot", brand: rootItem});
+
+            if (rootItem.collections.length === 1 && rootItem.collections[0].code) {
+                dispatchSiteState({ type: "setCollection", code: rootItem.collections[0].code});
+            }
+        }
+
+    }, [siteState.siteData]);
+
     return (
         <Router>
             <link rel="stylesheet" href={customStylesheet} />
@@ -304,7 +395,8 @@ function App() {
                         <SiteContext.Provider value={{ state: siteState, dispatch: dispatchSiteState }}>
                             <WebClientInfo onClientStateChanged={setBrowserProperties} />
                             <Switch location={location}>
-                                <Route exact path="/" component={Visualizer} />
+                                <Route exact path="/Visualizer" component={Visualizer} />
+                                <Route exact path="/" component={ChooseSource} />
                                 <Route>
                                     <Redirect to="/"/>
                                 </Route>
