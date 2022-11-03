@@ -3,7 +3,7 @@ import {CBARSceneProperties, CBContentManager, CBMaterialProperties, ProductBran
 import { polyfill } from "smoothscroll-polyfill"
 import {BrowserProperties} from "react-client-info";
 import * as qs from "querystring";
-import {Brand, SiteConfig} from "cambrian-base";
+import {SiteConfig} from "cambrian-base";
 
 polyfill();
 

@@ -48,7 +48,14 @@ import {
     ZoomControls
 } from "react-cambrian-ui";
 import {Progress} from "../components/Progress";
-import {getScenePaths, getUploadedRoomPaths, isFeatureEnabled, SITE_PATH} from "../index";
+import {
+    getScenePaths,
+    getUploadedRoomPaths,
+    isFeatureEnabled,
+    resolveSceneThumbnailPath,
+    resolveThumbnailPath,
+    SITE_PATH
+} from "../index";
 import {BrowserType} from "react-client-info";
 
 import {Fab, Icon} from "@mui/material";
@@ -262,25 +269,6 @@ export default function Visualizer() {
         }
 
     }, [dispatch]);
-
-    const resolveThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
-
-        if (!(swatchItem instanceof DataItem)) return;
-
-        if (!swatchItem.thumbnail && swatchItem.children.length) {
-            return resolveThumbnailPath(swatchItem.children[0])
-        }
-
-        const path = swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
-
-        if (path.indexOf("undefined") >= 0) {
-            return undefined;
-        }
-
-        return path
-        //return swatchItem.thumbnail && swatchItem.thumbnail.startsWith("https") ? swatchItem.thumbnail : `${brandPath}/${swatchItem.thumbnail}`;
-
-    }, [brandPath]);
 
     const getColorSwatch = useCallback((params: SwatchInfoParams) : ReactNode => {
         return <div className={"swatch-info"}>
@@ -503,23 +491,6 @@ export default function Visualizer() {
         }
 
     }, [dispatch, selectedColumn, showMaterial]);
-
-    const resolveSceneThumbnailPath = useCallback((swatchItem:SwatchItem) : string | undefined => {
-        if (swatchItem.thumbnail) {
-            return resolveThumbnailPath(swatchItem)
-        }
-        if (swatchItem instanceof SceneCollection) {
-            const col = swatchItem as SceneCollection;
-            if (col.scenes.length) {
-                return resolveSceneThumbnailPath(col.scenes[0])
-            }
-        } else if (swatchItem instanceof SceneInfo) {
-            const scene = swatchItem as SceneInfo;
-            return getScenePaths(scene.collection.code, scene.code, scene.json.path).preview
-        }
-
-        return
-    }, [resolveThumbnailPath]);
 
     const sceneSelected = useCallback((swatchItem:SwatchItem) => {
         if (swatchItem instanceof SceneInfo) {
@@ -1087,5 +1058,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, materialName, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, resolveThumbnailPath, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, resolveSceneThumbnailPath, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, materialName, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
