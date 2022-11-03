@@ -24,7 +24,7 @@
     flex-direction: column;
 }
 
-.fullscreen-column.upload span {
+.fullscreen-column.upload .photo-upload .upload-button {
     font-size: 30vh;
     display: flex;
     margin-top: -60px;

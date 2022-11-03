@@ -114,7 +114,7 @@ export default function ChooseSource(props: any) {
                     </div>
                     <div className={"photo-upload"}>
                         <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}>
-                            <Icon>add_a_photo</Icon>
+                            <Icon className={"upload-button"}>add_a_photo</Icon>
                         </ImageUpload>
                     </div>
 
