@@ -42,7 +42,7 @@ const ShareCanvas: React.FC<{
   useEffect(() => {
         if (!screenshot || !brandImage || !canvasRef) return
 
-        const ctx = canvasRef.getContext('2d');
+        const ctx = canvasRef.getContext('2d', {willReadFrequently:true});
 
         if (!ctx) return;
 
