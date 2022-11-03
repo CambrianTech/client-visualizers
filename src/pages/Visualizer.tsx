@@ -518,10 +518,14 @@ export default function Visualizer() {
 
     useEffect(() => {
         if (rootItem) {
+
             if (!listingItems) {
                 let items = rootItem.children as DataItem[];
 
                 const collection = siteContext.state.selectedCollection ? items.find(item=>item instanceof ProductCollection && item.code === siteContext.state.selectedCollection) as ProductCollection : undefined;
+                if (collection) {
+                    items = collection.children
+                }
                 const product = siteContext.state.selectedProduct ? (collection ? collection.products : items).find(item=>item instanceof Product && item.code === siteContext.state.selectedProduct) as Product : undefined;
                 const color = siteContext.state.selectedColor ? (product ? product.colors : items).find(item=>item instanceof ProductColor && item.code === siteContext.state.selectedColor) as ProductColor : undefined;
 

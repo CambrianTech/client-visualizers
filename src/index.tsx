@@ -377,6 +377,10 @@ function App() {
             }
 
             dispatchSiteState({ type: "setBrandRoot", brand: rootItem});
+
+            if (rootItem.collections.length === 1 && rootItem.collections[0].code) {
+                dispatchSiteState({ type: "setCollection", code: rootItem.collections[0].code});
+            }
         }
 
     }, [siteState.siteData]);
