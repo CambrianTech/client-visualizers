@@ -113,7 +113,7 @@ export default function ChooseSource(props: any) {
             <div className="fullscreen-grid">
                 <div className="fullscreen-column upload">
                     <div className={"photo-instructions"}>
-                        Upload a photo and design till your hearts content - <br />
+                        Upload your own photo and design <br />
                         Your floor, your way!
                     </div>
                     <div className={"photo-upload"}>
@@ -121,7 +121,6 @@ export default function ChooseSource(props: any) {
                             <Icon className={"upload-button"}>add_a_photo</Icon>
                         </ImageUpload>
                     </div>
-
                 </div>
                 <div className="fullscreen-column samples">
                     <div className={"scenes-instructions"}>

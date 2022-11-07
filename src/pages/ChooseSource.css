@@ -19,6 +19,10 @@
     padding: 20px;
 }
 
+.fullscreen-column {
+    padding: 20px;
+}
+
 .fullscreen-column.upload {
     display: flex;
     flex-direction: column;
@@ -34,6 +38,10 @@
 .photo-instructions {
     font-size: 1.5em;
     flex: 0 1 80px;
+}
+
+.photo-instructions-mobile {
+    display: none;
 }
 
 .photo-upload {
@@ -58,7 +66,7 @@
 .scenes {
     overflow-y: scroll;
     position: relative;
-    height: 85vh;
+    height: calc(var(--app-height) - 200px);
 }
 
 .scene-picker {
@@ -94,4 +102,58 @@
 
 .scene-listing-title {
 
+}
+
+@media (orientation: portrait) {
+    .container {
+        position: unset;
+    }
+
+    .fullscreen-grid {
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    .fullscreen-column.upload .photo-upload .upload-button {
+        font-size: 50vw;
+    }
+
+    .photo-instructions-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.0em;
+    }
+
+    .scenes {
+        overflow-x: scroll;
+        position: relative;
+        height: unset;
+    }
+
+    .scenes-instructions {
+        display: none;
+    }
+
+    .scene-listing {
+        width: 100%;
+    }
+
+    .scene-listing-item {
+        padding: 0;
+    }
+
+    .scene-listing-image {
+        width: 100%;
+        height: unset;
+    }
+
+    .photo-instructions {
+        display: none;
+    }
+
+    .scene-listing-content {
+        flex-direction: column;
+    }
 }
