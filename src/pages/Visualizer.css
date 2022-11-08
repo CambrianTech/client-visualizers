@@ -25,12 +25,8 @@
 .panels {
     position: absolute;
     top:0;
-    height: 100vh;
-    width:calc(100vw + 2 * var(--panel-width));
-    left:calc(-1 * var(--panel-width));
-
+    height: var(--app-height);
     display: flex;
-    transition: left 200ms;
 }
 
 .panel {
@@ -38,15 +34,25 @@
     display: flex;
     flex-direction: column;
     background: #ffffff;
-    min-width:var(--panel-width);
     pointer-events: auto;
 }
 
+.panel:nth-child(1) {
+    position: absolute;
+    left:calc(-1 * var(--panel-width));
+    width: var(--panel-width);
+    height: var(--app-height);
+    transition: all 200ms;
+}
+
+.panels.products .panel:nth-child(1), .panels.scenes .panel:nth-child(1) {
+    left: 0;
+}
+
 .panel:nth-child(1), .panel:nth-child(3) {
-    flex-basis: var(--panel-width);
     flex-grow: 0;
     flex-shrink: 0;
-    z-index: 1;
+    z-index: 10;
     filter: drop-shadow(.5rem .5rem 1rem rgba(0, 0, 0, 0.2));
 }
 
@@ -56,17 +62,83 @@
 }
 
 .panels.scenes, .panels.products {
-    left:0;
+    height: var(--app-height);
+    display: flex;
+    flex-direction: column;
 }
 
-.panels.product-info, .panels.share {
-    left:calc(-2 * var(--panel-width));
+.panel .title {
+    flex-shrink: 1;
+    flex-basis: 45px;
+    height: 45px;
+    color: var(--mdc-theme-on-primary);
+    background: var(--mdc-theme-primary);
+    font-weight: 800;
+
+    display: flex;
+    justify-content: space-evenly;
+    user-select: none;
+}
+
+.panel .title .choose {
+    height:45px;
+    flex-basis: 50%;
+    flex-grow: 1;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    background: var(--mdc-theme-inactive);
+}
+
+.panel .title .choose.selected {
+    color: var(--mdc-theme-on-primary);
+    position:relative;
+    background: transparent;
+}
+
+/* triangle highlight */
+.panel .title .choose.selected:after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    z-index: 1;
+    border-top: solid var(--triangle-thickness) var(--mdc-theme-primary);
+    border-left: solid var(--triangle-thickness) transparent;
+    border-right: solid var(--triangle-thickness) transparent;
+}
+
+.panels .listings {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.vertical-swatch-listing {
+    display: none;
+    height: calc(var(--app-height) - 45px);
+}
+
+.panels.scenes .vertical-swatch-listing.scenes, .panels.products .vertical-swatch-listing.products {
+    display: block;
 }
 
 .panel .close-button {
     position: absolute;
     top:calc(50vh - 25px);
-    z-index: 1;
+    z-index: 11;
+}
+
+.close-button.panel-a {
+    left: 30px;
+    transition: left 200ms;
+}
+
+.panels.products .close-button.panel-a, .panels.scenes .close-button.panel-a {
+    left: calc(var(--panel-width) + 30px);
 }
 
 .panel .close-button.call-to-action {
@@ -76,10 +148,6 @@
 
 .panel .close-button.call-to-action .MuiFab-label {
     flex-direction: row-reverse;
-}
-
-.panel .close-button.panel-a {
-    left:30px;
 }
 
 .panel .close-button.panel-c {
@@ -94,7 +162,7 @@
     position: absolute;
     top:0;
     left:0;
-    z-index: 3;
+    z-index: 1;
     max-width: 120px;
     max-height: 100px;
     margin: 20px;
@@ -197,49 +265,6 @@
 #drawing-mark-overlay {
     opacity: 0.6;
     background-color: #00afff;
-}
-
-.panel .title {
-    flex-shrink: 0;
-    flex-basis: 45px;
-    height: 45px;
-    color: var(--mdc-theme-on-primary);
-    background: var(--mdc-theme-primary);
-    font-weight: 800;
-
-    display: flex;
-    justify-content: space-evenly;
-    user-select: none;
-}
-
-.panel .title .choose {
-    height:45px;
-    flex-basis: 50%;
-    flex-grow: 1;
-    cursor: pointer;
-    padding: 10px;
-    text-align: center;
-    background: var(--mdc-theme-inactive);
-}
-
-.panel .title .choose.selected {
-    color: var(--mdc-theme-on-primary);
-    position:relative;
-    background: transparent;
-}
-
-.panel .title .choose.selected:after {
-    content:'';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: 0;
-    height: 0;
-    border-top: solid var(--triangle-thickness) var(--mdc-theme-secondary);
-    border-left: solid var(--triangle-thickness) transparent;
-    border-right: solid var(--triangle-thickness) transparent;
 }
 
 .visualizer-tools {

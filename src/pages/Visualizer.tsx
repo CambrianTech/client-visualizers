@@ -34,7 +34,6 @@ import {
     ImageProperties,
     ImageUpload,
     openImageDialog,
-    ProductBreadcrumb,
     ProductDetails,
     RotateTool,
     ServerProgress,
@@ -96,7 +95,6 @@ export default function Visualizer() {
     const rootItem = useMemo<ProductBrand|undefined>(()=>{
         return siteContext.state.brandRoot;
     }, [siteContext.state.brandRoot]);
-    const [navigationItem, setNavigationItem] = useState<SwatchItem>();
     const [dataPath, setDataPath] = useState<string>();
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -513,7 +511,6 @@ export default function Visualizer() {
 
     const navClicked = useCallback((swatchItem:SwatchItem) => {
         setListingItems(swatchItem.children);
-        setNavigationItem(swatchItem)
     }, []);
 
     useEffect(() => {
@@ -922,25 +919,23 @@ export default function Visualizer() {
                     </div>
                 </div>
 
-                {activePanel === Panel.Products && <ProductBreadcrumb currentItem={navigationItem} onClick={navClicked} />}
+                <div className="listings">
+                    <VerticalListing className={"products"}
+                                     onClick={swatchSelected}
+                                     swatches={listingItems}
+                                     filters={allFilters}
+                                     selectedSwatch={selectedRow}
+                                     selectedSubSwatch={selectedColumn}
+                                     getSubSwatchInfo={getColorSwatch}
+                                     resolveThumbnailPath={resolveThumbnailPath}/>
 
-                <VerticalListing className={"products"}
-                                 visible={activePanel === Panel.Products}
-                                 onClick={swatchSelected}
-                                 swatches={listingItems}
-                                 filters={allFilters}
-                                 selectedSwatch={selectedRow}
-                                 selectedSubSwatch={selectedColumn}
-                                 getSubSwatchInfo={getColorSwatch}
-                                 resolveThumbnailPath={resolveThumbnailPath}/>
-
-                <VerticalListing className={"scenes"}
-                                 visible={activePanel === Panel.Scenes}
-                                 onClick={sceneSelected}
-                                 swatches={sceneListingItems}
-                                 selectedSwatch={selectedSceneRow}
-                                 selectedSubSwatch={selectedSceneColumn}
-                                 resolveThumbnailPath={resolveSceneThumbnailPath}/>
+                    <VerticalListing className={"scenes"}
+                                     onClick={sceneSelected}
+                                     swatches={sceneListingItems}
+                                     selectedSwatch={selectedSceneRow}
+                                     selectedSubSwatch={selectedSceneColumn}
+                                     resolveThumbnailPath={resolveSceneThumbnailPath}/>
+                </div>
 
             </div>
 
@@ -1047,5 +1042,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, materialName, navigationItem, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, materialName, navClicked, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, siteContext.state.siteData, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
