@@ -23,14 +23,14 @@
 }
 
 .panels {
-    position: absolute;
+    position: fixed;
     top:0;
     height: var(--app-height);
     display: flex;
 }
 
 .panel {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     background: #ffffff;
@@ -584,7 +584,7 @@ panel.c {
         transition: bottom 200ms;
     }
 
-    .panel .close-button.panel-a {
+    .panel .close-button.panel-a, .panels.products .close-button.panel-a, .panels.scenes .close-button.panel-a {
         left:calc(50% - 28px);
         width: 48px;
         height: 48px;
@@ -710,6 +710,7 @@ panel.c {
 
     .panel.a {
         height: var(--panel-height);
+        left: 0;
         bottom: calc(-1 * var(--panel-height));
         z-index: 200;
     }

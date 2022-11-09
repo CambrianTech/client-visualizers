@@ -901,7 +901,7 @@ export default function Visualizer() {
         }
         return 'assets/img/DE_Logo.svg'
     }, [brandPath, logoSrc])
-
+    
     return useMemo(() => (
         <div className={"panels " + activePanel}>
 
@@ -1015,7 +1015,7 @@ export default function Visualizer() {
 
             </div>}
 
-            <div className={"panel c"} style={{visibility:hasDetailsPanel ? "visible" : "hidden"}} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
+            <div className={"panel c"} style={{display:hasDetailsPanel ? "block" : "none"}} onMouseOut={()=>setPanelTimer()} onMouseOver={()=>clearPanelTimer()}>
 
                 {!isPortrait && <div className={"title"}>
                     <div className={"choose info" + (activePanel === Panel.ProductInfo ? " selected" : "")} onClick={()=>setActivePanel(Panel.Products)}>
