@@ -63,7 +63,7 @@
     margin-bottom: 20px;
 }
 
-.scenes {
+.choose-source .scenes {
     overflow-y: scroll;
     position: relative;
     height: calc(var(--app-height) - 200px);

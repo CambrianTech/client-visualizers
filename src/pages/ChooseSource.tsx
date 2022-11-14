@@ -26,7 +26,7 @@ const SceneListing = React.memo<SceneListingProps>(
                         {props.sceneCollection.scenes.map((scene) => {
                             return (
                                 <div key={scene.code} className={"scene-listing-item"} onClick={()=>props.sceneClicked(scene)} >
-                                    <img className={"scene-listing-image"} src={resolveSceneThumbnailPath(scene)} alt={scene.displayName}/>
+                                    <img className={"scene-listing-image"} crossOrigin={"anonymous"} src={resolveSceneThumbnailPath(scene)} alt={scene.displayName}/>
                                     <div className={"scene-listing-title"}>{scene.displayName}</div>
                                 </div>
                             )
