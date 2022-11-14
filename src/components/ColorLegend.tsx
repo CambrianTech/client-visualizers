@@ -9,6 +9,7 @@ type ColorLegendProps = {
   tempActive?: ProductItem;
   resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined;
   swatchClicked:(swatch:ProductItem)=>void
+  detailsClicked:()=>void
 };
 
 export function ColorLegend(props: ColorLegendProps) {
@@ -29,7 +30,7 @@ export function ColorLegend(props: ColorLegendProps) {
 
   const productName = useMemo(()=>{
     if (!category || !currentProduct) return null
-    return `${category.displayName} - ${currentProduct.displayName}`
+    return `${currentProduct.displayName} - ${currentProduct.code}`
   }, [category, currentProduct])
 
   useEffect(() => {
@@ -41,7 +42,7 @@ export function ColorLegend(props: ColorLegendProps) {
       <div className={"floating-product-info"}>
         <div className="column-or-row">
           <>
-            <div className={"product-name"}>
+            <div className={"product-name"} onClick={()=>props.detailsClicked()}>
               {productName}
             </div>
             <CSSTransition
