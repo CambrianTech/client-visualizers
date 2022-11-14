@@ -30,7 +30,7 @@
 }
 
 .panel {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     background: #ffffff;
@@ -38,7 +38,7 @@
 }
 
 .panel:nth-child(1) {
-    position: absolute;
+    position: fixed;
     left:calc(-1 * var(--panel-width));
     width: var(--panel-width);
     height: var(--app-height);
@@ -47,6 +47,12 @@
 
 .panels.products .panel:nth-child(1), .panels.scenes .panel:nth-child(1) {
     left: 0;
+}
+
+.panels.scenes, .panels.products {
+    height: var(--app-height);
+    display: flex;
+    flex-direction: column;
 }
 
 .panel:nth-child(1), .panel:nth-child(3) {
@@ -61,10 +67,33 @@
     flex-shrink: 1;
 }
 
-.panels.scenes, .panels.products {
+.panel:nth-child(3) {
+    position: fixed;
+    right: calc(-1.0 * var(--panel-width));
+    width: var(--panel-width);
     height: var(--app-height);
+    transition: all 200ms;
+}
+
+.panels.product-info .panel:nth-child(3) {
+    right: 0;
+}
+
+panel.c {
+    width: var(--details-panel-width);
+    height: var(--details-panel-height);
+
+    font-family: Avenir, sans-serif;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    z-index: 10;
+
+    pointer-events: none;
+    background-color: white;
+}
+
+.panel.c .product-details {
+    padding: 40px 20px 20px;
 }
 
 .panel .title {
@@ -139,6 +168,14 @@
 
 .panels.products .close-button.panel-a, .panels.scenes .close-button.panel-a {
     left: calc(var(--panel-width) + 30px);
+}
+
+.close-button.panel-c {
+    transition: right 200ms;
+}
+
+.panels.product-info .close-button.panel-c {
+    right: calc(var(--panel-width) + 30px);
 }
 
 .panel .close-button.call-to-action {
@@ -286,24 +323,6 @@
     text-transform: unset;
 }
 
-panel.c {
-    width: var(--details-panel-width);
-    height: var(--details-panel-height);
-
-    font-family: Avenir, sans-serif;
-    display: flex;
-    flex-direction: row;
-    z-index: 10;
-
-    pointer-events: none;
-    background-color: white;
-}
-
-.panel.c .panel {
-    pointer-events: auto;
-    height: 100%;
-}
-
 .floating-product-info {
     position: absolute;
     z-index: 1;
@@ -338,18 +357,6 @@ panel.c {
 #legally-required-logo {
     right: unset;
     left: 20px;
-}
-
-.panel.c {
-    height: 100%;
-}
-
-.panel.c .info, .panel.c .share {
-    height: 100%;
-}
-
-.panel.c .product-details {
-    padding: 40px 20px 20px;
 }
 
 .share-project-container {
@@ -592,6 +599,10 @@ panel.c {
 
     .panel .close-button.panel-c {
         right:10px;
+    }
+
+    .panels.product-info .close-button.panel-c {
+        right: 10px;
     }
 
     .panels.products .close-button.panel-a, .panels.scenes .close-button.panel-a {
