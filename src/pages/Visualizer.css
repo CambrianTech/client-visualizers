@@ -516,7 +516,7 @@ panel.c {
 
     :root {
         --panel-width: 100vw;
-        --panel-height: 70%;
+        --panel-height: 60vh;
 
         --details-panel-close-width:100px;
         --details-panel-close-height:50px;
@@ -552,6 +552,11 @@ panel.c {
 
     .panels.products .cbarview, .panels.scenes .cbarview {
         top:calc(-70vh + 80px);
+    }
+
+    .vertical-swatch-listing {
+        display: none;
+        height: calc(var(--panel-height) - 45px);
     }
 
     .panel .close-button {

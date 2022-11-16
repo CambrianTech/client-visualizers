@@ -69,38 +69,38 @@
     height: calc(var(--app-height) - 200px);
 }
 
-.scene-picker {
+.choose-source .scene-picker {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.scene-picker-title {
+.choose-source .scene-picker-title {
     font-size: 1.5em;
 }
 
-.scene-listing {
+.choose-source .scene-listing {
     position:relative;
     box-sizing: border-box;
     width: 50vw;
     overflow-x: scroll;
 }
 
-.scene-listing-content {
+.choose-source .scene-listing-content {
     display: flex;
     flex-direction: row;
 }
 
-.scene-listing-item {
+.choose-source .scene-listing-item {
     padding: 30px;
     cursor: pointer;
 }
 
-.scene-listing-image {
+.choose-source .scene-listing-image {
     height: 20vh;
 }
 
-.scene-listing-title {
+.choose-source .scene-listing-title {
 
 }
 
@@ -109,16 +109,16 @@
         position: unset;
     }
 
-    .fullscreen-grid {
+    .choose-source .fullscreen-grid {
         flex-direction: column;
         margin-top: 30px;
     }
 
-    .fullscreen-column.upload .photo-upload .upload-button {
+    .choose-source .fullscreen-column.upload .photo-upload .upload-button {
         font-size: 50vw;
     }
 
-    .photo-instructions-mobile {
+    .choose-source .photo-instructions-mobile {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -126,34 +126,34 @@
         font-size: 2.0em;
     }
 
-    .scenes {
+    .choose-source .scenes {
         overflow-x: scroll;
         position: relative;
         height: unset;
     }
 
-    .scenes-instructions {
+    .choose-source .scenes-instructions {
         display: none;
     }
 
-    .scene-listing {
+    .choose-source .scene-listing {
         width: 100%;
     }
 
-    .scene-listing-item {
+    .choose-source .scene-listing-item {
         padding: 0;
     }
 
-    .scene-listing-image {
+    .choose-source .scene-listing-image {
         width: 100%;
         height: unset;
     }
 
-    .photo-instructions {
+    .choose-source .photo-instructions {
         display: none;
     }
 
-    .scene-listing-content {
+    .choose-source .scene-listing-content {
         flex-direction: column;
     }
 }
