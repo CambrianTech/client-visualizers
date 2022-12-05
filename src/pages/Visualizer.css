@@ -501,6 +501,11 @@ panel.c {
     margin-right: 15px;
 }
 
+/* dat.gui placement, left side */
+.dg.a {
+    float: left;
+}
+
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.1); }
 }
