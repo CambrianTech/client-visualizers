@@ -232,10 +232,7 @@ export default function Visualizer() {
 
     const cameraButtonPressed = useCallback(() => {
         if (isVideo) {
-            context?.captureImage().then((image)=>{
-                //capture to still
-                alert(`Got image: ${image.width}x${image.height}`);
-            })
+            context?.captureToStill();
         } else {
             context?.startVideoCamera(CBARFeatureTracking.World, CBARCameraFacing.Environment, CBARCameraResolution.HighDef).then(()=>{
                 console.log("Camera works")
