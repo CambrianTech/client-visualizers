@@ -27,7 +27,7 @@
     "react-client-info": "^0.0.22",
     "react-dom": "^17.0.2",
     "react-dropzone": "^11.3.2",
-    "react-home-ar": "^0.1.75",
+    "react-home-ar": "file:../react-home-ar/react-home-ar-0.1.76.tgz",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-share": "^4.4.0",
@@ -37,7 +37,7 @@
     "styled-components": "^5.3.3"
   },
   "scripts": {
-    "start": "sh scripts/dev-only.sh; concurrently \"cd server; npm run server\" \"react-scripts start\"",
+    "start": "sh scripts/dev-only.sh;  concurrently \"cd server; npm run server\" \"HTTPS=true react-scripts start\"",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

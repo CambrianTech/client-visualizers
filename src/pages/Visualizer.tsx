@@ -3,7 +3,10 @@ import './Visualizer.css'
 
 import {
     CBARAssetType,
+    CBARCameraFacing,
+    CBARCameraResolution,
     CBARContext,
+    CBARFeatureTracking,
     CBARFilledTiledAsset,
     CBARMaterialProperties,
     CBARPaintAsset,
@@ -86,6 +89,7 @@ export default function Visualizer() {
     const dispatch = siteContext.dispatch;
     const _isMounted = useRef(false);
 
+    const [isVideo, setIsVideo] = useState(false);
     const [activePanel,setActivePanel] = useState(Panel.None);
 
     const [progressText, setProgressText] = useState("");
@@ -225,6 +229,22 @@ export default function Visualizer() {
         //     selectedSampleRoomType: null
         // });
     },[dispatch]);
+
+    const cameraButtonPressed = useCallback(() => {
+        if (isVideo) {
+            context?.captureImage().then((image)=>{
+                //capture to still
+                alert(`Got image: ${image.width}x${image.height}`);
+            })
+        } else {
+            context?.startVideoCamera(CBARFeatureTracking.World, CBARCameraFacing.Environment, CBARCameraResolution.HighDef).then(()=>{
+                console.log("Camera works")
+                setIsVideo(true);
+            }).catch((reason)=>{
+                alert("Camera error: " + reason);
+            })
+        }
+    }, [context, isVideo])
 
     const onProgress = useCallback((uploadProgress: ServerProgress) => {
         if (!_isMounted.current) return;
@@ -851,15 +871,20 @@ export default function Visualizer() {
 
     const sourceChosen = useCallback((source:ApiCapabilityName)=>{
         if (source === 'upload') {
-            openImageDialog();
+            if (isMobile) {
+                cameraButtonPressed();
+            } else {
+                openImageDialog();
+            }
+
         } else if (source === 'scenes') {
             setActivePanel(Panel.Scenes)
         }
-    }, []);
+    }, [cameraButtonPressed, isMobile]);
 
     const showSceneSelector = useMemo(()=>{
-        return showUploadButton;
-    }, [showUploadButton]);
+        return !isVideo && showUploadButton;
+    }, [isVideo, showUploadButton]);
 
     const rightButtonIcon = useMemo(()=>{
         if (!hasDetailsPanel) {
@@ -944,11 +969,14 @@ export default function Visualizer() {
                           onTranslate={onVisTranslate}
                           onRotate={onVisRotate}
                           showGui={siteContext.state.showControls}>
-
-                    {primarySurfaceType !== CBARSurfaceType.Floor && <SceneOptions scene={currentScene}
-                                  selectionChanged={selectionChanged}
-                                  handleOption={handleAction} />}
-
+                    <div>
+                        {primarySurfaceType !== CBARSurfaceType.Floor && <SceneOptions scene={currentScene}
+                                                                                       selectionChanged={selectionChanged}
+                                                                                       handleOption={handleAction} />}
+                        {isVideo && <Fab onClick={cameraButtonPressed} style={{position:"absolute", bottom:"30px", left:"50%", marginLeft:"-30px"}}>
+                            <Icon>camera</Icon>
+                        </Fab>}
+                    </div>
                 </CBARView>
 
                 {_isFeatureEnabled("upload") && (<ImageUpload onImageChosen={onImageChosen} onProgress={onProgress} />)}
@@ -1043,5 +1071,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, materialName, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, siteContext.state.siteData, siteContext.state.showControls, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, materialName, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, siteContext.state.siteData, siteContext.state.showControls, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, isVideo, cameraButtonPressed, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }
