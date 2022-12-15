@@ -159,7 +159,8 @@ function App() {
                 processingUrl: process.env.REACT_APP_CB_API_URL,
                 hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
                 placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined,
-                debug:CBARDebug.OpticalFlow
+                //debug:CBARDebug.OpticalFlow | CBARDebug.TrackedLines
+                debug:CBARDebug.None
             })
         }
     }, [primarySurfaceType])

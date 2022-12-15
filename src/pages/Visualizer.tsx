@@ -235,10 +235,9 @@ export default function Visualizer() {
             context?.captureToStill();
         } else {
             context?.startVideoCamera(CBARFeatureTracking.World, CBARCameraFacing.Environment, CBARCameraResolution.HighDef).then(()=>{
-                console.log("Camera works")
                 setIsVideo(true);
             }).catch((reason)=>{
-                alert("Camera error: " + reason);
+                console.error(`Camera error: ${reason}`);
             })
         }
     }, [context, isVideo])
