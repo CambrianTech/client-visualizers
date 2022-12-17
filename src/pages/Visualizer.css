@@ -292,6 +292,11 @@ panel.c {
     opacity: 1.0;
 }
 
+.xr-content {
+    background: #dfdfdf;
+    font-size: 50px;
+}
+
 .capture-button {
     position: fixed;
     z-index: 100;
