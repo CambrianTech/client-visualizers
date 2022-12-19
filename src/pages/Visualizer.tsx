@@ -1,5 +1,5 @@
 import React, {ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
-import { spawn, Thread, Worker } from "threads"
+import { spawn, Worker } from "threads"
 import './Visualizer.css'
 
 import {
