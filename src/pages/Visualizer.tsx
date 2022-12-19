@@ -1,5 +1,4 @@
 import React, {ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
-import { spawn, Worker } from "threads"
 import './Visualizer.css'
 
 import {
@@ -66,7 +65,6 @@ import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
 import {ObjectSelection, SceneOptions} from "../components/SceneOptions";
 import {ShareModal} from "../components/ShareModal";
-import {Counter} from "../workers/worker";
 
 enum Panel {
     None="",
@@ -867,33 +865,23 @@ export default function Visualizer() {
         }
     }, [panelTimer]);
 
-    const testWorker = useCallback(async ()=>{
-        console.log("Testing spawn");
-        const counter = await spawn<Counter>(new Worker("../workers/worker"));
-        counter.increment();
-        counter.increment();
-        counter.increment();
-        console.log(`Counter is now at ${await counter.getCount()}`)
-
-        console.log("spawn finished");
-    },[])
-
     const sourceChosen = useCallback((source:ApiCapabilityName)=>{
         if (source === 'upload') {
 
-            testWorker().then(()=>{
-                console.log("Worker returned");
-            })
-            // if (isMobile) {
-            //     cameraButtonPressed();
-            // } else {
-            //     openImageDialog();
-            // }
+            // testWorker().then(()=>{
+            //     console.log("Worker returned");
+            // })
+
+            if (isMobile) {
+                cameraButtonPressed();
+            } else {
+                openImageDialog();
+            }
 
         } else if (source === 'scenes') {
             setActivePanel(Panel.Scenes)
         }
-    }, [testWorker]);
+    }, [cameraButtonPressed, isMobile]);
 
     const showSceneSelector = useMemo(()=>{
         return !isVideo && showUploadButton;
