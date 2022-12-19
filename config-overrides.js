@@ -1,41 +1,27 @@
-/* config-overrides.js */
+const {
+    override,
+    addWebpackPlugin,
+} = require('customize-cra');
 
-module.exports = {
-    // The Webpack config to use when compiling your react app for development or production.
-    webpack: function(config, env) {
-        // ...add your webpack config
-        //console.log("joel got config", config);
-        return config;
-    },
-    // The function to use to create a webpack dev server configuration when running the development
-    // server with 'npm run start' or 'yarn start'.
-    // Example: set the dev server to use a specific certificate in https.
-    devServer: function(configFunction) {
-        // Return the replacement function for create-react-app to use to generate the Webpack
-        // Development Server config. "configFunction" is the function that would normally have
-        // been used to generate the Webpack Development server config - you can use it to create
-        // a starting configuration to then modify instead of having to create a config from scratch.
-        return function(proxy, allowedHost) {
-            // Create the default config by calling configFunction with the proxy/allowedHost parameters
-            const config = configFunction(proxy, allowedHost);
+const ThreadsPlugin = require("threads-plugin");
 
-            // Change the https certificate options to match your certificate, using the .env file to
-            // set the file paths & passphrase.
-            const fs = require('fs');
-            config.https = {
-                key: fs.readFileSync(process.env.REACT_HTTPS_KEY, 'utf8'),
-                cert: fs.readFileSync(process.env.REACT_HTTPS_CERT, 'utf8'),
-                ca: fs.readFileSync(process.env.REACT_HTTPS_CA, 'utf8'),
-                passphrase: process.env.REACT_HTTPS_PASS
-            };
 
-            // Return your customised Webpack Development Server config.
-            return config;
-        };
-    },
-    // The paths config to use when compiling your react app for development or production.
-    paths: function(paths, env) {
-        // ...add your paths config
-        return paths;
-    },
-}
+//how to: https://stackoverflow.com/questions/71523249/add-webpack-plugins-through-config-overrides-js
+//and here too: https://github.com/criszz77/luna/blob/ccaac73f82574fb409b69843e260dd58a3f68f8c/template/config-overrides.js
+
+const {DefinePlugin} = require('webpack');
+
+module.exports = override(
+    addWebpackPlugin(new ThreadsPlugin()),
+    addWebpackPlugin(
+        new DefinePlugin({
+            // `process.env.NODE_ENV === 'production'` must be `true` for production
+            // builds to eliminate development checks and reduce build size. You may
+            // wish to include additional optimizations.
+            'process.env.NODE_ENV': JSON.stringify(
+                process.env.NODE_ENV || 'development',
+            ),
+            __DEV__: process.env.NODE_ENV !== 'production',
+        }),
+    ),
+);
