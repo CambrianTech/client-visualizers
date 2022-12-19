@@ -36,6 +36,7 @@ if (!siteName) {
     siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "dunn-edwards"
 }
 
+const initialConsoleHeight = 100;
 const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
 export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
 
@@ -45,7 +46,6 @@ const isTouchDevice = 'ontouchstart' in window;
 
 //console for mobile dev only, kind of hacky install, no documentation, so...
 if (isTouchDevice && process.env.NODE_ENV === "development") {
-    const initialConsoleHeight = 0;
     document.write("<script id='mc-script' src=\"https://cdn.jsdelivr.net/gh/c-kick/mobileConsole/hnl.mobileconsole.min.js\"></script>");
     const mcScript = document.getElementById("mc-script");
     if (mcScript) {
