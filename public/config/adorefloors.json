@@ -62,11 +62,11 @@
                          "scenes": [
                               {
                                    "code": "1-bathroom",
-                                   "displayName": "Bathroom"
+                                   "displayName": "Bathroom 1"
                               },
                               {
                                    "code": "2-bathroom",
-                                   "displayName": "Bathroom"
+                                   "displayName": "Bathroom 2"
                               }
                          ]
                     },
@@ -76,23 +76,23 @@
                          "scenes": [
                               {
                                    "code": "2-bedroom",
-                                   "displayName": "Bedroom"
+                                   "displayName": "Bedroom 1"
                               },
                               {
                                    "code": "3-bedroom",
-                                   "displayName": "Bedroom"
+                                   "displayName": "Bedroom 2"
                               },
                               {
                                    "code": "4-bedroom",
-                                   "displayName": "Bedroom"
+                                   "displayName": "Bedroom 3"
                               },
                               {
                                    "code": "5-bedroom",
-                                   "displayName": "Bedroom"
+                                   "displayName": "Bedroom 4"
                               },
                               {
                                    "code": "6-bedroom",
-                                   "displayName": "Bedroom"
+                                   "displayName": "Bedroom 5"
                               }
                          ]
                     },
@@ -102,27 +102,27 @@
                          "scenes": [
                               {
                                    "code": "kitchen-1",
-                                   "displayName": "Kitchen"
+                                   "displayName": "Kitchen 1"
                               },
                               {
                                    "code": "1-dining",
-                                   "displayName": "Kitchen"
+                                   "displayName": "Dining 1"
                               },
                               {
                                    "code": "1-kitchen",
-                                   "displayName": "Kitchen"
+                                   "displayName": "Kitchen 2"
                               },
                               {
                                    "code": "2-kitchen",
-                                   "displayName": "Kitchen"
+                                   "displayName": "Kitchen 3"
                               },
                               {
                                    "code": "3-kitchen",
-                                   "displayName": "Kitchen"
+                                   "displayName": "Kitchen 4"
                               },
                               {
                                    "code": "4-kitchen",
-                                   "displayName": "Kitchen"
+                                   "displayName": "Kitchen 5"
                               }
                          ]
                     },
@@ -132,27 +132,27 @@
                          "scenes": [
                               {
                                    "code": "1-compact-apartment",
-                                   "displayName": "Living Room"
+                                   "displayName": "Living Room 1"
                               },
                               {
                                    "code": "4-living-room",
-                                   "displayName": "Living Room"
+                                   "displayName": "Living Room 2"
                               },
                               {
                                    "code": "6-living-room",
-                                   "displayName": "Living Room"
+                                   "displayName": "Living Room 3"
                               },
                               {
                                    "code": "7-living-room",
-                                   "displayName": "Living Room"
+                                   "displayName": "Living Room 4"
                               },
                               {
                                    "code": "8-living-room",
-                                   "displayName": "Living Room"
+                                   "displayName": "Living Room 5"
                               },
                               {
                                    "code": "9-living-room",
-                                   "displayName": "Living Room"
+                                   "displayName": "Living Room 6"
                               }
                          ]
                     },
@@ -162,7 +162,7 @@
                          "scenes": [
                               {
                                    "code": "1-business",
-                                   "displayName": "Office"
+                                   "displayName": "Business"
                               },
                               {
                                    "code": "1-office",
@@ -170,7 +170,7 @@
                               },
                               {
                                    "code": "2-lobby",
-                                   "displayName": "Office"
+                                   "displayName": "Lobby"
                               }
                          ]
                     },
@@ -180,15 +180,15 @@
                          "scenes": [
                               {
                                    "code": "education-1",
-                                   "displayName": "Education"
+                                   "displayName": "Classroom"
                               },
                               {
                                    "code": "education-2",
-                                   "displayName": "Education"
+                                   "displayName": "Lab"
                               },
                               {
                                    "code": "education-3",
-                                   "displayName": "Education"
+                                   "displayName": "Dorm"
                               }
                          ]
                     },
@@ -198,11 +198,11 @@
                          "scenes": [
                               {
                                    "code": "healthcare-1",
-                                   "displayName": "Healthcare"
+                                   "displayName": "Rehab"
                               },
                               {
                                    "code": "healthcare-2",
-                                   "displayName": "Healthcare"
+                                   "displayName": "Dentist"
                               }
                          ]
                     },
@@ -222,15 +222,15 @@
                          "scenes": [
                               {
                                    "code": "mainstreet-1",
-                                   "displayName": "Mainstreet"
+                                   "displayName": "Barber"
                               },
                               {
                                    "code": "mainstreet-2",
-                                   "displayName": "Mainstreet"
+                                   "displayName": "Bakery"
                               },
                               {
                                    "code": "mainstreet-3",
-                                   "displayName": "Mainstreet"
+                                   "displayName": "Dry Goods"
                               }
                          ]
                     },
@@ -240,15 +240,15 @@
                          "scenes": [
                               {
                                    "code": "multifamily-1",
-                                   "displayName": "Multifamily"
+                                   "displayName": "Apartment 1"
                               },
                               {
                                    "code": "multifamily-2",
-                                   "displayName": "Multifamily"
+                                   "displayName": "Apartment 2"
                               },
                               {
                                    "code": "multifamily-3",
-                                   "displayName": "Multifamily"
+                                   "displayName": "Apartment 3"
                               }
                          ]
                     },
@@ -258,27 +258,27 @@
                          "scenes": [
                               {
                                    "code": "retail-1",
-                                   "displayName": "Retail"
+                                   "displayName": "Clothing 1"
                               },
                               {
                                    "code": "retail-2",
-                                   "displayName": "Retail"
+                                   "displayName": "Gaming"
                               },
                               {
                                    "code": "retail-3",
-                                   "displayName": "Retail"
+                                   "displayName": "Clothing 2"
                               },
                               {
                                    "code": "retail-4",
-                                   "displayName": "Retail"
+                                   "displayName": "Over the Counter"
                               },
                               {
                                    "code": "retail-5",
-                                   "displayName": "Retail"
+                                   "displayName": "Grocery 1"
                               },
                               {
                                    "code": "retail-6",
-                                   "displayName": "Retail"
+                                   "displayName": "Grocery 2"
                               },
                               {
                                    "code": "retail-7",
@@ -291,7 +291,7 @@
                     {
                          "code": "luxury-vinyl",
                          "displayName": "Luxury Vinyl",
-                         "thumbnail": "https://cdn.shopify.com/s/files/1/1075/9404/products/LouisXIV-Montpellier-Parquet-RS_1024x1024.jpg?v=1575660940",
+                         "thumbnail": "https://www.adorefloors.com/Portals/0/adam/Applications/CvoZMU4m20aRepqWCcEmfA/DetailMainImage/retail-top.jpg?width=2048&quality=80&slimmage=true",
                          "products": [
                               {
                                    "code": "naturelle-plus",
@@ -1731,7 +1731,7 @@
                                              "ppi": 15.14,
                                              "details": {
                                                   "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1571",
-                                                  "preview": "https://cdn.shopify.com/s/files/1/1075/9404/products/Cosmopolitan-Rome-RS_1024x1024.jpg?v=1570808109",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/193/f4ptnnvs.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
                                                             "Wear Layer": "7 mil/Micro-Ceramic Technology"
