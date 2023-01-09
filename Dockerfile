@@ -35,7 +35,8 @@ RUN npm run build
 
 # To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
 # The command '/bin/sh -c npm config set unsafe-perm true' returned a non-zero code: 1
-#RUN npm config set unsafe-perm true
+# old fix now produces error: RUN npm config set unsafe-perm true
+# here's an unsafe-perm true subsitute, an .npmrc file inside /server/ https://github.com/npm/feedback/discussions/121#discussioncomment-3043551
 
 RUN npm install -g forever
 
