@@ -34,7 +34,8 @@ RUN npm install --legacy-peer-deps
 RUN npm run build
 
 # To handle 'not get uid/gid' (see https://stackoverflow.com/q/52196518/4332314)
-RUN npm config set unsafe-perm true
+# The command '/bin/sh -c npm config set unsafe-perm true' returned a non-zero code: 1
+#RUN npm config set unsafe-perm true
 
 RUN npm install -g forever
 
