@@ -34,7 +34,8 @@
     "react-transition-group": "^4.4.1",
     "serve": "^11.3.2",
     "smoothscroll-polyfill": "^0.4.4",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "threads": "^1.7.0"
   },
   "scripts": {
     "start": "sh scripts/dev-only.sh;  concurrently \"cd server; npm run server\" \"HTTPS=true react-app-rewired start\"",

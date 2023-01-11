@@ -59,6 +59,19 @@ run `npm start` from root and everything should be working!
 
 ## Available Scripts
 
+## build opencv
+
+build opencv, follow the instructions on the emscripten and opencv websites, 
+but use 1.39.15 of emscripten as follows, or change the code 
+to accommodate the new interface, return cv.ready instead of return cv
+https://stackoverflow.com/questions/67190799/how-to-include-cv-imread-when-building-opencv-js
+
+emscripten 
+```
+./emsdk install 1.39.15
+./emsdk activate 1.39.15
+```
+
 ### sync data
 
 within project directory/sites for a given website:
