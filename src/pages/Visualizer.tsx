@@ -65,6 +65,7 @@ import {ChooseScene} from "../components/ChooseScene";
 import {SwatchInfoParams} from "react-cambrian-ui/dist/products/SwatchListing";
 import {ObjectSelection, SceneOptions} from "../components/SceneOptions";
 import {ShareModal} from "../components/ShareModal";
+import {ColorPicker} from "../components/ColorPicker";
 
 enum Panel {
     None="",
@@ -1025,6 +1026,11 @@ export default function Visualizer() {
                              resolveThumbnailPath={resolveThumbnailPath}
                              swatchClicked={swatchClicked}
                              detailsClicked={()=>{productDetailsClicked()}}/>
+
+                <ColorPicker swatches={products}
+                             activeSwatch={selectedProduct ? selectedProduct : undefined}
+                             resolveThumbnailPath={resolveThumbnailPath}
+                             swatchClicked={swatchClicked} />
 
                 {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&

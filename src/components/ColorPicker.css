@@ -1,0 +1,24 @@
+.color-picker {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 210px;
+
+    overflow-x: scroll;
+    z-index: 10000;
+    border: 1px solid transparent;
+    background: #555;
+}
+
+.color-picker .scroller {
+    display: grid;
+    grid-auto-flow: column dense;
+    grid-template-rows: 50px 50px 50px 50px;
+    grid-auto-columns: 50px;
+    grid-gap: 1px;
+}
+
+.color-picker .scroller .swatch {
+    width: 50px;
+    height: 50px;
+}
