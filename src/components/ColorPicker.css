@@ -1,6 +1,6 @@
 .color-picker {
     position: fixed;
-    bottom: 0;
+    bottom: 5px;
     width: 100vw;
     height: 210px;
 

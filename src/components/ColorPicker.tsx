@@ -1,35 +1,27 @@
-import React, {useCallback, useMemo} from "react";
+import React, {useMemo} from "react";
 import "./ColorPicker.css";
-import {ProductItem, SwatchItem} from "react-home-ar";
+import {PaintColor} from "react-home-ar";
 
 type ColorPickerProps = {
-    swatches?: ProductItem[];
-    activeSwatch?: ProductItem;
-    resolveThumbnailPath(swatchItem:SwatchItem) : string|undefined;
-    swatchClicked:(swatch:ProductItem)=>void
+    hidden?:boolean
+    colorClicked:(color:PaintColor)=>void
 };
 
 export function ColorPicker(props: ColorPickerProps) {
 
     const colors = useMemo(()=>{
-        const colors = [];
+        const colors:PaintColor[] = [];
         for (let i=0; i<1000; i++) {
-            colors.push("rgb(" + Math.floor(Math.random() * 255)
-                + "," + Math.floor(Math.random() * 255) + ","
-                + Math.floor(Math.random() * 255) + ")")
+            colors.push(new PaintColor());
         }
         return colors;
     }, [])
 
-    const colorClicked = useCallback(()=>{
-
-    }, [])
-
     return (
-        <div className={"color-picker"}>
+        <div className={"color-picker"} style={{visibility: props.hidden ? "hidden" : "visible"}}>
             <div className={"scroller"}>
                 {colors.map((c, index)=>{
-                    return <div onClick={()=>colorClicked()} key={`color-${index}`} className={"swatch"} style={{backgroundColor:c}}></div>
+                    return <div onClick={()=>props.colorClicked(c)} key={`color-${index}`} className={"swatch"} style={{backgroundColor:c.cssColor}}></div>
                 })}
             </div>
         </div>

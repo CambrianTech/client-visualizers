@@ -18,7 +18,7 @@ import {
     CBARToolMode,
     CBARView,
     DataFilter,
-    DataItem,
+    DataItem, PaintColor,
     Product,
     ProductBrand,
     ProductCollection,
@@ -920,6 +920,12 @@ export default function Visualizer() {
         }
     }, [currentScene?.assets, selectionChanged])
 
+    const colorClicked = useCallback((color:PaintColor)=>{
+        if (context) {
+            context.color = color;
+        }
+    }, [context])
+
     const logoSrc = siteContext.state.siteData?.appearance.logo.src;
 
     const brandLogo = useMemo(()=>{
@@ -1027,10 +1033,7 @@ export default function Visualizer() {
                              swatchClicked={swatchClicked}
                              detailsClicked={()=>{productDetailsClicked()}}/>
 
-                <ColorPicker swatches={products}
-                             activeSwatch={selectedProduct ? selectedProduct : undefined}
-                             resolveThumbnailPath={resolveThumbnailPath}
-                             swatchClicked={swatchClicked} />
+                <ColorPicker hidden={!isVideo} colorClicked={colorClicked} />
 
                 {/*logo button*/}
                 {!InsideIframe && siteContext.state.siteData && siteContext.state.siteData.appearance.logo &&
@@ -1078,5 +1081,5 @@ export default function Visualizer() {
 
             <Progress visible={progressVisible} percentage={progressPercentage} statusText={progressText} />
         </div>
-    ), [activePanel, currentScene, materialName, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, siteContext.state.siteData, siteContext.state.showControls, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, isVideo, cameraButtonPressed, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
+    ), [activePanel, currentScene, materialName, swatchSelected, listingItems, allFilters, selectedRow, selectedColumn, getColorSwatch, sceneSelected, sceneListingItems, selectedSceneRow, selectedSceneColumn, siteContext.state.siteData, siteContext.state.showControls, toolMode, onVisTouchMove, onVisTranslate, onVisRotate, primarySurfaceType, selectionChanged, handleAction, isVideo, cameraButtonPressed, _isFeatureEnabled, onImageChosen, onProgress, showSceneSelector, sourceChosen, showUploadButton, isToolOverlayOpen, context, toolActions, brandLogo, isShareModalOpen, products, shareImageUrl, editSurfaceFinished, selectedSurface, currentRotation, initialRotation, rotateStarted, rotateChanged, rotateFinished, currentXPos, initialXPos, currentYPos, initialYPos, translationStarted, translationChanged, translationFinished, selectedProduct, swatchClicked, colorClicked, brandPath, leftPanelButtonText, hasSeenProducts, leftPanelOpen, isPortrait, rightPanelButtonText, hasDetailsPanel, rightButtonIcon, resolveDetailsUrl, productDetails, isMobile, progressVisible, progressPercentage, progressText, setPanelTimer, clearPanelTimer, productsClicked, productDetailsClicked])
 }

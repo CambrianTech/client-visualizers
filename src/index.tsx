@@ -36,7 +36,7 @@ if (!siteName) {
     siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "dunn-edwards"
 }
 
-const initialConsoleHeight = 100;
+const initialConsoleHeight = 0;
 const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
 export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
 
@@ -51,14 +51,17 @@ if (isTouchDevice && process.env.NODE_ENV === "development") {
     if (mcScript) {
         mcScript.onload = ()=>{
             window.setTimeout(()=>{
-                const mcs = document.getElementsByClassName("mobile-console");
-                if (mcs.length) {
-                    const mc = mcs[0] as HTMLDivElement;
-                    //mc.classList.add("minimized");
-                    mc.style.height = `${initialConsoleHeight}px`;
-                }
+                setMobileConsoleHeight(initialConsoleHeight);
             }, 200);
         }
+    }
+}
+
+export const setMobileConsoleHeight = (height:number) => {
+    const mcs = document.getElementsByClassName("mobile-console");
+    if (mcs.length) {
+        const mc = mcs[0] as HTMLDivElement;
+        mc.style.height = `${height}px`;
     }
 }
 
