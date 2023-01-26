@@ -1,9 +1,9 @@
 {
   "code": "dunn-edwards",
-  "displayName": "Dunn Edwards",
+  "displayName": "Dunn-Edwards DURA",
   "subdomain": "dunn-edwards",
   "appearance": {
-    "logo": {"src":"branding/DE_Logo.svg", "alt":"Dunn Edwards logo"},
+    "logo": {"src":"branding/DE_Logo.svg", "alt":"DURA logo"},
     "primaryColor": "#ec7211",
     "primaryTextColor": "#fff",
     "secondaryColor": "#fff",
@@ -12,12 +12,12 @@
     "surfaceTextColor": "#555",
     "inactiveColor": "rgba(255,255,255,0.2)",
     "header": {
-      "title": "Dunn Edwards",
-      "description": "See Dunn Edwards's great paint products.",
+      "title": "DURA",
+      "description": "See DURA's great paint products.",
       "favicon": "branding/DE_Logo.svg"
     },
     "sharing": {
-      "subject": "Check out this paint project from Dunn Edwards"
+      "subject": "Check out this paint project from DURA"
     },
     "features": [
       {
@@ -39,7 +39,7 @@
   "brands": [
     {
       "code": "dunn-edwards",
-      "displayName": "Dunn Edwards",
+      "displayName": "DURA",
       "surfaceTypes": ["Wall"],
       "assetTypes": ["paint-surface"],
       "sceneCollections": [

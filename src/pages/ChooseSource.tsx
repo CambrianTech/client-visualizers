@@ -113,8 +113,7 @@ export default function ChooseSource(props: any) {
             <div className="fullscreen-grid">
                 <div className="fullscreen-column upload">
                     <div className={"photo-instructions"}>
-                        Upload your own photo and design <br />
-                        Your floor, your way!
+                        Upload your own photo to Design It Your Way!
                     </div>
                     <div className={"photo-upload"}>
                         <ImageUpload onImageChosen={onImageChosen} onProgress={onProgress}>

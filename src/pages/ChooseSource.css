@@ -64,7 +64,7 @@
 }
 
 .choose-source .scenes {
-    overflow-y: scroll;
+    overflow-y: auto;
     position: relative;
     height: calc(var(--app-height) - 200px);
 }
@@ -83,7 +83,7 @@
     position:relative;
     box-sizing: border-box;
     width: 50vw;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .choose-source .scene-listing-content {
@@ -127,7 +127,7 @@
     }
 
     .choose-source .scenes {
-        overflow-x: scroll;
+        overflow-x: auto;
         position: relative;
         height: unset;
     }
