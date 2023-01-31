@@ -1,6 +1,7 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState} from "react";
 import "./ColorPicker.css";
 import {PaintColor} from "react-home-ar";
+import {Fab, Icon} from "@mui/material";
 
 type ColorPickerProps = {
     hidden?:boolean
@@ -17,12 +18,17 @@ export function ColorPicker(props: ColorPickerProps) {
         return colors;
     }, [])
 
+    const [isOpen, setIsOpen] = useState(true)
+
     return (
-        <div className={"color-picker"} style={{visibility: props.hidden ? "hidden" : "visible"}}>
-            <div className={"scroller"}>
-                {colors.map((c, index)=>{
-                    return <div onClick={()=>props.colorClicked(c)} key={`color-${index}`} className={"swatch"} style={{backgroundColor:c.cssColor}}></div>
-                })}
+        <div className={`color-picker ${isOpen ? "open" : "closed"}`} style={{visibility: props.hidden ? "hidden" : "visible"}}>
+            <Fab className={"toggle"} variant={"extended"} onClick={()=>setIsOpen(!isOpen)}>Colors</Fab>
+            <div className={"wrapper"}>
+                <div className={"scroller"}>
+                    {colors.map((c, index)=>{
+                        return <div onClick={()=>props.colorClicked(c)} key={`color-${index}`} className={"swatch"} style={{backgroundColor:c.cssColor}}></div>
+                    })}
+                </div>
             </div>
         </div>
     );
