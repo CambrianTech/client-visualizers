@@ -1,7 +1,7 @@
 import React, {useMemo, useState} from "react";
 import "./ColorPicker.css";
 import {PaintColor} from "react-home-ar";
-import {Fab, Icon} from "@mui/material";
+import {Fab} from "@mui/material";
 
 type ColorPickerProps = {
     hidden?:boolean
