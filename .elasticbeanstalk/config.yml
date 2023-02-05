@@ -1,6 +1,7 @@
 branch-defaults:
   feature/live-viz:
-    environment: live-viz
+    environment: live-v4
+    group_suffix: null
   v4:
     environment: clients-apiv4
     group_suffix: null
