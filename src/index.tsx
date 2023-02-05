@@ -2,11 +2,11 @@ import 'react-app-polyfill/ie9'
 import 'react-app-polyfill/stable'
 import cssVars from 'css-vars-ponyfill'
 
-import React, {useReducer, useEffect, useCallback, useState, useRef, useMemo} from "react"
+import React, {useCallback, useEffect, useMemo, useReducer, useRef, useState} from "react"
 import * as ReactDOM from "react-dom"
 
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom"
-import {SiteContext, createEmptyState, siteStateReducer, stateToUrl} from "./data/SiteContext"
+import {createEmptyState, SiteContext, siteStateReducer, stateToUrl} from "./data/SiteContext"
 import {BrowserProperties, WebClientInfo} from "react-client-info"
 
 import * as qs from "querystring";
@@ -16,6 +16,7 @@ import Visualizer from "./pages/Visualizer"
 import {ApiCapabilityName, FeatureAppearanceConfig, SiteConfig} from "cambrian-base";
 import ChooseSource from "./pages/ChooseSource";
 import {
+    CBARDebug,
     CBARSurfaceType,
     cbInitialize,
     DataItem,
@@ -35,10 +36,34 @@ if (!siteName) {
     siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "dunn-edwards"
 }
 
+const initialConsoleHeight = 0;
 const isLocal = process.env.REACT_APP_IS_LOCAL==="1";
 export const SITE_PATH = !isLocal && process.env.REACT_APP_SITES_ROOT ? `${process.env.REACT_APP_SITES_ROOT}/${siteName}` : `cambrianar-sites/${siteName}`;
 
 const CONFIG_PATH = `config/${siteName}.json`;
+
+const isTouchDevice = 'ontouchstart' in window;
+
+//console for mobile dev only, kind of hacky install, no documentation, so...
+if (isTouchDevice && process.env.NODE_ENV === "development") {
+    document.write("<script id='mc-script' src=\"https://cdn.jsdelivr.net/gh/c-kick/mobileConsole/hnl.mobileconsole.min.js\"></script>");
+    const mcScript = document.getElementById("mc-script");
+    if (mcScript) {
+        mcScript.onload = ()=>{
+            window.setTimeout(()=>{
+                setMobileConsoleHeight(initialConsoleHeight);
+            }, 200);
+        }
+    }
+}
+
+export const setMobileConsoleHeight = (height:number) => {
+    const mcs = document.getElementsByClassName("mobile-console");
+    if (mcs.length) {
+        const mc = mcs[0] as HTMLDivElement;
+        mc.style.height = `${height}px`;
+    }
+}
 
 export const isFeatureEnabled = (siteData:SiteConfig, name:ApiCapabilityName):boolean => {
     const feature = siteData.features.find(f=>f.name === name);
@@ -137,6 +162,7 @@ function App() {
                 processingUrl: process.env.REACT_APP_CB_API_URL,
                 hostingUrl: process.env.REACT_APP_CB_UPLOADS_URL,
                 placeholderPath: primarySurfaceType === CBARSurfaceType.Floor ? "assets/img/blue-tile.png" : undefined,
+                debug:CBARDebug.OpticalFlow | CBARDebug.TrackedLines
             })
         }
     }, [primarySurfaceType])
@@ -396,9 +422,9 @@ function App() {
                             <WebClientInfo onClientStateChanged={setBrowserProperties} />
                             <Switch location={location}>
                                 <Route exact path="/Visualizer" component={Visualizer} />
-                                <Route exact path="/" component={ChooseSource} />
+                                <Route exact path="/ChooseSource" component={ChooseSource} />
                                 <Route>
-                                    <Redirect to="/"/>
+                                    <Redirect to="/Visualizer"/>
                                 </Route>
                             </Switch>
                         </SiteContext.Provider>
