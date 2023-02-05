@@ -1,4 +1,6 @@
 branch-defaults:
+  live-v4:
+    environment: apiv4-live
   v4:
     environment: clients-apiv4
     group_suffix: null
