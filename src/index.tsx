@@ -33,7 +33,7 @@ const objectFitImages = require('object-fit-images');
 export let siteName = (window as any).siteName;
 
 if (!siteName) {
-    siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "dunn-edwards"
+    siteName = process.env.REACT_APP_SITE_NAME ? process.env.REACT_APP_SITE_NAME : "behr"
 }
 
 const initialConsoleHeight = 0;
