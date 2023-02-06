@@ -27,7 +27,7 @@
     "react-client-info": "^0.0.22",
     "react-dom": "^17.0.2",
     "react-dropzone": "^11.3.2",
-    "react-home-ar": "file:../react-home-ar/react-home-ar-0.5.78.tgz",
+    "react-home-ar": "^0.5.79",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-share": "^4.4.0",
