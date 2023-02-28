@@ -2,7 +2,7 @@
     position: absolute;
     bottom: 5px;
     width: 100vw;
-    height: 150px;
+    height: 360px;
 
     z-index: 10000;
     border: 1px solid transparent;
@@ -44,6 +44,6 @@
     transition: all 0.2s;
 }
 .color-picker.closed {
-    bottom: -150px;
+    bottom: -360px;
     transition: all 0.2s;
 }

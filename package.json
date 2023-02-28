@@ -25,9 +25,10 @@
     "react-cambrian-ui": "^0.1.25",
     "react-circular-progressbar": "^2.0.3",
     "react-client-info": "^0.0.22",
+    "react-colorful": "^5.6.1",
     "react-dom": "^17.0.2",
     "react-dropzone": "^11.3.2",
-    "react-home-ar": "^0.5.95",
+    "react-home-ar": "file:../react-home-ar/react-home-ar-0.5.96.tgz",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-share": "^4.4.0",
@@ -64,6 +65,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-color": "^3.0.6",
     "aggregate-error": "^3.1.0",
     "concurrently": "^6.0.0",
     "customize-cra": "^1.0.0",

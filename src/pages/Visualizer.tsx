@@ -1033,6 +1033,7 @@ export default function Visualizer() {
                              swatchClicked={swatchClicked}
                              detailsClicked={()=>{productDetailsClicked()}}/>
 
+                {/* swap for Tabs with HSV and swatches */}
                 <ColorPicker hidden={!isVideo} colorClicked={colorClicked} />
 
                 {/*logo button*/}
