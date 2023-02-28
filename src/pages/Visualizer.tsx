@@ -922,7 +922,6 @@ export default function Visualizer() {
 
     const colorClicked = useCallback((color:PaintColor)=>{
         if (context) {
-            // console.log(`r: ${color.red}, g: ${color.green}, b: ${color.blue}`)
             context.color = color;
         }
     }, [context])
