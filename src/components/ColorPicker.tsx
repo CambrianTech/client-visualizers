@@ -1,11 +1,11 @@
 import React, { useMemo, useState } from "react";
 import "./ColorPicker.css";
 import { PaintColor } from "react-home-ar";
-import { Box, Fab, Tabs, Tab, Color } from "@mui/material";
+import { Box, Fab, Tabs, Tab} from "@mui/material";
 import { HsvColorPicker, HsvColor } from 'react-colorful';
 import { styled } from "@mui/material/styles";
 import TabPanel from './TabPanel';
-
+import colorConvert from 'color-convert';
 
 type ColorPickerProps = {
   hidden?: boolean
@@ -103,8 +103,15 @@ export function ColorPicker(props: ColorPickerProps) {
 
   const [color, setColor] = useState({h: 0, s: 0, v: 0});
 
+  const hsvToRgb = (color : HsvColor) => {
+    const newRGB = colorConvert.hsv.rgb([color.h, color.s, color.v]);
+    return new PaintColor(newRGB[0]/255, newRGB[1]/255, newRGB[2]/255);
+  };
+
   const handleColorChange = (color : HsvColor) => {
     setColor(color);
+    const paintColor : PaintColor = hsvToRgb(color);
+    props.colorClicked(paintColor);
   };
 
   return (

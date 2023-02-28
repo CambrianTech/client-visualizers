@@ -18,6 +18,7 @@
     "@types/smoothscroll-polyfill": "^0.3.1",
     "@types/styled-components": "^5.1.7",
     "cambrian-base": "^1.0.160",
+    "color-convert": "^2.0.1",
     "css-vars-ponyfill": "^2.4.3",
     "object-fit-images": "^3.2.4",
     "react": "^17.0.2",
@@ -65,6 +66,7 @@
     ]
   },
   "devDependencies": {
+    "@types/color-convert": "^2.0.0",
     "@types/react-color": "^3.0.6",
     "aggregate-error": "^3.1.0",
     "concurrently": "^6.0.0",
