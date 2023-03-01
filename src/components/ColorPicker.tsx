@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import "./ColorPicker.css";
-import { PaintColor } from "react-home-ar";
+import { PaintColor, ProductBrand} from "react-home-ar";
 import { Box, Fab, Tabs, Tab} from "@mui/material";
 import { HsvColorPicker, HsvColor } from 'react-colorful';
 import { styled } from "@mui/material/styles";
@@ -8,8 +8,9 @@ import TabPanel from './TabPanel';
 import colorConvert from 'color-convert';
 
 type ColorPickerProps = {
-  hidden?: boolean
-  colorClicked: (color: PaintColor) => void
+  hidden?: boolean;
+  colorClicked: (color: PaintColor) => void;
+  rootProduct?: ProductBrand;
 };
 
 interface StyledTabsProps {
@@ -80,18 +81,26 @@ export function ColorPicker(props: ColorPickerProps) {
 
   const colors = useMemo(() => {
     const colors: PaintColor[] = [];
-    for (let i = 0; i < 1000; i++) {
-      colors.push(new PaintColor());
-    }
+    props.rootProduct?.collections.forEach((coll) => {
+      const products = coll.products;
+      products.forEach((prod) => {
+        prod.colors.forEach((c, i) => {
+          const hexColor = c.color ? c.color : "#000000";
+          const rgbColor = colorConvert.hex.rgb(hexColor);
+          const newColor = new PaintColor(rgbColor[0]/255, rgbColor[1]/255, rgbColor[2]/255);
+          colors.push(newColor);
+        });
+      });
+    })
     return colors;
-  }, [])
+  }, [props.rootProduct])
 
   const [isOpen, setIsOpen] = useState(true)
 
-  const [value, setValue] = React.useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+  const handleTabChange = (event: React.SyntheticEvent, newIndex: number) => {
+    setTabIndex(newIndex);
   }
 
   const a11yProps = (index: number) => {
@@ -120,11 +129,11 @@ export function ColorPicker(props: ColorPickerProps) {
       <div className={"wrapper"}>
         <Box sx={{ width: '100%' }}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <StyledTabs value={value} onChange={handleChange} aria-label="disabled tabs example">
+            <StyledTabs value={tabIndex} onChange={handleTabChange} aria-label="disabled tabs example">
               <StyledTab label="Swatches" {...a11yProps(0)} />
               <StyledTab label="Color Picker" {...a11yProps(1)} />
             </StyledTabs>
-            <TabPanel value={value} index={0}>
+            <TabPanel value={tabIndex} index={0}>
               <div className={"wrapper"}>
                 <div className={"scroller"} style={{ width: 'auto', padding: '0px' }}>
                   {colors.map((c, index) => {
@@ -133,7 +142,7 @@ export function ColorPicker(props: ColorPickerProps) {
                 </div>
               </div>
             </TabPanel>
-            <TabPanel value={value} index={1}>
+            <TabPanel value={tabIndex} index={1}>
               <section style={{ width: 'auto', padding: '0px' }}>
                 <HsvColorPicker style={{ width: 'auto' }} color={color} onChange={handleColorChange} />
               </section>
