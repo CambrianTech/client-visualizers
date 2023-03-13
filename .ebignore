@@ -7,7 +7,6 @@ scripts
 /assets/scenes
 /scripts
 /server/dist
-node_modules
 dist
 
 /sites/*
