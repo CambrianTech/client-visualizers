@@ -1518,176 +1518,278 @@
                               {
                                    "code": "projectflor",
                                    "displayName": "ProjectFlor",
-                                   "thumbnail": "thumbnails/PF-433.jpeg",
+                                   "thumbnail": "thumbnails/PF-1566.jpeg",
                                    "colors": [
                                         {
-                                             "code": "PF-433",
-                                             "displayName": "MADISON STONE",
-                                             "thumbnail": "thumbnails/PF-433.jpeg",
-                                             "ppi": 18,
+                                             "code": "PF-2301",
+                                             "displayName": "WINTHROP WHITE",
+                                             "thumbnail": "thumbnails/PF-2301.jpg",
+                                             "ppi": 15.4,
                                              "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-433",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/195/apc4uhvr.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-2301",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/337/abttppqa.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "18.5\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "18.5\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/PF-433.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF-612",
-                                             "displayName": "RECTOR GRANITE",
-                                             "thumbnail": "thumbnails/PF-612.jpeg",
-                                             "ppi": 18,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-612",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/196/x1zd0omq.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "18.5\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "18.5\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirrored": false,
-                                                  "albedo": "textures/PF-612.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF-1035",
-                                             "displayName": "IDLEHOUR OAK",
-                                             "thumbnail": "thumbnails/PF-1035.jpeg",
-                                             "ppi": 15.35,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1035",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/179/iki5npiw.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "7 mil/0.18 mm"
                                                        },
                                                        {
                                                             "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
+                                                            "Carton Coverage": "51.33 sq ft"
                                                        },
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
-                                                  "mirrored": false,
-                                                  "albedo": "textures/PF-1035.jpeg"
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/PF-2301.jpg"
                                              }
                                         },
                                         {
-                                             "code": "PF-1051",
-                                             "displayName": "SAGAMORE SIENNA",
-                                             "thumbnail": "thumbnails/PF-1051.jpeg",
-                                             "ppi": 15.3,
+                                             "code": "PF-2362",
+                                             "displayName": "EMERSON ECRU",
+                                             "thumbnail": "thumbnails/PF-2362.jpg",
+                                             "ppi": 15.4,
                                              "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1051",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/180/3eydygh4.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-2362",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/343/ztcsivm5.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "7 mil/0.18 mm"
                                                        },
                                                        {
                                                             "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
-                                                       },
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
                                                   "mirroredX": false,
-                                                  "albedo": "textures/PF-1051.jpeg"
+                                                  "albedo": "textures/PF-2362.jpg"
                                              }
                                         },
                                         {
-                                             "code": "PF-1403",
-                                             "displayName": "SHELBURN CHERRY",
-                                             "thumbnail": "thumbnails/PF-1403.jpeg",
-                                             "ppi": 19.61,
+                                             "code": "PF-2363",
+                                             "displayName": "COURTLAND CREAM",
+                                             "thumbnail": "thumbnails/PF-2363.jpg",
+                                             "ppi": 15.4,
                                              "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1403",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/191/4hhdhy1x.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-2363",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/345/5oieyyuu.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "7 mil/0.18 mm"
                                                        },
                                                        {
-                                                            "Width": "7.2\""
+                                                            "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
-                                                            "Length": "37.3\""
+                                                            "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirrored": false,
+                                                  "albedo": "textures/PF-2363.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF-2371",
+                                             "displayName": "BUCKINGHAM BLONDE",
+                                             "thumbnail": "thumbnails/PF-2371.jpg",
+                                             "ppi": 15.4,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-2371",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/347/5mip52v0.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "7 mil/0.18 mm"
                                                        },
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Width": "7\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirrored": false,
+                                                  "albedo": "textures/PF-2371.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF-2381",
+                                             "displayName": "MANSFIELD MAHOGANY",
+                                             "thumbnail": "thumbnails/PF-2381.jpg",
+                                             "ppi": 15.4,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-2381",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/349/u2lmbivk.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "7 mil/0.18 mm"
+                                                       },
+                                                       {
+                                                            "Width": "7\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
                                                   "mirroredX": false,
-                                                  "albedo": "textures/PF-1403.jpeg"
+                                                  "albedo": "textures/PF-2381.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF-2391",
+                                             "displayName": "TURLINGTON TAWNY",
+                                             "thumbnail": "thumbnails/PF-2391.jpg",
+                                             "ppi": 15.4,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-2391",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/351/odtcd20i.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "7 mil/0.18 mm"
+                                                       },
+                                                       {
+                                                            "Width": "7\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/PF-2391.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF-2343",
+                                             "displayName": "ATKINSON ARGENTUM",
+                                             "thumbnail": "thumbnails/PF-2343.jpg",
+                                             "ppi": 18.5,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-2343",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/339/lohjbiig.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "7 mil/0.18 mm"
+                                                       },
+                                                       {
+                                                            "Width": "18.5\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "18.5\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "52.31 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/PF-2343.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF-2344",
+                                             "displayName": "PADDINGTON PEWTER",
+                                             "thumbnail": "thumbnails/PF-2344.jpg",
+                                             "ppi": 18.5,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-2344",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/341/zt25synh.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "7 mil/0.18 mm"
+                                                       },
+                                                       {
+                                                            "Width": "18.5\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "18.5\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "52.31 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/PF-2344.jpg"
                                              }
                                         },
                                         {
@@ -1700,22 +1802,22 @@
                                                   "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/192/rgvwud5i.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "7 mil/0.18 mm"
                                                        },
                                                        {
                                                             "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
-                                                       },
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
@@ -1734,22 +1836,22 @@
                                                   "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/193/f4ptnnvs.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "7 mil/0.18 mm"
                                                        },
                                                        {
                                                             "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
-                                                       },
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
@@ -1757,284 +1859,284 @@
                                                   "mirroredX": false,
                                                   "albedo": "textures/PF-1571.jpeg"
                                              }
-                                        },
-                                        {
-                                             "code": "PF-1713",
-                                             "displayName": "DEEP ASTORIA",
-                                             "thumbnail": "thumbnails/PF-1713.jpeg",
-                                             "ppi": 19.82,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-1713",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/194/4imcbi4x.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "7.2\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "37.3\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/PF-1713.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF-8128",
-                                             "displayName": "CHRYSLER GRAY",
-                                             "thumbnail": "thumbnails/PF-8128.jpeg",
-                                             "ppi": 20.06,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-8128",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/197/opuieupt.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "7.2\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "37.3\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/PF-8128.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF-9003",
-                                             "displayName": "ARDEN CHERRY",
-                                             "thumbnail": "thumbnails/PF-9003.jpeg",
-                                             "ppi": 19.81,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor/PF-9003",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/198/nmdqpm1u.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "7 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "7.2\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "37.3\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/PF-9003.jpeg"
-                                             }
                                         }
                                    ]
                               },
                               {
                                    "code": "projectflorelite",
                                    "displayName": "ProjectFlor Elite",
-                                   "thumbnail": "thumbnails/PF-612.jpeg",
+                                   "thumbnail": "thumbnails/PF-1571.jpeg",
                                    "colors": [
                                         {
-                                             "code": "PF12-E33",
-                                             "displayName": "MADISON STONE",
-                                             "thumbnail": "thumbnails/PF-433.jpeg",
-                                             "ppi": 18,
+                                             "code": "PF12-E301",
+                                             "displayName": "WINTHROP WHITE",
+                                             "thumbnail": "thumbnails/PF-2301.jpg",
+                                             "ppi": 15.4,
                                              "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E33",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/186/u1nckx3q.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E301",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/338/yppt3g5w.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "18.5\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "18.5\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/PF-433.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF12-E12",
-                                             "displayName": "RECTOR GRANITE",
-                                             "thumbnail": "thumbnails/PF-612.jpeg",
-                                             "ppi": 18,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E12",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/184/fdojo55g.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "18.5\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "18.5\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirrored": false,
-                                                  "albedo": "textures/PF-612.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF12-E035",
-                                             "displayName": "IDLEHOUR OAK",
-                                             "thumbnail": "thumbnails/PF-1035.jpeg",
-                                             "ppi": 15.35,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E035",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/182/1ifavdsd.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "0.3 mm/12 mil"
                                                        },
                                                        {
                                                             "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
-                                                       },
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
-                                                  "mirrored": false,
-                                                  "albedo": "textures/PF-1035.jpeg"
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/PF-2301.jpg"
                                              }
                                         },
                                         {
-                                             "code": "PF12-E051",
-                                             "displayName": "SAGAMORE SIENNA",
-                                             "thumbnail": "thumbnails/PF-1051.jpeg",
-                                             "ppi": 15.3,
+                                             "code": "PF12-E362",
+                                             "displayName": "EMERSON ECRU",
+                                             "thumbnail": "thumbnails/PF-2362.jpg",
+                                             "ppi": 15.4,
                                              "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E051",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/183/ppsjyqhn.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E362",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/344/dr1saeeb.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "0.3 mm/12 mil"
                                                        },
                                                        {
                                                             "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
-                                                       },
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
                                                   "mirroredX": false,
-                                                  "albedo": "textures/PF-1051.jpeg"
+                                                  "albedo": "textures/PF-2362.jpg"
                                              }
                                         },
                                         {
-                                             "code": "PF12-E403",
-                                             "displayName": "SHELBURN CHERRY",
-                                             "thumbnail": "thumbnails/PF-1403.jpeg",
-                                             "ppi": 19.61,
+                                             "code": "PF12-E363",
+                                             "displayName": "COURTLAND CREAM",
+                                             "thumbnail": "thumbnails/PF-2363.jpg",
+                                             "ppi": 15.4,
                                              "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E403",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/187/i2inh2zo.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E363",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/346/004a52ca.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "0.3 mm/12 mil"
                                                        },
                                                        {
-                                                            "Width": "7.2\""
+                                                            "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
-                                                            "Length": "37.3\""
+                                                            "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirrored": false,
+                                                  "albedo": "textures/PF-2363.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF12-E371",
+                                             "displayName": "BUCKINGHAM BLONDE",
+                                             "thumbnail": "thumbnails/PF-2371.jpg",
+                                             "ppi": 15.4,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E371",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/348/scvax1xh.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.3 mm/12 mil"
                                                        },
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Width": "7\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirrored": false,
+                                                  "albedo": "textures/PF-2371.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF12-E381",
+                                             "displayName": "MANSFIELD MAHOGANY",
+                                             "thumbnail": "thumbnails/PF-2381.jpg",
+                                             "ppi": 15.4,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E381",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/350/rcfy1zjw.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.3 mm/12 mil"
+                                                       },
+                                                       {
+                                                            "Width": "7\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
                                                   "mirroredX": false,
-                                                  "albedo": "textures/PF-1403.jpeg"
+                                                  "albedo": "textures/PF-2381.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF12-E391",
+                                             "displayName": "TURLINGTON TAWNY",
+                                             "thumbnail": "thumbnails/PF-2391.jpg",
+                                             "ppi": 15.4,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E391",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/352/h4yvejbg.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.33 mm/12 mil"
+                                                       },
+                                                       {
+                                                            "Width": "7\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/PF-2391.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF12-E343",
+                                             "displayName": "ATKINSON ARGENTUM",
+                                             "thumbnail": "thumbnails/PF-2343.jpg",
+                                             "ppi": 18.5,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E343",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/340/gphj2g0g.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.03 mm/12 mil"
+                                                       },
+                                                       {
+                                                            "Width": "18.5\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "18.5\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "52.31 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/PF-2343.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "PF12-E344",
+                                             "displayName": "PADDINGTON PEWTER",
+                                             "thumbnail": "thumbnails/PF-2344.jpg",
+                                             "ppi": 18.5,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E344",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/342/so5zhgxk.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.3 mm/12 mil"
+                                                       },
+                                                       {
+                                                            "Width": "18.5\""
+                                                       },
+                                                       {
+                                                            "Thickness": "0.080\"/2 mm"
+                                                       },
+                                                       {
+                                                            "Length": "18.5\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "52.31 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Installation Type": "Glue Down"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/PF-2344.jpg"
                                              }
                                         },
                                         {
@@ -2047,22 +2149,22 @@
                                                   "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/188/34nelhio.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "0.3 mm/12 mil"
                                                        },
                                                        {
                                                             "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
+                                                            "Carton Coverage": "51.33 sq ft"
                                                        },
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
@@ -2081,130 +2183,28 @@
                                                   "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/189/ywrdcf4n.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
+                                                            "Wear Layer": "0.3 mm/12 mil"
                                                        },
                                                        {
                                                             "Width": "7\""
                                                        },
                                                        {
-                                                            "Thickness": "2 mm"
+                                                            "Thickness": "0.080\"/2 mm"
                                                        },
                                                        {
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Square"
-                                                       },
+                                                            "Carton Coverage": "51.33 sq ft"
+                                                       },                                                       
                                                        {
-                                                            "Locking Type": "Glue Down"
+                                                            "Installation Type": "Glue Down"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
                                                   "mirroredX": false,
                                                   "albedo": "textures/PF-1571.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF12-E713",
-                                             "displayName": "DEEP ASTORIA",
-                                             "thumbnail": "thumbnails/PF-1713.jpeg",
-                                             "ppi": 19.82,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E713",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/190/cjlyayy1.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "7.2\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "37.3\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/PF-1713.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF12-E128",
-                                             "displayName": "CHRYSLER GRAY",
-                                             "thumbnail": "thumbnails/PF-8128.jpeg",
-                                             "ppi": 20.06,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E128",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/185/knuhwcgf.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "7.2\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "37.3\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/PF-8128.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "PF12-E003",
-                                             "displayName": "ARDEN CHERRY",
-                                             "thumbnail": "thumbnails/PF-9003.jpeg",
-                                             "ppi": 19.81,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Adore/Project-Flor-Elite/PF12-E003",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/181/fu3p25kh.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/Micro-Ceramic Technology"
-                                                       },
-                                                       {
-                                                            "Width": "7.2\""
-                                                       },
-                                                       {
-                                                            "Thickness": "2 mm"
-                                                       },
-                                                       {
-                                                            "Length": "37.3\""
-                                                       },
-                                                       {
-                                                            "Edge": "Square"
-                                                       },
-                                                       {
-                                                            "Locking Type": "Glue Down"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/PF-9003.jpeg"
                                              }
                                         }
                                    ]
@@ -2246,40 +2246,6 @@
                                              "metaData": {
                                                   "mirroredX": false,
                                                   "albedo": "textures/MON-X602.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "MON-X604",
-                                             "displayName": "WHEATON GOLD",
-                                             "thumbnail": "thumbnails/MON-X604.jpeg",
-                                             "ppi": 18.1,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X604",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/265/fotsm2ij.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/True Rigid Core/Floating Installation"
-                                                       },
-                                                       {
-                                                            "Width": "6\""
-                                                       },
-                                                       {
-                                                            "Thickness": "4.8 mm"
-                                                       },
-                                                       {
-                                                            "Length": "48\""
-                                                       },
-                                                       {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
-                                                       {
-                                                            "Locking Type": "I4F Drop Lock"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/MON-X604.jpeg"
                                              }
                                         },
                                         {
@@ -2385,19 +2351,19 @@
                                              }
                                         },
                                         {
-                                             "code": "MON-X620",
-                                             "displayName": "NORSE COUNTRY BARK",
-                                             "thumbnail": "thumbnails/MON-X620.jpeg",
-                                             "ppi": 18.07,
+                                             "code": "MON-X612",
+                                             "displayName": "SANDAL BAY",
+                                             "thumbnail": "thumbnails/MON-X612.jpg",
+                                             "ppi": 18.3,
                                              "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X620",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/270/03wfdxdi.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X612",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/362/lvvpscme.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "12 mil/True Rigid Core/Floating Installation"
+                                                            "Wear Layer": "0.3 mm/12 mil"
                                                        },
                                                        {
-                                                            "Width": "6\""
+                                                            "Width": "5.9\""
                                                        },
                                                        {
                                                             "Thickness": "4.8 mm"
@@ -2406,16 +2372,84 @@
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
+                                                            "Carton Coverage": "31.51 sq ft"
+                                                       },                                                       
                                                        {
-                                                            "Locking Type": "I4F Drop Lock"
+                                                            "Locking Type": "I4F 3L Drop Lock"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
                                                   "mirroredX": false,
-                                                  "albedo": "textures/MON-X620.jpeg"
+                                                  "albedo": "textures/MON-X612.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "MON-X618",
+                                             "displayName": "WOODLAND DUSK",
+                                             "thumbnail": "thumbnails/MON-X618.jpg",
+                                             "ppi": 18.3,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X618",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/359/yjiss51o.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.3 mm/12 mil"
+                                                       },
+                                                       {
+                                                            "Width": "5.9\""
+                                                       },
+                                                       {
+                                                            "Thickness": "4.8 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "31.51 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Locking Type": "Click, I4F 3L Drop Lock"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/MON-X618.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "MON-X621",
+                                             "displayName": "BUTTERSCOTCH FIELD",
+                                             "thumbnail": "thumbnails/MON-X621.jpg",
+                                             "ppi": 18.3,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X621",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/360/xlpztx33.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.3 mm/12 mil"
+                                                       },
+                                                       {
+                                                            "Width": "5.9\""
+                                                       },
+                                                       {
+                                                            "Thickness": "4.8 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "31.51 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Locking Type": "Click, I4F 3L Drop Lock"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/MON-X621.jpg"
                                              }
                                         },
                                         {
@@ -2450,6 +2484,40 @@
                                              "metaData": {
                                                   "mirroredX": false,
                                                   "albedo": "textures/MON-X622.jpeg"
+                                             }
+                                        },
+                                        {
+                                             "code": "MON-X625",
+                                             "displayName": "HARVEST NOON",
+                                             "thumbnail": "thumbnails/MON-X625.jpg",
+                                             "ppi": 18.3,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X625",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/361/zp1l2jeh.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.3 mm/12 mil"
+                                                       },
+                                                       {
+                                                            "Width": "5.9\""
+                                                       },
+                                                       {
+                                                            "Thickness": "4.8 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "31.51 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Locking Type": "Click, I4F 3L Drop Lock"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/MON-X625.jpg"
                                              }
                                         },
                                         {
@@ -2521,40 +2589,6 @@
                                              }
                                         },
                                         {
-                                             "code": "MON-X629",
-                                             "displayName": "CINDERED COBALT",
-                                             "thumbnail": "thumbnails/MON-X629.jpeg",
-                                             "ppi": 18.14,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X629",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/275/g0rbaiqv.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/True Rigid Core/Floating Installation"
-                                                       },
-                                                       {
-                                                            "Width": "6\""
-                                                       },
-                                                       {
-                                                            "Thickness": "4.8 mm"
-                                                       },
-                                                       {
-                                                            "Length": "48\""
-                                                       },
-                                                       {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
-                                                       {
-                                                            "Locking Type": "I4F Drop Lock"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/MON-X629.jpeg"
-                                             }
-                                        },
-                                        {
                                              "code": "MON-X631",
                                              "displayName": "RUFFLED DOVE",
                                              "thumbnail": "thumbnails/MON-X631.jpeg",
@@ -2589,40 +2623,6 @@
                                              }
                                         },
                                         {
-                                             "code": "MON-X632",
-                                             "displayName": "SEASONED KHAKI",
-                                             "thumbnail": "thumbnails/MON-X632.jpeg",
-                                             "ppi": 28,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X632",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/261/1nnm5q00.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/True Rigid Core/Floating Installation"
-                                                       },
-                                                       {
-                                                            "Width": "12\""
-                                                       },
-                                                       {
-                                                            "Thickness": "4.8 mm"
-                                                       },
-                                                       {
-                                                            "Length": "24\""
-                                                       },
-                                                       {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
-                                                       {
-                                                            "Locking Type": "I4F Drop Lock"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/MON-X632.jpeg"
-                                             }
-                                        },
-                                        {
                                              "code": "MON-X633",
                                              "displayName": "LUMINOUS IVORY",
                                              "thumbnail": "thumbnails/MON-X633.jpeg",
@@ -2654,40 +2654,6 @@
                                              "metaData": {
                                                   "mirroredX": false,
                                                   "albedo": "textures/MON-X633.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "MON-X634",
-                                             "displayName": "DIAMOND STEEL",
-                                             "thumbnail": "thumbnails/MON-X634.jpeg",
-                                             "ppi": 28,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X634",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/263/kyizwgjb.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "12 mil/True Rigid Core/Floating Installation"
-                                                       },
-                                                       {
-                                                            "Width": "12\""
-                                                       },
-                                                       {
-                                                            "Thickness": "4.8 mm"
-                                                       },
-                                                       {
-                                                            "Length": "24\""
-                                                       },
-                                                       {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
-                                                       {
-                                                            "Locking Type": "I4F Drop Lock"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/MON-X634.jpeg"
                                              }
                                         },
                                         {
@@ -2757,13 +2723,47 @@
                                                   "mirroredX": false,
                                                   "albedo": "textures/MON-X642.jpeg"
                                              }
-                                        }
+                                        },
+                                        {
+                                             "code": "MON-X643",
+                                             "displayName": "CRAFTED TIMBER",
+                                             "thumbnail": "thumbnails/MON-X643.jpg",
+                                             "ppi": 18.3,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Monarch-X/MON-X643",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/354/pudsttcp.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.3 mm/12 mil"
+                                                       },
+                                                       {
+                                                            "Width": "5.9\""
+                                                       },
+                                                       {
+                                                            "Thickness": "4.8 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "31.51 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Locking Type": "Click, I4F 3L Drop Lock"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/MON-X643.jpg"
+                                             }
+                                        }                                        
                                    ]
                               },
                               {
                                    "code": "regentsovereign",
                                    "displayName": "Regent Sovereign",
-                                   "thumbnail": "thumbnails/MON-X604.jpeg",
+                                   "thumbnail": "thumbnails/MON-X607.jpeg",
                                    "colors": [
                                         {
                                              "code": "SOV-X602",
@@ -2797,40 +2797,6 @@
                                              "metaData": {
                                                   "mirroredX": false,
                                                   "albedo": "textures/MON-X602.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "SOV-X604",
-                                             "displayName": "WHEATON GOLD",
-                                             "thumbnail": "thumbnails/MON-X604.jpeg",
-                                             "ppi": 15.52,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X604",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/265/fotsm2ij.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"
-                                                       },
-                                                       {
-                                                            "Width": "7\""
-                                                       },
-                                                       {
-                                                            "Thickness": "6.0 mm"
-                                                       },
-                                                       {
-                                                            "Length": "48\""
-                                                       },
-                                                       {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
-                                                       {
-                                                            "Locking Type": "I4F Drop Lock"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/MON-X604.jpeg"
                                              }
                                         },
                                         {
@@ -2936,19 +2902,19 @@
                                              }
                                         },
                                         {
-                                             "code": "SOV-X620",
-                                             "displayName": "NORSE COUNTRY BARK",
-                                             "thumbnail": "thumbnails/MON-X620.jpeg",
-                                             "ppi": 15.49,
+                                             "code": "SOV-X612",
+                                             "displayName": "SANDAL BAY",
+                                             "thumbnail": "thumbnails/MON-X612.jpg",
+                                             "ppi": 15.2,
                                              "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X620",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/270/03wfdxdi.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X612",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/358/qyhfipkn.jpg?width=1920&height=1080&quality=90&mode=max",
                                                   "specifications": [
                                                        {
-                                                            "Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"
+                                                            "Wear Layer": "0.55 mm/22 mil"
                                                        },
                                                        {
-                                                            "Width": "7\""
+                                                            "Width": "7.1\""
                                                        },
                                                        {
                                                             "Thickness": "6.0 mm"
@@ -2957,16 +2923,84 @@
                                                             "Length": "48\""
                                                        },
                                                        {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
+                                                            "Carton Coverage": "23.75 sq ft"
+                                                       },                                                       
                                                        {
-                                                            "Locking Type": "I4F Drop Lock"
+                                                            "Locking Type": "Click, I4F Drop Lock"
                                                        }
                                                   ]
                                              },
                                              "metaData": {
                                                   "mirroredX": false,
-                                                  "albedo": "textures/MON-X620.jpeg"
+                                                  "albedo": "textures/MON-X612.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "SOV-X618",
+                                             "displayName": "WOODLAND DUSK",
+                                             "thumbnail": "thumbnails/MON-X618.jpg",
+                                             "ppi": 15.2,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X618",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/355/skicsvbm.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.55 mm/22 mil"
+                                                       },
+                                                       {
+                                                            "Width": "7.1\""
+                                                       },
+                                                       {
+                                                            "Thickness": "6.0 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "23.75 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Locking Type": "Click, I4F Drop Lock"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/MON-X618.jpg"
+                                             }
+                                        },
+                                        {
+                                             "code": "SOV-X621",
+                                             "displayName": "BUTTERSCOTCH FIELD",
+                                             "thumbnail": "thumbnails/MON-X621.jpg",
+                                             "ppi": 15.2,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X621",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/356/geuukgli.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.55 mm/22 mil"
+                                                       },
+                                                       {
+                                                            "Width": "7.1\""
+                                                       },
+                                                       {
+                                                            "Thickness": "6.0 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "23.75 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Locking Type": "Click, I4F Drop Lock"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/MON-X621.jpg"
                                              }
                                         },
                                         {
@@ -3001,6 +3035,40 @@
                                              "metaData": {
                                                   "mirroredX": false,
                                                   "albedo": "textures/MON-X622.jpeg"
+                                             }
+                                        },
+                                        {
+                                             "code": "SOV-X625",
+                                             "displayName": "HARVEST NOON",
+                                             "thumbnail": "thumbnails/MON-X625.jpg",
+                                             "ppi": 15.2,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X625",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/357/t2ez5bbd.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.55 mm/22 mil"
+                                                       },
+                                                       {
+                                                            "Width": "7.1\""
+                                                       },
+                                                       {
+                                                            "Thickness": "6.0 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "23.75 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Locking Type": "Click, I4F Drop Lock"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/MON-X625.jpg"
                                              }
                                         },
                                         {
@@ -3072,40 +3140,6 @@
                                              }
                                         },
                                         {
-                                             "code": "SOV-X629",
-                                             "displayName": "CINDERED COBALT",
-                                             "thumbnail": "thumbnails/MON-X629.jpeg",
-                                             "ppi": 15.55,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X629",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/275/g0rbaiqv.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"
-                                                       },
-                                                       {
-                                                            "Width": "7\""
-                                                       },
-                                                       {
-                                                            "Thickness": "6.0 mm"
-                                                       },
-                                                       {
-                                                            "Length": "48\""
-                                                       },
-                                                       {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
-                                                       {
-                                                            "Locking Type": "I4F Drop Lock"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/MON-X629.jpeg"
-                                             }
-                                        },
-                                        {
                                              "code": "SOV-X631",
                                              "displayName": "RUFFLED DOVE",
                                              "thumbnail": "thumbnails/MON-X631.jpeg",
@@ -3140,40 +3174,6 @@
                                              }
                                         },
                                         {
-                                             "code": "SOV-X632",
-                                             "displayName": "SEASONED KHAKI",
-                                             "thumbnail": "thumbnails/MON-X632.jpeg",
-                                             "ppi": 28,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X632",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/261/1nnm5q00.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"
-                                                       },
-                                                       {
-                                                            "Width": "12\""
-                                                       },
-                                                       {
-                                                            "Thickness": "6.0 mm"
-                                                       },
-                                                       {
-                                                            "Length": "24\""
-                                                       },
-                                                       {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
-                                                       {
-                                                            "Locking Type": "I4F Drop Lock"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/MON-X632.jpeg"
-                                             }
-                                        },
-                                        {
                                              "code": "SOV-X633",
                                              "displayName": "LUMINOUS IVORY",
                                              "thumbnail": "thumbnails/MON-X633.jpeg",
@@ -3205,40 +3205,6 @@
                                              "metaData": {
                                                   "mirroredX": false,
                                                   "albedo": "textures/MON-X633.jpeg"
-                                             }
-                                        },
-                                        {
-                                             "code": "SOV-X634",
-                                             "displayName": "DIAMOND STEEL",
-                                             "thumbnail": "thumbnails/MON-X634.jpeg",
-                                             "ppi": 28,
-                                             "details": {
-                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X634",
-                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/263/kyizwgjb.jpg?width=1920&height=1080&quality=90&mode=max",
-                                                  "specifications": [
-                                                       {
-                                                            "Wear Layer": "22 mil/True Rigid Core/Floating Floor/Commercial & Residential"
-                                                       },
-                                                       {
-                                                            "Width": "12\""
-                                                       },
-                                                       {
-                                                            "Thickness": "6.0 mm"
-                                                       },
-                                                       {
-                                                            "Length": "24\""
-                                                       },
-                                                       {
-                                                            "Edge": "Micro-Bevel"
-                                                       },
-                                                       {
-                                                            "Locking Type": "I4F Drop Lock"
-                                                       }
-                                                  ]
-                                             },
-                                             "metaData": {
-                                                  "mirroredX": false,
-                                                  "albedo": "textures/MON-X634.jpeg"
                                              }
                                         },
                                         {
@@ -3307,6 +3273,40 @@
                                              "metaData": {
                                                   "mirroredX": false,
                                                   "albedo": "textures/MON-X642.jpeg"
+                                             }
+                                        },
+                                        {
+                                             "code": "SOV-X643",
+                                             "displayName": "CRAFTED TIMBER",
+                                             "thumbnail": "thumbnails/MON-X643.jpg",
+                                             "ppi": 15.2,
+                                             "details": {
+                                                  "url": "https://www.adorefloors.com/Products/Regent/Sovereign/SOV-X643",
+                                                  "preview": "https://www.adorefloors.com/Portals/0/AdoreCatalog/Products/353/0qggki0i.jpg?width=1920&height=1080&quality=90&mode=max",
+                                                  "specifications": [
+                                                       {
+                                                            "Wear Layer": "0.55 mm/22 mil"
+                                                       },
+                                                       {
+                                                            "Width": "7.1\""
+                                                       },
+                                                       {
+                                                            "Thickness": "6.0 mm"
+                                                       },
+                                                       {
+                                                            "Length": "48\""
+                                                       },
+                                                       {
+                                                            "Carton Coverage": "23.75 sq ft"
+                                                       },                                                       
+                                                       {
+                                                            "Locking Type": "Click, I4F Drop Lock"
+                                                       }
+                                                  ]
+                                             },
+                                             "metaData": {
+                                                  "mirroredX": false,
+                                                  "albedo": "textures/MON-X643.jpg"
                                              }
                                         }
                                    ]
