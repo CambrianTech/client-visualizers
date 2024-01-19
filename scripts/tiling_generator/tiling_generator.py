@@ -284,7 +284,8 @@ def assemble_tiles(input_dir, output_dir, pattern=None, maxsize=2048, num_rows=2
 
         if image_path.startswith(input_dir):
             dir_name = image_path[len(input_dir):]
-            dir_name = os.path.dirname(dir_name)
+            dir_name = os.path.dirname(dir_name) #now has a leading slash, remove it
+            dir_name = dir_name.strip('/')
 
         if dir_name:
             out_dir = os.path.join(output_dir, dir_name)
@@ -404,7 +405,8 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
         Image.fromarray(t_img).crop((t_left, t_top, t_left+thumbnail_size, t_top+thumbnail_size)).save(os.path.join(thumbnails_output_dir, filename + ".jpg"))
 
 
-#for example, assemble planks, flattened into a single directory: python tiling_generator.py adore-floors -m assemble -f 1
+#for example, Adore floors - to assemble planks into a repeating texture, flattened into a single directory (width 648): 
+# python3 tiling_generator.py adore-floors -m assemble -f 1 -s 648
 
 @click.command()
 @click.option('--mode', '-m', required=True, type=click.Choice(['assemble', 'cut', 'extract'], case_sensitive=False))
@@ -420,7 +422,7 @@ def extract_tiles(input_dir, output_dir, pattern, max_size, thumbnail_size=220):
 @click.option("--crop_is_metric", default=False, type=bool)
 @click.option("--quality", '-q', default=70, type=int)
 @click.option("--flat", '-f', default=False, type=bool)
-@click.option("--scatter", '-s', default=True, type=bool)
+@click.option("--scatter", '-x', default=True, type=bool)
 def main(mode, input_dir, output_dir, data_file, pattern, size, rows, columns, seam_size, img_is_metric, crop_is_metric, quality, flat, scatter):        
 
     if not os.path.exists(input_dir):
