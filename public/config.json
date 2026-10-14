@@ -5,8 +5,8 @@
   "maxDataAgeDays" : 10,
   "imageSize" : 320,
   "pageSize" : 1000,
-  "baseImagePath" : "https://shawfloors.scene7.com/is/image",
-  "webSource" : "https://shawfloors.com/api",
+  "baseImagePath" : "https://images.example.com/is/image",
+  "webSource" : "https://www.example.com/api",
   "productGroup" : "shawfloors",
 
   "configUrl": "/config.json",

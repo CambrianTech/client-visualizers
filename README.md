@@ -32,8 +32,8 @@ Before running `npm run build` or building the docker image, `.env.production` n
 
 Example:
 ```
-REACT_APP_CB_PRESIGNED_UPLOAD_URL=https://tryonafloor-api.shawinc.com/GetImageUploadPresignedUrl
-REACT_APP_CB_SEGMENT_URL=https://tryonafloor-api.shawinc.com/ImageProcessing/segment
+REACT_APP_CB_PRESIGNED_UPLOAD_URL=https://api.example.com/GetImageUploadPresignedUrl
+REACT_APP_CB_SEGMENT_URL=https://api.example.com/ImageProcessing/segment
 ```
 
 For development (`npm start`) the corresponding file is `.env.development` which uses local direct upload and segmentation by default.
@@ -100,7 +100,7 @@ Create a new application and give it a name.
 ```
 Select an application to use
 Enter Application Name
-(default is "shaw-frontend"): 
+(default is "frontend"): 
 ```
 
 It will now ask if you are using Docker, which this application uses.
@@ -138,13 +138,13 @@ eb create -i t2.small
 Provide a useful name for the instance:
 ```
 Enter Environment Name
-(default is shaw-frontend-dev):
+(default is frontend-dev):
 ```
 
 Enter the appropriate CNAME prefix to use.
 ```
 Enter DNS CNAME prefix
-(default is shaw-frontend-dev): 
+(default is frontend-dev): 
 ```
 
 Now it will ask for the load balancer type. We use an application load balancer. The process will take several minutes.

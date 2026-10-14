@@ -152,14 +152,14 @@ export type SiteActionSetShowControls = {
     showControls: boolean | undefined
 }
 
-export type ShawActionSetFloorTranslation = {
+export type SiteActionSetFloorTranslation = {
     type: "setFloorTranslation"
     xPos: number | null
     yPos: number | null
 }
 
 export type SiteAction = SiteActionSetBrowserProperties | SiteActionSetError | SiteActionSetSceneData | SiteActionSetFov |
-    SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | ShawActionSetFloorTranslation
+    SiteActionSetPosition | SiteActionSetRotation | SiteActionSetShowControls | SiteActionSetFloorTranslation
     | SiteActionSetSelectedSampleRoom | SiteActionSetSelectedSampleRoomType | SiteActionSetSelectedRoom | SiteActionClearRoomData
     | SiteActionSetCollection | SiteActionSetProduct | SiteActionSetColor | SiteActionSetSiteData;
 
@@ -221,45 +221,45 @@ export function siteStateReducer(state: SiteState, action: SiteAction): SiteStat
     return newState
 }
 
-export function stateToUrl(shawState: SiteState, includeSceneParams?:boolean) {
+export function stateToUrl(siteState: SiteState, includeSceneParams?:boolean) {
     // Check if current search parameters are the same as the one cosntructed from search.
     // If not, modify the URL without navigating to it.
 
     const searchObject: any = {};
 
-    if (shawState.selectedCollection) {
-        searchObject.collection = shawState.selectedCollection
+    if (siteState.selectedCollection) {
+        searchObject.collection = siteState.selectedCollection
     }
 
-    if (shawState.selectedProduct) {
-        searchObject.product = shawState.selectedProduct
+    if (siteState.selectedProduct) {
+        searchObject.product = siteState.selectedProduct
     }
 
-    if (shawState.selectedColor) {
-        searchObject.color = shawState.selectedColor
+    if (siteState.selectedColor) {
+        searchObject.color = siteState.selectedColor
     }
 
-    if (shawState.selectedSampleRoomType) {
-        searchObject.rt = shawState.selectedSampleRoomType
+    if (siteState.selectedSampleRoomType) {
+        searchObject.rt = siteState.selectedSampleRoomType
     }
-    if (shawState.selectedSampleRoom) {
-        searchObject.r = shawState.selectedSampleRoom
+    if (siteState.selectedSampleRoom) {
+        searchObject.r = siteState.selectedSampleRoom
     }
-    else if (shawState.selectedRoom) {
+    else if (siteState.selectedRoom) {
         CBContentManager.default.synchronize(searchObject);
-        searchObject.room = shawState.selectedRoom
+        searchObject.room = siteState.selectedRoom
     }
 
     if (includeSceneParams) {
         // Only copy fov / pos / rot for uploaded rooms as we can load them
         // ourselves for sample rooms.
-        if (shawState.previewWidth && shawState.previewHeight) {
-            searchObject.pw = shawState.previewWidth.toFixed(0);
-            searchObject.ph = shawState.previewHeight.toFixed(0);
+        if (siteState.previewWidth && siteState.previewHeight) {
+            searchObject.pw = siteState.previewWidth.toFixed(0);
+            searchObject.ph = siteState.previewHeight.toFixed(0);
         }
     }
 
-    if (shawState.showControls) {
+    if (siteState.showControls) {
         searchObject.controls = 1
     }
 
